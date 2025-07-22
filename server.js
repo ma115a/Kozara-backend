@@ -89,7 +89,7 @@ app.post('/payment', express.json({ type: 'application/json' }), async (req, res
 
         console.log(response)
         console.log(responseData)
-        console.log(uuid)
+        // console.log(uuid)
         // res.send(responseData)
     } catch (error) {
         console.log(error)
