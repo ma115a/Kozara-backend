@@ -1,0 +1,66 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/light.css" />
+    <script type="module"
+        src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/shoelace-autoloader.js"></script>
+</head>
+
+<body>
+
+    <form id="myForm">
+        <!-- Hidden Shoelace input -->
+        <sl-input id="hiddenValue" type="hidden" required></sl-input>
+
+        <!-- Visible part of the form -->
+        <sl-input id="name" label="Name" required></sl-input>
+
+        <!-- Error message for the hidden field -->
+        <sl-alert id="hiddenError" variant="danger" open hidden>
+            Missing internal value — please try again.
+        </sl-alert>
+
+        <sl-button type="submit" variant="primary">Submit</sl-button>
+    </form>
+
+    <script>
+        const form = document.getElementById('myForm');
+        const hiddenValue = document.getElementById('hiddenValue');
+        const hiddenError = document.getElementById('hiddenError');
+
+        form.addEventListener('submit', event => {
+            event.preventDefault();
+
+            // Example: the hidden field must have a value before submit
+            if (!hiddenValue.value) {
+                hiddenValue.setCustomValidity('Internal value required');
+            } else {
+                hiddenValue.setCustomValidity('');
+            }
+
+            // Check validity for both hidden and visible fields
+            if (!form.checkValidity()) {
+                // If the hidden field is invalid, show the error
+                if (!hiddenValue.checkValidity()) {
+                    hiddenError.hidden = false;
+                } else {
+                    hiddenError.hidden = true;
+                }
+
+                form.reportValidity(); // Will highlight visible invalid inputs
+                return;
+            }
+
+            // If all good, hide error and proceed
+            hiddenError.hidden = true;
+            console.log('Form submitted!');
+        });
+    </script>
+
+</body>
+
+</html>

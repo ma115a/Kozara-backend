@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Blog Editor</title>
+	<script src="./js/editorjs.umd.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@editorjs/list@2"></script>
+	<!-- <script src="https://cdn.jsdelivr.net/npm/@editorjs/quote@2.7.6/dist/quote.umd.min.js"></script> -->
+	<script src="https://cdn.jsdelivr.net/npm/@editorjs/image@latest"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@editorjs/table@latest"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@editorjs/marker@latest"></script>
+	<script src="https://cdn.jsdelivr.net/npm/@editorjs/underline@latest"></script>
+	<style>
+		#editor {
+			border: 1px solid black;
+		}
+
+		button {
+			color: black;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<button onclick="_export()">Export</button>
+		<button onclick="_toggle()">Toggle ReadOnly mode</button>
+	</div>
+	<br>
+	<div id="editor" spellcheck="false"></div>
+</body>
+<script defer>
+	const editor = new EditorJS({
+		holder: "editor",
+		enableSpellCheck: false,
+		tools: {
+			header: Header,
+			list: {
+				class: EditorjsList,
+				inlineToolbar: true,
+				config: {
+					defaultStyle: 'unordered'
+				}
+			},
+			image: {
+				class: ImageTool,
+				config: {
+					endpoints: {
+						byFile: 'http://localhost:8008/uploadFile', // Your backend file uploader endpoint
+						byUrl: 'http://localhost:8008/fetchUrl', // Your endpoint that provides uploading by Url
+					}
+				}
+			},
+			table: {
+				class: Table,
+				inlineToolbar: true
+			},
+			marker: Marker,
+			unerline: Underline
+			// quote: {
+			// 	class: EditorJSQuote,
+			// 	config: {
+			// 		defaultType: "quotationMark"
+			// 	}
+			// }
+		}
+	})
+
+	function _export() {
+		editor.save().then((outputData) => {
+			console.log('Output: ', outputData)
+		}).catch((error) => {
+			console.log('Failed: ', error)
+		});
+	}
+
+	function _toggle() {
+		editor.readOnly.toggle();
+	}
+</script>
+</html>
