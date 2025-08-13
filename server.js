@@ -9,6 +9,15 @@ const cron = require('node-cron')
 const Database = require('better-sqlite3')
 let db
 
+let basePrices = {
+    1: process.env.CHALET_1_PRICE,
+    2: process.env.CHALET_2_PRICE,
+    3: process.env.CHALET_3_PRICE,
+    4: process.env.CHALET_4_PRICE,
+    5: process.env.CHALET_5_PRICE
+
+}
+
 
 
 
@@ -59,9 +68,75 @@ function generateSignature(method, body, contentType, date, requestURI, sharedSe
 }
 
 
+function dateInRange(start, end, check) {
+    const startDate = new Date(start)
+    const endDate = new Date(end)
+    const checkDate = new Date(check)
+    if (startDate <= checkDate && endDate >= checkDate) {
+        return true
+    } else return false
+}
 
-app.get('/', (req, res) => {
-    // res.sendFile(path.join(__dirname, 'public', 'payment.html'))
+function calculatePrice(checkIn, checkOut, chalet, code) {
+    let totalPrice = 0
+    let returnData = {}
+
+    // const getSpecialPrices = db.prepare(`SELECT * FROM special_prices WHERE ((date(start_date) >= ? AND date(start_date) <= ?) OR (date(end_date) >= ? AND date(end_date) <= ?)) AND chalet = ? ORDER BY start_date`)
+    // const specialPrices = getSpecialPrices.all(checkIn, checkOut, checkIn, checkOut, Number(chalet))
+    const getSpecialPrices = db.prepare(`
+    SELECT * FROM special_prices 
+  WHERE date(start_date) < date(?) 
+    AND date(end_date) > date(?) 
+    AND chalet = ?
+        ORDER BY start_date
+`);
+    const specialPrices = getSpecialPrices.all(checkOut, checkIn, Number(chalet));
+    console.log(specialPrices)
+
+
+    const getDiscountCode = db.prepare(`SELECT * FROM discount_codes WHERE code = ? AND chalet_id = ?`)
+    const discountCode = getDiscountCode.get(code, Number(chalet))
+    console.log(discountCode)
+
+    let currentDate = new Date(checkIn)
+    const checkOutDate = new Date(checkOut)
+    while (currentDate <= checkOutDate) {
+        const specialPrice = specialPrices.find(sp => {
+            return dateInRange(sp.start_date, sp.end_date, currentDate.toISOString())
+        })
+
+        if (specialPrice) {
+            totalPrice += Number(specialPrice.price)
+            console.log('special price found', currentDate, specialPrice.price)
+        } else {
+            totalPrice += Number(basePrices[chalet])
+            console.log('base price', currentDate, basePrices[chalet])
+        }
+        currentDate.setDate(currentDate.getDate() + 1)
+    }
+
+    console.log('price before discounts', totalPrice)
+
+    if (discountCode) {
+
+        if (dateInRange(discountCode.valid_from, discountCode.valid_to, checkIn) && discountCode.max_usage_count > discountCode.usage_count) {
+            console.log('discount code applicable')
+            returnData.discountCode = discountCode.code
+            if (discountCode.discount_type === 'percentage') {
+                totalPrice -= (totalPrice * Number('0.' + discountCode.discount_value))
+            } else totalPrice -= discountCode.discount_value
+
+        } else console.log('discount code not applicable')
+    }
+    console.log('price after discount', totalPrice)
+    returnData.totalPrice = totalPrice
+    console.log(returnData)
+    return returnData
+}
+
+
+app.get('/getdata', (req, res) => {
+
     const getCurrentBookings = db.prepare(`SELECT * FROM bookings WHERE check_in_date >= date('now', 'start of month') ORDER BY check_in_date`)
     const bookings = getCurrentBookings.all()
 
@@ -79,7 +154,8 @@ app.get('/', (req, res) => {
     for (let index = 1; index <= 5; index++) {
         returnData[index.toString()] = {
             reservedDates: [],
-            discounts: []
+            discounts: [],
+            specialDates: []
         }
 
     }
@@ -95,10 +171,11 @@ app.get('/', (req, res) => {
 
     specialPrices.forEach(specialPrice => {
         const startDate = specialPrice.start_date.substring(5);
-        returnData[specialPrice.chalet][startDate] = {
-            duration: daysBetween(specialPrice.start_date, specialPrice.end_date),
+        returnData[specialPrice.chalet].specialPrices.push({
+            start: specialPrice.start_date,
+            end: specialPrice.end_date,
             price: specialPrice.price
-        }
+        })
     })
 
     discounts.forEach(d => {
@@ -115,9 +192,14 @@ app.get('/', (req, res) => {
     returnData['3'].basePrice = Number(process.env.CHALET_3_PRICE)
     returnData['4'].basePrice = Number(process.env.CHALET_4_PRICE)
     returnData['5'].basePrice = Number(process.env.CHALET_5_PRICE)
-    console.log(JSON.stringify(returnData))
+    res.json(returnData)
+})
 
-    // res.render('payment', returnData)
+
+app.get('/', (req, res) => {
+    // res.sendFile(path.join(__dirname, 'public', 'payment.html'))
+
+    res.render('payment')
 })
 
 
@@ -184,16 +266,34 @@ app.post('/payment', express.json({ type: 'application/json' }), async (req, res
     console.log(req.body)
     const date = new Date()
     const uniqueId = formatDate(date)
+    // const requestBody = {
+    //     "merchantTransactionId": uniqueId, "amount": "10.0", "callbackUrl": "https://9a1c924a8d8d.ngrok-free.app/callback", "currency": "BAM", "transactionToken": `${req.body.token}`, "customer": {
+    //         "billingAddress1": `${req.body.billingAddress}`,
+    //         "billingCity": `${req.body.billingCity}`,
+    //         "billingCountry": `${req.body.country}`,
+    //         "billingPostcode": `${req.body.billingZIP}`,
+    //         "email": `${req.body.email}`
+    //
+    //     }
+    // }
+    //
+    //
+
+    const priceData = calculatePrice(req.body.check_in, req.body.check_out, req.body.chalet, req.body.discount)
+    console.log(priceData)
+
+
     const requestBody = {
-        "merchantTransactionId": uniqueId, "amount": "10.0", "callbackUrl": "https://9a1c924a8d8d.ngrok-free.app/callback", "currency": "BAM", "transactionToken": `${req.body.token}`, "customer": {
-            "billingAddress1": `${req.body.billingAddress}`,
-            "billingCity": `${req.body.billingCity}`,
-            "billingCountry": `${req.body.country}`,
-            "billingPostcode": `${req.body.billingZIP}`,
-            "email": `${req.body.email}`
+        merchantTransactionId: uniqueId, amount: `${priceData.totalPrice}`, callbackUrl: "https://9a1c924a8d8d.ngrok-free.app/callback", currency: "BAM", transactionToken: `${req.body.token}`, customer: {
+            billingAddress1: `${req.body.billingAddress}`,
+            billingCity: `${req.body.billingCity}`,
+            billingCountry: `${req.body.country}`,
+            billingPostcode: `${req.body.billingZIP}`,
+            email: `${req.body.email}`
 
         }
     }
+    console.log(requestBody)
 
     const method = 'POST'
     const requestURI = `/api/v3/transaction/${process.env.API_KEY}/debit`
@@ -203,6 +303,7 @@ app.post('/payment', express.json({ type: 'application/json' }), async (req, res
 
     const basicAuth = generateBasicAuth(process.env.USERNAME, process.env.PASSWORD)
     const signature = generateSignature(method, jsonBody, contentType, date.toUTCString(), requestURI, process.env.SHARED_SECRET)
+
 
     const headers = {
         'Content-Type': contentType,
@@ -252,10 +353,14 @@ app.post('/payment', express.json({ type: 'application/json' }), async (req, res
                     };
                     console.log('New customer created:', customer);
                 }
+                let discount;
+                if (priceData.discountCode) {
+                    discount = priceData.discountCode
+                } else discount = ''
 
-                const insertBooking = db.prepare(`INSERT INTO bookings (id, check_in_date, check_out_date, adult_count, children_count, total_price, status, chalet_id, customer_id) VALUES (?,?,?,?,?,?,?,?,?)`)
+                const insertBooking = db.prepare(`INSERT INTO bookings (id, check_in_date, check_out_date, adult_count, children_count, total_price, status, chalet_id, customer_id, discount_code) VALUES (?,?,?,?,?,?,?,?,?,?)`)
 
-                const result = insertBooking.run(uniqueId, "2025-08-05", "2025-08-10", 2, 1, 10, process.env.BOOKING_PENDING, 2, customer.id)
+                const result = insertBooking.run(uniqueId, req.body.check_in, req.body.check_out, req.body.adults, req.body.children, priceData.totalPrice, process.env.BOOKING_PENDING, req.body.chalet, customer.id, discount)
 
 
             } catch (err) {
@@ -267,6 +372,18 @@ app.post('/payment', express.json({ type: 'application/json' }), async (req, res
         console.log(error)
     }
 
+})
+
+
+app.post('/checkdiscountcode', express.json(), (req, res) => {
+
+    const checkDiscountCode = db.prepare(`SELECT * FROM discount_codes WHERE code = ? AND chalet_id = ? AND valid_from <= date('now') AND valid_to >= date('now') AND usage_count < max_usage_count`)
+    const result = checkDiscountCode.get(req.body.code, req.body.chalet_id);
+    if (result) {
+        res.json({ value: result.discount_value, type: result.discount_type })
+    } else {
+        res.json(false)
+    }
 })
 
 
@@ -335,21 +452,38 @@ app.post('/adddiscountcode', express.json(), (req, res) => {
 
 
 
-app.post("/callback", express.json(), (req, res) => {
+app.post("/callback", express.json(), async (req, res) => {
     console.log(req.body)
     res.status(200).send('OK')
     console.log(req.body.result)
     console.log(req.body.merchantTransactionId)
 
 
-    const updateBooking = db.prepare(`UPDATE bookings SET status = ? WHERE id = ?`)
+    if (req.body.result === 'OK') {
+        const updateBooking = db.prepare(`UPDATE bookings SET status = ? WHERE id = ?`)
 
-    try {
-        const result = updateBooking.run(process.env.BOOKING_PAID, req.body.merchantTransactionId)
+        try {
+            const result = updateBooking.run(process.env.BOOKING_PAID, req.body.merchantTransactionId)
+            console.log(result)
+            if (result.changes > 0) {
+                const getBooking = db.prepare(`SELECT * FROM bookings WHERE id = ?`)
+                const updatedBooking = getBooking.get(req.body.merchantTransactionId)
+                console.log(updatedBooking)
+                if (updatedBooking.discount_code !== '') {
+                    const updateDiscount = db.prepare(`UPDATE discount_codes SET usage_count = usage_count + 1 WHERE code = ? AND chalet_id = ?`)
+                    const res = updateDiscount.run(updatedBooking.discount_code, updatedBooking.chalet_id)
+                    console.log(res)
+                }
 
-    } catch (error) {
-        console.log(error.message)
+
+
+            }
+
+        } catch (error) {
+            console.log(error.message)
+        }
     }
+
 
 })
 
