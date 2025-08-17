@@ -7,33 +7,176 @@
 	<link rel="stylesheet" href="./css/main.css">
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/light.css" />
 	<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/shoelace-autoloader.js"></script>
+	<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/dialog/dialog.js"></script>
 	<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.18/index.global.min.js'></script>
 	<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+	<script data-main="payment-js" src="https://gateway.bankart.si/js/integrated/payment.1.3.min.js"></script>
 	<script>
 		let calendar;
+		const chaletnameindex = {
+			"Cloud Chalet": 1,
+			"Sky Chalet": 2,
+			"Star Chalet": 3,
+			"Sun Chalet": 4,
+			"Wind Chalet": 5,
+			"1": "Cloud Chalet",
+			"2": "Sky Chalet",
+			"3": "Star Chalet",
+			"4": "Sun Chalet",
+			"5": "Wind Chalet",
+		}
+		// TODO: AJAX this data
+		let dummydata = {
+			"1": {
+				"reservedDates": [
+					{
+						"check_in": "2025-08-15",
+						"check_out": "2025-08-20"
+					},
+					{
+						"check_in": "2025-08-25",
+						"check_out": "2025-08-30"
+					},
+					{
+						"check_in": "2025-09-15",
+						"check_out": "2025-09-30"
+					}
+				],
+				"basePrice": 10,
+				"specialDates": [
+					{
+						"start": "2025-08-23",
+						"end": "2025-08-28",
+						"price": 125
+					}
+				]
+			},
+			"2": {
+				"reservedDates": [
+					{
+						"check_in": "2025-08-05",
+						"check_out": "2025-08-10"
+					}
+				],
+				"basePrice": 20,
+				"specialDates": []
+			},
+			"3": {
+				"reservedDates": [],
+				"basePrice": 30,
+				"specialDates": []
+			},
+			"4": {
+				"reservedDates": [],
+				"basePrice": 40,
+				"specialDates": []
+			},
+			"5": {
+				"reservedDates": [],
+				"basePrice": 50,
+				"specialDates": []
+			}
+		}
+		// temporary AJAX call
+		dummydata = {"1":{"reservedDates":[{"check_in":"2025-08-15","check_out":"2025-08-20"},{"check_in":"2025-08-25","check_out":"2025-08-30"},{"check_in":"2025-09-15","check_out":"2025-09-30"}],"discounts":[{"value":15,"type":"percentage","discount_id":11},{"value":30,"type":"percentage","discount_id":17}],"specialDates":[{"start":"2025-08-10","end":"2025-08-15","price":200},{"start":"2025-08-15","end":"2025-08-20","price":300},{"start":"2025-08-20","end":"2025-08-25","price":400}],"basePrice":10},"2":{"reservedDates":[{"check_in":"2025-08-05","check_out":"2025-08-10"},{"check_in":"2025-08-05","check_out":"2025-08-10"},{"check_in":"2025-08-05","check_out":"2025-08-10"},{"check_in":"2025-08-05","check_out":"2025-08-10"},{"check_in":"2025-08-05","check_out":"2025-08-10"},{"check_in":"2025-08-05","check_out":"2025-08-10"},{"check_in":"2025-08-05","check_out":"2025-08-10"},{"check_in":"2025-08-05","check_out":"2025-08-10"},{"check_in":"2025-08-05","check_out":"2025-08-10"},{"check_in":"2025-08-05","check_out":"2025-08-10"},{"check_in":"2025-08-05","check_out":"2025-08-10"},{"check_in":"2025-08-05","check_out":"2025-08-10"}],"discounts":[{"value":15,"type":"percentage","discount_id":12},{"value":30,"type":"percentage","discount_id":18}],"specialDates":[{"start":"2025-08-20","end":"2025-08-25","price":400}],"basePrice":20},"3":{"reservedDates":[],"discounts":[{"value":30,"type":"percentage","discount_id":19}],"specialDates":[{"start":"2025-08-20","end":"2025-08-25","price":400}],"basePrice":30},"4":{"reservedDates":[],"discounts":[],"specialDates":[{"start":"2025-08-20","end":"2025-08-25","price":400}],"basePrice":40},"5":{"reservedDates":[],"discounts":[{"value":20,"type":"percentage","discount_id":13}],"specialDates":[{"start":"2025-08-20","end":"2025-08-25","price":400}],"basePrice":50}}
+		
+		// parse dates into date objects
+		for (const [key, val] of Object.entries(dummydata)) {
+			val.specialDates.forEach(range => {
+				range.start = new Date(range.start)
+				range.end = new Date(range.end)
+			})
+		}
+
 		document.addEventListener('DOMContentLoaded', function() {
 			let calendarEl = document.getElementById('calendar');
 			calendar = new FullCalendar.Calendar(calendarEl, {
 					initialView: 'dayGridMonth',
 					selectable: true,
 					selectOverlap: false,
-					events: [
-						{
-							id: "a",
-							title: "Taken",
-							start: "2025-07-07",
-							end: "2025-07-29"
+					aspectRatio: 'unset',
+					height: '40vh',
+					expandRows: true,
+					selectLongPressDelay: 500,
+					unselectAuto: false,
+					datesSet: () => {
+						setTimeout(() => {
+							writePrices()
+						}, 25);
+					},
+					eventDidMount: e => {
+						e.el.setAttribute("data-eventID", e.event.id)
+					},
+					select: info => {
+						pay_form.querySelector("[name='check_in']").value = info.startStr
+						pay_form.querySelector("[name='check_out']").value = info.end.toISOString().substring(0,10)
+						calculate_total()
+					},
+					unselect: () => {
+						total.innerText = "Hold & drag to select dates on the calendar"
+						pay_form.querySelector("[name='check_in']").value = ""
+						pay_form.querySelector("[name='check_out']").value = ""
+					},
+					selectAllow: info => {
+						if (info.start < new Date()) {
+							return false
 						}
-					]
+						return true
+					}
 				});
+			
 			calendar.render();
 		});
+
+		function writePrices() {
+			if (!pay_dialog.dataset.cid) return
+
+			let count = 0;
+			let event_count = 0;
+			let key_override;
+			const base_price = dummydata[pay_dialog.dataset.cid].basePrice
+			const special_dates = dummydata[pay_dialog.dataset.cid].specialDates
+
+			calendar.el.querySelectorAll("td.fc-day:not(.fc-day-past)").forEach(cell => {
+				if (cell.querySelector(".BALLS")) cell.querySelector(".BALLS").remove()
+				if (event_count) {
+					event_count--
+					return
+				}
+				const key = cell.dataset.date.substring(5)
+				if (cell.querySelector(".fc-event")) {
+					const event = calendar.getEventById(cell.querySelector(".fc-event").dataset.eventid)
+					event_count = Math.round((event.end - new Date(cell.dataset.date)) / 86400000)-1
+					return
+				}
+				const newdiv = document.createElement("div")
+				newdiv.classList.add("BALLS")
+				if (count) {
+					newdiv.innerText = special_dates[key_override].price
+					cell.querySelector(".fc-daygrid-day-frame").prepend(newdiv)
+					count--
+					return
+				}
+				const current_date = new Date(cell.dataset.date)
+				const spec_range = special_dates.find(e => {
+					return (current_date >= e.start && current_date <= e.end)
+				})
+				if (spec_range) {
+					newdiv.innerText = spec_range.price
+				}
+				else {
+					newdiv.innerText = base_price
+				}
+				cell.querySelector(".fc-daygrid-day-frame").prepend(newdiv)
+			})
+		}
 	</script>
 	<script>
 		document.addEventListener("DOMContentLoaded", (event) => {
 			gsap.registerPlugin(ScrollTrigger);
 
+			// logo animation
 			gsap.to("nav #logo", {
 				scrollTrigger: {
 					trigger: "#lander",
@@ -42,7 +185,7 @@
 					scrub: true,
 					marker: true
 				},
-				height: "5.5rem",
+				height: "6rem",
 				width: "25vw",
 				ease: "none"
 			})
@@ -61,20 +204,17 @@
 			let retry_counter = 1;
 			document.querySelector("nav #logo").addEventListener("sl-load", letter);
 			function letter(e) {
-				console.log("searching for shadowroot");
 				if (e.target.shadowRoot == null) {
 					console.log("retry");
 					setTimeout(letter, 100, e);
 					return;
 				}
-				console.log("shadowroot found", "wait anyway")
 				if (retry_counter) {
 					retry_counter--;
 					setTimeout(letter, 100, e);
 					return;
 				}
 				const svgElements = e.target.shadowRoot.querySelectorAll("g.letter path");
-				console.log(svgElements)
 
 				gsap.to(svgElements, {
 					scrollTrigger: {
@@ -87,6 +227,28 @@
 					ease: "none",
 				})
 			}
+
+			// filter btn animation
+			gsap.to("#remove_filter_btn", {
+				scrollTrigger: {
+					trigger: "#chalets",
+					start: "top 80%",
+					end: "top 60%",
+					scrub: true
+				},
+				scale: 1,
+				ease: "none",
+			})
+			gsap.to("#remove_filter_btn", {
+				scrollTrigger: {
+					trigger: "#chalets",
+					start: "bottom 50%",
+					end: "bottom 30%",
+					scrub: true
+				},
+				scale: 0,
+				ease: "none",
+			})
 		});
 	</script>
 </head>
@@ -94,15 +256,15 @@
 	<nav>
 		<sl-icon-button name="translate"></sl-icon-button>
 		<ul>
-			<li>gallery</li>
-			<li>chalet</li>
-			<li>blogs</li>
+			<li><sl-button href="#gallery" variant="text" size="large">gallery</sl-button></li>
+			<li><sl-button href="#chalets" variant="text" size="large">chalets</sl-button></li>
+			<li><sl-button href="#blog" variant="text" size="large">blog</sl-button></li>
 		</ul>
 		<sl-icon id="logo" src="./assets/logo.svg"></sl-icon>
 		<ul>
-			<li>about</li>
-			<li>contact</li>
-			<li>language</li>
+			<li><sl-button href="#about" variant="text" size="large">about</sl-button></li>
+			<li><sl-button href="#footer" variant="text" size="large">contact</sl-button></li>
+			<li><sl-button variant="text" size="large">language</sl-button></li>
 		</ul>
 		<sl-icon-button id="menubtn" name="list"></sl-icon-button>
 	</nav>
@@ -118,18 +280,43 @@
 	</section>
 
 	<sl-dialog id="pay" label="Payment">
+		<sl-tab-group id="pay_tabs">
+			<sl-tab slot="nav" panel="calendar">Calendar</sl-tab>
+			<sl-tab slot="nav" panel="payment">Payment</sl-tab>
+
+			<sl-tab-panel name="calendar"></sl-tab-panel>
+			<sl-tab-panel name="payment"></sl-tab-panel>
+		</sl-tab-group>
 		<div>
-			<sl-select name="chaletid" form="pay-form" placeholder="Select a chalet">
-				<sl-option value="1">Chalet 1</sl-option>
-				<sl-option value="2">Chalet 2</sl-option>
-				<sl-option value="3">Chalet 3</sl-option>
-				<sl-option value="4">Chalet 4</sl-option>
-				<sl-option value="5">Chalet 5</sl-option>
-			</sl-select>
+			<div>
+				<sl-select name="adults" form="pay_form" label="Adults" value="1">
+					<sl-option value="1">1</sl-option>
+					<sl-option value="2">2</sl-option>
+					<sl-option value="3">3</sl-option>
+					<sl-option value="4">4</sl-option>
+					<sl-option value="5">5</sl-option>
+					<sl-option value="6">6</sl-option>
+				</sl-select>
+				<sl-select name="children" form="pay_form" label="Children" value="0">
+					<sl-option value="0">0</sl-option>
+					<sl-option value="1">1</sl-option>
+					<sl-option value="2">2</sl-option>
+					<sl-option value="3">3</sl-option>
+					<sl-option value="4">4</sl-option>
+					<sl-option value="5">5</sl-option>
+				</sl-select>
+				<sl-input form="pay_form" id="discount" name="discount" label="Discount code (optional)">
+					<sl-icon data-type="correct" name="check" slot="suffix" style="color: green;display: none;"></sl-icon>
+					<sl-icon data-type="incorrect" name="x" slot="suffix" style="color: red;display: none;"></sl-icon>
+				</sl-input>
+			</div>
 			<div id="calendar"></div>
 		</div>
-		<form id="pay-form">
-			<sl-select name="country" placeholder="Select a country" required>
+		<form id="pay_form" method="POST" action="">
+			<input type="hidden" name="transaction_token" id="transaction_token"/>
+			<input type="hidden" name="check_in"/>
+			<input type="hidden" name="check_out"/>
+			<sl-select name="country" label="Country" placeholder="Select a country" required>
 				<sl-option value="AFG">Afghanistan</sl-option>
 				<sl-option value="ALA">�land Islands</sl-option>
 				<sl-option value="ALB">Albania</sl-option>
@@ -384,47 +571,48 @@
 			<sl-input name="city" label="Billing city" required enterkeyhint="next"></sl-input>
 			<sl-input name="zip" label="Billing ZIP code" required enterkeyhint="next" inputmode="numeric"></sl-input>
 			<sl-input name="holder" label="Card holder name" required enterkeyhint="next"></sl-input>
-			<sl-input name="month" label="Month" type="number" required min="1" max="12" noSpinButtons enterkeyhint="next" inputmode="numeric"></sl-input>
-			<sl-input name="year" label="Year" type="number" required noSpinButtons="true" enterkeyhint="next" inputmode="numeric"></sl-input>
-			<sl-input name="email" label="Email" type="email" required inputmode="email"></sl-input>
+			<sl-input name="email" label="Email" type="email" required inputmode="email" enterkeyhint="next"></sl-input>
+			<sl-input name="phone" label="Phone number" type="tel" required inputmode="tel" enterkeyhint="next"></sl-input>
+			<div>
+				<label for="number_div">Card number</label>
+				<label for="number_div">CVV</label>
+				<sl-tooltip content="" name="number">
+					<div id="number_div"></div>
+				</sl-tooltip>
+				<sl-tooltip content="" name="cvv">
+					<div id="cvv_div"></div>
+				</sl-tooltip>
+			</div>
+			<div>
+				<sl-input name="month" label="Month" type="number" required min="1" max="12" noSpinButtons enterkeyhint="next" inputmode="numeric"></sl-input>
+				<sl-input name="year" label="Year" type="number" required noSpinButtons="true" enterkeyhint="next" inputmode="numeric"></sl-input>
+			</div>
 			<sl-button type="submit">Submit</sl-button>
 		</form>
+		<div id="total" slot="footer"> Hold & drag to select dates on the calendar </div>
 	</sl-dialog>
 
 	<section id="checker">
 		<div class="bg"></div>
 		<div class="container">
-			<!-- TODO: Checker functionality -->
 			<div>
-				<sl-input type="date" label="Arrival" placeholder="Date">
+				<sl-input type="date" label="Check-in" placeholder="Date">
 					<sl-icon name="calendar" slot="suffix" style="color: white"></sl-icon>
 				</sl-input>
 			</div>
 			<div>
-				<sl-input type="date" label="Departure">
+				<sl-input type="date" label="Check-out">
 					<sl-icon name="calendar" slot="suffix" style="color: white;"></sl-icon>
 				</sl-input>
 			</div>
 			<div>
-				<sl-select label="Adults" value="1">
-					<sl-option value="1">1</sl-option>
-					<sl-option value="2">2</sl-option>
-					<sl-option value="3">3</sl-option>
-				</sl-select>
-			</div>
-			<div>
-				<sl-select label="Children" value="0">
-					<sl-option value="0">0</sl-option>
-					<sl-option value="1">1</sl-option>
-					<sl-option value="2">2</sl-option>
-					<sl-option value="3">3</sl-option>
-				</sl-select>
-			</div>
-			<div>
-				<sl-button variant="text">Check Availability</sl-button>
+				<sl-button variant="text" onclick="checkAvailable()">Check Availability</sl-button>
 			</div>
 		</div>
 	</section>
+	<sl-tooltip content="Remove filters">
+		<sl-icon-button name="calendar-x" label="Remove filters" id="remove_filter_btn" onclick="remove_filters()"></sl-icon-button>
+	</sl-tooltip>
 	
 	<section id="quote">
 		<div class="container">
@@ -449,53 +637,56 @@
 		<div class="bg"></div>
 		<div class="container">
 			<div class="title">OUR chalets</div>
-			<!-- TODO: decor -->
-			<!-- TODO: subtitle / quote -->
 			<div class="grid">
-				<div>
+				<div data-cid="1">
+					<img src="./assets/chalet_icons/[SameScale]CloudChalet.webp">
 					<div class="content">
 						<div class="description">
 							Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem ullam modi optio in expedita quaerat aliquam eligendi culpa?
 						</div>
-						<sl-button onclick="openPreview()">BOOK NOW</sl-button>
+						<sl-button onclick="openPreview('Cloud Chalet')">BOOK NOW</sl-button>
 					</div>
 				</div>
-				<div>
+				<div data-cid="2">
+					<img src="./assets/chalet_icons/[SameScale]SkyChalet.webp">
 					<div class="content">
 						<div class="description">
 							Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem ullam modi optio in expedita quaerat aliquam eligendi culpa?
 						</div>
-						<sl-button onclick="openPreview()">BOOK NOW</sl-button>
+						<sl-button onclick="openPreview('Sky Chalet')">BOOK NOW</sl-button>
 					</div>
 				</div>
-				<div>
+				<div data-cid="3">
+					<img src="./assets/chalet_icons/[SameScale]StarChalet.webp">
 					<div class="content">
 						<div class="description">
 							Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem ullam modi optio in expedita quaerat aliquam eligendi culpa?
 						</div>
-						<sl-button onclick="openPreview()">BOOK NOW</sl-button>
+						<sl-button onclick="openPreview('Star Chalet')">BOOK NOW</sl-button>
 					</div>
 				</div>
-				<div>
+				<div data-cid="4">
+					<img src="./assets/chalet_icons/[SameScale]SunChalet.webp">
 					<div class="content">
 						<div class="description">
 							Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem ullam modi optio in expedita quaerat aliquam eligendi culpa?
 						</div>
-						<sl-button onclick="openPreview()">BOOK NOW</sl-button>
+						<sl-button onclick="openPreview('Sun Chalet')">BOOK NOW</sl-button>
 					</div>
 				</div>
-				<div>
+				<div data-cid="5">
+					<img src="./assets/chalet_icons/[SameScale]WindChalet.webp">
 					<div class="content">
 						<div class="description">
 							Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem ullam modi optio in expedita quaerat aliquam eligendi culpa?
 						</div>
-						<sl-button onclick="openPreview()">BOOK NOW</sl-button>
+						<sl-button onclick="openPreview('Wind Chalet')">BOOK NOW</sl-button>
 					</div>
 				</div>
 			</div>
 		</div>
 		<sl-dialog label="Chalet Name" class="chalet-overview">
-			<sl-tab-group id="tabs">
+			<sl-tab-group id="chalet_tabs">
 				<sl-tab slot="nav" panel="carousel">Gallery</sl-tab>
 				<sl-tab slot="nav" panel="side">Info</sl-tab>
 
@@ -542,7 +733,7 @@
 		</sl-dialog>
 	</section>
 
-	<section id="reviews">
+	<section id="reviews" style="display: none;">
 		<div class="bg"></div>
 		<div class="container">
 			<div class="title">reviews</div>
@@ -568,9 +759,6 @@
 		<div class="bg"></div>
 		<div class="container">
 			<div class="title">you can find us here</div>
-			<!-- <a href="https://maps.app.goo.gl/LTsTwGgUf6LH8ZSFA">
-				<img src="./assets/Map.png">
-			</a> -->
 			<iframe src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d11283.290040638396!2d17.094704!3d45.0082261!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDXCsDAwJzMwLjYiTiAxN8KwMDUnMzguOCJF!5e0!3m2!1sbs!2sba!4v1754601639449!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="true" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 		</div>
 	</section>
@@ -645,7 +833,7 @@
 		</div>
 	</section>
 
-	<footer>
+	<footer id="footer">
 		<!-- TODO: add social media -->
 		 <sl-icon src="./assets/logoK.svg"></sl-icon>
 		 <div class="grid">
@@ -656,14 +844,13 @@
 				PLACEHOLDER
 			</div>
 			<div>
-				<sl-button variant="text">Gallery</sl-button>
-				<sl-button variant="text">Chalets</sl-button>
-				<sl-button variant="text">Blogs</sl-button>
-				<sl-button variant="text">About</sl-button>
+				<sl-button href="#gallery" variant="text">Gallery</sl-button>
+				<sl-button href="#chalets" variant="text">Chalets</sl-button>
+				<sl-button href="#blog" variant="text">Blog</sl-button>
+				<sl-button href="#about" variant="text">About</sl-button>
 			</div>
 			<div>
 				<sl-button variant="text">Name Lastname</sl-button>
-				<sl-button variant="text">+38x xxx xxx</sl-button>
 				<sl-button variant="text">email@example.com</sl-button>
 				<sl-button variant="text">Address</sl-button>
 			</div>
@@ -687,20 +874,12 @@
 
 	new ResizeObserver(resize).observe(BASE);
 
-	// temporary interaction on checker
-	const btn_check = checker.querySelector("sl-button");
-
-	btn_check.addEventListener("click", () => {
-		btn_check.setAttribute("loading", "");
-		setTimeout(function (){
-			btn_check.removeAttribute("loading");
-		}, 2000);
-	})
-
 	// chalet overview
 	const chalet_dialog = chalets.querySelector("sl-dialog");
 	
-	function openPreview() {
+	function openPreview(name) {
+		chalet_dialog.setAttribute('label', name)
+		chalet_dialog.setAttribute('data-cid', chaletnameindex[name])
 		chalet_dialog.show();
 	}
 
@@ -708,12 +887,25 @@
 	const pay_dialog = document.getElementById("pay")
 
 	function openPay() {
+		calendar.unselect()
+		pay_dialog.setAttribute('label', `Payment - ${chalet_dialog.getAttribute('label')}`)
+		pay_dialog.setAttribute('data-cid', chalet_dialog.dataset.cid)
+		calendar.removeAllEvents()
+		dummydata[pay_dialog.dataset.cid].reservedDates.forEach(range => {
+			calendar.addEvent({
+				start: range.check_in,
+				end: range.check_out,
+				display: "background",
+				id: range.check_in
+			})
+		})
+		writePrices()
 		chalet_dialog.hide()
 		pay_dialog.show()
 	}
 
 	pay_dialog.addEventListener("sl-after-show", () => {
-		calendar.render()
+		calendar.updateSize()
 	})
 
 	menubtn.addEventListener("click", () => {
@@ -724,8 +916,8 @@
 	const carousel = chalet_dialog.querySelector("sl-carousel");
 	const scroller = chalet_dialog.querySelector(".scroller");
 	const thumbnails = chalet_dialog.querySelectorAll(".scroller > img");
-	const tab1 = tabs.querySelector("sl-tab-panel[name='carousel']")
-	const tab2 = tabs.querySelector("sl-tab-panel[name='side']")
+	const tab1 = chalet_tabs.querySelector("sl-tab-panel[name='carousel']")
+	const tab2 = chalet_tabs.querySelector("sl-tab-panel[name='side']")
 	const g = chalet_dialog.querySelector(".carousel")
 	const d = chalet_dialog.querySelector(".side")
 
@@ -751,28 +943,50 @@
 		});
     });
 
+	// payment elements for resizing
+	const ptab1 = pay_tabs.querySelector("sl-tab-panel[name='calendar']")
+	const ptab2 = pay_tabs.querySelector("sl-tab-panel[name='payment']")
+	const pcalendar = pay_dialog.querySelector("div:has(#calendar)")
+	const ppayment = pay_form
+
 	// screen sizing
 	const gallery = document.getElementById('gallery').querySelector('sl-carousel');
 	const comments = reviews.querySelector('sl-carousel');
+	let window_previous_width;
 	function updateSlidesPerPage() {
   		const width = window.innerWidth;
+		if (width == window_previous_width) return
+		window_previous_width = width
 		if (width < 900) {
 			gallery.setAttribute('slides-per-page', '1');
 			comments.setAttribute('slides-per-page', '1');
 			tab1.appendChild(g)
 			tab2.appendChild(d)
+			ptab1.appendChild(pcalendar)
+			ptab2.appendChild(ppayment)
 		} else if (width < 992) {
 			gallery.setAttribute('slides-per-page', '2');
 			comments.setAttribute('slides-per-page', '2');
 			tab1.appendChild(g)
 			tab2.appendChild(d)
+			ptab1.appendChild(pcalendar)
+			ptab2.appendChild(ppayment)
+			// calendar.setOption("height", "60vh")
 		} else {
 			gallery.setAttribute('slides-per-page', '3');
 			comments.setAttribute('slides-per-page', '2');
 			chalet_dialog.appendChild(g)
 			chalet_dialog.appendChild(d)
+			pay_dialog.appendChild(pcalendar)
+			pay_dialog.appendChild(ppayment)
 		}
 	}
+	pay_tabs.addEventListener("sl-tab-show", (e) => {
+		if (e.detail.name != 'calendar') return
+		setTimeout(() => {
+			calendar.updateSize()
+		}, 1);
+	})
 
 	window.addEventListener("DOMContentLoaded", updateSlidesPerPage());
 
@@ -817,5 +1031,211 @@
 			elem.querySelector("sl-input").showPicker()
 		})
 	})
+
+	// checker implementation
+	const arrival_selector = checker.querySelector("[label='Arrival']")
+	const departure_selector = checker.querySelector("[label='Departure']")
+	function checkAvailable() {
+		if (!arrival_selector.valueAsDate) {
+			console.log("no date set")
+			arrival_selector.setCustomValidity("Please set the arrival date")
+			arrival_selector.reportValidity()
+			return
+		}
+		if (!departure_selector.valueAsDate) {
+			departure_selector.setCustomValidity("Please set the departure date")
+			departure_selector.reportValidity()
+			return
+		}
+		const start = arrival_selector.valueAsDate
+		const end = departure_selector.valueAsDate
+		if (start > end) {
+			arrival_selector.setCustomValidity("Arrival date can not be after the departure date")
+			arrival_selector.reportValidity()
+			return
+		}
+		outer:for (let [cid, dates] of Object.entries(dummydata)) {
+			dates = dates.reservedDates
+			for (let range of dates) {
+				if ((start > new Date(range.check_in) && start < new Date(range.check_out)) ||
+					(end > new Date(range.check_in) && end < new Date(range.check_out))) {
+					console.log("this range clashes with the search: ", range)
+					chalets.querySelector(`div[data-cid="${cid}"]`).classList.add("filter_unavailable")
+					continue outer
+				}
+			}
+			chalets.querySelector(`div[data-cid="${cid}"]`).classList.remove("filter_unavailable")
+		}
+		remove_filter_btn.style.setProperty("display", "block")
+		chalets.scrollIntoView()
+	}
+
+	function remove_filters() {
+		chalets.querySelectorAll("div.filter_unavailable").forEach(el => {
+			el.classList.remove("filter_unavailable")
+			gsap.to("#remove_filter_btn", {
+				scale: 0,
+				duration: 0.25
+			}).then(() => {
+				remove_filter_btn.style.setProperty("display", "none")
+			})
+		})
+		remove_filter_btn.parentElement.hide()
+	}
+
+	// check discound validity
+	let cacl_discount = false
+	discount.addEventListener("sl-input", e => {
+		const testCode = "KOZARA"
+		const testCode2 = "ZA"
+		
+		switch (discount.value) {
+			case "":
+				discount.querySelector("[data-type='correct']").style.setProperty('display', 'none')
+				discount.querySelector("[data-type='incorrect']").style.setProperty('display', 'none')
+				cacl_discount = false
+				break
+			case testCode:
+				discount.querySelector("[data-type='correct']").style.setProperty('display', 'block')
+				discount.querySelector("[data-type='incorrect']").style.setProperty('display', 'none')
+				cacl_discount = {
+					type: "percentage",
+					value: 0.8
+				}
+				break
+			case testCode2:
+				discount.querySelector("[data-type='correct']").style.setProperty('display', 'block')
+				discount.querySelector("[data-type='incorrect']").style.setProperty('display', 'none')
+				cacl_discount = {
+					type: "flat",
+					value: 10
+				}
+				break
+			default:
+				discount.querySelector("[data-type='correct']").style.setProperty('display', 'none')
+				discount.querySelector("[data-type='incorrect']").style.setProperty('display', 'block')
+				cacl_discount = false
+				break
+		}
+		calculate_total()
+	})
+
+	function calculate_total() {
+		if (pay_form.querySelector("[name='check_in']").value == "" || pay_form.querySelector("[name='check_out']").value == "") {
+			total.innerText = "Hold & drag to select dates on the calendar"
+			return
+		}
+		const check_in = new Date(pay_form.querySelector("[name='check_in']").value)
+		const check_out = new Date(pay_form.querySelector("[name='check_out']").value)
+		check_out.setDate(check_out.getDate() + 1)
+		const special_dates = dummydata[pay_dialog.dataset.cid].specialDates
+		const base = dummydata[pay_dialog.dataset.cid].basePrice
+		let sum = 0
+
+		let current_date = check_in
+		while (+current_date != +check_out) {
+			const special = special_dates.find(e => {
+				return (current_date >= e.start && current_date <= e.end)
+			})
+			if (special) sum += special.price
+			else sum += base
+			current_date.setDate(current_date.getDate() + 1)
+		}
+		if (cacl_discount) {
+			if (cacl_discount.type == "percentage") {
+				sum *= cacl_discount.value
+			}
+			else {
+				sum -= cacl_discount.value
+			}
+		}
+		total.innerText = `Total: ${sum}€`
+
+		const adults = parseInt(pay_dialog.querySelector("[name='adults']").value)
+		const children = parseInt(pay_dialog.querySelector("[name='children']").value)
+	}
+
+	// form tokenization
+	let payment = new PaymentJs()
+	const default_style = {
+		'border': '1px solid rgb(212,212,216)',
+		'color': 'black',
+		'padding': '0.5rem 1rem',
+		'box-shadow': 'none'
+	}
+	const focus_style = {
+		'border': '1px solid rgb(14, 165, 233)',
+		'outline': 'none'
+	}
+    payment.init('hwE6XdX8epIB0HNELZmp', 'number_div', 'cvv_div', function (payment) {
+        payment.setNumberStyle(default_style)
+		payment.setCvvStyle(default_style)
+		payment.numberOn('focus', () => {
+			payment.setNumberStyle(focus_style)
+		})
+		payment.cvvOn('focus', () => {
+			payment.setCvvStyle(focus_style)
+		})
+		payment.numberOn('blur', () => {
+			payment.setNumberStyle(default_style)
+		})
+		payment.cvvOn('blur', () => {
+			payment.setCvvStyle(default_style)
+		})
+    })
+
+	pay_form.addEventListener("submit", interceptSubmit)
+
+	function interceptSubmit(e) {
+		e.preventDefault()
+		pay_dialog.querySelector("[name='children']").setCustomValidity("")
+		const formdata = new FormData(pay_form)
+		if (parseInt(formdata.get("adults")) + parseInt(formdata.get("children")) > 6) {
+			pay_dialog.querySelector("[name='children']").setCustomValidity("Maximum of 6 occupants allowed")
+			return
+		}
+		const bankartdata = {
+			card_holder: formdata.get("holder"),
+            month: formdata.get("month"),
+            year: formdata.get("year"),
+            email: formdata.get("email")
+		}
+
+		payment.tokenize(
+			bankartdata,
+			function (token, cardData) {
+				transaction_token.value = token
+				pay_form.querySelector('[name=month]').setCustomValidity("")
+				pay_form.querySelector('[name=year]').setCustomValidity("")
+				pay_form.querySelector('[name=number]').setAttribute("content", "")
+				pay_form.querySelector('[name=cvv]').setAttribute("content", "")
+				pay_dialog.querySelector("[name='children']").setCustomValidity("")
+			},
+			function (errors) {
+				pay_form.querySelector('[name=month]').setCustomValidity("")
+				pay_form.querySelector('[name=year]').setCustomValidity("")
+				pay_form.querySelector('[name=number]').setAttribute("content", "")
+				pay_form.querySelector('[name=cvv]').setAttribute("content", "")
+				console.log(errors)
+				errors.forEach(error => {
+					switch (error.attribute) {
+						case "card_holder":
+							break;
+						case "month":
+						case "year":
+							pay_form.querySelector(`[name=${error.attribute}]`).setCustomValidity(error.message)
+							break;
+						default:
+							pay_form.querySelector(`[name=${error.attribute}]`).setAttribute("content", error.message)
+							pay_form.querySelector(`[name=${error.attribute}]`).show()
+							break;
+					}
+				})
+			}
+		)
+
+		// TODO: AJAX to server
+		// TODO: AJAX discount validity
+	}
 </script>
 </html>

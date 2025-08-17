@@ -83,13 +83,7 @@ function calculatePrice(checkIn, checkOut, chalet, code) {
 
     // const getSpecialPrices = db.prepare(`SELECT * FROM special_prices WHERE ((date(start_date) >= ? AND date(start_date) <= ?) OR (date(end_date) >= ? AND date(end_date) <= ?)) AND chalet = ? ORDER BY start_date`)
     // const specialPrices = getSpecialPrices.all(checkIn, checkOut, checkIn, checkOut, Number(chalet))
-    const getSpecialPrices = db.prepare(`
-    SELECT * FROM special_prices 
-  WHERE date(start_date) < date(?) 
-    AND date(end_date) > date(?) 
-    AND chalet = ?
-        ORDER BY start_date
-`);
+    const getSpecialPrices = db.prepare(`SELECT * FROM special_prices WHERE date(start_date) < date(?) AND date(end_date) > date(?) AND chalet = ? ORDER BY start_date`);
     const specialPrices = getSpecialPrices.all(checkOut, checkIn, Number(chalet));
     console.log(specialPrices)
 
@@ -284,7 +278,7 @@ app.post('/payment', express.json({ type: 'application/json' }), async (req, res
 
 
     const requestBody = {
-        merchantTransactionId: uniqueId, amount: `${priceData.totalPrice}`, callbackUrl: "https://9a1c924a8d8d.ngrok-free.app/callback", currency: "BAM", transactionToken: `${req.body.token}`, customer: {
+        merchantTransactionId: uniqueId, amount: `${priceData.totalPrice}`, errorUrl: "https://9a1c924a8d8d.ngrok-free.app/error", successUrl: "https://9a1c924a8d8d.ngrok-free.app/", callbackUrl: "https://9a1c924a8d8d.ngrok-free.app/callback", currency: "BAM", transactionToken: `${req.body.token}`, customer: {
             billingAddress1: `${req.body.billingAddress}`,
             billingCity: `${req.body.billingCity}`,
             billingCountry: `${req.body.country}`,
@@ -348,7 +342,7 @@ app.post('/payment', express.json({ type: 'application/json' }), async (req, res
                     customer = {
                         id: result.lastInsertRowid,
                         email: req.body.email,
-                        phone: 'phone_number',
+                        phone: req.body.phone,
                         name: req.body.card_holder
                     };
                     console.log('New customer created:', customer);
@@ -485,6 +479,10 @@ app.post("/callback", express.json(), async (req, res) => {
     }
 
 
+})
+
+app.get('/error', (req, res) => {
+    res.render('error')
 })
 
 

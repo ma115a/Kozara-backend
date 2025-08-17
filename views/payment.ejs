@@ -312,6 +312,10 @@
                 <input type="text" id="email" name="email" />
             </div>
             <div>
+                <label for="phone">Phone</label>
+                <input type="tel" id="phone" name="phone" />
+            </div>
+            <div>
                 <label for="check_in">Check in</label>
                 <input type="date" id="check_in" name="check_in" />
             </div>
@@ -428,6 +432,7 @@
                 billingZIP: document.getElementById('billingZIP').value,
                 country: document.getElementById('country').value,
                 email: document.getElementById('email').value,
+                phone: phone.value,
                 card_holder: document.getElementById('card_holder').value,
                 check_in: check_in.value,
                 check_out: check_out.value,
@@ -437,7 +442,7 @@
                 discount: discount.value
             }
             console.log(reqBody)
-            const response = await fetch('http://localhost:5000/payment', {
+            const response = await fetch('http://peva.ba/payment', {
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 // body: JSON.stringify({
@@ -453,7 +458,7 @@
             });
 
             const data = await response.json();
-            window.location.href = data.url
+            // window.location.href = data.url
             console.log(data);
         } catch (error) {
             console.log(error);
