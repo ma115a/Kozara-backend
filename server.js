@@ -260,18 +260,7 @@ app.post('/payment', express.json({ type: 'application/json' }), async (req, res
     console.log(req.body)
     const date = new Date()
     const uniqueId = formatDate(date)
-    // const requestBody = {
-    //     "merchantTransactionId": uniqueId, "amount": "10.0", "callbackUrl": "https://9a1c924a8d8d.ngrok-free.app/callback", "currency": "BAM", "transactionToken": `${req.body.token}`, "customer": {
-    //         "billingAddress1": `${req.body.billingAddress}`,
-    //         "billingCity": `${req.body.billingCity}`,
-    //         "billingCountry": `${req.body.country}`,
-    //         "billingPostcode": `${req.body.billingZIP}`,
-    //         "email": `${req.body.email}`
-    //
-    //     }
-    // }
-    //
-    //
+
 
     const priceData = calculatePrice(req.body.check_in, req.body.check_out, req.body.chalet, req.body.discount)
     console.log(priceData)
@@ -381,47 +370,7 @@ app.post('/checkdiscountcode', express.json(), (req, res) => {
 })
 
 
-app.get('/getavailability', (req, res) => {
 
-    const getCurrentBookings = db.prepare(`SELECT * FROM bookings WHERE check_in_date >= date('now', 'start of month') ORDER BY check_in_date`)
-    const bookings = getCurrentBookings.all()
-
-    const getSpecialPrices = db.prepare(`SELECT * FROM special_prices WHERE start_date >= date('now', 'start of month')`)
-    const specialPrices = getSpecialPrices.all()
-
-
-    const returnData = {}
-    for (let index = 1; index <= 5; index++) {
-        returnData[index.toString()] = {
-            reservedDates: []
-        }
-    }
-
-    bookings.forEach(booking => {
-        const bookingData = {
-            check_in: booking.check_in_date,
-            check_out: booking.check_out_date
-        }
-        returnData[booking.chalet_id].reservedDates.push(bookingData)
-    })
-
-
-    specialPrices.forEach(specialPrice => {
-        const startDate = specialPrice.start_date.substring(5);
-        returnData[specialPrice.chalet][startDate] = {
-            duration: daysBetween(specialPrice.start_date, specialPrice.end_date),
-            price: specialPrice.price
-        }
-    })
-
-    returnData['1'].basePrice = Number(process.env.CHALET_1_PRICE)
-    returnData['2'].basePrice = Number(process.env.CHALET_2_PRICE)
-    returnData['3'].basePrice = Number(process.env.CHALET_3_PRICE)
-    returnData['4'].basePrice = Number(process.env.CHALET_4_PRICE)
-    returnData['5'].basePrice = Number(process.env.CHALET_5_PRICE)
-
-    res.json(returnData)
-})
 
 
 
