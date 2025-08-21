@@ -7,6 +7,8 @@ const path = require('path')
 const ical = require('ical-generator')
 const cron = require('node-cron')
 const Database = require('better-sqlite3')
+const fileUpload = require('express-fileupload')
+const fs = require('fs')
 let db
 
 
@@ -38,10 +40,17 @@ if (process.env.NODE_ENV != 'production') {
 
 const app = express()
 
+
+const UPLOAD_DIR = path.join(process.cwd(), 'images')
+fs.mkdirSync(UPLOAD_DIR, { recursive: true })
+
 const port = 5000;
 
 app.set('view engine', 'ejs');
 // app.use(express.static(path.join(__dirname, 'public')))
+//
+//
+app.use('/images', express.static(UPLOAD_DIR))
 
 
 
@@ -161,6 +170,60 @@ function calculatePrice(checkIn, checkOut, chalet, code) {
     logger.info(returnData)
     return returnData
 }
+
+
+app.post('/uploadimage', fileUpload({ limits: { fileSize: 10 * 1024 * 1024 } }), (req, res) => {
+    logger.info(req)
+
+    const f = req.files?.image
+    if (!f) return res.status(400).json({ success: 0, message: 'No file' })
+    if (!f.mimetype?.startsWith('image/')) res.status(400).json({ success: 0, message: 'Unsupported type' })
+
+
+    const destination = path.join(UPLOAD_DIR, req.files.image.name)
+
+    f.mv(destination, (err) => {
+        if (err) res.status(500).json({ success: 0, message: 'Save failed' })
+
+        res.status(200).json({ success: 1, file: { url: `${req.protocol}://${req.get('host')}/images/${req.files.image.name}` } })
+    })
+})
+
+
+app.post('/uploadimagebyurl', express.json(), async (req, res) => {
+
+    try {
+
+        const { url } = req.body || {}
+        if (!url) return res.status(400).json({ success: 0, message: 'Missing url' })
+
+
+        const response = await fetch(url)
+        if (!response.ok) return res.status(400).json({ success: 0, message: `Fetch ${response.status}` })
+
+        const contentType = response.headers.get('content-type') || ''
+        if (!contentType.startsWith('image/')) return res.status(400).json({ success: 0, message: 'Not an image' })
+
+        const ext = (contentType.split('/')[1] || 'jpg').split(';')[0].replace('jpeg', 'jpg')
+
+        const fileName = `${crypto.randomUUID()}.${ext}`
+
+        const filePath = path.join(UPLOAD_DIR, fileName)
+
+
+        await fs.promises.writeFile(filePath, Buffer.from(await response.arrayBuffer()))
+
+
+        res.json({ success: 1, file: { url: `${req.protocol}://${req.get('host')}/images/${fileName}` } });
+
+
+
+
+    } catch (error) {
+        res.status(500).json({ success: 0, message: error.message })
+    }
+
+})
 
 
 app.get('/getdata', (req, res) => {
