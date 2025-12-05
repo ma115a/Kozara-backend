@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Page Not Found - Kozara Panoramic Resort</title>
+		
+        <!-- Reusing your existing main CSS -->
+		<link rel="stylesheet" href="./css/main.css" />
+        
+        <!-- Import Fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/light.css" />
+		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/icon/icon.js"></script>
+        <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/button/button.js"></script>
+
+		<style>
+            /* Reset body to allow the hero to take full height */
+            body {
+                margin: 0;
+                overflow-x: hidden;
+            }
+
+            /* --- Embedded Main CSS variables for standalone preview correctness --- */
+            :root {
+                --primary-green: #364d14;
+                --earth-brown: #968067;
+                --sand-beige: #d9c7b2;
+                --muted-green: #5c6d4c;
+                --bg-white: #ffffff;
+                --bg-soft: #f8f9fa;
+            }
+
+            /* Customizing the existing .hero class for the error page */
+            .hero.error-layout {
+                height: 100vh; /* Full viewport height */
+                min-height: 800px;
+                /* Misty forest background for the 'Lost' theme */
+                background-image: url("../assets/Scenery/lander.webp");
+                background-size: cover;
+                background-position: center;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+            }
+
+            .hero-overlay {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.4); 
+            }
+
+            /* Navbar positioning overrides */
+            .nav-bar {
+                position: absolute;
+                top: 20px;
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 0 50px;
+                box-sizing: border-box;
+                z-index: 20;
+                color: white;
+            }
+            
+            /* Ensure logo text is visible on error page */
+            .logo-text {
+                font-family: "Playfair Display", serif;
+                font-weight: 900;
+                font-size: 1.2rem;
+                color: white;
+            }
+            
+            @media (width < 930px) {
+                .logo-text { display: none; }
+            }
+
+            .nav-links-container {
+                display: flex;
+                gap: 30px;
+                text-transform: uppercase;
+                letter-spacing: 2px;
+                font-size: 0.9rem;
+                font-weight: 700;
+                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            }
+
+            .nav-link {
+                color: white;
+                text-decoration: none;
+                transition: color 0.3s ease;
+            }
+            .nav-link:hover { color: var(--sand-beige); }
+
+            .nav-cta {
+                background-color: var(--earth-brown);
+                color: white;
+                padding: 10px 25px;
+                text-decoration: none;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                border-radius: 4px;
+                transition: 0.3s;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            }
+            .nav-cta:hover {
+                background-color: var(--sand-beige);
+                color: var(--primary-green);
+            }
+
+            /* Ensure content sits above the overlay - Mirrors .confirmation-card */
+            .error-card {
+                position: relative;
+                z-index: 10; 
+                background: white;
+                width: 90%;
+                max-width: 1000px;
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: 0 25px 50px rgba(0,0,0,0.5); /* Stronger shadow */
+                display: flex;
+                flex-direction: row;
+                margin-top: 60px; /* Offset for navbar */
+            }
+
+            /* Left Side: Image */
+            .card-image {
+                flex: 1;
+                min-width: 400px;
+                position: relative;
+                overflow: hidden;
+                background-color: var(--earth-brown);
+            }
+
+            .card-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                position: absolute;
+                top: 0;
+                left: 0;
+                /* Sepia tone to make it look a bit more "past/lost" compared to success page */
+                opacity: 0.9;
+                filter: sepia(0.2); 
+            }
+
+            /* Right Side: Content */
+            .card-content {
+                flex: 1;
+                padding: 60px 50px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .error-icon {
+                font-size: 3.5rem;
+                color: var(--earth-brown, #968067); /* Changed from green to brown for error */
+                margin-bottom: 20px;
+            }
+
+            h1 {
+                font-family: "Playfair Display", serif;
+                color: var(--primary-green, #364d14);
+                font-size: 2.5rem;
+                margin: 0 0 10px 0;
+            }
+
+            .subtitle {
+                font-family: "Playfair Display", serif;
+                color: var(--earth-brown, #968067);
+                font-size: 1.5rem;
+                line-height: 1.3;
+                margin-bottom: 20px;
+                margin-top: 0;
+            }
+
+            p.description {
+                color: #555;
+                font-size: 1.05rem;
+                line-height: 1.8;
+                margin-bottom: 30px;
+                max-width: 400px;
+            }
+
+            /* Divider specific to error page */
+            .mini-divider {
+                width: 50px;
+                height: 2px;
+                background-color: var(--sand-beige);
+                margin-bottom: 30px;
+            }
+
+            /* Action Buttons */
+            .actions {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 15px;
+                /* Center the buttons primarily */
+                justify-content: center;
+                align-items: center;
+            }
+
+            sl-button::part(base) {
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                font-weight: 700;
+            }
+
+            .btn-home::part(base) {
+                background-color: var(--earth-brown, #968067);
+                border-color: var(--earth-brown, #968067);
+                color: white;
+            }
+            .btn-home:hover::part(base) {
+                background-color: var(--primary-green, #364d14);
+                border-color: var(--primary-green, #364d14);
+            }
+
+            .btn-contact::part(base) {
+                color: var(--muted-green);
+                border-color: var(--sand-beige);
+            }
+
+            /* Mobile / Stacked Layout - Mirrors Success Page Logic */
+            @media (max-width: 1000px) {
+                .error-card {
+                    flex-direction: column;
+                    max-width: 600px;
+                    margin-top: 80px; /* Space for mobile nav/logo */
+                    margin-bottom: 40px;
+                }
+
+                .card-image {
+                    height: 250px;
+                    min-width: auto;
+                    flex: none;
+                }
+                
+                .card-content {
+                    padding: 40px 30px;
+                    /* Align text center on mobile for better balance with centered buttons */
+                    text-align: center;
+                    align-items: center;
+                }
+                
+                .mini-divider {
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+
+                h1 {
+                    font-size: 2rem;
+                }
+                
+                /* Ensure navbar fits */
+                .nav-links-container, .nav-cta {
+                    display: none; /* Hide links on mobile per main.css */
+                }
+            }
+		</style>
+	</head>
+	<body>
+
+        <!-- Hero Wrapper -->
+		<div class="hero error-layout">
+            <div class="hero-overlay"></div>
+
+           
+
+            <!-- Error Card -->
+            <div class="error-card">
+                
+                <!-- Left: Visual -->
+                <div class="card-image">
+                    <img src="assets/Carousel/image08180.webp" alt="Foggy Forest Path">
+                </div>
+
+                <!-- Right: Content -->
+                <div class="card-content">
+                    <div class="error-icon">
+                        <sl-icon name="compass"></sl-icon>
+                    </div>
+                    
+                    <h1 id="error-title">404</h1>
+                    <h2 class="subtitle" id="error-subtitle">Lost in the Clouds?</h2>
+                    
+                    <div class="mini-divider"></div>
+
+                    <p class="description" id="error-desc">
+                        It seems the path you followed doesn't lead to one of our chalets. The page you are looking for might have been moved, deleted, or possibly never existed in the first place.
+                    </p>
+
+                    <div class="actions">
+                        <sl-button class="btn-home" href="index.html">
+                            Back to Safety
+                        </sl-button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // Logic to handle different error states
+            window.addEventListener('DOMContentLoaded', () => {
+                const urlParams = new URLSearchParams(window.location.search);
+                console.log(urlParams)
+                const type = urlParams.get('type');
+
+                if (type === 'payment') {
+                    // Payment Failure State
+                    document.getElementById('error-title').innerText = 'Payment Failed';
+                    document.getElementById('error-subtitle').innerText = 'Transaction Declined';
+                    document.querySelector('.error-icon sl-icon').setAttribute('name', 'credit-card-2-front');
+                    document.getElementById('error-desc').innerText = 'We were unable to process your payment. Please check your card details, ensure you have sufficient funds, or try a different payment method.';
+                    
+                    const homeBtn = document.querySelector('.btn-home');
+                    homeBtn.innerText = 'Try Again';
+                    homeBtn.href = 'index.html#booking'; 
+                    
+                    // Swap image for something more "transactional"
+                    document.querySelector('.card-image img').src = "assets/Carousel/image08180.webp";
+                    
+                } else if (type === '500') {
+                    // Server Error State
+                    document.getElementById('error-title').innerText = '500';
+                    document.getElementById('error-subtitle').innerText = 'Server Error';
+                    document.querySelector('.error-icon sl-icon').setAttribute('name', 'hdd-network');
+                    document.getElementById('error-desc').innerText = 'Our servers are currently having a moment. We are working to fix this immediately. Please try refreshing the page in a few minutes.';
+                    
+                    const homeBtn = document.querySelector('.btn-home');
+                    homeBtn.innerText = 'Refresh Page';
+                    homeBtn.removeAttribute('href');
+                    homeBtn.onclick = () => window.location.reload();
+                }
+            });
+        </script>
+	</body>
+</html>

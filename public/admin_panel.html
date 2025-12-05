@@ -4,6 +4,18 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Blog Editor</title>
+	<!-- shoelace UI -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/light.css" />
+	<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/shoelace-autoloader.js"></script>
+	<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/tab-group/tab-group.js"></script>
+	<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/tab/tab.js"></script>
+	<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/tab-panel/tab-panel.js"></script>
+	<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/input/input.js"></script>
+	<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/icon/icon.js"></script>
+	<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/icon-button/icon-button.js"></script>
+	<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/format-date/format-date.js"></script>
+	<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/alert/alert.js"></script>
+	<!-- editor + plugins -->
 	<script src="./js/editorjs.umd.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/@editorjs/header@latest"></script>
 	<script src="https://cdn.jsdelivr.net/npm/@editorjs/list@2"></script>
@@ -20,20 +32,512 @@
 		button {
 			color: black;
 		}
+
+		body {
+			padding: 0 1rem;
+		}
+		sl-tab-panel::part(base) {
+			padding: 0 0.5rem;
+		}
+		sl-tab-panel > .table_headers:first-child {
+			margin-top: 2rem;
+		}
+
+		body > sl-tab-group {
+			& > sl-tab::part(base) {
+				font-size: var(--sl-font-size-x-large);
+			}
+
+			& sl-tab-group > sl-tab::part(base) {
+				font-size: var(--sl-font-size-large);
+			}
+		}
+
+		.horizontal_group {
+			font-size: var(--sl-font-size-large);
+			color: black;
+			display: flex;
+			align-items: end;
+		}
+		.hidden {
+			display: none;
+		}
+		.table_headers {
+			display: grid;
+			gap: 1rem;
+			margin-bottom: 1rem;
+			font-weight: bold;
+			font-size: var(--sl-font-size-large);
+			border-bottom: 1px solid black;
+			width: fit-content;
+		}
+		.table {
+			display: flex;
+			flex-direction: column;
+			gap: 1rem;
+			font-size: var(--sl-font-size-large);
+			width: fit-content;
+
+			& > div {
+				display: grid;
+				gap: 1rem;
+				padding: 0.25rem 0rem;
+				padding-right: 0.25rem;
+				align-items: center;
+				transition: background-color 0.125s ease-in-out;
+			}
+
+			& sl-icon-button {
+				&::part(base) {
+					padding: 0;
+				}
+				display: block;
+				opacity: 0;
+				transition: opacity 0.125s ease-in-out;
+			}
+
+			& > div:hover {
+				background-color: beige;
+
+				& sl-icon-button {
+					opacity: 1;
+				}
+			}
+		}
+		table {
+			border-collapse: collapse;
+			& sl-icon-button {
+				&::part(base) {
+					padding: 0;
+				}
+				display: block;
+				opacity: 0;
+				transition: opacity 0.125s ease-in-out;
+			}
+
+			& tr:nth-child(even) {
+				background-color: #ddd;
+			}
+
+			& tr:hover sl-icon-button {
+				opacity: 1;
+			}
+		}
+		th {
+			text-align: left;
+			border-bottom: 1px solid black;
+		}
+		th,
+		td {
+			font-size: var(--sl-font-size-large);
+			padding: 0.5rem 0rem;
+			padding-right: 0.5rem;
+			&:not(:last-child) {
+				padding-right: 1.5rem;
+			}
+			&:first-child {
+				padding-left: 0.5rem;
+			}
+		}
+		h2 {
+			margin-top: 3rem;
+		}
+		form {
+			display: grid;
+			gap: 1rem;
+			align-items: end;
+		}
+		.sdates_form {
+			grid-template-columns: 20ch 20ch 12ch 10ch;
+
+			& > sl-checkbox {
+				grid-row: 2;
+				grid-column-end: span 3;
+			}
+		}
+		#discount_form {
+			display: grid;
+			grid-template-columns: 20ch 20ch 20ch 20ch;
+
+			& > sl-select:last-of-type {
+				grid-row: 2;
+				grid-column: 1/-1;
+			}
+			& > sl-input[name='code'] {
+				grid-column-end: span 2;
+			}
+		}
 	</style>
 </head>
 <body>
-	<div>
-		<button onclick="_export()">Export</button>
-		<button onclick="_toggle()">Toggle ReadOnly mode</button>
-	</div>
+	<sl-tab-group>
+		<sl-tab slot="nav" panel="chalets">Chalets</sl-tab>
+		<sl-tab slot="nav" panel="reservations">Reservations</sl-tab>
+		<sl-tab slot="nav" panel="discounts">Discounts</sl-tab>
+		<sl-tab slot="nav" panel="blogs">Blogs</sl-tab>
+
+		<sl-tab-panel name="chalets">
+			<sl-tab-group></sl-tab-group>
+		</sl-tab-panel>
+		<sl-tab-panel name="reservations">
+			<table class="reservations">
+				<tr>
+					<th>Name</th>
+					<th>Phone number</th>
+					<th>Email</th>
+					<th>Check in</th>
+					<th>Check out</th>
+					<th>Chalet</th>
+					<th>Adults + Children</th>
+					<th>Reservation status</th>
+				</tr>
+			</table>
+		</sl-tab-panel>
+		<sl-tab-panel name="discounts">
+			<h2>Add a discount</h2>
+			<form id="discount_form">
+				<sl-input type="date" label="Start date" name="valid_from" required></sl-input>
+				<sl-input type="date" label="End date" name="valid_to" required></sl-input>
+				<sl-select label="Type" name="discount_type" required>
+					<sl-option value="percentage">Percentage</sl-option>
+					<sl-option value="flat">Flat (BAM)</sl-option>
+				</sl-select>
+				<sl-input type="number" label="Value" name="value" required></sl-input>
+				<sl-select name="chalets" label="Applicable chalets" multiple required>
+					<sl-option value="1">X Chalet</sl-option>
+					<sl-option value="2">Sun Chalet</sl-option>
+					<sl-option value="3">Sugondese Chalet</sl-option>
+					<sl-option value="4">Goblingon Chalet</sl-option>
+					<sl-option value="5">Candice Chalet</sl-option>
+				</sl-select>
+				<sl-input label="Discount code" name="code" required></sl-input>
+				<sl-input type="number" name="max_usage" label="Max number of uses"></sl-input>
+				<sl-button type="submit">Add</sl-button>
+			</form>
+			<h2>Existing discounts</h2>
+			<table class="discount">
+				<tr>
+					<th>Start date</th>
+					<th>End date</th>
+					<th>Type</th>
+					<th>Value</th>
+					<th>Chalets</th>
+					<th>Code</th>
+					<th>Uses</th>
+					<th></th>
+				</tr>
+			</table>
+		</sl-tab-panel>
+		<sl-tab-panel name="blogs">
+			<sl-tab-group>
+				<sl-tab slot="nav" panel="blogs">Existing blogs</sl-tab>
+				<sl-tab slot="nav" panel="new">New blog</sl-tab>
+
+				<sl-tab-panel name="blogs">
+					Grid of blogs here
+				</sl-tab-panel>
+				<sl-tab-panel name="new">
+					<div>
+						<sl-button onclick="_export()">Export</sl-button>
+						<sl-button onclick="_toggle()">Toggle ReadOnly mode</sl-button>
+					</div>
+					<div id="editor" spellcheck="false"></div>
+				</sl-tab-panel>
+			</sl-tab-group>
+		</sl-tab-panel>
+	</sl-tab-group>
 	<br>
-	<div id="editor" spellcheck="false"></div>
 </body>
-<script defer>
+<script>
+function form_as_JSON(formdata) {
+	let jsonformat = {}
+	for (const [key, val] of formdata.entries()) {
+		jsonformat[key] = val
+	}
+	if (jsonformat.code) {
+		jsonformat.chalets = formdata.getAll("chalets").map(el => parseInt(el))
+	}
+	return jsonformat
+}
+function sl_alert(text, variant) {
+	let el = document.createElement("sl-alert");
+	el.setAttribute("duration", "2000")
+	el.setAttribute("closeable", "true")
+	el.setAttribute("variant", variant)
+	let icon_name;
+	switch (variant) {
+		case "danger":
+			icon_name = "exclamation-octagon"
+		case "success":
+		default:
+			icon_name = "check2-circle"
+			break
+	}
+	el.innerHTML = `<sl-icon slot="icon" name="${icon_name}"></sl-icon>`
+	el.innerHTML += text
+	console.log(el)
+	el.toast()
+}
+function delete_sdate(del_btn) {
+	const parent = del_btn.parentElement.parentElement.parentElement
+	const el_dates = parent.querySelectorAll("sl-format-date")
+
+	// HACK: url
+	fetch("https://www.peva.ba/deletespecialdate", {
+		method: "POST",
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify({
+			start_date: el_dates[0].getAttribute("date"),
+			end_date: el_dates[1].getAttribute("date"),
+			chalet_id: parent.dataset.cid
+		})
+	})
+	.then(res => {
+		if (!res.ok) return res.text().then(msg => {throw new Error(msg)})
+		return res.text()
+	})
+	.then(res => {
+		sl_alert(res, "success")
+		parent.remove()
+	})
+	.catch(error => {
+		sl_alert(error, "danger")
+	})
+}
+function delete_discount(del_btn) {
+	const parent = del_btn.parentElement.parentElement.parentElement
+	const el = parent.querySelector("td:nth-child(6)")
+
+	// HACK: url
+	fetch("https://www.peva.ba/deletediscountcode", {
+		method: "POST",
+		headers: {
+			'Content-Type': 'application/json'
+		},
+		body: JSON.stringify({
+			code: el.innerHTML
+		})
+	})
+	.then(res => {
+		if (!res.ok) throw new Error("Discount dieded")
+		return res.text()
+	})
+	.then(res => {
+		sl_alert(res, "success")
+		parent.remove()
+	})
+	.catch(error => {
+		sl_alert("Deleting discount failed", "danger")
+	})
+}
+
+document.addEventListener("DOMContentLoaded", function() {
+	// HACK: url
+	fetch("https://www.peva.ba/getdata")
+	.then(res => res.json())
+	.then(res => {
+		const container = document.querySelector("sl-tab-panel[name='chalets']").children[0]
+		for (const [key, val] of Object.entries(res)) {
+			container.innerHTML += `<sl-tab slot='nav' panel='${key}'>Chalet ${key}</sl-tab>`
+			container.innerHTML += `<sl-tab-panel name="${key}">
+					<div class="horizontal_group">
+						<sl-input type="number" id="chalet${key}_baseprice" label="Base price" data-cid='${key}' disabled value="${val.basePrice}"></sl-input>
+						<div class="toggle_group" data-target-id="chalet${key}_baseprice">
+						<sl-tooltip content='Edit'><sl-icon-button name='pencil'></sl-icon-button></sl-tooltip>
+						<sl-tooltip content='Confirm' class='hidden'><sl-icon-button name='check-lg'></sl-icon-button></sl-tooltip>
+						<sl-tooltip content='Cancel' class='hidden'><sl-icon-button name='x-lg'></sl-icon-button></sl-tooltip>	
+						</div>
+					</div>
+					<h2>Add special date</h2>
+					<form class="sdates_form">
+						<input type="hidden" name="chalet_id" value="${key}"/>
+						<sl-input type="date" name="start" label="Start date" required></sl-input>
+						<sl-input type="date" name="end" label="End date" required></sl-input>
+						<sl-input type="number" name="price" label="Price" required></sl-input>
+						<sl-checkbox name='repeatable'>Repeat next year</sl-checkbox>
+						<sl-button type="submit">Add</sl-button>
+					</form>
+					<h2>Existing Special dates</h2>
+					<table class='sdates'>
+						<tr>
+							<th>Start date</th>
+							<th>End date</th>
+							<th>Price</th>
+							<th>Repeat next year</th>
+							<th></th>
+						<tr>
+					</table>
+				</sl-tab-panel>`
+			const table = container.querySelector(`[name='${key}'] table tbody`)
+			for (const range of val.specialDates) {
+				table.innerHTML += `<tr data-cid="${key}">
+					<td><sl-format-date date='${range.start}'></sl-format-date></td>
+					<td><sl-format-date date='${range.end}'></sl-format-date></td>
+					<td>${range.price}</td>
+					<td>${range.repeatable ? "<sl-icon name='check-lg'></sl-icon>" : ""}</td>
+				<td><sl-tooltip content="Delete"><sl-icon-button name="x-lg" onclick="delete_sdate(this)"></sl-icon-button></sl-tooltip></td></tr>`
+			}
+		}
+		// toggle group functionality
+		document.querySelectorAll(".toggle_group").forEach(container => {
+			container.addEventListener("click", e => {
+				for (const el of container.children) el.classList.toggle("hidden")
+				const target = document.getElementById(container.dataset.targetId)
+				target.toggleAttribute("disabled")
+				
+				switch (e.target.getAttribute("name")) {
+					case "pencil":
+						target.dataset.prev_val = target.value
+						break
+					case "x-lg":
+						target.value = target.dataset.prev_val
+						break
+					case "check-lg":
+						// HACK: url
+						fetch("https://www.peva.ba/updatebaseprice", {
+							method: "PUT",
+							headers: {
+								'Content-Type': 'application/json'
+							},
+							body: JSON.stringify({
+								chalet_id: parseInt(target.dataset.cid),
+								price: parseInt(target.value)
+							})
+						})
+						.then(res => {
+							if (!res.ok) {
+								target.value = target.dataset.prev_val
+								return res.text().then(msg => {throw new Error(msg)})
+							}
+							return res.text()
+						})
+						.then(res => {
+							sl_alert(res, "success")
+						})
+						.catch(error => {
+							sl_alert(error, "danger")
+						})
+						break
+				}
+			})
+		})
+		// sdates functionality
+		document.querySelectorAll(".sdates_form").forEach(form => {
+			form.addEventListener("submit", e => {
+				e.preventDefault()
+				if (!form.checkValidity()) return
+
+				// HACK: url
+				fetch("https://www.peva.ba/addspecialdate", {
+					method: "POST",
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify(form_as_JSON(new FormData(form)))
+				})
+				.then(res => {
+					if (!res.ok) return res.text().then(msg => {throw new Error(msg)})
+					return res.text()
+				})
+				.then(res => {
+					sl_alert(res, "success")
+				})
+				.catch(error => {
+					sl_alert(error, "danger")
+				})
+			})
+		})
+	})
+
+	// discount form functionality
+	discount_form.addEventListener("submit", e => {
+		e.preventDefault()
+		if (!discount_form.checkValidity()) return
+
+		// HACK: url
+		fetch("https://www.peva.ba/adddiscountcode", {
+			method: "POST",
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(form_as_JSON(new FormData(discount_form)))
+		})
+		.then(res => {
+			if (!res.ok) return res.text().then(msg => {throw new Error(msg)})
+			return res.text()
+		})
+		.then(res => {
+			sl_alert(res, "success")
+		})
+		.catch(error => {
+			sl_alert(error, "danger")
+		})
+	})
+	// discount table population
+	fetch("https://www.peva.ba/getdiscounts")
+	.then(res => {
+		if (!res.ok) throw new Error("Discounts dieded")
+		return res.json()
+	})
+	.then(res => {
+		const container = document.querySelector("table.discount tbody")
+		res.forEach(entry => {
+			container.innerHTML += `<tr>
+				<td><sl-format-date date="${entry.valid_from}"></sl-format-date></td>
+				<td><sl-format-date date="${entry.valid_to}"></sl-format-date></td>
+				<td>${entry.discount_type}</td>
+				<td>${entry.discount_value}</td>
+				<td>${JSON.parse(entry.chalets).join(", ")}</td>
+				<td>${entry.code}</td>
+				<td>${entry.usage_count} / ${entry.max_usage_count}</td>
+				<td><sl-tooltip content="Delete"><sl-icon-button name="x-lg" onclick="delete_discount(this)"></sl-icon-button></sl-tooltip</td>
+				</tr>`
+		})
+	})
+	.catch(error => {
+		console.log("DISCOUNT DIED")
+		sl_alert("Failed to load discounts", "danger")
+	})
+
+	// resrvations functionality
+	fetch("https://www.peva.ba/getbookings/all")
+	.then(res => {
+		if (!res.ok) {
+			throw new Error("Reservations dieded")
+		}
+		return res.json()
+	})
+	.then(res => {
+		const container = document.querySelector("table.reservations")
+		res.forEach(entry => {
+			container.innerHTML += `<tr>
+				<td>${entry.name}</td>
+				<td>${entry.phone}</td>
+				<td>${entry.email}</td>
+				<td><sl-format-date date="${entry.check_in_date}"></sl-format-date></td>
+				<td><sl-format-date date="${entry.check_out_date}"></sl-format-date></td>
+				<td>${entry.chalet_id}</td>
+				<td>${entry.adult_count} + ${entry.children_count}</td>
+				<td>${entry.status}</td>
+				</tr>`
+		})
+	})
+	.catch(error => {
+		sl_alert("Loading reservations failed", "danger")
+	})
+})
+// TODO: Reservations
+// TODO: Blogs 💀
+// TODO: Add repeatable field in db for special dates (and in frontend table)
+// BUG: Discounts shoeld be queried by code too, multiple can overlap
+</script>
+<script>
 	const editor = new EditorJS({
 		holder: "editor",
 		enableSpellCheck: false,
+		placeholder: "Click to start typing...",
 		tools: {
 			header: Header,
 			list: {
@@ -47,8 +551,9 @@
 				class: ImageTool,
 				config: {
 					endpoints: {
-						byFile: 'http://localhost:8008/uploadFile', // Your backend file uploader endpoint
-						byUrl: 'http://localhost:8008/fetchUrl', // Your endpoint that provides uploading by Url
+						// HACK: url
+						byFile: 'https://www.peva.ba/uploadimage',
+						byUrl: 'https://www.peva.ba/uploadimagebyurl',
 					}
 				}
 			},

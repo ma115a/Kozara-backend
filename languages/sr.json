@@ -1,0 +1,225 @@
+{
+	"nav_chalets": "Kućice",
+	"nav_location": "Lokacija",
+	"nav_reviews": "Recenzije",
+	"nav_blog": "Blog",
+	"contact": "Kontakt",
+	"nav_cta": "REZERVIŠI BORAVAK",
+
+	"subtitle": "VAŠE UTOČIŠTE U PRIRODI",
+
+	"date_check_check_in": "DOLAZAK",
+	"date_check_check_out": "ODLAZAK",
+	"date_check_btn": "PROVJERI DOSTUPNOST",
+
+	"intro_title": "Ne samo bijeg,<br> Otkriće.",
+	"intro_subtitle": "Smješten u srcu Kozare, naš rezort nudi nezaboravno iskustvo gdje svaki detalj odražava toplinu, brigu i eleganciju.",
+
+	"floating": "REZERVIŠI",
+
+	"offer_card": "Otvarajuća Ponuda",
+	"offer_title": "Spektakularne Zimske Ponude",
+	"offer_desc": "Cijene su privremeno spuštene jer je finalni eksterijer još pod izgradnjom. Tokom zimske sezone, privatni vanjski bazeni su naravno zatvoreni i biće ponovo otvoreni kada bude toplije vrijeme. Sauna i prostori za opištanje bi trebali uskoro biti završeni.",
+	"offer_notice_title": "Važno Obavještenje",
+	"offer_notice_desc": "Prikazane cijene su uvodne i podložne su promjeni kako rezort prelazi u punu operaciju. Cijene se mogu prolagoditi na osnovu potražnje, raspoloživosti i završetka preostalih radova",
+
+	"chalets_title": "Naši Luksuzne kabine",
+	"chalets_desc": "Naše kabine kombinuju prirodu i luksuz, napravljeni za one koji traze mir, udobnost, i unikatan bijeg iz stvarnosti. Svaka kabina ima svoju priču, dizajniran da probudi emocije i doprinese potpunom opuštanju",
+	"chalets_amenities_wifi": "BRZ WIFI",
+	"chalets_amenities_espresso": "APARAT ZA ESPRESSO I ELEKTRIČNI ČAJNIK",
+	"chalets_amenities_ac": "KLIMA / GRIJANJE",
+	"chalets_amenities_pool": "BAZEN",
+	"chalets_amenities_safe": "SEF VELIČINE LAPTOPA",
+	"chalets_amenities_microwave": "MIKROVALNA I RERNA",
+	 "chalets_amenities_fridge": "FRIŽIDER/ZAMRZIVAČ",
+"chalets_amenities_bed": "KVALITETNA POSTELJINA I PEŠKIRI",
+"chalets_amenities_shower": "TUŠ SA EFEKTOM KIŠE",
+"chalets_amenities_sofa": "PROSTOR ZA OPUŠTANJE",
+"chalets_amenities_toast": "TOSTER",
+"chalets_amenities_hob": "PLOČA ZA KUVANJE",
+	"chalets_btn": "REZERVIŠITE SVOJ BORAVAK",
+    "chalets_details_btn": "Pogledaj detalje",
+
+    "wind_desc" : "The Wind chalet nosi svježinu planinskog povjetarca i osjećaj slobode u svakom dahu. Savršeno za one koji žele osjetiti ritam prirode i harmoniju između vjetra i drveća.", 
+    "summit_desc" : "The Sun chalet sija zlatnim sjajem, savršeno za jutra ispunjena toplinom i energijom. Svaka zraka sunca donosi radost i podsjeća vas da je svaki dan novi početak.", 
+    "star_desc" : "The Star chalet leži pod nebom punim zvijezda, gdje se noći pretvaraju u magične trenutke. Idealno je za parove ili svakoga ko želi pronaći mir pod beskrajnim sjajem noćnog neba.", 
+    "cloud_desc" : "The Cloud chalet plovi iznad oblaka, okružen tišinom i pogledom koji spaja nebo i zemlju. Stvoren je za one koji traže inspiraciju i mir u trenucima potpune tišine.", 
+    "sky_desc" : "The Sky chalet stoji na granici gdje svijet blijedi, a nebesa počinju, nudeći beskrajne horizonte i osjećaj apsolutne slobode. Savršena je tačka za posmatranje za one koji traže jasnoću, omogućavajući vam da udahnete prostranstvo i povežete se sa veličinom svijeta.", 
+
+    "secluded_badge" : "Izdvojen",
+	"location_title": "Pronađite nas na planini",
+	"location_description": "Mrakovica, Nacionalni park Kozara • 45 minuta od Banje Luke",
+    "location_quote": "Samo pratite putokaze.",
+    "location_hint" : "Ili nas pronađite na mapi ispod",
+
+	"about_us_title": "Naša Priča",
+	"about_us_desc1": "Kozara Panoramic Resort je kreiran iz ljubavi prema prirodi i ideji da luksuz i mir mogu da postoje u savršenoj harmoniji. Naša misija je da napravimo mjesto gdje svaki gost može da osjeti dubok balans između prirode, ugodnosti i vedrine. Ušuškan u srcu Kozare, naš rezort nudi nezaboravljivo iskustvo gdje svaki detalj odražava toplinu, brigu i eleganciju.",
+	"about_us_desc2": "Naše moderne kućice nude privatnost i intimnost, istovremeno pružajući sve moderne pogodnosti savremenog smještaja. Panoramični pogledi, čist planinski vazduh, i šumska tišina čine svako jutro posebnim i svako veče mirnim. Kozara Panoramic Resort je više od smještaja – to je iskustvo koje obnavlja unutrašnju ravnotežu, konekciju sa prirodom, i budi osjećaj istinskog mira. Dobrodošli u mjesto gdje vrijeme uspori i svaki momenat postaje trajno sjećanje",
+
+	"about_kozara_title": "Otkrijte Kozaru",
+	"about_kozara_desc1": "Kozara, poznata kao “vazdušna banja” i zeleni dragulj Krajine, je mjesto gdje priroda jos uvjek dise slobodno. Njene guste šume, čist vazduh, i smirujući pogledi pružaju savršeno mjesto za bjeg od gradskog života. Kozara spaja divljinu sa mirnoćom, stvarajući idealno okruženje za opuštanje, avanturu, i samootkriće. Kozara, zelena oaza Krajine, je mjesto gdje priroda otkriva svoju ljepotu. Njene guste šume, planinski potoci, i svjež vazduh čine ovo savršenim mjestom za povlačenje u odmor, avanturu i spiritualni oporavak. Planinske staze vode kroz scenične poglede i mirisne livade, nudeći poglede koji smiruju dušu i pune vas energijom",
+	"about_kozara_desc2": "Kozara je više od planine – to je mjesto gdje iskusite konekciju sa prirodom, mjesto gdje vrijeme uspori i misli postanu čiste. Svaki gost pronadje svoj momenat mira, bilo u tihim šumama, šapatu vjetra, ili zalasku sunca koje slika rumene tonove. Kozara vas poziva da stanete, udahnete duboko, i osjetitie sta prava sloboda znači.",
+
+	"blog_title": "Iz naših blogova",
+	"blog_desc": "Uskoro ...",
+
+	"faq_title": "Česta Pitanja",
+
+	"closing_title": "Spremni da iskusite tišinu?",
+	"closing_desc": "Rezervišite svoj boravak danas i otkrijte magiju Kozare.",
+
+	"booking_form_occupants_title": "Informacije o stanarima",
+	"booking_form_occupants_n_ad": "Broj Odraslih",
+	"booking_form_occupants_n_ch": "Broj Djece",
+	"booking_form_occupants_note": "Do 6 Odraslih, ili 4 Odrasle osobe i 2 Djece",
+
+	"booking_form_billing_title": "Informacije o naplati",
+	"booking_form_billing_address": "Adresa",
+	"booking_form_billing_city": "Grad",
+	"booking_form_billing_country": "Država",
+	"booking_form_billing_postcode": "Poštanski broj",
+	"booking_form_billing_fname": "Ime",
+	"booking_form_billing_lname": "Prezime",
+	"booking_form_billing_pnum": "Broj telefona",
+
+	"booking_form_btn": "Nastavi na uplatu",
+
+  "faq_heating_q": "Da li su kućice grijane i klimatizovane?",
+  "faq_heating_a": "Da. Sve kolibe imaju potpuno automatizovanu klimatizaciju i grijanje za udobnost tokom cijele godine, uključujući podno grijanje u dnevnom boravku, trpezariji, kuhinji i kupatilu.",
+  
+  "faq_kitchen_q": "Šta je uključeno u kuhinju?",
+  "faq_kitchen_a": "Kuhinje su potpuno opremljene za samostalnu pripremu hrane. Oprema uključuje ploču za kuvanje, veliku rernu, mikrotalasnu, veliki frižider sa zamrzivačem, mašinu za suđe, posuđe i čaše.",
+  
+  "faq_linens_q": "Trebam li ponijeti posteljinu ili peškire?",
+  "faq_linens_a": "Ne. Posteljina i peškiri od 100% pamuka su obezbijeđeni. Bade mantili i peškiri za bazen su dostupni na zahtjev.",
+  
+  "faq_wifi_q": "Ima li pristupa internetu?",
+  "faq_wifi_a": "Da, Wi-Fi pristup je obezbijeđen. Ime mreže i lozinka će vam biti uručeni prilikom prijave.",
+  
+  "faq_pool_heating_q": "Da li su bazeni privatni i grijani?",
+  "faq_pool_heating_a": "Da, svaka kućica ima svoj privatni bazen (sezonsko radno vreme).",
+  
+  "faq_lifeguard_q": "Ima li spasilac na bazenu?",
+  "faq_lifeguard_a": "Ne. Korištenje bazena je isključivo na vašu sopstvenu odgovornost. Roditelji moraju nadgledati djecu u svakom trenutku. Napominjemo da su u prostoru bazena dozvoljene samo plastične čaše.",
+  
+  "faq_checkin_q": "Koje je vrijeme prijave i odjave?",
+  "faq_checkin_a": "<b>Prijava (Check-in):</b> 14:00 – 22:00. <br><b>Odjava (Check-out):</b> Do 09:00.<br>Napomena: Rana prijava ili kasna odjava mogu biti mogući u zavisnosti od raspoloživosti; molimo kontaktirajte recepciju unaprijed.",
+  
+  "faq_deposit_q": "Da li je potreban sigurnosni depozit?",
+  "faq_deposit_a": "Da. Depozit od <b>250 € putem kreditne kartice</b> se predautorizuje prilikom prijave. Ovo je privremena rezervacija sredstava za pokriće štete ili neplaćenih dodatnih troškova i oslobađa se nekoliko dana nakon odjave ako nema prijavljenih problema.",
+  
+  "faq_cancel_q": "Kakva je politika otkazivanja?",
+  "faq_cancel_a": "<b>Standardna sezona (april–jun, sredina septembra–oktobar):</b> 25% povrata >14 dana prije dolaska; 50% povrata 7–13 dana prije. Nema povrata ako je <7 dana.<br><b>Vrhunac sezone (jul, avgust, praznici):</b> Nema mogućnosti otkazivanja ili povrata novca.",
+
+  "faq_payment_q": "Koje metode plaćanja prihvatate?",
+  "faq_payment_a": "Prihvatamo Visa, Mastercard i American Express kartice. Boravišna taksa se dodaje na rezervaciju. Dodatni troškovi se mogu platiti gotovinom ili karticom prilikom odjave.",
+
+  "faq_tax_q": "Postoji li boravišna taksa?",
+  "faq_tax_a": "Da, boravišna taksa se naplaćuje po osobi, po noćenju. Cijene su sljedeće:<br><b>Odrasli:</b> 1,30 € po noći.<br><b>Djeca (12 do 18 godina):</b> 0,80 € po noći.<br><b>Djeca (ispod 12 godina):</b> Besplatno.",
+
+  "faq_shops_q": "Gdje su najbliže prodavnice i restorani?",
+  "faq_shops_a": "<b>Turjak (cca. 4 km):</b> Najbliža prodavnica, restorani i kafići.<br><b>Gradiška (cca. 20 km):</b> Veći supermarketi, apoteke i glavne veze sa autoputem.",
+  
+  "faq_housekeeping_q": "Da li je uključeno čišćenje?",
+  "faq_housekeeping_a": "Može biti obezbijeđeno za boravke duže od 7 dana.",
+  
+  "faq_laundry_q": "Nudite li usluge pranja veša?",
+  "faq_laundry_a": "Na zahtjev.",
+  
+  "faq_baby_q": "Da li je dostupna oprema za bebe?",
+  "faq_baby_a": "Ne. Ne obezbjeđujemo krevetiće za bebe niti hranilice, stoga toplo savjetujemo roditeljima da ponesu sopstvenu opremu za svoju djecu.",
+  
+  "faq_pets_q": "Da li su dozvoljeni kućni ljubimci?",
+  "faq_pets_a": "Da, kućni ljubimci su dozvoljeni na zahtjev. Napominjemo da postoji dodatna naknada od 15 € po boravku.",
+  
+  "faq_parking_q": "Da li je dostupan parking?",
+  "faq_parking_a": "Da, postoji besplatan privatni parking direktno pored svake kolibe.",
+  
+  "faq_ev_q": "Imate li stanicu za punjenje električnih vozila?",
+  "faq_ev_a": "Trenutno ne, iako je jedna planirana za budućnost. Najbliža benzinska pumpa je na glavnom putu za Gradišku (cca. 18 km).",
+  
+  "faq_quiet_q": "Kada je vrijeme kućnog reda (tišine)?",
+  "faq_quiet_a": "Vrijeme tišine je od 22:00 do 08:00. (Izuzeci se mogu napraviti ako je jedna grupa rezervisala svih 5 kućica).",
+  
+  "faq_airport_q": "Koliko je udaljen aerodrom?",
+  "faq_airport_a": "Aerodrom Banja Luka je udaljen otprilike 45 minuta vožnje automobilom. Transferi i lokalne taksi usluge mogu se organizovati na zahtjev.",
+  
+  "faq_yearround_q": "Da li je rezort otvoren tokom cijele godine?",
+  "faq_yearround_a": "Da.",
+  
+  "faq_find_q": "Kako da pronađem Rezort?",
+  "faq_find_a": "Molimo pratite naše putokaze za Kozara Panoramic Resort.",
+
+    "footer-impressum": "Impresum",
+    "footer-terms": "Uslovi korišćenja",
+    "footer-privacy": "Politika privatnosti",
+    "footer-contact": "Kontakt",
+    
+
+"legal-info-h1": "Pravne informacije i politike",
+  "legal-info": "Impresum / Pravne informacije",
+  "impressum-operated": "Posluje pod firmom <strong>PEVA d.o.o.</strong>",
+  "impressum-address": "Registrovana adresa: Selo Kozara BB, Gradiška, 78400 Gradiška",
+  "impressum-company": "Matični broj kompanije: 11260985",
+  "impressum-tax" : "Poreski broj kompanije: 4405281640008",
+  "impressum-director": "Direktor: Dragana Truscott",
+  "impressum-contact": "<strong>Kontakt:</strong>",
+  "impressum-email": "E-mail: info@kozarapanoramicresort.ba",
+  "impressum-phone": "Telefon/WhatsApp: +387 66 767 622",
+  "terms-h2": "Uslovi korišćenja",
+  "terms-bookings": "Rezervacije:",
+  "terms-reservation": "Rezervacija je potvrđena kada gost dobije pismenu potvrdu putem e-maila ili aplikacija za razmjenu poruka.",
+  "terms-check": "Prijava / Odjava (Check-in / Check-out):",
+  "terms-check-in": "Prijava (Check-in): od 14:00",
+  "terms-check-out": "Odjava (Check-out): do 09:00",
+  "terms-early-check": "Rana prijava ili kasna odjava su moguće zavisno od raspoloživosti.",
+  "terms-payments": "Plaćanja:",
+  "terms-payment": "Plaćanje se vrši prilikom rezervacije.",
+  "terms-tax": "Boravišna taksa se dodaje odvojeno.",
+  "terms-cancellation": "Politika otkazivanja:",
+  "terms-cancellation-standard": "<strong>Standardna sezona (april–jun, sredina sept.–okt.):</strong> 25% povrata >14 dana prije dolaska; 50% povrata 7–13 dana ranije. Nema povrata ako je <7 dana.",
+  "terms-cancellation-peak": "<strong>Glavna sezona (jul, avgust, praznici):</strong> Nema mogućnosti otkazivanja ili povrata sredstava.",
+  "terms-damage": "Šteta i ponašanje:",
+  "terms-behaviour" : "Nepoštovanje utvrđenog kućnog reda može dovesti do trenutnog otkazivanja smještaja.",
+  "terms-guests": "Gosti su odgovorni za svaku štetu nanijetu kućici, unutrašnjosti, namještaju, opremi ili spoljašnjim površinama. Depozit od 250 € se zahtijeva pri prijavi.",
+  "terms-rights": "PEVA d.o.o. zadržava pravo naplate troškova popravke ili zamjene.",
+  "terms-pool": "Upotreba bazena:",
+  "termrms-pool-desc": "Svaka kućica ima privatni bazen.",
+  "terms-pool-risk": "Korišćenje bazena je isključivo na sopstveni rizik gosta.",
+  "terms-pool-lifeguard": "Nema spasioca na dužnosti.",
+  "terms-pool-children": "Djeca moraju biti pod nadzorom u svakom trenutku.",
+  "terms-pool-diving": "Zabranjeno ronjenje/skakanje.",
+  "terms-pool-glass": "Nema staklenih predmeta u blizini bazena.",
+  "terms-pool-safety": "Odricanje od odgovornosti za sigurnost bazena:",
+  "terms-pool-risk2": "Gosti koriste privatni bazen isključivo na sopstveni rizik.",
+  "terms-pool-supervision": "Djeca moraju biti pod nadzorom u svakom trenutku.",
+  "terms-pool-injuries": "PEVA d.o.o. ne snosi odgovornost za povrede nastale nepravilnim korišćenjem bazenskog prostora.",
+  "terms-smoking": "Pušenje:",
+  "terms-smoking-prohibited": "Pušenje je strogo zabranjeno unutar kućica.",
+  "terms-smoking-permitted": "Pušenje je dozvoljeno samo spolja.",
+  "terms-pets": "Kućni ljubimci:",
+  "terms-pets-allowed": "Kućni ljubimci su dozvoljeni uz naknadu od 15,00 € po ljubimcu i boravku.",
+  "terms-occupancy": "Maksimalna popunjenost:",
+  "terms-accomodate": "Svaka kućica može primiti:",
+  "terms-room1": "1 spavaću sobu sa bračnim krevetom",
+  "terms-room2": "1 spavaću sobu sa 2 odvojena kreveta",
+  "terms-room3": "2 odvojena kreveta na galeriji ili opcije kauča na razvlačenje",
+  "terms-room4": "Opcioni dušek u potkrovlju",
+  "terms-maximum": "Maksimalno: 6 osoba po kućici",
+  "privacy-policy": "Politika privatnosti",
+  "privacy-data": "PEVA d.o.o. prikuplja i obrađuje lične podatke samo za:",
+  "privacy-reservation": "Obradu rezervacija",
+  "privacy-legal": "Zakonsku registraciju gostiju",
+  "privacy-communication": "Komunikaciju vezanu za boravak",
+  "privacy-data-collected": "Prikupljeni podaci: ime, adresa, telefon, e-mail, informacije o ID/pasošu (zakonski zahtijevano).",
+  "privacy-data-personal": "Lični podaci se sigurno čuvaju i ne dijele sa trećim stranama, osim sa:",
+  "privacy-tourist": "Turističkom organizacijom Gradiška (zakonski zahtjev)",
+  "privacy-payment": "Provajderima plaćanja (ako je primjenljivo)",
+  "privacy-data-deletion": "Gosti mogu zatražiti brisanje svojih podataka nakon boravka, osim ako podaci moraju biti zadržani zbog zakonskih obaveza.",
+  "cookies": "Obavještenje o kolačićima (Cookie Notice)",
+  "cookies-notice1": "Ova veb stranica koristi kolačiće za osnovne funkcije i analitiku.",
+  "cookies-notice2": "Nastavkom pregledanja pristajete na upotrebu kolačića.",
+  "price-transparency": "Transparentnost cijena",
+  "price-transparency1": "Sve prikazane cijene ne uključuju boravišnu taksu (kao što je navedeno pri rezervaciji).",
+  "price-transparency2": "Grijanje, električna energija, bazeni, peškiri i Wi-Fi su uključeni u cijenu."
+}

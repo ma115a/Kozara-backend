@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en" class="sl-theme-light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KPR - Notice</title>
+    <link rel="stylesheet" href="/css/main.css"/>
+
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/light.css" />
+		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/menu/menu.js"></script>
+		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/menu-item/menu-item.js"></script>
+		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/dropdown/dropdown.js"></script>
+<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/drawer/drawer.js"></script>
+    <style>
+        /* --- CSS Extracted from main.css for this preview --- */
+        @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap");
+
+        /* Legal Info Section Styles */
+        .legal-info-section {
+            background-color: var(--bg-soft);
+            min-height: 100vh;
+            padding: 60px 10%;
+            box-sizing: border-box; /* Added for correct padding calculation */
+        }
+
+        .legal-content {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
+
+        .legal-content .section-title {
+            margin-top: 0;
+            margin-bottom: 40px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--sand-beige);
+            text-align: left;
+            font-family: "Playfair Display", serif;
+            font-size: 2.5rem;
+            color: var(--primary-green);
+        }
+
+        .legal-content h2 {
+            font-family: "Playfair Display", serif;
+            color: var(--earth-brown);
+            font-size: 1.8rem;
+            margin-top: 30px;
+            padding-top: 10px;
+            border-top: 1px dashed var(--sand-beige);
+        }
+
+        .legal-content h3 {
+            font-size: 1.3rem;
+            color: var(--primary-green);
+            margin-top: 20px;
+        }
+
+        .legal-content .info-block p,
+        .legal-content .info-block li {
+            line-height: 1.7;
+            font-size: 1rem;
+            color: #555;
+        }
+
+        .legal-content .info-block ul {
+            list-style: disc;
+            margin-left: 20px;
+            padding-left: 0;
+        }
+
+        .legal-content .info-block ul li {
+            margin-left: 20px;
+        }
+
+        .back-to-top {
+            display: inline-block;
+            color: var(--primary-green);
+            text-decoration: none;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding: 10px 0;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
+
+        .back-to-top:hover {
+            color: var(--earth-brown);
+            text-decoration: underline;
+        }
+
+        /* Footer Styles */
+        footer {
+            background-color: var(--primary-green);
+            color: #eee;
+            padding: 60px 20px;
+            text-align: center;
+            /* Margin removed for preview layout flow */
+        }
+
+        .footer-logo {
+            font-family: "Playfair Display", serif;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        
+        
+        /* Helper for preview navigation */
+        .preview-note {
+            background: #eee;
+            padding: 10px;
+            text-align: center;
+            font-size: 0.8rem;
+            border-bottom: 1px solid #ccc;
+        }
+
+        .nav-cta{
+            opacity: 0;
+        }
+    </style>
+</head>
+<body>
+
+    
+<header class="hero">
+			<div class="hero-overlay"></div>
+			<div class="nav-bar">
+				<div class="logo-text">KOZARA</div>
+				<div class="nav-links-container">
+					<a href="#chalets" class="nav-link" data-i8n="nav_chalets">Chalets</a>
+					<a href="#location" class="nav-link" data-i8n="nav_location">Location</a>
+					<!-- <a href="#reviews" class="nav-link" data-i8n="nav_reviews">Reviews</a> -->
+					<a href="#blog" class="nav-link" data-i8n="nav_blog">Blog</a>
+					<a href="#contact" class="nav-link" data-i8n="contact">Contact</a>
+                    <sl-dropdown>
+						<!-- NEW TRIGGER: span element to display the selected language -->
+						<span id="language_display_trigger" slot="trigger" class="nav-language-trigger">
+							<!-- Initial state, set to default EN -->
+							🇬🇧 EN
+						</span>
+						<sl-menu>
+							<sl-menu-item
+								><a href="https://kozarapanoramicresort.ba/notice/en">🇬🇧 EN (English)</a></sl-menu-item
+							>
+							<sl-menu-item
+								><a href="https://kozarapanoramicresort.ba/notice/sr">🇷🇸 SR (Srpski)</a></sl-menu-item
+							>
+							<sl-menu-item
+								><a href="https://kozarapanoramicresort.ba/notice/de">🇩🇪 DE (Deutsch)</a></sl-menu-item
+							>
+							<sl-menu-item
+								><a href="https://kozarapanoramicresort.ba/notice/it">🇮🇹 IT (Italiano)</a></sl-menu-item
+							>
+						</sl-menu>
+
+					</sl-dropdown>
+                    
+				</div>
+				<div>
+					<a class="nav-cta" data-i8n="nav_cta">Book Your Stay</a>
+				</div>
+			</div>
+			<div class="hero-content">
+				<div class="logo-area">KOZARA PANORAMIC RESORT</div>
+				<h2 data-i8n="subtitle">Your Sanctuary in Nature</h2>
+			</div>
+		</header>
+        <sl-drawer id="drawer_menu" label="Navigation">
+			<a href="#chalets" class="nav-link" onclick="drawer_menu.hide()" data-i8n="nav_chalets">Chalets</a>
+			<a href="#location" class="nav-link" onclick="drawer_menu.hide()" data-i8n="nav_location">Location</a>
+			<!--<a href="#reviews" class="nav-link" onclick="drawer_menu.hide()" data-i8n="nav_reviews">Reviews</a>-->
+			<a href="#blog" class="nav-link" onclick="drawer_menu.hide()" data-i8n="nav_blog">Blog</a>
+			<a href="#contact" class="nav-link" onclick="drawer_menu.hide()" data-i8n="contact">Contact</a>
+			<sl-dropdown>
+						<span id="language_display_trigger" slot="trigger" class="nav-language-trigger">
+							ðŸ‡¬ðŸ‡§ EN
+						</span>
+						<sl-menu>
+							<sl-menu-item
+								><a href="https://kozarapanoramicresort.ba/notice/en">🇬🇧 EN (English)</a></sl-menu-item
+							>
+							<sl-menu-item
+								><a href="https://kozarapanoramicresort.ba/notice/sr">🇷🇸 SR (Srpski)</a></sl-menu-item
+							>
+							<sl-menu-item
+								><a href="https://kozarapanoramicresort.ba/notice/de">🇩🇪 DE (Deutsch)</a></sl-menu-item
+							>
+							<sl-menu-item
+								><a href="https://kozarapanoramicresort.ba/notice/it">🇮🇹 IT (Italiano)</a></sl-menu-item
+							>
+						</sl-menu>
+
+					</sl-dropdown>
+		</sl-drawer>
+
+		<sl-icon-button id="btn_menu" src="./assets/amenities_icons/menu.svg" onclick="drawer_menu.show()"></sl-icon-button>
+
+
+    <!-- NEW SECTION: Legal Information (Visible by default here) -->
+        <section id="legal-info" class="legal-info-section">
+        <div class="legal-content">
+            <h1 class="section-title" data-i8n="legal-info-h1">Legal Information & Policies</h1>
+
+            <!-- Impressum / Legal Information -->
+            <h2 id="impressum" data-i8n="legal-info">Impressum / Legal Information</h2>
+            <div class="info-block">
+                <p><strong>Kozara Panoramic Resort</strong></p>
+                <p data-i8n="impressum-operated">Operated by <strong>PEVA d.o.o.</strong></p>
+                <p data-i8n="impressum-address">Registered address: Selo Kozara BB, Gradi�ka, 78400 Gradi�ka</p>
+                <p data-i8n="impressum-company">Company registration number: 11260985</p>
+                <p data-i8n="impressum-tax">Company tax number: 4405281640008</p>
+                <p data-i8n="impressum-director">Director: Dragana Truscott</p>
+                <p>Email: <a href="mailto:info@kozarapanoramicresort.ba">info@kozarapanoramicresort.ba</a></p>
+                <p data-i8n="impressum-phone">Phone/WhatsApp: +387 66 767 622</p>
+            </div>
+
+            <!-- Terms & Conditions -->
+            <h2 id="terms" data-i8n="terms-h2">Terms & Conditions</h2>
+            <div class="info-block">
+                <h3 data-i8n="terms-bookings">Bookings:</h3>
+                <p data-i8n="terms-reservation">A reservation is confirmed when the guest receives written confirmation via email or messaging apps.</p>
+            
+                <h3 data-i8n="terms-check">Check-in / Check-out:</h3>
+                <ul>
+                    <li data-i8n="terms-check-in">Check-in: from 14:00</li>
+                    <li data-i8n="terms-check-out">Check-out: until 09:00</li>
+                </ul>
+                <p data-i8n="terms-early-check">Early check-in or late check-out is possible depending on availability.</p>
+            
+                <h3 data-i8n="terms-payments">Payments:</h3>
+                <p data-i8n="terms-payment">Payment is made at booking.</p>
+                <p data-i8n="terms-tax">Tourist tax is added separately.</p>
+            
+                <h3 data-i8n="terms-cancellation">Cancellation Policy:</h3>
+                <p data-i8n="terms-cancellation-standard"><strong>Standard Season (April--June, Mid-Sept--Oct):</strong> 25% refund >14 days before arrival; 50% refund 7-13 days before. No refund if <7 days.</p>
+                <p data-i8n="terms-cancellation-peak"><strong>Peak Season (July, August, Holidays):</strong> No cancellations or refund available.</p>
+            
+                <h3 data-i8n="terms-damage">Damage & Behaviour:</h3>
+                <p data-i8n="terms-behaviour">Non-compliance with the established house rules may lead to the immediate cancellation of the accommodation.</p>
+                <p data-i8n="terms-guests">Guests are responsible for any damage caused to the chalet, interior, furniture, equipment, or outdoor areas. Deposit of a �250 required at check in.</p>
+                <p data-i8n="terms-rights">PEVA d.o.o. reserves the right to charge repair or replacement costs.</p>
+            
+                <h3 data-i8n="terms-pool">Pool Use:</h3>
+                <p data-i8n="termrms-pool-desc">Each chalet has a private pool.</p>
+                <ul>
+                    <li data-i8n="terms-pool-risk">Pool use is entirely at the guest's own risk.</li>
+                    <li data-i8n="terms-pool-lifeguard">No lifeguard on duty.</li>
+                    <li data-i8n="terms-pool-children">Children must be supervised at all times.</li>
+                    <li data-i8n="terms-pool-diving">No diving.</li>
+                    <li data-i8n="terms-pool-glass">No glass items near the pool.</li>
+                </ul>
+
+                <h3 data-i8n="terms-pool-safety">Pool Safety Disclaimer:</h3>
+                <p data-i8n="terms-pool-risk">Guests use the private pool entirely at their own risk.</p>
+                <p data-i8n="terms-pool-supervision">Children must be supervised at all times.</p>
+                <p data-i8n="terms-pool-injuries">PEVA d.o.o. is not liable for injuries resulting from improper use of the pool area.</p>
+
+                <h3 data-i8n="terms-smoking">Smoking:</h3>
+                <p data-i8n="terms-smoking-prohibited">Smoking is strictly prohibited inside the chalets.</p>
+                <p data-i8n="terms-smoking-permitted">Smoking is permitted outside only.</p>
+            
+                <h3 data-i8n="terms-pets">Pets:</h3>
+                <p data-i8n="terms-pets-allowed">Pets allowed at a �15.00 per pet and stay.</p>
+            
+                <h3 data-i8n="terms-occupancy">Maximum Occupancy:</h3>
+                <p data-i8n="terms-accomodate">Each chalet can accommodate:</p>
+                <ul>
+                    <li data-i8n="terms-room1">1 double bedroom</li>
+                    <li data-i8n="terms-room2">2 single beds bedroom</li>
+                    <li data-i8n="terms-room3">2 single beds in gallery or sofa bed options</li>
+                    <li data-i8n="terms-room4">Optional loft mattress</li>
+                </ul>
+                <p data-i8n="terms-maximum">Maximum: 6 persons per chalet</p>
+            </div>
+            
+            <!-- Privacy Policy -->
+            <h2 id="privacy" data-i8n="privacy-policy">Privacy Policy</h2>
+            <div class="info-block">
+                <p data-i8n="privacy-data">PEVA d.o.o. collects and processes personal data only for:</p>
+                <ul>
+                    <li data-i8n="privacy-reservation">Reservation processing</li>
+                    <li data-i8n="privacy-legal">Legal registration of guests</li>
+                    <li data-i8n="privacy-communication">Communication related to the stay</li>
+                </ul>
+                <p data-i8n="privacy-data-collected">Data collected: name, address, phone, email, ID/passport information (required by law).</p>
+                <p data-i8n="privacy-data-personal">Personal data is stored securely and not shared with third parties except:</p>
+                <ul>
+                    <li data-i8n="privacy-tourist">Tourist Organisation of Gradi�ka (legal requirement)</li>
+                    <li data-i8n="privacy-payment">Payment providers (if applicable)</li>
+                </ul>
+                <p data-i8n="privacy-data-deletion">Guests may request deletion of their data after their stay, except where data must be retained for legal obligations.</p>
+            </div>
+
+            <!-- Cookie Notice -->
+            <h2 id="cookies" data-i8n="cookies">Cookie Notice</h2>
+            <div class="info-block">
+                <p data-i8n="cookies-notice1">This website uses cookies for basic functionality and analytics.</p>
+                <p data-i8n="cookies-notice2">By continuing to browse, you agree to the use of cookies.</p>
+            </div>
+            
+            <!-- Price Transparency -->
+            <h2 id="price" data-i8n="price-transparency">Price Transparency</h2>
+            <div class="info-block">
+                <p data-i8n="price-transparency1">All prices shown exclude tourist tax (as stated at booking).</p>
+                <p data-i8n="price-transparency2">Heating, electricity, pools, towels, and Wi-Fi are included in the price.</p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <footer id="contact">
+        <div class="footer-logo">KOZARA PANORAMIC RESORT</div>
+        <!-- Updated Footer Links -->
+        <div class="footer-links">
+            <a href="#impressum" data-i8n="footer-impressum">Impressum</a> |
+            <a href="#terms" data-i8n="footer-terms">Terms & Conditions</a> |
+            <a href="#privacy" data-i8n="footer-privacy">Privacy Policy</a> |
+            <a href="#impressum" data-i8n="footer-contact">Contact</a>
+        </div>
+        <p>© Kozara Panoramic Resort – PEVA d.o.o. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Simple script to simulate navigation for preview
+        document.querySelectorAll('.footer-links a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                const target = document.getElementById(targetId);
+                if(target){
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        const LANGUAGE_MAP = {
+                'en': { flag: '🇬🇧', abbr: 'EN' },
+                'sr': { flag: '🇷🇸', abbr: 'SR' },
+                'de': { flag: '🇩🇪', abbr: 'DE' },
+                'it': { flag: '🇮🇹', abbr: 'IT' }
+            }
+            
+            let langData = {}
+
+        window.addEventListener("DOMContentLoaded", () => {
+            const pathSegments = window.location.pathname.split('/').filter(Boolean);
+            let lang_code = pathSegments.pop() || 'en';
+            lang_code = lang_code.toLowerCase();
+            console.log(lang_code)
+    
+            // Fallback to 'en' if the segment is not a valid language code
+            if (!LANGUAGE_MAP.hasOwnProperty(lang_code)) {
+                lang_code = 'en'; 
+            }
+    
+            // The base URL for the homepage in the current language
+            const homeBaseUrl = `/${lang_code}`;
+            console.log(homeBaseUrl)				
+			load_lang(lang_code)
+			
+			function updateNavLinks(selector) {
+                document.querySelectorAll(selector).forEach(link => {
+                    const targetAnchor = link.getAttribute('href'); // e.g., "#chalets"
+                    
+                    // Check if the link is a local anchor link for a main section
+                    if (targetAnchor && targetAnchor.startsWith('#') && targetAnchor !== '#') {
+                        // Update href: "#chalets" becomes "/de#chalets"
+                        link.setAttribute('href', homeBaseUrl + targetAnchor); 
+                    }
+                });
+            }
+            
+            // Update links in the main header navigation
+            updateNavLinks('.nav-bar .nav-links-container .nav-link');
+            
+            // Update links in the drawer (mobile) navigation
+            updateNavLinks('#drawer_menu .nav-link');
+    
+            // Update the 'Book Your Stay' CTA link 
+            document.querySelectorAll('.nav-cta').forEach(link => {
+                // Set href to the language-specific homepage if not already set
+                if (!link.getAttribute('href') || link.getAttribute('href') === '#') {
+                     link.setAttribute('href', homeBaseUrl); 
+                }
+            });
+        })
+        
+        
+
+        async function load_lang(lang_code) {
+				let langpack = await fetch("https://kozarapanoramicresort.ba/langpack/" + lang_code)
+				if (!langpack.ok) return
+				langData = await langpack.json()
+				console.log(langData)
+
+                const displayEl = document.getElementById('language_display_trigger')
+                if (displayEl) {
+                    const lang = LANGUAGE_MAP[lang_code] || LANGUAGE_MAP['en'];
+                    displayEl.innerHTML = `${lang.flag} ${lang.abbr}`;
+                }
+				document.querySelectorAll("[data-i8n]").forEach(el => {
+					el.innerHTML = langData[el.dataset.i8n]
+				})
+				document.querySelectorAll("[data-i8nSL]").forEach(el => {
+					el.setAttribute("label", langData[el.dataset.i8nsl])
+				})
+                document.querySelectorAll("[data-i8n-summary]").forEach(el => {
+                        const key = el.dataset.i8nSummary; // Note: dataset camelCases the name
+                        if (langData[key]) el.setAttribute("summary", langData[key]);
+                });
+			}
+
+    </script>
+</body>
+</html>

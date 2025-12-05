@@ -38,6 +38,10 @@ if (process.env.NODE_ENV != 'production') {
 
 
 
+
+
+
+
 const app = express()
 
 
@@ -107,7 +111,8 @@ function calculatePrice(checkIn, checkOut, chalet, code) {
 
 
     const getBasePrice = db.prepare(`SELECT * FROM base_prices WHERE chalet_id = ?`)
-    const basePrice = db.get(chalet)
+    const basePrice = getBasePrice.get(chalet)
+    logger.info(basePrice)
 
     // const getSpecialPrices = db.prepare(`SELECT * FROM special_prices WHERE ((date(start_date) >= ? AND date(start_date) <= ?) OR (date(end_date) >= ? AND date(end_date) <= ?)) AND chalet = ? ORDER BY start_date`)
     // const specialPrices = getSpecialPrices.all(checkIn, checkOut, checkIn, checkOut, Number(chalet))
@@ -115,8 +120,17 @@ function calculatePrice(checkIn, checkOut, chalet, code) {
     const specialPrices = getSpecialPrices.all(checkOut, checkIn, Number(chalet));
 
 
-    const getDiscountCode = db.prepare(`SELECT * FROM discount_codes WHERE code = ? AND chalet_id = ?`)
-    const discountCode = getDiscountCode.get(code, Number(chalet))
+    const getDiscountCode = db.prepare(`SELECT * FROM discount_codes WHERE code = ?`)
+    let discountCode = getDiscountCode.get(code)
+
+    if (discountCode) {
+        const chaletIds = JSON.parse(discountCode.chalets)
+        if (!chaletIds.contains(Number(chalet))) {
+            discountCode = null;
+        }
+    }
+
+
 
     let currentDate = new Date(checkIn)
     const checkOutDate = new Date(checkOut)
@@ -133,11 +147,11 @@ function calculatePrice(checkIn, checkOut, chalet, code) {
                 price: specialPrice.price
             })
         } else {
-            totalPrice += Number(basePrice)
+            totalPrice += Number(basePrice.price)
             logger.info({
                 message: 'no special price, base price used',
                 current_date: currentDate,
-                price: basePrice
+                price: basePrice.price
             })
         }
         currentDate.setDate(currentDate.getDate() + 1)
@@ -235,8 +249,8 @@ app.get('/getdata', (req, res) => {
     const specialPrices = getSpecialPrices.all()
 
 
-    const getDiscounts = db.prepare(`SELECT * FROM discount_codes WHERE valid_from <= date('now') AND valid_to >= date('now') AND usage_count < max_usage_count`)
-    const discounts = getDiscounts.all();
+    // const getDiscounts = db.prepare(`SELECT * FROM discount_codes WHERE valid_from <= date('now') AND valid_to >= date('now') AND usage_count < max_usage_count`)
+    // const discounts = getDiscounts.all();
 
     const getBasePrices = db.prepare(`SELECT * FROM base_prices`)
     const basePrices = getBasePrices.all();
@@ -247,7 +261,7 @@ app.get('/getdata', (req, res) => {
     for (let index = 1; index <= 5; index++) {
         returnData[index.toString()] = {
             reservedDates: [],
-            discounts: [],
+            // discounts: [],
             specialDates: []
         }
 
@@ -271,14 +285,14 @@ app.get('/getdata', (req, res) => {
         })
     })
 
-    discounts.forEach(d => {
-        const discountData = {
-            value: d.discount_value,
-            type: d.discount_type,
-            discount_id: d.id
-        }
-        returnData[d.chalet_id].discounts.push(discountData)
-    })
+    // discounts.forEach(d => {
+    //     const discountData = {
+    //         value: d.discount_value,
+    //         type: d.discount_type,
+    //         discount_id: d.id
+    //     }
+    //     returnData[d.chalet_id].discounts.push(discountData)
+    // })
 
     basePrices.forEach(price => {
         returnData[price.chalet_id].basePrice = price.price
@@ -358,7 +372,7 @@ app.get('/calendartest', async (req, res) => {
 
 })
 
-app.post('/payment', express.json({ type: 'application/json' }), async (req, res) => {
+app.post('/payment', express.json(), async (req, res) => {
 
     logger.info(req.body)
     const date = new Date()
@@ -366,11 +380,16 @@ app.post('/payment', express.json({ type: 'application/json' }), async (req, res
 
 
     const priceData = calculatePrice(req.body.check_in, req.body.check_out, req.body.chalet, req.body.discount)
+    // const priceData = {
+    //     discountCode: "OPA",
+    //     totalPrice: 400
+    // }
     logger.info(priceData)
 
 
     const requestBody = {
-        merchantTransactionId: uniqueId, amount: `${priceData.totalPrice}`, errorUrl: "https://9a1c924a8d8d.ngrok-free.app/error", successUrl: "https://9a1c924a8d8d.ngrok-free.app/", callbackUrl: "https://9a1c924a8d8d.ngrok-free.app/callback", currency: "BAM", transactionToken: `${req.body.token}`, customer: {
+        merchantTransactionId: uniqueId,
+        amount: `${priceData.totalPrice}`, errorUrl: "https://28a8206d274f.ngrok-free.app/error", successUrl: "https://28a8206d274f.ngrok-free.app/", callbackUrl: "https://28a8206d274f.ngrok-free.app/callback", currency: "BAM", transactionToken: `${req.body.token}`, customer: {
             billingAddress1: `${req.body.billingAddress}`,
             billingCity: `${req.body.billingCity}`,
             billingCountry: `${req.body.country}`,
@@ -526,16 +545,18 @@ app.put("/updatebaseprice", express.json(), (req, res) => {
 app.post('/adddiscountcode', express.json(), (req, res) => {
 
 
-    const getDiscounts = db.prepare(`SELECT * FROM discount_codes WHERE date(?) < valid_to AND date(?) > valid_from`)
-    const existingDiscounts = getDiscounts.all(req.body.valid_from, req.body.valid_to)
-    logger.info(existingDiscounts)
-    if (existingDiscounts.length == 0) {
-        req.body.chalets.forEach(chalet => {
-            const addDiscountCode = db.prepare(`INSERT INTO discount_codes (code, valid_from, valid_to, max_usage_count, discount_type, discount_value, chalet_id) VALUES (?,?,?,?,?,?,?)`)
-            addDiscountCode.run(req.body.code, req.body.valid_from, req.body.valid_to, req.body.max_usage, req.body.discount_type, req.body.value, chalet)
-        })
-        res.status(200).send("Discount code added sucessfully")
-    } else res.status(200).send("Timeframes for discount codes cannot overlap")
+
+
+    const getDiscountWithCode = db.prepare(`SELECT * FROM discount_codes WHERE code = ?`)
+    const existingDiscountWithCode = getDiscountWithCode.all(req.body.code)
+    if (existingDiscountWithCode.length != 0) {
+
+        res.status(200).send("Discount code with that name already exists!")
+    }
+
+    const addDiscountCode = db.prepare(`INSERT INTO discount_codes (code, valid_from, valid_to, max_usage_count, discount_type, discount_value, chalets) VALUES (?,?,?,?,?,?,?)`)
+    addDiscountCode.run(req.body.code, req.body.valid_from, req.body.valid_to, req.body.max_usage, req.body.discount_type, req.body.value, JSON.stringify(req.body.chalets))
+    res.status(200).send("Discount code added sucessfully")
 
 
 })
@@ -544,8 +565,8 @@ app.post('/adddiscountcode', express.json(), (req, res) => {
 app.post('/deletediscountcode', express.json(), (req, res) => {
 
 
-    const deleteDiscontCode = db.prepare(`DELETE FROM discount_codes WHERE valid_from = ? AND valid_to = ?`)
-    const result = deleteDiscontCode.run(req.body.valid_from, req.body.valid_to)
+    const deleteDiscontCode = db.prepare(`DELETE FROM discount_codes WHERE code = ?`)
+    const result = deleteDiscontCode.run(req.body.code)
     logger.info(result)
     if (result.changes >= 1) res.status(200).send('Discount code deleted sucessfully')
 
@@ -556,6 +577,7 @@ app.get('/getdiscounts', (req, res) => {
 
     const getDiscounts = db.prepare('SELECT * FROM discount_codes')
     const discounts = getDiscounts.all()
+    logger.info(discounts);
 
     res.status(200).json(discounts)
 })

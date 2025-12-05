@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Booking Confirmed - Kozara Panoramic Resort</title>
+		
+        <!-- Reusing your existing main CSS for fonts, vars, and the .hero styles -->
+		<link rel="stylesheet" href="/css/main.css" />
+        
+        <!-- Import Fonts -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/light.css" />
+		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/icon/icon.js"></script>
+        <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/button/button.js"></script>
+
+		<style>
+            /* Reset body to allow the hero to take full height */
+            body {
+                margin: 0;
+                overflow-x: hidden;
+            }
+
+            /* Customizing the existing .hero class for the success page */
+            .hero.success-layout {
+                height: 100vh; /* Full viewport height */
+                min-height: 800px;
+                /* Re-declaring the background image from index.html specifically here to ensure it loads */
+                background-image: url("../assets/Scenery/lander.webp");
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            /* Ensure content sits above the overlay */
+            .confirmation-card {
+                position: relative;
+                z-index: 10; 
+                background: white;
+                width: 90%;
+                max-width: 1000px;
+                border-radius: 8px;
+                overflow: hidden;
+                box-shadow: 0 25px 50px rgba(0,0,0,0.5); /* Stronger shadow for depth against dark bg */
+                display: flex;
+                flex-direction: row;
+                margin-top: 60px; /* Offset for navbar */
+            }
+
+                       /* --- Card Styles (Same as before) --- */
+
+            /* Left Side: Image */
+            .card-image {
+                flex: 1;
+                min-width: 400px;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .card-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                position: absolute;
+                top: 0;
+                left: 0;
+            }
+
+            /* Right Side: Content */
+            .card-content {
+                flex: 1;
+                padding: 60px 50px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+            }
+
+            .success-icon {
+                font-size: 3rem;
+                color: var(--primary-green, #364d14);
+                margin-bottom: 20px;
+            }
+
+            h1 {
+                font-family: "Playfair Display", serif;
+                color: var(--primary-green, #364d14);
+                font-size: 2.5rem;
+                margin: 0 0 10px 0;
+            }
+
+            .subtitle {
+                color: var(--muted-green, #5c6d4c);
+                font-size: 1.1rem;
+                line-height: 1.6;
+                margin-bottom: 30px;
+            }
+
+            /* Data Summary Table */
+            .summary-box {
+                background-color: var(--bg-soft, #f8f9fa);
+                border-left: 4px solid var(--earth-brown, #968067);
+                padding: 25px;
+                margin-bottom: 30px;
+                border-radius: 0 4px 4px 0;
+            }
+
+            .summary-row {
+                display: flex;
+                justify-content: space-between;
+                margin-bottom: 15px;
+                font-size: 0.95rem;
+            }
+            .summary-row:last-child {
+                margin-bottom: 0;
+            }
+
+            .label {
+                color: #888;
+                text-transform: uppercase;
+                font-size: 0.75rem;
+                font-weight: 700;
+                letter-spacing: 1px;
+            }
+
+            .value {
+                font-weight: 700;
+                color: #333;
+                text-align: right;
+            }
+
+            .value.highlight {
+                color: var(--primary-green, #364d14);
+                font-size: 1.1rem;
+            }
+
+            .total-row {
+                border-top: 1px solid #ddd;
+                padding-top: 15px;
+                margin-top: 15px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+            .total-price {
+                font-family: "Playfair Display", serif;
+                font-size: 1.5rem;
+                color: var(--primary-green, #364d14);
+                font-weight: 700;
+            }
+
+            /* Action Buttons */
+            .actions {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 15px;
+            }
+
+            sl-button::part(base) {
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                font-weight: 700;
+            }
+
+            .btn-home::part(base) {
+                border-color: var(--earth-brown, #968067);
+                color: var(--earth-brown, #968067);
+            }
+            
+            .btn-print::part(base) {
+                background-color: var(--primary-green, #364d14);
+                border-color: var(--primary-green, #364d14);
+                color: white;
+            }
+            .btn-print:hover::part(base) {
+                background-color: var(--earth-brown, #968067);
+                border-color: var(--earth-brown, #968067);
+            }
+
+            /* Mobile / Stacked Layout */
+            @media (max-width: 1000px) {
+                .confirmation-card {
+                    flex-direction: column;
+                    max-width: 600px;
+                    margin-top: 80px; /* Space for mobile nav/logo */
+                    margin-bottom: 40px;
+                }
+
+                .card-image {
+                    height: 250px;
+                    min-width: auto;
+                    flex: none;
+                }
+                
+                .card-content {
+                    padding: 40px 30px;
+                }
+
+                h1 {
+                    font-size: 2rem;
+                }
+                
+                /* Ensure navbar fits */
+                .nav-links-container {
+                    display: none; /* Hide links on mobile per main.css */
+                }
+            }
+            
+            /* Print Styles */
+            @media print {
+                .hero.success-layout {
+                    height: auto;
+                    display: block;
+                    background: none;
+                }
+                .hero-overlay, .nav-bar, .card-image, .actions {
+                    display: none;
+                }
+                .confirmation-card {
+                    box-shadow: none;
+                    border: 1px solid #ddd;
+                    margin: 0;
+                    width: 100%;
+                    max-width: none;
+                }
+                body {
+                    background: white;
+                }
+            }
+		</style>
+	</head>
+	<body>
+
+        <!-- Hero Wrapper -->
+		<div class="hero success-layout">
+            <div class="hero-overlay"></div>
+
+
+            <!-- Success Card -->
+            <div class="confirmation-card">
+                
+                <!-- Left: Visual (Chalet Image) -->
+                <div class="card-image">
+                    <img src="assets/Carousel/image08180.webp" alt="Kozara Chalet View">
+                </div>
+
+                <!-- Right: Details -->
+                <div class="card-content">
+                    <div class="success-icon">
+                        <sl-icon src="/assets/amenities_icons/circle-check.svg"></sl-icon>
+                    </div>
+                    
+                    <h1>Booking Confirmed</h1>
+                    <p class="subtitle">
+                        Thank you, <span id="customer-name">Guest</span>! Your sanctuary in nature is secured. A confirmation email has been sent to <span id="customer-email">your email</span>.
+                    </p>
+
+                    <div class="summary-box">
+                        <div class="summary-row">
+                            <span class="label">Booking Reference</span>
+                            <span class="value highlight" id="booking-ref">#{{bookingId}}</span>
+                        </div>
+                        
+                        <div class="summary-row">
+                            <span class="label">Check-in</span>
+                            <span class="value" id="date-in">{{checkInDate}}</span>
+                        </div>
+                        
+                        <div class="summary-row">
+                            <span class="label">Check-out</span>
+                            <span class="value" id="date-out">{{checkOutDate}}</span>
+                        </div>
+
+                        <div class="summary-row">
+                            <span class="label">Guests</span>
+                            <span class="value" id="guest-count">{{guestsCount}}</span>
+                        </div>
+
+                        <div class="total-row">
+                            <span class="label">Total Paid</span>
+                            <span class="total-price" id="total-price">{{price}} BAM</span>
+                        </div>
+                    </div>
+
+                    <div class="actions">
+						<button class="btn-view">Return home</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // Populate data from URL parameters
+            window.addEventListener('DOMContentLoaded', () => {
+                const urlParams = new URLSearchParams(window.location.search);
+                
+                if(urlParams.has('ref')) document.getElementById('booking-ref').textContent = '#' + urlParams.get('ref');
+                if(urlParams.has('name')) document.getElementById('customer-name').textContent = urlParams.get('name');
+                if(urlParams.has('email')) document.getElementById('customer-email').textContent = urlParams.get('email');
+                if(urlParams.has('in')) document.getElementById('date-in').textContent = urlParams.get('in');
+                if(urlParams.has('out')) document.getElementById('date-out').textContent = urlParams.get('out');
+                if(urlParams.has('price')) document.getElementById('total-price').textContent = '$' + urlParams.get('price');
+            });
+        </script>
+	</body>
+</html>

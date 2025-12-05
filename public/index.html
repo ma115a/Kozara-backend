@@ -1,1241 +1,1308 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Kozara Panoramic Resort</title>
-	<link rel="stylesheet" href="./css/main.css">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/light.css" />
-	<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/shoelace-autoloader.js"></script>
-	<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/dialog/dialog.js"></script>
-	<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.18/index.global.min.js'></script>
-	<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
-	<script data-main="payment-js" src="https://gateway.bankart.si/js/integrated/payment.1.3.min.js"></script>
-	<script>
-		let calendar;
-		const chaletnameindex = {
-			"Cloud Chalet": 1,
-			"Sky Chalet": 2,
-			"Star Chalet": 3,
-			"Sun Chalet": 4,
-			"Wind Chalet": 5,
-			"1": "Cloud Chalet",
-			"2": "Sky Chalet",
-			"3": "Star Chalet",
-			"4": "Sun Chalet",
-			"5": "Wind Chalet",
-		}
-		// TODO: AJAX this data
-		let dummydata = {
-			"1": {
-				"reservedDates": [
-					{
-						"check_in": "2025-08-15",
-						"check_out": "2025-08-20"
-					},
-					{
-						"check_in": "2025-08-25",
-						"check_out": "2025-08-30"
-					},
-					{
-						"check_in": "2025-09-15",
-						"check_out": "2025-09-30"
-					}
-				],
-				"basePrice": 10,
-				"specialDates": [
-					{
-						"start": "2025-08-23",
-						"end": "2025-08-28",
-						"price": 125
-					}
-				]
-			},
-			"2": {
-				"reservedDates": [
-					{
-						"check_in": "2025-08-05",
-						"check_out": "2025-08-10"
-					}
-				],
-				"basePrice": 20,
-				"specialDates": []
-			},
-			"3": {
-				"reservedDates": [],
-				"basePrice": 30,
-				"specialDates": []
-			},
-			"4": {
-				"reservedDates": [],
-				"basePrice": 40,
-				"specialDates": []
-			},
-			"5": {
-				"reservedDates": [],
-				"basePrice": 50,
-				"specialDates": []
+<html lang="en" class="sl-theme-light">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Kozara Panoramic Resort</title>
+		<link rel="stylesheet" href="/css/vanilla_calendar.css" />
+		<link rel="stylesheet" href="/css/main.css" />
+		<script src="/js/vanilla_calendar.js"></script>
+		<script src="/js/vcUtils.js"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/light.css" />
+		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/carousel/carousel.js"></script>
+		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/carousel-item/carousel-item.js"></script>
+		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/icon/icon.js"></script>
+		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/dialog/dialog.js"></script>
+		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/icon-button/icon-button.js"></script>
+		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/input/input.js"></script>
+		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/select/select.js"></script>
+		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/option/option.js"></script>
+		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/tag/tag.js"></script>
+		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/popup/popup.js"></script>
+		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/divider/divider.js"></script>
+		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/alert/alert.js"></script>
+		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/button/button.js"></script>
+		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/spinner/spinner.js"></script>
+		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/switch/switch.js"></script>
+		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/drawer/drawer.js"></script>
+		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/menu/menu.js"></script>
+		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/menu-item/menu-item.js"></script>
+		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/dropdown/dropdown.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/libphonenumber-js@1.12.29/bundle/libphonenumber-js.min.js"></script>
+		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/details/details.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+		<script type="application/ld+json">
+			{
+				"@context": "https://schema.org",
+				"@type": "Resort",
+				"name": "Kozara Panoramic Resort",
+				"description": "Luxury mountain chalets with pool, spa and hiking trails",
+				"url": "https://www.kozarapanoramicresort.ba",
+				"image": "<MISSING>",
+				"address": {
+					<MISSING>
+					"@type": "PostalAddress",
+					"streetAddress": "123 Mountain Road",
+					"addressLocality": "Snow Valley",
+					"addressRegion": "CA",
+					"postalCode": "98765",
+					"addressCountry": "BA"
+				},
 			}
-		}
-		// temporary AJAX call
-		dummydata = {"1":{"reservedDates":[{"check_in":"2025-08-15","check_out":"2025-08-20"},{"check_in":"2025-08-25","check_out":"2025-08-30"},{"check_in":"2025-09-15","check_out":"2025-09-30"}],"discounts":[{"value":15,"type":"percentage","discount_id":11},{"value":30,"type":"percentage","discount_id":17}],"specialDates":[{"start":"2025-08-10","end":"2025-08-15","price":200},{"start":"2025-08-15","end":"2025-08-20","price":300},{"start":"2025-08-20","end":"2025-08-25","price":400}],"basePrice":10},"2":{"reservedDates":[{"check_in":"2025-08-05","check_out":"2025-08-10"},{"check_in":"2025-08-05","check_out":"2025-08-10"},{"check_in":"2025-08-05","check_out":"2025-08-10"},{"check_in":"2025-08-05","check_out":"2025-08-10"},{"check_in":"2025-08-05","check_out":"2025-08-10"},{"check_in":"2025-08-05","check_out":"2025-08-10"},{"check_in":"2025-08-05","check_out":"2025-08-10"},{"check_in":"2025-08-05","check_out":"2025-08-10"},{"check_in":"2025-08-05","check_out":"2025-08-10"},{"check_in":"2025-08-05","check_out":"2025-08-10"},{"check_in":"2025-08-05","check_out":"2025-08-10"},{"check_in":"2025-08-05","check_out":"2025-08-10"}],"discounts":[{"value":15,"type":"percentage","discount_id":12},{"value":30,"type":"percentage","discount_id":18}],"specialDates":[{"start":"2025-08-20","end":"2025-08-25","price":400}],"basePrice":20},"3":{"reservedDates":[],"discounts":[{"value":30,"type":"percentage","discount_id":19}],"specialDates":[{"start":"2025-08-20","end":"2025-08-25","price":400}],"basePrice":30},"4":{"reservedDates":[],"discounts":[],"specialDates":[{"start":"2025-08-20","end":"2025-08-25","price":400}],"basePrice":40},"5":{"reservedDates":[],"discounts":[{"value":20,"type":"percentage","discount_id":13}],"specialDates":[{"start":"2025-08-20","end":"2025-08-25","price":400}],"basePrice":50}}
-		
-		// parse dates into date objects
-		for (const [key, val] of Object.entries(dummydata)) {
-			val.specialDates.forEach(range => {
-				range.start = new Date(range.start)
-				range.end = new Date(range.end)
-			})
-		}
+		</script>
+		<!-- html meta -->
+		<meta name="robots" content="noindex, nofollow" />
+		<meta name="description" content="Luxury mountain chalets with pool, spa and hiking trails. Nestled in the heart of Mount Kozara, our resort offers an unforgettable experience where every detail reflects warmth, care, and elegance." />
+		<!-- opengraph -->
+		<meta property="og:title" content="Book Your Chalet at Kozara Panoramic Resort" />
+		<meta property="og:description" content="Luxury mountain chalets with pool, spa and hiking trails. Nestled in the heart of Mount Kozara, our resort offers an unforgettable experience where every detail reflects warmth, care, and elegance." />
+		<meta property="og:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2070&auto=format&fit=crop" />
+		<meta property="og:url" content="https://kozarapanoramicresort.ba/en" />
+		<meta property="og:type" content="website" />
+		<!-- twitter -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content="Book Your Chalet at Kozara Panoramic Resort" />
+		<meta name="twitter:description" content="Luxury mountain chalets with pool, spa and hiking trails. Nestled in the heart of Mount Kozara, our resort offers an unforgettable experience where every detail reflects warmth, care, and elegance." />
+		<meta name="twitter:image" content="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=2070&auto=format&fit=crop" />
+		<!-- lang -->
+		<link rel="alternate" href="https://kozarapanoramicresort.ba/en" hreflang="en" />
+		<link rel="alternate" href="https://kozarapanoramicresort.ba/de" hreflang="de" />
+		<link rel="alternate" href="https://kozarapanoramicresort.ba/it" hreflang="it" />
+		<link rel="alternate" href="https://kozarapanoramicresort.ba/ba" hreflang="ba" />
+		<link rel="alternate" href="https://kozarapanoramicresort.ba/en" hreflang="x-default" />
+	</head>
+	<body>
+		<div href="#" class="floating-book-btn" onclick="open_booking()" data-i8n="floating">Book Now</div>
 
-		document.addEventListener('DOMContentLoaded', function() {
-			let calendarEl = document.getElementById('calendar');
-			calendar = new FullCalendar.Calendar(calendarEl, {
-					initialView: 'dayGridMonth',
-					selectable: true,
-					selectOverlap: false,
-					aspectRatio: 'unset',
-					height: '40vh',
-					expandRows: true,
-					selectLongPressDelay: 500,
-					unselectAuto: false,
-					datesSet: () => {
-						setTimeout(() => {
-							writePrices()
-						}, 25);
-					},
-					eventDidMount: e => {
-						e.el.setAttribute("data-eventID", e.event.id)
-					},
-					select: info => {
-						pay_form.querySelector("[name='check_in']").value = info.startStr
-						pay_form.querySelector("[name='check_out']").value = info.end.toISOString().substring(0,10)
-						calculate_total()
-					},
-					unselect: () => {
-						total.innerText = "Hold & drag to select dates on the calendar"
-						pay_form.querySelector("[name='check_in']").value = ""
-						pay_form.querySelector("[name='check_out']").value = ""
-					},
-					selectAllow: info => {
-						if (info.start < new Date()) {
-							return false
-						}
-						return true
-					}
-				});
-			
-			calendar.render();
-		});
+		<header class="hero">
+			<div class="hero-overlay"></div>
+			<div class="nav-bar">
+				<div class="logo-text">KOZARA</div>
+				<div class="nav-links-container">
+					<a href="#chalets" class="nav-link" data-i8n="nav_chalets">Chalets</a>
+					<a href="#location" class="nav-link" data-i8n="nav_location">Location</a>
+					<!-- <a href="#reviews" class="nav-link" data-i8n="nav_reviews">Reviews</a> -->
+					<a href="#blog" class="nav-link" data-i8n="nav_blog">Blog</a>
+					<a href="#contact" class="nav-link" data-i8n="contact">Contact</a>
+                    <sl-dropdown>
+						<!-- NEW TRIGGER: span element to display the selected language -->
+						<span id="language_display_trigger" slot="trigger" class="nav-language-trigger">
+							<!-- Initial state, set to default EN -->
+							🇬🇧 EN
+						</span>
+						<sl-menu>
+							<sl-menu-item
+								><a href="https://kozarapanoramicresort.ba/en">🇬🇧 EN (English)</a></sl-menu-item
+							>
+							<sl-menu-item
+								><a href="https://kozarapanoramicresort.ba/sr">🇷🇸 SR (Srpski)</a></sl-menu-item
+							>
+							<sl-menu-item
+								><a href="https://kozarapanoramicresort.ba/de">🇩🇪 DE (Deutsch)</a></sl-menu-item
+							>
+							<sl-menu-item
+								><a href="https://kozarapanoramicresort.ba/it">🇮🇹 IT (Italiano)</a></sl-menu-item
+							>
+						</sl-menu>
 
-		function writePrices() {
-			if (!pay_dialog.dataset.cid) return
-
-			let count = 0;
-			let event_count = 0;
-			let key_override;
-			const base_price = dummydata[pay_dialog.dataset.cid].basePrice
-			const special_dates = dummydata[pay_dialog.dataset.cid].specialDates
-
-			calendar.el.querySelectorAll("td.fc-day:not(.fc-day-past)").forEach(cell => {
-				if (cell.querySelector(".BALLS")) cell.querySelector(".BALLS").remove()
-				if (event_count) {
-					event_count--
-					return
-				}
-				const key = cell.dataset.date.substring(5)
-				if (cell.querySelector(".fc-event")) {
-					const event = calendar.getEventById(cell.querySelector(".fc-event").dataset.eventid)
-					event_count = Math.round((event.end - new Date(cell.dataset.date)) / 86400000)-1
-					return
-				}
-				const newdiv = document.createElement("div")
-				newdiv.classList.add("BALLS")
-				if (count) {
-					newdiv.innerText = special_dates[key_override].price
-					cell.querySelector(".fc-daygrid-day-frame").prepend(newdiv)
-					count--
-					return
-				}
-				const current_date = new Date(cell.dataset.date)
-				const spec_range = special_dates.find(e => {
-					return (current_date >= e.start && current_date <= e.end)
-				})
-				if (spec_range) {
-					newdiv.innerText = spec_range.price
-				}
-				else {
-					newdiv.innerText = base_price
-				}
-				cell.querySelector(".fc-daygrid-day-frame").prepend(newdiv)
-			})
-		}
-	</script>
-	<script>
-		document.addEventListener("DOMContentLoaded", (event) => {
-			gsap.registerPlugin(ScrollTrigger);
-
-			// logo animation
-			gsap.to("nav #logo", {
-				scrollTrigger: {
-					trigger: "#lander",
-					start: "top 1px",
-					end: "center 20%",
-					scrub: true,
-					marker: true
-				},
-				height: "6rem",
-				width: "25vw",
-				ease: "none"
-			})
-			gsap.to("nav", {
-				scrollTrigger: {
-					trigger: "#lander",
-					start: "top 1px",
-					end: "center 20%",
-					scrub: true
-				},
-				backgroundColor: "rgba(255,255,255,0.7)",
-				backdropFilter: "blur(6px)",
-				ease: "none",
-			})
-
-			let retry_counter = 1;
-			document.querySelector("nav #logo").addEventListener("sl-load", letter);
-			function letter(e) {
-				if (e.target.shadowRoot == null) {
-					console.log("retry");
-					setTimeout(letter, 100, e);
-					return;
-				}
-				if (retry_counter) {
-					retry_counter--;
-					setTimeout(letter, 100, e);
-					return;
-				}
-				const svgElements = e.target.shadowRoot.querySelectorAll("g.letter path");
-
-				gsap.to(svgElements, {
-					scrollTrigger: {
-						trigger: "#lander",
-						start: "top top",
-						end: "center 30%",
-						scrub: true
-					},
-					fill: "rgba(0, 0, 0, 0)",
-					ease: "none",
-				})
-			}
-
-			// filter btn animation
-			gsap.to("#remove_filter_btn", {
-				scrollTrigger: {
-					trigger: "#chalets",
-					start: "top 80%",
-					end: "top 60%",
-					scrub: true
-				},
-				scale: 1,
-				ease: "none",
-			})
-			gsap.to("#remove_filter_btn", {
-				scrollTrigger: {
-					trigger: "#chalets",
-					start: "bottom 50%",
-					end: "bottom 30%",
-					scrub: true
-				},
-				scale: 0,
-				ease: "none",
-			})
-		});
-	</script>
-</head>
-<body>
-	<nav>
-		<sl-icon-button name="translate"></sl-icon-button>
-		<ul>
-			<li><sl-button href="#gallery" variant="text" size="large">gallery</sl-button></li>
-			<li><sl-button href="#chalets" variant="text" size="large">chalets</sl-button></li>
-			<li><sl-button href="#blog" variant="text" size="large">blog</sl-button></li>
-		</ul>
-		<sl-icon id="logo" src="./assets/logo.svg"></sl-icon>
-		<ul>
-			<li><sl-button href="#about" variant="text" size="large">about</sl-button></li>
-			<li><sl-button href="#footer" variant="text" size="large">contact</sl-button></li>
-			<li><sl-button variant="text" size="large">language</sl-button></li>
-		</ul>
-		<sl-icon-button id="menubtn" name="list"></sl-icon-button>
-	</nav>
-
-	<sl-drawer id="sidebar" label="Mobile Menu">
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-	</sl-drawer>
-
-	<section id="lander">
-		<div class="bg"></div>
-		<div class="container">
-		</div>
-	</section>
-
-	<sl-dialog id="pay" label="Payment">
-		<sl-tab-group id="pay_tabs">
-			<sl-tab slot="nav" panel="calendar">Calendar</sl-tab>
-			<sl-tab slot="nav" panel="payment">Payment</sl-tab>
-
-			<sl-tab-panel name="calendar"></sl-tab-panel>
-			<sl-tab-panel name="payment"></sl-tab-panel>
-		</sl-tab-group>
-		<div>
-			<div>
-				<sl-select name="adults" form="pay_form" label="Adults" value="1">
-					<sl-option value="1">1</sl-option>
-					<sl-option value="2">2</sl-option>
-					<sl-option value="3">3</sl-option>
-					<sl-option value="4">4</sl-option>
-					<sl-option value="5">5</sl-option>
-					<sl-option value="6">6</sl-option>
-				</sl-select>
-				<sl-select name="children" form="pay_form" label="Children" value="0">
-					<sl-option value="0">0</sl-option>
-					<sl-option value="1">1</sl-option>
-					<sl-option value="2">2</sl-option>
-					<sl-option value="3">3</sl-option>
-					<sl-option value="4">4</sl-option>
-					<sl-option value="5">5</sl-option>
-				</sl-select>
-				<sl-input form="pay_form" id="discount" name="discount" label="Discount code (optional)">
-					<sl-icon data-type="correct" name="check" slot="suffix" style="color: green;display: none;"></sl-icon>
-					<sl-icon data-type="incorrect" name="x" slot="suffix" style="color: red;display: none;"></sl-icon>
-				</sl-input>
+					</sl-dropdown>
+                    <!-- <sl-dropdown> -->
+                    <!--     <sl-icon-button slot="trigger" src="./assets/amenities_icons/languages.svg"></sl-icon-button> -->
+                    <!--     <sl-menu> -->
+                    <!--         <sl-menu-item><a href="https://kozarapanoramicresort.ba/en">English</a></sl-menu-item> -->
+                    <!--         <sl-menu-item><a href="https://kozarapanoramicresort.ba/sr">Srpski</a></sl-menu-item> -->
+                    <!--         <sl-menu-item><a href="https://kozarapanoramicresort.ba/de">Deutsch</a></sl-menu-item> -->
+                    <!--         <sl-menu-item><a href="https://kozarapanoramicresort.ba/it">Italiano</a></sl-menu-item> -->
+                    <!--     </sl-menu> -->
+                    <!-- </sl-dropdown> -->
+				</div>
+				<div>
+					<a onclick="open_booking()" style="cursor: pointer" class="nav-cta" data-i8n="nav_cta">Book Your Stay</a>
+				</div>
 			</div>
-			<div id="calendar"></div>
-		</div>
-		<form id="pay_form" method="POST" action="">
-			<input type="hidden" name="transaction_token" id="transaction_token"/>
-			<input type="hidden" name="check_in"/>
-			<input type="hidden" name="check_out"/>
-			<sl-select name="country" label="Country" placeholder="Select a country" required>
-				<sl-option value="AFG">Afghanistan</sl-option>
-				<sl-option value="ALA">�land Islands</sl-option>
-				<sl-option value="ALB">Albania</sl-option>
-				<sl-option value="DZA">Algeria</sl-option>
-				<sl-option value="ASM">American Samoa</sl-option>
-				<sl-option value="AND">Andorra</sl-option>
-				<sl-option value="AGO">Angola</sl-option>
-				<sl-option value="AIA">Anguilla</sl-option>
-				<sl-option value="ATA">Antarctica</sl-option>
-				<sl-option value="ATG">Antigua and Barbuda</sl-option>
-				<sl-option value="ARG">Argentina</sl-option>
-				<sl-option value="ARM">Armenia</sl-option>
-				<sl-option value="ABW">Aruba</sl-option>
-				<sl-option value="AUS">Australia</sl-option>
-				<sl-option value="AUT">Austria</sl-option>
-				<sl-option value="AZE">Azerbaijan</sl-option>
-				<sl-option value="BHS">Bahamas</sl-option>
-				<sl-option value="BHR">Bahrain</sl-option>
-				<sl-option value="BGD">Bangladesh</sl-option>
-				<sl-option value="BRB">Barbados</sl-option>
-				<sl-option value="BLR">Belarus</sl-option>
-				<sl-option value="BEL">Belgium</sl-option>
-				<sl-option value="BLZ">Belize</sl-option>
-				<sl-option value="BEN">Benin</sl-option>
-				<sl-option value="BMU">Bermuda</sl-option>
-				<sl-option value="BTN">Bhutan</sl-option>
-				<sl-option value="BOL">Bolivia, Plurinational State of</sl-option>
-				<sl-option value="BES">Bonaire, Sint Eustatius and Saba</sl-option>
-				<sl-option value="BIH">Bosnia and Herzegovina</sl-option>
-				<sl-option value="BWA">Botswana</sl-option>
-				<sl-option value="BVT">Bouvet Island</sl-option>
-				<sl-option value="BRA">Brazil</sl-option>
-				<sl-option value="IOT">British Indian Ocean Territory</sl-option>
-				<sl-option value="BRN">Brunei Darussalam</sl-option>
-				<sl-option value="BGR">Bulgaria</sl-option>
-				<sl-option value="BFA">Burkina Faso</sl-option>
-				<sl-option value="BDI">Burundi</sl-option>
-				<sl-option value="KHM">Cambodia</sl-option>
-				<sl-option value="CMR">Cameroon</sl-option>
-				<sl-option value="CAN">Canada</sl-option>
-				<sl-option value="CPV">Cape Verde</sl-option>
-				<sl-option value="CYM">Cayman Islands</sl-option>
-				<sl-option value="CAF">Central African Republic</sl-option>
-				<sl-option value="TCD">Chad</sl-option>
-				<sl-option value="CHL">Chile</sl-option>
-				<sl-option value="CHN">China</sl-option>
-				<sl-option value="CXR">Christmas Island</sl-option>
-				<sl-option value="CCK">Cocos (Keeling) Islands</sl-option>
-				<sl-option value="COL">Colombia</sl-option>
-				<sl-option value="COM">Comoros</sl-option>
-				<sl-option value="COG">Congo</sl-option>
-				<sl-option value="COD">Congo, the Democratic Republic of the</sl-option>
-				<sl-option value="COK">Cook Islands</sl-option>
-				<sl-option value="CRI">Costa Rica</sl-option>
-				<sl-option value="CIV">C�te d'Ivoire</sl-option>
-				<sl-option value="HRV">Croatia</sl-option>
-				<sl-option value="CUB">Cuba</sl-option>
-				<sl-option value="CUW">Cura�ao</sl-option>
-				<sl-option value="CYP">Cyprus</sl-option>
-				<sl-option value="CZE">Czech Republic</sl-option>
-				<sl-option value="DNK">Denmark</sl-option>
-				<sl-option value="DJI">Djibouti</sl-option>
-				<sl-option value="DMA">Dominica</sl-option>
-				<sl-option value="DOM">Dominican Republic</sl-option>
-				<sl-option value="ECU">Ecuador</sl-option>
-				<sl-option value="EGY">Egypt</sl-option>
-				<sl-option value="SLV">El Salvador</sl-option>
-				<sl-option value="GNQ">Equatorial Guinea</sl-option>
-				<sl-option value="ERI">Eritrea</sl-option>
-				<sl-option value="EST">Estonia</sl-option>
-				<sl-option value="ETH">Ethiopia</sl-option>
-				<sl-option value="FLK">Falkland Islands (Malvinas)</sl-option>
-				<sl-option value="FRO">Faroe Islands</sl-option>
-				<sl-option value="FJI">Fiji</sl-option>
-				<sl-option value="FIN">Finland</sl-option>
-				<sl-option value="FRA">France</sl-option>
-				<sl-option value="GUF">French Guiana</sl-option>
-				<sl-option value="PYF">French Polynesia</sl-option>
-				<sl-option value="ATF">French Southern Territories</sl-option>
-				<sl-option value="GAB">Gabon</sl-option>
-				<sl-option value="GMB">Gambia</sl-option>
-				<sl-option value="GEO">Georgia</sl-option>
-				<sl-option value="DEU">Germany</sl-option>
-				<sl-option value="GHA">Ghana</sl-option>
-				<sl-option value="GIB">Gibraltar</sl-option>
-				<sl-option value="GRC">Greece</sl-option>
-				<sl-option value="GRL">Greenland</sl-option>
-				<sl-option value="GRD">Grenada</sl-option>
-				<sl-option value="GLP">Guadeloupe</sl-option>
-				<sl-option value="GUM">Guam</sl-option>
-				<sl-option value="GTM">Guatemala</sl-option>
-				<sl-option value="GGY">Guernsey</sl-option>
-				<sl-option value="GIN">Guinea</sl-option>
-				<sl-option value="GNB">Guinea-Bissau</sl-option>
-				<sl-option value="GUY">Guyana</sl-option>
-				<sl-option value="HTI">Haiti</sl-option>
-				<sl-option value="HMD">Heard Island and McDonald Islands</sl-option>
-				<sl-option value="VAT">Holy See (Vatican City State)</sl-option>
-				<sl-option value="HND">Honduras</sl-option>
-				<sl-option value="HKG">Hong Kong</sl-option>
-				<sl-option value="HUN">Hungary</sl-option>
-				<sl-option value="ISL">Iceland</sl-option>
-				<sl-option value="IND">India</sl-option>
-				<sl-option value="IDN">Indonesia</sl-option>
-				<sl-option value="IRN">Iran, Islamic Republic of</sl-option>
-				<sl-option value="IRQ">Iraq</sl-option>
-				<sl-option value="IRL">Ireland</sl-option>
-				<sl-option value="IMN">Isle of Man</sl-option>
-				<sl-option value="ISR">Israel</sl-option>
-				<sl-option value="ITA">Italy</sl-option>
-				<sl-option value="JAM">Jamaica</sl-option>
-				<sl-option value="JPN">Japan</sl-option>
-				<sl-option value="JEY">Jersey</sl-option>
-				<sl-option value="JOR">Jordan</sl-option>
-				<sl-option value="KAZ">Kazakhstan</sl-option>
-				<sl-option value="KEN">Kenya</sl-option>
-				<sl-option value="KIR">Kiribati</sl-option>
-				<sl-option value="PRK">Korea, Democratic People's Republic of</sl-option>
-				<sl-option value="KOR">Korea, Republic of</sl-option>
-				<sl-option value="KWT">Kuwait</sl-option>
-				<sl-option value="KGZ">Kyrgyzstan</sl-option>
-				<sl-option value="LAO">Lao People's Democratic Republic</sl-option>
-				<sl-option value="LVA">Latvia</sl-option>
-				<sl-option value="LBN">Lebanon</sl-option>
-				<sl-option value="LSO">Lesotho</sl-option>
-				<sl-option value="LBR">Liberia</sl-option>
-				<sl-option value="LBY">Libya</sl-option>
-				<sl-option value="LIE">Liechtenstein</sl-option>
-				<sl-option value="LTU">Lithuania</sl-option>
-				<sl-option value="LUX">Luxembourg</sl-option>
-				<sl-option value="MAC">Macao</sl-option>
-				<sl-option value="MKD">Macedonia, the former Yugoslav Republic of</sl-option>
-				<sl-option value="MDG">Madagascar</sl-option>
-				<sl-option value="MWI">Malawi</sl-option>
-				<sl-option value="MYS">Malaysia</sl-option>
-				<sl-option value="MDV">Maldives</sl-option>
-				<sl-option value="MLI">Mali</sl-option>
-				<sl-option value="MLT">Malta</sl-option>
-				<sl-option value="MHL">Marshall Islands</sl-option>
-				<sl-option value="MTQ">Martinique</sl-option>
-				<sl-option value="MRT">Mauritania</sl-option>
-				<sl-option value="MUS">Mauritius</sl-option>
-				<sl-option value="MYT">Mayotte</sl-option>
-				<sl-option value="MEX">Mexico</sl-option>
-				<sl-option value="FSM">Micronesia, Federated States of</sl-option>
-				<sl-option value="MDA">Moldova, Republic of</sl-option>
-				<sl-option value="MCO">Monaco</sl-option>
-				<sl-option value="MNG">Mongolia</sl-option>
-				<sl-option value="MNE">Montenegro</sl-option>
-				<sl-option value="MSR">Montserrat</sl-option>
-				<sl-option value="MAR">Morocco</sl-option>
-				<sl-option value="MOZ">Mozambique</sl-option>
-				<sl-option value="MMR">Myanmar</sl-option>
-				<sl-option value="NAM">Namibia</sl-option>
-				<sl-option value="NRU">Nauru</sl-option>
-				<sl-option value="NPL">Nepal</sl-option>
-				<sl-option value="NLD">Netherlands</sl-option>
-				<sl-option value="NCL">New Caledonia</sl-option>
-				<sl-option value="NZL">New Zealand</sl-option>
-				<sl-option value="NIC">Nicaragua</sl-option>
-				<sl-option value="NER">Niger</sl-option>
-				<sl-option value="NGA">Nigeria</sl-option>
-				<sl-option value="NIU">Niue</sl-option>
-				<sl-option value="NFK">Norfolk Island</sl-option>
-				<sl-option value="MNP">Northern Mariana Islands</sl-option>
-				<sl-option value="NOR">Norway</sl-option>
-				<sl-option value="OMN">Oman</sl-option>
-				<sl-option value="PAK">Pakistan</sl-option>
-				<sl-option value="PLW">Palau</sl-option>
-				<sl-option value="PSE">Palestinian Territory, Occupied</sl-option>
-				<sl-option value="PAN">Panama</sl-option>
-				<sl-option value="PNG">Papua New Guinea</sl-option>
-				<sl-option value="PRY">Paraguay</sl-option>
-				<sl-option value="PER">Peru</sl-option>
-				<sl-option value="PHL">Philippines</sl-option>
-				<sl-option value="PCN">Pitcairn</sl-option>
-				<sl-option value="POL">Poland</sl-option>
-				<sl-option value="PRT">Portugal</sl-option>
-				<sl-option value="PRI">Puerto Rico</sl-option>
-				<sl-option value="QAT">Qatar</sl-option>
-				<sl-option value="REU">R�union</sl-option>
-				<sl-option value="ROU">Romania</sl-option>
-				<sl-option value="RUS">Russian Federation</sl-option>
-				<sl-option value="RWA">Rwanda</sl-option>
-				<sl-option value="BLM">Saint Barth�lemy</sl-option>
-				<sl-option value="SHN">Saint Helena, Ascension and Tristan da Cunha</sl-option>
-				<sl-option value="KNA">Saint Kitts and Nevis</sl-option>
-				<sl-option value="LCA">Saint Lucia</sl-option>
-				<sl-option value="MAF">Saint Martin (French part)</sl-option>
-				<sl-option value="SPM">Saint Pierre and Miquelon</sl-option>
-				<sl-option value="VCT">Saint Vincent and the Grenadines</sl-option>
-				<sl-option value="WSM">Samoa</sl-option>
-				<sl-option value="SMR">San Marino</sl-option>
-				<sl-option value="STP">Sao Tome and Principe</sl-option>
-				<sl-option value="SAU">Saudi Arabia</sl-option>
-				<sl-option value="SEN">Senegal</sl-option>
-				<sl-option value="SRB">Serbia</sl-option>
-				<sl-option value="SYC">Seychelles</sl-option>
-				<sl-option value="SLE">Sierra Leone</sl-option>
-				<sl-option value="SGP">Singapore</sl-option>
-				<sl-option value="SXM">Sint Maarten (Dutch part)</sl-option>
-				<sl-option value="SVK">Slovakia</sl-option>
-				<sl-option value="SVN">Slovenia</sl-option>
-				<sl-option value="SLB">Solomon Islands</sl-option>
-				<sl-option value="SOM">Somalia</sl-option>
-				<sl-option value="ZAF">South Africa</sl-option>
-				<sl-option value="SGS">South Georgia and the South Sandwich Islands</sl-option>
-				<sl-option value="SSD">South Sudan</sl-option>
-				<sl-option value="ESP">Spain</sl-option>
-				<sl-option value="LKA">Sri Lanka</sl-option>
-				<sl-option value="SDN">Sudan</sl-option>
-				<sl-option value="SUR">Suriname</sl-option>
-				<sl-option value="SJM">Svalbard and Jan Mayen</sl-option>
-				<sl-option value="SWZ">Swaziland</sl-option>
-				<sl-option value="SWE">Sweden</sl-option>
-				<sl-option value="CHE">Switzerland</sl-option>
-				<sl-option value="SYR">Syrian Arab Republic</sl-option>
-				<sl-option value="TWN">Taiwan, Province of China</sl-option>
-				<sl-option value="TJK">Tajikistan</sl-option>
-				<sl-option value="TZA">Tanzania, United Republic of</sl-option>
-				<sl-option value="THA">Thailand</sl-option>
-				<sl-option value="TLS">Timor-Leste</sl-option>
-				<sl-option value="TGO">Togo</sl-option>
-				<sl-option value="TKL">Tokelau</sl-option>
-				<sl-option value="TON">Tonga</sl-option>
-				<sl-option value="TTO">Trinidad and Tobago</sl-option>
-				<sl-option value="TUN">Tunisia</sl-option>
-				<sl-option value="TUR">Turkey</sl-option>
-				<sl-option value="TKM">Turkmenistan</sl-option>
-				<sl-option value="TCA">Turks and Caicos Islands</sl-option>
-				<sl-option value="TUV">Tuvalu</sl-option>
-				<sl-option value="UGA">Uganda</sl-option>
-				<sl-option value="UKR">Ukraine</sl-option>
-				<sl-option value="ARE">United Arab Emirates</sl-option>
-				<sl-option value="GBR">United Kingdom</sl-option>
-				<sl-option value="USA">United States</sl-option>
-				<sl-option value="UMI">United States Minor Outlying Islands</sl-option>
-				<sl-option value="URY">Uruguay</sl-option>
-				<sl-option value="UZB">Uzbekistan</sl-option>
-				<sl-option value="VUT">Vanuatu</sl-option>
-				<sl-option value="VEN">Venezuela, Bolivarian Republic of</sl-option>
-				<sl-option value="VNM">Viet Nam</sl-option>
-				<sl-option value="VGB">Virgin Islands, British</sl-option>
-				<sl-option value="VIR">Virgin Islands, U.S.</sl-option>
-				<sl-option value="WLF">Wallis and Futuna</sl-option>
-				<sl-option value="ESH">Western Sahara</sl-option>
-				<sl-option value="YEM">Yemen</sl-option>
-				<sl-option value="ZMB">Zambia</sl-option>
-				<sl-option value="ZWE">Zimbabwe</sl-option>
-			</sl-select>
-			<sl-input name="address" label="Billing address" required enterkeyhint="next"></sl-input>
-			<sl-input name="city" label="Billing city" required enterkeyhint="next"></sl-input>
-			<sl-input name="zip" label="Billing ZIP code" required enterkeyhint="next" inputmode="numeric"></sl-input>
-			<sl-input name="holder" label="Card holder name" required enterkeyhint="next"></sl-input>
-			<sl-input name="email" label="Email" type="email" required inputmode="email" enterkeyhint="next"></sl-input>
-			<sl-input name="phone" label="Phone number" type="tel" required inputmode="tel" enterkeyhint="next"></sl-input>
-			<div>
-				<label for="number_div">Card number</label>
-				<label for="number_div">CVV</label>
-				<sl-tooltip content="" name="number">
-					<div id="number_div"></div>
-				</sl-tooltip>
-				<sl-tooltip content="" name="cvv">
-					<div id="cvv_div"></div>
-				</sl-tooltip>
+			<div class="hero-content">
+				<div class="logo-area">KOZARA PANORAMIC RESORT</div>
+				<h2 data-i8n="subtitle">Your Sanctuary in Nature</h2>
 			</div>
-			<div>
-				<sl-input name="month" label="Month" type="number" required min="1" max="12" noSpinButtons enterkeyhint="next" inputmode="numeric"></sl-input>
-				<sl-input name="year" label="Year" type="number" required noSpinButtons="true" enterkeyhint="next" inputmode="numeric"></sl-input>
-			</div>
-			<sl-button type="submit">Submit</sl-button>
-		</form>
-		<div id="total" slot="footer"> Hold & drag to select dates on the calendar </div>
-	</sl-dialog>
+		</header>
 
-	<section id="checker">
-		<div class="bg"></div>
-		<div class="container">
-			<div>
-				<sl-input type="date" label="Check-in" placeholder="Date">
-					<sl-icon name="calendar" slot="suffix" style="color: white"></sl-icon>
-				</sl-input>
-			</div>
-			<div>
-				<sl-input type="date" label="Check-out">
-					<sl-icon name="calendar" slot="suffix" style="color: white;"></sl-icon>
-				</sl-input>
-			</div>
-			<div>
-				<sl-button variant="text" onclick="checkAvailable()">Check Availability</sl-button>
+		<sl-drawer id="drawer_menu" label="Navigation">
+			<a href="#chalets" class="nav-link" onclick="drawer_menu.hide()" data-i8n="nav_chalets">Chalets</a>
+			<a href="#location" class="nav-link" onclick="drawer_menu.hide()" data-i8n="nav_location">Location</a>
+			<!--<a href="#reviews" class="nav-link" onclick="drawer_menu.hide()" data-i8n="nav_reviews">Reviews</a>-->
+			<a href="#blog" class="nav-link" onclick="drawer_menu.hide()" data-i8n="nav_blog">Blog</a>
+			<a href="#contact" class="nav-link" onclick="drawer_menu.hide()" data-i8n="contact">Contact</a>
+			<sl-dropdown>
+						<!-- NEW TRIGGER: span element to display the selected language -->
+						<span id="language_display_trigger" slot="trigger" class="nav-language-trigger">
+							<!-- Initial state, set to default EN -->
+							🇬🇧 EN
+						</span>
+						<sl-menu>
+							<sl-menu-item
+								><a href="https://kozarapanoramicresort.ba/en">🇬🇧 EN (English)</a></sl-menu-item
+							>
+							<sl-menu-item
+								><a href="https://kozarapanoramicresort.ba/sr">🇷🇸 SR (Srpski)</a></sl-menu-item
+							>
+							<sl-menu-item
+								><a href="https://kozarapanoramicresort.ba/de">🇩🇪 DE (Deutsch)</a></sl-menu-item
+							>
+							<sl-menu-item
+								><a href="https://kozarapanoramicresort.ba/it">🇮🇹 IT (Italiano)</a></sl-menu-item
+							>
+						</sl-menu>
+
+					</sl-dropdown>
+		</sl-drawer>
+		<sl-icon-button id="btn_menu" src="./assets/amenities_icons/menu.svg" onclick="drawer_menu.show()"></sl-icon-button>
+
+		<div id="booking" class="booking-container">
+			<div class="booking-bar">
+				<div class="input-group">
+					<label data-i8n="date_check_check_in">Check-in</label>
+					<input id="c_arrive" />
+				</div>
+				<div class="input-group">
+					<label data-i8n="date_check_check_out">Check-out</label>
+					<input id="c_depart" />
+				</div>
+				<button class="btn-check" onclick="check_date_range()" data-i8n="date_check_btn">Check Availability</button>
 			</div>
 		</div>
-	</section>
-	<sl-tooltip content="Remove filters">
-		<sl-icon-button name="calendar-x" label="Remove filters" id="remove_filter_btn" onclick="remove_filters()"></sl-icon-button>
-	</sl-tooltip>
-	
-	<section id="quote">
-		<div class="container">
-			You're not coming to escape, <br>
-			You're coming to find yourself.
-		</div>
-	</section>
 
-	<section id="gallery">
-		<div class="container">
-			<sl-carousel navigation slides-per-page="3" mouse-dragging loop>
-				<!-- TODO: replace with real or more images -->
-				<sl-carousel-item><img src="./assets/img1.png"></sl-carousel-item>
-				<sl-carousel-item><img src="./assets/img2.png"></sl-carousel-item>
-				<sl-carousel-item><img src="./assets/img3.png"></sl-carousel-item>
-				<sl-carousel-item><img src="./assets/img2.png"></sl-carousel-item>
+		<section class="intro">
+			<h3 class="section-title" data-i8n="intro_title">Not Just an Escape, <br />A Discovery.</h3>
+			<p class="lead" data-i8n="intro_subtitle">Nestled in the heart of Mount Kozara, our resort offers an unforgettable experience where every detail reflects warmth, care, and elegance.</p>
+		</section>
+
+		<section class="disclaimer-section">
+			<div class="notice-card">
+				<div class="notice-badge" data-i8n="offer_card">Opening Offer</div>
+
+				<h3 data-i8n="offer_title">Spectacular Winter Discounts</h3>
+
+				<p class="notice-text" data-i8n="offer_desc">Prices have been temporarily reduced because final exterior landscaping and finishing touches are still in progress. During this winter season, the private outdoor swimming pools are naturally closed and will reopen in warmer weather. The sauna and relax area are scheduled to be completed soon.</p>
+
+				<div class="notice-divider"></div>
+
+				<div class="notice-footer">
+					<strong data-i8n="offer_notice_title">Important Notice</strong>
+					<span data-i8n="offer_notice_desc"> Prices shown below are introductory and subject to revision as the resort transitions from opening phase to full operations. Rates may be adjusted based on demand, availability, and completion of remaining works. </span>
+				</div>
+			</div>
+		</section>
+
+		<section class="carousel-container">
+			<sl-carousel id="autocarousel" navigation pagination loop autoplay autoplay-interval="3000" slides-per-page="3">
+				<sl-carousel-item><img src="assets/Carousel/image00004.webp" alt="Mountain 1" /></sl-carousel-item>
+				<sl-carousel-item><img src="assets/Carousel/image00006.webp" alt="Interior 1" /></sl-carousel-item>
+				<sl-carousel-item><img src="assets/Carousel/image08178.webp" alt="Winter" /></sl-carousel-item>
+				<sl-carousel-item><img src="assets/Carousel/image08180.webp" alt="Forest" /></sl-carousel-item>
+				<sl-carousel-item><img src="assets/Carousel/image08195.webp" alt="Adventure" /></sl-carousel-item>
 			</sl-carousel>
-		</div>
-	</section>
+		</section>
 
-	<section id="chalets">
-		<div class="bg"></div>
-		<div class="container">
-			<div class="title">OUR chalets</div>
-			<div class="grid">
-				<div data-cid="1">
-					<img src="./assets/chalet_icons/[SameScale]CloudChalet.webp">
-					<div class="content">
-						<div class="description">
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem ullam modi optio in expedita quaerat aliquam eligendi culpa?
-						</div>
-						<sl-button onclick="openPreview('Cloud Chalet')">BOOK NOW</sl-button>
+		<section id="chalets" class="chalets-section">
+			<div style="text-align: center; margin-bottom: 40px">
+				<h3 class="section-title" data-i8n="chalets_title">Our Luxury Chalets</h3>
+				<p data-i8n="chalets_desc">Our chalets combine nature and luxury, created for those seeking tranquility, comfort, and a unique escape. Each chalet has its own story, designed to awaken emotion and bring complete relaxation.</p>
+			</div>
+
+			<div class="chalet-grid">
+				<div class="chalet-card">
+					<div class="special-badge red">Unavailable for selected dates</div>
+					<img src="assets/Chalets/wind/chaelt41.jpeg" class="chalet-img" alt="Cloud Chalet" />
+					<div class="chalet-details">
+						<h4>The Wind Chalet</h4>
+						<!-- <p class="amenities">Sleeps 4 • Jacuzzi • Forest View</p> -->
+						<button class="btn-view" data-i8n="chalets_details_btn" onclick="openModal('wind')">View Details</button>
 					</div>
 				</div>
-				<div data-cid="2">
-					<img src="./assets/chalet_icons/[SameScale]SkyChalet.webp">
-					<div class="content">
-						<div class="description">
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem ullam modi optio in expedita quaerat aliquam eligendi culpa?
-						</div>
-						<sl-button onclick="openPreview('Sky Chalet')">BOOK NOW</sl-button>
+
+				<div class="chalet-card">
+					<div class="special-badge red">Unavailable for selected dates</div>
+
+					<img src="assets/Chalets/sun/chaelt51.jpeg" class="chalet-img" alt="Summit Lodge" />
+					<div class="chalet-details">
+						<h4>The Sun Chalet</h4>
+						<!-- <p class="amenities">Sleeps 8 • Private Spa • Panoramic Glass</p> -->
+						<button class="btn-view" data-i8n="chalets_details_btn" onclick="openModal('summit')">View Details</button>
 					</div>
 				</div>
-				<div data-cid="3">
-					<img src="./assets/chalet_icons/[SameScale]StarChalet.webp">
-					<div class="content">
-						<div class="description">
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem ullam modi optio in expedita quaerat aliquam eligendi culpa?
-						</div>
-						<sl-button onclick="openPreview('Star Chalet')">BOOK NOW</sl-button>
+
+				<div class="chalet-card special">
+					<div class="special-badge red">Unavailable for selected dates</div>
+					<div class="special-badge" data-i8n="secluded_badge">Secluded</div>
+					<img src="assets/Chalets/star/chalet5_cropped.jpeg" class="chalet-img" alt="Star Cabin" />
+					<div class="chalet-details">
+						<h4>The Star Chalet</h4>
+						<!-- <p class="amenities">Sleeps 6 • Fireplace • Large Terrace</p> -->
+						<button class="btn-view" data-i8n="chalets_details_btn" onclick="openModal('star')">View Details</button>
 					</div>
 				</div>
-				<div data-cid="4">
-					<img src="./assets/chalet_icons/[SameScale]SunChalet.webp">
-					<div class="content">
-						<div class="description">
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem ullam modi optio in expedita quaerat aliquam eligendi culpa?
-						</div>
-						<sl-button onclick="openPreview('Sun Chalet')">BOOK NOW</sl-button>
+
+				<div class="chalet-card">
+					<div class="special-badge red">Unavailable for selected dates</div>
+					<img src="assets/Chalets/sky/chalet3_cropped1.jpeg" class="chalet-img" alt="Wind Cabin" />
+					<div class="chalet-details">
+						<h4>The Sky Chalet</h4>
+						<!-- <p class="amenities">Sleeps 2 • Secluded • Romantic</p> -->
+						<button class="btn-view" data-i8n="chalets_details_btn" onclick="openModal('sky')">View Details</button>
 					</div>
 				</div>
-				<div data-cid="5">
-					<img src="./assets/chalet_icons/[SameScale]WindChalet.webp">
-					<div class="content">
-						<div class="description">
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem ullam modi optio in expedita quaerat aliquam eligendi culpa?
-						</div>
-						<sl-button onclick="openPreview('Wind Chalet')">BOOK NOW</sl-button>
+
+				<div class="chalet-card">
+					<div class="special-badge red">Unavailable for selected dates</div>
+					<img src="assets/Chalets/cloud/chalet5_cropped.jpg" class="chalet-img" alt="Sky Cabin" />
+					<div class="chalet-details">
+						<h4>The Cloud Chalet</h4>
+						<!-- <p class="amenities">Sleeps 5 • Pet Friendly • BBQ</p> -->
+						<button class="btn-view" data-i8n="chalets_details_btn" onclick="openModal('cloud')">View Details</button>
 					</div>
 				</div>
 			</div>
-		</div>
-		<sl-dialog label="Chalet Name" class="chalet-overview">
-			<sl-tab-group id="chalet_tabs">
-				<sl-tab slot="nav" panel="carousel">Gallery</sl-tab>
-				<sl-tab slot="nav" panel="side">Info</sl-tab>
+		</section>
 
-				<sl-tab-panel name="carousel"></sl-tab-panel>
-				<sl-tab-panel name="side"></sl-tab-panel>
-			</sl-tab-group>
-			<div class="carousel">
-				<sl-carousel navigation mouse-dragging loop>
-					<sl-carousel-item>
-						<img src="./assets/interiorplaceholder1.webp" alt="placeholder">
-					</sl-carousel-item>
-					<sl-carousel-item>
-						<img src="./assets/interiorplaceholder2.webp" alt="placeholder">
-					</sl-carousel-item>
-					<sl-carousel-item>
-						<img src="./assets/interiorplaceholder3.webp" alt="placeholder">
-					</sl-carousel-item>
-				</sl-carousel>
+		<section id="location" class="location-section">
+			<div class="location-overlay"></div>
+			<div class="location-content">
+				<h3 class="section-title" style="color: var(--sand-beige)" data-i8n="location_title">Find Us on the Mountain</h3>
+				<p style="margin-bottom: 30px; font-size: 1.1rem" data-i8n="location_description">Mrakovica, Kozara National Park • 45 mins from Banja Luka</p>
+                <p class="location-quote" data-i8n="location_quote">Just follow the signs.</p>
+            
+                <div class="location-image-container">
+                    <!-- Using the newly uploaded, cleaner filename -->
+                    <img src="assets/signs2.webp" class="location-signs-img" alt="Just follow the signs.">
+                </div>
+                <p class="map-hint" data-i8n="location_hint">Or find us on the map below</p>
+				<div class="map-frame">
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3191.7678145893565!2d17.0941569!3d45.0086252!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4767510061c8c7eb%3A0xcf311465b69a3e2c!2sKozara%20Panoramic%20Resort!5e1!3m2!1sbs!2sba!4v1763826019486!5m2!1sen!2sba" width="600" height="450" style="border: 0" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>
+				</div>
+			</div>
+		</section>
 
-				<div class="thumbnails">
-					<div class="scroller">
-						<img class="active" src="./assets/interiorplaceholder1.webp" alt="placeholder">
-						<img src="./assets/interiorplaceholder2.webp" alt="placeholder">
-						<img src="./assets/interiorplaceholder3.webp" alt="placeholder">
+		<section id="reviews" class="reviews-section">
+			<h3 class="section-title">Guest Testimonials</h3>
+			<div class="review-grid">
+				<div class="review-card">
+					<p>"The best mountain retreat we have ever experienced. The Star Cabin fireplace was magical."</p>
+					<div class="reviewer">— ANA & MARKO, Sarajevo</div>
+				</div>
+				<div class="review-card">
+					<p>"Pure luxury in the wilderness. The Cloud Cabin jacuzzi was perfect after a long hike."</p>
+					<div class="reviewer">— DAMIR M., Beograd</div>
+				</div>
+				<div class="review-card">
+					<p>"A truly unique spot in Kozara National Park. Modern but cozy design."</p>
+					<div class="reviewer">— THE JUSIC FAMILY</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="about-us" class="section-padding">
+			<div class="content-layout">
+				<div class="content-text">
+					<h3 class="section-title" style="text-align: left" data-i8n="about_us_title">Our Story</h3>
+					<p data-i8n="about_us_desc1">Kozara Panoramic Resort was created out of love for nature and the idea that luxury and peace can exist in perfect harmony. Our mission is to create a place where every guest feels a deep balance between nature, comfort, and serenity. Nestled in the heart of Mount Kozara, the resort offers an unforgettable experience where every detail reflects warmth, care, and elegance.</p>
+					<p data-i8n="about_us_desc2">Our modern chalets offer privacy and intimacy, while still providing all the amenities of contemporary accommodation. Panoramic views, pure mountain air, and forest silence make every morning special and every evening calm. Kozara Panoramic Resort is more than a place to stay – it’s an experience that restores inner balance, reconnects you with nature, and reminds you how little is needed to feel true peace. Welcome to a space where time slows down and every moment becomes a lasting memory.</p>
+				</div>
+				<div class="content-image">
+					<img src="assets/Text Blocks/image08198.webp" alt="Hiking sign" />
+				</div>
+			</div>
+		</section>
+
+		<section id="about-kozara" class="section-padding blog-section">
+			<div class="content-layout reverse">
+				<div class="content-text">
+					<h3 class="section-title" style="text-align: left" data-i8n="about_kozara_title">Discover Kozara</h3>
+					<p data-i8n="about_kozara_desc1">Mount Kozara, known as the “air spa” and the green jewel of Krajina, is a place where nature still breathes freely. Its dense forests, pure air, and peaceful viewpoints offer the perfect escape from city life. Kozara blends wilderness and tranquility, creating an ideal setting for relaxation, adventure, and self-discovery. Mount Kozara, known as the air spa and green oasis of Western Krajina, is where nature reveals its true beauty. Its dense forests, mountain streams, and fresh air make it a perfect retreat for rest, adventure, and spiritual renewal. The mountain trails lead through scenic viewpoints and fragrant meadows, offering views that calm the soul and fill you with energy.</p>
+					<p data-i8n="about_kozara_desc2">Kozara is more than a mountain – it’s an experience of connection with nature, a place where time slows down and thoughts become clear. Every visitor finds their moment of peace here, whether in the quiet of the forest, the whisper of the wind, or the sunset that paints the peaks in golden tones. Kozara invites you to pause, breathe deeply, and feel what true freedom means.</p>
+				</div>
+				<div class="content-image">
+					<img src="assets/Text Blocks/Kozara-fotobaza-Ajdin-Kamber.webp" alt="Kozara amenity" />
+				</div>
+			</div>
+		</section>
+
+		<section id="blog" class="section-padding">
+			<h3 class="section-title" data-i8n="blog_title">From Our Blog</h3>
+			<!-- <div class="chalet-grid">
+				<div class="chalet-card">
+					<img src="https://picsum.photos/id/311/800/600" class="chalet-img" alt="Hiking" />
+					<div class="chalet-details">
+						<h4>Top 5 Winter Hikes</h4>
+						<button class="btn-view">Read Article</button>
 					</div>
 				</div>
-			</div>
-
-			<div class="side">
-				<div class="features">
-					Feature icons go here, example:
-					<sl-tooltip content="Wifi: 10mbps/5mbps">
-						<sl-icon name="wifi" style="font-size: 1.5rem;"></sl-icon>
-					</sl-tooltip>
-					<sl-tooltip content="Pool">
-						<sl-icon name="water" style="font-size: 1.5rem;"></sl-icon>
-					</sl-tooltip>
+				<div class="chalet-card">
+					<img src="https://picsum.photos/id/292/800/600" class="chalet-img" alt="Food" />
+					<div class="chalet-details">
+						<h4>Local Mountain Cuisine</h4>
+						<button class="btn-view">Read Article</button>
+					</div>
 				</div>
-			</div>
+				<div class="chalet-card">
+					<img src="https://picsum.photos/id/413/800/600" class="chalet-img" alt="Skiing" />
+					<div class="chalet-details">
+						<h4>Skiing for Beginners</h4>
+						<button class="btn-view">Read Article</button>
+					</div>
+				</div>
+			</div> -->
+			<span data-i8n="blog_desc"> Coming soon ... </span>
+		</section>
 
-			<sl-button onclick="openPay()">
-				Book
-			</sl-button>
+		<section id="faq" class="section-padding faq-section" style="background-color: var(--bg-soft)">
+    <h3 class="section-title" data-i8n="faq_title">Frequently Asked Questions</h3>
+    <div class="faq-container">
+        <div>
+            <sl-details 
+                data-i8n-summary="faq_heating_q" 
+                data-i8n="faq_heating_a" 
+                summary="Are the chalets heated and air-conditioned?"> 
+                Yes. All chalets feature fully automated air conditioning and heating for year-round comfort, including underfloor heating in the living area, dining area, kitchen, and bathroom.
+            </sl-details>
+
+            <sl-details 
+                data-i8n-summary="faq_kitchen_q" 
+                data-i8n="faq_kitchen_a" 
+                summary="What is included in the kitchen?"> 
+                The kitchens are fully equipped for self-catering. Features include a hob, large oven, microwave, large fridge-freezer, dishwasher, cookware, dishes, and glassware.
+            </sl-details>
+
+            <sl-details 
+                data-i8n-summary="faq_linens_q" 
+                data-i8n="faq_linens_a" 
+                summary="Do I need to bring linens or towels?"> 
+                No. Bed linens and 100% cotton towels are provided. Bathrobes and swimming pool towels are available upon request.
+            </sl-details>
+
+            <sl-details 
+                data-i8n-summary="faq_wifi_q" 
+                data-i8n="faq_wifi_a" 
+                summary="Is there internet access?"> 
+                Yes, Wi-Fi access is provided. The network name and password will be given to you at check-in.
+            </sl-details>
+
+            <sl-details 
+                data-i8n-summary="faq_pool_heating_q" 
+                data-i8n="faq_pool_heating_a" 
+                summary="Are the pools private and heated?">
+                Yes, each chalet has its private pool (seasonal opening times).
+            </sl-details>
+
+            <sl-details 
+                data-i8n-summary="faq_lifeguard_q" 
+                data-i8n="faq_lifeguard_a" 
+                summary="Is there a lifeguard at the pool?">
+                No. Pool use is entirely at your own risk. Parents must supervise children at all times. Please note that only plastic glasses are allowed in the pool area.
+            </sl-details>
+
+            <sl-details 
+                data-i8n-summary="faq_checkin_q" 
+                data-i8n="faq_checkin_a" 
+                summary="What are the check-in and check-out times?">
+                <b>Check-in:</b> 14:00 – 22:00. <br><b>Check-out:</b> By 09:00.<br>Note: Early check-in or late check-out may be possible depending on availability; please contact reception in advance.
+            </sl-details>
+
+            <sl-details 
+                data-i8n-summary="faq_deposit_q" 
+                data-i8n="faq_deposit_a" 
+                summary="Is a security deposit required?">
+                Yes. A <b>€250 credit card</b> deposit is pre-authorized at check-in. This is a temporary hold to cover damages or unpaid extras and is released a few days after check-out if no issues are reported.
+            </sl-details>
+
+            <sl-details 
+                data-i8n-summary="faq_cancel_q" 
+                data-i8n="faq_cancel_a" 
+                summary="What is the cancellation policy?">
+                <b>Standard Season (April–June, Mid-Sept–Oct):</b> 25% refund >14 days before arrival; 50% refund 7–13 days before. No refund if <7 days.<br><b>Peak Season (July, August, Holidays):</b> No cancellations or refund available
+            </sl-details>
+
+            <sl-details 
+                data-i8n-summary="faq_payment_q" 
+                data-i8n="faq_payment_a" 
+                summary="What payment methods are accepted?">
+                We accept Visa, Mastercard, and American Express. Tourist tax is added to the booking. Extras can be paid by cash or card at check-out.
+            </sl-details>
+            
+            <sl-details 
+                data-i8n-summary="faq_tax_q" 
+                data-i8n="faq_tax_a" 
+                summary="Is there a tourist tax?">
+                Yes, a tourist tax is charged per person, per night. The rates are as follows:<br><b>Adults:</b> €1.30 per night.<br><b>Children (12 to 18 years):</b> €0.80 per night.<br><b>Children (under 12 years):</b> Free of charge.
+            </sl-details>
+        </div>
+
+        <div>
+            <sl-details 
+                data-i8n-summary="faq_shops_q" 
+                data-i8n="faq_shops_a" 
+                summary="Where are the nearest shops and restaurants?">
+                <b>Turjak (approx. 4 km):</b> Nearest grocery store, restaurants, and cafés.<br><b>Gradiška (approx. 20 km):</b> Larger supermarkets, pharmacies, and main highway connections.
+            </sl-details>
+
+            <sl-details 
+                data-i8n-summary="faq_housekeeping_q" 
+                data-i8n="faq_housekeeping_a" 
+                summary="Is housekeeping included?">
+                Could be provided for stays longer than 7 days.
+            </sl-details>
+
+            <sl-details 
+                data-i8n-summary="faq_laundry_q" 
+                data-i8n="faq_laundry_a" 
+                summary="Do you offer laundry services?">
+                Upon request.
+            </sl-details>
+
+            <sl-details 
+                data-i8n-summary="faq_baby_q" 
+                data-i8n="faq_baby_a" 
+                summary="Is equipment available for babies?">
+                No. We do not provide baby cots or highchairs, so we strongly advise parents to bring their own equipment for their children.
+            </sl-details>
+
+            <sl-details 
+                data-i8n-summary="faq_pets_q" 
+                data-i8n="faq_pets_a" 
+                summary="Are pets allowed?">
+                Yes, pets are allowed upon request. Please note there is an additional fee of €15 per stay.
+            </sl-details>
+
+            <sl-details 
+                data-i8n-summary="faq_parking_q" 
+                data-i8n="faq_parking_a" 
+                summary="Is parking available?">
+                Yes, there is free private parking directly next to each chalet.
+            </sl-details>
+
+            <!--<sl-details -->
+            <!--    data-i8n-summary="faq_ev_q" -->
+            <!--    data-i8n="faq_ev_a" -->
+            <!--    summary="Do you have an EV charging station?">-->
+            <!--    Not currently, though one is planned for the future. The nearest petrol station is on the main road to Gradiška (approx. 18 km).-->
+            <!--</sl-details>-->
+
+            <sl-details 
+                data-i8n-summary="faq_quiet_q" 
+                data-i8n="faq_quiet_a" 
+                summary="When are the quiet hours?">
+                Quiet hours are from 22:00 to 08:00. (Exceptions may be made if one group has booked all 5 chalets).
+            </sl-details>
+
+            <sl-details 
+                data-i8n-summary="faq_airport_q" 
+                data-i8n="faq_airport_a" 
+                summary="How far is the airport?">
+                Banja Luka airport is approximately 45 minutes by car. Transfers and local taxi services can be arranged upon request.
+            </sl-details>
+
+            <sl-details 
+                data-i8n-summary="faq_yearround_q" 
+                data-i8n="faq_yearround_a" 
+                summary="Is the resort open all year-round?">
+                Yes.
+            </sl-details>
+
+            <sl-details 
+                data-i8n-summary="faq_find_q" 
+                data-i8n="faq_find_a" 
+                summary="How do I find the Resort?">
+                Please follow our sign posts for Kozara Panoramic Resort.
+            </sl-details>
+        </div>
+    </div>
+</section>
+
+		<section class="cta-band">
+			<h3 data-i8n="closing_title">Ready to Experience the Silence?</h3>
+			<p data-i8n="closing_desc">Book your stay today and discover the magic of Mount Kozara.</p>
+			<a href="#booking" class="btn-cta-large" data-i8n="date_check_btn">Check Availability</a>
+		</section>
+
+		<footer id="contact">
+        <div class="footer-logo">KOZARA PANORAMIC RESORT</div>
+        <!-- Updated Footer Links -->
+        <div class="footer-links">
+            <a href="https://kozarapanoramicresort.ba/notice#impressum" data-i8n="footer-impressum">Impressum</a> |
+            <a href="https://kozarapanoramicresort.ba/notice#terms" data-i8n="footer-terms">Terms & Conditions</a> |
+            <a href="https://kozarapanoramicresort.ba/notice#privacy" data-i8n="footer-privacy">Privacy Policy</a> |
+            <a href="https://kozarapanoramicresort.ba/notice#impressum" data-i8n="footer-contact">Contact</a>
+        </div>
+        <p>© Kozara Panoramic Resort – PEVA d.o.o. All rights reserved.</p>
+    </footer>
+
+		<sl-dialog id="chalet_dialog" label="The Cloud Cabin">
+			<p id="dialog-desc" class="dialog-desc">The Cloud cabin floats above the clouds, surrounded by silence and a view that connects sky and earth. It's made for those who seek inspiration and peace in moments of pure stillness.</p>
+			<sl-carousel class="dialog-gallery" navigation loop> </sl-carousel>
+			<div class="dialog-thumbnails">
+				<div class="thumbnails__scroller"></div>
+			</div>
+			<div class="dialog-amenities">
+			<span class="amenity-pill"><sl-icon src="./assets/amenities_icons/wifi.svg"></sl-icon> <span data-i8n="chalets_amenities_wifi">High-Speed Wifi</span></span>
+				<span class="amenity-pill"><sl-icon src="./assets/amenities_icons/coffee.svg"></sl-icon> <span data-i8n="chalets_amenities_espresso">Espresso Machine and Kettle</span></span>
+				<span class="amenity-pill"><sl-icon src="./assets/amenities_icons/air-vent.svg"></sl-icon> <span data-i8n="chalets_amenities_ac">AC / Heating</span></span>
+				<span class="amenity-pill"><sl-icon src="./assets/amenities_icons/microwave.svg"></sl-icon> <span data-i8n="chalets_amenities_microwave">Microwave and oven</span></span>
+				<span class="amenity-pill"><sl-icon src="./assets/amenities_icons/sandwich.svg"></sl-icon> <span data-i8n="chalets_amenities_toast">Toaster</span></span>
+				<span class="amenity-pill"><sl-icon src="./assets/amenities_icons/cooking-pot.svg"></sl-icon> <span data-i8n="chalets_amenities_hob">Hob</span></span>
+				<span class="amenity-pill"><sl-icon src="./assets/amenities_icons/refrigerator.svg"></sl-icon> <span data-i8n="chalets_amenities_fridge">Refrigerator/Freezer</span></span>
+				<span class="amenity-pill"><sl-icon src="./assets/amenities_icons/bed.svg"></sl-icon> <span data-i8n="chalets_amenities_bed">Quality bedding and towels</span></span>
+				<span class="amenity-pill"><sl-icon src="./assets/amenities_icons/shower-head.svg"></sl-icon> <span data-i8n="chalets_amenities_shower">Rainshower</span></span>
+				<span class="amenity-pill"><sl-icon src="./assets/amenities_icons/tv.svg"></sl-icon> <span>Firestick TV</span></span>
+				<span class="amenity-pill"><sl-icon src="./assets/amenities_icons/sofa.svg"></sl-icon> <span data-i8n="chalets_amenities_sofa">Lounge space</span></span>
+				<span class="amenity-pill"><sl-icon src="./assets/amenities_icons/vault.svg"></sl-icon> <span data-i8n="chalets_amenities_safe">Laptop size safe</span></span>			</div>
+			<button class="btn-book-dialog" slot="footer" onclick="chalet_dialog.hide();open_booking();" data-i8n="chalets_btn">Book Your Stay</button>
 		</sl-dialog>
-	</section>
 
-	<section id="reviews" style="display: none;">
-		<div class="bg"></div>
-		<div class="container">
-			<div class="title">reviews</div>
-			<div class="horizontal">
-				<sl-icon src="./assets/Tripadvisor_Logo_RGB_White_For_Dark_Background.svg"></sl-icon>
-				<sl-carousel navigation slides-per-page="2" mouse-dragging loop>
-					<!-- TODO: replace with reviwes -->
-					<sl-carousel-item>
-						<sl-rating precision="0.5" value="3.5" readonly></sl-rating>
-						<div class="username">Octavius</div>
-						<sl-format-date date="2020-07-15T09:17:00-04:00"></sl-format-date>
-						<div class="text">This is a comment pulled from tripadvisor disajf sdfsdf sd fs df dsfs </div>
-					</sl-carousel-item>
-					<sl-carousel-item>COMMENT PLACEHOLDER</sl-carousel-item>
-					<sl-carousel-item>COMMENT PLACEHOLDER</sl-carousel-item>
-					<sl-carousel-item>COMMENT PLACEHOLDER</sl-carousel-item>
-				</sl-carousel>
+		<sl-dialog id="book_dialog" label="Book">
+			<div id="switch_container" slot="header-actions">
+				<span onclick="currency_switch.click()">BAM</span>
+				<sl-switch id="currency_switch"></sl-switch>
+				<span onclick="currency_switch.click()">EUR</span>
 			</div>
-		</div>
-	</section>
+			<div id="book_calendar_wrapper"></div>
+			<form id="book_form">
+				<fieldset group="1">
+					<legend data-i8n="booking_form_occupants_title">Occupant Info</legend>
+					<div>
+						<sl-input min="1" max="6" name="numAdults" type="number" value="1" inputmode="numeric" label="Number of Adults" enterkeyhint="next" required data-i8nSL="booking_form_occupants_n_ad"></sl-input>
+						<sl-input min="0" max="2" name="numChildren" value="0" type="number" inputmode="numeric" label="Number of Children" enterkeyhint="next" required data-i8nSL="booking_form_occupants_n_ch"></sl-input>
+					</div>
+					<span>
+						<sl-icon src="./assets/amenities_icons/circle-alert.svg"></sl-icon>
+						<span data-i8n="booking_form_occupants_note">Up to 6 adults, or 4 adults and 2 children</span>
+					</span>
+				</fieldset>
+				<fieldset group="2">
+					<legend data-i8n="booking_form_billing_title">Billing Info</legend>
+					<sl-input name="billingAddress" label="Address" enterkeyhint="next" required data-i8nSL="booking_form_billing_address"></sl-input>
+					<sl-input name="billingCity" label="City" enterkeyhint="next" required data-i8nSL="booking_form_billing_city"></sl-input>
+					<sl-select autocomplete="country" name="billingCountry" label="Country" required data-i8nSL="booking_form_billing_country">
+						<sl-divider></sl-divider>
+						<sl-option value="AF">Afghanistan</sl-option>
+						<sl-option value="AL">Albania</sl-option>
+						<sl-option value="DZ">Algeria</sl-option>
+						<sl-option value="AS">American Samoa</sl-option>
+						<sl-option value="AD">Andorra</sl-option>
+						<sl-option value="AO">Angola</sl-option>
+						<sl-option value="AI">Anguilla</sl-option>
+						<sl-option value="AQ">Antarctica</sl-option>
+						<sl-option value="AG">Antigua and Barbuda</sl-option>
+						<sl-option value="AR">Argentina</sl-option>
+						<sl-option value="AM">Armenia</sl-option>
+						<sl-option value="AW">Aruba</sl-option>
+						<sl-option value="AU">Australia</sl-option>
+						<sl-option value="AT">Austria</sl-option>
+						<sl-option value="AZ">Azerbaijan</sl-option>
+						<sl-divider></sl-divider>
+						<sl-option value="AX">Åland Islands</sl-option>
+						<sl-divider></sl-divider>
+						<sl-option value="BS">Bahamas</sl-option>
+						<sl-option value="BH">Bahrain</sl-option>
+						<sl-option value="BD">Bangladesh</sl-option>
+						<sl-option value="BB">Barbados</sl-option>
+						<sl-option value="BY">Belarus</sl-option>
+						<sl-option value="BE">Belgium</sl-option>
+						<sl-option value="BZ">Belize</sl-option>
+						<sl-option value="BJ">Benin</sl-option>
+						<sl-option value="BM">Bermuda</sl-option>
+						<sl-option value="BT">Bhutan</sl-option>
+						<sl-option value="BO">Bolivia (Plurinational State of)</sl-option>
+						<sl-option value="BA">Bosnia and Herzegovina</sl-option>
+						<sl-option value="BW">Botswana</sl-option>
+						<sl-option value="BV">Bouvet Island</sl-option>
+						<sl-option value="BR">Brazil</sl-option>
+						<sl-option value="IO">British Indian Ocean Territory</sl-option>
+						<sl-option value="BN">Brunei Darussalam</sl-option>
+						<sl-option value="BG">Bulgaria</sl-option>
+						<sl-option value="BF">Burkina Faso</sl-option>
+						<sl-option value="BI">Burundi</sl-option>
+						<sl-divider></sl-divider>
+						<sl-option value="CV">Cabo Verde</sl-option>
+						<sl-option value="KH">Cambodia</sl-option>
+						<sl-option value="CM">Cameroon</sl-option>
+						<sl-option value="CA">Canada</sl-option>
+						<sl-option value="BQ">Caribbean Netherlands</sl-option>
+						<sl-option value="KY">Cayman Islands</sl-option>
+						<sl-option value="CF">Central African Republic</sl-option>
+						<sl-option value="TD">Chad</sl-option>
+						<sl-option value="CL">Chile</sl-option>
+						<sl-option value="CN">China</sl-option>
+						<sl-option value="CX">Christmas Island</sl-option>
+						<sl-option value="CC">Cocos (Keeling) Islands</sl-option>
+						<sl-option value="CO">Colombia</sl-option>
+						<sl-option value="KM">Comoros</sl-option>
+						<sl-option value="CG">Congo</sl-option>
+						<sl-option value="CD">Congo, Democratic Republic of the</sl-option>
+						<sl-option value="CK">Cook Islands</sl-option>
+						<sl-option value="CR">Costa Rica</sl-option>
+						<sl-option value="HR">Croatia</sl-option>
+						<sl-option value="CU">Cuba</sl-option>
+						<sl-option value="CW">Curaçao</sl-option>
+						<sl-option value="CY">Cyprus</sl-option>
+						<sl-option value="CZ">Czech Republic</sl-option>
+						<sl-option value="CI">Côte d'Ivoire</sl-option>
+						<sl-divider></sl-divider>
+						<sl-option value="DK">Denmark</sl-option>
+						<sl-option value="DJ">Djibouti</sl-option>
+						<sl-option value="DM">Dominica</sl-option>
+						<sl-option value="DO">Dominican Republic</sl-option>
+						<sl-divider></sl-divider>
+						<sl-option value="EC">Ecuador</sl-option>
+						<sl-option value="EG">Egypt</sl-option>
+						<sl-option value="SV">El Salvador</sl-option>
+						<sl-option value="GQ">Equatorial Guinea</sl-option>
+						<sl-option value="ER">Eritrea</sl-option>
+						<sl-option value="EE">Estonia</sl-option>
+						<sl-option value="SZ">Eswatini (Swaziland)</sl-option>
+						<sl-option value="ET">Ethiopia</sl-option>
+						<sl-divider></sl-divider>
+						<sl-option value="FK">Falkland Islands (Malvinas)</sl-option>
+						<sl-option value="FO">Faroe Islands</sl-option>
+						<sl-option value="FJ">Fiji</sl-option>
+						<sl-option value="FI">Finland</sl-option>
+						<sl-option value="FR">France</sl-option>
+						<sl-option value="GF">French Guiana</sl-option>
+						<sl-option value="PF">French Polynesia</sl-option>
+						<sl-option value="TF">French Southern Territories</sl-option>
+						<sl-divider></sl-divider>
+						<sl-option value="GA">Gabon</sl-option>
+						<sl-option value="GM">Gambia</sl-option>
+						<sl-option value="GE">Georgia</sl-option>
+						<sl-option value="DE">Germany</sl-option>
+						<sl-option value="GH">Ghana</sl-option>
+						<sl-option value="GI">Gibraltar</sl-option>
+						<sl-option value="GR">Greece</sl-option>
+						<sl-option value="GL">Greenland</sl-option>
+						<sl-option value="GD">Grenada</sl-option>
+						<sl-option value="GP">Guadeloupe</sl-option>
+						<sl-option value="GU">Guam</sl-option>
+						<sl-option value="GT">Guatemala</sl-option>
+						<sl-option value="GG">Guernsey</sl-option>
+						<sl-option value="GN">Guinea</sl-option>
+						<sl-option value="GW">Guinea-Bissau</sl-option>
+						<sl-option value="GY">Guyana</sl-option>
+						<sl-divider></sl-divider>
+						<sl-option value="HT">Haiti</sl-option>
+						<sl-option value="HM">Heard Island and Mcdonald Islands</sl-option>
+						<sl-option value="HN">Honduras</sl-option>
+						<sl-option value="HK">Hong Kong</sl-option>
+						<sl-option value="HU">Hungary</sl-option>
+						<sl-divider></sl-divider>
+						<sl-option value="IS">Iceland</sl-option>
+						<sl-option value="IN">India</sl-option>
+						<sl-option value="ID">Indonesia</sl-option>
+						<sl-option value="IR">Iran</sl-option>
+						<sl-option value="IQ">Iraq</sl-option>
+						<sl-option value="IE">Ireland</sl-option>
+						<sl-option value="IM">Isle of Man</sl-option>
+						<sl-option value="IL">Israel</sl-option>
+						<sl-option value="IT">Italy</sl-option>
+						<sl-divider></sl-divider>
+						<sl-option value="JM">Jamaica</sl-option>
+						<sl-option value="JP">Japan</sl-option>
+						<sl-option value="JE">Jersey</sl-option>
+						<sl-option value="JO">Jordan</sl-option>
+						<sl-divider></sl-divider>
+						<sl-option value="KZ">Kazakhstan</sl-option>
+						<sl-option value="KE">Kenya</sl-option>
+						<sl-option value="KI">Kiribati</sl-option>
+						<sl-option value="KP">Korea, North</sl-option>
+						<sl-option value="KR">Korea, South</sl-option>
+						<sl-option value="XK">Kosovo</sl-option>
+						<sl-option value="KW">Kuwait</sl-option>
+						<sl-option value="KG">Kyrgyzstan</sl-option>
+						<sl-divider></sl-divider>
+						<sl-option value="LA">Lao People's Democratic Republic</sl-option>
+						<sl-option value="LV">Latvia</sl-option>
+						<sl-option value="LB">Lebanon</sl-option>
+						<sl-option value="LS">Lesotho</sl-option>
+						<sl-option value="LR">Liberia</sl-option>
+						<sl-option value="LY">Libya</sl-option>
+						<sl-option value="LI">Liechtenstein</sl-option>
+						<sl-option value="LT">Lithuania</sl-option>
+						<sl-option value="LU">Luxembourg</sl-option>
+						<sl-divider></sl-divider>
+						<sl-option value="MO">Macao</sl-option>
+						<sl-option value="MK">Macedonia North</sl-option>
+						<sl-option value="MG">Madagascar</sl-option>
+						<sl-option value="MW">Malawi</sl-option>
+						<sl-option value="MY">Malaysia</sl-option>
+						<sl-option value="MV">Maldives</sl-option>
+						<sl-option value="ML">Mali</sl-option>
+						<sl-option value="MT">Malta</sl-option>
+						<sl-option value="MH">Marshall Islands</sl-option>
+						<sl-option value="MQ">Martinique</sl-option>
+						<sl-option value="MR">Mauritania</sl-option>
+						<sl-option value="MU">Mauritius</sl-option>
+						<sl-option value="YT">Mayotte</sl-option>
+						<sl-option value="MX">Mexico</sl-option>
+						<sl-option value="FM">Micronesia</sl-option>
+						<sl-option value="MD">Moldova</sl-option>
+						<sl-option value="MC">Monaco</sl-option>
+						<sl-option value="MN">Mongolia</sl-option>
+						<sl-option value="ME">Montenegro</sl-option>
+						<sl-option value="MS">Montserrat</sl-option>
+						<sl-option value="MA">Morocco</sl-option>
+						<sl-option value="MZ">Mozambique</sl-option>
+						<sl-option value="MM">Myanmar (Burma)</sl-option>
+						<sl-divider></sl-divider>
+						<sl-option value="NA">Namibia</sl-option>
+						<sl-option value="NR">Nauru</sl-option>
+						<sl-option value="NP">Nepal</sl-option>
+						<sl-option value="NL">Netherlands</sl-option>
+						<sl-option value="AN">Netherlands Antilles</sl-option>
+						<sl-option value="NC">New Caledonia</sl-option>
+						<sl-option value="NZ">New Zealand</sl-option>
+						<sl-option value="NI">Nicaragua</sl-option>
+						<sl-option value="NE">Niger</sl-option>
+						<sl-option value="NG">Nigeria</sl-option>
+						<sl-option value="NU">Niue</sl-option>
+						<sl-option value="NF">Norfolk Island</sl-option>
+						<sl-option value="MP">Northern Mariana Islands</sl-option>
+						<sl-option value="NO">Norway</sl-option>
+						<sl-divider></sl-divider>
+						<sl-option value="OM">Oman</sl-option>
+						<sl-divider></sl-divider>
+						<sl-option value="PK">Pakistan</sl-option>
+						<sl-option value="PW">Palau</sl-option>
+						<sl-option value="PS">Palestine</sl-option>
+						<sl-option value="PA">Panama</sl-option>
+						<sl-option value="PG">Papua New Guinea</sl-option>
+						<sl-option value="PY">Paraguay</sl-option>
+						<sl-option value="PE">Peru</sl-option>
+						<sl-option value="PH">Philippines</sl-option>
+						<sl-option value="PN">Pitcairn Islands</sl-option>
+						<sl-option value="PL">Poland</sl-option>
+						<sl-option value="PT">Portugal</sl-option>
+						<sl-option value="PR">Puerto Rico</sl-option>
+						<sl-divider></sl-divider>
+						<sl-option value="QA">Qatar</sl-option>
+						<sl-divider></sl-divider>
+						<sl-option value="RE">Reunion</sl-option>
+						<sl-option value="RO">Romania</sl-option>
+						<sl-option value="RU">Russian Federation</sl-option>
+						<sl-option value="RW">Rwanda</sl-option>
+						<sl-divider></sl-divider>
+						<sl-option value="BL">Saint Barthelemy</sl-option>
+						<sl-option value="SH">Saint Helena</sl-option>
+						<sl-option value="KN">Saint Kitts and Nevis</sl-option>
+						<sl-option value="LC">Saint Lucia</sl-option>
+						<sl-option value="MF">Saint Martin</sl-option>
+						<sl-option value="PM">Saint Pierre and Miquelon</sl-option>
+						<sl-option value="VC">Saint Vincent and the Grenadines</sl-option>
+						<sl-option value="WS">Samoa</sl-option>
+						<sl-option value="SM">San Marino</sl-option>
+						<sl-option value="ST">Sao Tome and Principe</sl-option>
+						<sl-option value="SA">Saudi Arabia</sl-option>
+						<sl-option value="SN">Senegal</sl-option>
+						<sl-option value="RS">Serbia</sl-option>
+						<sl-option value="CS">Serbia and Montenegro</sl-option>
+						<sl-option value="SC">Seychelles</sl-option>
+						<sl-option value="SL">Sierra Leone</sl-option>
+						<sl-option value="SG">Singapore</sl-option>
+						<sl-option value="SX">Sint Maarten</sl-option>
+						<sl-option value="SK">Slovakia</sl-option>
+						<sl-option value="SI">Slovenia</sl-option>
+						<sl-option value="SB">Solomon Islands</sl-option>
+						<sl-option value="SO">Somalia</sl-option>
+						<sl-option value="ZA">South Africa</sl-option>
+						<sl-option value="GS">South Georgia and the South Sandwich Islands</sl-option>
+						<sl-option value="SS">South Sudan</sl-option>
+						<sl-option value="ES">Spain</sl-option>
+						<sl-option value="LK">Sri Lanka</sl-option>
+						<sl-option value="SD">Sudan</sl-option>
+						<sl-option value="SR">Suriname</sl-option>
+						<sl-option value="SJ">Svalbard and Jan Mayen</sl-option>
+						<sl-option value="SE">Sweden</sl-option>
+						<sl-option value="CH">Switzerland</sl-option>
+						<sl-option value="SY">Syria</sl-option>
+						<sl-divider></sl-divider>
+						<sl-option value="TW">Taiwan</sl-option>
+						<sl-option value="TJ">Tajikistan</sl-option>
+						<sl-option value="TZ">Tanzania</sl-option>
+						<sl-option value="TH">Thailand</sl-option>
+						<sl-option value="TL">Timor-Leste</sl-option>
+						<sl-option value="TG">Togo</sl-option>
+						<sl-option value="TK">Tokelau</sl-option>
+						<sl-option value="TO">Tonga</sl-option>
+						<sl-option value="TT">Trinidad and Tobago</sl-option>
+						<sl-option value="TN">Tunisia</sl-option>
+						<sl-option value="TR">Turkey (Türkiye)</sl-option>
+						<sl-option value="TM">Turkmenistan</sl-option>
+						<sl-option value="TC">Turks and Caicos Islands</sl-option>
+						<sl-option value="TV">Tuvalu</sl-option>
+						<sl-divider></sl-divider>
+						<sl-option value="UM">U.S. Outlying Islands</sl-option>
+						<sl-option value="UG">Uganda</sl-option>
+						<sl-option value="UA">Ukraine</sl-option>
+						<sl-option value="AE">United Arab Emirates</sl-option>
+						<sl-option value="GB">United Kingdom</sl-option>
+						<sl-option value="US">United States</sl-option>
+						<sl-option value="UY">Uruguay</sl-option>
+						<sl-option value="UZ">Uzbekistan</sl-option>
+						<sl-divider></sl-divider>
+						<sl-option value="VU">Vanuatu</sl-option>
+						<sl-option value="VA">Vatican City Holy See</sl-option>
+						<sl-option value="VE">Venezuela</sl-option>
+						<sl-option value="VN">Vietnam</sl-option>
+						<sl-option value="VG">Virgin Islands, British</sl-option>
+						<sl-option value="VI">Virgin Islands, U.S</sl-option>
+						<sl-divider></sl-divider>
+						<sl-option value="WF">Wallis and Futuna</sl-option>
+						<sl-option value="EH">Western Sahara</sl-option>
+						<sl-divider></sl-divider>
+						<sl-option value="YE">Yemen</sl-option>
+						<sl-divider></sl-divider>
+						<sl-option value="ZM">Zambia</sl-option>
+						<sl-option value="ZW">Zimbabwe</sl-option>
+					</sl-select>
+					<sl-input name="billingPostCode" inputmode="numeric" label="Post Code" enterkeyhint="next" required data-i8nSL="booking_form_billing_postcode"></sl-input>
+					<sl-input name="customerName" label="First Name" enterkeyhint="next" required data-i8nSL="booking_form_billing_fname"></sl-input>
+					<sl-input name="customerLastName" label="Last Name" enterkeyhint="next" required data-i8nSL="booking_form_billing_lname"></sl-input>
+					<sl-input name="customerEmail" type="email" inputmode="email" label="Email" enterkeyhint="next" required></sl-input>
+					<sl-input name="customerPhone" type="tel" inputmode="tel" label="Phone Number" enterkeyhint="done" required data-i8nSL="booking_form_billing_pnum"></sl-input>
+				</fieldset>
+				<sl-button id="ptp_btn" type="submit" data-i8n="booking_form_btn">Proceed to payment</sl-button>
+			</form>
+		</sl-dialog>
 
-	<section id="location">
-		<div class="bg"></div>
-		<div class="container">
-			<div class="title">you can find us here</div>
-			<iframe src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d11283.290040638396!2d17.094704!3d45.0082261!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDXCsDAwJzMwLjYiTiAxN8KwMDUnMzguOCJF!5e0!3m2!1sbs!2sba!4v1754601639449!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="true" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-		</div>
-	</section>
+		<sl-dialog id="img_preview">
+			<img src="" alt="Click on an image to preview it here" />
+		</sl-dialog>
 
-	<section id="blog">
-		<div class="bg"></div>
-		<div class="container">
-			<div class="vertical">
-				<div class="title">Blog</div>
-				<div class="text">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, maiores, doloremque corporis eum excepturi id tempore, cupiditate mollitia dolor provident amet eius maxime porro facilis necessitatibus reiciendis consequatur ipsum non
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, maiores, doloremque corporis eum excepturi id tempore, cupiditate mollitia dolor provident amet eius maxime porro facilis necessitatibus reiciendis consequatur ipsum non
-				</div>
-				<sl-button>ALL BLOGS</sl-button>
-			</div>
-			<sl-carousel navigation mouse-dragging loop>
-				<!-- TODO: replace with real or more images -->
-				<sl-carousel-item><img src="./assets/chalet1.webp"></sl-carousel-item>
-				<sl-carousel-item><img src="./assets/chalet2.webp"></sl-carousel-item>
-				<sl-carousel-item><img src="./assets/chalet3.webp"></sl-carousel-item>
-				<sl-carousel-item><img src="./assets/chalet4.webp"></sl-carousel-item>
-			</sl-carousel>
-		</div>
-	</section>
+		<script>
+			let prices_data = null
+			// Data for the Modals
+			const chaletData = {
+				wind: {
+					title: "The Wind Chalet",
+					desc: "The Wind chalet carries the freshness of the mountain breeze and the feeling of freedom in every breath. Perfect for those who wish to feel the rhythm of nature and the harmony between wind and trees.",
+					images: ["assets/Chalets/wind/image00004.webp", "assets/Chalets/wind/image00006.webp", "assets/Chalets/wind/image00009.webp", "assets/Chalets/wind/image00016.webp", "assets/Chalets/wind/image00022.webp", "assets/Chalets/wind/image00026.webp", "assets/Chalets/wind/image00035.webp", "assets/Chalets/wind/image00036.webp", "assets/Chalets/wind/image08170.webp", "assets/Chalets/wind/image08191.webp", "assets/Chalets/wind/image08192.webp"],
+				},
+				summit: {
+					title: "The Sun Chalet",
+					desc: "The Sun chalet glows with golden light, perfect for mornings filled with warmth and energy. Every ray of sunshine brings joy and reminds you that each day is a new beginning.",
+					images: ["assets/Chalets/sun/image00004.webp", "assets/Chalets/sun/image00006.webp", "assets/Chalets/sun/image00009.webp", "assets/Chalets/sun/image00016.webp", "assets/Chalets/sun/image00022.webp", "assets/Chalets/sun/image00026.webp", "assets/Chalets/sun/image00035.webp", "assets/Chalets/sun/image00036.webp", "assets/Chalets/sun/image08170.webp", "assets/Chalets/sun/image08191.webp", "assets/Chalets/sun/image08192.webp"],
+				},
+				star: {
+					title: "The Star Chalet",
+					desc: "The Star chalet lies beneath a sky full of stars, where nights turn into magical moments. It’s ideal for couples or anyone wishing to find calmness under the endless sparkle of the night sky.",
+					images: ["assets/Chalets/star/image00004.webp", "assets/Chalets/star/image00006.webp", "assets/Chalets/star/image00009.webp", "assets/Chalets/star/image00010.webp", "assets/Chalets/star/image00016.webp", "assets/Chalets/star/image00026.webp", "assets/Chalets/star/image00035.webp", "assets/Chalets/star/image00036.webp", "assets/Chalets/star/image00001.webp", "assets/Chalets/star/image00003.webp", "assets/Chalets/star/image08184.webp"],
+				},
+				cloud: {
+					title: "The Cloud Chalet",
+					desc: "The Cloud chalet floats above the clouds, surrounded by silence and a view that connects sky and earth. It’s made for those who seek inspiration and peace in moments of pure stillness.",
+					images: ["assets/Chalets/cloud/image00004.webp", "assets/Chalets/cloud/image00006.webp", "assets/Chalets/cloud/image00009.webp", "assets/Chalets/cloud/image00016.webp", "assets/Chalets/cloud/image00022.webp", "assets/Chalets/cloud/image00026.webp", "assets/Chalets/cloud/image00035.webp", "assets/Chalets/cloud/image00036.webp", "assets/Chalets/cloud/image08170.webp", "assets/Chalets/cloud/image08191.webp", "assets/Chalets/cloud/image08192.webp"],
+				},
+				sky: {
+					title: "The Sky Chalet",
+					desc: "The Sky chalet stands at the boundary where the world fades and the heavens begin, offering boundless horizons and a sense of absolute freedom. It is the perfect vantage point for seekers of clarity, allowing you to breathe in the vastness and connect with the world's grand scale.",
+					images: ["assets/Chalets/sky/image00004.webp", "assets/Chalets/sky/image00006.webp", "assets/Chalets/sky/image00009.webp", "assets/Chalets/sky/image00016.webp", "assets/Chalets/sky/image00022.webp", "assets/Chalets/sky/image00026.webp", "assets/Chalets/sky/image00035.webp", "assets/Chalets/sky/image00036.webp", "assets/Chalets/sky/image08170.webp", "assets/Chalets/sky/image08191.webp", "assets/Chalets/sky/image08192.webp"],
+				},
+			}
 
-	<section class="filler">
-		<div class="bg"></div>
-		<div class="container"></div>
-	</section>
+            const LANGUAGE_MAP = {
+                'en': { flag: '🇬🇧', abbr: 'EN' },
+                'sr': { flag: '🇷🇸', abbr: 'SR' },
+                'de': { flag: '🇩🇪', abbr: 'DE' },
+                'it': { flag: '🇮🇹', abbr: 'IT' }
+            }
+            
+            let langData = {}
+			const carousel = document.querySelector(".dialog-gallery")
+			const scroller = document.querySelector(".thumbnails__scroller")
+			const modal = document.getElementById("chalet_dialog")
+			const descEl = document.getElementById("dialog-desc")
 
-	<section id="about">
-		<div class="bg"></div>
-		<div class="container">
-			<sl-carousel navigation mouse-dragging loop>
-				<!-- TODO: replace with real or more images -->
-				<sl-carousel-item><img src="./assets/chalet1.webp"></sl-carousel-item>
-				<sl-carousel-item><img src="./assets/chalet2.webp"></sl-carousel-item>
-				<sl-carousel-item><img src="./assets/chalet3.webp"></sl-carousel-item>
-				<sl-carousel-item><img src="./assets/chalet4.webp"></sl-carousel-item>
-			</sl-carousel>
-			<div class="vertical">
-				<div class="title">ABOUT US</div>
-				<div class="text">
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, maiores, doloremque corporis eum excepturi id tempore, cupiditate mollitia dolor provident amet eius maxime porro facilis necessitatibus reiciendis consequatur ipsum non
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, maiores, doloremque corporis eum excepturi id tempore, cupiditate mollitia dolor provident amet eius maxime porro facilis necessitatibus reiciendis consequatur ipsum non
-					Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, maiores, doloremque corporis eum excepturi id tempore, cupiditate mollitia dolor provident amet eius maxime porro facilis necessitatibus reiciendis consequatur ipsum non
-				</div>
-			</div>
-		</div>
-	</section>
+			function openModal(chaletId) {
+				const data = chaletData[chaletId] || chaletData["cloud"]
 
-	<section class="filler">
-		<div class="bg"></div>
-		<div class="container"></div>
-	</section>
+console.log(langData)
+                console.log(chaletId)
+                const translatedDesc  = langData[chaletId + '_desc'];
 
-	<section id="kozara">
-		<div class="bg"></div>
-		<div class="container">
-			<div class="vertical">
-				<div class="title">Kozara</div>
-				<div class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, maiores, doloremque corporis eum excepturi id tempore, cupiditate mollitia dolor provident amet eius maxime porro facilis necessitatibus reiciendis consequatur ipsum non</div>
-				<sl-button>READ MORE</sl-button>
-			</div>
-			<sl-carousel navigation mouse-dragging loop>
-				<!-- TODO: replacfe with real or more images -->
-				<sl-carousel-item><img src="./assets/chalet1.webp"></sl-carousel-item>
-				<sl-carousel-item><img src="./assets/chalet2.webp"></sl-carousel-item>
-				<sl-carousel-item><img src="./assets/chalet3.webp"></sl-carousel-item>
-				<sl-carousel-item><img src="./assets/chalet4.webp"></sl-carousel-item>
-			</sl-carousel>
-		</div>
-	</section>
+                console.log(translatedDesc)
+				modal.label = data.title
+				descEl.innerText = translatedDesc || data.desc
+				// descEl.innerText = data.desc
+				carousel.innerHTML = ""
+				scroller.innerHTML = ""
+				data.images.forEach(img_uri => {
+					carousel.innerHTML += `<sl-carousel-item><img src="${img_uri}"></sl-carousel-item>`
+					const new_thumbnail = document.createElement("img")
+					new_thumbnail.setAttribute("src", img_uri)
+					new_thumbnail.classList.add("thumbnails__image")
+					scroller.appendChild(new_thumbnail)
+				})
+				scroller.children[0].classList.add("active")
 
-	<footer id="footer">
-		<!-- TODO: add social media -->
-		 <sl-icon src="./assets/logoK.svg"></sl-icon>
-		 <div class="grid">
-			<div>Socials</div>
-			<div>navigation</div>
-			<div>Contact Us</div>
-			<div style="color: gray;">
-				PLACEHOLDER
-			</div>
-			<div>
-				<sl-button href="#gallery" variant="text">Gallery</sl-button>
-				<sl-button href="#chalets" variant="text">Chalets</sl-button>
-				<sl-button href="#blog" variant="text">Blog</sl-button>
-				<sl-button href="#about" variant="text">About</sl-button>
-			</div>
-			<div>
-				<sl-button variant="text">Name Lastname</sl-button>
-				<sl-button variant="text">email@example.com</sl-button>
-				<sl-button variant="text">Address</sl-button>
-			</div>
-		 </div>
-	</footer>
-</body>
-<script>
-	// scale text sections
-	const ELEM = blog.querySelector(".bg");
-	const ELEM2 = about.querySelector(".bg");
-	const ELEM3 = kozara.querySelector(".bg");
-	const BASE = blog.querySelector(".vertical");
-	const BASE2 = about.querySelector(".vertical");
-	const BASE3 = kozara.querySelector(".vertical");
+				modal.show()
+				carousel.goToSlide(0)
+			}
 
-	function resize() {
-		ELEM.style.setProperty("--h", BASE.clientHeight + "px");
-		ELEM2.style.setProperty("--h", BASE2.clientHeight + "px");
-		ELEM3.style.setProperty("--h", BASE3.clientHeight + "px");
-	}
+			// modal carousel
 
-	new ResizeObserver(resize).observe(BASE);
+			scroller.addEventListener("click", e => {
+				const target = e.target
 
-	// chalet overview
-	const chalet_dialog = chalets.querySelector("sl-dialog");
-	
-	function openPreview(name) {
-		chalet_dialog.setAttribute('label', name)
-		chalet_dialog.setAttribute('data-cid', chaletnameindex[name])
-		chalet_dialog.show();
-	}
-
-	// pay
-	const pay_dialog = document.getElementById("pay")
-
-	function openPay() {
-		calendar.unselect()
-		pay_dialog.setAttribute('label', `Payment - ${chalet_dialog.getAttribute('label')}`)
-		pay_dialog.setAttribute('data-cid', chalet_dialog.dataset.cid)
-		calendar.removeAllEvents()
-		dummydata[pay_dialog.dataset.cid].reservedDates.forEach(range => {
-			calendar.addEvent({
-				start: range.check_in,
-				end: range.check_out,
-				display: "background",
-				id: range.check_in
+				if (target.matches(".thumbnails__image")) {
+					const thumbnails = scroller.querySelectorAll(".thumbnails__image")
+					const index = [...thumbnails].indexOf(target)
+					carousel.goToSlide(index)
+				}
 			})
-		})
-		writePrices()
-		chalet_dialog.hide()
-		pay_dialog.show()
-	}
 
-	pay_dialog.addEventListener("sl-after-show", () => {
-		calendar.updateSize()
-	})
+			carousel.addEventListener("sl-slide-change", e => {
+				const slideIndex = e.detail.index
+				const thumbnails = scroller.querySelectorAll(".thumbnails__image")
 
-	menubtn.addEventListener("click", () => {
-		sidebar.show();
-	})
-
-	// chalet overview gallery
-	const carousel = chalet_dialog.querySelector("sl-carousel");
-	const scroller = chalet_dialog.querySelector(".scroller");
-	const thumbnails = chalet_dialog.querySelectorAll(".scroller > img");
-	const tab1 = chalet_tabs.querySelector("sl-tab-panel[name='carousel']")
-	const tab2 = chalet_tabs.querySelector("sl-tab-panel[name='side']")
-	const g = chalet_dialog.querySelector(".carousel")
-	const d = chalet_dialog.querySelector(".side")
-
-	scroller.addEventListener('click', e => {
-    	const target = e.target;
-
-		if (target.matches('img')) {
-			const index = [...thumbnails].indexOf(target);
-			carousel.goToSlide(index);
-		}
-    });
-
-    carousel.addEventListener('sl-slide-change', e => {
-		const slideIndex = e.detail.index;
-
-		[...thumbnails].forEach((thumb, i) => {
-			thumb.classList.toggle('active', i === slideIndex);
-			if (i === slideIndex) {
-				thumb.scrollIntoView({
-				block: 'nearest'
-				});
-			}
-		});
-    });
-
-	// payment elements for resizing
-	const ptab1 = pay_tabs.querySelector("sl-tab-panel[name='calendar']")
-	const ptab2 = pay_tabs.querySelector("sl-tab-panel[name='payment']")
-	const pcalendar = pay_dialog.querySelector("div:has(#calendar)")
-	const ppayment = pay_form
-
-	// screen sizing
-	const gallery = document.getElementById('gallery').querySelector('sl-carousel');
-	const comments = reviews.querySelector('sl-carousel');
-	let window_previous_width;
-	function updateSlidesPerPage() {
-  		const width = window.innerWidth;
-		if (width == window_previous_width) return
-		window_previous_width = width
-		if (width < 900) {
-			gallery.setAttribute('slides-per-page', '1');
-			comments.setAttribute('slides-per-page', '1');
-			tab1.appendChild(g)
-			tab2.appendChild(d)
-			ptab1.appendChild(pcalendar)
-			ptab2.appendChild(ppayment)
-		} else if (width < 992) {
-			gallery.setAttribute('slides-per-page', '2');
-			comments.setAttribute('slides-per-page', '2');
-			tab1.appendChild(g)
-			tab2.appendChild(d)
-			ptab1.appendChild(pcalendar)
-			ptab2.appendChild(ppayment)
-			// calendar.setOption("height", "60vh")
-		} else {
-			gallery.setAttribute('slides-per-page', '3');
-			comments.setAttribute('slides-per-page', '2');
-			chalet_dialog.appendChild(g)
-			chalet_dialog.appendChild(d)
-			pay_dialog.appendChild(pcalendar)
-			pay_dialog.appendChild(ppayment)
-		}
-	}
-	pay_tabs.addEventListener("sl-tab-show", (e) => {
-		if (e.detail.name != 'calendar') return
-		setTimeout(() => {
-			calendar.updateSize()
-		}, 1);
-	})
-
-	window.addEventListener("DOMContentLoaded", updateSlidesPerPage());
-
-	window.addEventListener('resize', updateSlidesPerPage);
-
-	// replace all shadowroot input dates
-	function shadowInjection() {
-		const inpElements = document.querySelectorAll("sl-input[type='date']")
-		if (!inpElements[0] || !inpElements[0].shadowRoot) {
-			setTimeout(shadowInjection, 100)
-			return
-		}
-
-		for (let i = 0; i < inpElements.length; i++) {
-			const style = document.createElement("style")
-			style.textContent = `
-			input[type="date"]::-webkit-calendar-picker-indicator,
-			input[type="date"]::-webkit-inner-spin-button {
-				display: none !important;
-				-webkit-appearance: none !important;
-				opacity: 0 !important;
-				pointer-events: none !important;
-			}
-
-			/* For Firefox */
-			@-moz-document url-prefix() {
-				input[type="date"] {
-					clip-path: inset(0 2ch 0 0);
-				}
-			}`
-
-			inpElements[i].shadowRoot.appendChild(style)
-		}
-	}
-	shadowInjection()
-
-	// focus input fields on wrapper click
-	const checkerDivs = checker.querySelectorAll(".container > div:has(sl-input)")
-
-	checkerDivs.forEach(elem => {
-		elem.addEventListener("click", e => {
-			elem.querySelector("sl-input").showPicker()
-		})
-	})
-
-	// checker implementation
-	const arrival_selector = checker.querySelector("[label='Arrival']")
-	const departure_selector = checker.querySelector("[label='Departure']")
-	function checkAvailable() {
-		if (!arrival_selector.valueAsDate) {
-			console.log("no date set")
-			arrival_selector.setCustomValidity("Please set the arrival date")
-			arrival_selector.reportValidity()
-			return
-		}
-		if (!departure_selector.valueAsDate) {
-			departure_selector.setCustomValidity("Please set the departure date")
-			departure_selector.reportValidity()
-			return
-		}
-		const start = arrival_selector.valueAsDate
-		const end = departure_selector.valueAsDate
-		if (start > end) {
-			arrival_selector.setCustomValidity("Arrival date can not be after the departure date")
-			arrival_selector.reportValidity()
-			return
-		}
-		outer:for (let [cid, dates] of Object.entries(dummydata)) {
-			dates = dates.reservedDates
-			for (let range of dates) {
-				if ((start > new Date(range.check_in) && start < new Date(range.check_out)) ||
-					(end > new Date(range.check_in) && end < new Date(range.check_out))) {
-					console.log("this range clashes with the search: ", range)
-					chalets.querySelector(`div[data-cid="${cid}"]`).classList.add("filter_unavailable")
-					continue outer
-				}
-			}
-			chalets.querySelector(`div[data-cid="${cid}"]`).classList.remove("filter_unavailable")
-		}
-		remove_filter_btn.style.setProperty("display", "block")
-		chalets.scrollIntoView()
-	}
-
-	function remove_filters() {
-		chalets.querySelectorAll("div.filter_unavailable").forEach(el => {
-			el.classList.remove("filter_unavailable")
-			gsap.to("#remove_filter_btn", {
-				scale: 0,
-				duration: 0.25
-			}).then(() => {
-				remove_filter_btn.style.setProperty("display", "none")
-			})
-		})
-		remove_filter_btn.parentElement.hide()
-	}
-
-	// check discound validity
-	let cacl_discount = false
-	discount.addEventListener("sl-input", e => {
-		const testCode = "KOZARA"
-		const testCode2 = "ZA"
-		
-		switch (discount.value) {
-			case "":
-				discount.querySelector("[data-type='correct']").style.setProperty('display', 'none')
-				discount.querySelector("[data-type='incorrect']").style.setProperty('display', 'none')
-				cacl_discount = false
-				break
-			case testCode:
-				discount.querySelector("[data-type='correct']").style.setProperty('display', 'block')
-				discount.querySelector("[data-type='incorrect']").style.setProperty('display', 'none')
-				cacl_discount = {
-					type: "percentage",
-					value: 0.8
-				}
-				break
-			case testCode2:
-				discount.querySelector("[data-type='correct']").style.setProperty('display', 'block')
-				discount.querySelector("[data-type='incorrect']").style.setProperty('display', 'none')
-				cacl_discount = {
-					type: "flat",
-					value: 10
-				}
-				break
-			default:
-				discount.querySelector("[data-type='correct']").style.setProperty('display', 'none')
-				discount.querySelector("[data-type='incorrect']").style.setProperty('display', 'block')
-				cacl_discount = false
-				break
-		}
-		calculate_total()
-	})
-
-	function calculate_total() {
-		if (pay_form.querySelector("[name='check_in']").value == "" || pay_form.querySelector("[name='check_out']").value == "") {
-			total.innerText = "Hold & drag to select dates on the calendar"
-			return
-		}
-		const check_in = new Date(pay_form.querySelector("[name='check_in']").value)
-		const check_out = new Date(pay_form.querySelector("[name='check_out']").value)
-		check_out.setDate(check_out.getDate() + 1)
-		const special_dates = dummydata[pay_dialog.dataset.cid].specialDates
-		const base = dummydata[pay_dialog.dataset.cid].basePrice
-		let sum = 0
-
-		let current_date = check_in
-		while (+current_date != +check_out) {
-			const special = special_dates.find(e => {
-				return (current_date >= e.start && current_date <= e.end)
-			})
-			if (special) sum += special.price
-			else sum += base
-			current_date.setDate(current_date.getDate() + 1)
-		}
-		if (cacl_discount) {
-			if (cacl_discount.type == "percentage") {
-				sum *= cacl_discount.value
-			}
-			else {
-				sum -= cacl_discount.value
-			}
-		}
-		total.innerText = `Total: ${sum}€`
-
-		const adults = parseInt(pay_dialog.querySelector("[name='adults']").value)
-		const children = parseInt(pay_dialog.querySelector("[name='children']").value)
-	}
-
-	// form tokenization
-	let payment = new PaymentJs()
-	const default_style = {
-		'border': '1px solid rgb(212,212,216)',
-		'color': 'black',
-		'padding': '0.5rem 1rem',
-		'box-shadow': 'none'
-	}
-	const focus_style = {
-		'border': '1px solid rgb(14, 165, 233)',
-		'outline': 'none'
-	}
-    payment.init('hwE6XdX8epIB0HNELZmp', 'number_div', 'cvv_div', function (payment) {
-        payment.setNumberStyle(default_style)
-		payment.setCvvStyle(default_style)
-		payment.numberOn('focus', () => {
-			payment.setNumberStyle(focus_style)
-		})
-		payment.cvvOn('focus', () => {
-			payment.setCvvStyle(focus_style)
-		})
-		payment.numberOn('blur', () => {
-			payment.setNumberStyle(default_style)
-		})
-		payment.cvvOn('blur', () => {
-			payment.setCvvStyle(default_style)
-		})
-    })
-
-	pay_form.addEventListener("submit", interceptSubmit)
-
-	function interceptSubmit(e) {
-		e.preventDefault()
-		pay_dialog.querySelector("[name='children']").setCustomValidity("")
-		const formdata = new FormData(pay_form)
-		if (parseInt(formdata.get("adults")) + parseInt(formdata.get("children")) > 6) {
-			pay_dialog.querySelector("[name='children']").setCustomValidity("Maximum of 6 occupants allowed")
-			return
-		}
-		const bankartdata = {
-			card_holder: formdata.get("holder"),
-            month: formdata.get("month"),
-            year: formdata.get("year"),
-            email: formdata.get("email")
-		}
-
-		payment.tokenize(
-			bankartdata,
-			function (token, cardData) {
-				transaction_token.value = token
-				pay_form.querySelector('[name=month]').setCustomValidity("")
-				pay_form.querySelector('[name=year]').setCustomValidity("")
-				pay_form.querySelector('[name=number]').setAttribute("content", "")
-				pay_form.querySelector('[name=cvv]').setAttribute("content", "")
-				pay_dialog.querySelector("[name='children']").setCustomValidity("")
-			},
-			function (errors) {
-				pay_form.querySelector('[name=month]').setCustomValidity("")
-				pay_form.querySelector('[name=year]').setCustomValidity("")
-				pay_form.querySelector('[name=number]').setAttribute("content", "")
-				pay_form.querySelector('[name=cvv]').setAttribute("content", "")
-				console.log(errors)
-				errors.forEach(error => {
-					switch (error.attribute) {
-						case "card_holder":
-							break;
-						case "month":
-						case "year":
-							pay_form.querySelector(`[name=${error.attribute}]`).setCustomValidity(error.message)
-							break;
-						default:
-							pay_form.querySelector(`[name=${error.attribute}]`).setAttribute("content", error.message)
-							pay_form.querySelector(`[name=${error.attribute}]`).show()
-							break;
+				;[...thumbnails].forEach((thumb, i) => {
+					thumb.classList.toggle("active", i === slideIndex)
+					if (i === slideIndex) {
+						thumb.scrollIntoView({
+							block: "nearest",
+						})
 					}
 				})
-			}
-		)
+			})
 
-		// TODO: AJAX to server
-		// TODO: AJAX discount validity
-	}
-</script>
+			document.querySelectorAll("sl-carousel").forEach(el => {
+				el.addEventListener("click", e => {
+					if (e.target.tagName != "IMG") return
+					preview(e.target.src)
+				})
+			})
+
+			function preview(src) {
+				img_preview.querySelector("img").setAttribute("src", src)
+				img_preview.show()
+			}
+
+			// Calendar logic
+			const calendar_settings = {
+				inputMode: true,
+				selectedTheme: "light",
+				dateMin: "today",
+				displayDateMin: "today",
+				enableDateToggle: false,
+				onInit(self) {
+					self.context.inputElement.blur()
+					self.context.inputElement.addEventListener("focus", () => {
+						self.context.inputElement.blur()
+					})
+				},
+				onClickDate(self, event) {
+					self.context.inputElement.value = self.context.selectedDates[0].split("-").reverse().join("/")
+				},
+			}
+			const { Calendar } = window.VanillaCalendarPro
+			const check_arrive = new Calendar("#c_arrive", calendar_settings)
+			const check_depart = new Calendar("#c_depart", calendar_settings)
+			check_arrive.init()
+			check_depart.init()
+			let currency_modifier = 1
+
+			const booking_calendar = new Calendar("#book_calendar_wrapper", {
+				type: "multiple",
+				selectedTheme: "light",
+				dateMin: "today",
+				displayDateMin: "2025-12-15",
+				// displayDateMax: "2026-03-31",
+				dateMax: '2026-03-31',
+				disableDatesGaps: true,
+				disableToday: true,
+				enableEdgeDatesOnly: true,
+				enableDateToggle: false,
+				selectionDatesMode: "multiple-ranged",
+				onCreateDateEls(self, dateEl) {
+					if (!prices_data) return
+					const curr_date = dateEl.dataset.vcDate
+					for (const entry of prices_data) {
+						if (comp_date(entry.from, curr_date)) continue
+						if (comp_date(curr_date, entry.to)) continue
+						dateEl.querySelector("button").innerHTML += `<div>\
+							${Math.round(entry.price1 * currency_modifier * 10) / 10}${currency_modifier == 1 ? "KM" : "€"}
+							</div>`
+						break
+					}
+				},
+				onClickDate(self, event) {
+					if (self.context.selectedDates.length < 2) return
+					const expanded_dates = window.VanillaCalendarProUtils.parseDates([`${self.context.selectedDates[0]}:${self.context.selectedDates[1]}`])
+					if (expanded_dates.length < 3) {
+						notify("Minimum 2 nights of stay!", "neutral")
+						self.context.selectedDates = []
+					}
+				},
+			})
+			booking_calendar.init()
+			currency_switch.addEventListener("sl-change", e => {
+				currency_modifier = currency_switch.checked ? 0.51 : 1
+				booking_calendar.update()
+			})
+
+			// Formatting
+			let ayt_formatter = null
+			book_form.querySelector("[name=billingCountry]").addEventListener("sl-change", e => {
+				ayt_formatter = new libphonenumber.AsYouType(e.target.value)
+			})
+			book_form.querySelector("[name=customerPhone]").addEventListener("sl-input", e => {
+				if (!ayt_formatter) return
+				ayt_formatter.reset()
+				e.target.value = ayt_formatter.input(e.target.value)
+			})
+
+			function open_booking() {
+				booking_calendar.update()
+				book_dialog.show()
+			}
+			// Form
+			book_form.addEventListener("submit", e => {
+				e.preventDefault()
+				if (booking_calendar.context.selectedDates.length < 2) {
+					notify("Please select the days you would like to stay")
+					e.stopImmediatePropagation()
+					return
+				}
+				const fdata = new FormData(book_form)
+				// check ppl number
+				book_form.querySelector("[name='numAdults']").setCustomValidity("")
+				if (parseInt(fdata.get("numAdults")) + parseInt(fdata.get("numChildren")) > 6) {
+					book_form.querySelector("[name='numAdults']").setCustomValidity("Maximum of 6 people per chalet")
+					return
+				}
+				const phoneN = libphonenumber.parsePhoneNumber(fdata.get("customerPhone"), fdata.get("billingCountry"))
+				book_form.querySelector("[name=customerPhone]").setCustomValidity("")
+				if (!phoneN.isValid()) {
+					book_form.querySelector("[name=customerPhone]").setCustomValidity("Invalid phone number")
+					return
+				}
+
+				fdataJSON = {}
+				for (const [key, value] of fdata.entries()) {
+					fdataJSON[key] = value
+				}
+				fdataJSON.customerPhone = phoneN.formatInternational()
+				fdataJSON.startDate = booking_calendar.context.selectedDates[0]
+				fdataJSON.endDate = booking_calendar.context.selectedDates[1]
+
+				AJAX(fdataJSON)
+			})
+
+			async function AJAX(fdataJSON) {
+				ptp_btn.setAttribute("loading", "true")
+				const sres = await fetch("https://kozarapanoramicresort.ba/api/booking", {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify(fdataJSON),
+				})
+				const sresJSON = await sres.json()
+
+				const message = sresJSON.message
+				if (sres.status == 503) {
+					notify("Server under maintenance", "neutral")
+				} else if (sres.status == 500) {
+					notify(message, "danger")
+				} else if (sres.status == 400) {
+					notify(message, "neutral")
+				} else if (sres.status == 200) {
+					window.location = sresJSON.url
+				}
+				ptp_btn.removeAttribute("loading")
+			}
+
+			async function check_date_range() {
+				check_arrive.context.inputElement.setCustomValidity("")
+				check_depart.context.inputElement.setCustomValidity("")
+				if (!check_arrive.context.selectedDates || !check_arrive.context.selectedDates.length) {
+					check_arrive.context.inputElement.setCustomValidity("Select the arrival date first!")
+					check_arrive.context.inputElement.reportValidity()
+					return
+				}
+				if (!check_depart.context.selectedDates || !check_depart.context.selectedDates.length) {
+					check_depart.context.inputElement.setCustomValidity("Select the departure date first!")
+					check_depart.context.inputElement.reportValidity()
+					return
+				}
+				document.getElementById("chalets").scrollIntoView()
+
+				const sres = await fetch(`https://kozarapanoramicresort.ba/api/availability?startDate=${check_arrive.context.selectedDates[0]}&endDate=${check_depart.context.selectedDates[0]}`)
+				const sresJSON = await sres.json()
+				const message = sresJSON.message
+				if (sres.status == 503) {
+					notify("Server is currently under maintnance", "neutral")
+					return
+				} else if (sres.status == 500) {
+					notify(message, "danger")
+					return
+				} else if (sres.status == 400) {
+					notify(message, "neutral")
+					return
+				}
+
+				const arr = sresJSON.availableUnits
+				reset_cards()
+				const chalet_cards = document.querySelectorAll("#chalets .chalet-card")
+				for (let index = 0; index < chalet_cards.length; index++) {
+					if (arr.includes(index + 1)) continue
+					chalet_cards[index].classList.add("unavailable")
+				}
+			}
+
+			function reset_cards() {
+				document.querySelectorAll(".unavailable").forEach(el => {
+					el.classList.remove("unavailable")
+				})
+			}
+
+			// Notification
+			function notify(message, variant = "warning", duration = 3000) {
+				const alert = Object.assign(document.createElement("sl-alert"), {
+					variant,
+					closable: true,
+					duration: duration,
+					innerHTML: `<sl-icon src="./assets/amenities_icons/circle-alert.svg" slot="icon"></sl-icon>${message}`,
+				})
+
+				document.body.append(alert)
+				return alert.toast()
+			}
+
+			function comp_date(str1, str2) {
+				const d1 = new Date(str1)
+				const d2 = new Date(str2)
+				if (d1 > d2) return true
+				else return false
+			}
+
+			// resize
+			window.addEventListener("resize", resize)
+			let old_w = 800000000000
+			function resize() {
+				const w = window.innerWidth
+				if (w < 680 && old_w >= 680) {
+					booking_calendar.set({ type: "default" })
+				} else if (w > 680 && old_w <= 680) {
+					booking_calendar.set({ type: "multiple" })
+				}
+				if (w < 800) {
+					autocarousel.setAttribute("slides-per-page", 1)
+				} else if (w < 1270) {
+					autocarousel.setAttribute("slides-per-page", 2)
+				} else if (w > 1270) {
+					autocarousel.setAttribute("slides-per-page", 3)
+				}
+				old_w = w
+			}
+			window.addEventListener("DOMContentLoaded", () => {
+				resize()
+				gsap.registerPlugin(ScrollTrigger)
+				gsap.to("div.floating-book-btn", {
+					scrollTrigger: {
+						trigger: "header",
+						start: "center top",
+						end: "bottom top",
+						toggleActions: "play none none reverse",
+					},
+					opacity: 1,
+					ease: "none",
+					pointerEvents: "auto",
+					duration: 0.125,
+				})
+				// get language
+				
+				const pathSegments = window.location.pathname.split('/').filter(Boolean);
+                let lang_code = pathSegments.pop() || 'en';
+                lang_code = lang_code.toLowerCase();
+        
+                // Fallback to 'en' if the segment is not a valid language code
+                if (!LANGUAGE_MAP.hasOwnProperty(lang_code)) {
+                    lang_code = 'en'; 
+                }
+        
+                
+                const noticeBaseUrl = `/notice/${lang_code}`;
+                console.log(noticeBaseUrl)
+                function updateFooterLinks(selector) {
+                    console.log('Running footer links update...');
+            
+                    document.querySelectorAll(selector).forEach(link => {
+                        const currentHref = link.getAttribute('href');
+                        
+                        
+                        if (currentHref && currentHref.includes('/notice#')) {
+                            
+                            
+                            const hashAnchor = currentHref.substring(currentHref.indexOf('#'));
+                            
+                            link.setAttribute('href', noticeBaseUrl + hashAnchor);
+                            console.log(`Updated footer link: ${link.getAttribute('href')}`);
+                        }
+                    });
+                }
+                
+                
+                updateFooterLinks('.footer-links a');
+				load_lang(lang_code)
+			})
+			async function load_lang(lang_code) {
+				let langpack = await fetch("https://kozarapanoramicresort.ba/langpack/" + lang_code)
+				if (!langpack.ok) return
+				langData = await langpack.json()
+				console.log(langData)
+
+                const displayEl = document.getElementById('language_display_trigger')
+                if (displayEl) {
+                    const lang = LANGUAGE_MAP[lang_code] || LANGUAGE_MAP['en'];
+                    displayEl.innerHTML = `${lang.flag} ${lang.abbr}`;
+                }
+				document.querySelectorAll("[data-i8n]").forEach(el => {
+					el.innerHTML = langData[el.dataset.i8n]
+				})
+				document.querySelectorAll("[data-i8nSL]").forEach(el => {
+					el.setAttribute("label", langData[el.dataset.i8nsl])
+				})
+                document.querySelectorAll("[data-i8n-summary]").forEach(el => {
+                        const key = el.dataset.i8nSummary; // Note: dataset camelCases the name
+                        if (langData[key]) el.setAttribute("summary", langData[key]);
+                });
+			}
+			{
+				const curr_date = new Date()
+				const next_date = new Date()
+				next_date.setFullYear(curr_date.getFullYear() + 1)
+				fetch(`https://kozarapanoramicresort.ba/api/getprices?startDate=${curr_date.toISOString().substring(0, 10)}&endDate=${next_date.toISOString().substring(0, 10)}`)
+					.then(res => res.json())
+					.then(res => (prices_data = res))
+					.then(() => {
+						let disabled_dates = []
+						prices_data.forEach(entry => {
+							if (entry.numAvail == 0) {
+								disabled_dates.push(`${entry.from}:${entry.to}`)
+							}
+						})
+						booking_calendar.set({
+							disableDates: disabled_dates,
+				// 			dateMax: next_date.toISOString().substring(0, 10),
+				// 			displayDateMax: next_date.toISOString().substring(0, 10),
+						})
+						booking_calendar.update()
+					})
+					.catch(err => {
+						notify("Server down", "danger")
+						document.querySelector("a.nav-cta").setAttribute("disabled", "true")
+						document.querySelector("div.floating-book-btn").setAttribute("disabled", "true")
+						document.querySelector("button.btn-check").setAttribute("disabled", "true")
+						chalet_dialog.querySelector("button.btn-book-dialog").setAttribute("disabled", "true")
+					})
+			}
+		</script>
+	</body>
 </html>

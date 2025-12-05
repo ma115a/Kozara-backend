@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "module": "CommonJS",
+    "target": "ES2020",
+    "checkJs": true,
+    "allowJs": true
+  },
+  "include": ["**/*.js"]
+}

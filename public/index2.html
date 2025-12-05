@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en" class="sl-theme-light">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Kozara Panoramic Resort</title>
+		<link rel="stylesheet" href="./css/vanilla_calendar.css" />
+		<link rel="stylesheet" href="./css/main.css" />
+		<script src="./js/vanilla_calendar.js"></script>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/light.css" />
+		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/shoelace-autoloader.js"></script>
+	</head>
+	<body>
+		<a href="#booking" class="floating-book-btn">Book Now</a>
+
+		<div id="chalet-modal" class="modal-overlay">
+			<div class="modal-container">
+				<div class="modal-header">
+					<h2 id="modal-title" class="modal-title">The Cloud Cabin</h2>
+					<button class="modal-close" onclick="closeModal()">×</button>
+				</div>
+				<div class="modal-body">
+					<p id="modal-desc" class="modal-desc">The Cloud cabin floats above the clouds, surrounded by silence and a view that connects sky and earth. It's made for those who seek inspiration and peace in moments of pure stillness.</p>
+
+					<sl-carousel class="modal-gallery" navigation loop>
+						<sl-carousel-item>
+							<img id="img-1" src="https://picsum.photos/id/10/800/600" alt="Main View" />
+						</sl-carousel-item>
+						<sl-carousel-item>
+							<img id="img-2" src="https://picsum.photos/id/11/400/300" alt="Kitchen" />
+						</sl-carousel-item>
+						<sl-carousel-item>
+							<img id="img-3" src="https://picsum.photos/id/12/400/300" alt="Bedroom" />
+						</sl-carousel-item>
+					</sl-carousel>
+					<div class="modal-thumbnails">
+						<div class="thumbnails__scroller">
+							<img id="thumb-1" alt="Thumbnail by 1" class="thumbnails__image active" src="/assets/examples/carousel/mountains.jpg" />
+							<img id="thumb-2" alt="Thumbnail by 2" class="thumbnails__image" src="/assets/examples/carousel/waterfall.jpg" />
+							<img id="thumb-3" alt="Thumbnail by 3" class="thumbnails__image" src="/assets/examples/carousel/sunset.jpg" />
+						</div>
+					</div>
+
+					<div class="modal-amenities">
+						<span class="amenity-pill"><sl-icon name="wifi"></sl-icon> High-Speed Wifi</span>
+						<span class="amenity-pill"><sl-icon name="cup-hot"></sl-icon> Espresso Machine</span>
+						<span class="amenity-pill"><sl-icon name="snow"></sl-icon> AC / Heating</span>
+						<span class="amenity-pill"><sl-icon name="water"></sl-icon> Private Pool</span>
+						<span class="amenity-pill"><sl-icon name="book"></sl-icon> Reading Nook</span>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button class="btn-book-modal">Book This Chalet</button>
+				</div>
+			</div>
+		</div>
+
+		<header class="hero">
+			<div class="hero-overlay"></div>
+
+			<div class="nav-bar">
+				<div class="logo-text">KOZARA</div>
+
+				<div class="nav-links-container">
+					<a href="#chalets" class="nav-link">Chalets</a>
+					<a href="#location" class="nav-link">Location</a>
+					<a href="#reviews" class="nav-link">Reviews</a>
+					<a href="#blog" class="nav-link">Blog</a>
+					<a href="#contact" class="nav-link">Contact</a>
+				</div>
+
+				<a href="#booking" class="nav-cta">Book Your Stay</a>
+			</div>
+
+			<div class="hero-content">
+				<div class="logo-area">KOZARA PANORAMIC RESORT</div>
+				<h2>Your Sanctuary in Nature</h2>
+			</div>
+		</header>
+
+		<div id="booking" class="booking-container">
+			<div class="booking-bar">
+				<div class="input-group">
+					<label>Check-in</label>
+					<input id="c_arrive" />
+				</div>
+				<div class="input-group">
+					<label>Check-out</label>
+					<input id="c_depart" />
+				</div>
+				<button class="btn-check">Check Availability</button>
+			</div>
+		</div>
+
+		<section class="intro">
+			<h3 class="section-title">Not Just an Escape, <br />A Discovery.</h3>
+			<p class="lead">Nestled in the heart of Mount Kozara, our resort offers an unforgettable experience where every detail reflects warmth, care, and elegance.</p>
+		</section>
+
+		<section class="carousel-container">
+			<sl-carousel id="autocarousel" navigation pagination loop autoplay autoplay-interval="3000" slides-per-page="3">
+				<sl-carousel-item><img src="https://picsum.photos/id/29/1920/1080" alt="Mountain 1" /></sl-carousel-item>
+				<sl-carousel-item><img src="https://picsum.photos/id/14/1920/1080" alt="Interior 1" /></sl-carousel-item>
+				<sl-carousel-item><img src="https://picsum.photos/id/15/1920/1080" alt="Winter" /></sl-carousel-item>
+				<sl-carousel-item><img src="https://picsum.photos/id/16/1920/1080" alt="Forest" /></sl-carousel-item>
+				<sl-carousel-item><img src="https://picsum.photos/id/17/1920/1080" alt="Adventure" /></sl-carousel-item>
+			</sl-carousel>
+		</section>
+
+		<section id="chalets" class="chalets-section">
+			<div style="text-align: center; margin-bottom: 40px">
+				<h3 class="section-title">Our Luxury Chalets</h3>
+				<p>Our cabins combine nature and luxury, created for those seeking tranquility, comfort, and a unique escape. Each cabin has its own story, designed to awaken emotion and bring complete relaxation.</p>
+			</div>
+
+			<div class="chalet-grid">
+				<div class="chalet-card">
+					<img src="https://images.unsplash.com/photo-1525113990976-399835c43838?q=80&w=2128&auto=format&fit=crop" class="chalet-img" alt="Cloud Cabin" />
+					<div class="chalet-details">
+						<h4>The Cloud Cabin</h4>
+						<p class="amenities">Sleeps 4 • Jacuzzi • Forest View</p>
+						<button class="btn-view" onclick="openModal('cloud')">View Details</button>
+					</div>
+				</div>
+
+				<div class="chalet-card">
+					<img src="https://images.unsplash.com/photo-1525113990976-399835c43838?q=80&w=2128&auto=format&fit=crop" class="chalet-img" alt="Star Cabin" />
+					<div class="chalet-details">
+						<h4>The Star Cabin</h4>
+						<p class="amenities">Sleeps 6 • Fireplace • Large Terrace</p>
+						<button class="btn-view" onclick="openModal('star')">View Details</button>
+					</div>
+				</div>
+
+				<div class="chalet-card special">
+					<div class="special-badge">Premium Exclusive</div>
+					<img src="https://images.unsplash.com/photo-1525113990976-399835c43838?q=80&w=2128&auto=format&fit=crop" class="chalet-img" alt="Summit Lodge" />
+					<div class="chalet-details">
+						<h4>The Summit Lodge</h4>
+						<p class="amenities">Sleeps 8 • Private Spa • Panoramic Glass</p>
+						<button class="btn-view" onclick="openModal('summit')">View Details</button>
+					</div>
+				</div>
+
+				<div class="chalet-card">
+					<img src="https://images.unsplash.com/photo-1525113990976-399835c43838?q=80&w=2128&auto=format&fit=crop" class="chalet-img" alt="Wind Cabin" />
+					<div class="chalet-details">
+						<h4>The Wind Cabin</h4>
+						<p class="amenities">Sleeps 2 • Secluded • Romantic</p>
+						<button class="btn-view" onclick="openModal('wind')">View Details</button>
+					</div>
+				</div>
+
+				<div class="chalet-card">
+					<img src="https://images.unsplash.com/photo-1525113990976-399835c43838?q=80&w=2128&auto=format&fit=crop" class="chalet-img" alt="Pine Cabin" />
+					<div class="chalet-details">
+						<h4>The Pine Cabin</h4>
+						<p class="amenities">Sleeps 5 • Pet Friendly • BBQ</p>
+						<button class="btn-view" onclick="openModal('pine')">View Details</button>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="location" class="location-section">
+			<div class="location-overlay"></div>
+			<div class="location-content">
+				<h3 class="section-title" style="color: var(--sand-beige)">Find Us on the Mountain</h3>
+				<p style="margin-bottom: 30px; font-size: 1.1rem">Mrakovica, Kozara National Park • 45 mins from Banja Luka</p>
+				<div class="map-frame">
+					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d45177.71565657656!2d16.879277883568786!3d45.00934745033476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47675f044a96252d%3A0x23779d70566106c4!2sNacionalni%20park%20Kozara!5e0!3m2!1sen!2sba!4v1709555555555!5m2!1sen!2sba" allowfullscreen="" loading="lazy"></iframe>
+				</div>
+			</div>
+		</section>
+
+		<section id="reviews" class="reviews-section">
+			<h3 class="section-title">Guest Testimonials</h3>
+			<div class="review-grid">
+				<div class="review-card">
+					<p>"The best mountain retreat we have ever experienced. The Star Cabin fireplace was magical."</p>
+					<div class="reviewer">— ANA & MARKO, Sarajevo</div>
+				</div>
+				<div class="review-card">
+					<p>"Pure luxury in the wilderness. The Cloud Cabin jacuzzi was perfect after a long hike."</p>
+					<div class="reviewer">— DAMIR M., Beograd</div>
+				</div>
+				<div class="review-card">
+					<p>"A truly unique spot in Kozara National Park. Modern but cozy design."</p>
+					<div class="reviewer">— THE JUSIC FAMILY</div>
+				</div>
+			</div>
+		</section>
+
+		<section id="about-us" class="section-padding">
+			<div class="content-layout">
+				<div class="content-text">
+					<h3 class="section-title" style="text-align: left">Our Story</h3>
+					<p>Kozara Panoramic Resort was created out of love for nature and the idea that luxury and peace can exist in perfect harmony. Our mission is to create a place where every guest feels a deep balance between nature, comfort, and serenity. Nestled in the heart of Mount Kozara, the resort offers an unforgettable experience where every detail reflects warmth, care, and elegance.</p>
+					<p>Our modern cabins offer privacy and intimacy, while still providing all the amenities of contemporary accommodation. Panoramic views, pure mountain air, and forest silence make every morning special and every evening calm. Kozara Panoramic Resort is more than a place to stay – it’s an experience that restores inner balance, reconnects you with nature, and reminds you how little is needed to feel true peace. Welcome to a space where time slows down and every moment becomes a lasting memory.</p>
+				</div>
+				<div class="content-image">
+					<img src="https://picsum.photos/id/110/800/600" alt="Cozy Interior" />
+				</div>
+			</div>
+		</section>
+
+		<section id="about-kozara" class="section-padding blog-section">
+			<div class="content-layout reverse">
+				<div class="content-text">
+					<h3 class="section-title" style="text-align: left">Discover Kozara</h3>
+					<p>Mount Kozara, known as the “air spa” and the green jewel of Krajina, is a place where nature still breathes freely. Its dense forests, pure air, and peaceful viewpoints offer the perfect escape from city life. Kozara blends wilderness and tranquility, creating an ideal setting for relaxation, adventure, and self-discovery. Mount Kozara, known as the air spa and green oasis of Western Krajina, is where nature reveals its true beauty. Its dense forests, mountain streams, and fresh air make it a perfect retreat for rest, adventure, and spiritual renewal. The mountain trails lead through scenic viewpoints and fragrant meadows, offering views that calm the soul and fill you with energy.</p>
+					<p>Kozara is more than a mountain – it’s an experience of connection with nature, a place where time slows down and thoughts become clear. Every visitor finds their moment of peace here, whether in the quiet of the forest, the whisper of the wind, or the sunset that paints the peaks in golden tones. Kozara invites you to pause, breathe deeply, and feel what true freedom means.</p>
+				</div>
+				<div class="content-image">
+					<img src="https://picsum.photos/id/116/800/600" alt="Kozara Forest" />
+				</div>
+			</div>
+		</section>
+
+		<section id="blog" class="section-padding">
+			<h3 class="section-title">From Our Blog</h3>
+			<div class="chalet-grid">
+				<div class="chalet-card">
+					<img src="https://picsum.photos/id/311/800/600" class="chalet-img" alt="Hiking" />
+					<div class="chalet-details">
+						<h4>Top 5 Winter Hikes</h4>
+						<button class="btn-view">Read Article</button>
+					</div>
+				</div>
+				<div class="chalet-card">
+					<img src="https://picsum.photos/id/292/800/600" class="chalet-img" alt="Food" />
+					<div class="chalet-details">
+						<h4>Local Mountain Cuisine</h4>
+						<button class="btn-view">Read Article</button>
+					</div>
+				</div>
+				<div class="chalet-card">
+					<img src="https://picsum.photos/id/413/800/600" class="chalet-img" alt="Skiing" />
+					<div class="chalet-details">
+						<h4>Skiing for Beginners</h4>
+						<button class="btn-view">Read Article</button>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="cta-band">
+			<h3>Ready to Experience the Silence?</h3>
+			<p>Book your stay today and discover the magic of Mount Kozara.</p>
+			<a href="#booking" class="btn-cta-large">Check Availability</a>
+		</section>
+
+		<footer id="contact">
+			<div class="footer-logo">KOZARA RESORT</div>
+			<p>Banja Luka, BiH • © 2025 All Rights Reserved.</p>
+		</footer>
+
+		<script>
+			// Data for the Modals
+			const chaletData = {
+				cloud: {
+					title: "The Cloud Cabin",
+					desc: "Floating above the canopy, the Cloud Cabin offers 360-degree views of the Kozara mountains. Features a private jacuzzi on the deck and a modern, open-plan living space.",
+					img1: "https://picsum.photos/id/10/800/600",
+					img2: "https://picsum.photos/id/11/400/300",
+					img3: "https://picsum.photos/id/12/400/300",
+				},
+				star: {
+					title: "The Star Cabin",
+					desc: "A cozy A-frame designed for stargazing. Features a large skylight above the master bed and a wood-burning fireplace.",
+					img1: "https://picsum.photos/id/20/800/600",
+					img2: "https://picsum.photos/id/21/400/300",
+					img3: "https://picsum.photos/id/22/400/300",
+				},
+				summit: {
+					title: "The Summit Lodge",
+					desc: "Our premium offering, The Summit Lodge is the ultimate luxury escape. Features a massive stone fireplace, a private spa room, and floor-to-ceiling glass walls.",
+					img1: "https://picsum.photos/id/30/800/600",
+					img2: "https://picsum.photos/id/31/400/300",
+					img3: "https://picsum.photos/id/32/400/300",
+				},
+				wind: {
+					title: "The Wind Cabin",
+					desc: "Secluded and romantic, perfect for couples. Hidden deep in the forest for maximum privacy.",
+					img1: "https://picsum.photos/id/40/800/600",
+					img2: "https://picsum.photos/id/41/400/300",
+					img3: "https://picsum.photos/id/42/400/300",
+				},
+				pine: {
+					title: "The Pine Cabin",
+					desc: "Family friendly and spacious. Includes a large BBQ deck and direct access to hiking trails.",
+					img1: "https://picsum.photos/id/50/800/600",
+					img2: "https://picsum.photos/id/51/400/300",
+					img3: "https://picsum.photos/id/52/400/300",
+				},
+			}
+    const carousel = document.querySelector('.modal-gallery');
+    const scroller = document.querySelector('.thumbnails__scroller');
+    const thumbnails = document.querySelectorAll('.thumbnails__image');
+			const modal = document.getElementById("chalet-modal")
+			const titleEl = document.getElementById("modal-title")
+			const descEl = document.getElementById("modal-desc")
+			const img1 = document.getElementById("img-1")
+			const img2 = document.getElementById("img-2")
+			const img3 = document.getElementById("img-3")
+			const thumb1 = document.getElementById("thumb-1")
+			const thumb2 = document.getElementById("thumb-2")
+			const thumb3 = document.getElementById("thumb-3")
+
+			function openModal(chaletId) {
+				const data = chaletData[chaletId] || chaletData["cloud"]
+
+				titleEl.innerText = data.title
+				descEl.innerText = data.desc
+				img1.src = data.img1
+				img2.src = data.img2
+				img3.src = data.img3
+				thumb1.src = data.img1
+				thumb2.src = data.img2
+				thumb3.src = data.img3
+
+				modal.classList.add("modal-active")
+				document.body.style.overflow = "hidden" // Disable background scroll
+				carousel.goToSlide(0)
+			}
+
+			function closeModal() {
+				modal.classList.remove("modal-active")
+				document.body.style.overflow = "auto" // Enable background scroll
+			}
+
+			// Close on outside click
+			window.onclick = function (event) {
+				if (event.target == modal) {
+					closeModal()
+				}
+			}
+
+			// modal carousel
+
+
+    scroller.addEventListener('click', e => {
+      const target = e.target;
+
+      if (target.matches('.thumbnails__image')) {
+        const index = [...thumbnails].indexOf(target);
+        carousel.goToSlide(index);
+      }
+    });
+
+    carousel.addEventListener('sl-slide-change', e => {
+      const slideIndex = e.detail.index;
+
+      [...thumbnails].forEach((thumb, i) => {
+        thumb.classList.toggle('active', i === slideIndex);
+        if (i === slideIndex) {
+          thumb.scrollIntoView({
+            block: 'nearest'
+          });
+        }
+      });
+    });
+
+			// Calendar logic
+			const calendar_settings = {
+				inputMode: true,
+				selectedTheme: "light",
+				dateMin: "today",
+				displayDateMin: "today",
+				enableDateToggle: false,
+				onInit(self) {
+					self.context.inputElement.blur()
+					self.context.inputElement.addEventListener("focus", () => {
+						self.context.inputElement.blur()
+					})
+				},
+				onClickDate(self, event) {
+					self.context.inputElement.value = self.context.selectedDates[0].split("-").reverse().join("/")
+				},
+			}
+			const { Calendar } = window.VanillaCalendarPro
+			const check_arrive = new Calendar("#c_arrive", calendar_settings)
+			const check_depart = new Calendar("#c_depart", calendar_settings)
+			check_arrive.init()
+			check_depart.init()
+
+			// resize
+			window.addEventListener("resize", resize)
+			function resize() {
+				const w = window.innerWidth
+				if (w < 800) {
+					autocarousel.setAttribute("slides-per-page", 1)
+				}
+				else if (w < 1270) {
+					autocarousel.setAttribute("slides-per-page", 2)
+				}
+				else if (w > 1270) {
+					autocarousel.setAttribute("slides-per-page", 3)
+				}
+			}
+		</script>
+	</body>
+</html>

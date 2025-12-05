@@ -1,0 +1,230 @@
+{
+	"nav_chalets": "Chalets",
+	"nav_location": "Standort",
+	"nav_reviews": "Bewertungen",
+	"nav_blog": "Blog",
+	"contact": "Kontakt",
+	"nav_cta": "BUCHE DEINEN AUFENTHALT",
+
+	"subtitle": "DEIN RUHEOASE IN DER NATUR",
+
+	"date_check_check_in": "CHECK-IN",
+	"date_check_check_out": "CHECK-OUT",
+	"date_check_btn": "VERFÜGBARKEIT PRÜFEN",
+
+	"intro_title": "Nicht nur eine Flucht, <br/> sondern eine Entdeckung.",
+	"intro_subtitle": "Im Herzen des Mount Kozara gelegen, bietet unser Resort ein unvergessliches Erlebnis, bei dem jedes Detail Wärme, Fürsorge und Eleganz widerspiegelt.",
+
+	"floating": "JETZT BUCHEN",
+
+	"offer_card": "Eröffnungsangebot",
+	"offer_title": "Spektakuläre Winterrabatte",
+	"offer_desc": "Die Preise wurden vorübergehend gesenkt, da die letzten Außenarbeiten und Finish-Arbeiten noch in Bearbeitung sind. Während dieser Wintersaison sind die privaten Außenpools natürlich geschlossen und werden bei wärmerem Wetter wieder geöffnet. Die Sauna und der Relaxbereich werden bald fertiggestellt.",
+	"offer_notice_title": "Wichtige Mitteilung",
+	"offer_notice_desc": "Die unten angegebenen Preise sind Einführungspreise und unterliegen einer Überprüfung, während das Resort von der Eröffnungsphase in den vollen Betrieb übergeht. Die Preise können je nach Nachfrage, Verfügbarkeit und Abschluss der verbleibenden Arbeiten angepasst werden.",
+
+	"chalets_title": "Unsere Luxus-Chalets",
+	"chalets_desc": "Unsere Chalets verbinden Natur und Luxus, geschaffen für diejenigen, die Ruhe, Komfort und eine einzigartige Auszeit suchen. Jedes Chalet hat seine eigene Geschichte, die darauf ausgelegt ist, Emotionen zu wecken und vollständige Entspannung zu bieten.",
+	"chalets_amenities_wifi": "HOCHGESCHWINDIGKEITS-WIFI",
+	"chalets_amenities_espresso": "ESPRESSOMASCHINE UND WASSERKOCHER",
+	"chalets_amenities_ac": "KLIMAANLAGE / HEIZUNG",
+	"chalets_amenities_pool": "POOL",
+	"chalets_amenities_safe": "LAPTOP-GROSSER SAFE",
+	"chalets_amenities_microwave": "MIKROWELLE UND BACKOFEN",
+	"chalets_amenities_fridge": "KÜHLSCHRANK/GEFRIERSCHRANK",
+	"chalets_amenities_bed": "QUALITÄTS-BETTWÄSCHE UND HANDTÜCHER",
+	"chalets_amenities_shower": "REGENDUSCHE",
+	"chalets_amenities_sofa": "LOUNGE-BEREICH",
+	"chalets_amenities_toast": "TOASTER",
+	"chalets_amenities_hob": "KOCHFELD",
+	"chalets_btn": "BUCHE DEINEN AUFENTHALT",
+    "chalets_details_btn": "Details anzeigen",
+    "wind_desc" : "The Wind chalet trägt die Frische der Bergbrise und das Gefühl von Freiheit in jedem Atemzug. Perfekt für diejenigen, die den Rhythmus der Natur und die Harmonie zwischen Wind und Bäumen spüren möchten.", 
+    "summit_desc" : "The Sun chalet leuchtet in goldenem Licht, perfekt für Morgenstunden voller Wärme und Energie. Jeder Sonnenstrahl bringt Freude und erinnert Sie daran, dass jeder Tag ein Neuanfang ist.", 
+    "star_desc" : "The Star chalet liegt unter einem Himmel voller Sterne, wo Nächte zu magischen Momenten werden. Es ist ideal für Paare oder jeden, der Ruhe unter dem endlosen Funkeln des Nachthimmels finden möchte.", 
+    "cloud_desc" : "The Cloud chalet schwebt über den Wolken, umgeben von Stille und einem Ausblick, der Himmel und Erde verbindet. Es ist geschaffen für diejenigen, die Inspiration und Frieden in Momenten reiner Stille suchen.", 
+    "sky_desc" : "The Sky chalet steht an der Grenze, wo die Welt verblasst und der Himmel beginnt, und bietet grenzenlose Horizonte und ein Gefühl absoluter Freiheit. Es ist der perfekte Aussichtspunkt für diejenigen, die Klarheit suchen, und ermöglicht es Ihnen, die Weite einzuatmen und sich mit dem großen Ausmaß der Welt zu verbinden.", 
+
+    "secluded_badge" : "Abgeschieden",
+	"location_title": "Finde uns am Berg",
+	"location_description": "Mrakovica, Nationalpark Kozara • 45 Minuten von Banja Luka entfernt",
+    "location_quote": "Folgen Sie einfach den Schildern.",
+    "location_hint" : "Oder finden Sie uns auf der Karte unten",
+
+	"about_us_title": "Unsere Geschichte",
+	"about_us_desc1": "Kozara Panoramic Resort wurde aus Liebe zur Natur und der Idee geschaffen, dass Luxus und Frieden in perfekter Harmonie existieren können. Unsere Mission ist es, einen Ort zu schaffen, an dem jeder Gast ein tiefes Gleichgewicht zwischen Natur, Komfort und Gelassenheit spürt. Im Herzen des Mount Kozara gelegen, bietet das Resort ein unvergessliches Erlebnis, bei dem jedes Detail Wärme, Fürsorge und Eleganz widerspiegelt.",
+	"about_us_desc2": "Unsere modernen Hütten bieten Privatsphäre und Intimität, während sie alle Annehmlichkeiten der zeitgenössischen Unterkünfte bieten. Panoramablicke, reine Bergluft und der Waldeslärm machen jeden Morgen besonders und jeden Abend ruhig. Das Kozara Panoramic Resort ist mehr als ein Ort zum Übernachten – es ist ein Erlebnis, das das innere Gleichgewicht wiederherstellt, dich mit der Natur verbindet und dich daran erinnert, wie wenig es braucht, um wahren Frieden zu spüren. Willkommen in einem Raum, in dem die Zeit langsamer vergeht und jeder Moment zu einer bleibenden Erinnerung wird.",
+
+	"about_kozara_title": "Entdecke Kozara",
+	"about_kozara_desc1": "Der Mount Kozara, bekannt als die „Luft-SPA“ und das grüne Juwel von Krajina, ist ein Ort, an dem die Natur noch frei atmet. Seine dichten Wälder, reine Luft und friedliche Aussichtspunkte bieten den perfekten Rückzugsort vom Stadtleben. Kozara verbindet Wildnis und Ruhe und schafft eine ideale Umgebung für Entspannung, Abenteuer und Selbstentdeckung. Der Mount Kozara, bekannt als die Luft-SPA und grüne Oase des westlichen Krajina, ist der Ort, an dem die Natur ihre wahre Schönheit offenbart. Seine dichten Wälder, Gebirgsbäche und frische Luft machen ihn zu einem perfekten Rückzugsort für Erholung, Abenteuer und spirituelle Erneuerung. Die Bergpfade führen durch malerische Aussichtspunkte und duftende Wiesen, die Ausblicke bieten, die die Seele beruhigen und dich mit Energie erfüllen.",
+	"about_kozara_desc2": "Kozara ist mehr als nur ein Berg – es ist ein Erlebnis der Verbindung mit der Natur, ein Ort, an dem die Zeit langsamer wird und die Gedanken klarer werden. Jeder Besucher findet hier seinen Moment des Friedens, sei es im Schweigen des Waldes, im Flüstern des Windes oder im Sonnenuntergang, der die Gipfel in goldene Töne taucht. Kozara lädt dich ein, innezuhalten, tief durchzuatmen und zu spüren, was wahre Freiheit bedeutet.",
+
+	"blog_title": "Aus unserem Blog",
+	"blog_desc": "Demnächst ...",
+
+	"faq_title": "Häufig gestellte Fragen",
+
+	"closing_title": "Bereit, die Stille zu erleben?",
+	"closing_desc": "Buche noch heute deinen Aufenthalt und entdecke die Magie des Mount Kozara.",
+
+	"booking_form_occupants_title": "Belegungsinformationen",
+	"booking_form_occupants_n_ad": "Anzahl der Erwachsenen",
+	"booking_form_occupants_n_ch": "Anzahl der Kinder",
+	"booking_form_occupants_note": "Bis zu 6 Erwachsene oder 4 Erwachsene und 2 Kinder",
+
+	"booking_form_billing_title": "Rechnungsinformationen",
+	"booking_form_billing_address": "Adresse",
+	"booking_form_billing_city": "Stadt",
+	"booking_form_billing_country": "Land",
+	"booking_form_billing_postcode": "Postleitzahl",
+	"booking_form_billing_fname": "Vorname",
+	"booking_form_billing_lname": "Nachname",
+	"booking_form_billing_pnum": "Telefonnummer",
+
+	"booking_form_btn": "ZUM BEZAHLEN FORTFAHREN",
+
+"faq_heating_q": "Sind die Chalets beheizt und klimatisiert?",
+  "faq_heating_a": "Ja. Alle Chalets verfügen über eine vollautomatische Klimaanlage und Heizung für ganzjährigen Komfort, einschließlich Fußbodenheizung im Wohnbereich, Essbereich, in der Küche und im Bad.",
+  
+  "faq_kitchen_q": "Was ist in der Küche enthalten?",
+  "faq_kitchen_a": "Die Küchen sind komplett für Selbstversorger ausgestattet. Zur Ausstattung gehören ein Kochfeld, ein großer Backofen, eine Mikrowelle, ein großer Kühl-/Gefrierschrank, ein Geschirrspüler, Kochgeschirr, Geschirr und Gläser.",
+  
+  "faq_linens_q": "Muss ich Bettwäsche oder Handtücher mitbringen?",
+  "faq_linens_a": "Nein. Bettwäsche und Handtücher aus 100% Baumwolle werden gestellt. Bademäntel und Poolhandtücher sind auf Anfrage erhältlich.",
+  
+  "faq_wifi_q": "Gibt es Internetzugang?",
+  "faq_wifi_a": "Ja, WLAN-Zugang ist vorhanden. Der Netzwerkname und das Passwort werden Ihnen beim Check-in mitgeteilt.",
+  
+  "faq_pool_heating_q": "Sind die Pools privat und beheizt?",
+  "faq_pool_heating_a": "Ja, jedes Chalet verfügt über einen privaten Pool (saisonale Öffnungszeiten).",
+  
+  "faq_lifeguard_q": "Gibt es einen Bademeister am Pool?",
+  "faq_lifeguard_a": "Nein. Die Nutzung des Pools erfolgt ausschließlich auf eigene Gefahr. Eltern müssen ihre Kinder jederzeit beaufsichtigen. Bitte beachten Sie, dass im Poolbereich nur Plastikgläser erlaubt sind.",
+  
+  "faq_checkin_q": "Wie sind die Check-in- und Check-out-Zeiten?",
+  "faq_checkin_a": "<b>Check-in:</b> 14:00 – 22:00 Uhr. <br><b>Check-out:</b> Bis 09:00 Uhr.<br>Hinweis: Ein früher Check-in oder später Check-out ist je nach Verfügbarkeit möglich; bitte kontaktieren Sie die Rezeption im Voraus.",
+  
+  "faq_deposit_q": "Ist eine Kaution erforderlich?",
+  "faq_deposit_a": "Ja. Eine Kaution von <b>250 € per Kreditkarte</b> wird beim Check-in vorautorisiert. Dies ist eine vorübergehende Reservierung zur Deckung von Schäden oder unbezahlten Extras und wird einige Tage nach dem Check-out freigegeben, sofern keine Probleme gemeldet werden.",
+  
+  "faq_cancel_q": "Wie lauten die Stornierungsbedingungen?",
+  "faq_cancel_a": "<b>Standard-Saison (April–Juni, Mitte Sept–Okt):</b> 25% Rückerstattung >14 Tage vor Ankunft; 50% Rückerstattung 7–13 Tage vorher. Keine Rückerstattung bei <7 Tagen.<br><b>Hochsaison (Juli, August, Feiertage):</b> Keine Stornierungen oder Rückerstattungen möglich.",
+
+  "faq_payment_q": "Welche Zahlungsmethoden werden akzeptiert?",
+  "faq_payment_a": "Wir akzeptieren Visa, Mastercard und American Express. Die Kurtaxe wird zur Buchung hinzugefügt. Extras können beim Check-out bar oder mit Karte bezahlt werden.",
+
+  "faq_tax_q": "Gibt es eine Kurtaxe?",
+  "faq_tax_a": "Ja, es wird eine Kurtaxe pro Person und Nacht erhoben. Die Preise sind wie folgt:<br><b>Erwachsene:</b> 1,30 € pro Nacht.<br><b>Kinder (12 bis 18 Jahre):</b> 0,80 € pro Nacht.<br><b>Kinder (unter 12 Jahren):</b> Kostenlos.",
+
+  "faq_shops_q": "Wo sind die nächsten Geschäfte und Restaurants?",
+  "faq_shops_a": "<b>Turjak (ca. 4 km):</b> Nächstgelegenes Lebensmittelgeschäft, Restaurants und Cafés.<br><b>Gradiška (ca. 20 km):</b> Größere Supermärkte, Apotheken und Hauptautobahnverbindungen.",
+  
+  "faq_housekeeping_q": "Ist die Reinigung inbegriffen?",
+  "faq_housekeeping_a": "Kann bei Aufenthalten von mehr als 7 Tagen bereitgestellt werden.",
+  
+  "faq_laundry_q": "Bieten Sie einen Wäscheservice an?",
+  "faq_laundry_a": "Auf Anfrage.",
+  
+  "faq_baby_q": "Ist Ausstattung für Babys verfügbar?",
+  "faq_baby_a": "Nein. Wir stellen keine Babybetten oder Hochstühle zur Verfügung, daher raten wir Eltern dringend, ihre eigene Ausrüstung für ihre Kinder mitzubringen.",
+  
+  "faq_pets_q": "Sind Haustiere erlaubt?",
+  "faq_pets_a": "Ja, Haustiere sind auf Anfrage erlaubt. Bitte beachten Sie, dass eine zusätzliche Gebühr von 15 € pro Aufenthalt anfällt.",
+  
+  "faq_parking_q": "Ist Parken verfügbar?",
+  "faq_parking_a": "Ja, es gibt kostenlose Privatparkplätze direkt neben jedem Chalet.",
+  
+  "faq_ev_q": "Haben Sie eine Ladestation für E-Autos?",
+  "faq_ev_a": "Derzeit nicht, eine ist jedoch für die Zukunft geplant. Die nächste Tankstelle befindet sich an der Hauptstraße nach Gradiška (ca. 18 km).",
+  
+  "faq_quiet_q": "Wann sind die Ruhezeiten?",
+  "faq_quiet_a": "Die Ruhezeiten sind von 22:00 bis 08:00 Uhr. (Ausnahmen können gemacht werden, wenn eine Gruppe alle 5 Chalets gebucht hat).",
+  
+  "faq_airport_q": "Wie weit ist der Flughafen entfernt?",
+  "faq_airport_a": "Der Flughafen Banja Luka ist ca. 45 Autominuten entfernt. Transfers und lokale Taxidienste können auf Anfrage arrangiert werden.",
+  
+  "faq_yearround_q": "Ist das Resort ganzjährig geöffnet?",
+  "faq_yearround_a": "Ja.",
+  
+  "faq_find_q": "Wie finde ich das Resort?",
+  "faq_find_a": "Bitte folgen Sie unseren Wegweisern zum Kozara Panoramic Resort.",
+
+
+
+
+
+  
+
+    "footer-impressum": "Impressum",
+    "footer-terms": "Allgemeine Geschäftsbedingungen",
+    "footer-privacy": "Datenschutzerklärung",
+    "footer-contact": "Kontakt",
+
+
+"legal-info-h1": "Rechtliche Informationen & Richtlinien",
+  "legal-info": "Impressum / Rechtliche Informationen",
+  "impressum-operated": "Betrieben von <strong>PEVA d.o.o.</strong>",
+  "impressum-address": "Eingetragene Adresse: Selo Kozara BB, Gradiška, 78400 Gradiška",
+  "impressum-company": "Firmenregisternummer: 11260985",
+  "impressum-tax" : "Steuernummer des Unternehmens: 4405281640008",
+  "impressum-director": "Geschäftsführer: Dragana Truscott",
+  "impressum-contact": "<strong>Kontakt:</strong>",
+  "impressum-email": "E-Mail: info@kozarapanoramicresort.ba",
+  "impressum-phone": "Telefon/WhatsApp: +387 66 767 622",
+  "terms-h2": "Allgemeine Geschäftsbedingungen",
+  "terms-bookings": "Buchungen:",
+  "terms-reservation": "Eine Reservierung ist bestätigt, wenn der Gast eine schriftliche Bestätigung per E-Mail oder Messaging-Apps erhält.",
+  "terms-check": "Check-in / Check-out:",
+  "terms-check-in": "Check-in: from 14:00",
+  "terms-check-out": "Check-out: until 09:00",
+  "terms-early-check": "Früher Check-in oder später Check-out ist je nach Verfügbarkeit möglich.",
+  "terms-payments": "Zahlungen:",
+  "terms-payment": "Die Zahlung erfolgt bei der Buchung.",
+  "terms-tax": "Die Kurtaxe wird separat berechnet.",
+  "terms-cancellation": "Stornierungsbedingungen:",
+  "terms-cancellation-standard": "<strong>Standardsaison (April–Juni, Mitte Sept.–Okt.):</strong> 25% Rückerstattung >14 Tage vor Anreise; 50% Rückerstattung 7–13 Tage vorher. Keine Rückerstattung bei <7 Tagen.",
+  "terms-cancellation-peak": "<strong>Hauptsaison (Juli, August, Feiertage):</strong> Keine Stornierungen oder Rückerstattungen möglich.",
+  "terms-damage": "Schäden & Verhalten:",
+  "terms-behaviour" : "Die Nichteinhaltung der festgelegten Hausordnung kann zur sofortigen Stornierung der Unterkunft führen.",
+  "terms-guests": "Gäste haften für alle Schäden, die am Chalet, an der Inneneinrichtung, den Möbeln, der Ausstattung oder den Außenbereichen verursacht werden. Kaution von 250 € erforderlich beim Check-in.",
+  "terms-rights": "PEVA d.o.o. behält sich das Recht vor, Reparatur- oder Ersatzkosten in Rechnung zu stellen.",
+  "terms-pool": "Poolnutzung:",
+  "termrms-pool-desc": "Jedes Chalet verfügt über einen privaten Pool.",
+  "terms-pool-risk": "Die Poolnutzung erfolgt vollständig auf eigene Gefahr des Gastes.",
+  "terms-pool-lifeguard": "Keine Badeaufsicht im Dienst.",
+  "terms-pool-children": "Kinder müssen jederzeit beaufsichtigt werden.",
+  "terms-pool-diving": "Springen verboten.",
+  "terms-pool-glass": "Keine Glasgegenstände in der Nähe des Pools.",
+  "terms-pool-safety": "Haftungsausschluss zur Poolsicherheit:",
+  "terms-pool-risk2": "Gäste nutzen den privaten Pool vollständig auf eigenes Risiko.",
+  "terms-pool-supervision": "Kinder müssen jederzeit beaufsichtigt werden.",
+  "terms-pool-injuries": "PEVA d.o.o. haftet nicht für Verletzungen, die aus unsachgemäßer Nutzung des Poolbereichs resultieren.",
+  "terms-smoking": "Rauchen:",
+  "terms-smoking-prohibited": "Rauchen ist strengstens verboten im Inneren der Chalets.",
+  "terms-smoking-permitted": "Rauchen ist nur im Außenbereich gestattet.",
+  "terms-pets": "Haustiere:",
+  "terms-pets-allowed": "Haustiere sind erlaubt gegen eine Gebühr von 15,00 € pro Tier und Aufenthalt.",
+  "terms-occupancy": "Maximale Belegung:",
+  "terms-accomodate": "Jedes Chalet kann beherbergen:",
+  "terms-room1": "1 Doppelzimmer",
+  "terms-room2": "2 Einzelbetten Schlafzimmer",
+  "terms-room3": "2 Einzelbetten in der Galerie oder Schlafsofa-Optionen",
+  "terms-room4": "Optionale Dachbodenmatratze",
+  "terms-maximum": "Maximum: 6 Personen pro Chalet",
+  "privacy-policy": "Datenschutzerklärung",
+  "privacy-data": "PEVA d.o.o. sammelt und verarbeitet personenbezogene Daten nur für:",
+  "privacy-reservation": "Reservierungsbearbeitung",
+  "privacy-legal": "Gesetzliche Registrierung der Gäste",
+  "privacy-communication": "Kommunikation im Zusammenhang mit dem Aufenthalt",
+  "privacy-data-collected": "Gesammelte Daten: Name, Adresse, Telefon, E-Mail, Ausweis-/Passinformationen (gesetzlich vorgeschrieben).",
+  "privacy-data-personal": "Personenbezogene Daten werden sicher gespeichert und nicht an Dritte weitergegeben, außer an:",
+  "privacy-tourist": "Touristenorganisation von Gradiška (gesetzliche Anforderung)",
+  "privacy-payment": "Zahlungsanbieter (falls zutreffend)",
+  "privacy-data-deletion": "Gäste können die Löschung ihrer Daten nach dem Aufenthalt beantragen, es sei denn, die Daten müssen aufgrund gesetzlicher Verpflichtungen aufbewahrt werden.",
+  "cookies": "Cookie-Hinweis",
+  "cookies-notice1": "Diese Website verwendet Cookies für grundlegende Funktionen und Analysen.",
+  "cookies-notice2": "Durch die weitere Nutzung stimmen Sie der Verwendung von Cookies zu.",
+  "price-transparency": "Preistransparenz",
+  "price-transparency1": "Alle angezeigten Preise verstehen sich exklusive Kurtaxe (wie bei der Buchung angegeben).",
+  "price-transparency2": "Heizung, Strom, Pools, Handtücher und Wi-Fi sind im Preis inbegriffen."
+}

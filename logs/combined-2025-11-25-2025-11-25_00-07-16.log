@@ -1,0 +1,14 @@
+{"level":"info","message":"listening on port 5000","timestamp":"2025-11-25 01:07:16"}
+{"level":"info","message":{"inTransaction":false,"memory":false,"name":"./kozarapanoramicresort.db","open":true,"readonly":false},"timestamp":"2025-11-25 01:07:16"}
+{"level":"info","message":"/api/booking called","timestamp":"2025-11-25 01:07:22"}
+{"level":"warn","message":"Beds24 token expired, trying to refresh...","timestamp":"2025-11-25 01:07:23"}
+{"level":"info","message":"refreshToken method called","timestamp":"2025-11-25 01:07:23"}
+{"level":"info","message":"availability check was a success","timestamp":"2025-11-25 01:07:23"}
+{"level":"info","message":"availability check was a success","timestamp":"2025-11-25 01:07:23"}
+{"level":"info","message":"Offer from beds24 is a success","timestamp":"2025-11-25 01:07:23"}
+{"level":"info","message":"Payment was generated successfully","timestamp":"2025-11-25 01:07:24"}
+{"level":"info","message":"Booking is created successfylly on Beds24, proceeding to insert into database","timestamp":"2025-11-25 01:07:24"}
+{"level":"info","message":"/api/callback is called","timestamp":"2025-11-25 01:07:40"}
+{"level":"info","message":"Payment was a succss","timestamp":"2025-11-25 01:07:40"}
+{"level":"info","message":"booking was successfylly updated on Beds24","timestamp":"2025-11-25 01:07:40"}
+{"booking":{"adults":1,"billingAddress":"Novaka Pivasevica 3a","billingCity":"Banjaluka","billingCountry":"BA","billingPostCode":"78000","bookingId":"78725652","bookingStatus":"PAYMENT_PENDING","bookingTransactionId":"2025-11-25-000722","children":1,"createdAt":"1764029244710.0","customerEmail":"ghfmk9@gmail.com","customerLastName":"Vukajlovic","customerName":"Mihajlo","customerPhone":"+38766478223","endDate":"2025-12-15","id":40,"price":"80.0","startDate":"2025-12-10"},"level":"info","message":"booking that was updated","timestamp":"2025-11-25 01:07:40"}

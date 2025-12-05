@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en" class="sl-theme-light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQ Context Preview</title>
+    
+    <!-- Shoelace Core & Theme -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/light.css" />
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/details/details.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/icon/icon.js"></script>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/button/button.js"></script>
+
+    <!-- Full Main CSS + FAQ Styles -->
+    <style>
+        /* --- YOUR ORIGINAL MAIN.CSS --- */
+        @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap");
+
+        :root {
+            --primary-green: #364d14;
+            --earth-brown: #968067;
+            --sand-beige: #d9c7b2;
+            --muted-green: #5c6d4c;
+            --bg-white: #ffffff;
+            --bg-soft: #f8f9fa;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        :is(sl-dialog, sl-carousel):not(:defined) {
+            visibility: hidden;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Lato", sans-serif;
+            background-color: var(--bg-white);
+            color: #333;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        .section-padding {
+            padding: 80px 10%;
+        }
+
+        h3.section-title {
+            font-family: "Playfair Display", serif;
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        p.lead {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--muted-green);
+            font-weight: 500;
+        }
+
+        /* Chalets Grid (Used in Blog) */
+        .chalet-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            row-gap: 15px;
+            align-items: center;
+        }
+        .chalet-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #eee;
+        }
+        .chalet-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .chalet-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        .chalet-details {
+            padding: 25px;
+            text-align: center;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .chalet-details h4 {
+            font-family: "Playfair Display", serif;
+            font-size: 1.5rem;
+            margin: 0 0 10px 0;
+            color: var(--primary-green);
+        }
+
+        .btn-view {
+            border: 1px solid var(--earth-brown);
+            background: transparent;
+            color: var(--earth-brown);
+            padding: 10px 20px;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: 0.3s;
+            width: 100%;
+        }
+        .btn-view:hover {
+            background: var(--earth-brown);
+            color: white;
+        }
+
+        /* Pre-footer CTA */
+        .cta-band {
+            background-color: var(--bg-soft);
+            padding: 80px 20px;
+            text-align: center;
+            border-top: 1px solid #eee;
+        }
+        .cta-band h3 {
+            font-family: "Playfair Display", serif;
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 15px;
+        }
+        .btn-cta-large {
+            display: inline-block;
+            margin-top: 20px;
+            background-color: var(--primary-green);
+            color: white;
+            padding: 18px 60px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: 0.3s;
+        }
+        .btn-cta-large:hover {
+            background-color: var(--earth-brown);
+        }
+
+        /* --- NEW FAQ STYLES --- */
+        
+        /* Ensure distinct background from previous white section if needed, 
+           or keep white if placed after a grey section. 
+           Since #blog in your css doesn't strictly define bg color (defaults white),
+           and cta-band is bg-soft (grey), let's make FAQ white or soft depending on flow.
+           
+           If Blog is White -> FAQ should be Soft -> CTA is Soft (might blend)
+           Let's try making FAQ white, but since Blog is white, let's make FAQ Soft, and change CTA to White?
+           Or simpler: Keep FAQ Soft (Grey), and it will sit between White Blog and Grey CTA.
+           Actually, let's make FAQ White and give it top/bottom padding to breathe.
+        */
+
+        .faq-section {
+            background-color: var(--bg-white); 
+            /* If the section before it is white, consider var(--bg-soft) */
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        sl-details {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
+            border: 1px solid rgba(150, 128, 103, 0.2); 
+        }
+
+        sl-details::part(base) {
+            background-color: white;
+            transition: background-color 0.3s ease;
+        }
+
+        sl-details::part(header) {
+            padding: 20px;
+        }
+
+        sl-details::part(summary) {
+            font-family: "Playfair Display", serif;
+            color: var(--primary-green);
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        sl-details::part(content) {
+            padding: 0 20px 20px 20px;
+            color: #555;
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        sl-details::part(summary-icon) {
+            color: var(--earth-brown);
+        }
+
+        sl-details:hover {
+            box-shadow: 0 6px 12px rgba(150, 128, 103, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SECTION BEFORE: BLOG -->
+    <section id="blog" class="section-padding">
+        <h3 class="section-title">From Our Blog</h3>
+        <div class="chalet-grid">
+            <div class="chalet-card">
+                <img src="https://picsum.photos/id/311/800/600" class="chalet-img" alt="Hiking" />
+                <div class="chalet-details">
+                    <h4>Top 5 Winter Hikes</h4>
+                    <button class="btn-view">Read Article</button>
+                </div>
+            </div>
+            <div class="chalet-card">
+                <img src="https://picsum.photos/id/292/800/600" class="chalet-img" alt="Food" />
+                <div class="chalet-details">
+                    <h4>Local Mountain Cuisine</h4>
+                    <button class="btn-view">Read Article</button>
+                </div>
+            </div>
+            <div class="chalet-card">
+                <img src="https://picsum.photos/id/413/800/600" class="chalet-img" alt="Skiing" />
+                <div class="chalet-details">
+                    <h4>Skiing for Beginners</h4>
+                    <button class="btn-view">Read Article</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NEW SECTION: FAQ -->
+    <section id="faq" class="section-padding faq-section" style="background-color: var(--bg-soft);">
+        <h3 class="section-title">Frequently Asked Questions</h3>
+        <div class="faq-container">
+            <sl-details summary="What are the check-in and check-out times?">
+                Check-in is from 3:00 PM (15:00), and check-out is until 11:00 AM. If you require early arrival or late departure, please contact us in advance, and we will do our best to accommodate you based on availability.
+            </sl-details>
+
+            <sl-details summary="Is the resort accessible by car during winter?">
+                Yes, the road to Mrakovica is regularly cleared by snowplows. However, as this is a mountain environment, we strongly recommend winter tires and carrying snow chains during the snowy season (December – March).
+            </sl-details>
+
+            <sl-details open summary="Are pets allowed in the chalets?">
+                We love animals! Pets are welcome specifically in our <strong>Sky Chalet</strong>, which is designed to be pet-friendly. Please mention your furry friend when booking so we can prepare a welcome treat.
+            </sl-details>
+
+            <sl-details summary="Do the cabins have fully equipped kitchens?">
+                Absolutely. Every chalet features a modern kitchen equipped with an induction cooktop, refrigerator, espresso machine, kettle, and a full set of cookware and dining utensils tailored to the chalet's capacity.
+            </sl-details>
+
+            <sl-details summary="Is there Wi-Fi available?">
+                Yes, all chalets are equipped with high-speed Wi-Fi suitable for streaming movies or remote work, allowing you to stay connected even while surrounded by nature.
+            </sl-details>
+        </div>
+    </section>
+
+    <!-- SECTION AFTER: CTA BAND -->
+    <section class="cta-band" style="background-color: white; border-top: none;"> 
+        <!-- Note: I changed bg to white for preview contrast against the grey FAQ section -->
+        <h3>Ready to Experience the Silence?</h3>
+        <p>Book your stay today and discover the magic of Mount Kozara.</p>
+        <a href="#booking" class="btn-cta-large">Check Availability</a>
+    </section>
+
+</body>
+</html>

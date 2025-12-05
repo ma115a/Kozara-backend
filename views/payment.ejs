@@ -442,7 +442,9 @@
                 discount: discount.value
             }
             console.log(reqBody)
-            const response = await fetch('http://peva.ba/payment', {
+            console.log(JSON.stringify(reqBody))
+            const response = await fetch('http://localhost:5000/payment', {
+
                 method: 'POST',
                 headers: {'Content-Type': 'application/json'},
                 // body: JSON.stringify({

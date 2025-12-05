@@ -1,0 +1,1278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Kozara Panoramic Resort</title>
+	<link rel="stylesheet" href="./css/main.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/light.css" />
+	<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/shoelace-autoloader.js"></script>
+	<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/dialog/dialog.js"></script>
+	<script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.18/index.global.min.js'></script>
+	<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+	<script data-main="payment-js" src="https://gateway.bankart.si/js/integrated/payment.1.3.min.js"></script>
+	<script>
+		let calendar;
+		const chaletnameindex = {
+			"Cloud Chalet": 1,
+			"Sky Chalet": 2,
+			"Star Chalet": 3,
+			"Sun Chalet": 4,
+			"Wind Chalet": 5,
+			"1": "Cloud Chalet",
+			"2": "Sky Chalet",
+			"3": "Star Chalet",
+			"4": "Sun Chalet",
+			"5": "Wind Chalet",
+		}
+		// Fetch calendar data
+		let calendar_data
+		fetch("https://www.peva.ba/getdata", )
+		.then(res => {
+			if (!res.ok) throw new Error("Server dieded")
+			return res.json()
+		})
+		.then(res => calendar_data = res)
+		.then(() => parseIntoDateObjects())
+		.catch(e => {
+			document.querySelectorAll("#chalets sl-button").forEach(el => {
+				el.setAttribute("disabled", "")
+			})
+		})
+		
+		// parse dates into date objects
+		function parseIntoDateObjects() {
+			for (const [key, val] of Object.entries(calendar_data)) {
+				val.specialDates.forEach(range => {
+					range.start = new Date(range.start)
+					range.end = new Date(range.end)
+				})
+			}
+		}
+
+		let reselected = false
+		document.addEventListener('DOMContentLoaded', function() {
+			let calendarEl = document.getElementById('calendar');
+			calendar = new FullCalendar.Calendar(calendarEl, {
+					initialView: 'dayGridMonth',
+					selectable: true,
+					selectOverlap: false,
+					// aspectRatio: 'unset',
+					height: 'auto',
+					expandRows: true,
+					selectLongPressDelay: 500,
+					unselectAuto: false,
+					datesSet: () => {
+						setTimeout(() => {
+							writePrices()
+						}, 25);
+					},
+					eventDidMount: e => {
+						e.el.setAttribute("data-eventID", e.event.id)
+					},
+					select: info => {
+						book_dialog.querySelector("[name='check_in']").value = info.startStr
+						book_dialog.querySelector("[name='check_out']").value = info.end.toISOString().substring(0,10)
+						if (!reselected) book_dates_validity()
+						calculate_total()
+					},
+					unselect: () => {
+						if (reselected) return
+						total.innerText = "Hold & drag to select dates on the calendar"
+						book_dialog.querySelector("[name='check_in']").value = ""
+						book_dialog.querySelector("[name='check_out']").value = ""
+					},
+					selectAllow: info => {
+						if (info.start < new Date()) {
+							return false
+						}
+						return true
+					}
+				});
+			
+			calendar.render();
+		});
+
+		function writePrices() {
+			if (!book_dialog.dataset.cid) return
+
+			let count = 0;
+			let event_count = 0;
+			let key_override;
+			const base_price = calendar_data[book_dialog.dataset.cid].basePrice
+			const special_dates = calendar_data[book_dialog.dataset.cid].specialDates
+
+			calendar.el.querySelectorAll("td.fc-day:not(.fc-day-past)").forEach(cell => {
+				if (cell.querySelector(".calendar__price")) cell.querySelector(".calendar__price").remove()
+				if (event_count) {
+					event_count--
+					return
+				}
+				const key = cell.dataset.date.substring(5)
+				if (cell.querySelector(".fc-event")) {
+					const event = calendar.getEventById(cell.querySelector(".fc-event").dataset.eventid)
+					event_count = Math.round((event.end - new Date(cell.dataset.date)) / 86400000)-1
+					return
+				}
+				const newdiv = document.createElement("div")
+				newdiv.classList.add("calendar__price")
+				if (count) {
+					newdiv.innerText = special_dates[key_override].price
+					cell.querySelector(".fc-daygrid-day-frame").prepend(newdiv)
+					count--
+					return
+				}
+				const current_date = new Date(cell.dataset.date)
+				const spec_range = special_dates.find(e => {
+					return (current_date >= e.start && current_date <= e.end)
+				})
+				if (spec_range) {
+					newdiv.innerText = spec_range.price
+				}
+				else {
+					newdiv.innerText = base_price
+				}
+				cell.querySelector(".fc-daygrid-day-frame").prepend(newdiv)
+			})
+		}
+	</script>
+	<script>
+		document.addEventListener("DOMContentLoaded", (event) => {
+			gsap.registerPlugin(ScrollTrigger);
+
+			// logo animation
+			gsap.to("nav #logo", {
+				scrollTrigger: {
+					trigger: "#lander",
+					start: "top 1px",
+					end: "center 20%",
+					scrub: true,
+					marker: true
+				},
+				height: "6rem",
+				width: "25vw",
+				ease: "none"
+			})
+			gsap.to("nav", {
+				scrollTrigger: {
+					trigger: "#lander",
+					start: "top 1px",
+					end: "center 20%",
+					scrub: true
+				},
+				backgroundColor: "rgba(255,255,255,0.7)",
+				backdropFilter: "blur(6px)",
+				ease: "none",
+			})
+
+			let retry_counter = 1;
+			document.querySelector("nav #logo").addEventListener("sl-load", letter);
+			function letter(e) {
+				if (e.target.shadowRoot == null) {
+					console.log("shdowroot retry");
+					setTimeout(letter, 100, e);
+					return;
+				}
+				if (retry_counter) {
+					retry_counter--;
+					setTimeout(letter, 100, e);
+					return;
+				}
+				const svgElements = e.target.shadowRoot.querySelectorAll("g.letter path");
+
+				gsap.to(svgElements, {
+					scrollTrigger: {
+						trigger: "#lander",
+						start: "top top",
+						end: "center 30%",
+						scrub: true
+					},
+					fill: "rgba(0, 0, 0, 0)",
+					ease: "none",
+				})
+			}
+
+			// filter btn animation
+			gsap.to("#remove_filter_btn", {
+				scrollTrigger: {
+					trigger: "#chalets",
+					start: "top 80%",
+					end: "top 60%",
+					scrub: true
+				},
+				scale: 1,
+				ease: "none",
+			})
+			gsap.to("#remove_filter_btn", {
+				scrollTrigger: {
+					trigger: "#chalets",
+					start: "bottom 50%",
+					end: "bottom 30%",
+					scrub: true
+				},
+				scale: 0,
+				ease: "none",
+			})
+		});
+	</script>
+</head>
+<body>
+	<nav>
+		<sl-icon-button name="translate"></sl-icon-button>
+		<ul>
+			<li><sl-button href="#gallery" variant="text" size="large">gallery</sl-button></li>
+			<li><sl-button href="#chalets" variant="text" size="large">chalets</sl-button></li>
+			<li><sl-button href="#blog" variant="text" size="large">blog</sl-button></li>
+		</ul>
+		<sl-icon id="logo" src="./assets/logo.svg"></sl-icon>
+		<ul>
+			<li><sl-button href="#about" variant="text" size="large">about</sl-button></li>
+			<li><sl-button href="#footer" variant="text" size="large">contact</sl-button></li>
+			<li><sl-button variant="text" size="large">language</sl-button></li>
+		</ul>
+		<sl-icon-button id="menubtn" name="list"></sl-icon-button>
+	</nav>
+
+	<sl-drawer id="sidebar" label="Mobile Menu">
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+	</sl-drawer>
+
+	<section id="lander">
+		<div class="bg"></div>
+		<div class="container">
+		</div>
+	</section>
+
+	<sl-dialog id="book" label="Booking">
+		<sl-tab-group id="pay_tabs">
+			<sl-tab slot="nav" panel="calendar">Calendar</sl-tab>
+			<sl-tab slot="nav" panel="info">Info</sl-tab>
+
+			<sl-tab-panel name="calendar"></sl-tab-panel>
+			<sl-tab-panel name="info"></sl-tab-panel>
+		</sl-tab-group>
+		<div id="calendar"></div>
+		<div id="book_form">
+			<sl-select name="adults" form="pay_form" label="Adults" value="1">
+				<sl-option value="1">1</sl-option>
+				<sl-option value="2">2</sl-option>
+				<sl-option value="3">3</sl-option>
+				<sl-option value="4">4</sl-option>
+				<sl-option value="5">5</sl-option>
+				<sl-option value="6">6</sl-option>
+			</sl-select>
+			<sl-select name="children" form="pay_form" label="Children" value="0">
+				<sl-option value="0">0</sl-option>
+				<sl-option value="1">1</sl-option>
+				<sl-option value="2">2</sl-option>
+				<sl-option value="3">3</sl-option>
+				<sl-option value="4">4</sl-option>
+				<sl-option value="5">5</sl-option>
+			</sl-select>
+			<sl-input form="pay_form" id="discount" name="discount" label="Discount code (optional)">
+				<sl-icon data-type="correct" name="check" slot="suffix" style="color: green;display: none;"></sl-icon>
+				<sl-icon data-type="incorrect" name="x" slot="suffix" style="color: red;display: none;"></sl-icon>
+			</sl-input>
+			<sl-input form="pay_form" type="date" name="check_in" label="Check-in" required>
+				<sl-icon name="calendar" slot="suffix" style="color: black;"></sl-icon>
+			</sl-input>
+			<sl-input form="pay_form" type="date" name="check_out" label="Check-out" required>
+				<sl-icon name="calendar" slot="suffix" style="color: black;"></sl-icon>
+			</sl-input>
+		</div>
+		<div id="total" slot="footer"> Hold & drag to select dates on the calendar </div>
+		<sl-button slot="footer" onclick="openPay()">Continue to payment</sl-button>
+	</sl-dialog>
+
+	<sl-dialog id="pay" label="Payment">
+		<form id="pay_form" method="POST" action="">
+			<input type="hidden" name="token" id="transaction_token"/>
+			<sl-select name="country" label="Country" placeholder="Select a country" required>
+				<sl-option value="AF">Afghanistan</sl-option>
+				<sl-option value="AX">Åland Islands</sl-option>
+				<sl-option value="AL">Albania</sl-option>
+				<sl-option value="DZ">Algeria</sl-option>
+				<sl-option value="AS">American Samoa</sl-option>
+				<sl-option value="AD">Andorra</sl-option>
+				<sl-option value="AO">Angola</sl-option>
+				<sl-option value="AI">Anguilla</sl-option>
+				<sl-option value="AQ">Antarctica</sl-option>
+				<sl-option value="AG">Antigua and Barbuda</sl-option>
+				<sl-option value="AR">Argentina</sl-option>
+				<sl-option value="AM">Armenia</sl-option>
+				<sl-option value="AW">Aruba</sl-option>
+				<sl-option value="AU">Australia</sl-option>
+				<sl-option value="AT">Austria</sl-option>
+				<sl-option value="AZ">Azerbaijan</sl-option>
+				<sl-option value="BS">Bahamas</sl-option>
+				<sl-option value="BH">Bahrain</sl-option>
+				<sl-option value="BD">Bangladesh</sl-option>
+				<sl-option value="BB">Barbados</sl-option>
+				<sl-option value="BY">Belarus</sl-option>
+				<sl-option value="BE">Belgium</sl-option>
+				<sl-option value="BZ">Belize</sl-option>
+				<sl-option value="BJ">Benin</sl-option>
+				<sl-option value="BM">Bermuda</sl-option>
+				<sl-option value="BT">Bhutan</sl-option>
+				<sl-option value="BO">Bolivia (Plurinational State of)</sl-option>
+				<sl-option value="BA">Bosnia and Herzegovina</sl-option>
+				<sl-option value="BW">Botswana</sl-option>
+				<sl-option value="BV">Bouvet Island</sl-option>
+				<sl-option value="BR">Brazil</sl-option>
+				<sl-option value="IO">British Indian Ocean Territory</sl-option>
+				<sl-option value="BN">Brunei Darussalam</sl-option>
+				<sl-option value="BG">Bulgaria</sl-option>
+				<sl-option value="BF">Burkina Faso</sl-option>
+				<sl-option value="BI">Burundi</sl-option>
+				<sl-option value="CV">Cabo Verde</sl-option>
+				<sl-option value="KH">Cambodia</sl-option>
+				<sl-option value="CM">Cameroon</sl-option>
+				<sl-option value="CA">Canada</sl-option>
+				<sl-option value="BQ">Caribbean Netherlands</sl-option>
+				<sl-option value="KY">Cayman Islands</sl-option>
+				<sl-option value="CF">Central African Republic</sl-option>
+				<sl-option value="TD">Chad</sl-option>
+				<sl-option value="CL">Chile</sl-option>
+				<sl-option value="CN">China</sl-option>
+				<sl-option value="CX">Christmas Island</sl-option>
+				<sl-option value="CC">Cocos (Keeling) Islands</sl-option>
+				<sl-option value="CO">Colombia</sl-option>
+				<sl-option value="KM">Comoros</sl-option>
+				<sl-option value="CG">Congo</sl-option>
+				<sl-option value="CD">Congo, Democratic Republic of the</sl-option>
+				<sl-option value="CK">Cook Islands</sl-option>
+				<sl-option value="CR">Costa Rica</sl-option>
+				<sl-option value="HR">Croatia</sl-option>
+				<sl-option value="CU">Cuba</sl-option>
+				<sl-option value="CW">Curaçao</sl-option>
+				<sl-option value="CY">Cyprus</sl-option>
+				<sl-option value="CZ">Czech Republic</sl-option>
+				<sl-option value="CI">Côte d'Ivoire</sl-option>
+				<sl-option value="DK">Denmark</sl-option>
+				<sl-option value="DJ">Djibouti</sl-option>
+				<sl-option value="DM">Dominica</sl-option>
+				<sl-option value="DO">Dominican Republic</sl-option>
+				<sl-option value="EC">Ecuador</sl-option>
+				<sl-option value="EG">Egypt</sl-option>
+				<sl-option value="SV">El Salvador</sl-option>
+				<sl-option value="GQ">Equatorial Guinea</sl-option>
+				<sl-option value="ER">Eritrea</sl-option>
+				<sl-option value="EE">Estonia</sl-option>
+				<sl-option value="SZ">Eswatini (Swaziland)</sl-option>
+				<sl-option value="ET">Ethiopia</sl-option>
+				<sl-option value="FK">Falkland Islands (Malvinas)</sl-option>
+				<sl-option value="FO">Faroe Islands</sl-option>
+				<sl-option value="FJ">Fiji</sl-option>
+				<sl-option value="FI">Finland</sl-option>
+				<sl-option value="FR">France</sl-option>
+				<sl-option value="GF">French Guiana</sl-option>
+				<sl-option value="PF">French Polynesia</sl-option>
+				<sl-option value="TF">French Southern Territories</sl-option>
+				<sl-option value="GA">Gabon</sl-option>
+				<sl-option value="GM">Gambia</sl-option>
+				<sl-option value="GE">Georgia</sl-option>
+				<sl-option value="DE">Germany</sl-option>
+				<sl-option value="GH">Ghana</sl-option>
+				<sl-option value="GI">Gibraltar</sl-option>
+				<sl-option value="GR">Greece</sl-option>
+				<sl-option value="GL">Greenland</sl-option>
+				<sl-option value="GD">Grenada</sl-option>
+				<sl-option value="GP">Guadeloupe</sl-option>
+				<sl-option value="GU">Guam</sl-option>
+				<sl-option value="GT">Guatemala</sl-option>
+				<sl-option value="GG">Guernsey</sl-option>
+				<sl-option value="GN">Guinea</sl-option>
+				<sl-option value="GW">Guinea-Bissau</sl-option>
+				<sl-option value="GY">Guyana</sl-option>
+				<sl-option value="HT">Haiti</sl-option>
+				<sl-option value="HM">Heard Island and Mcdonald Islands</sl-option>
+				<sl-option value="HN">Honduras</sl-option>
+				<sl-option value="HK">Hong Kong</sl-option>
+				<sl-option value="HU">Hungary</sl-option>
+				<sl-option value="IS">Iceland</sl-option>
+				<sl-option value="IN">India</sl-option>
+				<sl-option value="ID">Indonesia</sl-option>
+				<sl-option value="IR">Iran</sl-option>
+				<sl-option value="IQ">Iraq</sl-option>
+				<sl-option value="IE">Ireland</sl-option>
+				<sl-option value="IM">Isle of Man</sl-option>
+				<sl-option value="IL">Israel</sl-option>
+				<sl-option value="IT">Italy</sl-option>
+				<sl-option value="JM">Jamaica</sl-option>
+				<sl-option value="JP">Japan</sl-option>
+				<sl-option value="JE">Jersey</sl-option>
+				<sl-option value="JO">Jordan</sl-option>
+				<sl-option value="KZ">Kazakhstan</sl-option>
+				<sl-option value="KE">Kenya</sl-option>
+				<sl-option value="KI">Kiribati</sl-option>
+				<sl-option value="KP">Korea, North</sl-option>
+				<sl-option value="KR">Korea, South</sl-option>
+				<sl-option value="XK">Kosovo</sl-option>
+				<sl-option value="KW">Kuwait</sl-option>
+				<sl-option value="KG">Kyrgyzstan</sl-option>
+				<sl-option value="LA">Lao People's Democratic Republic</sl-option>
+				<sl-option value="LV">Latvia</sl-option>
+				<sl-option value="LB">Lebanon</sl-option>
+				<sl-option value="LS">Lesotho</sl-option>
+				<sl-option value="LR">Liberia</sl-option>
+				<sl-option value="LY">Libya</sl-option>
+				<sl-option value="LI">Liechtenstein</sl-option>
+				<sl-option value="LT">Lithuania</sl-option>
+				<sl-option value="LU">Luxembourg</sl-option>
+				<sl-option value="MO">Macao</sl-option>
+				<sl-option value="MK">Macedonia North</sl-option>
+				<sl-option value="MG">Madagascar</sl-option>
+				<sl-option value="MW">Malawi</sl-option>
+				<sl-option value="MY">Malaysia</sl-option>
+				<sl-option value="MV">Maldives</sl-option>
+				<sl-option value="ML">Mali</sl-option>
+				<sl-option value="MT">Malta</sl-option>
+				<sl-option value="MH">Marshall Islands</sl-option>
+				<sl-option value="MQ">Martinique</sl-option>
+				<sl-option value="MR">Mauritania</sl-option>
+				<sl-option value="MU">Mauritius</sl-option>
+				<sl-option value="YT">Mayotte</sl-option>
+				<sl-option value="MX">Mexico</sl-option>
+				<sl-option value="FM">Micronesia</sl-option>
+				<sl-option value="MD">Moldova</sl-option>
+				<sl-option value="MC">Monaco</sl-option>
+				<sl-option value="MN">Mongolia</sl-option>
+				<sl-option value="ME">Montenegro</sl-option>
+				<sl-option value="MS">Montserrat</sl-option>
+				<sl-option value="MA">Morocco</sl-option>
+				<sl-option value="MZ">Mozambique</sl-option>
+				<sl-option value="MM">Myanmar (Burma)</sl-option>
+				<sl-option value="NA">Namibia</sl-option>
+				<sl-option value="NR">Nauru</sl-option>
+				<sl-option value="NP">Nepal</sl-option>
+				<sl-option value="NL">Netherlands</sl-option>
+				<sl-option value="AN">Netherlands Antilles</sl-option>
+				<sl-option value="NC">New Caledonia</sl-option>
+				<sl-option value="NZ">New Zealand</sl-option>
+				<sl-option value="NI">Nicaragua</sl-option>
+				<sl-option value="NE">Niger</sl-option>
+				<sl-option value="NG">Nigeria</sl-option>
+				<sl-option value="NU">Niue</sl-option>
+				<sl-option value="NF">Norfolk Island</sl-option>
+				<sl-option value="MP">Northern Mariana Islands</sl-option>
+				<sl-option value="NO">Norway</sl-option>
+				<sl-option value="OM">Oman</sl-option>
+				<sl-option value="PK">Pakistan</sl-option>
+				<sl-option value="PW">Palau</sl-option>
+				<sl-option value="PS">Palestine</sl-option>
+				<sl-option value="PA">Panama</sl-option>
+				<sl-option value="PG">Papua New Guinea</sl-option>
+				<sl-option value="PY">Paraguay</sl-option>
+				<sl-option value="PE">Peru</sl-option>
+				<sl-option value="PH">Philippines</sl-option>
+				<sl-option value="PN">Pitcairn Islands</sl-option>
+				<sl-option value="PL">Poland</sl-option>
+				<sl-option value="PT">Portugal</sl-option>
+				<sl-option value="PR">Puerto Rico</sl-option>
+				<sl-option value="QA">Qatar</sl-option>
+				<sl-option value="RE">Reunion</sl-option>
+				<sl-option value="RO">Romania</sl-option>
+				<sl-option value="RU">Russian Federation</sl-option>
+				<sl-option value="RW">Rwanda</sl-option>
+				<sl-option value="BL">Saint Barthelemy</sl-option>
+				<sl-option value="SH">Saint Helena</sl-option>
+				<sl-option value="KN">Saint Kitts and Nevis</sl-option>
+				<sl-option value="LC">Saint Lucia</sl-option>
+				<sl-option value="MF">Saint Martin</sl-option>
+				<sl-option value="PM">Saint Pierre and Miquelon</sl-option>
+				<sl-option value="VC">Saint Vincent and the Grenadines</sl-option>
+				<sl-option value="WS">Samoa</sl-option>
+				<sl-option value="SM">San Marino</sl-option>
+				<sl-option value="ST">Sao Tome and Principe</sl-option>
+				<sl-option value="SA">Saudi Arabia</sl-option>
+				<sl-option value="SN">Senegal</sl-option>
+				<sl-option value="RS">Serbia</sl-option>
+				<sl-option value="CS">Serbia and Montenegro</sl-option>
+				<sl-option value="SC">Seychelles</sl-option>
+				<sl-option value="SL">Sierra Leone</sl-option>
+				<sl-option value="SG">Singapore</sl-option>
+				<sl-option value="SX">Sint Maarten</sl-option>
+				<sl-option value="SK">Slovakia</sl-option>
+				<sl-option value="SI">Slovenia</sl-option>
+				<sl-option value="SB">Solomon Islands</sl-option>
+				<sl-option value="SO">Somalia</sl-option>
+				<sl-option value="ZA">South Africa</sl-option>
+				<sl-option value="GS">South Georgia and the South Sandwich Islands</sl-option>
+				<sl-option value="SS">South Sudan</sl-option>
+				<sl-option value="ES">Spain</sl-option>
+				<sl-option value="LK">Sri Lanka</sl-option>
+				<sl-option value="SD">Sudan</sl-option>
+				<sl-option value="SR">Suriname</sl-option>
+				<sl-option value="SJ">Svalbard and Jan Mayen</sl-option>
+				<sl-option value="SE">Sweden</sl-option>
+				<sl-option value="CH">Switzerland</sl-option>
+				<sl-option value="SY">Syria</sl-option>
+				<sl-option value="TW">Taiwan</sl-option>
+				<sl-option value="TJ">Tajikistan</sl-option>
+				<sl-option value="TZ">Tanzania</sl-option>
+				<sl-option value="TH">Thailand</sl-option>
+				<sl-option value="TL">Timor-Leste</sl-option>
+				<sl-option value="TG">Togo</sl-option>
+				<sl-option value="TK">Tokelau</sl-option>
+				<sl-option value="TO">Tonga</sl-option>
+				<sl-option value="TT">Trinidad and Tobago</sl-option>
+				<sl-option value="TN">Tunisia</sl-option>
+				<sl-option value="TR">Turkey (Türkiye)</sl-option>
+				<sl-option value="TM">Turkmenistan</sl-option>
+				<sl-option value="TC">Turks and Caicos Islands</sl-option>
+				<sl-option value="TV">Tuvalu</sl-option>
+				<sl-option value="UM">U.S. Outlying Islands</sl-option>
+				<sl-option value="UG">Uganda</sl-option>
+				<sl-option value="UA">Ukraine</sl-option>
+				<sl-option value="AE">United Arab Emirates</sl-option>
+				<sl-option value="GB">United Kingdom</sl-option>
+				<sl-option value="US">United States</sl-option>
+				<sl-option value="UY">Uruguay</sl-option>
+				<sl-option value="UZ">Uzbekistan</sl-option>
+				<sl-option value="VU">Vanuatu</sl-option>
+				<sl-option value="VA">Vatican City Holy See</sl-option>
+				<sl-option value="VE">Venezuela</sl-option>
+				<sl-option value="VN">Vietnam</sl-option>
+				<sl-option value="VG">Virgin Islands, British</sl-option>
+				<sl-option value="VI">Virgin Islands, U.S</sl-option>
+				<sl-option value="WF">Wallis and Futuna</sl-option>
+				<sl-option value="EH">Western Sahara</sl-option>
+				<sl-option value="YE">Yemen</sl-option>
+				<sl-option value="ZM">Zambia</sl-option>
+				<sl-option value="ZW">Zimbabwe</sl-option>
+			</sl-select>
+			<sl-input name="billingAddress" label="Billing address" required enterkeyhint="next"></sl-input>
+			<sl-input name="billingCity" label="Billing city" required enterkeyhint="next"></sl-input>
+			<sl-input name="billingZIP" label="Billing ZIP code" required enterkeyhint="next" inputmode="numeric"></sl-input>
+			<sl-input name="card_holder" label="Card holder name" required enterkeyhint="next"></sl-input>
+			<sl-input name="email" label="Email" type="email" required inputmode="email" enterkeyhint="next"></sl-input>
+			<sl-input name="phone" label="Phone number" type="tel" required inputmode="tel" enterkeyhint="next"></sl-input>
+			<div>
+				<label for="number_div">Card number</label>
+				<label for="number_div">CVV</label>
+				<sl-tooltip content="" name="number">
+					<div id="number_div"></div>
+				</sl-tooltip>
+				<sl-tooltip content="" name="cvv">
+					<div id="cvv_div"></div>
+				</sl-tooltip>
+			</div>
+			<div>
+				<sl-input name="month" label="Month" type="number" required min="1" max="12" noSpinButtons enterkeyhint="next" inputmode="numeric"></sl-input>
+				<sl-input name="year" label="Year" type="number" required noSpinButtons="true" enterkeyhint="next" inputmode="numeric"></sl-input>
+			</div>
+			<sl-button type="submit">Submit</sl-button>
+		</form>
+		<div id="total2" slot="footer">TOTAL:</div>
+		<sl-button slot="footer" onclick="pay_dialog.hide(); book_dialog.show()">Back to calendar</sl-button>
+	</sl-dialog>
+
+	<section id="checker">
+		<div class="bg"></div>
+		<div class="container">
+			<div>
+				<sl-input type="date" label="Check-in" placeholder="">
+					<sl-icon name="calendar" slot="suffix" style="color: white"></sl-icon>
+				</sl-input>
+			</div>
+			<div>
+				<sl-input type="date" label="Check-out">
+					<sl-icon name="calendar" slot="suffix" style="color: white;"></sl-icon>
+				</sl-input>
+			</div>
+			<div>
+				<sl-button variant="text" onclick="checkAvailable()">Check Availability</sl-button>
+			</div>
+		</div>
+	</section>
+	<sl-tooltip content="Remove filters">
+		<sl-icon-button name="calendar-x" label="Remove filters" id="remove_filter_btn" onclick="remove_filters()"></sl-icon-button>
+	</sl-tooltip>
+	
+	<section id="quote">
+		<div class="container">
+			You're not coming to escape, <br>
+			You're coming to find yourself.
+		</div>
+	</section>
+
+	<section id="gallery">
+		<div class="container">
+			<sl-carousel navigation slides-per-page="3" mouse-dragging loop>
+				<!-- TODO: replace with real or more images -->
+				<sl-carousel-item><img src="./assets/img1.png"></sl-carousel-item>
+				<sl-carousel-item><img src="./assets/img2.png"></sl-carousel-item>
+				<sl-carousel-item><img src="./assets/img3.png"></sl-carousel-item>
+				<sl-carousel-item><img src="./assets/img2.png"></sl-carousel-item>
+			</sl-carousel>
+		</div>
+	</section>
+
+	<section id="chalets">
+		<div class="bg"></div>
+		<div class="container">
+			<div class="title">OUR chalets</div>
+			<div class="grid">
+				<div data-cid="1">
+					<img src="./assets/chalet_icons/[SameScale]CloudChalet.webp">
+					<div class="content">
+						<div class="description">
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem ullam modi optio in expedita quaerat aliquam eligendi culpa?
+						</div>
+						<sl-button onclick="openPreview('Cloud Chalet')">BOOK NOW</sl-button>
+					</div>
+				</div>
+				<div data-cid="2">
+					<img src="./assets/chalet_icons/[SameScale]SkyChalet.webp">
+					<div class="content">
+						<div class="description">
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem ullam modi optio in expedita quaerat aliquam eligendi culpa?
+						</div>
+						<sl-button onclick="openPreview('Sky Chalet')">BOOK NOW</sl-button>
+					</div>
+				</div>
+				<div data-cid="3">
+					<img src="./assets/chalet_icons/[SameScale]StarChalet.webp">
+					<div class="content">
+						<div class="description">
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem ullam modi optio in expedita quaerat aliquam eligendi culpa?
+						</div>
+						<sl-button onclick="openPreview('Star Chalet')">BOOK NOW</sl-button>
+					</div>
+				</div>
+				<div data-cid="4">
+					<img src="./assets/chalet_icons/[SameScale]SunChalet.webp">
+					<div class="content">
+						<div class="description">
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem ullam modi optio in expedita quaerat aliquam eligendi culpa?
+						</div>
+						<sl-button onclick="openPreview('Sun Chalet')">BOOK NOW</sl-button>
+					</div>
+				</div>
+				<div data-cid="5">
+					<img src="./assets/chalet_icons/[SameScale]WindChalet.webp">
+					<div class="content">
+						<div class="description">
+							Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem ullam modi optio in expedita quaerat aliquam eligendi culpa?
+						</div>
+						<sl-button onclick="openPreview('Wind Chalet')">BOOK NOW</sl-button>
+					</div>
+				</div>
+			</div>
+		</div>
+		<sl-dialog label="Chalet Name" class="chalet-overview" data-cid="-1">
+			<sl-tab-group id="chalet_tabs">
+				<sl-tab slot="nav" panel="carousel">Gallery</sl-tab>
+				<sl-tab slot="nav" panel="side">Info</sl-tab>
+
+				<sl-tab-panel name="carousel"></sl-tab-panel>
+				<sl-tab-panel name="side"></sl-tab-panel>
+			</sl-tab-group>
+			<div class="carousel">
+				<sl-carousel navigation mouse-dragging loop>
+					<sl-carousel-item>
+						<img src="./assets/interiorplaceholder1.webp" alt="placeholder">
+					</sl-carousel-item>
+					<sl-carousel-item>
+						<img src="./assets/interiorplaceholder2.webp" alt="placeholder">
+					</sl-carousel-item>
+					<sl-carousel-item>
+						<img src="./assets/interiorplaceholder3.webp" alt="placeholder">
+					</sl-carousel-item>
+				</sl-carousel>
+
+				<div class="thumbnails">
+					<div class="scroller">
+						<img class="active" src="./assets/interiorplaceholder1.webp" alt="placeholder">
+						<img src="./assets/interiorplaceholder2.webp" alt="placeholder">
+						<img src="./assets/interiorplaceholder3.webp" alt="placeholder">
+					</div>
+				</div>
+			</div>
+
+			<div class="side">
+				<div class="features">
+					Feature icons go here, example:
+					<sl-tooltip content="Wifi: 10mbps/5mbps">
+						<sl-icon name="wifi" style="font-size: 1.5rem;"></sl-icon>
+					</sl-tooltip>
+					<sl-tooltip content="Pool">
+						<sl-icon name="water" style="font-size: 1.5rem;"></sl-icon>
+					</sl-tooltip>
+				</div>
+			</div>
+
+			<sl-button onclick="openBook()">
+				Book
+			</sl-button>
+		</sl-dialog>
+	</section>
+
+	<section id="location">
+		<div class="bg"></div>
+		<div class="container">
+			<div class="title">you can find us here</div>
+			<iframe src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d11283.290040638396!2d17.094704!3d45.0082261!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zNDXCsDAwJzMwLjYiTiAxN8KwMDUnMzguOCJF!5e0!3m2!1sbs!2sba!4v1754601639449!5m2!1sen!2sus" width="600" height="450" style="border:0;" allowfullscreen="true" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+		</div>
+	</section>
+
+	<section id="blog">
+		<div class="bg"></div>
+		<div class="container">
+			<div class="vertical">
+				<div class="title">Blog</div>
+				<div class="text">
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, maiores, doloremque corporis eum excepturi id tempore, cupiditate mollitia dolor provident amet eius maxime porro facilis necessitatibus reiciendis consequatur ipsum non
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, maiores, doloremque corporis eum excepturi id tempore, cupiditate mollitia dolor provident amet eius maxime porro facilis necessitatibus reiciendis consequatur ipsum non
+				</div>
+				<sl-button>ALL BLOGS</sl-button>
+			</div>
+			<sl-carousel navigation mouse-dragging loop>
+				<!-- TODO: replace with real or more images -->
+				<sl-carousel-item><img src="./assets/chalet1.webp"></sl-carousel-item>
+				<sl-carousel-item><img src="./assets/chalet2.webp"></sl-carousel-item>
+				<sl-carousel-item><img src="./assets/chalet3.webp"></sl-carousel-item>
+				<sl-carousel-item><img src="./assets/chalet4.webp"></sl-carousel-item>
+			</sl-carousel>
+		</div>
+	</section>
+
+	<section class="filler">
+		<div class="bg"></div>
+		<div class="container"></div>
+	</section>
+
+	<section id="about">
+		<div class="bg"></div>
+		<div class="container">
+			<sl-carousel navigation mouse-dragging loop>
+				<!-- TODO: replace with real or more images -->
+				<sl-carousel-item><img src="./assets/chalet1.webp"></sl-carousel-item>
+				<sl-carousel-item><img src="./assets/chalet2.webp"></sl-carousel-item>
+				<sl-carousel-item><img src="./assets/chalet3.webp"></sl-carousel-item>
+				<sl-carousel-item><img src="./assets/chalet4.webp"></sl-carousel-item>
+			</sl-carousel>
+			<div class="vertical">
+				<div class="title">ABOUT US</div>
+				<div class="text">
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, maiores, doloremque corporis eum excepturi id tempore, cupiditate mollitia dolor provident amet eius maxime porro facilis necessitatibus reiciendis consequatur ipsum non
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, maiores, doloremque corporis eum excepturi id tempore, cupiditate mollitia dolor provident amet eius maxime porro facilis necessitatibus reiciendis consequatur ipsum non
+					Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, maiores, doloremque corporis eum excepturi id tempore, cupiditate mollitia dolor provident amet eius maxime porro facilis necessitatibus reiciendis consequatur ipsum non
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section class="filler">
+		<div class="bg"></div>
+		<div class="container"></div>
+	</section>
+
+	<section id="kozara">
+		<div class="bg"></div>
+		<div class="container">
+			<div class="vertical">
+				<div class="title">Kozara</div>
+				<div class="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates, maiores, doloremque corporis eum excepturi id tempore, cupiditate mollitia dolor provident amet eius maxime porro facilis necessitatibus reiciendis consequatur ipsum non</div>
+				<sl-button>READ MORE</sl-button>
+			</div>
+			<sl-carousel navigation mouse-dragging loop>
+				<!-- TODO: replace with real or more images -->
+				<sl-carousel-item><img src="./assets/chalet1.webp"></sl-carousel-item>
+				<sl-carousel-item><img src="./assets/chalet2.webp"></sl-carousel-item>
+				<sl-carousel-item><img src="./assets/chalet3.webp"></sl-carousel-item>
+				<sl-carousel-item><img src="./assets/chalet4.webp"></sl-carousel-item>
+			</sl-carousel>
+		</div>
+	</section>
+
+	<footer id="footer">
+		<!-- TODO: add social media -->
+		 <sl-icon src="./assets/logoK.svg"></sl-icon>
+		 <div class="grid">
+			<div>Socials</div>
+			<div>navigation</div>
+			<div>Contact Us</div>
+			<div style="color: gray;">
+				PLACEHOLDER
+			</div>
+			<div>
+				<sl-button href="#gallery" variant="text">Gallery</sl-button>
+				<sl-button href="#chalets" variant="text">Chalets</sl-button>
+				<sl-button href="#blog" variant="text">Blog</sl-button>
+				<sl-button href="#about" variant="text">About</sl-button>
+			</div>
+			<div>
+				<sl-button variant="text">Name Lastname</sl-button>
+				<sl-button variant="text">email@example.com</sl-button>
+				<sl-button variant="text">Address</sl-button>
+			</div>
+		 </div>
+	</footer>
+</body>
+<script>
+	// scale text sections
+	const ELEM = blog.querySelector(".bg");
+	const ELEM2 = about.querySelector(".bg");
+	const ELEM3 = kozara.querySelector(".bg");
+	const BASE = blog.querySelector(".vertical");
+	const BASE2 = about.querySelector(".vertical");
+	const BASE3 = kozara.querySelector(".vertical");
+
+	function resize() {
+		ELEM.style.setProperty("--h", BASE.clientHeight + "px");
+		ELEM2.style.setProperty("--h", BASE2.clientHeight + "px");
+		ELEM3.style.setProperty("--h", BASE3.clientHeight + "px");
+	}
+
+	new ResizeObserver(resize).observe(BASE);
+
+	// chalet overview
+	const chalet_dialog = chalets.querySelector("sl-dialog");
+	
+	function openPreview(name) {
+		chalet_dialog.setAttribute('label', name)
+		chalet_dialog.setAttribute('data-cid', chaletnameindex[name])
+		chalet_dialog.show();
+	}
+
+	// book
+	const book_dialog = document.getElementById("book")
+
+	function openBook(reset = false) {
+		if (chalet_dialog.dataset.cid != book_dialog.getAttribute("data-cid")) {
+			calendar.unselect()
+			book_dialog.setAttribute('label', `Booking - ${chalet_dialog.getAttribute('label')}`)
+			book_dialog.setAttribute('data-cid', chalet_dialog.dataset.cid)
+			calendar.removeAllEvents()
+			calendar_data[book_dialog.dataset.cid].reservedDates.forEach(range => {
+				calendar.addEvent({
+					start: range.check_in,
+					end: range.check_out,
+					display: "background",
+					id: range.check_in
+				})
+			})
+			writePrices()
+		}
+		chalet_dialog.hide()
+		book_dialog.show()
+	}
+
+	book_dialog.addEventListener("sl-after-show", () => {
+		calendar.updateSize()
+	})
+
+	// pay
+	const pay_dialog = document.getElementById("pay")
+
+	function openPay() {
+		if (!validBooking) {
+			book_form.querySelector("[name='check_in']").reportValidity()
+			return
+		}
+		total2.innerText = total.innerText
+		book_dialog.hide()
+		pay_dialog.show()
+	}
+
+	menubtn.addEventListener("click", () => {
+		sidebar.show();
+	})
+
+	// chalet overview gallery
+	const carousel = chalet_dialog.querySelector("sl-carousel");
+	const scroller = chalet_dialog.querySelector(".scroller");
+	const thumbnails = chalet_dialog.querySelectorAll(".scroller > img");
+	const tab1 = chalet_tabs.querySelector("sl-tab-panel[name='carousel']")
+	const tab2 = chalet_tabs.querySelector("sl-tab-panel[name='side']")
+	const g = chalet_dialog.querySelector(".carousel")
+	const d = chalet_dialog.querySelector(".side")
+
+	scroller.addEventListener('click', e => {
+    	const target = e.target;
+
+		if (target.matches('img')) {
+			const index = [...thumbnails].indexOf(target);
+			carousel.goToSlide(index);
+		}
+    });
+
+    carousel.addEventListener('sl-slide-change', e => {
+		const slideIndex = e.detail.index;
+
+		[...thumbnails].forEach((thumb, i) => {
+			thumb.classList.toggle('active', i === slideIndex);
+			if (i === slideIndex) {
+				thumb.scrollIntoView({
+				block: 'nearest'
+				});
+			}
+		});
+    });
+
+	// payment elements for resizing
+	const btab1 = book_dialog.querySelector("sl-tab-panel[name='calendar']")
+	const btab2 = book_dialog.querySelector("sl-tab-panel[name='info']")
+	const bcalendar = book_dialog.querySelector("div#calendar")
+	const binfo = book_dialog.querySelector("div:has(sl-input)")
+
+	// screen sizing
+	const gallery = document.getElementById('gallery').querySelector('sl-carousel');
+	let window_previous_width;
+	function updateSlidesPerPage() {
+  		const width = window.innerWidth;
+		if (width == window_previous_width) return
+		window_previous_width = width
+		if (width < 900) {
+			gallery.setAttribute('slides-per-page', '1');
+			tab1.appendChild(g)
+			tab2.appendChild(d)
+			btab1.appendChild(bcalendar)
+			btab2.appendChild(binfo)
+		} else if (width < 992) {
+			gallery.setAttribute('slides-per-page', '2');
+			tab1.appendChild(g)
+			tab2.appendChild(d)
+			btab1.appendChild(bcalendar)
+			btab2.appendChild(binfo)
+		} else {
+			gallery.setAttribute('slides-per-page', '3');
+			chalet_dialog.appendChild(g)
+			chalet_dialog.appendChild(d)
+			book_dialog.appendChild(bcalendar)
+			book_dialog.appendChild(binfo)
+		}
+	}
+	pay_tabs.addEventListener("sl-tab-show", (e) => {
+		if (e.detail.name != 'calendar') return
+		setTimeout(() => {
+			calendar.updateSize()
+		}, 1);
+	})
+
+	window.addEventListener("DOMContentLoaded", updateSlidesPerPage());
+
+	window.addEventListener('resize', updateSlidesPerPage);
+
+	// replace all shadowroot input dates
+	function shadowInjection() {
+		const inpElements = document.querySelectorAll("sl-input[type='date']")
+		if (!inpElements[0] || !inpElements[0].shadowRoot) {
+			setTimeout(shadowInjection, 100)
+			return
+		}
+
+		for (let i = 0; i < inpElements.length; i++) {
+			const style = document.createElement("style")
+			style.textContent = `
+			input[type="date"]::-webkit-calendar-picker-indicator,
+			input[type="date"]::-webkit-inner-spin-button {
+				display: none !important;
+				-webkit-appearance: none !important;
+				opacity: 0 !important;
+				pointer-events: none !important;
+			}
+
+			/* For Firefox */
+			@-moz-document url-prefix() {
+				input[type="date"] {
+					clip-path: inset(0 2ch 0 0);
+				}
+			}`
+
+			inpElements[i].shadowRoot.appendChild(style)
+		}
+	}
+	shadowInjection()
+
+	// focus input fields on wrapper click
+	const checkerDivs = checker.querySelectorAll(".container > div:has(sl-input)")
+	const check_in_out = book_form.querySelectorAll("sl-input > sl-icon[slot='suffix']")
+
+	checkerDivs.forEach(elem => {
+		elem.addEventListener("click", e => {
+			elem.querySelector("sl-input").showPicker()
+		})
+	})
+
+	check_in_out.forEach(el => {
+		el.addEventListener("click", e => {
+			el.parentElement.showPicker()
+		})
+	})
+
+	// update calendar on date select and check validity
+	book_form.querySelectorAll("sl-input[type='date']").forEach(el => {
+		el.addEventListener("sl-change", book_dates_validity)
+	})
+
+	let validBooking = false
+	function book_dates_validity() {
+		if (reselected) {
+			console.log("validity called while it was running!")
+			return
+		}
+		const check_in = book_form.querySelector("[name='check_in']")
+		const check_out = book_form.querySelector("[name='check_out']")
+		validBooking = false
+
+		if (check_in.value == "" || check_out.value == "") {
+			check_in.setCustomValidity("")
+			return
+		}
+		if (check_in.valueAsDate > check_out.valueAsDate) {
+			check_in.setCustomValidity("Check in date can not be before Check out date")
+			check_in.reportValidity()
+			return
+		}
+		check_in.setCustomValidity("")
+		let end = check_out.valueAsDate
+		end.setDate(end.getDate() + 1)
+		let dates = calendar_data[book_dialog.dataset.cid].reservedDates
+		for (let range of dates) {
+			if ((check_in.valueAsDate > new Date(range.check_in) && check_in.valueAsDate < new Date(range.check_out)) ||
+				(end > new Date(range.check_in) && end < new Date(range.check_out))) {
+				check_in.setCustomValidity("Invalid date range")
+				check_in.reportValidity()
+				return
+			}
+		}
+		reselected = true
+		if (calendar.currentData.viewApi.currentStart > check_in.valueAsDate || calendar.currentData.viewApi.currentEnd < check_in.valueAsDate) calendar.gotoDate(check_in.value)
+		calendar.select(check_in.value, end.toISOString().substring(0,10))
+		validBooking = true
+		reselected = false
+	}
+
+	// checker implementation
+	const arrival_selector = checker.querySelector("[label='Check-in']")
+	const departure_selector = checker.querySelector("[label='Check-out']")
+	function checkAvailable() {
+		if (!arrival_selector.valueAsDate) {
+			arrival_selector.setCustomValidity("Please set the arrival date")
+			arrival_selector.reportValidity()
+			return
+		}
+		if (!departure_selector.valueAsDate) {
+			departure_selector.setCustomValidity("Please set the departure date")
+			departure_selector.reportValidity()
+			return
+		}
+		const start = arrival_selector.valueAsDate
+		const end = departure_selector.valueAsDate
+		if (start > end) {
+			arrival_selector.setCustomValidity("Arrival date can not be after the departure date")
+			arrival_selector.reportValidity()
+			return
+		}
+		outer:for (let [cid, dates] of Object.entries(calendar_data)) {
+			dates = dates.reservedDates
+			for (let range of dates) {
+				if ((start > new Date(range.check_in) && start < new Date(range.check_out)) ||
+					(end > new Date(range.check_in) && end < new Date(range.check_out))) {
+					chalets.querySelector(`div[data-cid="${cid}"]`).classList.add("filter_unavailable")
+					continue outer
+				}
+			}
+			chalets.querySelector(`div[data-cid="${cid}"]`).classList.remove("filter_unavailable")
+		}
+		remove_filter_btn.style.setProperty("display", "block")
+		chalets.scrollIntoView()
+	}
+
+	function remove_filters() {
+		chalets.querySelectorAll("div.filter_unavailable").forEach(el => {
+			el.classList.remove("filter_unavailable")
+		})
+		gsap.to("#remove_filter_btn", {
+			scale: 0,
+			duration: 0.25
+		}).then(() => {
+			remove_filter_btn.style.setProperty("display", "none")
+		})
+		remove_filter_btn.parentElement.hide()
+	}
+
+	// check discound validity
+	let cacl_discount = false
+	const url_discount = "https://www.peva.ba/checkdiscountcode"
+	discount.addEventListener("sl-input", e => {
+		if (discount.value == "") {
+			discount.querySelector("[data-type='correct']").style.setProperty('display', 'none')
+			discount.querySelector("[data-type='incorrect']").style.setProperty('display', 'none')
+			cacl_discount = false
+			calculate_total()
+			return
+		}
+		fetch(url_discount, {
+			method: "POST",
+			mode: "cors",
+			headers: {
+				'Content-Type': 'application/json'
+			},
+			body: JSON.stringify({
+				code: discount.value,
+				chalet_id: parseInt(book_dialog.dataset.cid)
+			})
+		})
+		.then(res => res.json())
+		.then(res => {
+			if (discount.value == "") {
+				discount.querySelector("[data-type='correct']").style.setProperty('display', 'none')
+				discount.querySelector("[data-type='incorrect']").style.setProperty('display', 'none')
+				cacl_discount = false
+				calculate_total()
+				return
+			}
+			if (res == false) {
+				discount.querySelector("[data-type='correct']").style.setProperty('display', 'none')
+				discount.querySelector("[data-type='incorrect']").style.setProperty('display', 'block')
+			}
+			else {
+				discount.querySelector("[data-type='correct']").style.setProperty('display', 'block')
+				discount.querySelector("[data-type='incorrect']").style.setProperty('display', 'none')
+			}
+			cacl_discount = res
+		})
+		.then(() => {calculate_total()})
+		calculate_total()
+	})
+
+	function calculate_total() {
+		if (book_dialog.querySelector("[name='check_in']").value == "" || book_dialog.querySelector("[name='check_out']").value == "") {
+			total.innerText = "Hold & drag to select dates on the calendar"
+			return
+		}
+		const check_in = new Date(book_dialog.querySelector("[name='check_in']").value)
+		const check_out = new Date(book_dialog.querySelector("[name='check_out']").value)
+		check_out.setDate(check_out.getDate() + 1)
+		const special_dates = calendar_data[book_dialog.dataset.cid].specialDates
+		const base = calendar_data[book_dialog.dataset.cid].basePrice
+		let sum = 0
+
+		let current_date = check_in
+		while (+current_date != +check_out) {
+			const special = special_dates.find(e => {
+				return (current_date >= e.start && current_date <= e.end)
+			})
+			if (special) sum += special.price
+			else sum += base
+			current_date.setDate(current_date.getDate() + 1)
+		}
+		if (cacl_discount) {
+			if (cacl_discount.type == "percentage") {
+				sum -= sum * (cacl_discount.value / 100)
+			}
+			else {
+				sum -= cacl_discount.value
+			}
+		}
+		total.innerText = `Total: ${sum} KM`
+
+		const adults = parseInt(book_dialog.querySelector("[name='adults']").value)
+		const children = parseInt(book_dialog.querySelector("[name='children']").value)
+	}
+
+	// form tokenization
+	let payment = new PaymentJs()
+	const default_style = {
+		'border': '1px solid rgb(212,212,216)',
+		'color': 'black',
+		'padding': '0.5rem 1rem',
+		'box-shadow': 'none'
+	}
+	const focus_style = {
+		'border': '1px solid rgb(14, 165, 233)',
+		'outline': 'none'
+	}
+    payment.init('hwE6XdX8epIB0HNELZmp', 'number_div', 'cvv_div', function (payment) {
+        payment.setNumberStyle(default_style)
+		payment.setCvvStyle(default_style)
+		payment.numberOn('focus', () => {
+			payment.setNumberStyle(focus_style)
+		})
+		payment.cvvOn('focus', () => {
+			payment.setCvvStyle(focus_style)
+		})
+		payment.numberOn('blur', () => {
+			payment.setNumberStyle(default_style)
+		})
+		payment.cvvOn('blur', () => {
+			payment.setCvvStyle(default_style)
+		})
+    })
+
+	pay_form.addEventListener("submit", interceptSubmit)
+
+	function interceptSubmit(e) {
+		e.preventDefault()
+		if (!pay_form.checkValidity()) return
+		
+		book_form.querySelector("[name='children']").setCustomValidity("")
+		const formdata = new FormData(pay_form)
+		if (parseInt(formdata.get("adults")) + parseInt(formdata.get("children")) > 6) {
+			book_form.querySelector("[name='children']").setCustomValidity("Maximum of 6 occupants allowed")
+			return
+		}
+		const bankartdata = {
+			card_holder: formdata.get("card_holder"),
+            month: formdata.get("month"),
+            year: formdata.get("year"),
+            email: formdata.get("email")
+		}
+
+		payment.tokenize(
+			bankartdata,
+			function (token, cardData) {
+				transaction_token.value = token
+				pay_form.querySelector('[name=month]').setCustomValidity("")
+				pay_form.querySelector('[name=year]').setCustomValidity("")
+				pay_form.querySelector('[name=number]').setAttribute("content", "")
+				pay_form.querySelector('[name=cvv]').setAttribute("content", "")
+				book_form.querySelector("[name='children']").setCustomValidity("")
+				formdata.set("chalet", parseInt(book_dialog.dataset.cid))
+				let formDataAsJSON = {}
+				for (const [key, value] of formdata.entries()) {
+					formDataAsJSON[key] = value
+				}
+				formDataAsJSON["token"] = token
+				fetch("https://www.peva.ba/payment", {
+					method: "POST",
+					mode: "cors",
+					headers: {
+						'Content-Type': 'application/json'
+					},
+					body: JSON.stringify(formDataAsJSON)
+				})
+				.then(res => res.json())
+				.then(res => window.location = res.url)
+			},
+			function (errors) {
+				pay_form.querySelector('[name=month]').setCustomValidity("")
+				pay_form.querySelector('[name=year]').setCustomValidity("")
+				pay_form.querySelector('[name=number]').setAttribute("content", "")
+				pay_form.querySelector('[name=cvv]').setAttribute("content", "")
+				console.log(errors)
+				errors.forEach(error => {
+					switch (error.attribute) {
+						case "card_holder":
+							break;
+						case "month":
+						case "year":
+							pay_form.querySelector(`[name=${error.attribute}]`).setCustomValidity(error.message)
+							break;
+						default:
+							pay_form.querySelector(`[name=${error.attribute}]`).setAttribute("content", error.message)
+							pay_form.querySelector(`[name=${error.attribute}]`).show()
+							break;
+					}
+				})
+			}
+		)
+
+		// TODO: Check if AJAX to server works properly
+	}
+</script>
+</html>
