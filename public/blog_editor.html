@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>KPR | Blog Editor</title>
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/light.css" />
+		<link rel="stylesheet" href="./css/blog_editor.css" />
+		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/tab-group/tab-group.js"></script>
+		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/tab/tab.js"></script>
+		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/tab-panel/tab-panel.js"></script>
+		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/icon/icon.js"></script>
+		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/icon-button/icon-button.js"></script>
+		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/button/button.js"></script>
+		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/menu/menu.js"></script>
+		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/menu-item/menu-item.js"></script>
+		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/dropdown/dropdown.js"></script>
+		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/button-group/button-group.js"></script>
+		<script src="./js/editorjs.umd.js"></script>
+	</head>
+	<body>
+		<sl-tab-group id="tabgroup">
+			<sl-tab slot="nav" panel="all">All blogs</sl-tab>
+			<sl-button slot="nav" onclick="new_blog()">
+				New Blog
+				<sl-icon slot="suffix" src="./assets/amenities_icons/file-plus-corner.svg"></sl-icon>
+			</sl-button>
+
+			<sl-tab-panel name="all">Reander All blogs here</sl-tab-panel>
+		</sl-tab-group>
+	</body>
+	<script>
+		let open_tabs = 0
+		let editors = {}
+
+		// close tab logic
+		tabgroup.addEventListener("sl-close", async event => {
+			const tab = event.target
+			const panel = tabgroup.querySelector(`sl-tab-panel[name="${tab.panel}"]`)
+
+			// Show the previous tab if the tab is currently active
+			if (tab.active) {
+				let tab2 = tab.nextElementSibling
+				// try next
+				while (tab2) {
+					if (tab2.panel) break
+					tab2 = tab2.nextElementSibling
+				}
+				// try previous
+				if (!tab2) {
+					tab2 = tab.previousElementSibling
+					while (tab2) {
+						if (tab2.panel) break
+						tab2 = tab2.previousElementSibling
+					}
+				}
+				tabgroup.show(tab2.panel)
+			}
+
+			tab.remove()
+			panel.remove()
+		})
+
+		function new_blog() {
+			open_tabs++
+			const newtab = Object.assign(document.createElement("sl-tab"), {
+				slot: "nav",
+				panel: `newtab${open_tabs}`,
+				closable: "true",
+				innerHTML: `New blog`,
+			})
+			const newpanel = Object.assign(document.createElement("sl-tab-panel"), {
+				name: `newtab${open_tabs}`,
+				innerHTML: `
+				<div class='buttons'>
+					<sl-dropdown>
+						<sl-button slot="trigger" caret>Upload title image</sl-button>
+						<sl-menu>
+							<sl-menu-item value="file">
+								By File
+								<sl-icon src="./assets/amenities_icons/cloud-upload.svg" slot="prefix">
+							</sl-menu-item>
+							<sl-menu-item value="url">
+								By URL (Link)
+								<sl-icon src="./assets/amenities_icons/link.svg" slot="prefix">
+							</sl-menu-item>
+						</sl-menu>
+					</sl-dropdown>
+					<sl-button-group label='Save or delete'>
+						<sl-button variant='primary' onclick="save_blog('${newtab.panel}')">
+							Save
+							<sl-icon src="./assets/amenities_icons/save.svg" slot="prefix">
+						</sl-button>
+						<sl-button variant='danger'>
+							Delete
+							<sl-icon src="./assets/amenities_icons/trash-2.svg" slot="prefix">
+						</sl-button>
+					</sl-button-group>
+				</div>
+				<div class='doc_body'>
+					<div class='doc_backdrop' src='./assets/img3.png'>
+						<input class='doc_title' placeholder='Enter title ...'></input>
+					</div>
+					<div class='editor'></div>
+				</div>`,
+			})
+			tabgroup.appendChild(newtab)
+			tabgroup.appendChild(newpanel)
+			setTimeout(() => {
+				tabgroup.show(newtab.panel)
+			}, 50)
+			const editor_holder = newpanel.querySelector(".editor")
+			editors[newtab.panel] = new EditorJS({
+				holder: editor_holder,
+				enableSpellCheck: false,
+				placeholder: "Click to start typing...",
+			})
+		}
+
+		function save_blog(panel_name) {
+			const tab = document.querySelector(`sl-tab[panel="${panel_name}"]`)
+			const panel = document.querySelector(`sl-tab-panel[name="${panel_name}"]`)
+			tab.innerHTML = panel.querySelector(".doc_title").value
+		}
+
+		function delete_blog(panel_name) {}
+	</script>
+</html>

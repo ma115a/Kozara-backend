@@ -1,0 +1,82 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap");
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-family: "Playfair Display", serif;
+}
+
+body {
+	padding: 0.5rem;
+}
+
+#tabgroup sl-button {
+	margin-top: auto;
+	margin-bottom: auto;
+	sl-icon {
+		font-size: 1.5em;
+	}
+}
+
+sl-tab-panel[active] {
+	display: flex;
+	justify-content: center;
+}
+
+.buttons {
+	display: flex;
+	justify-content: space-between;
+}
+
+sl-menu-item {
+	&::part(checked-icon),
+	&::part(submenu-icon) {
+		display: none;
+	}
+	&::part(base) {
+		gap: 0.5rem;
+	}
+	&::part(prefix) {
+		font-size: 1.3em;
+	}
+}
+
+.doc_body {
+	min-height: 80dvh;
+	width: clamp(600px, 80dvw, 1200px);
+	box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 4px 1px, rgba(0, 0, 0, 0.3) 0px 0px 4px 1.5px;
+	margin-top: 1rem;
+	padding: 0.7rem;
+}
+
+.doc_backdrop {
+	--img_path: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url("../assets/img1.png");
+	width: 100%;
+	aspect-ratio: 5/1;
+	background-image: var(--img_path);
+	background-size: cover;
+	background-position: center;
+	/* box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 2px 0.5px, rgba(0, 0, 0, 0.3) 0px 2px 2px 0.75px; */
+}
+
+.doc_title {
+	text-align: center;
+	padding: 0.2rem;
+	font-size: 2.2rem;
+	width: 100%;
+	border: 0;
+	color: white;
+	margin-top: 1rem;
+
+	&:focus,
+	&:focus-within {
+		border: none;
+		border-bottom: 1px solid white;
+		outline: none;
+	}
+}
+
+.editor {
+	padding-top: 0.8rem;
+}
