@@ -1015,6 +1015,14 @@ app.post('/upload', upload.any(), (req, res) => {
 
 
 
+app.post('/saveblog', express.json(), (req, res) => {
+    console.log(req.body)
+
+
+    res.json({ success: true, blogid: 1 })
+})
+
+
 
 
 app.get('/*splat', (req, res) => {
