@@ -476,57 +476,57 @@ document.addEventListener("DOMContentLoaded", function() {
 		})
 	})
 	// discount table population
-	fetch("https://www.peva.ba/getdiscounts")
-	.then(res => {
-		if (!res.ok) throw new Error("Discounts dieded")
-		return res.json()
-	})
-	.then(res => {
-		const container = document.querySelector("table.discount tbody")
-		res.forEach(entry => {
-			container.innerHTML += `<tr>
-				<td><sl-format-date date="${entry.valid_from}"></sl-format-date></td>
-				<td><sl-format-date date="${entry.valid_to}"></sl-format-date></td>
-				<td>${entry.discount_type}</td>
-				<td>${entry.discount_value}</td>
-				<td>${JSON.parse(entry.chalets).join(", ")}</td>
-				<td>${entry.code}</td>
-				<td>${entry.usage_count} / ${entry.max_usage_count}</td>
-				<td><sl-tooltip content="Delete"><sl-icon-button name="x-lg" onclick="delete_discount(this)"></sl-icon-button></sl-tooltip</td>
-				</tr>`
-		})
-	})
-	.catch(error => {
-		console.log("DISCOUNT DIED")
-		sl_alert("Failed to load discounts", "danger")
-	})
+	// fetch("https://www.peva.ba/getdiscounts")
+	// .then(res => {
+	// 	if (!res.ok) throw new Error("Discounts dieded")
+	// 	return res.json()
+	// })
+	// .then(res => {
+	// 	const container = document.querySelector("table.discount tbody")
+	// 	res.forEach(entry => {
+	// 		container.innerHTML += `<tr>
+	// 			<td><sl-format-date date="${entry.valid_from}"></sl-format-date></td>
+	// 			<td><sl-format-date date="${entry.valid_to}"></sl-format-date></td>
+	// 			<td>${entry.discount_type}</td>
+	// 			<td>${entry.discount_value}</td>
+	// 			<td>${JSON.parse(entry.chalets).join(", ")}</td>
+	// 			<td>${entry.code}</td>
+	// 			<td>${entry.usage_count} / ${entry.max_usage_count}</td>
+	// 			<td><sl-tooltip content="Delete"><sl-icon-button name="x-lg" onclick="delete_discount(this)"></sl-icon-button></sl-tooltip</td>
+	// 			</tr>`
+	// 	})
+	// })
+	// .catch(error => {
+	// 	console.log("DISCOUNT DIED")
+	// 	sl_alert("Failed to load discounts", "danger")
+	// })
 
 	// resrvations functionality
-	fetch("https://www.peva.ba/getbookings/all")
-	.then(res => {
-		if (!res.ok) {
-			throw new Error("Reservations dieded")
-		}
-		return res.json()
-	})
-	.then(res => {
-		const container = document.querySelector("table.reservations")
-		res.forEach(entry => {
-			container.innerHTML += `<tr>
-				<td>${entry.name}</td>
-				<td>${entry.phone}</td>
-				<td>${entry.email}</td>
-				<td><sl-format-date date="${entry.check_in_date}"></sl-format-date></td>
-				<td><sl-format-date date="${entry.check_out_date}"></sl-format-date></td>
-				<td>${entry.chalet_id}</td>
-				<td>${entry.adult_count} + ${entry.children_count}</td>
-				<td>${entry.status}</td>
-				</tr>`
-		})
-	})
-	.catch(error => {
-		sl_alert("Loading reservations failed", "danger")
-	})
+	// fetch("https://www.peva.ba/getbookings/all")
+	// .then(res => {
+	// 	if (!res.ok) {
+	// 		throw new Error("Reservations dieded")
+	// 	}
+	// 	return res.json()
+	// })
+	// .then(res => {
+	// 	const container = document.querySelector("table.reservations")
+	// 	res.forEach(entry => {
+	// 		container.innerHTML += `<tr>
+	// 			<td>${entry.name}</td>
+	// 			<td>${entry.phone}</td>
+	// 			<td>${entry.email}</td>
+	// 			<td><sl-format-date date="${entry.check_in_date}"></sl-format-date></td>
+	// 			<td><sl-format-date date="${entry.check_out_date}"></sl-format-date></td>
+	// 			<td>${entry.chalet_id}</td>
+	// 			<td>${entry.adult_count} + ${entry.children_count}</td>
+	// 			<td>${entry.status}</td>
+	// 			</tr>`
+	// 	})
+	// })
+	// .catch(error => {
+	// 	sl_alert("Loading reservations failed", "danger")
+	// })
 })
 // TODO: Reservations
 // TODO: Blogs 💀
@@ -552,9 +552,12 @@ document.addEventListener("DOMContentLoaded", function() {
 				config: {
 					endpoints: {
 						// HACK: url
-						byFile: 'https://www.peva.ba/uploadimage',
-						byUrl: 'https://www.peva.ba/uploadimagebyurl',
-					}
+						byFile: 'http://localhost:5000/uploadimage',
+						byUrl: 'http://localhost:5000/uploadimagebyurl',
+					},
+                    additionalRequestHeaders: {
+                        "skip_zrok_interstitial": "true" 
+                    }
 				}
 			},
 			table: {

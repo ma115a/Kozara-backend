@@ -5,16 +5,19 @@ const crypto = require('crypto')
 const winston = require('winston')
 const express = require('express')
 const path = require('path')
-const ical = require('ical-generator')
 const cron = require('node-cron')
 const cors = require('cors')
 const Database = require('better-sqlite3')
-const fileUpload = require('express-fileupload')
 const fs = require('fs')
 const nodemailer = require('nodemailer')
+const multer = require('multer')
+const { Readable } = require('stream');
+const { finished } = require('stream/promises');
+const mime = require('mime-types');
+const { v4: uuidv4 } = require('uuid');
 require('winston-daily-rotate-file')
 let db
-
+let tok
 
 
 const startupTime = new Date().toISOString().replace(/T/, '_').replace(/\..+/, '').replace(/:/g, '-');
@@ -65,6 +68,49 @@ if (process.env.NODE_ENV != 'production') {
         )
     }))
 }
+
+
+const uploadDir = './public/uploads';
+if (!fs.existsSync(uploadDir)) {
+    fs.mkdirSync(uploadDir);
+}
+// Set up storage engine
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        const uploadPath = path.join(__dirname, 'public/uploads');
+        // Create directory if it doesn't exist
+        if (!fs.existsSync(uploadPath)) {
+            fs.mkdirSync(uploadPath, { recursive: true });
+        }
+        cb(null, uploadPath);
+    },
+    filename: (req, file, cb) => {
+        // Generate unique name: timestamp-originalname
+        // e.g. "1702495000000-my-image.jpg"
+        const uniqueName = Date.now() + '-' + file.originalname.replace(/\s+/g, '-');
+        cb(null, uniqueName);
+    }
+});
+
+// File filter (Validate Images Only)
+const fileFilter = (req, file, cb) => {
+    const allowedTypes = /jpeg|jpg|png|gif/;
+    const extName = allowedTypes.test(path.extname(file.originalname).toLowerCase());
+    const mimeType = allowedTypes.test(file.mimetype);
+
+    if (extName && mimeType) {
+        return cb(null, true);
+    } else {
+        cb(new Error('Only images are allowed (jpeg, jpg, png, gif)!'));
+    }
+};
+
+// Initialize Multer
+const upload = multer({
+    storage: storage,
+    limits: { fileSize: 5 * 1024 * 1024 }, // Limit file size to 5MB
+    fileFilter: fileFilter
+});
 
 function convertDateString(dateStr) {
     // Split the "YY-MM-DD" string
@@ -153,6 +199,7 @@ async function sendBookingConfirmation(bookingData) {
 
 
 const app = express()
+
 app.use(cors())
 const port = 5000
 app.use(express.static(path.join(__dirname, 'public')))
@@ -213,20 +260,6 @@ app.get("/mail", async (req, res) => {
 
 })
 
-app.listen(port, async () => {
-    console.log('listening on port 5000')
-    logger.info('listening on port 5000')
-    await refreshAuthToken()
-
-
-    try {
-        db = new Database('./kozarapanoramicresort.db')
-        logger.info(db)
-    } catch (error) {
-
-        logger.error(error)
-    }
-})
 
 
 // app.use(express.static(path.join(__dirname, 'public')))
@@ -248,7 +281,6 @@ function generateSignature(method, body, contentType, date, requestURI, sharedSe
     return signature
 }
 
-let tok
 
 
 async function refreshAuthToken() {
@@ -910,58 +942,100 @@ app.get("/error", (req, res) => {
 })
 
 
+
+
+// cron job to cancel any booking that didn't make it through the payment process
+// cron.schedule(`*/${process.env.CRON_CLEAR_BOOKINGS_TIME} * * * *`, async () => {
+//     logger.info("Checking for false bookings...");
+//     try {
+//         const retrieveFalseBookings = db.prepare(`SELECT * FROM bookings WHERE bookingStatus = ?`)
+//         const falseBookings = retrieveFalseBookings.all(process.env.PAYMENT_PENDING)
+//         if (falseBookings.length > 0) {
+//             const cancelBookingsBody = []
+//             for (const booking of falseBookings) {
+//                 const differenceInMs = Date.now() - booking.createdAt
+//                 const timePassed = Math.floor(differenceInMs / 1000 / 60);
+//                 logger.info(timePassed)
+//                 if (timePassed > 180) {
+//                     logger.info({ message: 'elgible for deletion' })
+//                     logger.info({ message: booking })
+//                     cancelBookingsBody.push({ id: booking.bookingId, status: "cancelled" })
+//                 } else { logger.info('booking found but not eligible for deletion') }
+//             }
+//
+//             logger.info(cancelBookingsBody)
+//
+//
+//
+//             const cancelBookingsRequest = await fetch('https://beds24.com/api/v2/bookings', {
+//                 method: 'POST',
+//                 headers: {
+//                     'token': tok,
+//                     'Accept': 'application/json'
+//                 },
+//                 body: JSON.stringify(cancelBookingsBody)
+//             })
+//
+//             const cancelBookingsResponse = await cancelBookingsRequest.json()
+//             logger.info(cancelBookingsResponse)
+//
+//             const deleteFalseBookings = db.prepare(`DELETE FROM bookings WHERE bookingStatus = ?`)
+//             const deleteFalseBookingsResult = deleteFalseBookings.run(process.env.PAYMENT_PENDING)
+//         }
+//     } catch (error) {
+//         logger.error(error)
+//     }
+// })
+
+
+// app.options('/uploadimage', (req, res) => {
+//     console.log('alo ba')
+//     res.status(200)
+// })
+//
+//
+app.post('/upload', upload.any(), (req, res) => {
+
+    if (!req.files || req.files.length === 0) {
+        return res.json({ success: false, msg: "No files uploaded" });
+    }
+
+    const filenames = req.files.map(file => file.filename);
+
+    res.json({
+        success: true,
+        data: {
+            files: filenames,
+            baseurl: `http://localhost:5000/uploads/`,
+            isImages: req.files.map(() => true),
+            code: 220
+        }
+    });
+});
+
+
+
+
+
 app.get('/*splat', (req, res) => {
 
     res.sendFile(path.join(__dirname, 'public', 'index.html'))
 })
 
 
-// cron job to cancel any booking that didn't make it through the payment process
-cron.schedule(`*/${process.env.CRON_CLEAR_BOOKINGS_TIME} * * * *`, async () => {
-    logger.info("Checking for false bookings...");
+app.listen(port, async () => {
+    console.log('listening on port 5000')
+    logger.info('listening on port 5000')
+    await refreshAuthToken()
+
+
     try {
-        const retrieveFalseBookings = db.prepare(`SELECT * FROM bookings WHERE bookingStatus = ?`)
-        const falseBookings = retrieveFalseBookings.all(process.env.PAYMENT_PENDING)
-        if (falseBookings.length > 0) {
-            const cancelBookingsBody = []
-            for (const booking of falseBookings) {
-                const differenceInMs = Date.now() - booking.createdAt
-                const timePassed = Math.floor(differenceInMs / 1000 / 60);
-                logger.info(timePassed)
-                if (timePassed > 180) {
-                    logger.info({ message: 'elgible for deletion' })
-                    logger.info({ message: booking })
-                    cancelBookingsBody.push({ id: booking.bookingId, status: "cancelled" })
-                } else { logger.info('booking found but not eligible for deletion') }
-            }
-
-            logger.info(cancelBookingsBody)
-
-
-
-            const cancelBookingsRequest = await fetch('https://beds24.com/api/v2/bookings', {
-                method: 'POST',
-                headers: {
-                    'token': tok,
-                    'Accept': 'application/json'
-                },
-                body: JSON.stringify(cancelBookingsBody)
-            })
-
-            const cancelBookingsResponse = await cancelBookingsRequest.json()
-            logger.info(cancelBookingsResponse)
-
-            const deleteFalseBookings = db.prepare(`DELETE FROM bookings WHERE bookingStatus = ?`)
-            const deleteFalseBookingsResult = deleteFalseBookings.run(process.env.PAYMENT_PENDING)
-        }
+        db = new Database('./kozarapanoramicresort.db')
+        logger.info(db)
     } catch (error) {
+
         logger.error(error)
     }
 })
-
-
-
-
-
 
 

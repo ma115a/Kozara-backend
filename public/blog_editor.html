@@ -27,7 +27,7 @@
 				<sl-icon slot="suffix" src="./assets/amenities_icons/file-plus-corner.svg"></sl-icon>
 			</sl-button>
 
-			<sl-tab-panel name="all">Reander All blogs here</sl-tab-panel>
+			<sl-tab-panel name="all">Render All blogs here</sl-tab-panel>
 		</sl-tab-group>
 	</body>
 	<script>
@@ -114,10 +114,10 @@
 			editors[newtab.panel] = Jodit.make(newpanel.querySelector(".editor"), {
 				toolbarAdaptive: false,
 				uploader: {
-					url: "/upload", // your backend endpoint
+					url: "http://localhost:5000/upload", // your backend endpoint
 					method: "POST",
 					format: "json",
-					filesVariableName: "file",
+					// filesVariableName: "file",
 				},
 			})
 		}
@@ -126,6 +126,7 @@
 			const tab = document.querySelector(`sl-tab[panel="${panel_name}"]`)
 			const panel = document.querySelector(`sl-tab-panel[name="${panel_name}"]`)
 			tab.innerHTML = panel.querySelector(".doc_title").value
+
 		}
 
 		// server
