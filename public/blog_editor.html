@@ -127,6 +127,7 @@
 		function save_blog(panel_name) {
 			const tab = document.querySelector(`sl-tab[panel="${panel_name}"]`)
 			const panel = document.querySelector(`sl-tab-panel[name="${panel_name}"]`)
+			const blog_id = panel.dataset.blogid || null
 			tab.innerHTML = panel.querySelector(".doc_title").value
 			console.log(editors[panel_name].value)
 			fetch(tmp_url, {
@@ -135,6 +136,7 @@
 				body: JSON.stringify({
 					title: panel.querySelector(".doc_title").value,
 					editor: editors[panel_name].value,
+					blogid,
 				}),
 			})
 				.then(res => res.json())
