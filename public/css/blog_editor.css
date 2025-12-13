@@ -43,7 +43,6 @@ sl-menu-item {
 }
 
 .doc_body {
-	min-height: 80dvh;
 	width: clamp(600px, 80dvw, 1200px);
 	box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 4px 1px, rgba(0, 0, 0, 0.3) 0px 0px 4px 1.5px;
 	margin-top: 1rem;
@@ -79,4 +78,7 @@ sl-menu-item {
 
 .editor {
 	padding-top: 0.8rem;
+}
+.jodit-container {
+	margin-top: 0.8rem;
 }

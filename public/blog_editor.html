@@ -5,6 +5,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>KPR | Blog Editor</title>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/light.css" />
+		<link rel="stylesheet" href="./css/jodit.min.css" />
 		<link rel="stylesheet" href="./css/blog_editor.css" />
 		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/tab-group/tab-group.js"></script>
 		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/tab/tab.js"></script>
@@ -16,7 +17,7 @@
 		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/menu-item/menu-item.js"></script>
 		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/dropdown/dropdown.js"></script>
 		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/button-group/button-group.js"></script>
-		<script src="./js/editorjs.umd.js"></script>
+		<script src="./js/jodit.min.js"></script>
 	</head>
 	<body>
 		<sl-tab-group id="tabgroup">
@@ -101,7 +102,7 @@
 					<div class='doc_backdrop' src='./assets/img3.png'>
 						<input class='doc_title' placeholder='Enter title ...'></input>
 					</div>
-					<div class='editor'></div>
+					<textarea class='editor'></textarea>
 				</div>`,
 			})
 			tabgroup.appendChild(newtab)
@@ -110,10 +111,14 @@
 				tabgroup.show(newtab.panel)
 			}, 50)
 			const editor_holder = newpanel.querySelector(".editor")
-			editors[newtab.panel] = new EditorJS({
-				holder: editor_holder,
-				enableSpellCheck: false,
-				placeholder: "Click to start typing...",
+			editors[newtab.panel] = Jodit.make(newpanel.querySelector(".editor"), {
+				toolbarAdaptive: false,
+				uploader: {
+					url: "/upload", // your backend endpoint
+					method: "POST",
+					format: "json",
+					filesVariableName: "file",
+				},
 			})
 		}
 
@@ -122,6 +127,8 @@
 			const panel = document.querySelector(`sl-tab-panel[name="${panel_name}"]`)
 			tab.innerHTML = panel.querySelector(".doc_title").value
 		}
+
+		// server
 
 		function delete_blog(panel_name) {}
 	</script>
