@@ -122,13 +122,30 @@
 			})
 		}
 
+		function set_title_img() {}
+
 		function save_blog(panel_name) {
 			const tab = document.querySelector(`sl-tab[panel="${panel_name}"]`)
 			const panel = document.querySelector(`sl-tab-panel[name="${panel_name}"]`)
 			tab.innerHTML = panel.querySelector(".doc_title").value
+			console.log(editors[panel_name].value)
+			fetch(tmp_url, {
+				method: "POST",
+				headers: { "Content-type": "application/json" },
+				body: JSON.stringify({
+					title: panel.querySelector(".doc_title").value,
+					editor: editors[panel_name].value,
+				}),
+			})
+				.then(res => res.json())
+				.then(res => {
+					if (!res.success) {
+						alert("Save failed")
+						return
+					}
+					alert("Save success")
+				})
 		}
-
-		// server
 
 		function delete_blog(panel_name) {}
 	</script>
