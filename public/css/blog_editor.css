@@ -26,7 +26,7 @@ sl-tab-panel[active] {
 
 .buttons {
 	display: flex;
-	justify-content: space-between;
+	justify-content: flex-end;
 }
 
 sl-menu-item {
@@ -49,36 +49,47 @@ sl-menu-item {
 	padding: 0.7rem;
 }
 
-.doc_backdrop {
-	--img_path: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.5)), url("../assets/img1.png");
-	width: 100%;
-	aspect-ratio: 5/1;
-	background-image: var(--img_path);
-	background-size: cover;
-	background-position: center;
-	/* box-shadow: rgba(0, 0, 0, 0.3) 0px 2px 2px 0.5px, rgba(0, 0, 0, 0.3) 0px 2px 2px 0.75px; */
-}
-
-.doc_title {
-	text-align: center;
-	padding: 0.2rem;
-	font-size: 2.2rem;
-	width: 100%;
-	border: 0;
-	color: white;
-	margin-top: 1rem;
-
-	&:focus,
-	&:focus-within {
-		border: none;
-		border-bottom: 1px solid white;
-		outline: none;
-	}
-}
-
 .editor {
 	padding-top: 0.8rem;
 }
 .jodit-container {
-	margin-top: 0.8rem;
+	margin: 0.8rem 0rem;
+}
+
+#all_blogs_container {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+	padding: 1rem;
+}
+
+.blog_block {
+	aspect-ratio: 1 / 1;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	position: relative;
+	border-radius: 10px;
+	cursor: pointer;
+	transition: transform 0.2s ease-in-out;
+
+	.title {
+		position: absolute;
+		text-align: center;
+		bottom: 2%;
+		left: 2%;
+		right: 2%;
+		padding: 0.4em;
+		background-color: rgba(255, 255, 255, 0.6);
+		backdrop-filter: blur(4px);
+		border-radius: 10px;
+		transition: bottom 0.2s ease-in-out;
+	}
+
+	&:hover {
+		transform: scale(1.01);
+
+		.title {
+			bottom: 2.5%;
+		}
+	}
 }

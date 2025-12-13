@@ -27,7 +27,7 @@
 				<sl-icon slot="suffix" src="./assets/amenities_icons/file-plus-corner.svg"></sl-icon>
 			</sl-button>
 
-			<sl-tab-panel name="all">Render All blogs here</sl-tab-panel>
+			<sl-tab-panel id="all_blogs_container" name="all"></sl-tab-panel>
 		</sl-tab-group>
 	</body>
 	<script>
@@ -74,19 +74,6 @@
 				name: `newtab${open_tabs}`,
 				innerHTML: `
 				<div class='buttons'>
-					<sl-dropdown>
-						<sl-button slot="trigger" caret>Upload title image</sl-button>
-						<sl-menu>
-							<sl-menu-item value="file">
-								By File
-								<sl-icon src="./assets/amenities_icons/cloud-upload.svg" slot="prefix">
-							</sl-menu-item>
-							<sl-menu-item value="url">
-								By URL (Link)
-								<sl-icon src="./assets/amenities_icons/link.svg" slot="prefix">
-							</sl-menu-item>
-						</sl-menu>
-					</sl-dropdown>
 					<sl-button-group label='Save or delete'>
 						<sl-button variant='primary' onclick="save_blog('${newtab.panel}')">
 							Save
@@ -99,44 +86,64 @@
 					</sl-button-group>
 				</div>
 				<div class='doc_body'>
-					<div class='doc_backdrop' src='./assets/img3.png'>
-						<input class='doc_title' placeholder='Enter title ...'></input>
-					</div>
 					<textarea class='editor'></textarea>
 				</div>`,
 			})
 			tabgroup.appendChild(newtab)
 			tabgroup.appendChild(newpanel)
-			setTimeout(() => {
-				tabgroup.show(newtab.panel)
-			}, 50)
 			const editor_holder = newpanel.querySelector(".editor")
 			editors[newtab.panel] = Jodit.make(newpanel.querySelector(".editor"), {
 				toolbarAdaptive: false,
 				uploader: {
-					url: "http://localhost:5000/upload", // your backend endpoint
+					url: "http://localhost:5000/upload",
 					method: "POST",
 					format: "json",
 					// filesVariableName: "file",
 				},
 			})
+			setTimeout(() => {
+				tabgroup.show(newtab.panel)
+			}, 50)
 		}
-
-		function set_title_img() {}
 
 		function save_blog(panel_name) {
 			const tab = document.querySelector(`sl-tab[panel="${panel_name}"]`)
 			const panel = document.querySelector(`sl-tab-panel[name="${panel_name}"]`)
 			const blogid = panel.dataset.blogid || null
-			tab.innerHTML = panel.querySelector(".doc_title").value
-			console.log(editors[panel_name].value)
+
+			let title_img = null
+			try {
+				title_img = /<img.*?src="(.*?)".*?>/.exec(editors[panel_name].value)[1]
+			} catch (error) {}
+
+			let title = "Untitled"
+			const contentchildren = panel.querySelector(".jodit-wysiwyg").children
+			for (let index = 0; index < contentchildren.length; index++) {
+				let txt = contentchildren[index].textContent || contentchildren[index].innerText || ""
+				txt = txt.replaceAll(/\r?\n/g, "")
+				if (txt.length > 0) {
+					title = txt
+					break
+				}
+			}
+
+			tab.innerHTML = title
+			console.log(
+				JSON.stringify({
+					title,
+					title_img,
+					editor: editors[panel_name].value,
+					blogid,
+				})
+			)
 			fetch("http://localhost:5000/saveblog", {
 				method: "POST",
 				headers: { "Content-type": "application/json" },
 				body: JSON.stringify({
-					title: panel.querySelector(".doc_title").value,
+					title,
+					title_img,
 					editor: editors[panel_name].value,
-					blogid: blogid,
+					blogid,
 				}),
 			})
 				.then(res => res.json())
@@ -146,8 +153,74 @@
 						return
 					}
 					alert("Save success")
-					if (!blogid) panel.dataset.blogid = res.blogid
+					if (!blogid) {
+						panel.dataset.blogid = res.blogid
+						// TODO: Add to All Blogs if it didn't exist before
+					}
 				})
+		}
+
+		function load_all_blogs() {
+			const all_blogs = JSON.parse(localStorage.getItem("saved_blog"))
+			// implement bulk processing
+			const newblog = Object.assign(document.createElement("div"), {
+				className: "blog_block",
+				innerHTML: `
+				<div class='title'>
+					${all_blogs.title}
+				</div>`,
+			})
+			newblog.dataset.blogid = all_blogs.blogid
+			newblog.style.backgroundImage = `url(${all_blogs.title_img})`
+			newblog.setAttribute("onclick", `open_blog(${all_blogs.blogid})`)
+			all_blogs_container.appendChild(newblog)
+		}
+		load_all_blogs()
+
+		function open_blog(id) {
+			// BUG: fixit
+			open_tabs++
+			const newtab = Object.assign(document.createElement("sl-tab"), {
+				slot: "nav",
+				panel: `${all_blogs.blogid}`,
+				closable: "true",
+				innerHTML: all_blogs.title,
+			})
+			const newpanel = Object.assign(document.createElement("sl-tab-panel"), {
+				name: `${all_blogs.blogid}`,
+				innerHTML: `
+				<div class='buttons'>
+					<sl-button-group label='Save or delete'>
+						<sl-button variant='primary' onclick="save_blog('${newtab.panel}')">
+							Save
+							<sl-icon src="./assets/amenities_icons/save.svg" slot="prefix">
+						</sl-button>
+						<sl-button variant='danger'>
+							Delete
+							<sl-icon src="./assets/amenities_icons/trash-2.svg" slot="prefix">
+						</sl-button>
+					</sl-button-group>
+				</div>
+				<div class='doc_body'>
+					<textarea class='editor'></textarea>
+				</div>`,
+			})
+			tabgroup.appendChild(newtab)
+			tabgroup.appendChild(newpanel)
+			const editor_holder = newpanel.querySelector(".editor")
+			editors[newtab.panel] = Jodit.make(newpanel.querySelector(".editor"), {
+				toolbarAdaptive: false,
+				uploader: {
+					url: "http://localhost:5000/upload",
+					method: "POST",
+					format: "json",
+					// filesVariableName: "file",
+				},
+			})
+			editors[newtab.panel].value = all_blogs.editor
+			setTimeout(() => {
+				tabgroup.show(newtab.panel)
+			}, 50)
 		}
 
 		function delete_blog(panel_name) {}
