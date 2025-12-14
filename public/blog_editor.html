@@ -160,9 +160,10 @@
 				})
 		}
 
+		const all_blogs = JSON.parse(localStorage.getItem("saved_blog"))
 		function load_all_blogs() {
-			const all_blogs = JSON.parse(localStorage.getItem("saved_blog"))
 			// implement bulk processing
+			// all_blogs.forEach ...
 			const newblog = Object.assign(document.createElement("div"), {
 				className: "blog_block",
 				innerHTML: `
@@ -178,7 +179,6 @@
 		load_all_blogs()
 
 		function open_blog(id) {
-			// BUG: fixit
 			open_tabs++
 			const newtab = Object.assign(document.createElement("sl-tab"), {
 				slot: "nav",
