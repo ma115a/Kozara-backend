@@ -1018,8 +1018,101 @@ app.post('/upload', upload.any(), (req, res) => {
 app.post('/saveblog', express.json(), (req, res) => {
     console.log(req.body)
 
+    const date = new Date()
+    const uniqueId = formatDate(date)
+    console.log(uniqueId)
+    const { title, title_img, editor, blogid } = req.body
 
-    res.json({ success: true, blogid: 1 })
+    if (!title || !title_img || !editor) {
+        return res.status(400).json({ success: false, message: "Title, title image or blog content are missing!" })
+    }
+
+
+    if (blogid === null) {
+        console.log("saving new blog")
+        try {
+            const filename = `${uniqueId}.json`
+            const filePath = path.join(__dirname, 'public/blogs', filename)
+
+            const entireBlog = req.body
+            entireBlog.blogid = uniqueId
+
+            fs.writeFileSync(filePath, JSON.stringify(entireBlog, null, 2), 'utf8')
+
+            res.json({ success: true, message: "Blog saved successfully", blogid: uniqueId })
+
+        } catch (error) {
+            console.log(error)
+            res.status(500).json({ success: false, message: "Failed to save blog" })
+
+        }
+
+
+    } else {
+        console.log("editing existing blog")
+
+
+        try {
+            const filename = `${blogid}.json`
+            const filePath = path.join(__dirname, 'public/blogs', filename)
+
+            if (!fs.existsSync(filePath)) {
+                return res.status(404).json({ success: false, message: "Blog not found!" })
+            }
+
+            const entireBlog = JSON.stringify(req.body, null, 2)
+
+            fs.writeFileSync(filePath, entireBlog, 'utf8')
+            res.json({ success: true, message: "Blog updated successfully!" })
+
+        } catch (error) {
+            console.log(error)
+            res.status(500).json({ success: false, message: "Failed to save blog" })
+        }
+
+
+
+
+    }
+})
+
+
+app.delete("/api/blog/:id", (req, res) => {
+    const blogId = req.params.id
+
+
+    if (!blogId) {
+        return res.status(400).json({ success: false, message: "BlogId is required!" })
+    }
+
+
+    const filename = `${blogId}.json`
+    console.log(filename)
+    const filePath = path.join(__dirname, 'public/blogs', filename)
+    try {
+
+
+        if (fs.existsSync(filePath)) {
+            fs.unlinkSync(filePath)
+            res.json({ success: true, message: "Blog deleted successfully" })
+        } else {
+            res.status(404).json({ success: false, message: "Blog not found" })
+        }
+
+    } catch (error) {
+        console.log(error)
+        res.status(500).json({ success: false, message: "Failed to delete blog" })
+
+    }
+})
+
+
+
+
+
+app.get("/blogeditor", (req, res) => {
+
+    res.sendFile(path.join(__dirname, 'public', 'blog_editor.html'))
 })
 
 
