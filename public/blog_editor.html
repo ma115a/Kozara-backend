@@ -155,6 +155,7 @@
 					alert("Save success")
 					if (!blogid) {
 						panel.dataset.blogid = res.blogid
+						tab.dataset.blogid = res.blogid
 						// TODO: Add to All Blogs if it didn't exist before
 					}
 				})
@@ -162,7 +163,7 @@
 
 		const all_blogs = JSON.parse(localStorage.getItem("saved_blog"))
 		function load_all_blogs() {
-			// implement bulk processing
+			// TODO: implement bulk processing
 			// all_blogs.forEach ...
 			const newblog = Object.assign(document.createElement("div"), {
 				className: "blog_block",
@@ -175,6 +176,11 @@
 			newblog.style.backgroundImage = `url(${all_blogs.title_img})`
 			newblog.setAttribute("onclick", `open_blog(${all_blogs.blogid})`)
 			all_blogs_container.appendChild(newblog)
+		}
+		async function get_blog_data() {
+			// TODO: fetch...
+			// store data to global variable
+			// load_all_blogs()
 		}
 		load_all_blogs()
 
@@ -205,8 +211,7 @@
 					<textarea class='editor'></textarea>
 				</div>`,
 			})
-			tabgroup.appendChild(newtab)
-			tabgroup.appendChild(newpanel)
+			newtab.dataset.blogid = all_blogs.blogid
 			const editor_holder = newpanel.querySelector(".editor")
 			editors[newtab.panel] = Jodit.make(newpanel.querySelector(".editor"), {
 				toolbarAdaptive: false,
@@ -218,11 +223,17 @@
 				},
 			})
 			editors[newtab.panel].value = all_blogs.editor
+			tabgroup.appendChild(newtab)
+			tabgroup.appendChild(newpanel)
 			setTimeout(() => {
 				tabgroup.show(newtab.panel)
 			}, 50)
 		}
 
-		function delete_blog(panel_name) {}
+		function delete_blog(panel_name) {
+			// TODO: fetch...
+			// remove div with data-divid if success
+			// close tab if it was open
+		}
 	</script>
 </html>
