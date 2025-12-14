@@ -1121,13 +1121,37 @@ app.get("/blog/getall", (req, res) => {
         })
         console.log(blogs)
 
-        return res.json({ success: true, body: blogs })
+        return res.json({ success: true, message: "All blogs retrieved successfully", body: blogs })
 
     } catch (error) {
         console.log(error)
         return res.status(500).json({ success: false, message: "Failed to retrieve blogs" })
 
     }
+})
+
+app.get('/blog/latest', (req, res) => {
+
+    try {
+
+        const blogsDir = path.join(__dirname, 'public/blogs')
+        const files = fs.readdirSync(blogsDir)
+        logger.info(files)
+        const blogs = files.sort().reverse().slice(0, 3).map(filename => {
+            const filePath = path.join(blogsDir, filename)
+            const blogData = JSON.parse(fs.readFileSync(filePath, 'utf8'))
+            const data = { title: blogData.title, title_img: blogData.title_img, blogid: blogData.blogid }
+            return data
+        })
+
+        return res.json({ success: true, message: "Latest blogs retrieved successfully", body: blogs })
+
+
+    } catch (error) {
+        logger.info(error.message)
+        res.status(500).json({ success: false, message: "Failed to retrieve blogs" })
+    }
+
 })
 
 
@@ -1143,13 +1167,16 @@ app.get('/blog/:id', (req, res) => {
     const filePath = path.join(__dirname, 'public/blogs', filename)
     try {
         const blog = JSON.parse(fs.readFileSync(filePath, 'utf8'))
-        return res.json({ success: true, body: blog })
+        return res.json({ success: true, message: "Blog retrieved successfully", body: blog })
     } catch (error) {
         console.log(error)
         res.status(500).json({ success: false, message: "Failed to retrieve blog" })
     }
 
 })
+
+
+
 
 
 
