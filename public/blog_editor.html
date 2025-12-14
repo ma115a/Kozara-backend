@@ -17,6 +17,7 @@
 		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/menu-item/menu-item.js"></script>
 		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/dropdown/dropdown.js"></script>
 		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/button-group/button-group.js"></script>
+		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/alert/alert.js"></script>
 		<script src="./js/jodit.min.js"></script>
 	</head>
 	<body>
@@ -33,6 +34,7 @@
 	<script>
 		let open_tabs = 0
 		let editors = {}
+		const baseurl = "https://integrity-vacuum-buzz-capable.trycloudflare.com"
 
 		// close tab logic
 		tabgroup.addEventListener("sl-close", async event => {
@@ -95,7 +97,7 @@
 			editors[newtab.panel] = Jodit.make(newpanel.querySelector(".editor"), {
 				toolbarAdaptive: false,
 				uploader: {
-					url: "http://localhost:5000/upload",
+					url: `${baseurl}/upload`,
 					method: "POST",
 					format: "json",
 					// filesVariableName: "file",
@@ -106,7 +108,7 @@
 			}, 50)
 		}
 
-		function save_blog(panel_name) {
+		async function save_blog(panel_name) {
 			const tab = document.querySelector(`sl-tab[panel="${panel_name}"]`)
 			const panel = document.querySelector(`sl-tab-panel[name="${panel_name}"]`)
 			const blogid = panel.dataset.blogid || null
@@ -128,15 +130,7 @@
 			}
 
 			tab.innerHTML = title
-			console.log(
-				JSON.stringify({
-					title,
-					title_img,
-					editor: editors[panel_name].value,
-					blogid,
-				})
-			)
-			fetch("http://localhost:5000/saveblog", {
+			let server_response = await fetch(`${baseurl}/saveblog`, {
 				method: "POST",
 				headers: { "Content-type": "application/json" },
 				body: JSON.stringify({
@@ -146,54 +140,86 @@
 					blogid,
 				}),
 			})
-				.then(res => res.json())
-				.then(res => {
-					if (!res.success) {
-						alert("Save failed")
-						return
-					}
-					alert("Save success")
-					if (!blogid) {
-						panel.dataset.blogid = res.blogid
-						tab.dataset.blogid = res.blogid
-						// TODO: Add to All Blogs if it didn't exist before
-					}
+			server_response = await server_response.json()
+			if (!server_response.success) {
+				slalert(server_response.message, "warning")
+				return
+			}
+			slalert(server_response.message, "success")
+			if (!blogid) {
+				editors[server_response.blogid] = editors[panel.name]
+				delete editors[panel.name]
+				panel.dataset.blogid = server_response.blogid
+				tab.dataset.blogid = server_response.blogid
+				tab.panel = server_response.blogid
+				panel.name = server_response.blogid
+				panel.querySelector("sl-button[variant='primary']").setAttribute("onclick", `save_blog("${server_response.blogid}")`)
+				panel.querySelector("sl-button[variant='danger']").setAttribute("onclick", `delete_blog("${server_response.blogid}")`)
+
+				const newblog = Object.assign(document.createElement("div"), {
+					className: "blog_block",
+					innerHTML: `
+					<div class='title'>
+						${title}
+					</div>`,
 				})
+				newblog.dataset.blogid = blogid
+				newblog.style.backgroundImage = `url(${title_img})`
+				newblog.setAttribute("onclick", `open_blog('${server_response.blogid}')`)
+				all_blogs_container.prepend(newblog)
+			}
 		}
 
-		const all_blogs = JSON.parse(localStorage.getItem("saved_blog"))
+		let all_blogs = {}
 		function load_all_blogs() {
-			// TODO: implement bulk processing
-			// all_blogs.forEach ...
-			const newblog = Object.assign(document.createElement("div"), {
-				className: "blog_block",
-				innerHTML: `
-				<div class='title'>
-					${all_blogs.title}
-				</div>`,
-			})
-			newblog.dataset.blogid = all_blogs.blogid
-			newblog.style.backgroundImage = `url(${all_blogs.title_img})`
-			newblog.setAttribute("onclick", `open_blog(${all_blogs.blogid})`)
-			all_blogs_container.appendChild(newblog)
+			for (const { title, title_img, blogid } of all_blogs) {
+				const newblog = Object.assign(document.createElement("div"), {
+					className: "blog_block",
+					innerHTML: `
+					<div class='title'>
+						${title}
+					</div>`,
+				})
+				newblog.dataset.blogid = blogid
+				newblog.style.backgroundImage = `url(${title_img})`
+				newblog.setAttribute("onclick", `open_blog('${blogid}')`)
+				all_blogs_container.prepend(newblog)
+			}
 		}
 		async function get_blog_data() {
-			// TODO: fetch...
-			// store data to global variable
-			// load_all_blogs()
+			const res = await fetch(`${baseurl}/blog/getall`)
+			const data = await res.json()
+			if (!data.success) {
+				slalert(server_response.message, "warning")
+				return
+			}
+			all_blogs = data.body
+			load_all_blogs()
 		}
-		load_all_blogs()
+		get_blog_data()
 
-		function open_blog(id) {
+		async function open_blog(id) {
+			const existing_panel = document.querySelector(`sl-tab-panel[data-blogid='${id}']`)
+			if (existing_panel) {
+				tabgroup.show(id)
+				return
+			}
 			open_tabs++
+			let server_response = await fetch(`${baseurl}/blog/${id}`)
+			server_response = await server_response.json()
+			if (!server_response.success) {
+				slalert(server_response.message, "warning")
+				return
+			}
+			server_response = server_response.body
 			const newtab = Object.assign(document.createElement("sl-tab"), {
 				slot: "nav",
-				panel: `${all_blogs.blogid}`,
+				panel: `${server_response.blogid}`,
 				closable: "true",
-				innerHTML: all_blogs.title,
+				innerHTML: server_response.title,
 			})
 			const newpanel = Object.assign(document.createElement("sl-tab-panel"), {
-				name: `${all_blogs.blogid}`,
+				name: `${server_response.blogid}`,
 				innerHTML: `
 				<div class='buttons'>
 					<sl-button-group label='Save or delete'>
@@ -201,7 +227,7 @@
 							Save
 							<sl-icon src="./assets/amenities_icons/save.svg" slot="prefix">
 						</sl-button>
-						<sl-button variant='danger'>
+						<sl-button variant='danger' onclick="delete_blog('${server_response.blogid}')">
 							Delete
 							<sl-icon src="./assets/amenities_icons/trash-2.svg" slot="prefix">
 						</sl-button>
@@ -211,18 +237,19 @@
 					<textarea class='editor'></textarea>
 				</div>`,
 			})
-			newtab.dataset.blogid = all_blogs.blogid
+			newpanel.dataset.blogid = server_response.blogid
+			newtab.dataset.blogid = server_response.blogid
 			const editor_holder = newpanel.querySelector(".editor")
 			editors[newtab.panel] = Jodit.make(newpanel.querySelector(".editor"), {
 				toolbarAdaptive: false,
 				uploader: {
-					url: "http://localhost:5000/upload",
+					url: `${baseurl}/upload`,
 					method: "POST",
 					format: "json",
 					// filesVariableName: "file",
 				},
 			})
-			editors[newtab.panel].value = all_blogs.editor
+			editors[newtab.panel].value = server_response.editor
 			tabgroup.appendChild(newtab)
 			tabgroup.appendChild(newpanel)
 			setTimeout(() => {
@@ -230,10 +257,56 @@
 			}, 50)
 		}
 
-		function delete_blog(panel_name) {
-			// TODO: fetch...
-			// remove div with data-divid if success
-			// close tab if it was open
+		function delete_blog(id) {
+			fetch(`${baseurl}/blog/${id}`, {
+				method: "DELETE",
+			})
+				.then(res => res.json())
+				.then(res => {
+					if (!res.success) {
+						slalert(res.message, "warning")
+						return
+					}
+					slalert(res.message, "success")
+					document.querySelector(`sl-tab[data-blogid="${id}"]`).dispatchEvent(
+						new CustomEvent("sl-close", {
+							bubbles: true,
+							composed: true,
+						})
+					)
+					all_blogs_container.querySelector(`[data-blogid="${id}"]`).remove()
+				})
+		}
+
+		function slalert(message = " ", type = "info") {
+			const alerttypes = {
+				info: {
+					variant: "primary",
+					icon: "./assets/amenities_icons/circle-alert.svg",
+				},
+				warning: {
+					variant: "warning",
+					icon: "./assets/amenities_icons/triangle-alert.svg",
+				},
+				success: {
+					variant: "success",
+					icon: "./assets/amenities_icons/circle-check-big.svg",
+				},
+			}
+			const { variant, icon } = alerttypes[type]
+
+			const alert = Object.assign(document.createElement("sl-alert"), {
+				variant,
+				closable: true,
+				duration: 3000,
+				innerHTML: `
+					<sl-icon src="${icon}" slot="icon"></sl-icon>
+					${message}
+				`,
+			})
+
+			document.body.append(alert)
+			alert.toast()
 		}
 	</script>
 </html>
