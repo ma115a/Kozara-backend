@@ -15,10 +15,24 @@ const { Readable } = require('stream');
 const { finished } = require('stream/promises');
 const mime = require('mime-types');
 const { v4: uuidv4 } = require('uuid');
+const { render } = require('ejs')
 require('winston-daily-rotate-file')
 let db
 let tok
 
+
+const templatePathIndex = path.join(__dirname, 'public', 'index_translated.html')
+let htmlTemplateIndex = fs.readFileSync(templatePathIndex, 'utf8')
+
+const templatePathNotice = path.join(__dirname, 'public', 'notice.html')
+let htmlTemplateNotice = fs.readFileSync(templatePathNotice, 'utf8')
+
+const languages = {
+    en: JSON.parse(fs.readFileSync(path.join(__dirname, 'languages', 'en.json'), 'utf8')),
+    de: JSON.parse(fs.readFileSync(path.join(__dirname, 'languages', 'de.json'), 'utf8')),
+    it: JSON.parse(fs.readFileSync(path.join(__dirname, 'languages', 'it.json'), 'utf8')),
+    sr: JSON.parse(fs.readFileSync(path.join(__dirname, 'languages', 'sr.json'), 'utf8')),
+}
 
 const startupTime = new Date().toISOString().replace(/T/, '_').replace(/\..+/, '').replace(/:/g, '-');
 
@@ -196,13 +210,51 @@ async function sendBookingConfirmation(bookingData) {
 }
 
 
+function renderIndex(res, lang) {
+
+    // const templatePathIndex = path.join(__dirname, 'public', 'index_translated.html')
+    // let htmlTemplateIndex = fs.readFileSync(templatePathIndex, 'utf8')
+    const t = languages[lang] || languages['en']
+    let renderedHtml = htmlTemplateIndex
+
+
+    renderedHtml = renderedHtml.replace('<html lang="en" class="sl-theme-light">', `<html lang="${lang}" class="sl-theme-light">`)
+
+    Object.keys(t).forEach(key => {
+
+        const regex = new RegExp(`{{${key}}}`, 'g');
+        renderedHtml = renderedHtml.replace(regex, t[key]);
+    })
+
+    res.send(renderedHtml)
+}
+
+
+function renderNotice(res, lang) {
+    const t = languages[lang] || languages['en']
+    let renderedHtml = htmlTemplateNotice
+
+
+    renderedHtml = renderedHtml.replace('<html lang="en" class="sl-theme-light">', `<html lang="${lang}" class="sl-theme-light">`)
+
+    Object.keys(t).forEach(key => {
+
+        const regex = new RegExp(`{{${key}}}`, 'g');
+        renderedHtml = renderedHtml.replace(regex, t[key]);
+    })
+
+    res.send(renderedHtml)
+}
+
+
+
 
 
 const app = express()
 
 app.use(cors())
 const port = 5000
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'public'), { index: false }))
 
 const transporter = nodemailer.createTransport({
     // service: 'gmail',
@@ -342,41 +394,29 @@ function findAvailableUnits(dailyStatus) {
     return availableUnits
 }
 
-// app.get('/preview2', (req, res) => {
-//     res.sendFile(path.join(__dirname, 'public', 'index.html'))
-// })
-
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'))
-})
-app.get('/sr', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'))
-})
-app.get('/de', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'))
-})
-app.get('/en', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'))
-})
-app.get('/it', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'))
+    renderIndex(res, 'en')
 })
 
-app.get('/notice', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'notice.html'))
+app.get(['/en', '/de', '/fr', '/it', '/sr'], (req, res) => {
+    // Manually get the language from the URL since we aren't using a named param
+    const lang = req.path.replace('/', '');
+    renderIndex(res, lang);
+});
+
+app.get(['/notice', '/en/notice'], (req, res) => {
+    renderNotice(res, 'en')
 })
-app.get('/notice/sr', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'notice.html'))
-})
-app.get('/notice/de', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'notice.html'))
-})
-app.get('/notice/en', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'notice.html'))
-})
-app.get('/notice/it', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'notice.html'))
-})
+
+app.get(['/de/notice', '/fr/notice', '/it/notice', '/sr/notice'], (req, res) => {
+    // Extract language: "/de/notice" -> split by "/" -> ["", "de", "notice"] -> get index 1
+    const lang = req.path.split('/')[1];
+    renderNotice(res, lang);
+});
+
+
+
+
 
 app.get("/langpack/:id", (req, res) => {
     console.log('language endpoitn called')
@@ -1190,7 +1230,8 @@ app.get("/blogeditor", (req, res) => {
 
 app.get('/*splat', (req, res) => {
 
-    res.sendFile(path.join(__dirname, 'public', 'index.html'))
+    // res.sendFile(path.join(__dirname, 'public', 'index.html'))
+    renderIndex(res, 'en')
 })
 
 

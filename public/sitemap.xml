@@ -1,0 +1,24 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- Homepage -->
+  <url>
+    <loc>https://kozarapanoramicresort.ba/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kozarapanoramicresort.ba/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://kozarapanoramicresort.ba/de" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://kozarapanoramicresort.ba/sr" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://kozarapanoramicresort.ba/it" />
+  </url>
+
+  <!-- Notice Page -->
+  <url>
+    <loc>https://kozarapanoramicresort.ba/notice</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://kozarapanoramicresort.ba/notice" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://kozarapanoramicresort.ba/de/notice" />
+    <xhtml:link rel="alternate" hreflang="sr" href="https://kozarapanoramicresort.ba/sr/notice" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://kozarapanoramicresort.ba/it/notice" />
+  </url>
+
+</urlset>

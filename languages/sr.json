@@ -1,5 +1,5 @@
 {
-	"nav_chalets": "Kućice",
+	"nav_chalets": "Kuće",
 	"nav_location": "Lokacija",
 	"nav_reviews": "Recenzije",
 	"nav_blog": "Blog",
@@ -19,12 +19,12 @@
 
 	"offer_card": "Otvarajuća Ponuda",
 	"offer_title": "Spektakularne Zimske Ponude",
-	"offer_desc": "Cijene su privremeno spuštene jer je finalni eksterijer još pod izgradnjom. Tokom zimske sezone, privatni vanjski bazeni su naravno zatvoreni i biće ponovo otvoreni kada bude toplije vrijeme. Sauna i prostori za opištanje bi trebali uskoro biti završeni.",
+	"offer_desc": "Cijene su privremeno spuštene jer je finalni eksterijer još pod izgradnjom. Tokom zimske sezone, privatni vanjski bazeni su zatvoreni i biće ponovo otvoreni kada bude toplije vrijeme. Sauna i prostori za opuštanje bi trebali uskoro biti završeni.",
 	"offer_notice_title": "Važno Obavještenje",
-	"offer_notice_desc": "Prikazane cijene su uvodne i podložne su promjeni kako rezort prelazi u punu operaciju. Cijene se mogu prolagoditi na osnovu potražnje, raspoloživosti i završetka preostalih radova",
+	"offer_notice_desc": "Prikazane cijene su uvodne i podložne su promjeni kako rezort prelazi u punu operaciju. Cijene se mogu prilagoditi na osnovu potražnje, raspoloživosti i završetka preostalih radova.",
 
-	"chalets_title": "Naši Luksuzne kabine",
-	"chalets_desc": "Naše kabine kombinuju prirodu i luksuz, napravljeni za one koji traze mir, udobnost, i unikatan bijeg iz stvarnosti. Svaka kabina ima svoju priču, dizajniran da probudi emocije i doprinese potpunom opuštanju",
+	"chalets_title": "Naše Luksuzne kuće od drveta",
+	"chalets_desc": "Naše kuće od drveta kombinuju prirodu i luksuz, napravljene su za one koji traže mir, udobnost i unikatan bijeg iz stvarnosti. Svaka od njih ima svoju priču, dizajnirana da probudi emocije i doprinese potpunom opuštanju",
 	"chalets_amenities_wifi": "BRZ WIFI",
 	"chalets_amenities_espresso": "APARAT ZA ESPRESSO I ELEKTRIČNI ČAJNIK",
 	"chalets_amenities_ac": "KLIMA / GRIJANJE",
@@ -40,11 +40,11 @@
 	"chalets_btn": "REZERVIŠITE SVOJ BORAVAK",
     "chalets_details_btn": "Pogledaj detalje",
 
-    "wind_desc" : "The Wind chalet nosi svježinu planinskog povjetarca i osjećaj slobode u svakom dahu. Savršeno za one koji žele osjetiti ritam prirode i harmoniju između vjetra i drveća.", 
-    "summit_desc" : "The Sun chalet sija zlatnim sjajem, savršeno za jutra ispunjena toplinom i energijom. Svaka zraka sunca donosi radost i podsjeća vas da je svaki dan novi početak.", 
-    "star_desc" : "The Star chalet leži pod nebom punim zvijezda, gdje se noći pretvaraju u magične trenutke. Idealno je za parove ili svakoga ko želi pronaći mir pod beskrajnim sjajem noćnog neba.", 
-    "cloud_desc" : "The Cloud chalet plovi iznad oblaka, okružen tišinom i pogledom koji spaja nebo i zemlju. Stvoren je za one koji traže inspiraciju i mir u trenucima potpune tišine.", 
-    "sky_desc" : "The Sky chalet stoji na granici gdje svijet blijedi, a nebesa počinju, nudeći beskrajne horizonte i osjećaj apsolutne slobode. Savršena je tačka za posmatranje za one koji traže jasnoću, omogućavajući vam da udahnete prostranstvo i povežete se sa veličinom svijeta.", 
+    "wind_desc" : "\"The Wind kuća\" nosi svježinu planinskog povjetarca i osjećaj slobode u svakom dahu. Savršeno za one koji žele osjetiti ritam prirode i harmoniju između vjetra i drveća.", 
+    "summit_desc" : "\"The Sun kuća\" sija zlatnim sjajem, savršeno za jutra ispunjena toplinom i energijom. Svaka zraka sunca donosi radost i podsjeća vas da je svaki dan novi početak.", 
+    "star_desc" : "\"The Star kuća\" leži pod nebom punim zvijezda, gdje se noći pretvaraju u magične trenutke. Idealno je za parove ili svakoga ko želi pronaći mir pod beskrajnim sjajem noćnog neba.", 
+    "cloud_desc" : "\"The Cloud kuća\" plovi iznad oblaka, okružen tišinom i pogledom koji spaja nebo i zemlju. Stvoren je za one koji traže inspiraciju i mir u trenucima potpune tišine.", 
+    "sky_desc" : "\"The Sky kuća\" stoji na granici gdje svijet blijedi, a nebesa počinju, nudeći beskrajne horizonte i osjećaj apsolutne slobode. Savršena je tačka za posmatranje za one koji traže jasnoću, omogućavajući vam da udahnete prostranstvo i povežete se sa veličinom svijeta.", 
 
     "secluded_badge" : "Izdvojen",
 	"location_title": "Pronađite nas na planini",
@@ -54,11 +54,11 @@
 
 	"about_us_title": "Naša Priča",
 	"about_us_desc1": "Kozara Panoramic Resort je kreiran iz ljubavi prema prirodi i ideji da luksuz i mir mogu da postoje u savršenoj harmoniji. Naša misija je da napravimo mjesto gdje svaki gost može da osjeti dubok balans između prirode, ugodnosti i vedrine. Ušuškan u srcu Kozare, naš rezort nudi nezaboravljivo iskustvo gdje svaki detalj odražava toplinu, brigu i eleganciju.",
-	"about_us_desc2": "Naše moderne kućice nude privatnost i intimnost, istovremeno pružajući sve moderne pogodnosti savremenog smještaja. Panoramični pogledi, čist planinski vazduh, i šumska tišina čine svako jutro posebnim i svako veče mirnim. Kozara Panoramic Resort je više od smještaja – to je iskustvo koje obnavlja unutrašnju ravnotežu, konekciju sa prirodom, i budi osjećaj istinskog mira. Dobrodošli u mjesto gdje vrijeme uspori i svaki momenat postaje trajno sjećanje",
+	"about_us_desc2": "Naše moderne kuće od drveta nude privatnost i intimnost, istovremeno pružajući sve moderne pogodnosti savremenog smještaja. Panoramični pogledi, čist planinski vazduh i šumska tišina čine svako jutro posebnim i svako veče mirnim. Kozara Panoramic Resort je više od smještaja – to je iskustvo koje obnavlja unutrašnju ravnotežu, konekciju sa prirodom i budi osjećaj istinskog mira. Dobrodošli u mjesto gdje vrijeme uspori i svaki momenat postaje trajno sjećanje",
 
 	"about_kozara_title": "Otkrijte Kozaru",
-	"about_kozara_desc1": "Kozara, poznata kao “vazdušna banja” i zeleni dragulj Krajine, je mjesto gdje priroda jos uvjek dise slobodno. Njene guste šume, čist vazduh, i smirujući pogledi pružaju savršeno mjesto za bjeg od gradskog života. Kozara spaja divljinu sa mirnoćom, stvarajući idealno okruženje za opuštanje, avanturu, i samootkriće. Kozara, zelena oaza Krajine, je mjesto gdje priroda otkriva svoju ljepotu. Njene guste šume, planinski potoci, i svjež vazduh čine ovo savršenim mjestom za povlačenje u odmor, avanturu i spiritualni oporavak. Planinske staze vode kroz scenične poglede i mirisne livade, nudeći poglede koji smiruju dušu i pune vas energijom",
-	"about_kozara_desc2": "Kozara je više od planine – to je mjesto gdje iskusite konekciju sa prirodom, mjesto gdje vrijeme uspori i misli postanu čiste. Svaki gost pronadje svoj momenat mira, bilo u tihim šumama, šapatu vjetra, ili zalasku sunca koje slika rumene tonove. Kozara vas poziva da stanete, udahnete duboko, i osjetitie sta prava sloboda znači.",
+	"about_kozara_desc1": "Kozara, poznata kao “vazdušna banja” i zeleni dragulj Krajine, je mjesto gdje priroda jos uvjek dise slobodno. Njene guste šume, čist vazduh i smirujući pogledi pružaju savršeno mjesto za bjeg od gradskog života. Kozara spaja divljinu sa mirnoćom, stvarajući idealno okruženje za opuštanje, avanturu, i samootkriće. Kozara, zelena oaza Krajine, je mjesto gdje priroda otkriva svoju ljepotu. Njene guste šume, planinski potoci i svjež vazduh čine ovo savršenim mjestom za povlačenje u odmor, avanturu i spiritualni oporavak. Planinske staze vode kroz scenične poglede i mirisne livade, nudeći poglede koji smiruju dušu i pune vas energijom",
+	"about_kozara_desc2": "Kozara je više od planine – to je mjesto gdje iskusite konekciju sa prirodom, mjesto gdje vrijeme uspori i misli postanu čiste. Svaki gost pronadje svoj momenat mira, bilo u tihim šumama, šapatu vjetra, ili zalasku sunca koje slika rumene tonove. Kozara vas poziva da stanete, udahnete duboko i osjetite šta prava sloboda znači.",
 
 	"blog_title": "Iz naših blogova",
 	"blog_desc": "Uskoro ...",
@@ -84,8 +84,8 @@
 
 	"booking_form_btn": "Nastavi na uplatu",
 
-  "faq_heating_q": "Da li su kućice grijane i klimatizovane?",
-  "faq_heating_a": "Da. Sve kolibe imaju potpuno automatizovanu klimatizaciju i grijanje za udobnost tokom cijele godine, uključujući podno grijanje u dnevnom boravku, trpezariji, kuhinji i kupatilu.",
+  "faq_heating_q": "Da li su kuće grijane i klimatizovane?",
+  "faq_heating_a": "Da. Sve kuće imaju potpuno automatizovanu klimatizaciju i grijanje za udobnost tokom cijele godine, uključujući podno grijanje u dnevnom boravku, trpezariji, kuhinji i kupatilu.",
   
   "faq_kitchen_q": "Šta je uključeno u kuhinju?",
   "faq_kitchen_a": "Kuhinje su potpuno opremljene za samostalnu pripremu hrane. Oprema uključuje ploču za kuvanje, veliku rernu, mikrotalasnu, veliki frižider sa zamrzivačem, mašinu za suđe, posuđe i čaše.",
@@ -97,7 +97,7 @@
   "faq_wifi_a": "Da, Wi-Fi pristup je obezbijeđen. Ime mreže i lozinka će vam biti uručeni prilikom prijave.",
   
   "faq_pool_heating_q": "Da li su bazeni privatni i grijani?",
-  "faq_pool_heating_a": "Da, svaka kućica ima svoj privatni bazen (sezonsko radno vreme).",
+  "faq_pool_heating_a": "Da, svaka kuća ima svoj privatni bazen (sezonsko radno vreme).",
   
   "faq_lifeguard_q": "Ima li spasilac na bazenu?",
   "faq_lifeguard_a": "Ne. Korištenje bazena je isključivo na vašu sopstvenu odgovornost. Roditelji moraju nadgledati djecu u svakom trenutku. Napominjemo da su u prostoru bazena dozvoljene samo plastične čaše.",
@@ -109,7 +109,7 @@
   "faq_deposit_a": "Da. Depozit od <b>250 € putem kreditne kartice</b> se predautorizuje prilikom prijave. Ovo je privremena rezervacija sredstava za pokriće štete ili neplaćenih dodatnih troškova i oslobađa se nekoliko dana nakon odjave ako nema prijavljenih problema.",
   
   "faq_cancel_q": "Kakva je politika otkazivanja?",
-  "faq_cancel_a": "<b>Standardna sezona (april–jun, sredina septembra–oktobar):</b> 25% povrata >14 dana prije dolaska; 50% povrata 7–13 dana prije. Nema povrata ako je <7 dana.<br><b>Vrhunac sezone (jul, avgust, praznici):</b> Nema mogućnosti otkazivanja ili povrata novca.",
+  "faq_cancel_a": "<b>Standardna sezona (April–Jun, sredina Septembra–Oktobar, Novembar-Mart):</b> 25% povrata >14 dana prije dolaska; 50% povrata 7–13 dana prije. Nema povrata ako je <7 dana.<br><b>Vrhunac sezone (jul, avgust, praznici):</b> Nema mogućnosti otkazivanja ili povrata novca.",
 
   "faq_payment_q": "Koje metode plaćanja prihvatate?",
   "faq_payment_a": "Prihvatamo Visa, Mastercard i American Express kartice. Boravišna taksa se dodaje na rezervaciju. Dodatni troškovi se mogu platiti gotovinom ili karticom prilikom odjave.",
@@ -133,13 +133,13 @@
   "faq_pets_a": "Da, kućni ljubimci su dozvoljeni na zahtjev. Napominjemo da postoji dodatna naknada od 15 € po boravku.",
   
   "faq_parking_q": "Da li je dostupan parking?",
-  "faq_parking_a": "Da, postoji besplatan privatni parking direktno pored svake kolibe.",
+  "faq_parking_a": "Da, postoji besplatan privatni parking direktno pored svake kuće.",
   
   "faq_ev_q": "Imate li stanicu za punjenje električnih vozila?",
   "faq_ev_a": "Trenutno ne, iako je jedna planirana za budućnost. Najbliža benzinska pumpa je na glavnom putu za Gradišku (cca. 18 km).",
   
   "faq_quiet_q": "Kada je vrijeme kućnog reda (tišine)?",
-  "faq_quiet_a": "Vrijeme tišine je od 22:00 do 08:00. (Izuzeci se mogu napraviti ako je jedna grupa rezervisala svih 5 kućica).",
+  "faq_quiet_a": "Vrijeme tišine je od 22:00 do 08:00. (Izuzeci se mogu napraviti ako je jedna grupa rezervisala svih 5 kuća).",
   
   "faq_airport_q": "Koliko je udaljen aerodrom?",
   "faq_airport_a": "Aerodrom Banja Luka je udaljen otprilike 45 minuta vožnje automobilom. Transferi i lokalne taksi usluge mogu se organizovati na zahtjev.",
@@ -181,10 +181,10 @@
   "terms-cancellation-peak": "<strong>Glavna sezona (jul, avgust, praznici):</strong> Nema mogućnosti otkazivanja ili povrata sredstava.",
   "terms-damage": "Šteta i ponašanje:",
   "terms-behaviour" : "Nepoštovanje utvrđenog kućnog reda može dovesti do trenutnog otkazivanja smještaja.",
-  "terms-guests": "Gosti su odgovorni za svaku štetu nanijetu kućici, unutrašnjosti, namještaju, opremi ili spoljašnjim površinama. Depozit od 250 € se zahtijeva pri prijavi.",
+  "terms-guests": "Gosti su odgovorni za svaku štetu nanijetu kući, unutrašnjosti, namještaju, opremi ili spoljašnjim površinama. Depozit od 250 € se zahtijeva pri prijavi.",
   "terms-rights": "PEVA d.o.o. zadržava pravo naplate troškova popravke ili zamjene.",
   "terms-pool": "Upotreba bazena:",
-  "termrms-pool-desc": "Svaka kućica ima privatni bazen.",
+  "termrms-pool-desc": "Svaka kuća ima privatni bazen.",
   "terms-pool-risk": "Korišćenje bazena je isključivo na sopstveni rizik gosta.",
   "terms-pool-lifeguard": "Nema spasioca na dužnosti.",
   "terms-pool-children": "Djeca moraju biti pod nadzorom u svakom trenutku.",
@@ -195,7 +195,7 @@
   "terms-pool-supervision": "Djeca moraju biti pod nadzorom u svakom trenutku.",
   "terms-pool-injuries": "PEVA d.o.o. ne snosi odgovornost za povrede nastale nepravilnim korišćenjem bazenskog prostora.",
   "terms-smoking": "Pušenje:",
-  "terms-smoking-prohibited": "Pušenje je strogo zabranjeno unutar kućica.",
+  "terms-smoking-prohibited": "Pušenje je strogo zabranjeno unutar kuća.",
   "terms-smoking-permitted": "Pušenje je dozvoljeno samo spolja.",
   "terms-pets": "Kućni ljubimci:",
   "terms-pets-allowed": "Kućni ljubimci su dozvoljeni uz naknadu od 15,00 € po ljubimcu i boravku.",
@@ -205,7 +205,7 @@
   "terms-room2": "1 spavaću sobu sa 2 odvojena kreveta",
   "terms-room3": "2 odvojena kreveta na galeriji ili opcije kauča na razvlačenje",
   "terms-room4": "Opcioni dušek u potkrovlju",
-  "terms-maximum": "Maksimalno: 6 osoba po kućici",
+  "terms-maximum": "Maksimalno: 6 osoba po kući",
   "privacy-policy": "Politika privatnosti",
   "privacy-data": "PEVA d.o.o. prikuplja i obrađuje lične podatke samo za:",
   "privacy-reservation": "Obradu rezervacija",
@@ -221,5 +221,10 @@
   "cookies-notice2": "Nastavkom pregledanja pristajete na upotrebu kolačića.",
   "price-transparency": "Transparentnost cijena",
   "price-transparency1": "Sve prikazane cijene ne uključuju boravišnu taksu (kao što je navedeno pri rezervaciji).",
-  "price-transparency2": "Grijanje, električna energija, bazeni, peškiri i Wi-Fi su uključeni u cijenu."
+  "price-transparency2": "Grijanje, električna energija, bazeni, peškiri i Wi-Fi su uključeni u cijenu.",
+    "language_tag" : "🇷🇸 SR",
+    "base_url" : "https://happening-gazette-tech-another.trycloudflare.com",
+    "base_url_lang" : "https://happening-gazette-tech-another.trycloudflare.com/sr",
+    "meta_content" : "Rezervišite svoju planinsku kuću u Kozara Panoramic Resortu",
+    "meta_content2" : "Luksuzne planinske kućice s bazenom, spa centrom i pješačkim stazama. Smješteno u srcu planine Kozara, naše odmaralište nudi nezaboravno iskustvo gdje svaki detalj odražava toplinu, brigu i eleganciju."
 }

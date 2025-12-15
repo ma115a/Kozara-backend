@@ -169,6 +169,7 @@
   "impressum-contact": "<strong>Contact:</strong>",
   "impressum-email": "Email: info@kozarapanoramicresort.ba",
   "impressum-phone": "Phone/WhatsApp: +387 66 767 622",
+    "impressum-tax" : "Company tax number: 4405281640008",
   "terms-h2": "Terms & Conditions",
   "terms-bookings": "Bookings:",
   "terms-reservation": "A reservation is confirmed when the guest receives written confirmation via email or messaging apps.",
@@ -224,8 +225,12 @@
   "cookies-notice2": "By continuing to browse, you agree to the use of cookies.",
   "price-transparency": "Price Transparency",
   "price-transparency1": "All prices shown exclude tourist tax (as stated at booking).",
-  "price-transparency2": "Heating, electricity, pools, towels, and Wi-Fi are included in the price."
-
+  "price-transparency2": "Heating, electricity, pools, towels, and Wi-Fi are included in the price.",
+    "language_tag" : "🇬🇧 EN",
+    "base_url" : "https://happening-gazette-tech-another.trycloudflare.com",
+    "base_url_lang" : "https://happening-gazette-tech-another.trycloudflare.com",
+    "meta_content" : "Book Your Chalet at Kozara Panoramic Resort",
+    "meta_content2" : "Luxury mountain chalets with pool, spa and hiking trails. Nestled in the heart of Mount Kozara, our resort offers an unforgettable experience where every detail reflects warmth, care, and elegance."
 
 
 
