@@ -4,10 +4,10 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Kozara Panoramic Resort</title>
-		<link rel="stylesheet" href="/css/vanilla_calendar.css" />
-		<link rel="stylesheet" href="/css/main.css" />
-		<script src="/js/vanilla_calendar.js"></script>
-		<script src="/js/vcUtils.js"></script>
+		<link rel="stylesheet" href="./css/vanilla_calendar.css" />
+		<link rel="stylesheet" href="./css/main.css" />
+		<script src="./js/vanilla_calendar.js"></script>
+		<script src="./js/vcUtils.js"></script>
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/light.css" />
 		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/carousel/carousel.js"></script>
 		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/carousel-item/carousel-item.js"></script>
@@ -85,37 +85,28 @@
 					<!-- <a href="#reviews" class="nav-link" data-i8n="nav_reviews">Reviews</a> -->
 					<a href="#blog" class="nav-link" data-i8n="nav_blog">Blog</a>
 					<a href="#contact" class="nav-link" data-i8n="contact">Contact</a>
-                    <sl-dropdown>
+					<sl-dropdown>
 						<!-- NEW TRIGGER: span element to display the selected language -->
 						<span id="language_display_trigger" slot="trigger" class="nav-language-trigger">
 							<!-- Initial state, set to default EN -->
 							🇬🇧 EN
 						</span>
 						<sl-menu>
-							<sl-menu-item
-								><a href="https://kozarapanoramicresort.ba/en">🇬🇧 EN (English)</a></sl-menu-item
-							>
-							<sl-menu-item
-								><a href="https://kozarapanoramicresort.ba/sr">🇷🇸 SR (Srpski)</a></sl-menu-item
-							>
-							<sl-menu-item
-								><a href="https://kozarapanoramicresort.ba/de">🇩🇪 DE (Deutsch)</a></sl-menu-item
-							>
-							<sl-menu-item
-								><a href="https://kozarapanoramicresort.ba/it">🇮🇹 IT (Italiano)</a></sl-menu-item
-							>
+							<sl-menu-item><a href="https://kozarapanoramicresort.ba/en">🇬🇧 EN (English)</a></sl-menu-item>
+							<sl-menu-item><a href="https://kozarapanoramicresort.ba/sr">🇷🇸 SR (Srpski)</a></sl-menu-item>
+							<sl-menu-item><a href="https://kozarapanoramicresort.ba/de">🇩🇪 DE (Deutsch)</a></sl-menu-item>
+							<sl-menu-item><a href="https://kozarapanoramicresort.ba/it">🇮🇹 IT (Italiano)</a></sl-menu-item>
 						</sl-menu>
-
 					</sl-dropdown>
-                    <!-- <sl-dropdown> -->
-                    <!--     <sl-icon-button slot="trigger" src="./assets/amenities_icons/languages.svg"></sl-icon-button> -->
-                    <!--     <sl-menu> -->
-                    <!--         <sl-menu-item><a href="https://kozarapanoramicresort.ba/en">English</a></sl-menu-item> -->
-                    <!--         <sl-menu-item><a href="https://kozarapanoramicresort.ba/sr">Srpski</a></sl-menu-item> -->
-                    <!--         <sl-menu-item><a href="https://kozarapanoramicresort.ba/de">Deutsch</a></sl-menu-item> -->
-                    <!--         <sl-menu-item><a href="https://kozarapanoramicresort.ba/it">Italiano</a></sl-menu-item> -->
-                    <!--     </sl-menu> -->
-                    <!-- </sl-dropdown> -->
+					<!-- <sl-dropdown> -->
+					<!--     <sl-icon-button slot="trigger" src="./assets/amenities_icons/languages.svg"></sl-icon-button> -->
+					<!--     <sl-menu> -->
+					<!--         <sl-menu-item><a href="https://kozarapanoramicresort.ba/en">English</a></sl-menu-item> -->
+					<!--         <sl-menu-item><a href="https://kozarapanoramicresort.ba/sr">Srpski</a></sl-menu-item> -->
+					<!--         <sl-menu-item><a href="https://kozarapanoramicresort.ba/de">Deutsch</a></sl-menu-item> -->
+					<!--         <sl-menu-item><a href="https://kozarapanoramicresort.ba/it">Italiano</a></sl-menu-item> -->
+					<!--     </sl-menu> -->
+					<!-- </sl-dropdown> -->
 				</div>
 				<div>
 					<a onclick="open_booking()" style="cursor: pointer" class="nav-cta" data-i8n="nav_cta">Book Your Stay</a>
@@ -134,27 +125,18 @@
 			<a href="#blog" class="nav-link" onclick="drawer_menu.hide()" data-i8n="nav_blog">Blog</a>
 			<a href="#contact" class="nav-link" onclick="drawer_menu.hide()" data-i8n="contact">Contact</a>
 			<sl-dropdown>
-						<!-- NEW TRIGGER: span element to display the selected language -->
-						<span id="language_display_trigger" slot="trigger" class="nav-language-trigger">
-							<!-- Initial state, set to default EN -->
-							🇬🇧 EN
-						</span>
-						<sl-menu>
-							<sl-menu-item
-								><a href="https://kozarapanoramicresort.ba/en">🇬🇧 EN (English)</a></sl-menu-item
-							>
-							<sl-menu-item
-								><a href="https://kozarapanoramicresort.ba/sr">🇷🇸 SR (Srpski)</a></sl-menu-item
-							>
-							<sl-menu-item
-								><a href="https://kozarapanoramicresort.ba/de">🇩🇪 DE (Deutsch)</a></sl-menu-item
-							>
-							<sl-menu-item
-								><a href="https://kozarapanoramicresort.ba/it">🇮🇹 IT (Italiano)</a></sl-menu-item
-							>
-						</sl-menu>
-
-					</sl-dropdown>
+				<!-- NEW TRIGGER: span element to display the selected language -->
+				<span id="language_display_trigger" slot="trigger" class="nav-language-trigger">
+					<!-- Initial state, set to default EN -->
+					🇬🇧 EN
+				</span>
+				<sl-menu>
+					<sl-menu-item><a href="https://kozarapanoramicresort.ba/en">🇬🇧 EN (English)</a></sl-menu-item>
+					<sl-menu-item><a href="https://kozarapanoramicresort.ba/sr">🇷🇸 SR (Srpski)</a></sl-menu-item>
+					<sl-menu-item><a href="https://kozarapanoramicresort.ba/de">🇩🇪 DE (Deutsch)</a></sl-menu-item>
+					<sl-menu-item><a href="https://kozarapanoramicresort.ba/it">🇮🇹 IT (Italiano)</a></sl-menu-item>
+				</sl-menu>
+			</sl-dropdown>
 		</sl-drawer>
 		<sl-icon-button id="btn_menu" src="./assets/amenities_icons/menu.svg" onclick="drawer_menu.show()"></sl-icon-button>
 
@@ -270,13 +252,13 @@
 			<div class="location-content">
 				<h3 class="section-title" style="color: var(--sand-beige)" data-i8n="location_title">Find Us on the Mountain</h3>
 				<p style="margin-bottom: 30px; font-size: 1.1rem" data-i8n="location_description">Mrakovica, Kozara National Park • 45 mins from Banja Luka</p>
-                <p class="location-quote" data-i8n="location_quote">Just follow the signs.</p>
-            
-                <div class="location-image-container">
-                    <!-- Using the newly uploaded, cleaner filename -->
-                    <img src="assets/signs2.webp" class="location-signs-img" alt="Just follow the signs.">
-                </div>
-                <p class="map-hint" data-i8n="location_hint">Or find us on the map below</p>
+				<p class="location-quote" data-i8n="location_quote">Just follow the signs.</p>
+
+				<div class="location-image-container">
+					<!-- Using the newly uploaded, cleaner filename -->
+					<img src="assets/signs2.webp" class="location-signs-img" alt="Just follow the signs." />
+				</div>
+				<p class="map-hint" data-i8n="location_hint">Or find us on the map below</p>
 				<div class="map-frame">
 					<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3191.7678145893565!2d17.0941569!3d45.0086252!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4767510061c8c7eb%3A0xcf311465b69a3e2c!2sKozara%20Panoramic%20Resort!5e1!3m2!1sbs!2sba!4v1763826019486!5m2!1sen!2sba" width="600" height="450" style="border: 0" allowfullscreen="" referrerpolicy="no-referrer-when-downgrade"></iframe>
 				</div>
@@ -329,194 +311,90 @@
 
 		<section id="blog" class="section-padding">
 			<h3 class="section-title" data-i8n="blog_title">From Our Blog</h3>
-			<!-- <div class="chalet-grid">
-				<div class="chalet-card">
-					<img src="https://picsum.photos/id/311/800/600" class="chalet-img" alt="Hiking" />
-					<div class="chalet-details">
-						<h4>Top 5 Winter Hikes</h4>
-						<button class="btn-view">Read Article</button>
-					</div>
-				</div>
-				<div class="chalet-card">
-					<img src="https://picsum.photos/id/292/800/600" class="chalet-img" alt="Food" />
-					<div class="chalet-details">
-						<h4>Local Mountain Cuisine</h4>
-						<button class="btn-view">Read Article</button>
-					</div>
-				</div>
-				<div class="chalet-card">
-					<img src="https://picsum.photos/id/413/800/600" class="chalet-img" alt="Skiing" />
-					<div class="chalet-details">
-						<h4>Skiing for Beginners</h4>
-						<button class="btn-view">Read Article</button>
-					</div>
-				</div>
-			</div> -->
-			<span data-i8n="blog_desc"> Coming soon ... </span>
+			<div class="blog-grid"></div>
+			<!-- <span data-i8n="blog_desc"> Coming soon ... </span> -->
 		</section>
+		<script>
+			{
+				async function load_blogs() {
+					let sr = await fetch("https://integrity-vacuum-buzz-capable.trycloudflare.com/blog/latest")
+					sr = await sr.json()
+					if (!sr.success) {
+						return
+					}
+					sr = sr.body
+					const container = blog.querySelector(".blog-grid")
+					sr.forEach(el => {
+						container.innerHTML += `<div class="chalet-card">
+							<img src="${el.title_img}" class="chalet-img" alt="Hiking" />
+							<div class="chalet-details">
+								<h4>${el.title}</h4>
+								<a href="./blog/${el.blogid}"><button class="btn-view">Read Article</button></a>
+							</div>
+						</div>`
+					})
+				}
+				load_blogs()
+			}
+		</script>
 
 		<section id="faq" class="section-padding faq-section" style="background-color: var(--bg-soft)">
-    <h3 class="section-title" data-i8n="faq_title">Frequently Asked Questions</h3>
-    <div class="faq-container">
-        <div>
-            <sl-details 
-                data-i8n-summary="faq_heating_q" 
-                data-i8n="faq_heating_a" 
-                summary="Are the chalets heated and air-conditioned?"> 
-                Yes. All chalets feature fully automated air conditioning and heating for year-round comfort, including underfloor heating in the living area, dining area, kitchen, and bathroom.
-            </sl-details>
+			<h3 class="section-title" data-i8n="faq_title">Frequently Asked Questions</h3>
+			<div class="faq-container">
+				<div>
+					<sl-details data-i8n-summary="faq_heating_q" data-i8n="faq_heating_a" summary="Are the chalets heated and air-conditioned?"> Yes. All chalets feature fully automated air conditioning and heating for year-round comfort, including underfloor heating in the living area, dining area, kitchen, and bathroom. </sl-details>
 
-            <sl-details 
-                data-i8n-summary="faq_kitchen_q" 
-                data-i8n="faq_kitchen_a" 
-                summary="What is included in the kitchen?"> 
-                The kitchens are fully equipped for self-catering. Features include a hob, large oven, microwave, large fridge-freezer, dishwasher, cookware, dishes, and glassware.
-            </sl-details>
+					<sl-details data-i8n-summary="faq_kitchen_q" data-i8n="faq_kitchen_a" summary="What is included in the kitchen?"> The kitchens are fully equipped for self-catering. Features include a hob, large oven, microwave, large fridge-freezer, dishwasher, cookware, dishes, and glassware. </sl-details>
 
-            <sl-details 
-                data-i8n-summary="faq_linens_q" 
-                data-i8n="faq_linens_a" 
-                summary="Do I need to bring linens or towels?"> 
-                No. Bed linens and 100% cotton towels are provided. Bathrobes and swimming pool towels are available upon request.
-            </sl-details>
+					<sl-details data-i8n-summary="faq_linens_q" data-i8n="faq_linens_a" summary="Do I need to bring linens or towels?"> No. Bed linens and 100% cotton towels are provided. Bathrobes and swimming pool towels are available upon request. </sl-details>
 
-            <sl-details 
-                data-i8n-summary="faq_wifi_q" 
-                data-i8n="faq_wifi_a" 
-                summary="Is there internet access?"> 
-                Yes, Wi-Fi access is provided. The network name and password will be given to you at check-in.
-            </sl-details>
+					<sl-details data-i8n-summary="faq_wifi_q" data-i8n="faq_wifi_a" summary="Is there internet access?"> Yes, Wi-Fi access is provided. The network name and password will be given to you at check-in. </sl-details>
 
-            <sl-details 
-                data-i8n-summary="faq_pool_heating_q" 
-                data-i8n="faq_pool_heating_a" 
-                summary="Are the pools private and heated?">
-                Yes, each chalet has its private pool (seasonal opening times).
-            </sl-details>
+					<sl-details data-i8n-summary="faq_pool_heating_q" data-i8n="faq_pool_heating_a" summary="Are the pools private and heated?"> Yes, each chalet has its private pool (seasonal opening times). </sl-details>
 
-            <sl-details 
-                data-i8n-summary="faq_lifeguard_q" 
-                data-i8n="faq_lifeguard_a" 
-                summary="Is there a lifeguard at the pool?">
-                No. Pool use is entirely at your own risk. Parents must supervise children at all times. Please note that only plastic glasses are allowed in the pool area.
-            </sl-details>
+					<sl-details data-i8n-summary="faq_lifeguard_q" data-i8n="faq_lifeguard_a" summary="Is there a lifeguard at the pool?"> No. Pool use is entirely at your own risk. Parents must supervise children at all times. Please note that only plastic glasses are allowed in the pool area. </sl-details>
 
-            <sl-details 
-                data-i8n-summary="faq_checkin_q" 
-                data-i8n="faq_checkin_a" 
-                summary="What are the check-in and check-out times?">
-                <b>Check-in:</b> 14:00 – 22:00. <br><b>Check-out:</b> By 09:00.<br>Note: Early check-in or late check-out may be possible depending on availability; please contact reception in advance.
-            </sl-details>
+					<sl-details data-i8n-summary="faq_checkin_q" data-i8n="faq_checkin_a" summary="What are the check-in and check-out times?"> <b>Check-in:</b> 14:00 – 22:00. <br /><b>Check-out:</b> By 09:00.<br />Note: Early check-in or late check-out may be possible depending on availability; please contact reception in advance. </sl-details>
 
-            <sl-details 
-                data-i8n-summary="faq_deposit_q" 
-                data-i8n="faq_deposit_a" 
-                summary="Is a security deposit required?">
-                Yes. A <b>€250 credit card</b> deposit is pre-authorized at check-in. This is a temporary hold to cover damages or unpaid extras and is released a few days after check-out if no issues are reported.
-            </sl-details>
+					<sl-details data-i8n-summary="faq_deposit_q" data-i8n="faq_deposit_a" summary="Is a security deposit required?"> Yes. A <b>€250 credit card</b> deposit is pre-authorized at check-in. This is a temporary hold to cover damages or unpaid extras and is released a few days after check-out if no issues are reported. </sl-details>
 
-            <sl-details 
-                data-i8n-summary="faq_cancel_q" 
-                data-i8n="faq_cancel_a" 
-                summary="What is the cancellation policy?">
-                <b>Standard Season (April–June, Mid-Sept–Oct):</b> 25% refund >14 days before arrival; 50% refund 7–13 days before. No refund if <7 days.<br><b>Peak Season (July, August, Holidays):</b> No cancellations or refund available
-            </sl-details>
+					<sl-details data-i8n-summary="faq_cancel_q" data-i8n="faq_cancel_a" summary="What is the cancellation policy?"> <b>Standard Season (April–June, Mid-Sept–Oct):</b> 25% refund >14 days before arrival; 50% refund 7–13 days before. No refund if <7 days.<br /><b>Peak Season (July, August, Holidays):</b> No cancellations or refund available </sl-details>
 
-            <sl-details 
-                data-i8n-summary="faq_payment_q" 
-                data-i8n="faq_payment_a" 
-                summary="What payment methods are accepted?">
-                We accept Visa, Mastercard, and American Express. Tourist tax is added to the booking. Extras can be paid by cash or card at check-out.
-            </sl-details>
-            
-            <sl-details 
-                data-i8n-summary="faq_tax_q" 
-                data-i8n="faq_tax_a" 
-                summary="Is there a tourist tax?">
-                Yes, a tourist tax is charged per person, per night. The rates are as follows:<br><b>Adults:</b> €1.30 per night.<br><b>Children (12 to 18 years):</b> €0.80 per night.<br><b>Children (under 12 years):</b> Free of charge.
-            </sl-details>
-        </div>
+					<sl-details data-i8n-summary="faq_payment_q" data-i8n="faq_payment_a" summary="What payment methods are accepted?"> We accept Visa, Mastercard, and American Express. Tourist tax is added to the booking. Extras can be paid by cash or card at check-out. </sl-details>
 
-        <div>
-            <sl-details 
-                data-i8n-summary="faq_shops_q" 
-                data-i8n="faq_shops_a" 
-                summary="Where are the nearest shops and restaurants?">
-                <b>Turjak (approx. 4 km):</b> Nearest grocery store, restaurants, and cafés.<br><b>Gradiška (approx. 20 km):</b> Larger supermarkets, pharmacies, and main highway connections.
-            </sl-details>
+					<sl-details data-i8n-summary="faq_tax_q" data-i8n="faq_tax_a" summary="Is there a tourist tax?"> Yes, a tourist tax is charged per person, per night. The rates are as follows:<br /><b>Adults:</b> €1.30 per night.<br /><b>Children (12 to 18 years):</b> €0.80 per night.<br /><b>Children (under 12 years):</b> Free of charge. </sl-details>
+				</div>
 
-            <sl-details 
-                data-i8n-summary="faq_housekeeping_q" 
-                data-i8n="faq_housekeeping_a" 
-                summary="Is housekeeping included?">
-                Could be provided for stays longer than 7 days.
-            </sl-details>
+				<div>
+					<sl-details data-i8n-summary="faq_shops_q" data-i8n="faq_shops_a" summary="Where are the nearest shops and restaurants?"> <b>Turjak (approx. 4 km):</b> Nearest grocery store, restaurants, and cafés.<br /><b>Gradiška (approx. 20 km):</b> Larger supermarkets, pharmacies, and main highway connections. </sl-details>
 
-            <sl-details 
-                data-i8n-summary="faq_laundry_q" 
-                data-i8n="faq_laundry_a" 
-                summary="Do you offer laundry services?">
-                Upon request.
-            </sl-details>
+					<sl-details data-i8n-summary="faq_housekeeping_q" data-i8n="faq_housekeeping_a" summary="Is housekeeping included?"> Could be provided for stays longer than 7 days. </sl-details>
 
-            <sl-details 
-                data-i8n-summary="faq_baby_q" 
-                data-i8n="faq_baby_a" 
-                summary="Is equipment available for babies?">
-                No. We do not provide baby cots or highchairs, so we strongly advise parents to bring their own equipment for their children.
-            </sl-details>
+					<sl-details data-i8n-summary="faq_laundry_q" data-i8n="faq_laundry_a" summary="Do you offer laundry services?"> Upon request. </sl-details>
 
-            <sl-details 
-                data-i8n-summary="faq_pets_q" 
-                data-i8n="faq_pets_a" 
-                summary="Are pets allowed?">
-                Yes, pets are allowed upon request. Please note there is an additional fee of €15 per stay.
-            </sl-details>
+					<sl-details data-i8n-summary="faq_baby_q" data-i8n="faq_baby_a" summary="Is equipment available for babies?"> No. We do not provide baby cots or highchairs, so we strongly advise parents to bring their own equipment for their children. </sl-details>
 
-            <sl-details 
-                data-i8n-summary="faq_parking_q" 
-                data-i8n="faq_parking_a" 
-                summary="Is parking available?">
-                Yes, there is free private parking directly next to each chalet.
-            </sl-details>
+					<sl-details data-i8n-summary="faq_pets_q" data-i8n="faq_pets_a" summary="Are pets allowed?"> Yes, pets are allowed upon request. Please note there is an additional fee of €15 per stay. </sl-details>
 
-            <!--<sl-details -->
-            <!--    data-i8n-summary="faq_ev_q" -->
-            <!--    data-i8n="faq_ev_a" -->
-            <!--    summary="Do you have an EV charging station?">-->
-            <!--    Not currently, though one is planned for the future. The nearest petrol station is on the main road to Gradiška (approx. 18 km).-->
-            <!--</sl-details>-->
+					<sl-details data-i8n-summary="faq_parking_q" data-i8n="faq_parking_a" summary="Is parking available?"> Yes, there is free private parking directly next to each chalet. </sl-details>
 
-            <sl-details 
-                data-i8n-summary="faq_quiet_q" 
-                data-i8n="faq_quiet_a" 
-                summary="When are the quiet hours?">
-                Quiet hours are from 22:00 to 08:00. (Exceptions may be made if one group has booked all 5 chalets).
-            </sl-details>
+					<!--<sl-details -->
+					<!--    data-i8n-summary="faq_ev_q" -->
+					<!--    data-i8n="faq_ev_a" -->
+					<!--    summary="Do you have an EV charging station?">-->
+					<!--    Not currently, though one is planned for the future. The nearest petrol station is on the main road to Gradiška (approx. 18 km).-->
+					<!--</sl-details>-->
 
-            <sl-details 
-                data-i8n-summary="faq_airport_q" 
-                data-i8n="faq_airport_a" 
-                summary="How far is the airport?">
-                Banja Luka airport is approximately 45 minutes by car. Transfers and local taxi services can be arranged upon request.
-            </sl-details>
+					<sl-details data-i8n-summary="faq_quiet_q" data-i8n="faq_quiet_a" summary="When are the quiet hours?"> Quiet hours are from 22:00 to 08:00. (Exceptions may be made if one group has booked all 5 chalets). </sl-details>
 
-            <sl-details 
-                data-i8n-summary="faq_yearround_q" 
-                data-i8n="faq_yearround_a" 
-                summary="Is the resort open all year-round?">
-                Yes.
-            </sl-details>
+					<sl-details data-i8n-summary="faq_airport_q" data-i8n="faq_airport_a" summary="How far is the airport?"> Banja Luka airport is approximately 45 minutes by car. Transfers and local taxi services can be arranged upon request. </sl-details>
 
-            <sl-details 
-                data-i8n-summary="faq_find_q" 
-                data-i8n="faq_find_a" 
-                summary="How do I find the Resort?">
-                Please follow our sign posts for Kozara Panoramic Resort.
-            </sl-details>
-        </div>
-    </div>
-</section>
+					<sl-details data-i8n-summary="faq_yearround_q" data-i8n="faq_yearround_a" summary="Is the resort open all year-round?"> Yes. </sl-details>
+
+					<sl-details data-i8n-summary="faq_find_q" data-i8n="faq_find_a" summary="How do I find the Resort?"> Please follow our sign posts for Kozara Panoramic Resort. </sl-details>
+				</div>
+			</div>
+		</section>
 
 		<section class="cta-band">
 			<h3 data-i8n="closing_title">Ready to Experience the Silence?</h3>
@@ -525,16 +403,14 @@
 		</section>
 
 		<footer id="contact">
-        <div class="footer-logo">KOZARA PANORAMIC RESORT</div>
-        <!-- Updated Footer Links -->
-        <div class="footer-links">
-            <a href="https://kozarapanoramicresort.ba/notice#impressum" data-i8n="footer-impressum">Impressum</a> |
-            <a href="https://kozarapanoramicresort.ba/notice#terms" data-i8n="footer-terms">Terms & Conditions</a> |
-            <a href="https://kozarapanoramicresort.ba/notice#privacy" data-i8n="footer-privacy">Privacy Policy</a> |
-            <a href="https://kozarapanoramicresort.ba/notice#impressum" data-i8n="footer-contact">Contact</a>
-        </div>
-        <p>© Kozara Panoramic Resort – PEVA d.o.o. All rights reserved.</p>
-    </footer>
+			<div class="footer-logo">KOZARA PANORAMIC RESORT</div>
+			<!-- Updated Footer Links -->
+			<div class="footer-links">
+				<a href="https://kozarapanoramicresort.ba/notice#impressum" data-i8n="footer-impressum">Impressum</a> | <a href="https://kozarapanoramicresort.ba/notice#terms" data-i8n="footer-terms">Terms & Conditions</a> | <a href="https://kozarapanoramicresort.ba/notice#privacy" data-i8n="footer-privacy">Privacy Policy</a> |
+				<a href="https://kozarapanoramicresort.ba/notice#impressum" data-i8n="footer-contact">Contact</a>
+			</div>
+			<p>© Kozara Panoramic Resort – PEVA d.o.o. All rights reserved.</p>
+		</footer>
 
 		<sl-dialog id="chalet_dialog" label="The Cloud Cabin">
 			<p id="dialog-desc" class="dialog-desc">The Cloud cabin floats above the clouds, surrounded by silence and a view that connects sky and earth. It's made for those who seek inspiration and peace in moments of pure stillness.</p>
@@ -543,7 +419,7 @@
 				<div class="thumbnails__scroller"></div>
 			</div>
 			<div class="dialog-amenities">
-			<span class="amenity-pill"><sl-icon src="./assets/amenities_icons/wifi.svg"></sl-icon> <span data-i8n="chalets_amenities_wifi">High-Speed Wifi</span></span>
+				<span class="amenity-pill"><sl-icon src="./assets/amenities_icons/wifi.svg"></sl-icon> <span data-i8n="chalets_amenities_wifi">High-Speed Wifi</span></span>
 				<span class="amenity-pill"><sl-icon src="./assets/amenities_icons/coffee.svg"></sl-icon> <span data-i8n="chalets_amenities_espresso">Espresso Machine and Kettle</span></span>
 				<span class="amenity-pill"><sl-icon src="./assets/amenities_icons/air-vent.svg"></sl-icon> <span data-i8n="chalets_amenities_ac">AC / Heating</span></span>
 				<span class="amenity-pill"><sl-icon src="./assets/amenities_icons/microwave.svg"></sl-icon> <span data-i8n="chalets_amenities_microwave">Microwave and oven</span></span>
@@ -554,7 +430,8 @@
 				<span class="amenity-pill"><sl-icon src="./assets/amenities_icons/shower-head.svg"></sl-icon> <span data-i8n="chalets_amenities_shower">Rainshower</span></span>
 				<span class="amenity-pill"><sl-icon src="./assets/amenities_icons/tv.svg"></sl-icon> <span>Firestick TV</span></span>
 				<span class="amenity-pill"><sl-icon src="./assets/amenities_icons/sofa.svg"></sl-icon> <span data-i8n="chalets_amenities_sofa">Lounge space</span></span>
-				<span class="amenity-pill"><sl-icon src="./assets/amenities_icons/vault.svg"></sl-icon> <span data-i8n="chalets_amenities_safe">Laptop size safe</span></span>			</div>
+				<span class="amenity-pill"><sl-icon src="./assets/amenities_icons/vault.svg"></sl-icon> <span data-i8n="chalets_amenities_safe">Laptop size safe</span></span>
+			</div>
 			<button class="btn-book-dialog" slot="footer" onclick="chalet_dialog.hide();open_booking();" data-i8n="chalets_btn">Book Your Stay</button>
 		</sl-dialog>
 
@@ -906,14 +783,14 @@
 				},
 			}
 
-            const LANGUAGE_MAP = {
-                'en': { flag: '🇬🇧', abbr: 'EN' },
-                'sr': { flag: '🇷🇸', abbr: 'SR' },
-                'de': { flag: '🇩🇪', abbr: 'DE' },
-                'it': { flag: '🇮🇹', abbr: 'IT' }
-            }
-            
-            let langData = {}
+			const LANGUAGE_MAP = {
+				en: { flag: "🇬🇧", abbr: "EN" },
+				sr: { flag: "🇷🇸", abbr: "SR" },
+				de: { flag: "🇩🇪", abbr: "DE" },
+				it: { flag: "🇮🇹", abbr: "IT" },
+			}
+
+			let langData = {}
 			const carousel = document.querySelector(".dialog-gallery")
 			const scroller = document.querySelector(".thumbnails__scroller")
 			const modal = document.getElementById("chalet_dialog")
@@ -922,11 +799,11 @@
 			function openModal(chaletId) {
 				const data = chaletData[chaletId] || chaletData["cloud"]
 
-console.log(langData)
-                console.log(chaletId)
-                const translatedDesc  = langData[chaletId + '_desc'];
+				console.log(langData)
+				console.log(chaletId)
+				const translatedDesc = langData[chaletId + "_desc"]
 
-                console.log(translatedDesc)
+				console.log(translatedDesc)
 				modal.label = data.title
 				descEl.innerText = translatedDesc || data.desc
 				// descEl.innerText = data.desc
@@ -1013,7 +890,7 @@ console.log(langData)
 				dateMin: "today",
 				displayDateMin: "2025-12-15",
 				// displayDateMax: "2026-03-31",
-				dateMax: '2026-03-31',
+				dateMax: "2026-03-31",
 				disableDatesGaps: true,
 				disableToday: true,
 				enableEdgeDatesOnly: true,
@@ -1217,39 +1094,34 @@ console.log(langData)
 					duration: 0.125,
 				})
 				// get language
-				
-				const pathSegments = window.location.pathname.split('/').filter(Boolean);
-                let lang_code = pathSegments.pop() || 'en';
-                lang_code = lang_code.toLowerCase();
-        
-                // Fallback to 'en' if the segment is not a valid language code
-                if (!LANGUAGE_MAP.hasOwnProperty(lang_code)) {
-                    lang_code = 'en'; 
-                }
-        
-                
-                const noticeBaseUrl = `/notice/${lang_code}`;
-                console.log(noticeBaseUrl)
-                function updateFooterLinks(selector) {
-                    console.log('Running footer links update...');
-            
-                    document.querySelectorAll(selector).forEach(link => {
-                        const currentHref = link.getAttribute('href');
-                        
-                        
-                        if (currentHref && currentHref.includes('/notice#')) {
-                            
-                            
-                            const hashAnchor = currentHref.substring(currentHref.indexOf('#'));
-                            
-                            link.setAttribute('href', noticeBaseUrl + hashAnchor);
-                            console.log(`Updated footer link: ${link.getAttribute('href')}`);
-                        }
-                    });
-                }
-                
-                
-                updateFooterLinks('.footer-links a');
+
+				const pathSegments = window.location.pathname.split("/").filter(Boolean)
+				let lang_code = pathSegments.pop() || "en"
+				lang_code = lang_code.toLowerCase()
+
+				// Fallback to 'en' if the segment is not a valid language code
+				if (!LANGUAGE_MAP.hasOwnProperty(lang_code)) {
+					lang_code = "en"
+				}
+
+				const noticeBaseUrl = `/notice/${lang_code}`
+				console.log(noticeBaseUrl)
+				function updateFooterLinks(selector) {
+					console.log("Running footer links update...")
+
+					document.querySelectorAll(selector).forEach(link => {
+						const currentHref = link.getAttribute("href")
+
+						if (currentHref && currentHref.includes("/notice#")) {
+							const hashAnchor = currentHref.substring(currentHref.indexOf("#"))
+
+							link.setAttribute("href", noticeBaseUrl + hashAnchor)
+							console.log(`Updated footer link: ${link.getAttribute("href")}`)
+						}
+					})
+				}
+
+				updateFooterLinks(".footer-links a")
 				load_lang(lang_code)
 			})
 			async function load_lang(lang_code) {
@@ -1258,21 +1130,21 @@ console.log(langData)
 				langData = await langpack.json()
 				console.log(langData)
 
-                const displayEl = document.getElementById('language_display_trigger')
-                if (displayEl) {
-                    const lang = LANGUAGE_MAP[lang_code] || LANGUAGE_MAP['en'];
-                    displayEl.innerHTML = `${lang.flag} ${lang.abbr}`;
-                }
+				const displayEl = document.getElementById("language_display_trigger")
+				if (displayEl) {
+					const lang = LANGUAGE_MAP[lang_code] || LANGUAGE_MAP["en"]
+					displayEl.innerHTML = `${lang.flag} ${lang.abbr}`
+				}
 				document.querySelectorAll("[data-i8n]").forEach(el => {
 					el.innerHTML = langData[el.dataset.i8n]
 				})
 				document.querySelectorAll("[data-i8nSL]").forEach(el => {
 					el.setAttribute("label", langData[el.dataset.i8nsl])
 				})
-                document.querySelectorAll("[data-i8n-summary]").forEach(el => {
-                        const key = el.dataset.i8nSummary; // Note: dataset camelCases the name
-                        if (langData[key]) el.setAttribute("summary", langData[key]);
-                });
+				document.querySelectorAll("[data-i8n-summary]").forEach(el => {
+					const key = el.dataset.i8nSummary // Note: dataset camelCases the name
+					if (langData[key]) el.setAttribute("summary", langData[key])
+				})
 			}
 			{
 				const curr_date = new Date()
@@ -1290,8 +1162,8 @@ console.log(langData)
 						})
 						booking_calendar.set({
 							disableDates: disabled_dates,
-				// 			dateMax: next_date.toISOString().substring(0, 10),
-				// 			displayDateMax: next_date.toISOString().substring(0, 10),
+							// 			dateMax: next_date.toISOString().substring(0, 10),
+							// 			displayDateMax: next_date.toISOString().substring(0, 10),
 						})
 						booking_calendar.update()
 					})
