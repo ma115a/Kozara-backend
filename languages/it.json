@@ -1,8 +1,8 @@
 {
-	"nav_chalets": "chalets",
-	"nav_location": "posizione",
-	"nav_reviews": "recensioni",
-	"nav_blog": "blog",
+	"nav_chalets": "Chalets",
+	"nav_location": "Posizione",
+	"nav_reviews": "Recensioni",
+	"nav_blog": "Blog",
 	"contact": "Contatto",
 	"nav_cta": "PRENOTA IL TUO SOGGIORNO",
 
@@ -223,8 +223,8 @@
   "price-transparency1": "Tutti i prezzi indicati escludono la tassa di soggiorno (come specificato al momento della prenotazione).",
   "price-transparency2": "Riscaldamento, elettricità, piscine, asciugamani e Wi-Fi sono inclusi nel prezzo.",
     "language_tag" : "🇮🇹 IT",
-    "base_url" : "https://happening-gazette-tech-another.trycloudflare.com",
-    "base_url_lang" : "https://happening-gazette-tech-another.trycloudflare.com/it",
+    "base_url" : "https://scheduling-volume-programs-holding.trycloudflare.com",
+    "base_url_lang" : "https://scheduling-volume-programs-holding.trycloudflare.com/it",
     "meta_content" : "Prenota il tuo chalet al Kozara Panoramic Resort",
     "meta_content2" : "Lussuosi chalet di montagna con piscina, spa e sentieri escursionistici. Immerso nel cuore del Monte Kozara, il nostro resort offre un'esperienza indimenticabile in cui ogni dettaglio riflette calore, cura ed eleganza."
 }

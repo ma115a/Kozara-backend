@@ -1,282 +1,291 @@
 <!DOCTYPE html>
 
 <html class="sl-theme-light" lang="en">
+
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>KPR | Notice</title>
-<link href="/css/main.css" rel="stylesheet"/>
-<link href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/light.css" rel="stylesheet"/>
-<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/menu/menu.js" type="module"></script>
-<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/menu-item/menu-item.js" type="module"></script>
-<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/dropdown/dropdown.js" type="module"></script>
-<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/drawer/drawer.js" type="module"></script>
-<style>
-			/* --- CSS Extracted from main.css for this preview --- */
-			@import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap");
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>KPR | Notice</title>
+    <link href="/css/main.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/light.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/menu/menu.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/menu-item/menu-item.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/dropdown/dropdown.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/drawer/drawer.js"
+        type="module"></script>
+    <style>
+        /* --- CSS Extracted from main.css for this preview --- */
+        @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap");
 
-			/* Legal Info Section Styles */
-			.legal-info-section {
-				background-color: var(--bg-soft);
-				min-height: 100vh;
-				padding: 60px 10%;
-				box-sizing: border-box; /* Added for correct padding calculation */
-			}
+        /* Legal Info Section Styles */
+        .legal-info-section {
+            background-color: var(--bg-soft);
+            min-height: 100vh;
+            padding: 60px 10%;
+            box-sizing: border-box;
+            /* Added for correct padding calculation */
+        }
 
-			.legal-content {
-				max-width: 900px;
-				margin: 0 auto;
-				background-color: white;
-				padding: 40px;
-				border-radius: 8px;
-				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-			}
+        .legal-content {
+            max-width: 900px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+        }
 
-			.legal-content .section-title {
-				margin-top: 0;
-				margin-bottom: 40px;
-				padding-bottom: 10px;
-				border-bottom: 2px solid var(--sand-beige);
-				text-align: left;
-				font-family: "Playfair Display", serif;
-				font-size: 2.5rem;
-				color: var(--primary-green);
-			}
+        .legal-content .section-title {
+            margin-top: 0;
+            margin-bottom: 40px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--sand-beige);
+            text-align: left;
+            font-family: "Playfair Display", serif;
+            font-size: 2.5rem;
+            color: var(--primary-green);
+        }
 
-			.legal-content h2 {
-				font-family: "Playfair Display", serif;
-				color: var(--earth-brown);
-				font-size: 1.8rem;
-				margin-top: 30px;
-				padding-top: 10px;
-				border-top: 1px dashed var(--sand-beige);
-			}
+        .legal-content h2 {
+            font-family: "Playfair Display", serif;
+            color: var(--earth-brown);
+            font-size: 1.8rem;
+            margin-top: 30px;
+            padding-top: 10px;
+            border-top: 1px dashed var(--sand-beige);
+        }
 
-			.legal-content h3 {
-				font-size: 1.3rem;
-				color: var(--primary-green);
-				margin-top: 20px;
-			}
+        .legal-content h3 {
+            font-size: 1.3rem;
+            color: var(--primary-green);
+            margin-top: 20px;
+        }
 
-			.legal-content .info-block p,
-			.legal-content .info-block li {
-				line-height: 1.7;
-				font-size: 1rem;
-				color: #555;
-			}
+        .legal-content .info-block p,
+        .legal-content .info-block li {
+            line-height: 1.7;
+            font-size: 1rem;
+            color: #555;
+        }
 
-			.legal-content .info-block ul {
-				list-style: disc;
-				margin-left: 20px;
-				padding-left: 0;
-			}
+        .legal-content .info-block ul {
+            list-style: disc;
+            margin-left: 20px;
+            padding-left: 0;
+        }
 
-			.legal-content .info-block ul li {
-				margin-left: 20px;
-			}
+        .legal-content .info-block ul li {
+            margin-left: 20px;
+        }
 
-			.back-to-top {
-				display: inline-block;
-				color: var(--primary-green);
-				text-decoration: none;
-				font-weight: 700;
-				margin-bottom: 20px;
-				padding: 10px 0;
-				transition: color 0.3s;
-				cursor: pointer;
-			}
+        .back-to-top {
+            display: inline-block;
+            color: var(--primary-green);
+            text-decoration: none;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding: 10px 0;
+            transition: color 0.3s;
+            cursor: pointer;
+        }
 
-			.back-to-top:hover {
-				color: var(--earth-brown);
-				text-decoration: underline;
-			}
+        .back-to-top:hover {
+            color: var(--earth-brown);
+            text-decoration: underline;
+        }
 
-			/* Footer Styles */
-			footer {
-				background-color: var(--primary-green);
-				color: #eee;
-				padding: 60px 20px;
-				text-align: center;
-				/* Margin removed for preview layout flow */
-			}
+        /* Footer Styles */
+        footer {
+            background-color: var(--primary-green);
+            color: #eee;
+            padding: 60px 20px;
+            text-align: center;
+            /* Margin removed for preview layout flow */
+        }
 
-			.footer-logo {
-				font-family: "Playfair Display", serif;
-				font-size: 2rem;
-				margin-bottom: 20px;
-				color: white;
-			}
+        .footer-logo {
+            font-family: "Playfair Display", serif;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: white;
+        }
 
-			/* Helper for preview navigation */
-			.preview-note {
-				background: #eee;
-				padding: 10px;
-				text-align: center;
-				font-size: 0.8rem;
-				border-bottom: 1px solid #ccc;
-			}
+        /* Helper for preview navigation */
+        .preview-note {
+            background: #eee;
+            padding: 10px;
+            text-align: center;
+            font-size: 0.8rem;
+            border-bottom: 1px solid #ccc;
+        }
 
-			.nav-cta {
-				opacity: 0;
-			}
-		</style>
+        .nav-cta {
+            opacity: 0;
+        }
+    </style>
 </head>
+
 <body>
-<header class="hero">
-<div class="hero-overlay"></div>
-<div class="nav-bar">
-<div class="logo-text">KOZARA</div>
-<div class="nav-links-container">
-                    <a class="nav-link" href="{{base_url_lang}}#chalets">{{nav_chalets}}</a>
-<a class="nav-link" href="{{base_url_lang}}#location">{{nav_location}}</a>
-<!-- <a href="#reviews" class="nav-link" data-i8n="nav_reviews">Reviews</a> -->
-<a class="nav-link" href="{{base_url_lang}}#blog">{{nav_blog}}</a>
-<a class="nav-link" href="{{base_url_lang}}#contact">{{contact}}</a>
-<sl-dropdown>
-<!-- NEW TRIGGER: span element to display the selected language -->
-<span class="nav-language-trigger" id="language_display_trigger" slot="trigger">
-<!-- Initial state, set to default EN -->
-                            {{language_tag}}
-						</span>
-<sl-menu>
-<sl-menu-item><a href="{{base_url}}/notice">🇬🇧 EN (English)</a></sl-menu-item>
-<sl-menu-item><a href="{{base_url}}/sr/notice">🇷🇸 SR (Srpski)</a></sl-menu-item>
-<sl-menu-item><a href="{{base_url}}/de/notice">🇩🇪 DE (Deutsch)</a></sl-menu-item>
-<sl-menu-item><a href="{{base_url}}/it/notice">🇮🇹 IT (Italiano)</a></sl-menu-item>
-</sl-menu>
-</sl-dropdown>
-</div>
-<div>
-<a class="nav-cta">{{nav_cta}}</a>
-</div>
-</div>
-<div class="hero-content">
-<div class="logo-area">KOZARA PANORAMIC RESORT</div>
-<h2>{{subtitle}}</h2>
-</div>
-</header>
-<sl-drawer id="drawer_menu" label="Navigation">
-<a class="nav-link" href="{{base_url_lang}}#chalets" onclick="drawer_menu.hide()">{{nav_chalets}}</a>
-<a class="nav-link" href="{{base_url_lang}}#location" onclick="drawer_menu.hide()">{{nav_location}}</a>
-<!--<a href="#reviews" class="nav-link" onclick="drawer_menu.hide()" data-i8n="nav_reviews">Reviews</a>-->
-<a class="nav-link" href="{{base_url_lang}}#blog" onclick="drawer_menu.hide()">{{nav_blog}}</a>
-<a class="nav-link" href="{{base_url_lang}}#contact" onclick="drawer_menu.hide()">{{contact}}</a>
-<sl-dropdown>
-                <span class="nav-language-trigger" id="language_display_trigger" slot="trigger"> {{language_tag}} </span>
-<sl-menu>
-<sl-menu-item><a href="{{base_url}}/notice">🇬🇧 EN (English)</a></sl-menu-item>
-<sl-menu-item><a href="{{base_url}}/sr/notice">🇷🇸 SR (Srpski)</a></sl-menu-item>
-<sl-menu-item><a href="{{base_url}}/de/notice">🇩🇪 DE (Deutsch)</a></sl-menu-item>
-<sl-menu-item><a href="{{base_url}}/it/notice">🇮🇹 IT (Italiano)</a></sl-menu-item>
-</sl-menu>
-</sl-dropdown>
-</sl-drawer>
-<sl-icon-button id="btn_menu" onclick="drawer_menu.show()" src="./assets/amenities_icons/menu.svg"></sl-icon-button>
-<!-- NEW SECTION: Legal Information (Visible by default here) -->
-<section class="legal-info-section" id="legal-info">
-<div class="legal-content">
-<h1 class="section-title">{{legal-info-h1}}</h1>
-<!-- Impressum / Legal Information -->
-<h2 id="impressum">{{legal-info}}</h2>
-<div class="info-block">
-<p><strong>Kozara Panoramic Resort</strong></p>
-<p>{{impressum-operated}}</p>
-<p>{{impressum-address}}</p>
-<p>{{impressum-company}}</p>
-<p>{{impressum-tax}}</p>
-<p>{{impressum-director}}</p>
-<p>Email: <a href="mailto:info@kozarapanoramicresort.ba">info@kozarapanoramicresort.ba</a></p>
-<p>{{impressum-phone}}</p>
-</div>
-<!-- Terms & Conditions -->
-<h2 id="terms">{{terms-h2}}</h2>
-<div class="info-block">
-<h3>{{terms-bookings}}</h3>
-<p>{{terms-reservation}}</p>
-<h3>{{terms-check}}</h3>
-<ul>
-<li>{{terms-check-in}}</li>
-<li>{{terms-check-out}}</li>
-</ul>
-<p>{{terms-early-check}}</p>
-<h3>{{terms-payments}}</h3>
-<p>{{terms-payment}}</p>
-<p>{{terms-tax}}</p>
-<h3>{{terms-cancellation}}</h3>
-<p>{{terms-cancellation-standard}}</p>
-<p>{{terms-cancellation-peak}}</p>
-<h3>{{terms-damage}}</h3>
-<p>{{terms-behaviour}}</p>
-<p>{{terms-guests}}</p>
-<p>{{terms-rights}}</p>
-<h3>{{terms-pool}}</h3>
-<p>{{termrms-pool-desc}}</p>
-<ul>
-<li>{{terms-pool-risk}}</li>
-<li>{{terms-pool-lifeguard}}</li>
-<li>{{terms-pool-children}}</li>
-<li>{{terms-pool-diving}}</li>
-<li>{{terms-pool-glass}}</li>
-</ul>
-<h3>{{terms-pool-safety}}</h3>
-<p>{{terms-pool-risk}}</p>
-<p>{{terms-pool-supervision}}</p>
-<p>{{terms-pool-injuries}}</p>
-<h3>{{terms-smoking}}</h3>
-<p>{{terms-smoking-prohibited}}</p>
-<p>{{terms-smoking-permitted}}</p>
-<h3>{{terms-pets}}</h3>
-<p>{{terms-pets-allowed}}</p>
-<h3>{{terms-occupancy}}</h3>
-<p>{{terms-accomodate}}</p>
-<ul>
-<li>{{terms-room1}}</li>
-<li>{{terms-room2}}</li>
-<li>{{terms-room3}}</li>
-<li>{{terms-room4}}</li>
-</ul>
-<p>{{terms-maximum}}</p>
-</div>
-<!-- Privacy Policy -->
-<h2 id="privacy">{{privacy-policy}}</h2>
-<div class="info-block">
-<p>{{privacy-data}}</p>
-<ul>
-<li>{{privacy-reservation}}</li>
-<li>{{privacy-legal}}</li>
-<li>{{privacy-communication}}</li>
-</ul>
-<p>{{privacy-data-collected}}</p>
-<p>{{privacy-data-personal}}</p>
-<ul>
-<li>{{privacy-tourist}}</li>
-<li>{{privacy-payment}}</li>
-</ul>
-<p>{{privacy-data-deletion}}</p>
-</div>
-<!-- Cookie Notice -->
-<h2 id="cookies">{{cookies}}</h2>
-<div class="info-block">
-<p>{{cookies-notice1}}</p>
-<p>{{cookies-notice2}}</p>
-</div>
-<!-- Price Transparency -->
-<h2 id="price">{{price-transparency}}</h2>
-<div class="info-block">
-<p>{{price-transparency1}}</p>
-<p>{{price-transparency2}}</p>
-</div>
-</div>
-</section>
-<footer id="contact">
-<div class="footer-logo">KOZARA PANORAMIC RESORT</div>
-<!-- Updated Footer Links -->
-<div class="footer-links">
-<a href="#impressum">{{footer-impressum}}</a> | <a href="#terms">{{footer-terms}}</a> | <a href="#privacy">{{footer-privacy}}</a> |
-				<a href="#impressum">{{footer-contact}}</a>
-</div>
-<p>© Kozara Panoramic Resort – PEVA d.o.o. All rights reserved.</p>
-</footer>
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="nav-bar">
+            <div class="logo-text">KOZARA</div>
+            <div class="nav-links-container">
+                <a class="nav-link" href="{{base_url_lang}}#chalets">{{nav_chalets}}</a>
+                <a class="nav-link" href="{{base_url_lang}}#location">{{nav_location}}</a>
+                <!-- <a href="#reviews" class="nav-link" data-i8n="nav_reviews">Reviews</a> -->
+                <a class="nav-link" href="{{base_url_lang}}#blog">{{nav_blog}}</a>
+                <a class="nav-link" href="{{base_url_lang}}#contact">{{contact}}</a>
+                <sl-dropdown>
+                    <!-- NEW TRIGGER: span element to display the selected language -->
+                    <span class="nav-language-trigger" id="language_display_trigger" slot="trigger">
+                        <!-- Initial state, set to default EN -->
+                        {{language_tag}}
+                    </span>
+                    <sl-menu>
+                        <sl-menu-item><a href="{{base_url}}/notice">🇬🇧 EN (English)</a></sl-menu-item>
+                        <sl-menu-item><a href="{{base_url}}/sr/notice">🇷🇸 SR (Srpski)</a></sl-menu-item>
+                        <sl-menu-item><a href="{{base_url}}/de/notice">🇩🇪 DE (Deutsch)</a></sl-menu-item>
+                        <sl-menu-item><a href="{{base_url}}/it/notice">🇮🇹 IT (Italiano)</a></sl-menu-item>
+                    </sl-menu>
+                </sl-dropdown>
+            </div>
+            <div>
+                <a class="nav-cta">{{nav_cta}}</a>
+            </div>
+        </div>
+        <div class="hero-content">
+            <div class="logo-area">KOZARA PANORAMIC RESORT</div>
+            <h2>{{subtitle}}</h2>
+        </div>
+    </header>
+    <sl-drawer id="drawer_menu" label="Navigation">
+        <a class="nav-link" href="{{base_url_lang}}#chalets" onclick="drawer_menu.hide()">{{nav_chalets}}</a>
+        <a class="nav-link" href="{{base_url_lang}}#location" onclick="drawer_menu.hide()">{{nav_location}}</a>
+        <!--<a href="#reviews" class="nav-link" onclick="drawer_menu.hide()" data-i8n="nav_reviews">Reviews</a>-->
+        <a class="nav-link" href="{{base_url_lang}}#blog" onclick="drawer_menu.hide()">{{nav_blog}}</a>
+        <a class="nav-link" href="{{base_url_lang}}#contact" onclick="drawer_menu.hide()">{{contact}}</a>
+        <sl-dropdown>
+            <span class="nav-language-trigger" id="language_display_trigger" slot="trigger"> {{language_tag}} </span>
+            <sl-menu>
+                <sl-menu-item><a href="{{base_url}}/notice">🇬🇧 EN (English)</a></sl-menu-item>
+                <sl-menu-item><a href="{{base_url}}/sr/notice">🇷🇸 SR (Srpski)</a></sl-menu-item>
+                <sl-menu-item><a href="{{base_url}}/de/notice">🇩🇪 DE (Deutsch)</a></sl-menu-item>
+                <sl-menu-item><a href="{{base_url}}/it/notice">🇮🇹 IT (Italiano)</a></sl-menu-item>
+            </sl-menu>
+        </sl-dropdown>
+    </sl-drawer>
+    <sl-icon-button id="btn_menu" onclick="drawer_menu.show()" src="./assets/amenities_icons/menu.svg"></sl-icon-button>
+    <!-- NEW SECTION: Legal Information (Visible by default here) -->
+    <section class="legal-info-section" id="legal-info">
+        <div class="legal-content">
+            <h1 class="section-title">{{legal-info-h1}}</h1>
+            <!-- Impressum / Legal Information -->
+            <h2 id="impressum">{{legal-info}}</h2>
+            <div class="info-block">
+                <p><strong>Kozara Panoramic Resort</strong></p>
+                <p>{{impressum-operated}}</p>
+                <p>{{impressum-address}}</p>
+                <p>{{impressum-company}}</p>
+                <p>{{impressum-tax}}</p>
+                <p>{{impressum-director}}</p>
+                <p>Email: <a href="mailto:info@kozarapanoramicresort.ba">info@kozarapanoramicresort.ba</a></p>
+                <p>{{impressum-phone}}</p>
+            </div>
+            <!-- Terms & Conditions -->
+            <h2 id="terms">{{terms-h2}}</h2>
+            <div class="info-block">
+                <h3>{{terms-bookings}}</h3>
+                <p>{{terms-reservation}}</p>
+                <h3>{{terms-check}}</h3>
+                <ul>
+                    <li>{{terms-check-in}}</li>
+                    <li>{{terms-check-out}}</li>
+                </ul>
+                <p>{{terms-early-check}}</p>
+                <h3>{{terms-payments}}</h3>
+                <p>{{terms-payment}}</p>
+                <p>{{terms-tax}}</p>
+                <h3>{{terms-cancellation}}</h3>
+                <p>{{terms-cancellation-standard}}</p>
+                <p>{{terms-cancellation-peak}}</p>
+                <h3>{{terms-damage}}</h3>
+                <p>{{terms-behaviour}}</p>
+                <p>{{terms-guests}}</p>
+                <p>{{terms-rights}}</p>
+                <h3>{{terms-pool}}</h3>
+                <p>{{termrms-pool-desc}}</p>
+                <ul>
+                    <li>{{terms-pool-risk}}</li>
+                    <li>{{terms-pool-lifeguard}}</li>
+                    <li>{{terms-pool-children}}</li>
+                    <li>{{terms-pool-diving}}</li>
+                    <li>{{terms-pool-glass}}</li>
+                </ul>
+                <h3>{{terms-pool-safety}}</h3>
+                <p>{{terms-pool-risk}}</p>
+                <p>{{terms-pool-supervision}}</p>
+                <p>{{terms-pool-injuries}}</p>
+                <h3>{{terms-smoking}}</h3>
+                <p>{{terms-smoking-prohibited}}</p>
+                <p>{{terms-smoking-permitted}}</p>
+                <h3>{{terms-pets}}</h3>
+                <p>{{terms-pets-allowed}}</p>
+                <h3>{{terms-occupancy}}</h3>
+                <p>{{terms-accomodate}}</p>
+                <ul>
+                    <li>{{terms-room1}}</li>
+                    <li>{{terms-room2}}</li>
+                    <li>{{terms-room3}}</li>
+                    <li>{{terms-room4}}</li>
+                </ul>
+                <p>{{terms-maximum}}</p>
+            </div>
+            <!-- Privacy Policy -->
+            <h2 id="privacy">{{privacy-policy}}</h2>
+            <div class="info-block">
+                <p>{{privacy-data}}</p>
+                <ul>
+                    <li>{{privacy-reservation}}</li>
+                    <li>{{privacy-legal}}</li>
+                    <li>{{privacy-communication}}</li>
+                </ul>
+                <p>{{privacy-data-collected}}</p>
+                <p>{{privacy-data-personal}}</p>
+                <ul>
+                    <li>{{privacy-tourist}}</li>
+                    <li>{{privacy-payment}}</li>
+                </ul>
+                <p>{{privacy-data-deletion}}</p>
+            </div>
+            <!-- Cookie Notice -->
+            <h2 id="cookies">{{cookies}}</h2>
+            <div class="info-block">
+                <p>{{cookies-notice1}}</p>
+                <p>{{cookies-notice2}}</p>
+            </div>
+            <!-- Price Transparency -->
+            <h2 id="price">{{price-transparency}}</h2>
+            <div class="info-block">
+                <p>{{price-transparency1}}</p>
+                <p>{{price-transparency2}}</p>
+            </div>
+        </div>
+    </section>
+    <footer id="contact">
+        <div class="footer-logo">KOZARA PANORAMIC RESORT</div>
+        <!-- Updated Footer Links -->
+        <div class="footer-links">
+            <a href="#impressum">{{footer-impressum}}</a> | <a href="#terms">{{footer-terms}}</a> | <a
+                href="#privacy">{{footer-privacy}}</a> |
+            <a href="#impressum">{{footer-contact}}</a>
+        </div>
+        <p>© Kozara Panoramic Resort – PEVA d.o.o. All rights reserved.</p>
+    </footer>
 
 </body>
+
 </html>

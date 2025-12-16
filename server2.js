@@ -21,11 +21,15 @@ let db
 let tok
 
 
-const templatePathIndex = path.join(__dirname, 'public', 'index_translated.html')
+const templatePathIndex = path.join(__dirname, 'public', 'index.html')
 let htmlTemplateIndex = fs.readFileSync(templatePathIndex, 'utf8')
 
 const templatePathNotice = path.join(__dirname, 'public', 'notice.html')
 let htmlTemplateNotice = fs.readFileSync(templatePathNotice, 'utf8')
+
+
+const templatePathBlog = path.join(__dirname, 'public', 'blog-post.html')
+let htmlTemplateBlog = fs.readFileSync(templatePathBlog, 'utf8')
 
 const languages = {
     en: JSON.parse(fs.readFileSync(path.join(__dirname, 'languages', 'en.json'), 'utf8')),
@@ -122,7 +126,7 @@ const fileFilter = (req, file, cb) => {
 // Initialize Multer
 const upload = multer({
     storage: storage,
-    limits: { fileSize: 5 * 1024 * 1024 }, // Limit file size to 5MB
+    limits: { fileSize: 10 * 1024 * 1024 }, // Limit file size to 10MB
     fileFilter: fileFilter
 });
 
@@ -244,6 +248,55 @@ function renderNotice(res, lang) {
     })
 
     res.send(renderedHtml)
+}
+
+
+function renderBlog(res, lang, id) {
+    const t = languages[lang] || languages['en']
+
+    let renderedHtml = htmlTemplateBlog
+    renderedHtml = renderedHtml.replace('<html lang="en" class="sl-theme-light">', `<html lang="${lang}" class="sl-theme-light">`);
+
+    Object.keys(t).forEach(key => {
+
+        const regex = new RegExp(`{{${key}}}`, 'g');
+        renderedHtml = renderedHtml.replace(regex, t[key]);
+    })
+    const filePath = path.join(__dirname, 'public/blogs', `${id}.json`)
+    try {
+        if (!fs.existsSync(filePath)) {
+            return res.status(404).send('Blog not found')
+        }
+
+        const blog = JSON.parse(fs.readFileSync(filePath, 'utf8'))
+
+
+        Object.keys(t).forEach(key => {
+
+            const regex = new RegExp(`{{${key}}}`, 'g');
+            renderedHtml = renderedHtml.replace(regex, t[key]);
+        })
+        renderedHtml = renderedHtml.replace('{{BLOG_TITLE}}', blog.title || 'Untitled');
+        renderedHtml = renderedHtml.replace('{{BLOG_TITLE}}', blog.title || 'Untitled');
+        renderedHtml = renderedHtml.replace('{{BLOG_TITLE}}', blog.title || 'Untitled');
+        renderedHtml = renderedHtml.replace(/\{\{BLOG_TITLE\}\}/g, blog.title || 'Untitled');
+        renderedHtml = renderedHtml.replace('{{BLOG_CONTENT}}', blog.editor || 'Untitled');
+        renderedHtml = renderedHtml.replace('{{OG_IMAGE}}', blog.title_img || 'Untitled');
+        renderedHtml = renderedHtml.replace(/\{\{BLOG_ID\}\}/g, id || 'Untitled');
+
+
+    } catch (error) {
+        logger.info(error)
+
+    }
+
+
+
+
+    res.send(renderedHtml)
+
+
+
 }
 
 
@@ -1055,7 +1108,7 @@ app.post('/upload', upload.any(), (req, res) => {
 
 
 
-app.post('/saveblog', express.json(), (req, res) => {
+app.post('/api/saveblog', express.json(), (req, res) => {
     console.log(req.body)
 
     const date = new Date()
@@ -1117,7 +1170,7 @@ app.post('/saveblog', express.json(), (req, res) => {
 })
 
 
-app.delete("/blog/:id", (req, res) => {
+app.delete("/api/blog/:id", (req, res) => {
     const blogId = req.params.id
 
 
@@ -1145,7 +1198,7 @@ app.delete("/blog/:id", (req, res) => {
     }
 })
 
-app.get("/blog/getall", (req, res) => {
+app.get("/api/blog/getall", (req, res) => {
 
     try {
 
@@ -1170,7 +1223,7 @@ app.get("/blog/getall", (req, res) => {
     }
 })
 
-app.get('/blog/latest', (req, res) => {
+app.get('/api/blog/latest', (req, res) => {
 
     try {
 
@@ -1195,7 +1248,7 @@ app.get('/blog/latest', (req, res) => {
 })
 
 
-app.get('/blog/:id', (req, res) => {
+app.get('/api/blog/:id', (req, res) => {
 
     const blogId = req.params.id
     if (!blogId) {
@@ -1223,6 +1276,19 @@ app.get('/blog/:id', (req, res) => {
 app.get("/blogeditor", (req, res) => {
 
     res.sendFile(path.join(__dirname, 'public', 'blog_editor.html'))
+})
+
+
+app.get(['/blog/:id', '/en/blog/:id'], (req, res) => {
+    const blogId = req.params.id
+    renderBlog(res, 'en', blogId)
+})
+
+
+app.get(['/de/blog/:id', '/it/blog/:id', '/sr/blog/:id'], (req, res) => {
+    const lang = req.path.split('/')[1];
+    const blogId = req.params.id
+    renderBlog(res, lang, blogId)
 })
 
 

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en" class="sl-theme-light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{BLOG_TITLE}} | Kozara Panoramic Resort</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/light.css" />
+    <meta property="og:title" content="{{BLOG_TITLE}}">
+    <!-- <meta property="og:description" content="{{META_DESCRIPTION}}"> -->
+    <meta property="og:image" content="{{OG_IMAGE}}">
+    <meta property="og:type" content="article">
+    <style>
+        .blog-container {
+            width: clamp(20ch, 80dvw, 120ch);
+            margin: -80px auto 80px;
+            padding: 50px;
+            background: #fff;
+            position: relative;
+            z-index: 10;
+            border-radius: 4px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-content {
+            font-family: "Lato", sans-serif;
+            color: #444;
+            line-height: 1.8;
+            font-size: 1.1rem;
+        }
+
+        /* Headings */
+        .blog-content h1 {
+            font-size: 2.5rem;
+            margin-top: 40px;
+            color: #222;
+        }
+
+        .blog-content h2 {
+            font-size: 2rem;
+            margin-top: 40px;
+            color: #222;
+        }
+
+        .blog-content h3 {
+            font-size: 1.5rem;
+            margin-top: 30px;
+            color: #333;
+        }
+
+        /* Paragraphs & Text */
+        .blog-content p {
+            margin-bottom: 20px;
+        }
+
+        .blog-content strong {
+            font-weight: 600;
+        }
+
+        .blog-content em {
+            font-style: italic;
+        }
+
+        .blog-content u {
+            text-decoration: underline;
+        }
+
+        /* Lists */
+        .blog-content ul,
+        .blog-content ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+
+        .blog-content li {
+            margin-bottom: 10px;
+        }
+
+        /* Images */
+        .blog-content img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+
+        /* Links */
+        .blog-content a {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+
+        /* Blockquotes */
+        .blog-content blockquote {
+            border-left: 4px solid #ddd;
+            padding-left: 20px;
+            margin: 30px 0;
+            font-style: italic;
+            color: #666;
+        }
+
+        /* Tables (if Jodit supports them) */
+        .blog-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+        }
+
+        .blog-content th,
+        .blog-content td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .blog-content th {
+            background: #f5f5f5;
+            font-weight: 600;
+        }
+
+        /* Code blocks */
+        .blog-content pre {
+            background: #f4f4f4;
+            padding: 15px;
+            border-radius: 4px;
+            overflow-x: auto;
+            margin: 20px 0;
+        }
+
+        .blog-content code {
+            background: #f4f4f4;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: monospace;
+        }
+
+        @media screen and (max-width: 760px) {
+            .hero {
+                height: 50vh;
+                min-height: 300px;
+                background-attachment: scroll;
+            }
+
+            .blog-container {
+                margin: 0;
+                border-radius: 0;
+                padding: 30px 20px;
+                box-shadow: none;
+            }
+        }
+    </style>
+
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/dropdown/dropdown.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/menu/menu.js" type="module"
+        defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/menu-item/menu-item.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/drawer/drawer.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/icon-button/icon-button.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/button/button.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/icon/icon.js" type="module"
+        defer></script>
+</head>
+
+<body>
+
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="nav-bar">
+            <div class="logo-text">KOZARA</div>
+            <div class="nav-links-container">
+                <a class="nav-link" href="#chalets">{{nav_chalets}}</a>
+                <a class="nav-link" href="#location">{{nav_location}}</a>
+                <!-- <a href="#reviews" class="nav-link" data-i8n="nav_reviews">Reviews</a> -->
+                <a class="nav-link" href="#blog">{{nav_blog}}</a>
+                <a class="nav-link" href="#contact">{{contact}}</a>
+                <sl-dropdown>
+                    <!-- NEW TRIGGER: span element to display the selected language -->
+                    <span class="nav-language-trigger" id="language_display_trigger" slot="trigger">
+                        <!-- Initial state, set to default EN -->
+                        {{language_tag}}
+                    </span>
+                    <sl-menu>
+                        <sl-menu-item><a href="{{base_url}}/blog/{{BLOG_ID}}">🇬🇧 EN (English)</a></sl-menu-item>
+                        <sl-menu-item><a href="{{base_url}}/sr/blog/{{BLOG_ID}}">🇷🇸 SR (Srpski)</a></sl-menu-item>
+                        <sl-menu-item><a href="{{base_url}}/de/blog/{{BLOG_ID}}">🇩🇪 DE
+                                (Deutsch)</a></sl-menu-item>
+                        <sl-menu-item><a href="{{base_url}}/it/blog/{{BLOG_ID}}">🇮🇹 IT
+                                (Italiano)</a></sl-menu-item>
+                    </sl-menu>
+                </sl-dropdown>
+
+            </div>
+            <div>
+                <a class="nav-cta" style="visibility: hidden;">{{nav_cta}}</a>
+            </div>
+        </div>
+        <div class="hero-content">
+            <div class="logo-area">KOZARA PANORAMIC RESORT</div>
+            <h2>{{BLOG_TITLE}}</h2>
+        </div>
+    </header>
+    <sl-drawer id="drawer_menu" label="Navigation">
+        <a class="nav-link" href="#chalets" onclick="drawer_menu.hide()">{{nav_chalets}}</a>
+        <a class="nav-link" href="#location" onclick="drawer_menu.hide()">{{nav_location}}</a>
+        <!--<a href="#reviews" class="nav-link" onclick="drawer_menu.hide()" data-i8n="nav_reviews">Reviews</a>-->
+        <a class="nav-link" href="#blog" onclick="drawer_menu.hide()">{{nav_blog}}</a>
+        <a class="nav-link" href="#contact" onclick="drawer_menu.hide()">{{contact}}</a>
+        <sl-dropdown>
+            <!-- NEW TRIGGER: span element to display the selected language -->
+            <span class="nav-language-trigger" id="language_display_trigger" slot="trigger">
+                <!-- Initial state, set to default EN -->
+                {{language_tag}}
+            </span>
+            <sl-menu>
+                <sl-menu-item><a href="{{base_url}}/blog/{{BLOG_ID}}">🇬🇧 EN (English)</a></sl-menu-item>
+                <sl-menu-item><a href="{{base_url}}/sr/blog/{{BLOG_ID}}">🇷🇸 SR (Srpski)</a></sl-menu-item>
+                <sl-menu-item><a href="{{base_url}}/de/blog/{{BLOG_ID}}">🇩🇪 DE (Deutsch)</a></sl-menu-item>
+                <sl-menu-item><a href="{{base_url}}/it/blog/{{BLOG_ID}}">🇮🇹 IT (Italiano)</a></sl-menu-item>
+            </sl-menu>
+        </sl-dropdown>
+    </sl-drawer>
+    <sl-icon-button id="btn_menu" onclick="drawer_menu.show()" src="/assets/amenities_icons/menu.svg"></sl-icon-button>
+
+
+    <section>
+
+        <div class="blog-container">
+            <div id="blog-content" class="blog-content">
+                {{BLOG_CONTENT}}
+            </div>
+        </div>
+
+    </section>
+
+
+    <footer id="contact">
+        <div class="footer-logo">KOZARA PANORAMIC RESORT</div>
+        <!-- Updated Footer Links -->
+        <div class="footer-links">
+            <a href="{{base_url_lang}}/notice#impressum">{{footer-impressum}}</a> |
+            <a href="{{base_url_lang}}/notice#terms">{{footer-terms}}</a> |
+            <a href="{{base_url_lang}}/notice#privacy">{{footer-privacy}}</a> |
+            <a href="{{base_url_lang}}/notice#impressum">{{footer-contact}}</a>
+        </div>
+        <p>© Kozara Panoramic Resort – PEVA d.o.o. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>

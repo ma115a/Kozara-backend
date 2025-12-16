@@ -1,80 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>KPR | Blog Editor</title>
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/light.css" />
-		<link rel="stylesheet" href="./css/jodit.min.css" />
-		<link rel="stylesheet" href="./css/blog_editor.css" />
-		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/tab-group/tab-group.js"></script>
-		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/tab/tab.js"></script>
-		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/tab-panel/tab-panel.js"></script>
-		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/icon/icon.js"></script>
-		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/icon-button/icon-button.js"></script>
-		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/button/button.js"></script>
-		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/menu/menu.js"></script>
-		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/menu-item/menu-item.js"></script>
-		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/dropdown/dropdown.js"></script>
-		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/button-group/button-group.js"></script>
-		<script type="module" src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/alert/alert.js"></script>
-		<script src="./js/jodit.min.js"></script>
-	</head>
-	<body>
-		<sl-tab-group id="tabgroup">
-			<sl-tab slot="nav" panel="all">All blogs</sl-tab>
-			<sl-button slot="nav" onclick="new_blog()">
-				New Blog
-				<sl-icon slot="suffix" src="./assets/amenities_icons/file-plus-corner.svg"></sl-icon>
-			</sl-button>
 
-			<sl-tab-panel id="all_blogs_container" name="all"></sl-tab-panel>
-		</sl-tab-group>
-	</body>
-	<script>
-		let open_tabs = 0
-		let editors = {}
-		const baseurl = "https://integrity-vacuum-buzz-capable.trycloudflare.com"
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KPR | Blog Editor</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/light.css" />
+    <link rel="stylesheet" href="./css/jodit.min.css" />
+    <link rel="stylesheet" href="./css/blog_editor.css" />
+    <script type="module"
+        src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/tab-group/tab-group.js"></script>
+    <script type="module"
+        src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/tab/tab.js"></script>
+    <script type="module"
+        src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/tab-panel/tab-panel.js"></script>
+    <script type="module"
+        src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/icon/icon.js"></script>
+    <script type="module"
+        src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/icon-button/icon-button.js"></script>
+    <script type="module"
+        src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/button/button.js"></script>
+    <script type="module"
+        src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/menu/menu.js"></script>
+    <script type="module"
+        src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/menu-item/menu-item.js"></script>
+    <script type="module"
+        src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/dropdown/dropdown.js"></script>
+    <script type="module"
+        src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/button-group/button-group.js"></script>
+    <script type="module"
+        src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/alert/alert.js"></script>
+    <script src="./js/jodit.min.js"></script>
+</head>
 
-		// close tab logic
-		tabgroup.addEventListener("sl-close", async event => {
-			const tab = event.target
-			const panel = tabgroup.querySelector(`sl-tab-panel[name="${tab.panel}"]`)
+<body>
+    <sl-tab-group id="tabgroup">
+        <sl-tab slot="nav" panel="all">All blogs</sl-tab>
+        <sl-button slot="nav" onclick="new_blog()">
+            New Blog
+            <sl-icon slot="suffix" src="./assets/amenities_icons/file-plus-corner.svg"></sl-icon>
+        </sl-button>
 
-			// Show the previous tab if the tab is currently active
-			if (tab.active) {
-				let tab2 = tab.nextElementSibling
-				// try next
-				while (tab2) {
-					if (tab2.panel) break
-					tab2 = tab2.nextElementSibling
-				}
-				// try previous
-				if (!tab2) {
-					tab2 = tab.previousElementSibling
-					while (tab2) {
-						if (tab2.panel) break
-						tab2 = tab2.previousElementSibling
-					}
-				}
-				tabgroup.show(tab2.panel)
-			}
+        <sl-tab-panel id="all_blogs_container" name="all"></sl-tab-panel>
+    </sl-tab-group>
+</body>
+<script>
+    let open_tabs = 0
+    let editors = {}
+    const baseurl = "https://scheduling-volume-programs-holding.trycloudflare.com"
 
-			tab.remove()
-			panel.remove()
-		})
+    // close tab logic
+    tabgroup.addEventListener("sl-close", async event => {
+        const tab = event.target
+        const panel = tabgroup.querySelector(`sl-tab-panel[name="${tab.panel}"]`)
 
-		function new_blog() {
-			open_tabs++
-			const newtab = Object.assign(document.createElement("sl-tab"), {
-				slot: "nav",
-				panel: `newtab${open_tabs}`,
-				closable: "true",
-				innerHTML: `New blog`,
-			})
-			const newpanel = Object.assign(document.createElement("sl-tab-panel"), {
-				name: `newtab${open_tabs}`,
-				innerHTML: `
+        // Show the previous tab if the tab is currently active
+        if (tab.active) {
+            let tab2 = tab.nextElementSibling
+            // try next
+            while (tab2) {
+                if (tab2.panel) break
+                tab2 = tab2.nextElementSibling
+            }
+            // try previous
+            if (!tab2) {
+                tab2 = tab.previousElementSibling
+                while (tab2) {
+                    if (tab2.panel) break
+                    tab2 = tab2.previousElementSibling
+                }
+            }
+            tabgroup.show(tab2.panel)
+        }
+
+        tab.remove()
+        panel.remove()
+    })
+
+    function new_blog() {
+        open_tabs++
+        const newtab = Object.assign(document.createElement("sl-tab"), {
+            slot: "nav",
+            panel: `newtab${open_tabs}`,
+            closable: "true",
+            innerHTML: `New blog`,
+        })
+        const newpanel = Object.assign(document.createElement("sl-tab-panel"), {
+            name: `newtab${open_tabs}`,
+            innerHTML: `
 				<div class='buttons'>
 					<sl-button-group label='Save or delete'>
 						<sl-button variant='primary' onclick="save_blog('${newtab.panel}')">
@@ -90,137 +103,137 @@
 				<div class='doc_body'>
 					<textarea class='editor'></textarea>
 				</div>`,
-			})
-			tabgroup.appendChild(newtab)
-			tabgroup.appendChild(newpanel)
-			const editor_holder = newpanel.querySelector(".editor")
-			editors[newtab.panel] = Jodit.make(newpanel.querySelector(".editor"), {
-				toolbarAdaptive: false,
-				uploader: {
-					url: `${baseurl}/upload`,
-					method: "POST",
-					format: "json",
-					// filesVariableName: "file",
-				},
-			})
-			setTimeout(() => {
-				tabgroup.show(newtab.panel)
-			}, 50)
-		}
+        })
+        tabgroup.appendChild(newtab)
+        tabgroup.appendChild(newpanel)
+        const editor_holder = newpanel.querySelector(".editor")
+        editors[newtab.panel] = Jodit.make(newpanel.querySelector(".editor"), {
+            toolbarAdaptive: false,
+            uploader: {
+                url: `${baseurl}/upload`,
+                method: "POST",
+                format: "json",
+                // filesVariableName: "file",
+            },
+        })
+        setTimeout(() => {
+            tabgroup.show(newtab.panel)
+        }, 50)
+    }
 
-		async function save_blog(panel_name) {
-			const tab = document.querySelector(`sl-tab[panel="${panel_name}"]`)
-			const panel = document.querySelector(`sl-tab-panel[name="${panel_name}"]`)
-			const blogid = panel.dataset.blogid || null
+    async function save_blog(panel_name) {
+        const tab = document.querySelector(`sl-tab[panel="${panel_name}"]`)
+        const panel = document.querySelector(`sl-tab-panel[name="${panel_name}"]`)
+        const blogid = panel.dataset.blogid || null
 
-			let title_img = null
-			try {
-				title_img = /<img.*?src="(.*?)".*?>/.exec(editors[panel_name].value)[1]
-			} catch (error) {}
+        let title_img = null
+        try {
+            title_img = /<img.*?src="(.*?)".*?>/.exec(editors[panel_name].value)[1]
+        } catch (error) { }
 
-			let title = "Untitled"
-			const contentchildren = panel.querySelector(".jodit-wysiwyg").children
-			for (let index = 0; index < contentchildren.length; index++) {
-				let txt = contentchildren[index].textContent || contentchildren[index].innerText || ""
-				txt = txt.replaceAll(/\r?\n/g, "")
-				if (txt.length > 0) {
-					title = txt
-					break
-				}
-			}
+        let title = "Untitled"
+        const contentchildren = panel.querySelector(".jodit-wysiwyg").children
+        for (let index = 0; index < contentchildren.length; index++) {
+            let txt = contentchildren[index].textContent || contentchildren[index].innerText || ""
+            txt = txt.replaceAll(/\r?\n/g, "")
+            if (txt.length > 0) {
+                title = txt
+                break
+            }
+        }
 
-			tab.innerHTML = title
-			let server_response = await fetch(`${baseurl}/saveblog`, {
-				method: "POST",
-				headers: { "Content-type": "application/json" },
-				body: JSON.stringify({
-					title,
-					title_img,
-					editor: editors[panel_name].value,
-					blogid,
-				}),
-			})
-			server_response = await server_response.json()
-			if (!server_response.success) {
-				slalert(server_response.message, "warning")
-				return
-			}
-			slalert(server_response.message, "success")
-			if (!blogid) {
-				editors[server_response.blogid] = editors[panel.name]
-				delete editors[panel.name]
-				panel.dataset.blogid = server_response.blogid
-				tab.dataset.blogid = server_response.blogid
-				tab.panel = server_response.blogid
-				panel.name = server_response.blogid
-				panel.querySelector("sl-button[variant='primary']").setAttribute("onclick", `save_blog("${server_response.blogid}")`)
-				panel.querySelector("sl-button[variant='danger']").setAttribute("onclick", `delete_blog("${server_response.blogid}")`)
+        tab.innerHTML = title
+        let server_response = await fetch(`${baseurl}/api/saveblog`, {
+            method: "POST",
+            headers: {"Content-type": "application/json"},
+            body: JSON.stringify({
+                title,
+                title_img,
+                editor: editors[panel_name].value,
+                blogid,
+            }),
+        })
+        server_response = await server_response.json()
+        if (!server_response.success) {
+            slalert(server_response.message, "warning")
+            return
+        }
+        slalert(server_response.message, "success")
+        if (!blogid) {
+            editors[server_response.blogid] = editors[panel.name]
+            delete editors[panel.name]
+            panel.dataset.blogid = server_response.blogid
+            tab.dataset.blogid = server_response.blogid
+            tab.panel = server_response.blogid
+            panel.name = server_response.blogid
+            panel.querySelector("sl-button[variant='primary']").setAttribute("onclick", `save_blog("${server_response.blogid}")`)
+            panel.querySelector("sl-button[variant='danger']").setAttribute("onclick", `delete_blog("${server_response.blogid}")`)
 
-				const newblog = Object.assign(document.createElement("div"), {
-					className: "blog_block",
-					innerHTML: `
+            const newblog = Object.assign(document.createElement("div"), {
+                className: "blog_block",
+                innerHTML: `
 					<div class='title'>
 						${title}
 					</div>`,
-				})
-				newblog.dataset.blogid = blogid
-				newblog.style.backgroundImage = `url(${title_img})`
-				newblog.setAttribute("onclick", `open_blog('${server_response.blogid}')`)
-				all_blogs_container.prepend(newblog)
-			}
-		}
+            })
+            newblog.dataset.blogid = blogid
+            newblog.style.backgroundImage = `url(${title_img})`
+            newblog.setAttribute("onclick", `open_blog('${server_response.blogid}')`)
+            all_blogs_container.prepend(newblog)
+        }
+    }
 
-		let all_blogs = {}
-		function load_all_blogs() {
-			for (const { title, title_img, blogid } of all_blogs) {
-				const newblog = Object.assign(document.createElement("div"), {
-					className: "blog_block",
-					innerHTML: `
+    let all_blogs = {}
+    function load_all_blogs() {
+        for (const {title, title_img, blogid} of all_blogs) {
+            const newblog = Object.assign(document.createElement("div"), {
+                className: "blog_block",
+                innerHTML: `
 					<div class='title'>
 						${title}
 					</div>`,
-				})
-				newblog.dataset.blogid = blogid
-				newblog.style.backgroundImage = `url(${title_img})`
-				newblog.setAttribute("onclick", `open_blog('${blogid}')`)
-				all_blogs_container.prepend(newblog)
-			}
-		}
-		async function get_blog_data() {
-			const res = await fetch(`${baseurl}/blog/getall`)
-			const data = await res.json()
-			if (!data.success) {
-				slalert(server_response.message, "warning")
-				return
-			}
-			all_blogs = data.body
-			load_all_blogs()
-		}
-		get_blog_data()
+            })
+            newblog.dataset.blogid = blogid
+            newblog.style.backgroundImage = `url(${title_img})`
+            newblog.setAttribute("onclick", `open_blog('${blogid}')`)
+            all_blogs_container.prepend(newblog)
+        }
+    }
+    async function get_blog_data() {
+        const res = await fetch(`${baseurl}/api/blog/getall`)
+        const data = await res.json()
+        if (!data.success) {
+            slalert(server_response.message, "warning")
+            return
+        }
+        all_blogs = data.body
+        load_all_blogs()
+    }
+    get_blog_data()
 
-		async function open_blog(id) {
-			const existing_panel = document.querySelector(`sl-tab-panel[data-blogid='${id}']`)
-			if (existing_panel) {
-				tabgroup.show(id)
-				return
-			}
-			open_tabs++
-			let server_response = await fetch(`${baseurl}/blog/${id}`)
-			server_response = await server_response.json()
-			if (!server_response.success) {
-				slalert(server_response.message, "warning")
-				return
-			}
-			server_response = server_response.body
-			const newtab = Object.assign(document.createElement("sl-tab"), {
-				slot: "nav",
-				panel: `${server_response.blogid}`,
-				closable: "true",
-				innerHTML: server_response.title,
-			})
-			const newpanel = Object.assign(document.createElement("sl-tab-panel"), {
-				name: `${server_response.blogid}`,
-				innerHTML: `
+    async function open_blog(id) {
+        const existing_panel = document.querySelector(`sl-tab-panel[data-blogid='${id}']`)
+        if (existing_panel) {
+            tabgroup.show(id)
+            return
+        }
+        open_tabs++
+        let server_response = await fetch(`${baseurl}/api/blog/${id}`)
+        server_response = await server_response.json()
+        if (!server_response.success) {
+            slalert(server_response.message, "warning")
+            return
+        }
+        server_response = server_response.body
+        const newtab = Object.assign(document.createElement("sl-tab"), {
+            slot: "nav",
+            panel: `${server_response.blogid}`,
+            closable: "true",
+            innerHTML: server_response.title,
+        })
+        const newpanel = Object.assign(document.createElement("sl-tab-panel"), {
+            name: `${server_response.blogid}`,
+            innerHTML: `
 				<div class='buttons'>
 					<sl-button-group label='Save or delete'>
 						<sl-button variant='primary' onclick="save_blog('${newtab.panel}')">
@@ -236,77 +249,78 @@
 				<div class='doc_body'>
 					<textarea class='editor'></textarea>
 				</div>`,
-			})
-			newpanel.dataset.blogid = server_response.blogid
-			newtab.dataset.blogid = server_response.blogid
-			const editor_holder = newpanel.querySelector(".editor")
-			editors[newtab.panel] = Jodit.make(newpanel.querySelector(".editor"), {
-				toolbarAdaptive: false,
-				uploader: {
-					url: `${baseurl}/upload`,
-					method: "POST",
-					format: "json",
-					// filesVariableName: "file",
-				},
-			})
-			editors[newtab.panel].value = server_response.editor
-			tabgroup.appendChild(newtab)
-			tabgroup.appendChild(newpanel)
-			setTimeout(() => {
-				tabgroup.show(newtab.panel)
-			}, 50)
-		}
+        })
+        newpanel.dataset.blogid = server_response.blogid
+        newtab.dataset.blogid = server_response.blogid
+        const editor_holder = newpanel.querySelector(".editor")
+        editors[newtab.panel] = Jodit.make(newpanel.querySelector(".editor"), {
+            toolbarAdaptive: false,
+            uploader: {
+                url: `${baseurl}/upload`,
+                method: "POST",
+                format: "json",
+                // filesVariableName: "file",
+            },
+        })
+        editors[newtab.panel].value = server_response.editor
+        tabgroup.appendChild(newtab)
+        tabgroup.appendChild(newpanel)
+        setTimeout(() => {
+            tabgroup.show(newtab.panel)
+        }, 50)
+    }
 
-		function delete_blog(id) {
-			fetch(`${baseurl}/blog/${id}`, {
-				method: "DELETE",
-			})
-				.then(res => res.json())
-				.then(res => {
-					if (!res.success) {
-						slalert(res.message, "warning")
-						return
-					}
-					slalert(res.message, "success")
-					document.querySelector(`sl-tab[data-blogid="${id}"]`).dispatchEvent(
-						new CustomEvent("sl-close", {
-							bubbles: true,
-							composed: true,
-						})
-					)
-					all_blogs_container.querySelector(`[data-blogid="${id}"]`).remove()
-				})
-		}
+    function delete_blog(id) {
+        fetch(`${baseurl}/api/blog/${id}`, {
+            method: "DELETE",
+        })
+            .then(res => res.json())
+            .then(res => {
+                if (!res.success) {
+                    slalert(res.message, "warning")
+                    return
+                }
+                slalert(res.message, "success")
+                document.querySelector(`sl-tab[data-blogid="${id}"]`).dispatchEvent(
+                    new CustomEvent("sl-close", {
+                        bubbles: true,
+                        composed: true,
+                    })
+                )
+                all_blogs_container.querySelector(`[data-blogid="${id}"]`).remove()
+            })
+    }
 
-		function slalert(message = " ", type = "info") {
-			const alerttypes = {
-				info: {
-					variant: "primary",
-					icon: "./assets/amenities_icons/circle-alert.svg",
-				},
-				warning: {
-					variant: "warning",
-					icon: "./assets/amenities_icons/triangle-alert.svg",
-				},
-				success: {
-					variant: "success",
-					icon: "./assets/amenities_icons/circle-check-big.svg",
-				},
-			}
-			const { variant, icon } = alerttypes[type]
+    function slalert(message = " ", type = "info") {
+        const alerttypes = {
+            info: {
+                variant: "primary",
+                icon: "./assets/amenities_icons/circle-alert.svg",
+            },
+            warning: {
+                variant: "warning",
+                icon: "./assets/amenities_icons/triangle-alert.svg",
+            },
+            success: {
+                variant: "success",
+                icon: "./assets/amenities_icons/circle-check-big.svg",
+            },
+        }
+        const {variant, icon} = alerttypes[type]
 
-			const alert = Object.assign(document.createElement("sl-alert"), {
-				variant,
-				closable: true,
-				duration: 3000,
-				innerHTML: `
+        const alert = Object.assign(document.createElement("sl-alert"), {
+            variant,
+            closable: true,
+            duration: 3000,
+            innerHTML: `
 					<sl-icon src="${icon}" slot="icon"></sl-icon>
 					${message}
 				`,
-			})
+        })
 
-			document.body.append(alert)
-			alert.toast()
-		}
-	</script>
+        document.body.append(alert)
+        alert.toast()
+    }
+</script>
+
 </html>
