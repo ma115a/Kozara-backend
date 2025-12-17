@@ -1417,6 +1417,7 @@ header .nav-bar {
 	display: grid;
 	grid-template-rows: subgrid;
 	grid-row: 1/4;
+	gap: 0;
 
 	h4,
 	a {
@@ -1426,8 +1427,10 @@ header .nav-bar {
 	}
 
 	a {
+		justify-self: center;
+		margin-bottom: 2rem;
 		width: fit-content;
-		height: fit-content;
+		display: block;
 	}
 
 	h4 {
@@ -1437,6 +1440,10 @@ header .nav-bar {
 		max-height: 2lh;
 		overflow: hidden;
 		text-overflow: ellipsis;
+		margin-block: 1.3rem 2lh;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 2;
 	}
 }
 
