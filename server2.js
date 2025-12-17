@@ -384,14 +384,8 @@ function renderAllBlogs(res, lang) {
     let renderedHtml = htmlTemplateBlogs
     renderedHtml = renderedHtml.replace('<html lang="en" class="sl-theme-light">', `<html lang="${lang}" class="sl-theme-light">`);
 
-    Object.keys(t).forEach(key => {
-
-        const regex = new RegExp(`{{${key}}}`, 'g');
-        renderedHtml = renderedHtml.replace(regex, t[key]);
-    })
 
     let blogs = loadAllBlogs()
-    // blogs = null
     if (blogs === null) {
 
         renderedHtml = renderedHtml.replace('{{NO_BLOGS}}', 'block')
@@ -405,13 +399,18 @@ function renderAllBlogs(res, lang) {
             blogContent += `<div class="blog-card">
 <img src="${blog.title_img}" class="blog-img" alt="Blog 1 cover image" />
 <h4 style="min-height: 2.5em">${blog.title}</h4>
-<a class="read-blog" href="/blog/${blog.blogid}">{{read_article}}</a>
+                    <a class="read-blog" href="/{{language_code}}/blog/{{BLOG_ID}}">{{read_article}}</a>
 </div>`
         })
         renderedHtml = renderedHtml.replace('{{BLOGS_SECTION}}', blogContent)
         renderedHtml = renderedHtml.replace('{{NO_BLOGS}}', 'none')
 
 
+        Object.keys(t).forEach(key => {
+
+            const regex = new RegExp(`{{${key}}}`, 'g');
+            renderedHtml = renderedHtml.replace(regex, t[key]);
+        })
         res.send(renderedHtml)
     }
 

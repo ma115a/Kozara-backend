@@ -228,5 +228,7 @@
     "base_url_lang" : "https://tile-bands-guy-readers.trycloudflare.com/it",
     "meta_content" : "Prenota il tuo chalet al Kozara Panoramic Resort",
     "meta_content2" : "Lussuosi chalet di montagna con piscina, spa e sentieri escursionistici. Immerso nel cuore del Monte Kozara, il nostro resort offre un'esperienza indimenticabile in cui ogni dettaglio riflette calore, cura ed eleganza.",
-    "read_article" : "Leggi il blog"
+    "read_article" : "Leggi il blog",
+    "see_all_blogs": "Vedi tutti i blog"
+
 }

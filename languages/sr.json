@@ -228,5 +228,7 @@
     "base_url_lang" : "https://tile-bands-guy-readers.trycloudflare.com/sr",
     "meta_content" : "Rezervišite svoju planinsku kuću u Kozara Panoramic Resortu",
     "meta_content2" : "Luksuzne planinske kućice s bazenom, spa centrom i pješačkim stazama. Smješteno u srcu planine Kozara, naše odmaralište nudi nezaboravno iskustvo gdje svaki detalj odražava toplinu, brigu i eleganciju.",
-    "read_article" : "Pročitaj blog"
+    "read_article" : "Pročitaj blog",
+    "see_all_blogs": "Vidi sve blogove"
+
 }

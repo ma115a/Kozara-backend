@@ -109,7 +109,7 @@
                 <a class="nav-link" href="#location">{{nav_location}}</a>
                 <!-- <a href="#reviews" class="nav-link" data-i8n="nav_reviews">Reviews</a> -->
                 <a class="nav-link" href="#blog">{{nav_blog}}</a>
-                <a class="nav-link" href="#contact">{{contact}}</a>
+                <a class="nav-link" href="/{{language_code}}/notice#impressum">{{contact}}</a>
                 <sl-dropdown>
                     <!-- NEW TRIGGER: span element to display the selected language -->
                     <span class="nav-language-trigger" id="language_display_trigger" slot="trigger">
@@ -138,7 +138,7 @@
         <a class="nav-link" href="#location" onclick="drawer_menu.hide()">{{nav_location}}</a>
         <!--<a href="#reviews" class="nav-link" onclick="drawer_menu.hide()" data-i8n="nav_reviews">Reviews</a>-->
         <a class="nav-link" href="#blog" onclick="drawer_menu.hide()">{{nav_blog}}</a>
-        <a class="nav-link" href="#contact" onclick="drawer_menu.hide()">{{contact}}</a>
+        <a class="nav-link" href="/{{language_code}}/notice#impressum" onclick="drawer_menu.hide()">{{contact}}</a>
         <sl-dropdown>
             <!-- NEW TRIGGER: span element to display the selected language -->
             <span class="nav-language-trigger" id="language_display_trigger" slot="trigger">
@@ -312,20 +312,20 @@
             <div class="blog-card">
                 <img src="{{BLOG_IMG}}" class="blog-img" alt="Blog 1 cover image" />
                 <h4 style="min-height: 2.5em">{{BLOG_TITLE}}</h4>
-                <a class="read-blog" href="/blog/{{BLOG_ID}}">{{read_article}}</a>
+                <a class="read-blog" href="/{{language_code}}/blog/{{BLOG_ID}}">{{read_article}}</a>
             </div>
             <div class="blog-card">
                 <img src="{{BLOG_IMG}}" class="blog-img" alt="Blog 2 cover image" />
                 <h4 style="min-height: 2.5em">{{BLOG_TITLE}}</h4>
-                <a class="read-blog" href="/blog/{{BLOG_ID}}">{{read_article}}</a>
+                <a class="read-blog" href="/{{language_code}}/blog/{{BLOG_ID}}">{{read_article}}</a>
             </div>
             <div class="blog-card">
                 <img src="{{BLOG_IMG}}" class="blog-img" alt="Blog 3 cover image" />
                 <h4 style="min-height: 2.5em">{{BLOG_TITLE}}</h4>
-                <a class="read-blog" href="/blog/{{BLOG_ID}}">{{read_article}}</a>
+                <a class="read-blog" href="/{{language_code}}/blog/{{BLOG_ID}}">{{read_article}}</a>
             </div>
         </div>
-        <a style="display: {{YES_BLOGS}};" class="read-blog" href="/blogs">See all blogs</a>
+        <a style="display: {{YES_BLOGS}};" class="read-blog" href="/{{language_code}}/blogs">{{see_all_blogs}}</a>
         <div style="display: {{NO_BLOGS}}; justify-content: center;">
             <span style="font-size: 1.5rem; font-style: italic">{{blog_desc}}</span>
         </div>
