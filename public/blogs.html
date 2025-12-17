@@ -1,9 +1,112 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="sl-theme-light">
 	<head>
 		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>KPR | Blogs</title>
+		<title>Blogs | Kozara Panoramic Resort</title>
+
+		<link rel="stylesheet" href="./css/main.css" />
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/light.css" />
+		<meta property="og:title" content="{{BLOG_TITLE}}" />
+		<!-- <meta property="og:description" content="{{META_DESCRIPTION}}"> -->
+		<meta property="og:image" content="{{OG_IMAGE}}" />
+		<meta property="og:type" content="article" />
+		<style>
+			section {
+				grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+			}
+		</style>
+
+		<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/dropdown/dropdown.js" type="module"></script>
+		<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/menu/menu.js" type="module" defer></script>
+		<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/menu-item/menu-item.js" type="module"></script>
+		<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/drawer/drawer.js" type="module"></script>
+		<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/icon-button/icon-button.js" type="module"></script>
+		<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/button/button.js" type="module"></script>
+		<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/icon/icon.js" type="module" defer></script>
 	</head>
-	<body></body>
+
+	<body>
+		<header class="hero">
+			<div class="hero-overlay"></div>
+			<div class="nav-bar">
+				<div class="logo-text">KOZARA</div>
+				<div class="nav-links-container">
+					<a class="nav-link" href="/{{language_code}}/#chalets">{{nav_chalets}}</a>
+					<a class="nav-link" href="/{{language_code}}/#location">{{nav_location}}</a>
+					<!-- <a href="#reviews" class="nav-link" data-i8n="nav_reviews">Reviews</a> -->
+					<a class="nav-link" href="/{{language_code}}/#blog">{{nav_blog}}</a>
+					<a class="nav-link" href="/{{langauge_code}}/#contact">{{contact}}</a>
+					<sl-dropdown>
+						<!-- NEW TRIGGER: span element to display the selected language -->
+						<span class="nav-language-trigger" id="language_display_trigger" slot="trigger">
+							<!-- Initial state, set to default EN -->
+							{{language_tag}}
+						</span>
+						<sl-menu>
+							<sl-menu-item><a href="/blog/{{BLOG_ID}}">🇬🇧 EN (English)</a></sl-menu-item>
+							<sl-menu-item><a href="/sr/blog/{{BLOG_ID}}">🇷🇸 SR (Srpski)</a></sl-menu-item>
+							<sl-menu-item><a href="/de/blog/{{BLOG_ID}}">🇩🇪 DE (Deutsch)</a></sl-menu-item>
+							<sl-menu-item><a href="/it/blog/{{BLOG_ID}}">🇮🇹 IT (Italiano)</a></sl-menu-item>
+						</sl-menu>
+					</sl-dropdown>
+				</div>
+				<div>
+					<a class="nav-cta" style="visibility: hidden">{{nav_cta}}</a>
+				</div>
+			</div>
+			<div class="hero-content">
+				<div class="logo-area">KOZARA PANORAMIC RESORT</div>
+				<h2>{{BLOG_TITLE}}</h2>
+			</div>
+		</header>
+		<sl-drawer id="drawer_menu" label="Navigation">
+			<a class="nav-link" href="/{{langauge_code}}/#chalets" onclick="drawer_menu.hide()">{{nav_chalets}}</a>
+			<a class="nav-link" href="/{{langauge_code}}/#location" onclick="drawer_menu.hide()">{{nav_location}}</a>
+			<!--<a href="#reviews" class="nav-link" onclick="drawer_menu.hide()" data-i8n="nav_reviews">Reviews</a>-->
+			<a class="nav-link" href="/{{langauge_code}}/#blog" onclick="drawer_menu.hide()">{{nav_blog}}</a>
+			<a class="nav-link" href="/{{langauge_code}}/#contact" onclick="drawer_menu.hide()">{{contact}}</a>
+			<sl-dropdown>
+				<!-- NEW TRIGGER: span element to display the selected language -->
+				<span class="nav-language-trigger" id="language_display_trigger" slot="trigger">
+					<!-- Initial state, set to default EN -->
+					{{language_tag}}
+				</span>
+				<sl-menu>
+					<sl-menu-item><a href="/blog/{{BLOG_ID}}">🇬🇧 EN (English)</a></sl-menu-item>
+					<sl-menu-item><a href="/sr/blog/{{BLOG_ID}}">🇷🇸 SR (Srpski)</a></sl-menu-item>
+					<sl-menu-item><a href="/de/blog/{{BLOG_ID}}">🇩🇪 DE (Deutsch)</a></sl-menu-item>
+					<sl-menu-item><a href="/it/blog/{{BLOG_ID}}">🇮🇹 IT (Italiano)</a></sl-menu-item>
+				</sl-menu>
+			</sl-dropdown>
+		</sl-drawer>
+		<sl-icon-button id="btn_menu" onclick="drawer_menu.show()" src="/assets/amenities_icons/menu.svg"></sl-icon-button>
+
+		<section class="blog-grid">
+			<!-- <div style="display: {{NO_BLOGS}};>
+				No blogs available
+			</div> -->
+		</section>
+		<script>
+			const el = document.getElementsByTagName("section")[0]
+			for (let i = 0; i < 20; i++) {
+				el.innerHTML += `<div class="blog-card">
+					<img src="https://mutual-ate-privilege-brilliant.trycloudflare.com/uploads/1765840061869-6zkzk.png" class="blog-img" alt="Blog 1 cover image" />
+					<h4 style="min-height: 2.5em">Mocan naslov</h4>
+					<a class="read-blog" href="/blog/{{BLOG_ID}}">Nacitaj se</a>
+				</div>`
+			}
+		</script>
+
+		<footer id="contact">
+			<div class="footer-logo">KOZARA PANORAMIC RESORT</div>
+			<!-- Updated Footer Links -->
+			<div class="footer-links">
+				<a href="/{{language_code}}/notice#impressum">{{footer-impressum}}</a> | <a href="/{{language_code}}/notice#terms">{{footer-terms}}</a> | <a href="/{{language_code}}/notice#privacy">{{footer-privacy}}</a> |
+				<a href="/{{language_code}}/notice#impressum">{{footer-contact}}</a>
+			</div>
+			<p>© Kozara Panoramic Resort – PEVA d.o.o. All rights reserved.</p>
+		</footer>
+	</body>
 </html>
