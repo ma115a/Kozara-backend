@@ -1415,8 +1415,6 @@ header .nav-bar {
 	overflow: hidden;
 	text-overflow: ellipsis;
 	display: grid;
-	grid-template-rows: subgrid;
-	grid-row: 1/4;
 	gap: 0;
 
 	h4,
@@ -1437,7 +1435,7 @@ header .nav-bar {
 		font-family: "Playfair Display", serif;
 		font-size: 1.5rem;
 		color: var(--primary-green);
-		max-height: 2lh;
+		height: 2lh;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		margin-block: 1.3rem 2lh;
