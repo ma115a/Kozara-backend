@@ -1,39 +1,61 @@
 <!DOCTYPE html>
 
 <html class="sl-theme-light" lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta content="width=device-width, initial-scale=1.0" name="viewport" />
-		<title>Kozara Panoramic Resort</title>
-		<link href="/css/vanilla_calendar.css" rel="stylesheet" />
-		<link href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/light.css" rel="stylesheet" />
-		<link href="/css/main.css" rel="stylesheet" />
-		<script src="/js/vanilla_calendar.js"></script>
-		<script src="/js/vcUtils.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/carousel/carousel.js" type="module"></script>
-		<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/carousel-item/carousel-item.js" type="module"></script>
-		<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/icon/icon.js" type="module"></script>
-		<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/dialog/dialog.js" type="module"></script>
-		<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/icon-button/icon-button.js" type="module"></script>
-		<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/input/input.js" type="module"></script>
-		<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/select/select.js" type="module"></script>
-		<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/option/option.js" type="module"></script>
-		<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/tag/tag.js" type="module"></script>
-		<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/popup/popup.js" type="module"></script>
-		<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/divider/divider.js" type="module"></script>
-		<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/alert/alert.js" type="module"></script>
-		<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/button/button.js" type="module"></script>
-		<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/spinner/spinner.js" type="module"></script>
-		<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/switch/switch.js" type="module"></script>
-		<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/drawer/drawer.js" type="module"></script>
-		<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/menu/menu.js" type="module"></script>
-		<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/menu-item/menu-item.js" type="module"></script>
-		<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/dropdown/dropdown.js" type="module"></script>
-		<script src="https://cdn.jsdelivr.net/npm/libphonenumber-js@1.12.29/bundle/libphonenumber-js.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/details/details.js" type="module"></script>
-		<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
-		<script type="application/ld+json">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Kozara Panoramic Resort</title>
+    <link href="/css/vanilla_calendar.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/light.css" rel="stylesheet" />
+    <link href="/css/main.css" rel="stylesheet" />
+    <script src="/js/vanilla_calendar.js"></script>
+    <script src="/js/vcUtils.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/carousel/carousel.js"
+        type="module"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/carousel-item/carousel-item.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/icon/icon.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/dialog/dialog.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/icon-button/icon-button.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/input/input.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/select/select.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/option/option.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/tag/tag.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/popup/popup.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/divider/divider.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/alert/alert.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/button/button.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/spinner/spinner.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/switch/switch.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/drawer/drawer.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/menu/menu.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/menu-item/menu-item.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/dropdown/dropdown.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/libphonenumber-js@1.12.29/bundle/libphonenumber-js.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/details/details.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script type="application/ld+json">
 			{
 				"@context": "https://schema.org",
 				"@type": "Resort",
@@ -52,28 +74,29 @@
 			             "telephone": "+38766767622",
 			}
 		</script>
-		<!-- html meta -->
-		<meta content="{{meta_content2}}" name="description" />
-		<!-- opengraph -->
-		<meta content="{{meta_content}}" property="og:title" />
-		<meta content="{{meta_content2}}" property="og:description" />
-		<meta content="https://kozarapanoramicresort.ba/assets/Scenery/lander.webp" property="og:image" />
-		<meta content="https://kozarapanoramicresort.ba/en" property="og:url" />
-		<meta content="website" property="og:type" />
-		<!-- twitter -->
-		<meta content="summary_large_image" name="twitter:card" />
-		<meta content="{{meta_content}}" name="twitter:title" />
-		<meta content="{{meta_content2}}" name="twitter:description" />
-		<meta content="https://kozarapanoramicresort.ba/assets/Scenery/lander.webp" name="twitter:image" />
-		<link rel="canonical" href="https://kozarapanoramicresort.ba/{{lang_code}}" />
-		<!-- lang -->
-		<link href="https://kozarapanoramicresort.ba/en" hreflang="en" rel="alternate" />
-		<link href="https://kozarapanoramicresort.ba/de" hreflang="de" rel="alternate" />
-		<link href="https://kozarapanoramicresort.ba/it" hreflang="it" rel="alternate" />
-		<link href="https://kozarapanoramicresort.ba/ba" hreflang="ba" rel="alternate" />
-		<link href="https://kozarapanoramicresort.ba/en" hreflang="x-default" rel="alternate" />
-		<link rel="preload" as="image" href="https://kozarapanoramicresort.ba/assets/Scenery/lander.webp" fetchpriority="high" />
-	</head>
+    <!-- html meta -->
+    <meta content="{{meta_content2}}" name="description" />
+    <!-- opengraph -->
+    <meta content="{{meta_content}}" property="og:title" />
+    <meta content="{{meta_content2}}" property="og:description" />
+    <meta content="https://kozarapanoramicresort.ba/assets/Scenery/lander.webp" property="og:image" />
+    <meta content="https://kozarapanoramicresort.ba/en" property="og:url" />
+    <meta content="website" property="og:type" />
+    <!-- twitter -->
+    <meta content="summary_large_image" name="twitter:card" />
+    <meta content="{{meta_content}}" name="twitter:title" />
+    <meta content="{{meta_content2}}" name="twitter:description" />
+    <meta content="https://kozarapanoramicresort.ba/assets/Scenery/lander.webp" name="twitter:image" />
+    <link rel="canonical" href="https://kozarapanoramicresort.ba/{{lang_code}}" />
+    <!-- lang -->
+    <link href="https://kozarapanoramicresort.ba/en" hreflang="en" rel="alternate" />
+    <link href="https://kozarapanoramicresort.ba/de" hreflang="de" rel="alternate" />
+    <link href="https://kozarapanoramicresort.ba/it" hreflang="it" rel="alternate" />
+    <link href="https://kozarapanoramicresort.ba/ba" hreflang="ba" rel="alternate" />
+    <link href="https://kozarapanoramicresort.ba/en" hreflang="x-default" rel="alternate" />
+    <link rel="preload" as="image" href="https://kozarapanoramicresort.ba/assets/Scenery/lander.webp"
+        fetchpriority="high" />
+</head>
 
 	<body>
 		<div class="floating-book-btn" href="#" onclick="open_booking()">{{floating}}</div>
@@ -722,346 +745,347 @@
 				},
 			}
 
-			const LANGUAGE_MAP = {
-				en: { flag: "🇬🇧", abbr: "EN" },
-				sr: { flag: "🇷🇸", abbr: "SR" },
-				de: { flag: "🇩🇪", abbr: "DE" },
-				it: { flag: "🇮🇹", abbr: "IT" },
-			}
+        const LANGUAGE_MAP = {
+            en: {flag: "🇬🇧", abbr: "EN"},
+            sr: {flag: "🇷🇸", abbr: "SR"},
+            de: {flag: "🇩🇪", abbr: "DE"},
+            it: {flag: "🇮🇹", abbr: "IT"},
+        }
 
-			let langData = {}
-			const carousel = document.querySelector(".dialog-gallery")
-			const scroller = document.querySelector(".thumbnails__scroller")
-			const modal = document.getElementById("chalet_dialog")
-			const descEl = document.getElementById("dialog-desc")
+        let langData = {}
+        const carousel = document.querySelector(".dialog-gallery")
+        const scroller = document.querySelector(".thumbnails__scroller")
+        const modal = document.getElementById("chalet_dialog")
+        const descEl = document.getElementById("dialog-desc")
 
-			function openModal(chaletId) {
-				const data = chaletData[chaletId] || chaletData["cloud"]
+        function openModal(chaletId) {
+            const data = chaletData[chaletId] || chaletData["cloud"]
 
-				console.log(langData)
-				console.log(chaletId)
-				const translatedDesc = langData[chaletId + "_desc"]
+            console.log(langData)
+            console.log(chaletId)
+            const translatedDesc = langData[chaletId + "_desc"]
 
-				console.log(translatedDesc)
-				modal.label = data.title
-				descEl.innerText = translatedDesc || data.desc
-				// descEl.innerText = data.desc
-				carousel.innerHTML = ""
-				scroller.innerHTML = ""
-				data.images.forEach(img_uri => {
-					carousel.innerHTML += `<sl-carousel-item><img src="${img_uri}"></sl-carousel-item>`
-					const new_thumbnail = document.createElement("img")
-					new_thumbnail.setAttribute("src", img_uri)
-					new_thumbnail.classList.add("thumbnails__image")
-					scroller.appendChild(new_thumbnail)
-				})
-				scroller.children[0].classList.add("active")
+            console.log(translatedDesc)
+            modal.label = data.title
+            descEl.innerText = translatedDesc || data.desc
+            // descEl.innerText = data.desc
+            carousel.innerHTML = ""
+            scroller.innerHTML = ""
+            data.images.forEach(img_uri => {
+                carousel.innerHTML += `<sl-carousel-item><img src="${img_uri}"></sl-carousel-item>`
+                const new_thumbnail = document.createElement("img")
+                new_thumbnail.setAttribute("src", img_uri)
+                new_thumbnail.classList.add("thumbnails__image")
+                scroller.appendChild(new_thumbnail)
+            })
+            scroller.children[0].classList.add("active")
 
-				modal.show()
-				carousel.goToSlide(0)
-			}
+            modal.show()
+            carousel.goToSlide(0)
+        }
 
-			// modal carousel
+        // modal carousel
 
-			scroller.addEventListener("click", e => {
-				const target = e.target
+        scroller.addEventListener("click", e => {
+            const target = e.target
 
-				if (target.matches(".thumbnails__image")) {
-					const thumbnails = scroller.querySelectorAll(".thumbnails__image")
-					const index = [...thumbnails].indexOf(target)
-					carousel.goToSlide(index)
-				}
-			})
+            if (target.matches(".thumbnails__image")) {
+                const thumbnails = scroller.querySelectorAll(".thumbnails__image")
+                const index = [...thumbnails].indexOf(target)
+                carousel.goToSlide(index)
+            }
+        })
 
-			carousel.addEventListener("sl-slide-change", e => {
-				const slideIndex = e.detail.index
-				const thumbnails = scroller.querySelectorAll(".thumbnails__image")
+        carousel.addEventListener("sl-slide-change", e => {
+            const slideIndex = e.detail.index
+            const thumbnails = scroller.querySelectorAll(".thumbnails__image")
 
-				;[...thumbnails].forEach((thumb, i) => {
-					thumb.classList.toggle("active", i === slideIndex)
-					if (i === slideIndex) {
-						thumb.scrollIntoView({
-							block: "nearest",
-						})
-					}
-				})
-			})
+                ;[...thumbnails].forEach((thumb, i) => {
+                    thumb.classList.toggle("active", i === slideIndex)
+                    if (i === slideIndex) {
+                        thumb.scrollIntoView({
+                            block: "nearest",
+                        })
+                    }
+                })
+        })
 
-			document.querySelectorAll("sl-carousel").forEach(el => {
-				el.addEventListener("click", e => {
-					if (e.target.tagName != "IMG") return
-					preview(e.target.src)
-				})
-			})
+        document.querySelectorAll("sl-carousel").forEach(el => {
+            el.addEventListener("click", e => {
+                if (e.target.tagName != "IMG") return
+                preview(e.target.src)
+            })
+        })
 
-			function preview(src) {
-				img_preview.querySelector("img").setAttribute("src", src)
-				img_preview.show()
-			}
+        function preview(src) {
+            img_preview.querySelector("img").setAttribute("src", src)
+            img_preview.show()
+        }
 
-			// Calendar logic
-			const calendar_settings = {
-				inputMode: true,
-				selectedTheme: "light",
-				dateMin: "today",
-				displayDateMin: "today",
-				enableDateToggle: false,
-				onInit(self) {
-					self.context.inputElement.blur()
-					self.context.inputElement.addEventListener("focus", () => {
-						self.context.inputElement.blur()
-					})
-				},
-				onClickDate(self, event) {
-					self.context.inputElement.value = self.context.selectedDates[0].split("-").reverse().join("/")
-				},
-			}
-			const { Calendar } = window.VanillaCalendarPro
-			const check_arrive = new Calendar("#c_arrive", calendar_settings)
-			const check_depart = new Calendar("#c_depart", calendar_settings)
-			check_arrive.init()
-			check_depart.init()
-			let currency_modifier = 1
+        // Calendar logic
+        const calendar_settings = {
+            inputMode: true,
+            selectedTheme: "light",
+            dateMin: "today",
+            displayDateMin: "today",
+            enableDateToggle: false,
+            onInit(self) {
+                self.context.inputElement.blur()
+                self.context.inputElement.addEventListener("focus", () => {
+                    self.context.inputElement.blur()
+                })
+            },
+            onClickDate(self, event) {
+                self.context.inputElement.value = self.context.selectedDates[0].split("-").reverse().join("/")
+            },
+        }
+        const {Calendar} = window.VanillaCalendarPro
+        const check_arrive = new Calendar("#c_arrive", calendar_settings)
+        const check_depart = new Calendar("#c_depart", calendar_settings)
+        check_arrive.init()
+        check_depart.init()
+        let currency_modifier = 1
 
-			const booking_calendar = new Calendar("#book_calendar_wrapper", {
-				type: "multiple",
-				selectedTheme: "light",
-				dateMin: "today",
-				displayDateMin: "2025-12-15",
-				// displayDateMax: "2026-03-31",
-				dateMax: "2026-03-31",
-				disableDatesGaps: true,
-				disableToday: true,
-				enableEdgeDatesOnly: true,
-				enableDateToggle: false,
-				selectionDatesMode: "multiple-ranged",
-				onCreateDateEls(self, dateEl) {
-					if (!prices_data) return
-					const curr_date = dateEl.dataset.vcDate
-					for (const entry of prices_data) {
-						if (comp_date(entry.from, curr_date)) continue
-						if (comp_date(curr_date, entry.to)) continue
-						dateEl.querySelector("button").innerHTML += `<div>\
+        const booking_calendar = new Calendar("#book_calendar_wrapper", {
+            type: "multiple",
+            selectedTheme: "light",
+            dateMin: "today",
+            displayDateMin: "2025-12-15",
+            // displayDateMax: "2026-03-31",
+            dateMax: "2026-03-31",
+            disableDatesGaps: true,
+            disableToday: true,
+            enableEdgeDatesOnly: true,
+            enableDateToggle: false,
+            selectionDatesMode: "multiple-ranged",
+            onCreateDateEls(self, dateEl) {
+                if (!prices_data) return
+                const curr_date = dateEl.dataset.vcDate
+                for (const entry of prices_data) {
+                    if (comp_date(entry.from, curr_date)) continue
+                    if (comp_date(curr_date, entry.to)) continue
+                    dateEl.querySelector("button").innerHTML += `<div>\
 							${Math.round(entry.price1 * currency_modifier * 10) / 10}${currency_modifier == 1 ? "KM" : "€"}
 							</div>`
-						break
-					}
-				},
-				onClickDate(self, event) {
-					if (self.context.selectedDates.length < 2) return
-					const expanded_dates = window.VanillaCalendarProUtils.parseDates([`${self.context.selectedDates[0]}:${self.context.selectedDates[1]}`])
-					if (expanded_dates.length < 3) {
-						notify("Minimum 2 nights of stay!", "neutral")
-						self.context.selectedDates = []
-					}
-				},
-			})
-			booking_calendar.init()
-			currency_switch.addEventListener("sl-change", e => {
-				currency_modifier = currency_switch.checked ? 0.51 : 1
-				booking_calendar.update()
-			})
+                    break
+                }
+            },
+            onClickDate(self, event) {
+                if (self.context.selectedDates.length < 2) return
+                const expanded_dates = window.VanillaCalendarProUtils.parseDates([`${self.context.selectedDates[0]}:${self.context.selectedDates[1]}`])
+                if (expanded_dates.length < 3) {
+                    notify("Minimum 2 nights of stay!", "neutral")
+                    self.context.selectedDates = []
+                }
+            },
+        })
+        booking_calendar.init()
+        currency_switch.addEventListener("sl-change", e => {
+            currency_modifier = currency_switch.checked ? 0.51 : 1
+            booking_calendar.update()
+        })
 
-			// Formatting
-			let ayt_formatter = null
-			book_form.querySelector("[name=billingCountry]").addEventListener("sl-change", e => {
-				ayt_formatter = new libphonenumber.AsYouType(e.target.value)
-			})
-			book_form.querySelector("[name=customerPhone]").addEventListener("sl-input", e => {
-				if (!ayt_formatter) return
-				ayt_formatter.reset()
-				e.target.value = ayt_formatter.input(e.target.value)
-			})
+        // Formatting
+        let ayt_formatter = null
+        book_form.querySelector("[name=billingCountry]").addEventListener("sl-change", e => {
+            ayt_formatter = new libphonenumber.AsYouType(e.target.value)
+        })
+        book_form.querySelector("[name=customerPhone]").addEventListener("sl-input", e => {
+            if (!ayt_formatter) return
+            ayt_formatter.reset()
+            e.target.value = ayt_formatter.input(e.target.value)
+        })
 
-			function open_booking() {
-				booking_calendar.update()
-				book_dialog.show()
-			}
-			// Form
-			book_form.addEventListener("submit", e => {
-				e.preventDefault()
-				if (booking_calendar.context.selectedDates.length < 2) {
-					notify("Please select the days you would like to stay")
-					e.stopImmediatePropagation()
-					return
-				}
-				const fdata = new FormData(book_form)
-				// check ppl number
-				book_form.querySelector("[name='numAdults']").setCustomValidity("")
-				if (parseInt(fdata.get("numAdults")) + parseInt(fdata.get("numChildren")) > 6) {
-					book_form.querySelector("[name='numAdults']").setCustomValidity("Maximum of 6 people per chalet")
-					return
-				}
-				const phoneN = libphonenumber.parsePhoneNumber(fdata.get("customerPhone"), fdata.get("billingCountry"))
-				book_form.querySelector("[name=customerPhone]").setCustomValidity("")
-				if (!phoneN.isValid()) {
-					book_form.querySelector("[name=customerPhone]").setCustomValidity("Invalid phone number")
-					return
-				}
+        function open_booking() {
+            booking_calendar.update()
+            book_dialog.show()
+        }
+        // Form
+        book_form.addEventListener("submit", e => {
+            e.preventDefault()
+            if (booking_calendar.context.selectedDates.length < 2) {
+                notify("Please select the days you would like to stay")
+                e.stopImmediatePropagation()
+                return
+            }
+            const fdata = new FormData(book_form)
+            // check ppl number
+            book_form.querySelector("[name='numAdults']").setCustomValidity("")
+            if (parseInt(fdata.get("numAdults")) + parseInt(fdata.get("numChildren")) > 6) {
+                book_form.querySelector("[name='numAdults']").setCustomValidity("Maximum of 6 people per chalet")
+                return
+            }
+            const phoneN = libphonenumber.parsePhoneNumber(fdata.get("customerPhone"), fdata.get("billingCountry"))
+            book_form.querySelector("[name=customerPhone]").setCustomValidity("")
+            if (!phoneN.isValid()) {
+                book_form.querySelector("[name=customerPhone]").setCustomValidity("Invalid phone number")
+                return
+            }
 
-				fdataJSON = {}
-				for (const [key, value] of fdata.entries()) {
-					fdataJSON[key] = value
-				}
-				fdataJSON.customerPhone = phoneN.formatInternational()
-				fdataJSON.startDate = booking_calendar.context.selectedDates[0]
-				fdataJSON.endDate = booking_calendar.context.selectedDates[1]
+            fdataJSON = {}
+            for (const [key, value] of fdata.entries()) {
+                fdataJSON[key] = value
+            }
+            fdataJSON.customerPhone = phoneN.formatInternational()
+            fdataJSON.startDate = booking_calendar.context.selectedDates[0]
+            fdataJSON.endDate = booking_calendar.context.selectedDates[1]
 
-				AJAX(fdataJSON)
-			})
+            AJAX(fdataJSON)
+        })
 
-			async function AJAX(fdataJSON) {
-				ptp_btn.setAttribute("loading", "true")
-				const sres = await fetch("https://kozarapanoramicresort.ba/api/booking", {
-					method: "POST",
-					headers: {
-						"Content-Type": "application/json",
-					},
-					body: JSON.stringify(fdataJSON),
-				})
-				const sresJSON = await sres.json()
+        async function AJAX(fdataJSON) {
+            ptp_btn.setAttribute("loading", "true")
+            const sres = await fetch("https://kozarapanoramicresort.ba/api/booking", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(fdataJSON),
+            })
+            const sresJSON = await sres.json()
 
-				const message = sresJSON.message
-				if (sres.status == 503) {
-					notify("Server under maintenance", "neutral")
-				} else if (sres.status == 500) {
-					notify(message, "danger")
-				} else if (sres.status == 400) {
-					notify(message, "neutral")
-				} else if (sres.status == 200) {
-					window.location = sresJSON.url
-				}
-				ptp_btn.removeAttribute("loading")
-			}
+            const message = sresJSON.message
+            if (sres.status == 503) {
+                notify("Server under maintenance", "neutral")
+            } else if (sres.status == 500) {
+                notify(message, "danger")
+            } else if (sres.status == 400) {
+                notify(message, "neutral")
+            } else if (sres.status == 200) {
+                window.location = sresJSON.url
+            }
+            ptp_btn.removeAttribute("loading")
+        }
 
-			async function check_date_range() {
-				check_arrive.context.inputElement.setCustomValidity("")
-				check_depart.context.inputElement.setCustomValidity("")
-				if (!check_arrive.context.selectedDates || !check_arrive.context.selectedDates.length) {
-					check_arrive.context.inputElement.setCustomValidity("Select the arrival date first!")
-					check_arrive.context.inputElement.reportValidity()
-					return
-				}
-				if (!check_depart.context.selectedDates || !check_depart.context.selectedDates.length) {
-					check_depart.context.inputElement.setCustomValidity("Select the departure date first!")
-					check_depart.context.inputElement.reportValidity()
-					return
-				}
-				document.getElementById("chalets").scrollIntoView()
+        async function check_date_range() {
+            check_arrive.context.inputElement.setCustomValidity("")
+            check_depart.context.inputElement.setCustomValidity("")
+            if (!check_arrive.context.selectedDates || !check_arrive.context.selectedDates.length) {
+                check_arrive.context.inputElement.setCustomValidity("Select the arrival date first!")
+                check_arrive.context.inputElement.reportValidity()
+                return
+            }
+            if (!check_depart.context.selectedDates || !check_depart.context.selectedDates.length) {
+                check_depart.context.inputElement.setCustomValidity("Select the departure date first!")
+                check_depart.context.inputElement.reportValidity()
+                return
+            }
+            document.getElementById("chalets").scrollIntoView()
 
-				const sres = await fetch(`https://kozarapanoramicresort.ba/api/availability?startDate=${check_arrive.context.selectedDates[0]}&endDate=${check_depart.context.selectedDates[0]}`)
-				const sresJSON = await sres.json()
-				const message = sresJSON.message
-				if (sres.status == 503) {
-					notify("Server is currently under maintenance", "neutral")
-					return
-				} else if (sres.status == 500) {
-					notify(message, "danger")
-					return
-				} else if (sres.status == 400) {
-					notify(message, "neutral")
-					return
-				}
+            const sres = await fetch(`https://kozarapanoramicresort.ba/api/availability?startDate=${check_arrive.context.selectedDates[0]}&endDate=${check_depart.context.selectedDates[0]}`)
+            const sresJSON = await sres.json()
+            const message = sresJSON.message
+            if (sres.status == 503) {
+                notify("Server is currently under maintenance", "neutral")
+                return
+            } else if (sres.status == 500) {
+                notify(message, "danger")
+                return
+            } else if (sres.status == 400) {
+                notify(message, "neutral")
+                return
+            }
 
-				const arr = sresJSON.availableUnits
-				reset_cards()
-				const chalet_cards = document.querySelectorAll("#chalets .chalet-card")
-				for (let index = 0; index < chalet_cards.length; index++) {
-					if (arr.includes(index + 1)) continue
-					chalet_cards[index].classList.add("unavailable")
-				}
-			}
+            const arr = sresJSON.availableUnits
+            reset_cards()
+            const chalet_cards = document.querySelectorAll("#chalets .chalet-card")
+            for (let index = 0; index < chalet_cards.length; index++) {
+                if (arr.includes(index + 1)) continue
+                chalet_cards[index].classList.add("unavailable")
+            }
+        }
 
-			function reset_cards() {
-				document.querySelectorAll(".unavailable").forEach(el => {
-					el.classList.remove("unavailable")
-				})
-			}
+        function reset_cards() {
+            document.querySelectorAll(".unavailable").forEach(el => {
+                el.classList.remove("unavailable")
+            })
+        }
 
-			// Notification
-			function notify(message, variant = "warning", duration = 3000) {
-				const alert = Object.assign(document.createElement("sl-alert"), {
-					variant,
-					closable: true,
-					duration: duration,
-					innerHTML: `<sl-icon src="/assets/amenities_icons/circle-alert.svg" slot="icon"></sl-icon>${message}`,
-				})
+        // Notification
+        function notify(message, variant = "warning", duration = 3000) {
+            const alert = Object.assign(document.createElement("sl-alert"), {
+                variant,
+                closable: true,
+                duration: duration,
+                innerHTML: `<sl-icon src="/assets/amenities_icons/circle-alert.svg" slot="icon"></sl-icon>${message}`,
+            })
 
-				document.body.append(alert)
-				return alert.toast()
-			}
+            document.body.append(alert)
+            return alert.toast()
+        }
 
-			function comp_date(str1, str2) {
-				const d1 = new Date(str1)
-				const d2 = new Date(str2)
-				if (d1 > d2) return true
-				else return false
-			}
+        function comp_date(str1, str2) {
+            const d1 = new Date(str1)
+            const d2 = new Date(str2)
+            if (d1 > d2) return true
+            else return false
+        }
 
-			// resize
-			window.addEventListener("resize", resize)
-			let old_w = 800000000000
-			function resize() {
-				const w = window.innerWidth
-				if (w < 680 && old_w >= 680) {
-					booking_calendar.set({ type: "default" })
-				} else if (w > 680 && old_w <= 680) {
-					booking_calendar.set({ type: "multiple" })
-				}
-				if (w < 800) {
-					autocarousel.setAttribute("slides-per-page", 1)
-				} else if (w < 1270) {
-					autocarousel.setAttribute("slides-per-page", 2)
-				} else if (w > 1270) {
-					autocarousel.setAttribute("slides-per-page", 3)
-				}
-				old_w = w
-			}
-			window.addEventListener("DOMContentLoaded", () => {
-				resize()
-				gsap.registerPlugin(ScrollTrigger)
-				gsap.to("div.floating-book-btn", {
-					scrollTrigger: {
-						trigger: "header",
-						start: "center top",
-						end: "bottom top",
-						toggleActions: "play none none reverse",
-					},
-					opacity: 1,
-					ease: "none",
-					pointerEvents: "auto",
-					duration: 0.125,
-				})
-			})
-			{
-				const curr_date = new Date()
-				const next_date = new Date()
-				next_date.setFullYear(curr_date.getFullYear() + 1)
-				fetch(`https://kozarapanoramicresort.ba/api/getprices?startDate=${curr_date.toISOString().substring(0, 10)}&endDate=${next_date.toISOString().substring(0, 10)}`)
-					.then(res => res.json())
-					.then(res => (prices_data = res))
-					.then(() => {
-						let disabled_dates = []
-						prices_data.forEach(entry => {
-							if (entry.numAvail == 0) {
-								disabled_dates.push(`${entry.from}:${entry.to}`)
-							}
-						})
-						booking_calendar.set({
-							disableDates: disabled_dates,
-							// 			dateMax: next_date.toISOString().substring(0, 10),
-							// 			displayDateMax: next_date.toISOString().substring(0, 10),
-						})
-						booking_calendar.update()
-					})
-					.catch(err => {
-						notify("Server down", "danger")
-						document.querySelector("a.nav-cta").setAttribute("disabled", "true")
-						document.querySelector("div.floating-book-btn").setAttribute("disabled", "true")
-						document.querySelector("button.btn-check").setAttribute("disabled", "true")
-						chalet_dialog.querySelector("button.btn-book-dialog").setAttribute("disabled", "true")
-					})
-			}
-		</script>
-	</body>
+        // resize
+        window.addEventListener("resize", resize)
+        let old_w = 800000000000
+        function resize() {
+            const w = window.innerWidth
+            if (w < 680 && old_w >= 680) {
+                booking_calendar.set({type: "default"})
+            } else if (w > 680 && old_w <= 680) {
+                booking_calendar.set({type: "multiple"})
+            }
+            if (w < 800) {
+                autocarousel.setAttribute("slides-per-page", 1)
+            } else if (w < 1270) {
+                autocarousel.setAttribute("slides-per-page", 2)
+            } else if (w > 1270) {
+                autocarousel.setAttribute("slides-per-page", 3)
+            }
+            old_w = w
+        }
+        window.addEventListener("DOMContentLoaded", () => {
+            resize()
+            gsap.registerPlugin(ScrollTrigger)
+            gsap.to("div.floating-book-btn", {
+                scrollTrigger: {
+                    trigger: "header",
+                    start: "center top",
+                    end: "bottom top",
+                    toggleActions: "play none none reverse",
+                },
+                opacity: 1,
+                ease: "none",
+                pointerEvents: "auto",
+                duration: 0.125,
+            })
+        })
+        {
+            const curr_date = new Date()
+            const next_date = new Date()
+            next_date.setFullYear(curr_date.getFullYear() + 1)
+            fetch(`https://kozarapanoramicresort.ba/api/getprices?startDate=${curr_date.toISOString().substring(0, 10)}&endDate=${next_date.toISOString().substring(0, 10)}`)
+                .then(res => res.json())
+                .then(res => (prices_data = res))
+                .then(() => {
+                    let disabled_dates = []
+                    prices_data.forEach(entry => {
+                        if (entry.numAvail == 0) {
+                            disabled_dates.push(`${entry.from}:${entry.to}`)
+                        }
+                    })
+                    booking_calendar.set({
+                        disableDates: disabled_dates,
+                        // 			dateMax: next_date.toISOString().substring(0, 10),
+                        // 			displayDateMax: next_date.toISOString().substring(0, 10),
+                    })
+                    booking_calendar.update()
+                })
+                .catch(err => {
+                    notify("Server down", "danger")
+                    document.querySelector("a.nav-cta").setAttribute("disabled", "true")
+                    document.querySelector("div.floating-book-btn").setAttribute("disabled", "true")
+                    document.querySelector("button.btn-check").setAttribute("disabled", "true")
+                    chalet_dialog.querySelector("button.btn-book-dialog").setAttribute("disabled", "true")
+                })
+        }
+    </script>
+</body>
+
 </html>
