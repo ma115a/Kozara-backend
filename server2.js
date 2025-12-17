@@ -34,6 +34,11 @@ const templatePathBlog = path.join(__dirname, 'public', 'blog-post.html')
 let htmlTemplateBlog = fs.readFileSync(templatePathBlog, 'utf8')
 
 
+
+const templatePathBlogs = path.join(__dirname, 'public', 'blogs.html')
+let htmlTemplateBlogs = fs.readFileSync(templatePathBlogs, 'utf8')
+
+
 const admin_username = 'admin'
 const admin_password = 'admin'
 const session_secret = 'necemociovenoci'
@@ -245,6 +250,31 @@ function loadLatestBlogs() {
 }
 
 
+function loadAllBlogs() {
+
+    try {
+
+        const blogsDir = path.join(__dirname, 'public/blogs')
+        const files = fs.readdirSync(blogsDir)
+        logger.info(files)
+        if (files.length === 0) { return null }
+        const blogs = files.sort().reverse().map(filename => {
+            const filePath = path.join(blogsDir, filename)
+            const blogData = JSON.parse(fs.readFileSync(filePath, 'utf8'))
+            const data = { title: blogData.title, title_img: blogData.title_img, blogid: blogData.blogid }
+            return data
+        })
+
+
+        return blogs
+
+    } catch (error) {
+        logger.info(error.message)
+        return null
+    }
+}
+
+
 function renderIndex(res, lang) {
 
     // const templatePathIndex = path.join(__dirname, 'public', 'index_translated.html')
@@ -257,10 +287,12 @@ function renderIndex(res, lang) {
     if (blogs === null) {
         renderedHtml = renderedHtml.replace('{{NO_BLOGS}}', 'flex')
         renderedHtml = renderedHtml.replace('{{YES_BLOGS}}', 'none')
+        renderedHtml = renderedHtml.replace('{{YES_BLOGS}}', 'none')
 
     } else {
         renderedHtml = renderedHtml.replace('{{NO_BLOGS}}', 'none')
         renderedHtml = renderedHtml.replace('{{YES_BLOGS}}', 'grid')
+        renderedHtml = renderedHtml.replace('{{YES_BLOGS}}', 'block')
 
         blogs.forEach(blog => {
             renderedHtml = renderedHtml.replace('{{BLOG_TITLE}}', blog.title)
@@ -342,6 +374,49 @@ function renderBlog(res, lang, id) {
 
     }
     res.send(renderedHtml)
+}
+
+
+function renderAllBlogs(res, lang) {
+
+    const t = languages[lang] || languages['en']
+
+    let renderedHtml = htmlTemplateBlogs
+    renderedHtml = renderedHtml.replace('<html lang="en" class="sl-theme-light">', `<html lang="${lang}" class="sl-theme-light">`);
+
+    Object.keys(t).forEach(key => {
+
+        const regex = new RegExp(`{{${key}}}`, 'g');
+        renderedHtml = renderedHtml.replace(regex, t[key]);
+    })
+
+    let blogs = loadAllBlogs()
+    // blogs = null
+    if (blogs === null) {
+
+        renderedHtml = renderedHtml.replace('{{NO_BLOGS}}', 'block')
+        renderedHtml = renderedHtml.replace('{{BLOGS_SECTION}}', '')
+        return res.send(renderedHtml)
+    } else {
+
+        let blogContent = ''
+        blogs.forEach(blog => {
+
+            blogContent += `<div class="blog-card">
+<img src="${blog.title_img}" class="blog-img" alt="Blog 1 cover image" />
+<h4 style="min-height: 2.5em">${blog.title}</h4>
+<a class="read-blog" href="/blog/${blog.blogid}">{{read_article}}</a>
+</div>`
+        })
+        renderedHtml = renderedHtml.replace('{{BLOGS_SECTION}}', blogContent)
+        renderedHtml = renderedHtml.replace('{{NO_BLOGS}}', 'none')
+
+
+        res.send(renderedHtml)
+    }
+
+
+
 }
 
 
@@ -1337,6 +1412,19 @@ app.get(['/de/blog/:id', '/it/blog/:id', '/sr/blog/:id'], (req, res) => {
     const blogId = req.params.id
     renderBlog(res, lang, blogId)
 })
+
+
+app.get(['/blogs', '/en/blog'], (req, res) => {
+    renderAllBlogs(res, 'en')
+})
+
+
+app.get(['/de/blogs', '/it/blogs', '/sr/blogs'], (req, res) => {
+    const lang = req.path.split('/')[1];
+    renderAllBlogs(res, lang)
+})
+
+
 
 
 

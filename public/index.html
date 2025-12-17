@@ -98,652 +98,682 @@
         fetchpriority="high" />
 </head>
 
-	<body>
-		<div class="floating-book-btn" href="#" onclick="open_booking()">{{floating}}</div>
-		<header class="hero">
-			<div class="hero-overlay"></div>
-			<div class="nav-bar">
-				<div class="logo-text">KOZARA</div>
-				<div class="nav-links-container">
-					<a class="nav-link" href="#chalets">{{nav_chalets}}</a>
-					<a class="nav-link" href="#location">{{nav_location}}</a>
-					<!-- <a href="#reviews" class="nav-link" data-i8n="nav_reviews">Reviews</a> -->
-					<a class="nav-link" href="#blog">{{nav_blog}}</a>
-					<a class="nav-link" href="#contact">{{contact}}</a>
-					<sl-dropdown>
-						<!-- NEW TRIGGER: span element to display the selected language -->
-						<span class="nav-language-trigger" id="language_display_trigger" slot="trigger">
-							<!-- Initial state, set to default EN -->
-							{{language_tag}}
-						</span>
-						<sl-menu>
-							<sl-menu-item><a href="/">🇬🇧 EN (English)</a></sl-menu-item>
-							<sl-menu-item><a href="/sr">🇷🇸 SR (Srpski)</a></sl-menu-item>
-							<sl-menu-item><a href="/de">🇩🇪 DE (Deutsch)</a></sl-menu-item>
-							<sl-menu-item><a href="/it">🇮🇹 IT (Italiano)</a></sl-menu-item>
-						</sl-menu>
-					</sl-dropdown>
-				</div>
-				<div>
-					<a class="nav-cta" onclick="open_booking()" style="cursor: pointer">{{nav_cta}}</a>
-				</div>
-			</div>
-			<div class="hero-content">
-				<div class="logo-area">KOZARA PANORAMIC RESORT</div>
-				<h2>{{subtitle}}</h2>
-			</div>
-		</header>
-		<sl-drawer id="drawer_menu" label="Navigation">
-			<a class="nav-link" href="#chalets" onclick="drawer_menu.hide()">{{nav_chalets}}</a>
-			<a class="nav-link" href="#location" onclick="drawer_menu.hide()">{{nav_location}}</a>
-			<!--<a href="#reviews" class="nav-link" onclick="drawer_menu.hide()" data-i8n="nav_reviews">Reviews</a>-->
-			<a class="nav-link" href="#blog" onclick="drawer_menu.hide()">{{nav_blog}}</a>
-			<a class="nav-link" href="#contact" onclick="drawer_menu.hide()">{{contact}}</a>
-			<sl-dropdown>
-				<!-- NEW TRIGGER: span element to display the selected language -->
-				<span class="nav-language-trigger" id="language_display_trigger" slot="trigger">
-					<!-- Initial state, set to default EN -->
-					{{language_tag}}
-				</span>
-				<sl-menu>
-					<sl-menu-item><a href="/">🇬🇧 EN (English)</a></sl-menu-item>
-					<sl-menu-item><a href="/sr">🇷🇸 SR (Srpski)</a></sl-menu-item>
-					<sl-menu-item><a href="/de">🇩🇪 DE (Deutsch)</a></sl-menu-item>
-					<sl-menu-item><a href="/it">🇮🇹 IT (Italiano)</a></sl-menu-item>
-				</sl-menu>
-			</sl-dropdown>
-		</sl-drawer>
-		<sl-icon-button id="btn_menu" onclick="drawer_menu.show()" src="/assets/amenities_icons/menu.svg"></sl-icon-button>
-		<div class="booking-container" id="booking">
-			<div class="booking-bar">
-				<div class="input-group">
-					<label>{{date_check_check_in}}</label>
-					<input id="c_arrive" />
-				</div>
-				<div class="input-group">
-					<label>{{date_check_check_out}}</label>
-					<input id="c_depart" />
-				</div>
-				<button class="btn-check" onclick="check_date_range()">{{date_check_btn}}</button>
-			</div>
-		</div>
-		<section class="intro">
-			<h3 class="section-title">{{intro_title}}</h3>
-			<p class="lead">{{intro_subtitle}}</p>
-		</section>
-		<section class="disclaimer-section">
-			<div class="notice-card">
-				<div class="notice-badge">{{offer_card}}</div>
-				<h3>{{offer_title}}</h3>
-				<p class="notice-text">{{offer_desc}}</p>
-				<div class="notice-divider"></div>
-				<div class="notice-footer">
-					<strong>{{offer_notice_title}}</strong>
-					<span>{{offer_notice_desc}}</span>
-				</div>
-			</div>
-		</section>
-		<section class="carousel-container">
-			<sl-carousel autoplay="" autoplay-interval="3000" id="autocarousel" loop="" navigation="" pagination="" slides-per-page="3">
-				<sl-carousel-item><img alt="Mountain 1" src="/assets/Carousel/image00004.webp" /></sl-carousel-item>
-				<sl-carousel-item><img alt="Interior 1" src="/assets/Carousel/image00006.webp" /></sl-carousel-item>
-				<sl-carousel-item><img alt="Winter" src="/assets/Carousel/image08178.webp" /></sl-carousel-item>
-				<sl-carousel-item><img alt="Forest" src="/assets/Carousel/image08180.webp" /></sl-carousel-item>
-				<sl-carousel-item><img alt="Adventure" src="/assets/Carousel/image08195.webp" /></sl-carousel-item>
-			</sl-carousel>
-		</section>
-		<section class="chalets-section" id="chalets">
-			<div style="text-align: center; margin-bottom: 40px">
-				<h3 class="section-title">{{chalets_title}}</h3>
-				<p>{{chalets_desc}}</p>
-			</div>
-			<div class="chalet-grid">
-				<div class="chalet-card">
-					<div class="special-badge red">Unavailable for selected dates</div>
-					<img alt="Cloud Chalet" class="chalet-img" src="/assets/Chalets/wind/chaelt41.jpeg" />
-					<div class="chalet-details">
-						<h4>The Wind Chalet</h4>
-						<!-- <p class="amenities">Sleeps 4 • Jacuzzi • Forest View</p> -->
-						<button class="btn-view" onclick="openModal('wind')">{{chalets_details_btn}}</button>
-					</div>
-				</div>
-				<div class="chalet-card">
-					<div class="special-badge red">Unavailable for selected dates</div>
-					<img alt="Summit Lodge" class="chalet-img" src="/assets/Chalets/sun/chaelt51.jpeg" />
-					<div class="chalet-details">
-						<h4>The Sun Chalet</h4>
-						<!-- <p class="amenities">Sleeps 8 • Private Spa • Panoramic Glass</p> -->
-						<button class="btn-view" onclick="openModal('summit')">{{chalets_details_btn}}</button>
-					</div>
-				</div>
-				<div class="chalet-card special">
-					<div class="special-badge red">Unavailable for selected dates</div>
-					<div class="special-badge">{{secluded_badge}}</div>
-					<img alt="Star Cabin" class="chalet-img" src="/assets/Chalets/star/chalet5_cropped.jpeg" />
-					<div class="chalet-details">
-						<h4>The Star Chalet</h4>
-						<!-- <p class="amenities">Sleeps 6 • Fireplace • Large Terrace</p> -->
-						<button class="btn-view" onclick="openModal('star')">{{chalets_details_btn}}</button>
-					</div>
-				</div>
-				<div class="chalet-card">
-					<div class="special-badge red">Unavailable for selected dates</div>
-					<img alt="Wind Cabin" class="chalet-img" src="/assets/Chalets/sky/chalet3_cropped1.jpeg" />
-					<div class="chalet-details">
-						<h4>The Sky Chalet</h4>
-						<!-- <p class="amenities">Sleeps 2 • Secluded • Romantic</p> -->
-						<button class="btn-view" onclick="openModal('sky')">{{chalets_details_btn}}</button>
-					</div>
-				</div>
-				<div class="chalet-card">
-					<div class="special-badge red">Unavailable for selected dates</div>
-					<img alt="Sky Cabin" class="chalet-img" src="/assets/Chalets/cloud/chalet5_cropped.jpg" />
-					<div class="chalet-details">
-						<h4>The Cloud Chalet</h4>
-						<!-- <p class="amenities">Sleeps 5 • Pet Friendly • BBQ</p> -->
-						<button class="btn-view" onclick="openModal('cloud')">{{chalets_details_btn}}</button>
-					</div>
-				</div>
-			</div>
-		</section>
-		<section class="location-section" id="location">
-			<div class="location-overlay"></div>
-			<div class="location-content">
-				<h3 class="section-title" style="color: var(--sand-beige)">{{location_title}}</h3>
-				<p style="margin-bottom: 30px; font-size: 1.1rem">{{location_description}}</p>
-				<p class="location-quote">{{location_quote}}</p>
-				<div class="location-image-container">
-					<!-- Using the newly uploaded, cleaner filename -->
-					<img alt="Just follow the signs." class="location-signs-img" src="/assets/signs2.webp" />
-				</div>
-				<p class="map-hint">{{location_hint}}</p>
-				<div class="map-frame">
-					<iframe allowfullscreen="" height="450" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3191.7678145893565!2d17.0941569!3d45.0086252!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4767510061c8c7eb%3A0xcf311465b69a3e2c!2sKozara%20Panoramic%20Resort!5e1!3m2!1sbs!2sba!4v1763826019486!5m2!1sen!2sba" style="border: 0" width="600"></iframe>
-				</div>
-			</div>
-		</section>
-		<section class="reviews-section" id="reviews">
-			<h3 class="section-title">Guest Testimonials</h3>
-			<div class="review-grid">
-				<div class="review-card">
-					<p>"The best mountain retreat we have ever experienced. The Star Cabin fireplace was magical."</p>
-					<div class="reviewer">— ANA &amp; MARKO, Sarajevo</div>
-				</div>
-				<div class="review-card">
-					<p>"Pure luxury in the wilderness. The Cloud Cabin jacuzzi was perfect after a long hike."</p>
-					<div class="reviewer">— DAMIR M., Beograd</div>
-				</div>
-				<div class="review-card">
-					<p>"A truly unique spot in Kozara National Park. Modern but cozy design."</p>
-					<div class="reviewer">— THE JUSIC FAMILY</div>
-				</div>
-			</div>
-		</section>
-		<section class="section-padding" id="about-us">
-			<div class="content-layout">
-				<div class="content-text">
-					<h3 class="section-title" style="text-align: left">{{about_us_title}}</h3>
-					<p>{{about_us_desc1}}</p>
-					<p>{{about_us_desc2}}</p>
-				</div>
-				<div class="content-image">
-					<img alt="Hiking sign" src="/assets/Text Blocks/image08198.webp" />
-				</div>
-			</div>
-		</section>
-		<section class="section-padding blog-section" id="about-kozara">
-			<div class="content-layout reverse">
-				<div class="content-text">
-					<h3 class="section-title" style="text-align: left">{{about_kozara_title}}</h3>
-					<p>{{about_kozara_desc1}}</p>
-					<p>{{about_kozara_desc2}}</p>
-				</div>
-				<div class="content-image">
-					<img alt="Kozara amenity" src="/assets/Text Blocks/Kozara-fotobaza-Ajdin-Kamber.webp" />
-				</div>
-			</div>
-		</section>
-		<section class="section-padding" id="blog">
-			<h3 class="section-title">{{blog_title}}</h3>
-			<div class="blog-grid" style="display: {{YES_BLOGS}};">
-				<div class="blog-card">
-					<img src="{{BLOG_IMG}}" class="blog-img" alt="Blog 1 cover image" />
-					<h4 style="min-height: 2.5em">{{BLOG_TITLE}}</h4>
-					<a class="read-blog" href="/blog/{{BLOG_ID}}">{{read_article}}</a>
-				</div>
-				<div class="blog-card">
-					<img src="{{BLOG_IMG}}" class="blog-img" alt="Blog 2 cover image" />
-					<h4 style="min-height: 2.5em">{{BLOG_TITLE}}</h4>
-					<a class="read-blog" href="/blog/{{BLOG_ID}}">{{read_article}}</a>
-				</div>
-				<div class="blog-card">
-					<img src="{{BLOG_IMG}}" class="blog-img" alt="Blog 3 cover image" />
-					<h4 style="min-height: 2.5em">{{BLOG_TITLE}}</h4>
-					<a class="read-blog" href="/blog/{{BLOG_ID}}">{{read_article}}</a>
-				</div>
-			</div>
-			<a style="display: {{YES_BLOGS}};" class="read-blog" href="/blogs">See all blogs</a>
-			<div style="display: {{NO_BLOGS}}; justify-content: center;">
-				<span style="font-size: 1.5rem; font-style: italic">{{blog_desc}}</span>
-			</div>
-		</section>
-		<section class="section-padding faq-section" id="faq" style="background-color: var(--bg-soft)">
-			<h3 class="section-title">{{faq_title}}</h3>
-			<div class="faq-container">
-				<div>
-					<sl-details summary="{{faq_heating_q}}">{{faq_heating_a}}</sl-details>
-					<sl-details summary="{{faq_kitchen_q}}">{{faq_kitchen_a}}</sl-details>
-					<sl-details summary="{{faq_linens_q}}">{{faq_linens_a}}</sl-details>
-					<sl-details summary="{{faq_wifi_q}}">{{faq_wifi_a}}</sl-details>
-					<sl-details summary="{{faq_pool_heating_q}}">{{faq_pool_heating_a}}</sl-details>
-					<sl-details summary="{{faq_lifeguard_q}}">{{faq_lifeguard_a}}</sl-details>
-					<sl-details summary="{{faq_checkin_q}}">{{faq_checkin_a}}</sl-details>
-					<sl-details summary="{{faq_deposit_q}}">{{faq_deposit_a}}</sl-details>
-					<sl-details summary="{{faq_cancel_q}}">{{faq_cancel_a}}</sl-details>
-					<sl-details summary="{{faq_payment_q}}">{{faq_payment_a}}</sl-details>
-					<sl-details summary="{{faq_tax_q}}">{{faq_tax_a}}</sl-details>
-				</div>
-				<div>
-					<sl-details summary="{{faq_shops_q}}">{{faq_shops_a}}</sl-details>
-					<sl-details summary="{{faq_housekeeping_q}}">{{faq_housekeeping_a}}</sl-details>
-					<sl-details summary="{{faq_laundry_q}}">{{faq_laundry_a}}</sl-details>
-					<sl-details summary="{{faq_baby_q}}">{{faq_baby_a}}</sl-details>
-					<sl-details summary="{{faq_pets_q}}">{{faq_pets_a}}</sl-details>
-					<sl-details summary="{{faq_parking_q}}">{{faq_parking_a}}</sl-details>
-					<!--<sl-details -->
-					<!--    data-i8n-summary="faq_ev_q" -->
-					<!--    data-i8n="faq_ev_a" -->
-					<!--    summary="Do you have an EV charging station?">-->
-					<!--    Not currently, though one is planned for the future. The nearest petrol station is on the main road to Gradiška (approx. 18 km).-->
-					<!--</sl-details>-->
-					<sl-details summary="{{faq_quiet_q}}">{{faq_quiet_a}}</sl-details>
-					<sl-details summary="{{faq_airport_q}}">{{faq_airport_a}}</sl-details>
-					<sl-details summary="{{faq_yearround_q}}">{{faq_yearround_a}}</sl-details>
-					<sl-details summary="{{faq_find_q}}">{{faq_find_a}}</sl-details>
-				</div>
-			</div>
-		</section>
-		<section class="cta-band">
-			<h3>{{closing_title}}</h3>
-			<p>{{closing_desc}}</p>
-			<a class="btn-cta-large" href="#booking">{{date_check_btn}}</a>
-		</section>
-		<footer id="contact">
-			<div class="footer-logo">KOZARA PANORAMIC RESORT</div>
-			<!-- Updated Footer Links -->
-			<div class="footer-links">
-				<a href="/{{language_code}}/notice#impressum">{{footer-impressum}}</a> | <a href="/{{language_code}}/notice#terms">{{footer-terms}}</a> | <a href="/{{language_code}}/notice#privacy">{{footer-privacy}}</a> |
-				<a href="/{{language_code}}/notice#impressum">{{footer-contact}}</a>
-			</div>
-			<p>© Kozara Panoramic Resort – PEVA d.o.o. All rights reserved.</p>
-		</footer>
-		<sl-dialog id="chalet_dialog" label="The Cloud Cabin">
-			<p class="dialog-desc" id="dialog-desc">The Cloud cabin floats above the clouds, surrounded by silence and a view that connects sky and earth. It's made for those who seek inspiration and peace in moments of pure stillness.</p>
-			<sl-carousel class="dialog-gallery" loop="" navigation=""> </sl-carousel>
-			<div class="dialog-thumbnails">
-				<div class="thumbnails__scroller"></div>
-			</div>
-			<div class="dialog-amenities">
-				<span class="amenity-pill"><sl-icon src="/assets/amenities_icons/wifi.svg"></sl-icon> <span>{{chalets_amenities_wifi}}</span></span>
-				<span class="amenity-pill"><sl-icon src="/assets/amenities_icons/coffee.svg"></sl-icon> <span>{{chalets_amenities_espresso}}</span></span>
-				<span class="amenity-pill"><sl-icon src="/assets/amenities_icons/air-vent.svg"></sl-icon> <span>{{chalets_amenities_ac}}</span></span>
-				<span class="amenity-pill"><sl-icon src="/assets/amenities_icons/microwave.svg"></sl-icon> <span>{{chalets_amenities_microwave}}</span></span>
-				<span class="amenity-pill"><sl-icon src="/assets/amenities_icons/sandwich.svg"></sl-icon> <span>{{chalets_amenities_toast}}</span></span>
-				<span class="amenity-pill"><sl-icon src="/assets/amenities_icons/cooking-pot.svg"></sl-icon> <span>{{chalets_amenities_hob}}</span></span>
-				<span class="amenity-pill"><sl-icon src="/assets/amenities_icons/refrigerator.svg"></sl-icon> <span>{{chalets_amenities_fridge}}</span></span>
-				<span class="amenity-pill"><sl-icon src="/assets/amenities_icons/bed.svg"></sl-icon> <span>{{chalets_amenities_bed}}</span></span>
-				<span class="amenity-pill"><sl-icon src="/assets/amenities_icons/shower-head.svg"></sl-icon> <span>{{chalets_amenities_shower}}</span></span>
-				<span class="amenity-pill"><sl-icon src="/assets/amenities_icons/tv.svg"></sl-icon> <span>Firestick TV</span></span>
-				<span class="amenity-pill"><sl-icon src="/assets/amenities_icons/sofa.svg"></sl-icon> <span>{{chalets_amenities_sofa}}</span></span>
-				<span class="amenity-pill"><sl-icon src="/assets/amenities_icons/vault.svg"></sl-icon> <span>{{chalets_amenities_safe}}</span></span>
-			</div>
-			<button class="btn-book-dialog" onclick="chalet_dialog.hide();open_booking();" slot="footer">{{chalets_btn}}</button>
-		</sl-dialog>
-		<sl-dialog id="book_dialog" label="Book">
-			<div id="switch_container" slot="header-actions">
-				<span onclick="currency_switch.click()">BAM</span>
-				<sl-switch id="currency_switch"></sl-switch>
-				<span onclick="currency_switch.click()">EUR</span>
-			</div>
-			<div id="book_calendar_wrapper"></div>
-			<form id="book_form">
-				<fieldset group="1">
-					<legend>{{booking_form_occupants_title}}</legend>
-					<div>
-						<sl-input enterkeyhint="next" inputmode="numeric" label="{{booking_form_occupants_n_ad}}" max="6" min="1" name="numAdults" required="" type="number" value="1"></sl-input>
-						<sl-input enterkeyhint="next" inputmode="numeric" label="{{booking_form_occupants_n_ch}}" max="2" min="0" name="numChildren" required="" type="number" value="0"></sl-input>
-					</div>
-					<span>
-						<sl-icon src="/assets/amenities_icons/circle-alert.svg"></sl-icon>
-						<span>{{booking_form_occupants_note}}</span>
-					</span>
-				</fieldset>
-				<fieldset group="2">
-					<legend>{{booking_form_billing_title}}</legend>
-					<sl-input enterkeyhint="next" label="{{booking_form_billing_address}}" name="billingAddress" required=""></sl-input>
-					<sl-input enterkeyhint="next" label="{{booking_form_billing_city}}" name="billingCity" required=""></sl-input>
-					<sl-select autocomplete="country" label="{{booking_form_billing_country}}" name="billingCountry" required="">
-						<sl-divider></sl-divider>
-						<sl-option value="AF">Afghanistan</sl-option>
-						<sl-option value="AL">Albania</sl-option>
-						<sl-option value="DZ">Algeria</sl-option>
-						<sl-option value="AS">American Samoa</sl-option>
-						<sl-option value="AD">Andorra</sl-option>
-						<sl-option value="AO">Angola</sl-option>
-						<sl-option value="AI">Anguilla</sl-option>
-						<sl-option value="AQ">Antarctica</sl-option>
-						<sl-option value="AG">Antigua and Barbuda</sl-option>
-						<sl-option value="AR">Argentina</sl-option>
-						<sl-option value="AM">Armenia</sl-option>
-						<sl-option value="AW">Aruba</sl-option>
-						<sl-option value="AU">Australia</sl-option>
-						<sl-option value="AT">Austria</sl-option>
-						<sl-option value="AZ">Azerbaijan</sl-option>
-						<sl-divider></sl-divider>
-						<sl-option value="AX">Åland Islands</sl-option>
-						<sl-divider></sl-divider>
-						<sl-option value="BS">Bahamas</sl-option>
-						<sl-option value="BH">Bahrain</sl-option>
-						<sl-option value="BD">Bangladesh</sl-option>
-						<sl-option value="BB">Barbados</sl-option>
-						<sl-option value="BY">Belarus</sl-option>
-						<sl-option value="BE">Belgium</sl-option>
-						<sl-option value="BZ">Belize</sl-option>
-						<sl-option value="BJ">Benin</sl-option>
-						<sl-option value="BM">Bermuda</sl-option>
-						<sl-option value="BT">Bhutan</sl-option>
-						<sl-option value="BO">Bolivia (Plurinational State of)</sl-option>
-						<sl-option value="BA">Bosnia and Herzegovina</sl-option>
-						<sl-option value="BW">Botswana</sl-option>
-						<sl-option value="BV">Bouvet Island</sl-option>
-						<sl-option value="BR">Brazil</sl-option>
-						<sl-option value="IO">British Indian Ocean Territory</sl-option>
-						<sl-option value="BN">Brunei Darussalam</sl-option>
-						<sl-option value="BG">Bulgaria</sl-option>
-						<sl-option value="BF">Burkina Faso</sl-option>
-						<sl-option value="BI">Burundi</sl-option>
-						<sl-divider></sl-divider>
-						<sl-option value="CV">Cabo Verde</sl-option>
-						<sl-option value="KH">Cambodia</sl-option>
-						<sl-option value="CM">Cameroon</sl-option>
-						<sl-option value="CA">Canada</sl-option>
-						<sl-option value="BQ">Caribbean Netherlands</sl-option>
-						<sl-option value="KY">Cayman Islands</sl-option>
-						<sl-option value="CF">Central African Republic</sl-option>
-						<sl-option value="TD">Chad</sl-option>
-						<sl-option value="CL">Chile</sl-option>
-						<sl-option value="CN">China</sl-option>
-						<sl-option value="CX">Christmas Island</sl-option>
-						<sl-option value="CC">Cocos (Keeling) Islands</sl-option>
-						<sl-option value="CO">Colombia</sl-option>
-						<sl-option value="KM">Comoros</sl-option>
-						<sl-option value="CG">Congo</sl-option>
-						<sl-option value="CD">Congo, Democratic Republic of the</sl-option>
-						<sl-option value="CK">Cook Islands</sl-option>
-						<sl-option value="CR">Costa Rica</sl-option>
-						<sl-option value="HR">Croatia</sl-option>
-						<sl-option value="CU">Cuba</sl-option>
-						<sl-option value="CW">Curaçao</sl-option>
-						<sl-option value="CY">Cyprus</sl-option>
-						<sl-option value="CZ">Czech Republic</sl-option>
-						<sl-option value="CI">Côte d'Ivoire</sl-option>
-						<sl-divider></sl-divider>
-						<sl-option value="DK">Denmark</sl-option>
-						<sl-option value="DJ">Djibouti</sl-option>
-						<sl-option value="DM">Dominica</sl-option>
-						<sl-option value="DO">Dominican Republic</sl-option>
-						<sl-divider></sl-divider>
-						<sl-option value="EC">Ecuador</sl-option>
-						<sl-option value="EG">Egypt</sl-option>
-						<sl-option value="SV">El Salvador</sl-option>
-						<sl-option value="GQ">Equatorial Guinea</sl-option>
-						<sl-option value="ER">Eritrea</sl-option>
-						<sl-option value="EE">Estonia</sl-option>
-						<sl-option value="SZ">Eswatini (Swaziland)</sl-option>
-						<sl-option value="ET">Ethiopia</sl-option>
-						<sl-divider></sl-divider>
-						<sl-option value="FK">Falkland Islands (Malvinas)</sl-option>
-						<sl-option value="FO">Faroe Islands</sl-option>
-						<sl-option value="FJ">Fiji</sl-option>
-						<sl-option value="FI">Finland</sl-option>
-						<sl-option value="FR">France</sl-option>
-						<sl-option value="GF">French Guiana</sl-option>
-						<sl-option value="PF">French Polynesia</sl-option>
-						<sl-option value="TF">French Southern Territories</sl-option>
-						<sl-divider></sl-divider>
-						<sl-option value="GA">Gabon</sl-option>
-						<sl-option value="GM">Gambia</sl-option>
-						<sl-option value="GE">Georgia</sl-option>
-						<sl-option value="DE">Germany</sl-option>
-						<sl-option value="GH">Ghana</sl-option>
-						<sl-option value="GI">Gibraltar</sl-option>
-						<sl-option value="GR">Greece</sl-option>
-						<sl-option value="GL">Greenland</sl-option>
-						<sl-option value="GD">Grenada</sl-option>
-						<sl-option value="GP">Guadeloupe</sl-option>
-						<sl-option value="GU">Guam</sl-option>
-						<sl-option value="GT">Guatemala</sl-option>
-						<sl-option value="GG">Guernsey</sl-option>
-						<sl-option value="GN">Guinea</sl-option>
-						<sl-option value="GW">Guinea-Bissau</sl-option>
-						<sl-option value="GY">Guyana</sl-option>
-						<sl-divider></sl-divider>
-						<sl-option value="HT">Haiti</sl-option>
-						<sl-option value="HM">Heard Island and Mcdonald Islands</sl-option>
-						<sl-option value="HN">Honduras</sl-option>
-						<sl-option value="HK">Hong Kong</sl-option>
-						<sl-option value="HU">Hungary</sl-option>
-						<sl-divider></sl-divider>
-						<sl-option value="IS">Iceland</sl-option>
-						<sl-option value="IN">India</sl-option>
-						<sl-option value="ID">Indonesia</sl-option>
-						<sl-option value="IR">Iran</sl-option>
-						<sl-option value="IQ">Iraq</sl-option>
-						<sl-option value="IE">Ireland</sl-option>
-						<sl-option value="IM">Isle of Man</sl-option>
-						<sl-option value="IL">Israel</sl-option>
-						<sl-option value="IT">Italy</sl-option>
-						<sl-divider></sl-divider>
-						<sl-option value="JM">Jamaica</sl-option>
-						<sl-option value="JP">Japan</sl-option>
-						<sl-option value="JE">Jersey</sl-option>
-						<sl-option value="JO">Jordan</sl-option>
-						<sl-divider></sl-divider>
-						<sl-option value="KZ">Kazakhstan</sl-option>
-						<sl-option value="KE">Kenya</sl-option>
-						<sl-option value="KI">Kiribati</sl-option>
-						<sl-option value="KP">Korea, North</sl-option>
-						<sl-option value="KR">Korea, South</sl-option>
-						<sl-option value="XK">Kosovo</sl-option>
-						<sl-option value="KW">Kuwait</sl-option>
-						<sl-option value="KG">Kyrgyzstan</sl-option>
-						<sl-divider></sl-divider>
-						<sl-option value="LA">Lao People's Democratic Republic</sl-option>
-						<sl-option value="LV">Latvia</sl-option>
-						<sl-option value="LB">Lebanon</sl-option>
-						<sl-option value="LS">Lesotho</sl-option>
-						<sl-option value="LR">Liberia</sl-option>
-						<sl-option value="LY">Libya</sl-option>
-						<sl-option value="LI">Liechtenstein</sl-option>
-						<sl-option value="LT">Lithuania</sl-option>
-						<sl-option value="LU">Luxembourg</sl-option>
-						<sl-divider></sl-divider>
-						<sl-option value="MO">Macao</sl-option>
-						<sl-option value="MK">Macedonia North</sl-option>
-						<sl-option value="MG">Madagascar</sl-option>
-						<sl-option value="MW">Malawi</sl-option>
-						<sl-option value="MY">Malaysia</sl-option>
-						<sl-option value="MV">Maldives</sl-option>
-						<sl-option value="ML">Mali</sl-option>
-						<sl-option value="MT">Malta</sl-option>
-						<sl-option value="MH">Marshall Islands</sl-option>
-						<sl-option value="MQ">Martinique</sl-option>
-						<sl-option value="MR">Mauritania</sl-option>
-						<sl-option value="MU">Mauritius</sl-option>
-						<sl-option value="YT">Mayotte</sl-option>
-						<sl-option value="MX">Mexico</sl-option>
-						<sl-option value="FM">Micronesia</sl-option>
-						<sl-option value="MD">Moldova</sl-option>
-						<sl-option value="MC">Monaco</sl-option>
-						<sl-option value="MN">Mongolia</sl-option>
-						<sl-option value="ME">Montenegro</sl-option>
-						<sl-option value="MS">Montserrat</sl-option>
-						<sl-option value="MA">Morocco</sl-option>
-						<sl-option value="MZ">Mozambique</sl-option>
-						<sl-option value="MM">Myanmar (Burma)</sl-option>
-						<sl-divider></sl-divider>
-						<sl-option value="NA">Namibia</sl-option>
-						<sl-option value="NR">Nauru</sl-option>
-						<sl-option value="NP">Nepal</sl-option>
-						<sl-option value="NL">Netherlands</sl-option>
-						<sl-option value="AN">Netherlands Antilles</sl-option>
-						<sl-option value="NC">New Caledonia</sl-option>
-						<sl-option value="NZ">New Zealand</sl-option>
-						<sl-option value="NI">Nicaragua</sl-option>
-						<sl-option value="NE">Niger</sl-option>
-						<sl-option value="NG">Nigeria</sl-option>
-						<sl-option value="NU">Niue</sl-option>
-						<sl-option value="NF">Norfolk Island</sl-option>
-						<sl-option value="MP">Northern Mariana Islands</sl-option>
-						<sl-option value="NO">Norway</sl-option>
-						<sl-divider></sl-divider>
-						<sl-option value="OM">Oman</sl-option>
-						<sl-divider></sl-divider>
-						<sl-option value="PK">Pakistan</sl-option>
-						<sl-option value="PW">Palau</sl-option>
-						<sl-option value="PS">Palestine</sl-option>
-						<sl-option value="PA">Panama</sl-option>
-						<sl-option value="PG">Papua New Guinea</sl-option>
-						<sl-option value="PY">Paraguay</sl-option>
-						<sl-option value="PE">Peru</sl-option>
-						<sl-option value="PH">Philippines</sl-option>
-						<sl-option value="PN">Pitcairn Islands</sl-option>
-						<sl-option value="PL">Poland</sl-option>
-						<sl-option value="PT">Portugal</sl-option>
-						<sl-option value="PR">Puerto Rico</sl-option>
-						<sl-divider></sl-divider>
-						<sl-option value="QA">Qatar</sl-option>
-						<sl-divider></sl-divider>
-						<sl-option value="RE">Reunion</sl-option>
-						<sl-option value="RO">Romania</sl-option>
-						<sl-option value="RU">Russian Federation</sl-option>
-						<sl-option value="RW">Rwanda</sl-option>
-						<sl-divider></sl-divider>
-						<sl-option value="BL">Saint Barthelemy</sl-option>
-						<sl-option value="SH">Saint Helena</sl-option>
-						<sl-option value="KN">Saint Kitts and Nevis</sl-option>
-						<sl-option value="LC">Saint Lucia</sl-option>
-						<sl-option value="MF">Saint Martin</sl-option>
-						<sl-option value="PM">Saint Pierre and Miquelon</sl-option>
-						<sl-option value="VC">Saint Vincent and the Grenadines</sl-option>
-						<sl-option value="WS">Samoa</sl-option>
-						<sl-option value="SM">San Marino</sl-option>
-						<sl-option value="ST">Sao Tome and Principe</sl-option>
-						<sl-option value="SA">Saudi Arabia</sl-option>
-						<sl-option value="SN">Senegal</sl-option>
-						<sl-option value="RS">Serbia</sl-option>
-						<sl-option value="CS">Serbia and Montenegro</sl-option>
-						<sl-option value="SC">Seychelles</sl-option>
-						<sl-option value="SL">Sierra Leone</sl-option>
-						<sl-option value="SG">Singapore</sl-option>
-						<sl-option value="SX">Sint Maarten</sl-option>
-						<sl-option value="SK">Slovakia</sl-option>
-						<sl-option value="SI">Slovenia</sl-option>
-						<sl-option value="SB">Solomon Islands</sl-option>
-						<sl-option value="SO">Somalia</sl-option>
-						<sl-option value="ZA">South Africa</sl-option>
-						<sl-option value="GS">South Georgia and the South Sandwich Islands</sl-option>
-						<sl-option value="SS">South Sudan</sl-option>
-						<sl-option value="ES">Spain</sl-option>
-						<sl-option value="LK">Sri Lanka</sl-option>
-						<sl-option value="SD">Sudan</sl-option>
-						<sl-option value="SR">Suriname</sl-option>
-						<sl-option value="SJ">Svalbard and Jan Mayen</sl-option>
-						<sl-option value="SE">Sweden</sl-option>
-						<sl-option value="CH">Switzerland</sl-option>
-						<sl-option value="SY">Syria</sl-option>
-						<sl-divider></sl-divider>
-						<sl-option value="TW">Taiwan</sl-option>
-						<sl-option value="TJ">Tajikistan</sl-option>
-						<sl-option value="TZ">Tanzania</sl-option>
-						<sl-option value="TH">Thailand</sl-option>
-						<sl-option value="TL">Timor-Leste</sl-option>
-						<sl-option value="TG">Togo</sl-option>
-						<sl-option value="TK">Tokelau</sl-option>
-						<sl-option value="TO">Tonga</sl-option>
-						<sl-option value="TT">Trinidad and Tobago</sl-option>
-						<sl-option value="TN">Tunisia</sl-option>
-						<sl-option value="TR">Turkey (Türkiye)</sl-option>
-						<sl-option value="TM">Turkmenistan</sl-option>
-						<sl-option value="TC">Turks and Caicos Islands</sl-option>
-						<sl-option value="TV">Tuvalu</sl-option>
-						<sl-divider></sl-divider>
-						<sl-option value="UM">U.S. Outlying Islands</sl-option>
-						<sl-option value="UG">Uganda</sl-option>
-						<sl-option value="UA">Ukraine</sl-option>
-						<sl-option value="AE">United Arab Emirates</sl-option>
-						<sl-option value="GB">United Kingdom</sl-option>
-						<sl-option value="US">United States</sl-option>
-						<sl-option value="UY">Uruguay</sl-option>
-						<sl-option value="UZ">Uzbekistan</sl-option>
-						<sl-divider></sl-divider>
-						<sl-option value="VU">Vanuatu</sl-option>
-						<sl-option value="VA">Vatican City Holy See</sl-option>
-						<sl-option value="VE">Venezuela</sl-option>
-						<sl-option value="VN">Vietnam</sl-option>
-						<sl-option value="VG">Virgin Islands, British</sl-option>
-						<sl-option value="VI">Virgin Islands, U.S</sl-option>
-						<sl-divider></sl-divider>
-						<sl-option value="WF">Wallis and Futuna</sl-option>
-						<sl-option value="EH">Western Sahara</sl-option>
-						<sl-divider></sl-divider>
-						<sl-option value="YE">Yemen</sl-option>
-						<sl-divider></sl-divider>
-						<sl-option value="ZM">Zambia</sl-option>
-						<sl-option value="ZW">Zimbabwe</sl-option>
-					</sl-select>
-					<sl-input enterkeyhint="next" inputmode="numeric" label="{{booking_form_billing_postcode}}" name="billingPostCode" required=""></sl-input>
-					<sl-input enterkeyhint="next" label="{{booking_form_billing_fname}}" name="customerName" required=""></sl-input>
-					<sl-input enterkeyhint="next" label="{{booking_form_billing_lname}}" name="customerLastName" required=""></sl-input>
-					<sl-input enterkeyhint="next" inputmode="email" label="Email" name="customerEmail" required="" type="email"></sl-input>
-					<sl-input enterkeyhint="done" inputmode="tel" label="{{booking_form_billing_pnum}}" name="customerPhone" required="" type="tel"></sl-input>
-				</fieldset>
-				<sl-button id="ptp_btn" type="submit">{{booking_form_btn}}</sl-button>
-			</form>
-		</sl-dialog>
-		<sl-dialog id="img_preview">
-			<img alt="Click on an image to preview it here" src="" />
-		</sl-dialog>
-		<script>
-			let prices_data = null
-			// Data for the Modals
-			const chaletData = {
-				wind: {
-					title: "The Wind Chalet",
-					desc: `{{wind_desc}}`,
-					images: ["/assets/Chalets/wind/image00004.webp", "/assets/Chalets/wind/image00006.webp", "/assets/Chalets/wind/image00009.webp", "/assets/Chalets/wind/image00016.webp", "/assets/Chalets/wind/image00022.webp", "/assets/Chalets/wind/image00026.webp", "/assets/Chalets/wind/image00035.webp", "/assets/Chalets/wind/image00036.webp", "/assets/Chalets/wind/image08170.webp", "/assets/Chalets/wind/image08191.webp", "/assets/Chalets/wind/image08192.webp"],
-				},
-				summit: {
-					title: "The Sun Chalet",
-					desc: `{{summit_desc}}`,
-					images: ["/assets/Chalets/sun/image00004.webp", "/assets/Chalets/sun/image00006.webp", "/assets/Chalets/sun/image00009.webp", "/assets/Chalets/sun/image00016.webp", "/assets/Chalets/sun/image00022.webp", "/assets/Chalets/sun/image00026.webp", "/assets/Chalets/sun/image00035.webp", "/assets/Chalets/sun/image00036.webp", "/assets/Chalets/sun/image08170.webp", "/assets/Chalets/sun/image08191.webp", "/assets/Chalets/sun/image08192.webp"],
-				},
-				star: {
-					title: "The Star Chalet",
-					desc: `{{star_desc}}`,
-					images: ["/assets/Chalets/star/image00004.webp", "/assets/Chalets/star/image00006.webp", "/assets/Chalets/star/image00009.webp", "/assets/Chalets/star/image00010.webp", "/assets/Chalets/star/image00016.webp", "/assets/Chalets/star/image00026.webp", "/assets/Chalets/star/image00035.webp", "/assets/Chalets/star/image00036.webp", "/assets/Chalets/star/image00001.webp", "/assets/Chalets/star/image00003.webp", "/assets/Chalets/star/image08184.webp"],
-				},
-				cloud: {
-					title: "The Cloud Chalet",
-					desc: `{{cloud_desc}}`,
-					images: ["/assets/Chalets/cloud/image00004.webp", "/assets/Chalets/cloud/image00006.webp", "/assets/Chalets/cloud/image00009.webp", "/assets/Chalets/cloud/image00016.webp", "/assets/Chalets/cloud/image00022.webp", "/assets/Chalets/cloud/image00026.webp", "/assets/Chalets/cloud/image00035.webp", "/assets/Chalets/cloud/image00036.webp", "/assets/Chalets/cloud/image08170.webp", "/assets/Chalets/cloud/image08191.webp", "/assets/Chalets/cloud/image08192.webp"],
-				},
-				sky: {
-					title: "The Sky Chalet",
-					desc: `{{sky_desc}}`,
-					images: ["/assets/Chalets/sky/image00004.webp", "/assets/Chalets/sky/image00006.webp", "/assets/Chalets/sky/image00009.webp", "/assets/Chalets/sky/image00016.webp", "/assets/Chalets/sky/image00022.webp", "/assets/Chalets/sky/image00026.webp", "/assets/Chalets/sky/image00035.webp", "/assets/Chalets/sky/image00036.webp", "/assets/Chalets/sky/image08170.webp", "/assets/Chalets/sky/image08191.webp", "/assets/Chalets/sky/image08192.webp"],
-				},
-			}
+<body>
+    <div class="floating-book-btn" href="#" onclick="open_booking()">{{floating}}</div>
+    <header class="hero">
+        <div class="hero-overlay"></div>
+        <div class="nav-bar">
+            <div class="logo-text">KOZARA</div>
+            <div class="nav-links-container">
+                <a class="nav-link" href="#chalets">{{nav_chalets}}</a>
+                <a class="nav-link" href="#location">{{nav_location}}</a>
+                <!-- <a href="#reviews" class="nav-link" data-i8n="nav_reviews">Reviews</a> -->
+                <a class="nav-link" href="#blog">{{nav_blog}}</a>
+                <a class="nav-link" href="#contact">{{contact}}</a>
+                <sl-dropdown>
+                    <!-- NEW TRIGGER: span element to display the selected language -->
+                    <span class="nav-language-trigger" id="language_display_trigger" slot="trigger">
+                        <!-- Initial state, set to default EN -->
+                        {{language_tag}}
+                    </span>
+                    <sl-menu>
+                        <sl-menu-item><a href="/">🇬🇧 EN (English)</a></sl-menu-item>
+                        <sl-menu-item><a href="/sr">🇷🇸 SR (Srpski)</a></sl-menu-item>
+                        <sl-menu-item><a href="/de">🇩🇪 DE (Deutsch)</a></sl-menu-item>
+                        <sl-menu-item><a href="/it">🇮🇹 IT (Italiano)</a></sl-menu-item>
+                    </sl-menu>
+                </sl-dropdown>
+            </div>
+            <div>
+                <a class="nav-cta" onclick="open_booking()" style="cursor: pointer">{{nav_cta}}</a>
+            </div>
+        </div>
+        <div class="hero-content">
+            <div class="logo-area">KOZARA PANORAMIC RESORT</div>
+            <h2>{{subtitle}}</h2>
+        </div>
+    </header>
+    <sl-drawer id="drawer_menu" label="Navigation">
+        <a class="nav-link" href="#chalets" onclick="drawer_menu.hide()">{{nav_chalets}}</a>
+        <a class="nav-link" href="#location" onclick="drawer_menu.hide()">{{nav_location}}</a>
+        <!--<a href="#reviews" class="nav-link" onclick="drawer_menu.hide()" data-i8n="nav_reviews">Reviews</a>-->
+        <a class="nav-link" href="#blog" onclick="drawer_menu.hide()">{{nav_blog}}</a>
+        <a class="nav-link" href="#contact" onclick="drawer_menu.hide()">{{contact}}</a>
+        <sl-dropdown>
+            <!-- NEW TRIGGER: span element to display the selected language -->
+            <span class="nav-language-trigger" id="language_display_trigger" slot="trigger">
+                <!-- Initial state, set to default EN -->
+                {{language_tag}}
+            </span>
+            <sl-menu>
+                <sl-menu-item><a href="/">🇬🇧 EN (English)</a></sl-menu-item>
+                <sl-menu-item><a href="/sr">🇷🇸 SR (Srpski)</a></sl-menu-item>
+                <sl-menu-item><a href="/de">🇩🇪 DE (Deutsch)</a></sl-menu-item>
+                <sl-menu-item><a href="/it">🇮🇹 IT (Italiano)</a></sl-menu-item>
+            </sl-menu>
+        </sl-dropdown>
+    </sl-drawer>
+    <sl-icon-button id="btn_menu" onclick="drawer_menu.show()" src="/assets/amenities_icons/menu.svg"></sl-icon-button>
+    <div class="booking-container" id="booking">
+        <div class="booking-bar">
+            <div class="input-group">
+                <label>{{date_check_check_in}}</label>
+                <input id="c_arrive" />
+            </div>
+            <div class="input-group">
+                <label>{{date_check_check_out}}</label>
+                <input id="c_depart" />
+            </div>
+            <button class="btn-check" onclick="check_date_range()">{{date_check_btn}}</button>
+        </div>
+    </div>
+    <section class="intro">
+        <h3 class="section-title">{{intro_title}}</h3>
+        <p class="lead">{{intro_subtitle}}</p>
+    </section>
+    <section class="disclaimer-section">
+        <div class="notice-card">
+            <div class="notice-badge">{{offer_card}}</div>
+            <h3>{{offer_title}}</h3>
+            <p class="notice-text">{{offer_desc}}</p>
+            <div class="notice-divider"></div>
+            <div class="notice-footer">
+                <strong>{{offer_notice_title}}</strong>
+                <span>{{offer_notice_desc}}</span>
+            </div>
+        </div>
+    </section>
+    <section class="carousel-container">
+        <sl-carousel autoplay="" autoplay-interval="3000" id="autocarousel" loop="" navigation="" pagination=""
+            slides-per-page="3">
+            <sl-carousel-item><img alt="Mountain 1" src="/assets/Carousel/image00004.webp" /></sl-carousel-item>
+            <sl-carousel-item><img alt="Interior 1" src="/assets/Carousel/image00006.webp" /></sl-carousel-item>
+            <sl-carousel-item><img alt="Winter" src="/assets/Carousel/image08178.webp" /></sl-carousel-item>
+            <sl-carousel-item><img alt="Forest" src="/assets/Carousel/image08180.webp" /></sl-carousel-item>
+            <sl-carousel-item><img alt="Adventure" src="/assets/Carousel/image08195.webp" /></sl-carousel-item>
+        </sl-carousel>
+    </section>
+    <section class="chalets-section" id="chalets">
+        <div style="text-align: center; margin-bottom: 40px">
+            <h3 class="section-title">{{chalets_title}}</h3>
+            <p>{{chalets_desc}}</p>
+        </div>
+        <div class="chalet-grid">
+            <div class="chalet-card">
+                <div class="special-badge red">Unavailable for selected dates</div>
+                <img alt="Cloud Chalet" class="chalet-img" src="/assets/Chalets/wind/chaelt41.jpeg" />
+                <div class="chalet-details">
+                    <h4>The Wind Chalet</h4>
+                    <!-- <p class="amenities">Sleeps 4 • Jacuzzi • Forest View</p> -->
+                    <button class="btn-view" onclick="openModal('wind')">{{chalets_details_btn}}</button>
+                </div>
+            </div>
+            <div class="chalet-card">
+                <div class="special-badge red">Unavailable for selected dates</div>
+                <img alt="Summit Lodge" class="chalet-img" src="/assets/Chalets/sun/chaelt51.jpeg" />
+                <div class="chalet-details">
+                    <h4>The Sun Chalet</h4>
+                    <!-- <p class="amenities">Sleeps 8 • Private Spa • Panoramic Glass</p> -->
+                    <button class="btn-view" onclick="openModal('summit')">{{chalets_details_btn}}</button>
+                </div>
+            </div>
+            <div class="chalet-card special">
+                <div class="special-badge red">Unavailable for selected dates</div>
+                <div class="special-badge">{{secluded_badge}}</div>
+                <img alt="Star Cabin" class="chalet-img" src="/assets/Chalets/star/chalet5_cropped.jpeg" />
+                <div class="chalet-details">
+                    <h4>The Star Chalet</h4>
+                    <!-- <p class="amenities">Sleeps 6 • Fireplace • Large Terrace</p> -->
+                    <button class="btn-view" onclick="openModal('star')">{{chalets_details_btn}}</button>
+                </div>
+            </div>
+            <div class="chalet-card">
+                <div class="special-badge red">Unavailable for selected dates</div>
+                <img alt="Wind Cabin" class="chalet-img" src="/assets/Chalets/sky/chalet3_cropped1.jpeg" />
+                <div class="chalet-details">
+                    <h4>The Sky Chalet</h4>
+                    <!-- <p class="amenities">Sleeps 2 • Secluded • Romantic</p> -->
+                    <button class="btn-view" onclick="openModal('sky')">{{chalets_details_btn}}</button>
+                </div>
+            </div>
+            <div class="chalet-card">
+                <div class="special-badge red">Unavailable for selected dates</div>
+                <img alt="Sky Cabin" class="chalet-img" src="/assets/Chalets/cloud/chalet5_cropped.jpg" />
+                <div class="chalet-details">
+                    <h4>The Cloud Chalet</h4>
+                    <!-- <p class="amenities">Sleeps 5 • Pet Friendly • BBQ</p> -->
+                    <button class="btn-view" onclick="openModal('cloud')">{{chalets_details_btn}}</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="location-section" id="location">
+        <div class="location-overlay"></div>
+        <div class="location-content">
+            <h3 class="section-title" style="color: var(--sand-beige)">{{location_title}}</h3>
+            <p style="margin-bottom: 30px; font-size: 1.1rem">{{location_description}}</p>
+            <p class="location-quote">{{location_quote}}</p>
+            <div class="location-image-container">
+                <!-- Using the newly uploaded, cleaner filename -->
+                <img alt="Just follow the signs." class="location-signs-img" src="/assets/signs2.webp" />
+            </div>
+            <p class="map-hint">{{location_hint}}</p>
+            <div class="map-frame">
+                <iframe allowfullscreen="" height="450" referrerpolicy="no-referrer-when-downgrade"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3191.7678145893565!2d17.0941569!3d45.0086252!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4767510061c8c7eb%3A0xcf311465b69a3e2c!2sKozara%20Panoramic%20Resort!5e1!3m2!1sbs!2sba!4v1763826019486!5m2!1sen!2sba"
+                    style="border: 0" width="600"></iframe>
+            </div>
+        </div>
+    </section>
+    <section class="reviews-section" id="reviews">
+        <h3 class="section-title">Guest Testimonials</h3>
+        <div class="review-grid">
+            <div class="review-card">
+                <p>"The best mountain retreat we have ever experienced. The Star Cabin fireplace was magical."</p>
+                <div class="reviewer">— ANA &amp; MARKO, Sarajevo</div>
+            </div>
+            <div class="review-card">
+                <p>"Pure luxury in the wilderness. The Cloud Cabin jacuzzi was perfect after a long hike."</p>
+                <div class="reviewer">— DAMIR M., Beograd</div>
+            </div>
+            <div class="review-card">
+                <p>"A truly unique spot in Kozara National Park. Modern but cozy design."</p>
+                <div class="reviewer">— THE JUSIC FAMILY</div>
+            </div>
+        </div>
+    </section>
+    <section class="section-padding" id="about-us">
+        <div class="content-layout">
+            <div class="content-text">
+                <h3 class="section-title" style="text-align: left">{{about_us_title}}</h3>
+                <p>{{about_us_desc1}}</p>
+                <p>{{about_us_desc2}}</p>
+            </div>
+            <div class="content-image">
+                <img alt="Hiking sign" src="/assets/Text Blocks/image08198.webp" />
+            </div>
+        </div>
+    </section>
+    <section class="section-padding blog-section" id="about-kozara">
+        <div class="content-layout reverse">
+            <div class="content-text">
+                <h3 class="section-title" style="text-align: left">{{about_kozara_title}}</h3>
+                <p>{{about_kozara_desc1}}</p>
+                <p>{{about_kozara_desc2}}</p>
+            </div>
+            <div class="content-image">
+                <img alt="Kozara amenity" src="/assets/Text Blocks/Kozara-fotobaza-Ajdin-Kamber.webp" />
+            </div>
+        </div>
+    </section>
+    <section class="section-padding" id="blog">
+        <h3 class="section-title">{{blog_title}}</h3>
+        <div class="blog-grid" style="display: {{YES_BLOGS}};">
+            <div class="blog-card">
+                <img src="{{BLOG_IMG}}" class="blog-img" alt="Blog 1 cover image" />
+                <h4 style="min-height: 2.5em">{{BLOG_TITLE}}</h4>
+                <a class="read-blog" href="/blog/{{BLOG_ID}}">{{read_article}}</a>
+            </div>
+            <div class="blog-card">
+                <img src="{{BLOG_IMG}}" class="blog-img" alt="Blog 2 cover image" />
+                <h4 style="min-height: 2.5em">{{BLOG_TITLE}}</h4>
+                <a class="read-blog" href="/blog/{{BLOG_ID}}">{{read_article}}</a>
+            </div>
+            <div class="blog-card">
+                <img src="{{BLOG_IMG}}" class="blog-img" alt="Blog 3 cover image" />
+                <h4 style="min-height: 2.5em">{{BLOG_TITLE}}</h4>
+                <a class="read-blog" href="/blog/{{BLOG_ID}}">{{read_article}}</a>
+            </div>
+        </div>
+        <a style="display: {{YES_BLOGS}};" class="read-blog" href="/blogs">See all blogs</a>
+        <div style="display: {{NO_BLOGS}}; justify-content: center;">
+            <span style="font-size: 1.5rem; font-style: italic">{{blog_desc}}</span>
+        </div>
+    </section>
+    <section class="section-padding faq-section" id="faq" style="background-color: var(--bg-soft)">
+        <h3 class="section-title">{{faq_title}}</h3>
+        <div class="faq-container">
+            <div>
+                <sl-details summary="{{faq_heating_q}}">{{faq_heating_a}}</sl-details>
+                <sl-details summary="{{faq_kitchen_q}}">{{faq_kitchen_a}}</sl-details>
+                <sl-details summary="{{faq_linens_q}}">{{faq_linens_a}}</sl-details>
+                <sl-details summary="{{faq_wifi_q}}">{{faq_wifi_a}}</sl-details>
+                <sl-details summary="{{faq_pool_heating_q}}">{{faq_pool_heating_a}}</sl-details>
+                <sl-details summary="{{faq_lifeguard_q}}">{{faq_lifeguard_a}}</sl-details>
+                <sl-details summary="{{faq_checkin_q}}">{{faq_checkin_a}}</sl-details>
+                <sl-details summary="{{faq_deposit_q}}">{{faq_deposit_a}}</sl-details>
+                <sl-details summary="{{faq_cancel_q}}">{{faq_cancel_a}}</sl-details>
+                <sl-details summary="{{faq_payment_q}}">{{faq_payment_a}}</sl-details>
+                <sl-details summary="{{faq_tax_q}}">{{faq_tax_a}}</sl-details>
+            </div>
+            <div>
+                <sl-details summary="{{faq_shops_q}}">{{faq_shops_a}}</sl-details>
+                <sl-details summary="{{faq_housekeeping_q}}">{{faq_housekeeping_a}}</sl-details>
+                <sl-details summary="{{faq_laundry_q}}">{{faq_laundry_a}}</sl-details>
+                <sl-details summary="{{faq_baby_q}}">{{faq_baby_a}}</sl-details>
+                <sl-details summary="{{faq_pets_q}}">{{faq_pets_a}}</sl-details>
+                <sl-details summary="{{faq_parking_q}}">{{faq_parking_a}}</sl-details>
+                <!--<sl-details -->
+                <!--    data-i8n-summary="faq_ev_q" -->
+                <!--    data-i8n="faq_ev_a" -->
+                <!--    summary="Do you have an EV charging station?">-->
+                <!--    Not currently, though one is planned for the future. The nearest petrol station is on the main road to Gradiška (approx. 18 km).-->
+                <!--</sl-details>-->
+                <sl-details summary="{{faq_quiet_q}}">{{faq_quiet_a}}</sl-details>
+                <sl-details summary="{{faq_airport_q}}">{{faq_airport_a}}</sl-details>
+                <sl-details summary="{{faq_yearround_q}}">{{faq_yearround_a}}</sl-details>
+                <sl-details summary="{{faq_find_q}}">{{faq_find_a}}</sl-details>
+            </div>
+        </div>
+    </section>
+    <section class="cta-band">
+        <h3>{{closing_title}}</h3>
+        <p>{{closing_desc}}</p>
+        <a class="btn-cta-large" href="#booking">{{date_check_btn}}</a>
+    </section>
+    <footer id="contact">
+        <div class="footer-logo">KOZARA PANORAMIC RESORT</div>
+        <!-- Updated Footer Links -->
+        <div class="footer-links">
+            <a href="/{{language_code}}/notice#impressum">{{footer-impressum}}</a> | <a
+                href="/{{language_code}}/notice#terms">{{footer-terms}}</a> | <a
+                href="/{{language_code}}/notice#privacy">{{footer-privacy}}</a> |
+            <a href="/{{language_code}}/notice#impressum">{{footer-contact}}</a>
+        </div>
+        <p>© Kozara Panoramic Resort – PEVA d.o.o. All rights reserved.</p>
+    </footer>
+    <sl-dialog id="chalet_dialog" label="The Cloud Cabin">
+        <p class="dialog-desc" id="dialog-desc">The Cloud cabin floats above the clouds, surrounded by silence and a
+            view that connects sky and earth. It's made for those who seek inspiration and peace in moments of pure
+            stillness.</p>
+        <sl-carousel class="dialog-gallery" loop="" navigation=""> </sl-carousel>
+        <div class="dialog-thumbnails">
+            <div class="thumbnails__scroller"></div>
+        </div>
+        <div class="dialog-amenities">
+            <span class="amenity-pill"><sl-icon src="/assets/amenities_icons/wifi.svg"></sl-icon>
+                <span>{{chalets_amenities_wifi}}</span></span>
+            <span class="amenity-pill"><sl-icon src="/assets/amenities_icons/coffee.svg"></sl-icon>
+                <span>{{chalets_amenities_espresso}}</span></span>
+            <span class="amenity-pill"><sl-icon src="/assets/amenities_icons/air-vent.svg"></sl-icon>
+                <span>{{chalets_amenities_ac}}</span></span>
+            <span class="amenity-pill"><sl-icon src="/assets/amenities_icons/microwave.svg"></sl-icon>
+                <span>{{chalets_amenities_microwave}}</span></span>
+            <span class="amenity-pill"><sl-icon src="/assets/amenities_icons/sandwich.svg"></sl-icon>
+                <span>{{chalets_amenities_toast}}</span></span>
+            <span class="amenity-pill"><sl-icon src="/assets/amenities_icons/cooking-pot.svg"></sl-icon>
+                <span>{{chalets_amenities_hob}}</span></span>
+            <span class="amenity-pill"><sl-icon src="/assets/amenities_icons/refrigerator.svg"></sl-icon>
+                <span>{{chalets_amenities_fridge}}</span></span>
+            <span class="amenity-pill"><sl-icon src="/assets/amenities_icons/bed.svg"></sl-icon>
+                <span>{{chalets_amenities_bed}}</span></span>
+            <span class="amenity-pill"><sl-icon src="/assets/amenities_icons/shower-head.svg"></sl-icon>
+                <span>{{chalets_amenities_shower}}</span></span>
+            <span class="amenity-pill"><sl-icon src="/assets/amenities_icons/tv.svg"></sl-icon> <span>Firestick
+                    TV</span></span>
+            <span class="amenity-pill"><sl-icon src="/assets/amenities_icons/sofa.svg"></sl-icon>
+                <span>{{chalets_amenities_sofa}}</span></span>
+            <span class="amenity-pill"><sl-icon src="/assets/amenities_icons/vault.svg"></sl-icon>
+                <span>{{chalets_amenities_safe}}</span></span>
+        </div>
+        <button class="btn-book-dialog" onclick="chalet_dialog.hide();open_booking();"
+            slot="footer">{{chalets_btn}}</button>
+    </sl-dialog>
+    <sl-dialog id="book_dialog" label="Book">
+        <div id="switch_container" slot="header-actions">
+            <span onclick="currency_switch.click()">BAM</span>
+            <sl-switch id="currency_switch"></sl-switch>
+            <span onclick="currency_switch.click()">EUR</span>
+        </div>
+        <div id="book_calendar_wrapper"></div>
+        <form id="book_form">
+            <fieldset group="1">
+                <legend>{{booking_form_occupants_title}}</legend>
+                <div>
+                    <sl-input enterkeyhint="next" inputmode="numeric" label="{{booking_form_occupants_n_ad}}" max="6"
+                        min="1" name="numAdults" required="" type="number" value="1"></sl-input>
+                    <sl-input enterkeyhint="next" inputmode="numeric" label="{{booking_form_occupants_n_ch}}" max="2"
+                        min="0" name="numChildren" required="" type="number" value="0"></sl-input>
+                </div>
+                <span>
+                    <sl-icon src="/assets/amenities_icons/circle-alert.svg"></sl-icon>
+                    <span>{{booking_form_occupants_note}}</span>
+                </span>
+            </fieldset>
+            <fieldset group="2">
+                <legend>{{booking_form_billing_title}}</legend>
+                <sl-input enterkeyhint="next" label="{{booking_form_billing_address}}" name="billingAddress"
+                    required=""></sl-input>
+                <sl-input enterkeyhint="next" label="{{booking_form_billing_city}}" name="billingCity"
+                    required=""></sl-input>
+                <sl-select autocomplete="country" label="{{booking_form_billing_country}}" name="billingCountry"
+                    required="">
+                    <sl-divider></sl-divider>
+                    <sl-option value="AF">Afghanistan</sl-option>
+                    <sl-option value="AL">Albania</sl-option>
+                    <sl-option value="DZ">Algeria</sl-option>
+                    <sl-option value="AS">American Samoa</sl-option>
+                    <sl-option value="AD">Andorra</sl-option>
+                    <sl-option value="AO">Angola</sl-option>
+                    <sl-option value="AI">Anguilla</sl-option>
+                    <sl-option value="AQ">Antarctica</sl-option>
+                    <sl-option value="AG">Antigua and Barbuda</sl-option>
+                    <sl-option value="AR">Argentina</sl-option>
+                    <sl-option value="AM">Armenia</sl-option>
+                    <sl-option value="AW">Aruba</sl-option>
+                    <sl-option value="AU">Australia</sl-option>
+                    <sl-option value="AT">Austria</sl-option>
+                    <sl-option value="AZ">Azerbaijan</sl-option>
+                    <sl-divider></sl-divider>
+                    <sl-option value="AX">Åland Islands</sl-option>
+                    <sl-divider></sl-divider>
+                    <sl-option value="BS">Bahamas</sl-option>
+                    <sl-option value="BH">Bahrain</sl-option>
+                    <sl-option value="BD">Bangladesh</sl-option>
+                    <sl-option value="BB">Barbados</sl-option>
+                    <sl-option value="BY">Belarus</sl-option>
+                    <sl-option value="BE">Belgium</sl-option>
+                    <sl-option value="BZ">Belize</sl-option>
+                    <sl-option value="BJ">Benin</sl-option>
+                    <sl-option value="BM">Bermuda</sl-option>
+                    <sl-option value="BT">Bhutan</sl-option>
+                    <sl-option value="BO">Bolivia (Plurinational State of)</sl-option>
+                    <sl-option value="BA">Bosnia and Herzegovina</sl-option>
+                    <sl-option value="BW">Botswana</sl-option>
+                    <sl-option value="BV">Bouvet Island</sl-option>
+                    <sl-option value="BR">Brazil</sl-option>
+                    <sl-option value="IO">British Indian Ocean Territory</sl-option>
+                    <sl-option value="BN">Brunei Darussalam</sl-option>
+                    <sl-option value="BG">Bulgaria</sl-option>
+                    <sl-option value="BF">Burkina Faso</sl-option>
+                    <sl-option value="BI">Burundi</sl-option>
+                    <sl-divider></sl-divider>
+                    <sl-option value="CV">Cabo Verde</sl-option>
+                    <sl-option value="KH">Cambodia</sl-option>
+                    <sl-option value="CM">Cameroon</sl-option>
+                    <sl-option value="CA">Canada</sl-option>
+                    <sl-option value="BQ">Caribbean Netherlands</sl-option>
+                    <sl-option value="KY">Cayman Islands</sl-option>
+                    <sl-option value="CF">Central African Republic</sl-option>
+                    <sl-option value="TD">Chad</sl-option>
+                    <sl-option value="CL">Chile</sl-option>
+                    <sl-option value="CN">China</sl-option>
+                    <sl-option value="CX">Christmas Island</sl-option>
+                    <sl-option value="CC">Cocos (Keeling) Islands</sl-option>
+                    <sl-option value="CO">Colombia</sl-option>
+                    <sl-option value="KM">Comoros</sl-option>
+                    <sl-option value="CG">Congo</sl-option>
+                    <sl-option value="CD">Congo, Democratic Republic of the</sl-option>
+                    <sl-option value="CK">Cook Islands</sl-option>
+                    <sl-option value="CR">Costa Rica</sl-option>
+                    <sl-option value="HR">Croatia</sl-option>
+                    <sl-option value="CU">Cuba</sl-option>
+                    <sl-option value="CW">Curaçao</sl-option>
+                    <sl-option value="CY">Cyprus</sl-option>
+                    <sl-option value="CZ">Czech Republic</sl-option>
+                    <sl-option value="CI">Côte d'Ivoire</sl-option>
+                    <sl-divider></sl-divider>
+                    <sl-option value="DK">Denmark</sl-option>
+                    <sl-option value="DJ">Djibouti</sl-option>
+                    <sl-option value="DM">Dominica</sl-option>
+                    <sl-option value="DO">Dominican Republic</sl-option>
+                    <sl-divider></sl-divider>
+                    <sl-option value="EC">Ecuador</sl-option>
+                    <sl-option value="EG">Egypt</sl-option>
+                    <sl-option value="SV">El Salvador</sl-option>
+                    <sl-option value="GQ">Equatorial Guinea</sl-option>
+                    <sl-option value="ER">Eritrea</sl-option>
+                    <sl-option value="EE">Estonia</sl-option>
+                    <sl-option value="SZ">Eswatini (Swaziland)</sl-option>
+                    <sl-option value="ET">Ethiopia</sl-option>
+                    <sl-divider></sl-divider>
+                    <sl-option value="FK">Falkland Islands (Malvinas)</sl-option>
+                    <sl-option value="FO">Faroe Islands</sl-option>
+                    <sl-option value="FJ">Fiji</sl-option>
+                    <sl-option value="FI">Finland</sl-option>
+                    <sl-option value="FR">France</sl-option>
+                    <sl-option value="GF">French Guiana</sl-option>
+                    <sl-option value="PF">French Polynesia</sl-option>
+                    <sl-option value="TF">French Southern Territories</sl-option>
+                    <sl-divider></sl-divider>
+                    <sl-option value="GA">Gabon</sl-option>
+                    <sl-option value="GM">Gambia</sl-option>
+                    <sl-option value="GE">Georgia</sl-option>
+                    <sl-option value="DE">Germany</sl-option>
+                    <sl-option value="GH">Ghana</sl-option>
+                    <sl-option value="GI">Gibraltar</sl-option>
+                    <sl-option value="GR">Greece</sl-option>
+                    <sl-option value="GL">Greenland</sl-option>
+                    <sl-option value="GD">Grenada</sl-option>
+                    <sl-option value="GP">Guadeloupe</sl-option>
+                    <sl-option value="GU">Guam</sl-option>
+                    <sl-option value="GT">Guatemala</sl-option>
+                    <sl-option value="GG">Guernsey</sl-option>
+                    <sl-option value="GN">Guinea</sl-option>
+                    <sl-option value="GW">Guinea-Bissau</sl-option>
+                    <sl-option value="GY">Guyana</sl-option>
+                    <sl-divider></sl-divider>
+                    <sl-option value="HT">Haiti</sl-option>
+                    <sl-option value="HM">Heard Island and Mcdonald Islands</sl-option>
+                    <sl-option value="HN">Honduras</sl-option>
+                    <sl-option value="HK">Hong Kong</sl-option>
+                    <sl-option value="HU">Hungary</sl-option>
+                    <sl-divider></sl-divider>
+                    <sl-option value="IS">Iceland</sl-option>
+                    <sl-option value="IN">India</sl-option>
+                    <sl-option value="ID">Indonesia</sl-option>
+                    <sl-option value="IR">Iran</sl-option>
+                    <sl-option value="IQ">Iraq</sl-option>
+                    <sl-option value="IE">Ireland</sl-option>
+                    <sl-option value="IM">Isle of Man</sl-option>
+                    <sl-option value="IL">Israel</sl-option>
+                    <sl-option value="IT">Italy</sl-option>
+                    <sl-divider></sl-divider>
+                    <sl-option value="JM">Jamaica</sl-option>
+                    <sl-option value="JP">Japan</sl-option>
+                    <sl-option value="JE">Jersey</sl-option>
+                    <sl-option value="JO">Jordan</sl-option>
+                    <sl-divider></sl-divider>
+                    <sl-option value="KZ">Kazakhstan</sl-option>
+                    <sl-option value="KE">Kenya</sl-option>
+                    <sl-option value="KI">Kiribati</sl-option>
+                    <sl-option value="KP">Korea, North</sl-option>
+                    <sl-option value="KR">Korea, South</sl-option>
+                    <sl-option value="XK">Kosovo</sl-option>
+                    <sl-option value="KW">Kuwait</sl-option>
+                    <sl-option value="KG">Kyrgyzstan</sl-option>
+                    <sl-divider></sl-divider>
+                    <sl-option value="LA">Lao People's Democratic Republic</sl-option>
+                    <sl-option value="LV">Latvia</sl-option>
+                    <sl-option value="LB">Lebanon</sl-option>
+                    <sl-option value="LS">Lesotho</sl-option>
+                    <sl-option value="LR">Liberia</sl-option>
+                    <sl-option value="LY">Libya</sl-option>
+                    <sl-option value="LI">Liechtenstein</sl-option>
+                    <sl-option value="LT">Lithuania</sl-option>
+                    <sl-option value="LU">Luxembourg</sl-option>
+                    <sl-divider></sl-divider>
+                    <sl-option value="MO">Macao</sl-option>
+                    <sl-option value="MK">Macedonia North</sl-option>
+                    <sl-option value="MG">Madagascar</sl-option>
+                    <sl-option value="MW">Malawi</sl-option>
+                    <sl-option value="MY">Malaysia</sl-option>
+                    <sl-option value="MV">Maldives</sl-option>
+                    <sl-option value="ML">Mali</sl-option>
+                    <sl-option value="MT">Malta</sl-option>
+                    <sl-option value="MH">Marshall Islands</sl-option>
+                    <sl-option value="MQ">Martinique</sl-option>
+                    <sl-option value="MR">Mauritania</sl-option>
+                    <sl-option value="MU">Mauritius</sl-option>
+                    <sl-option value="YT">Mayotte</sl-option>
+                    <sl-option value="MX">Mexico</sl-option>
+                    <sl-option value="FM">Micronesia</sl-option>
+                    <sl-option value="MD">Moldova</sl-option>
+                    <sl-option value="MC">Monaco</sl-option>
+                    <sl-option value="MN">Mongolia</sl-option>
+                    <sl-option value="ME">Montenegro</sl-option>
+                    <sl-option value="MS">Montserrat</sl-option>
+                    <sl-option value="MA">Morocco</sl-option>
+                    <sl-option value="MZ">Mozambique</sl-option>
+                    <sl-option value="MM">Myanmar (Burma)</sl-option>
+                    <sl-divider></sl-divider>
+                    <sl-option value="NA">Namibia</sl-option>
+                    <sl-option value="NR">Nauru</sl-option>
+                    <sl-option value="NP">Nepal</sl-option>
+                    <sl-option value="NL">Netherlands</sl-option>
+                    <sl-option value="AN">Netherlands Antilles</sl-option>
+                    <sl-option value="NC">New Caledonia</sl-option>
+                    <sl-option value="NZ">New Zealand</sl-option>
+                    <sl-option value="NI">Nicaragua</sl-option>
+                    <sl-option value="NE">Niger</sl-option>
+                    <sl-option value="NG">Nigeria</sl-option>
+                    <sl-option value="NU">Niue</sl-option>
+                    <sl-option value="NF">Norfolk Island</sl-option>
+                    <sl-option value="MP">Northern Mariana Islands</sl-option>
+                    <sl-option value="NO">Norway</sl-option>
+                    <sl-divider></sl-divider>
+                    <sl-option value="OM">Oman</sl-option>
+                    <sl-divider></sl-divider>
+                    <sl-option value="PK">Pakistan</sl-option>
+                    <sl-option value="PW">Palau</sl-option>
+                    <sl-option value="PS">Palestine</sl-option>
+                    <sl-option value="PA">Panama</sl-option>
+                    <sl-option value="PG">Papua New Guinea</sl-option>
+                    <sl-option value="PY">Paraguay</sl-option>
+                    <sl-option value="PE">Peru</sl-option>
+                    <sl-option value="PH">Philippines</sl-option>
+                    <sl-option value="PN">Pitcairn Islands</sl-option>
+                    <sl-option value="PL">Poland</sl-option>
+                    <sl-option value="PT">Portugal</sl-option>
+                    <sl-option value="PR">Puerto Rico</sl-option>
+                    <sl-divider></sl-divider>
+                    <sl-option value="QA">Qatar</sl-option>
+                    <sl-divider></sl-divider>
+                    <sl-option value="RE">Reunion</sl-option>
+                    <sl-option value="RO">Romania</sl-option>
+                    <sl-option value="RU">Russian Federation</sl-option>
+                    <sl-option value="RW">Rwanda</sl-option>
+                    <sl-divider></sl-divider>
+                    <sl-option value="BL">Saint Barthelemy</sl-option>
+                    <sl-option value="SH">Saint Helena</sl-option>
+                    <sl-option value="KN">Saint Kitts and Nevis</sl-option>
+                    <sl-option value="LC">Saint Lucia</sl-option>
+                    <sl-option value="MF">Saint Martin</sl-option>
+                    <sl-option value="PM">Saint Pierre and Miquelon</sl-option>
+                    <sl-option value="VC">Saint Vincent and the Grenadines</sl-option>
+                    <sl-option value="WS">Samoa</sl-option>
+                    <sl-option value="SM">San Marino</sl-option>
+                    <sl-option value="ST">Sao Tome and Principe</sl-option>
+                    <sl-option value="SA">Saudi Arabia</sl-option>
+                    <sl-option value="SN">Senegal</sl-option>
+                    <sl-option value="RS">Serbia</sl-option>
+                    <sl-option value="CS">Serbia and Montenegro</sl-option>
+                    <sl-option value="SC">Seychelles</sl-option>
+                    <sl-option value="SL">Sierra Leone</sl-option>
+                    <sl-option value="SG">Singapore</sl-option>
+                    <sl-option value="SX">Sint Maarten</sl-option>
+                    <sl-option value="SK">Slovakia</sl-option>
+                    <sl-option value="SI">Slovenia</sl-option>
+                    <sl-option value="SB">Solomon Islands</sl-option>
+                    <sl-option value="SO">Somalia</sl-option>
+                    <sl-option value="ZA">South Africa</sl-option>
+                    <sl-option value="GS">South Georgia and the South Sandwich Islands</sl-option>
+                    <sl-option value="SS">South Sudan</sl-option>
+                    <sl-option value="ES">Spain</sl-option>
+                    <sl-option value="LK">Sri Lanka</sl-option>
+                    <sl-option value="SD">Sudan</sl-option>
+                    <sl-option value="SR">Suriname</sl-option>
+                    <sl-option value="SJ">Svalbard and Jan Mayen</sl-option>
+                    <sl-option value="SE">Sweden</sl-option>
+                    <sl-option value="CH">Switzerland</sl-option>
+                    <sl-option value="SY">Syria</sl-option>
+                    <sl-divider></sl-divider>
+                    <sl-option value="TW">Taiwan</sl-option>
+                    <sl-option value="TJ">Tajikistan</sl-option>
+                    <sl-option value="TZ">Tanzania</sl-option>
+                    <sl-option value="TH">Thailand</sl-option>
+                    <sl-option value="TL">Timor-Leste</sl-option>
+                    <sl-option value="TG">Togo</sl-option>
+                    <sl-option value="TK">Tokelau</sl-option>
+                    <sl-option value="TO">Tonga</sl-option>
+                    <sl-option value="TT">Trinidad and Tobago</sl-option>
+                    <sl-option value="TN">Tunisia</sl-option>
+                    <sl-option value="TR">Turkey (Türkiye)</sl-option>
+                    <sl-option value="TM">Turkmenistan</sl-option>
+                    <sl-option value="TC">Turks and Caicos Islands</sl-option>
+                    <sl-option value="TV">Tuvalu</sl-option>
+                    <sl-divider></sl-divider>
+                    <sl-option value="UM">U.S. Outlying Islands</sl-option>
+                    <sl-option value="UG">Uganda</sl-option>
+                    <sl-option value="UA">Ukraine</sl-option>
+                    <sl-option value="AE">United Arab Emirates</sl-option>
+                    <sl-option value="GB">United Kingdom</sl-option>
+                    <sl-option value="US">United States</sl-option>
+                    <sl-option value="UY">Uruguay</sl-option>
+                    <sl-option value="UZ">Uzbekistan</sl-option>
+                    <sl-divider></sl-divider>
+                    <sl-option value="VU">Vanuatu</sl-option>
+                    <sl-option value="VA">Vatican City Holy See</sl-option>
+                    <sl-option value="VE">Venezuela</sl-option>
+                    <sl-option value="VN">Vietnam</sl-option>
+                    <sl-option value="VG">Virgin Islands, British</sl-option>
+                    <sl-option value="VI">Virgin Islands, U.S</sl-option>
+                    <sl-divider></sl-divider>
+                    <sl-option value="WF">Wallis and Futuna</sl-option>
+                    <sl-option value="EH">Western Sahara</sl-option>
+                    <sl-divider></sl-divider>
+                    <sl-option value="YE">Yemen</sl-option>
+                    <sl-divider></sl-divider>
+                    <sl-option value="ZM">Zambia</sl-option>
+                    <sl-option value="ZW">Zimbabwe</sl-option>
+                </sl-select>
+                <sl-input enterkeyhint="next" inputmode="numeric" label="{{booking_form_billing_postcode}}"
+                    name="billingPostCode" required=""></sl-input>
+                <sl-input enterkeyhint="next" label="{{booking_form_billing_fname}}" name="customerName"
+                    required=""></sl-input>
+                <sl-input enterkeyhint="next" label="{{booking_form_billing_lname}}" name="customerLastName"
+                    required=""></sl-input>
+                <sl-input enterkeyhint="next" inputmode="email" label="Email" name="customerEmail" required=""
+                    type="email"></sl-input>
+                <sl-input enterkeyhint="done" inputmode="tel" label="{{booking_form_billing_pnum}}" name="customerPhone"
+                    required="" type="tel"></sl-input>
+            </fieldset>
+            <sl-button id="ptp_btn" type="submit">{{booking_form_btn}}</sl-button>
+        </form>
+    </sl-dialog>
+    <sl-dialog id="img_preview">
+        <img alt="Click on an image to preview it here" src="" />
+    </sl-dialog>
+    <script>
+        let prices_data = null
+        // Data for the Modals
+        const chaletData = {
+            wind: {
+                title: "The Wind Chalet",
+                desc: `{{wind_desc}}`,
+                images: ["/assets/Chalets/wind/image00004.webp", "/assets/Chalets/wind/image00006.webp", "/assets/Chalets/wind/image00009.webp", "/assets/Chalets/wind/image00016.webp", "/assets/Chalets/wind/image00022.webp", "/assets/Chalets/wind/image00026.webp", "/assets/Chalets/wind/image00035.webp", "/assets/Chalets/wind/image00036.webp", "/assets/Chalets/wind/image08170.webp", "/assets/Chalets/wind/image08191.webp", "/assets/Chalets/wind/image08192.webp"],
+            },
+            summit: {
+                title: "The Sun Chalet",
+                desc: `{{summit_desc}}`,
+                images: ["/assets/Chalets/sun/image00004.webp", "/assets/Chalets/sun/image00006.webp", "/assets/Chalets/sun/image00009.webp", "/assets/Chalets/sun/image00016.webp", "/assets/Chalets/sun/image00022.webp", "/assets/Chalets/sun/image00026.webp", "/assets/Chalets/sun/image00035.webp", "/assets/Chalets/sun/image00036.webp", "/assets/Chalets/sun/image08170.webp", "/assets/Chalets/sun/image08191.webp", "/assets/Chalets/sun/image08192.webp"],
+            },
+            star: {
+                title: "The Star Chalet",
+                desc: `{{star_desc}}`,
+                images: ["/assets/Chalets/star/image00004.webp", "/assets/Chalets/star/image00006.webp", "/assets/Chalets/star/image00009.webp", "/assets/Chalets/star/image00010.webp", "/assets/Chalets/star/image00016.webp", "/assets/Chalets/star/image00026.webp", "/assets/Chalets/star/image00035.webp", "/assets/Chalets/star/image00036.webp", "/assets/Chalets/star/image00001.webp", "/assets/Chalets/star/image00003.webp", "/assets/Chalets/star/image08184.webp"],
+            },
+            cloud: {
+                title: "The Cloud Chalet",
+                desc: `{{cloud_desc}}`,
+                images: ["/assets/Chalets/cloud/image00004.webp", "/assets/Chalets/cloud/image00006.webp", "/assets/Chalets/cloud/image00009.webp", "/assets/Chalets/cloud/image00016.webp", "/assets/Chalets/cloud/image00022.webp", "/assets/Chalets/cloud/image00026.webp", "/assets/Chalets/cloud/image00035.webp", "/assets/Chalets/cloud/image00036.webp", "/assets/Chalets/cloud/image08170.webp", "/assets/Chalets/cloud/image08191.webp", "/assets/Chalets/cloud/image08192.webp"],
+            },
+            sky: {
+                title: "The Sky Chalet",
+                desc: `{{sky_desc}}`,
+                images: ["/assets/Chalets/sky/image00004.webp", "/assets/Chalets/sky/image00006.webp", "/assets/Chalets/sky/image00009.webp", "/assets/Chalets/sky/image00016.webp", "/assets/Chalets/sky/image00022.webp", "/assets/Chalets/sky/image00026.webp", "/assets/Chalets/sky/image00035.webp", "/assets/Chalets/sky/image00036.webp", "/assets/Chalets/sky/image08170.webp", "/assets/Chalets/sky/image08191.webp", "/assets/Chalets/sky/image08192.webp"],
+            },
+        }
 
         const LANGUAGE_MAP = {
             en: {flag: "🇬🇧", abbr: "EN"},
