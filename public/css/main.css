@@ -1416,12 +1416,18 @@ header .nav-bar {
 	text-overflow: ellipsis;
 	display: grid;
 	grid-template-rows: subgrid;
-	grid-row: 1/-1;
+	grid-row: 1/4;
 
 	h4,
 	a {
-		padding: 25px;
+		padding-inline: 25px;
 		text-align: center;
+		margin: 0;
+	}
+
+	a {
+		width: fit-content;
+		height: fit-content;
 	}
 
 	h4 {
