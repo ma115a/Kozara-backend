@@ -177,11 +177,11 @@
         <div class="nav-bar">
             <div class="logo-text">KOZARA</div>
             <div class="nav-links-container">
-                <a class="nav-link" href="#chalets">{{nav_chalets}}</a>
-                <a class="nav-link" href="#location">{{nav_location}}</a>
+                <a class="nav-link" href="/{{language_code}}/#chalets">{{nav_chalets}}</a>
+                <a class="nav-link" href="/{{language_code}}/#location">{{nav_location}}</a>
                 <!-- <a href="#reviews" class="nav-link" data-i8n="nav_reviews">Reviews</a> -->
-                <a class="nav-link" href="#blog">{{nav_blog}}</a>
-                <a class="nav-link" href="#contact">{{contact}}</a>
+                <a class="nav-link" href="/{{language_code}}/#blog">{{nav_blog}}</a>
+                <a class="nav-link" href="/{{langauge_code}}/#contact">{{contact}}</a>
                 <sl-dropdown>
                     <!-- NEW TRIGGER: span element to display the selected language -->
                     <span class="nav-language-trigger" id="language_display_trigger" slot="trigger">
@@ -189,12 +189,10 @@
                         {{language_tag}}
                     </span>
                     <sl-menu>
-                        <sl-menu-item><a href="{{base_url}}/blog/{{BLOG_ID}}">🇬🇧 EN (English)</a></sl-menu-item>
-                        <sl-menu-item><a href="{{base_url}}/sr/blog/{{BLOG_ID}}">🇷🇸 SR (Srpski)</a></sl-menu-item>
-                        <sl-menu-item><a href="{{base_url}}/de/blog/{{BLOG_ID}}">🇩🇪 DE
-                                (Deutsch)</a></sl-menu-item>
-                        <sl-menu-item><a href="{{base_url}}/it/blog/{{BLOG_ID}}">🇮🇹 IT
-                                (Italiano)</a></sl-menu-item>
+                        <sl-menu-item><a href="/blog/{{BLOG_ID}}">🇬🇧 EN (English)</a></sl-menu-item>
+                        <sl-menu-item><a href="/sr/blog/{{BLOG_ID}}">🇷🇸 SR (Srpski)</a></sl-menu-item>
+                        <sl-menu-item><a href="/de/blog/{{BLOG_ID}}">🇩🇪 DE (Deutsch)</a></sl-menu-item>
+                        <sl-menu-item><a href="/it/blog/{{BLOG_ID}}">🇮🇹 IT (Italiano)</a></sl-menu-item>
                     </sl-menu>
                 </sl-dropdown>
 
@@ -209,11 +207,11 @@
         </div>
     </header>
     <sl-drawer id="drawer_menu" label="Navigation">
-        <a class="nav-link" href="#chalets" onclick="drawer_menu.hide()">{{nav_chalets}}</a>
-        <a class="nav-link" href="#location" onclick="drawer_menu.hide()">{{nav_location}}</a>
+        <a class="nav-link" href="/{{langauge_code}}/#chalets" onclick="drawer_menu.hide()">{{nav_chalets}}</a>
+        <a class="nav-link" href="/{{langauge_code}}/#location" onclick="drawer_menu.hide()">{{nav_location}}</a>
         <!--<a href="#reviews" class="nav-link" onclick="drawer_menu.hide()" data-i8n="nav_reviews">Reviews</a>-->
-        <a class="nav-link" href="#blog" onclick="drawer_menu.hide()">{{nav_blog}}</a>
-        <a class="nav-link" href="#contact" onclick="drawer_menu.hide()">{{contact}}</a>
+        <a class="nav-link" href="/{{langauge_code}}/#blog" onclick="drawer_menu.hide()">{{nav_blog}}</a>
+        <a class="nav-link" href="/{{langauge_code}}/#contact" onclick="drawer_menu.hide()">{{contact}}</a>
         <sl-dropdown>
             <!-- NEW TRIGGER: span element to display the selected language -->
             <span class="nav-language-trigger" id="language_display_trigger" slot="trigger">
@@ -221,10 +219,10 @@
                 {{language_tag}}
             </span>
             <sl-menu>
-                <sl-menu-item><a href="{{base_url}}/blog/{{BLOG_ID}}">🇬🇧 EN (English)</a></sl-menu-item>
-                <sl-menu-item><a href="{{base_url}}/sr/blog/{{BLOG_ID}}">🇷🇸 SR (Srpski)</a></sl-menu-item>
-                <sl-menu-item><a href="{{base_url}}/de/blog/{{BLOG_ID}}">🇩🇪 DE (Deutsch)</a></sl-menu-item>
-                <sl-menu-item><a href="{{base_url}}/it/blog/{{BLOG_ID}}">🇮🇹 IT (Italiano)</a></sl-menu-item>
+                <sl-menu-item><a href="/blog/{{BLOG_ID}}">🇬🇧 EN (English)</a></sl-menu-item>
+                <sl-menu-item><a href="/sr/blog/{{BLOG_ID}}">🇷🇸 SR (Srpski)</a></sl-menu-item>
+                <sl-menu-item><a href="/de/blog/{{BLOG_ID}}">🇩🇪 DE (Deutsch)</a></sl-menu-item>
+                <sl-menu-item><a href="/it/blog/{{BLOG_ID}}">🇮🇹 IT (Italiano)</a></sl-menu-item>
             </sl-menu>
         </sl-dropdown>
     </sl-drawer>
@@ -246,10 +244,10 @@
         <div class="footer-logo">KOZARA PANORAMIC RESORT</div>
         <!-- Updated Footer Links -->
         <div class="footer-links">
-            <a href="{{base_url_lang}}/notice#impressum">{{footer-impressum}}</a> |
-            <a href="{{base_url_lang}}/notice#terms">{{footer-terms}}</a> |
-            <a href="{{base_url_lang}}/notice#privacy">{{footer-privacy}}</a> |
-            <a href="{{base_url_lang}}/notice#impressum">{{footer-contact}}</a>
+            <a href="/{{language_code}}/notice#impressum">{{footer-impressum}}</a> |
+            <a href="/{{language_code}}/notice#terms">{{footer-terms}}</a> |
+            <a href="/{{language_code}}/notice#privacy">{{footer-privacy}}</a> |
+            <a href="/{{language_code}}/notice#impressum">{{footer-contact}}</a>
         </div>
         <p>© Kozara Panoramic Resort – PEVA d.o.o. All rights reserved.</p>
     </footer>

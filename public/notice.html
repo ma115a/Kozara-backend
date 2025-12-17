@@ -134,11 +134,11 @@
         <div class="nav-bar">
             <div class="logo-text">KOZARA</div>
             <div class="nav-links-container">
-                <a class="nav-link" href="{{base_url_lang}}#chalets">{{nav_chalets}}</a>
-                <a class="nav-link" href="{{base_url_lang}}#location">{{nav_location}}</a>
+                <a class="nav-link" href="/{{language_code}}#chalets">{{nav_chalets}}</a>
+                <a class="nav-link" href="/{{language_code}}#location">{{nav_location}}</a>
                 <!-- <a href="#reviews" class="nav-link" data-i8n="nav_reviews">Reviews</a> -->
-                <a class="nav-link" href="{{base_url_lang}}#blog">{{nav_blog}}</a>
-                <a class="nav-link" href="{{base_url_lang}}#contact">{{contact}}</a>
+                <a class="nav-link" href="/{{language_code}}#blog">{{nav_blog}}</a>
+                <a class="nav-link" href="/{{language_code}}#contact">{{contact}}</a>
                 <sl-dropdown>
                     <!-- NEW TRIGGER: span element to display the selected language -->
                     <span class="nav-language-trigger" id="language_display_trigger" slot="trigger">
@@ -146,10 +146,10 @@
                         {{language_tag}}
                     </span>
                     <sl-menu>
-                        <sl-menu-item><a href="{{base_url}}/notice">🇬🇧 EN (English)</a></sl-menu-item>
-                        <sl-menu-item><a href="{{base_url}}/sr/notice">🇷🇸 SR (Srpski)</a></sl-menu-item>
-                        <sl-menu-item><a href="{{base_url}}/de/notice">🇩🇪 DE (Deutsch)</a></sl-menu-item>
-                        <sl-menu-item><a href="{{base_url}}/it/notice">🇮🇹 IT (Italiano)</a></sl-menu-item>
+                        <sl-menu-item><a href="sr/notice">🇬🇧 EN (English)</a></sl-menu-item>
+                        <sl-menu-item><a href="/sr/notice">🇷🇸 SR (Srpski)</a></sl-menu-item>
+                        <sl-menu-item><a href="/de/notice">🇩🇪 DE (Deutsch)</a></sl-menu-item>
+                        <sl-menu-item><a href="/it/notice">🇮🇹 IT (Italiano)</a></sl-menu-item>
                     </sl-menu>
                 </sl-dropdown>
             </div>
@@ -163,18 +163,18 @@
         </div>
     </header>
     <sl-drawer id="drawer_menu" label="Navigation">
-        <a class="nav-link" href="{{base_url_lang}}#chalets" onclick="drawer_menu.hide()">{{nav_chalets}}</a>
-        <a class="nav-link" href="{{base_url_lang}}#location" onclick="drawer_menu.hide()">{{nav_location}}</a>
+        <a class="nav-link" href="{{language_code}}#chalets" onclick="drawer_menu.hide()">{{nav_chalets}}</a>
+        <a class="nav-link" href="{{language_code}}#location" onclick="drawer_menu.hide()">{{nav_location}}</a>
         <!--<a href="#reviews" class="nav-link" onclick="drawer_menu.hide()" data-i8n="nav_reviews">Reviews</a>-->
-        <a class="nav-link" href="{{base_url_lang}}#blog" onclick="drawer_menu.hide()">{{nav_blog}}</a>
-        <a class="nav-link" href="{{base_url_lang}}#contact" onclick="drawer_menu.hide()">{{contact}}</a>
+        <a class="nav-link" href="{{language_code}}#blog" onclick="drawer_menu.hide()">{{nav_blog}}</a>
+        <a class="nav-link" href="{{language_code}}#contact" onclick="drawer_menu.hide()">{{contact}}</a>
         <sl-dropdown>
             <span class="nav-language-trigger" id="language_display_trigger" slot="trigger"> {{language_tag}} </span>
             <sl-menu>
-                <sl-menu-item><a href="{{base_url}}/notice">🇬🇧 EN (English)</a></sl-menu-item>
-                <sl-menu-item><a href="{{base_url}}/sr/notice">🇷🇸 SR (Srpski)</a></sl-menu-item>
-                <sl-menu-item><a href="{{base_url}}/de/notice">🇩🇪 DE (Deutsch)</a></sl-menu-item>
-                <sl-menu-item><a href="{{base_url}}/it/notice">🇮🇹 IT (Italiano)</a></sl-menu-item>
+                <sl-menu-item><a href="/notice">🇬🇧 EN (English)</a></sl-menu-item>
+                <sl-menu-item><a href="/sr/notice">🇷🇸 SR (Srpski)</a></sl-menu-item>
+                <sl-menu-item><a href="/de/notice">🇩🇪 DE (Deutsch)</a></sl-menu-item>
+                <sl-menu-item><a href="/it/notice">🇮🇹 IT (Italiano)</a></sl-menu-item>
             </sl-menu>
         </sl-dropdown>
     </sl-drawer>

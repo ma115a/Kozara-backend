@@ -16,6 +16,8 @@ const { finished } = require('stream/promises');
 const mime = require('mime-types');
 const { v4: uuidv4 } = require('uuid');
 const { render } = require('ejs')
+const session = require('express-session');
+const { isatty } = require('tty')
 require('winston-daily-rotate-file')
 let db
 let tok
@@ -30,6 +32,11 @@ let htmlTemplateNotice = fs.readFileSync(templatePathNotice, 'utf8')
 
 const templatePathBlog = path.join(__dirname, 'public', 'blog-post.html')
 let htmlTemplateBlog = fs.readFileSync(templatePathBlog, 'utf8')
+
+
+const admin_username = 'admin'
+const admin_password = 'admin'
+const session_secret = 'necemociovenoci'
 
 const languages = {
     en: JSON.parse(fs.readFileSync(path.join(__dirname, 'languages', 'en.json'), 'utf8')),
@@ -214,12 +221,54 @@ async function sendBookingConfirmation(bookingData) {
 }
 
 
+function loadLatestBlogs() {
+
+    try {
+
+        const blogsDir = path.join(__dirname, 'public/blogs')
+        const files = fs.readdirSync(blogsDir)
+        logger.info(files)
+        const blogs = files.sort().reverse().slice(0, 3).map(filename => {
+            const filePath = path.join(blogsDir, filename)
+            const blogData = JSON.parse(fs.readFileSync(filePath, 'utf8'))
+            const data = { title: blogData.title, title_img: blogData.title_img, blogid: blogData.blogid }
+            return data
+        })
+
+
+        return blogs
+
+    } catch (error) {
+        logger.info(error.message)
+        return null
+    }
+}
+
+
 function renderIndex(res, lang) {
 
     // const templatePathIndex = path.join(__dirname, 'public', 'index_translated.html')
     // let htmlTemplateIndex = fs.readFileSync(templatePathIndex, 'utf8')
     const t = languages[lang] || languages['en']
     let renderedHtml = htmlTemplateIndex
+    let blogs = loadLatestBlogs()
+
+
+    if (blogs === null) {
+        renderedHtml = renderedHtml.replace('{{NO_BLOGS}}', 'flex')
+        renderedHtml = renderedHtml.replace('{{YES_BLOGS}}', 'none')
+
+    } else {
+        renderedHtml = renderedHtml.replace('{{NO_BLOGS}}', 'none')
+        renderedHtml = renderedHtml.replace('{{YES_BLOGS}}', 'grid')
+
+        blogs.forEach(blog => {
+            renderedHtml = renderedHtml.replace('{{BLOG_TITLE}}', blog.title)
+            renderedHtml = renderedHtml.replace('{{BLOG_IMG}}', blog.title_img)
+            renderedHtml = renderedHtml.replace('{{BLOG_ID}}', blog.blogid)
+
+        });
+    }
 
 
     renderedHtml = renderedHtml.replace('<html lang="en" class="sl-theme-light">', `<html lang="${lang}" class="sl-theme-light">`)
@@ -229,6 +278,9 @@ function renderIndex(res, lang) {
         const regex = new RegExp(`{{${key}}}`, 'g');
         renderedHtml = renderedHtml.replace(regex, t[key]);
     })
+
+
+
 
     res.send(renderedHtml)
 }
@@ -289,14 +341,7 @@ function renderBlog(res, lang, id) {
         logger.info(error)
 
     }
-
-
-
-
     res.send(renderedHtml)
-
-
-
 }
 
 
@@ -304,10 +349,35 @@ function renderBlog(res, lang, id) {
 
 
 const app = express()
-
-app.use(cors())
-const port = 5000
 app.use(express.static(path.join(__dirname, 'public'), { index: false }))
+app.use(cors())
+
+
+
+app.use(express.urlencoded({ extended: true }))
+app.use(session({
+    secret: session_secret || 'fallback_secret',
+    resave: false,
+    saveUninitialized: false,
+    cookie: {
+        secure: false, // Set to true if/when you move to HTTPS
+        maxAge: 24 * 60 * 60 * 1000 // Session lasts 24 hours
+    }
+}));
+
+
+
+function isAuthenticated(req, res, next) {
+    if (req.session.user) {
+        return next();
+    }
+    res.redirect('/login');
+}
+
+
+
+
+const port = 5000
 
 const transporter = nodemailer.createTransport({
     // service: 'gmail',
@@ -325,49 +395,12 @@ const transporter = nodemailer.createTransport({
     pool: true
 });
 
-app.get("/mail", async (req, res) => {
-    // try {
-    //     const info = await transporter.sendMail({
-    //         from: '"Kozara Panoramic Resort" <bookings@kozarapanoramicresort.ba>',
-    //         to: "ghfmk9@gmail.com",
-    //         subject: `Booking Confirmed`, // Unique ID prevents threading
-    //         text: `Test email`, // Fallback plain text
-    //     });
-    //     logger.info({message: info})
-    //     res.status(200).send(info)
-
-    // } catch(error) {
-    //     logger.error({message: error.message})
-    // }
-
-    try {
-        const templatePath = path.join(__dirname, 'email.html');
-        let htmlTemplate = fs.readFileSync(templatePath, 'utf8');
 
 
 
-        const info = await transporter.sendMail({
-            from: '"Kozara Panoramic Resort" <bookings@kozarapanoramicresort.ba>',
-            to: "ghfmk9@gmail.com",
-            subject: `Booking Confirmed: #00000`, // Unique ID prevents threading
-            text: `Dear Customer, your booking at Kozara Resort is confirmed. Ref: #0000`, // Fallback plain text
-            html: htmlTemplate
-        });
-
-        logger.info({ message: info })
-        res.send('OK')
-
-    } catch (error) {
-        logger.error({ message: error.message })
-        res.status(500)
-    }
-
-
-})
 
 
 
-// app.use(express.static(path.join(__dirname, 'public')))
 
 function generateBasicAuth(username, password) {
 
@@ -447,6 +480,19 @@ function findAvailableUnits(dailyStatus) {
     return availableUnits
 }
 
+
+app.post('/login', (req, res) => {
+    const { username, password } = req.body;
+    if (username === admin_username && password === admin_password) {
+        req.session.user = username;
+        return res.redirect('/blogeditor'); // Redirect straight to your editor
+    }
+    res.redirect('/login?error=true');
+
+});
+
+
+
 app.get('/', (req, res) => {
     renderIndex(res, 'en')
 })
@@ -454,7 +500,8 @@ app.get('/', (req, res) => {
 app.get(['/en', '/de', '/fr', '/it', '/sr'], (req, res) => {
     // Manually get the language from the URL since we aren't using a named param
     const lang = req.path.replace('/', '');
-    renderIndex(res, lang);
+    console.log(lang.substring(0, 2))
+    renderIndex(res, lang.substring(0, 2));
 });
 
 app.get(['/notice', '/en/notice'], (req, res) => {
@@ -1099,7 +1146,7 @@ app.post('/upload', upload.any(), (req, res) => {
         success: true,
         data: {
             files: filenames,
-            baseurl: `${process.env.BASE_URL}/uploads/`,
+            baseurl: `/uploads/`,
             isImages: req.files.map(() => true),
             code: 220
         }
@@ -1108,7 +1155,7 @@ app.post('/upload', upload.any(), (req, res) => {
 
 
 
-app.post('/api/saveblog', express.json(), (req, res) => {
+app.post('/api/saveblog', isAuthenticated, express.json(), (req, res) => {
     console.log(req.body)
 
     const date = new Date()
@@ -1170,7 +1217,7 @@ app.post('/api/saveblog', express.json(), (req, res) => {
 })
 
 
-app.delete("/api/blog/:id", (req, res) => {
+app.delete("/api/blog/:id", isAuthenticated, (req, res) => {
     const blogId = req.params.id
 
 
@@ -1198,7 +1245,7 @@ app.delete("/api/blog/:id", (req, res) => {
     }
 })
 
-app.get("/api/blog/getall", (req, res) => {
+app.get("/api/blog/getall", isAuthenticated, (req, res) => {
 
     try {
 
@@ -1248,7 +1295,7 @@ app.get('/api/blog/latest', (req, res) => {
 })
 
 
-app.get('/api/blog/:id', (req, res) => {
+app.get('/api/blog/:id', isAuthenticated, (req, res) => {
 
     const blogId = req.params.id
     if (!blogId) {
@@ -1273,7 +1320,7 @@ app.get('/api/blog/:id', (req, res) => {
 
 
 
-app.get("/blogeditor", (req, res) => {
+app.get("/blogeditor", isAuthenticated, (req, res) => {
 
     res.sendFile(path.join(__dirname, 'public', 'blog_editor.html'))
 })
@@ -1289,6 +1336,51 @@ app.get(['/de/blog/:id', '/it/blog/:id', '/sr/blog/:id'], (req, res) => {
     const lang = req.path.split('/')[1];
     const blogId = req.params.id
     renderBlog(res, lang, blogId)
+})
+
+
+
+
+app.get('/login', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'login.html'))
+})
+
+
+app.get('/logout', (req, res) => {
+    req.session.destroy(() => {
+        res.redirect('/login');
+    });
+});
+
+
+
+
+
+
+app.get("/mail", async (req, res) => {
+    try {
+        const templatePath = path.join(__dirname, 'email.html');
+        let htmlTemplate = fs.readFileSync(templatePath, 'utf8');
+
+
+
+        const info = await transporter.sendMail({
+            from: '"Kozara Panoramic Resort" <bookings@kozarapanoramicresort.ba>',
+            to: "ghfmk9@gmail.com",
+            subject: `Booking Confirmed: #00000`, // Unique ID prevents threading
+            text: `Dear Customer, your booking at Kozara Resort is confirmed. Ref: #0000`, // Fallback plain text
+            html: htmlTemplate
+        });
+
+        logger.info({ message: info })
+        res.send('OK')
+
+    } catch (error) {
+        logger.error({ message: error.message })
+        res.status(500)
+    }
+
+
 })
 
 

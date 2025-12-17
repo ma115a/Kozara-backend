@@ -223,8 +223,10 @@
   "price-transparency1": "Sve prikazane cijene ne uključuju boravišnu taksu (kao što je navedeno pri rezervaciji).",
   "price-transparency2": "Grijanje, električna energija, bazeni, peškiri i Wi-Fi su uključeni u cijenu.",
     "language_tag" : "🇷🇸 SR",
-    "base_url" : "https://scheduling-volume-programs-holding.trycloudflare.com",
-    "base_url_lang" : "https://scheduling-volume-programs-holding.trycloudflare.com/sr",
+    "language_code" : "sr",
+    "base_url" : "https://tile-bands-guy-readers.trycloudflare.com",
+    "base_url_lang" : "https://tile-bands-guy-readers.trycloudflare.com/sr",
     "meta_content" : "Rezervišite svoju planinsku kuću u Kozara Panoramic Resortu",
-    "meta_content2" : "Luksuzne planinske kućice s bazenom, spa centrom i pješačkim stazama. Smješteno u srcu planine Kozara, naše odmaralište nudi nezaboravno iskustvo gdje svaki detalj odražava toplinu, brigu i eleganciju."
+    "meta_content2" : "Luksuzne planinske kućice s bazenom, spa centrom i pješačkim stazama. Smješteno u srcu planine Kozara, naše odmaralište nudi nezaboravno iskustvo gdje svaki detalj odražava toplinu, brigu i eleganciju.",
+    "read_article" : "Pročitaj blog"
 }

@@ -228,8 +228,10 @@
   "price-transparency1": "Alle angezeigten Preise verstehen sich exklusive Kurtaxe (wie bei der Buchung angegeben).",
   "price-transparency2": "Heizung, Strom, Pools, Handtücher und Wi-Fi sind im Preis inbegriffen.",
     "language_tag" : "🇩🇪 DE",
-    "base_url" : "https://scheduling-volume-programs-holding.trycloudflare.com",
-    "base_url_lang" : "https://scheduling-volume-programs-holding.trycloudflare.com/de",
+    "language_code" : "de",
+    "base_url" : "https://tile-bands-guy-readers.trycloudflare.com",
+    "base_url_lang" : "https://tile-bands-guy-readers.trycloudflare.com/de",
     "meta_content" : "Buchen Sie Ihr Chalet im Kozara Panoramic Resort",
-    "meta_content2" : "Luxuriöse Bergchalets mit Pool, Spa und Wanderwegen. Eingebettet im Herzen des Kozara-Gebirges bietet unser Resort ein unvergessliches Erlebnis, bei dem jedes Detail Wärme, Fürsorge und Eleganz widerspiegelt."
+    "meta_content2" : "Luxuriöse Bergchalets mit Pool, Spa und Wanderwegen. Eingebettet im Herzen des Kozara-Gebirges bietet unser Resort ein unvergessliches Erlebnis, bei dem jedes Detail Wärme, Fürsorge und Eleganz widerspiegelt.",
+    "read_article" : "Blog lesen"
 }

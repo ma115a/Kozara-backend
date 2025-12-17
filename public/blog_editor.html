@@ -34,20 +34,24 @@
 </head>
 
 <body>
+    <sl-button variant="danger" outline onclick="location.href='/logout'"
+        style="position: fixed; top: 10px; right: 20px; z-index: 1000;">
+        <sl-icon slot="prefix" src="/assets/amenities_icons/log-out.svg"></sl-icon>
+        Logout
+    </sl-button>
     <sl-tab-group id="tabgroup">
         <sl-tab slot="nav" panel="all">All blogs</sl-tab>
         <sl-button slot="nav" onclick="new_blog()">
             New Blog
             <sl-icon slot="suffix" src="./assets/amenities_icons/file-plus-corner.svg"></sl-icon>
         </sl-button>
-
         <sl-tab-panel id="all_blogs_container" name="all"></sl-tab-panel>
     </sl-tab-group>
 </body>
 <script>
     let open_tabs = 0
     let editors = {}
-    const baseurl = "https://scheduling-volume-programs-holding.trycloudflare.com"
+    const baseurl = "https://lenders-store-plot-elite.trycloudflare.com"
 
     // close tab logic
     tabgroup.addEventListener("sl-close", async event => {
@@ -143,7 +147,7 @@
         }
 
         tab.innerHTML = title
-        let server_response = await fetch(`${baseurl}/api/saveblog`, {
+        let server_response = await fetch(`/api/saveblog`, {
             method: "POST",
             headers: {"Content-type": "application/json"},
             body: JSON.stringify({
@@ -200,7 +204,7 @@
         }
     }
     async function get_blog_data() {
-        const res = await fetch(`${baseurl}/api/blog/getall`)
+        const res = await fetch(`/api/blog/getall`)
         const data = await res.json()
         if (!data.success) {
             slalert(server_response.message, "warning")
@@ -218,7 +222,7 @@
             return
         }
         open_tabs++
-        let server_response = await fetch(`${baseurl}/api/blog/${id}`)
+        let server_response = await fetch(`/api/blog/${id}`)
         server_response = await server_response.json()
         if (!server_response.success) {
             slalert(server_response.message, "warning")
@@ -271,7 +275,7 @@
     }
 
     function delete_blog(id) {
-        fetch(`${baseurl}/api/blog/${id}`, {
+        fetch(`/api/blog/${id}`, {
             method: "DELETE",
         })
             .then(res => res.json())
