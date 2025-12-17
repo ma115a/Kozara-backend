@@ -15,6 +15,8 @@
 		<style>
 			section {
 				grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+				margin-top: 1rem;
+				padding: 1rem 2rem;
 			}
 		</style>
 
@@ -58,7 +60,7 @@
 			</div>
 			<div class="hero-content">
 				<div class="logo-area">KOZARA PANORAMIC RESORT</div>
-				<h2>{{BLOG_TITLE}}</h2>
+				<h2>{{ALL_BLOGS}}</h2>
 			</div>
 		</header>
 		<sl-drawer id="drawer_menu" label="Navigation">
@@ -84,20 +86,12 @@
 		<sl-icon-button id="btn_menu" onclick="drawer_menu.show()" src="/assets/amenities_icons/menu.svg"></sl-icon-button>
 
 		<section class="blog-grid">
-			<!-- <div style="display: {{NO_BLOGS}};>
+			{{BLOGS_SECTION}}
+			<div style="display: {{NO_BLOGS}};>
 				No blogs available
-			</div> -->
+			</div>
 		</section>
 		<script>
-			const el = document.getElementsByTagName("section")[0]
-			for (let i = 0; i < 20; i++) {
-				el.innerHTML += `<div class="blog-card">
-					<img src="https://mutual-ate-privilege-brilliant.trycloudflare.com/uploads/1765840061869-6zkzk.png" class="blog-img" alt="Blog 1 cover image" />
-					<h4 style="min-height: 2.5em">Mocan naslov</h4>
-					<a class="read-blog" href="/blog/{{BLOG_ID}}">Nacitaj se</a>
-				</div>`
-			}
-		</script>
 
 		<footer id="contact">
 			<div class="footer-logo">KOZARA PANORAMIC RESORT</div>

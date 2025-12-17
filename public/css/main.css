@@ -1406,6 +1406,18 @@ header .nav-bar {
 	gap: 30px;
 }
 
+.blog-grid + a {
+	display: block;
+	width: fit-content;
+	margin-inline: auto;
+	margin-top: 1rem;
+}
+
+section:has(> .blog-grid) {
+	max-width: 1150px;
+	margin-inline: auto;
+}
+
 .blog-card {
 	background: white;
 	border-radius: 8px;
