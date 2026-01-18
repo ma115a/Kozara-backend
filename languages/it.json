@@ -5,8 +5,9 @@
 	"nav_blog": "Blog",
 	"contact": "Contatto",
 	"nav_cta": "PRENOTA IL TUO SOGGIORNO",
-
-	"subtitle": "IL TUO SANTUARIO NELLA NATURA",
+    "title" : "Kozara Panoramic Resort | Rifugio privato appartato e vacanze",
+	"subtitle": "Vacanza privata a Kozara",
+	"logo_text" : "Kozara Panoramic Resort: un rifugio appartato in montagna",
 
 	"date_check_check_in": "CHECK-IN",
 	"date_check_check_out": "CHECK-OUT",
@@ -23,7 +24,7 @@
 	"offer_notice_title": "Avviso Importante",
 	"offer_notice_desc": "I prezzi indicati di seguito sono introduttivi e soggetti a revisione mentre il resort passa dalla fase di apertura alla piena operatività. Le tariffe potrebbero essere adattate in base alla domanda, disponibilità e completamento dei lavori rimanenti.",
 
-	"chalets_title": "I Nostri Chalet di Lusso",
+	"chalets_title": "Dove la privacy incontra la natura",
 	"chalets_desc": "I nostri chalet combinano natura e lusso, creati per chi cerca tranquillità, comfort e una fuga unica. Ogni chalet ha la propria storia, progettato per suscitare emozione e portare a un completo rilassamento.",
 	"chalets_amenities_wifi": "WIFI AD ALTA VELOCITÀ",
 	"chalets_amenities_espresso": "MACCHINA PER CAFFÈ ESPRESSO E BOLLITORE",
@@ -227,7 +228,7 @@
     "base_url" : "https://tile-bands-guy-readers.trycloudflare.com",
     "base_url_lang" : "https://tile-bands-guy-readers.trycloudflare.com/it",
     "meta_content" : "Prenota il tuo chalet al Kozara Panoramic Resort",
-    "meta_content2" : "Lussuosi chalet di montagna con piscina, spa e sentieri escursionistici. Immerso nel cuore del Monte Kozara, il nostro resort offre un'esperienza indimenticabile in cui ogni dettaglio riflette calore, cura ed eleganza.",
+    "meta_content2" : "Un rifugio privato e appartato con piscina, spa e sentieri naturalistici. Immerso nel Monte Kozara, il nostro resort offre un rifugio di pace e la perfetta privacy. Scoprite l'intimità, il silenzio della foresta e il comfort moderno nel cuore della Bosnia.",
     "read_article" : "Leggi il blog",
     "see_all_blogs": "Vedi tutti i blog"
 

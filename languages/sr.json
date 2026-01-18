@@ -5,8 +5,10 @@
 	"nav_blog": "Blog",
 	"contact": "Kontakt",
 	"nav_cta": "REZERVIŠI BORAVAK",
+	"title" : "Kozara Panoramic Resort | Osamljeno privatno utočište i odmori",
 
-	"subtitle": "VAŠE UTOČIŠTE U PRIRODI",
+	"subtitle": "Privatni odmor na Kozari",
+	"logo_text" : "Kozara Panoramic Resort: Osamljeno planinsko utočište",
 
 	"date_check_check_in": "DOLAZAK",
 	"date_check_check_out": "ODLAZAK",
@@ -23,8 +25,8 @@
 	"offer_notice_title": "Važno Obavještenje",
 	"offer_notice_desc": "Prikazane cijene su uvodne i podložne su promjeni kako rezort prelazi u punu operaciju. Cijene se mogu prilagoditi na osnovu potražnje, raspoloživosti i završetka preostalih radova.",
 
-	"chalets_title": "Naše Luksuzne kuće od drveta",
-	"chalets_desc": "Naše kuće od drveta kombinuju prirodu i luksuz, napravljene su za one koji traže mir, udobnost i unikatan bijeg iz stvarnosti. Svaka od njih ima svoju priču, dizajnirana da probudi emocije i doprinese potpunom opuštanju",
+	"chalets_title": "Gdje se privatnost susreće sa prirodom",
+	"chalets_desc": "Naše privatne kuće od drveta su uronjene u prirodu i dizajnirane za mir, privatnost i udobnost. Svaka koliba ima svoj karakter, stvorena da vas uspori i ponudi zaista lično utočište.",
 	"chalets_amenities_wifi": "BRZ WIFI",
 	"chalets_amenities_espresso": "APARAT ZA ESPRESSO I ELEKTRIČNI ČAJNIK",
 	"chalets_amenities_ac": "KLIMA / GRIJANJE",
@@ -227,7 +229,7 @@
     "base_url" : "https://tile-bands-guy-readers.trycloudflare.com",
     "base_url_lang" : "https://tile-bands-guy-readers.trycloudflare.com/sr",
     "meta_content" : "Rezervišite svoju planinsku kuću u Kozara Panoramic Resortu",
-    "meta_content2" : "Luksuzne planinske kućice s bazenom, spa centrom i pješačkim stazama. Smješteno u srcu planine Kozara, naše odmaralište nudi nezaboravno iskustvo gdje svaki detalj odražava toplinu, brigu i eleganciju.",
+    "meta_content2" : "Osamljeno privatno utočište sa bazenom, spa centrom i prirodnim stazama. Smešten na planini Kozari, naš odmaralište nudi mirno utočište i savršen privatni odmor na Kozari. Doživite intimu, šumsku tišinu i moderni komfor u srcu Bosne.",
     "read_article" : "Pročitaj blog",
     "see_all_blogs": "Vidi sve blogove"
 

@@ -5,8 +5,10 @@
 	"nav_blog": "Blog",
 	"contact": "Contact",
 	"nav_cta": "BOOK YOUR STAY",
+	"title" : "Kozara Panoramic Resort | Secluded Private Retreat & Vacations",
+	"logo_text" : "Kozara Panoramic Resort: Secluded Mountain Retreat",
 
-	"subtitle": "YOUR SANCTUARY IN NATURE",
+	"subtitle": "Private vacation on Kozara",
 
 	"date_check_check_in": "CHECK-IN",
 	"date_check_check_out": "CHECK-OUT",
@@ -23,8 +25,8 @@
 	"offer_notice_title": "Important Notice",
 	"offer_notice_desc": "Prices shown below are introductory and subject to revision as the resort transitions from opening phase to full operations. Rates may be adjusted based on demand, availability, and completion of remaining works.",
 
-	"chalets_title": "Our Luxury Chalets",
-	"chalets_desc": "Our chalets combine nature and luxury, created for those seeking tranquility, comfort, and a unique escape. Each chalet has its own story, designed to awaken emotion and bring complete relaxation.",
+	"chalets_title": "Where privacy meets nature",
+	"chalets_desc": "Our private chalets are immersed in nature and designed for peace, privacy and comfort. Each chalet has its own character, created to slow you down and offer a truly personal retreat.",
 	"chalets_amenities_wifi": "HIGH-SPEED WIFI",
 	"chalets_amenities_espresso": "ESPRESSO MACHINE",
 	"chalets_amenities_ac": "AC / HEATING",
@@ -164,7 +166,7 @@
   "legal-info": "Impressum / Legal Information",
   "impressum-operated": "Operated by <strong>PEVA d.o.o.</strong>",
   "impressum-address": "Registered address: Selo Kozara BB, Gradiška, 78400 Gradiška",
-  "impressum-company": "Company registration number: 4405281640008",
+  "impressum-company": "Company registration number: 11260985",
   "impressum-director": "Director: Dragana Truscott",
   "impressum-contact": "<strong>Contact:</strong>",
   "impressum-email": "Email: info@kozarapanoramicresort.ba",
@@ -231,7 +233,7 @@
     "base_url" : "https://tile-bands-guy-readers.trycloudflare.com",
     "base_url_lang" : "https://tile-bands-guy-readers.trycloudflare.com",
     "meta_content" : "Book Your Chalet at Kozara Panoramic Resort",
-    "meta_content2" : "Luxury mountain chalets with pool, spa and hiking trails. Nestled in the heart of Mount Kozara, our resort offers an unforgettable experience where every detail reflects warmth, care, and elegance.",
+    "meta_content2" : "Secluded private retreat with pool, spa, and nature trails. Nestled in Mount Kozara, our resort offers a peaceful sanctuary and the perfect privatan odmor na Kozari. Experience intimacy, forest silence, and modern comfort in the heart of Bosnia.",
     "read_article" : "Read Blog",
     "see_all_blogs": "See all blogs"
 

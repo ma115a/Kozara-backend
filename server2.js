@@ -5,23 +5,19 @@ const crypto = require('crypto')
 const winston = require('winston')
 const express = require('express')
 const path = require('path')
+const ical = require('ical-generator')
 const cron = require('node-cron')
 const cors = require('cors')
 const Database = require('better-sqlite3')
+const fileUpload = require('express-fileupload')
 const fs = require('fs')
 const nodemailer = require('nodemailer')
-const multer = require('multer')
-const { Readable } = require('stream');
-const { finished } = require('stream/promises');
-const mime = require('mime-types');
-const { v4: uuidv4 } = require('uuid');
-const { render } = require('ejs')
-const session = require('express-session');
-const { isatty } = require('tty')
 require('winston-daily-rotate-file')
-let db
-let tok
+const multer = require('multer')
+const session = require('express-session');
 
+let db
+let paypalToken
 
 const templatePathIndex = path.join(__dirname, 'public', 'index.html')
 let htmlTemplateIndex = fs.readFileSync(templatePathIndex, 'utf8')
@@ -39,9 +35,10 @@ const templatePathBlogs = path.join(__dirname, 'public', 'blogs.html')
 let htmlTemplateBlogs = fs.readFileSync(templatePathBlogs, 'utf8')
 
 
-const admin_username = 'admin'
-const admin_password = 'admin'
+const admin_username = 'dragana'
+const admin_password = 'kozarapanoramicresort'
 const session_secret = 'necemociovenoci'
+
 
 const languages = {
     en: JSON.parse(fs.readFileSync(path.join(__dirname, 'languages', 'en.json'), 'utf8')),
@@ -87,19 +84,6 @@ const logger = winston.createLogger({
 });
 
 
-
-
-if (process.env.NODE_ENV != 'production') {
-    console.log('dev mode')
-    logger.add(new winston.transports.Console({
-        format: winston.format.combine(
-            winston.format.prettyPrint(),
-            winston.format.colorize()
-        )
-    }))
-}
-
-
 const uploadDir = './public/uploads';
 if (!fs.existsSync(uploadDir)) {
     fs.mkdirSync(uploadDir);
@@ -141,6 +125,17 @@ const upload = multer({
     limits: { fileSize: 10 * 1024 * 1024 }, // Limit file size to 10MB
     fileFilter: fileFilter
 });
+
+
+if (process.env.NODE_ENV != 'production') {
+    console.log('dev mode')
+    logger.add(new winston.transports.Console({
+        format: winston.format.combine(
+            winston.format.prettyPrint(),
+            winston.format.colorize()
+        )
+    }))
+}
 
 function convertDateString(dateStr) {
     // Split the "YY-MM-DD" string
@@ -225,7 +220,6 @@ async function sendBookingConfirmation(bookingData) {
     }
 }
 
-
 function loadLatestBlogs() {
 
     try {
@@ -248,7 +242,6 @@ function loadLatestBlogs() {
         return null
     }
 }
-
 
 function loadAllBlogs() {
 
@@ -275,31 +268,49 @@ function loadAllBlogs() {
 }
 
 
+
 function renderIndex(res, lang) {
 
-    // const templatePathIndex = path.join(__dirname, 'public', 'index_translated.html')
-    // let htmlTemplateIndex = fs.readFileSync(templatePathIndex, 'utf8')
     const t = languages[lang] || languages['en']
     let renderedHtml = htmlTemplateIndex
     let blogs = loadLatestBlogs()
 
-
-    if (blogs === null) {
+    logger.info(blogs)
+    logger.info('blogovi')
+    if (blogs === null || blogs.length === 0) {
         renderedHtml = renderedHtml.replace('{{NO_BLOGS}}', 'flex')
         renderedHtml = renderedHtml.replace('{{YES_BLOGS}}', 'none')
-        renderedHtml = renderedHtml.replace('{{YES_BLOGS}}', 'none')
+        renderedHtml = renderedHtml.replace('{{MORE_BLOGS}}', 'none')
 
     } else {
         renderedHtml = renderedHtml.replace('{{NO_BLOGS}}', 'none')
         renderedHtml = renderedHtml.replace('{{YES_BLOGS}}', 'grid')
-        renderedHtml = renderedHtml.replace('{{YES_BLOGS}}', 'block')
+        renderedHtml = renderedHtml.replace('{{MORE_BLOGS}}', 'none')
+        if (blogs.length > 3) {
+            renderedHtml = renderedHtml.replace('{{MORE_BLOGS}}', 'block')
 
+        }
+
+        // blogs.forEach(blog => {
+        //     renderedHtml = renderedHtml.replace('{{BLOG_TITLE}}', blog.title)
+        //     renderedHtml = renderedHtml.replace('{{BLOG_IMG}}', blog.title_img)
+        //     renderedHtml = renderedHtml.replace('{{BLOG_ID}}', blog.blogid)
+        //
+        // });
+
+
+        let blogContent = ''
         blogs.forEach(blog => {
-            renderedHtml = renderedHtml.replace('{{BLOG_TITLE}}', blog.title)
-            renderedHtml = renderedHtml.replace('{{BLOG_IMG}}', blog.title_img)
-            renderedHtml = renderedHtml.replace('{{BLOG_ID}}', blog.blogid)
 
-        });
+            blogContent += `<div class="blog-card">
+<img src="${blog.title_img}" class="blog-img" alt="Blog 1 cover image" />
+<h4 style="min-height: 2.5em">${blog.title}</h4>
+                    <a class="read-blog" href="https://translate.google.com/translate?sl=sr&tl={{language_code}}&u=https://www.kozarapanoramicresort.ba/blog/${blog.blogid}&op=translate">{{read_article}}</a>
+</div>`
+        })
+        renderedHtml = renderedHtml.replace('{{BLOGS_TEMPLATE}}', blogContent)
+
+
     }
 
 
@@ -318,6 +329,7 @@ function renderIndex(res, lang) {
 }
 
 
+
 function renderNotice(res, lang) {
     const t = languages[lang] || languages['en']
     let renderedHtml = htmlTemplateNotice
@@ -333,7 +345,6 @@ function renderNotice(res, lang) {
 
     res.send(renderedHtml)
 }
-
 
 function renderBlog(res, lang, id) {
     const t = languages[lang] || languages['en']
@@ -399,7 +410,7 @@ function renderAllBlogs(res, lang) {
             blogContent += `<div class="blog-card">
 <img src="${blog.title_img}" class="blog-img" alt="Blog 1 cover image" />
 <h4 style="min-height: 2.5em">${blog.title}</h4>
-                    <a class="read-blog" href="/{{language_code}}/blog/{{BLOG_ID}}">{{read_article}}</a>
+                    <a class="read-blog" href="/{{language_code}}/blog/${blog.blogid}">{{read_article}}</a>
 </div>`
         })
         renderedHtml = renderedHtml.replace('{{BLOGS_SECTION}}', blogContent)
@@ -422,16 +433,26 @@ function renderAllBlogs(res, lang) {
 
 
 
+
+
+
+
+
+//routes
+
+
+
+
 const app = express()
-app.use(express.static(path.join(__dirname, 'public'), { index: false }))
 app.use(cors())
-
-
+const port = 5000
+app.use(express.static(path.join(__dirname, 'public'), { index: false }))
 
 app.use(express.urlencoded({ extended: true }))
 app.use(session({
     secret: session_secret || 'fallback_secret',
-    resave: false,
+    resave: true,
+    rolling: true,
     saveUninitialized: false,
     cookie: {
         secure: false, // Set to true if/when you move to HTTPS
@@ -447,11 +468,6 @@ function isAuthenticated(req, res, next) {
     }
     res.redirect('/login');
 }
-
-
-
-
-const port = 5000
 
 const transporter = nodemailer.createTransport({
     // service: 'gmail',
@@ -469,10 +485,63 @@ const transporter = nodemailer.createTransport({
     pool: true
 });
 
+app.get("/mail", async (req, res) => {
+    // try {
+    //     const info = await transporter.sendMail({
+    //         from: '"Kozara Panoramic Resort" <bookings@kozarapanoramicresort.ba>',
+    //         to: "ghfmk9@gmail.com",
+    //         subject: `Booking Confirmed`, // Unique ID prevents threading
+    //         text: `Test email`, // Fallback plain text
+    //     });
+    //     logger.info({message: info})
+    //     res.status(200).send(info)
+
+    // } catch(error) {
+    //     logger.error({message: error.message})
+    // }
+
+    try {
+        const templatePath = path.join(__dirname, 'email.html');
+        let htmlTemplate = fs.readFileSync(templatePath, 'utf8');
 
 
 
+        const info = await transporter.sendMail({
+            from: '"Kozara Panoramic Resort" <bookings@kozarapanoramicresort.ba>',
+            to: "ghfmk9@gmail.com",
+            subject: `Booking Confirmed: #00000`, // Unique ID prevents threading
+            text: `Dear Customer, your booking at Kozara Resort is confirmed. Ref: #0000`, // Fallback plain text
+            html: htmlTemplate
+        });
 
+        logger.info({ message: info })
+        res.send('OK')
+
+    } catch (error) {
+        logger.error({ message: error.message })
+        res.status(500)
+    }
+
+
+})
+
+app.listen(port, async () => {
+    console.log('listening on port 5000')
+    logger.info('listening on port 5000')
+    logger.info(__dirname)
+    await refreshAuthToken()
+    paypalToken = await getPaypalAccessToken()
+    logger.info(tok)
+
+
+    try {
+        db = new Database('./kozarapanoramicresort.db')
+        logger.info(db)
+    } catch (error) {
+
+        logger.error(error)
+    }
+})
 
 
 
@@ -493,6 +562,7 @@ function generateSignature(method, body, contentType, date, requestURI, sharedSe
     return signature
 }
 
+let tok
 
 
 async function refreshAuthToken() {
@@ -516,6 +586,31 @@ async function refreshAuthToken() {
 
 }
 
+
+//TODO buletproof this method
+async function getPaypalAccessToken() {
+
+    try {
+        const auth = Buffer.from(`${process.env.PAYPAL_CLIENT}:${process.env.PAYPAL_SECRET}`).toString('base64')
+
+        const response = await fetch(`${process.env.PAYPAL_URL}/v1/oauth2/token`, {
+            method: 'POST',
+            body: 'grant_type=client_credentials',
+            headers: {
+                Authorization: `Basic ${auth}`,
+                'Content-Type': 'application/x-www-form-urlencoded'
+            }
+        })
+        const data = await response.json()
+        console.log(data)
+        return data.access_token
+
+
+    } catch (error) {
+
+    }
+}
+
 function findAvailableUnits(dailyStatus) {
     const unitIds = ['1', '2', '3', '4', '5']
 
@@ -527,6 +622,10 @@ function findAvailableUnits(dailyStatus) {
         '5': true
     }
 
+    logger.info({
+        message: "findAvailableUnits"
+    })
+    logger.info({ messaage: dailyStatus })
 
 
     //iterating through the data from beds24
@@ -537,6 +636,7 @@ function findAvailableUnits(dailyStatus) {
 
             for (const unitId of unitIds) {
                 if (dayUnits[unitId] === 1) {
+                    logger.info(dayUnits[unitId])
                     unitAvailabilityTracker[unitId] = false;
                 }
             }
@@ -555,6 +655,7 @@ function findAvailableUnits(dailyStatus) {
 }
 
 
+
 app.post('/login', (req, res) => {
     const { username, password } = req.body;
     if (username === admin_username && password === admin_password) {
@@ -565,7 +666,9 @@ app.post('/login', (req, res) => {
 
 });
 
-
+app.get('/', (req, res) => {
+    renderIndex(res, 'en')
+})
 
 app.get('/', (req, res) => {
     renderIndex(res, 'en')
@@ -587,9 +690,6 @@ app.get(['/de/notice', '/fr/notice', '/it/notice', '/sr/notice'], (req, res) => 
     const lang = req.path.split('/')[1];
     renderNotice(res, lang);
 });
-
-
-
 
 
 app.get("/langpack/:id", (req, res) => {
@@ -724,6 +824,7 @@ app.get('/api/availability', async (req, res) => {
                 }
             })
             availabilityResponse = await availabilityRequest.json()
+            logger.info({ message: availabilityResponse })
             if (availabilityResponse.success) {
                 success = true
                 break
@@ -1066,6 +1167,247 @@ app.post('/api/booking', express.json(), async (req, res) => {
     }
 })
 
+
+
+app.post('/api/paypal/orders', express.json(), async (req, res) => {
+
+
+
+    console.log(req.body)
+
+
+
+    const availabilityParams = new URLSearchParams({
+        startDate: req.body.startDate,
+        endDate: req.body.endDate
+    })
+
+
+    let availabilityData
+    let availabilityAttempt = 0
+    let availabilitySuccess
+
+
+    while (availabilityAttempt < 2) {
+        try {
+            const availabilityRequest = await fetch(`https://beds24.com/api/v2/inventory/rooms/availability?${availabilityParams}`, {
+                method: 'GET',
+                headers: {
+                    'token': tok,
+                    'Accept': 'application/json'
+                }
+            })
+
+
+            availabilityData = await availabilityRequest.json()
+
+
+            if (availabilityData.success) {
+                availabilitySuccess = true
+                break
+            }
+
+            if (availabilityData.code === 401) {
+                await refreshAuthToken()
+                availabilityAttempt++
+            }
+
+            if (availabilityAttempt === 1) {
+                continue
+            }
+            break
+        } catch (error) {
+
+            console.log(error)
+        }
+    }
+
+
+    if (availabilitySuccess) {
+        const availabilityObject = availabilityData.data[0].availability
+        const availabilityEntries = Object.entries(availabilityObject)
+        const totalDays = availabilityEntries.length
+        if (totalDays === 0) {
+            logger.info(`No chalets were available from ${req.body.startDate} - ${req.body.endDate}`)
+            res.status(400).json({ success: false, message: 'No chalets are available for that set of dates!' })
+            return
+
+        }
+
+        const isPatternCorrect = availabilityEntries.every(([date, isAvailable], index) => {
+            return isAvailable === true
+        })
+
+        if (!isPatternCorrect) {
+            logger.info(`No chalets were available from ${req.body.startDate} - ${req.body.endDate}`)
+            res.status(400).json({ success: false, message: 'No chalets are available for that set of dates!' })
+            return
+        }
+
+
+    }
+    //at this point room is available and we proceed to payment
+    //
+    //
+
+    const offerParams = new URLSearchParams({
+        arrival: req.body.startDate,
+        departure: req.body.endDate,
+        numAdults: req.body.numAdults,
+        numChildren: req.body.numChildren
+    })
+
+
+    try {
+
+        //getting the offer from beds24
+        const offer = await fetch(`https://beds24.com/api/v2/inventory/rooms/offers?${offerParams}`, {
+            method: 'GET',
+            headers: {
+                'token': tok,
+                'Accept': 'application/json'
+            }
+        })
+
+
+        const offerData = await offer.json()
+        logger.info(offerData.data[0].offers[0])
+        console.log(offerData)
+        if (offerData.success) {
+            logger.info('Offer is a success')
+
+            const response = await fetch(`${process.env.PAYPAL_URL}/v2/checkout/orders`, {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${paypalToken}`
+                },
+                body: JSON.stringify({
+                    intent: 'CAPTURE',
+                    purchase_units: [{
+                        amount: { currency_code: 'EUR', value: offerData.data[0].offers[0].price * 0.53 },
+                        description: `Chalet booking for ${req.body.customerName} ${req.body.customerLastName} from ${req.body.startDate} to ${req.body.endDate}`
+                    }],
+                    application_context: {
+                        shipping_preference: 'NO_SHIPPING',
+                        user_action: 'PAY_NOW'
+                    }
+                })
+            })
+
+            const order = await response.json()
+
+            logger.info(order)
+
+            const insertBooking = db.prepare(`INSERT INTO bookings (customerName, customerLastName, customerEmail, customerPhone, billingAddress, billingCity, billingCountry, billingPostCode, startDate, endDate, bookingId, bookingStatus, bookingTransactionId, createdAt, adults, children, price) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`);
+
+            if (order.status === 'CREATED') {
+                const requestBookingBody = [{
+                    roomId: process.env.ROOM_ID,
+                    arrival: req.body.startDate,
+                    departure: req.body.endDate,
+                    firstName: req.body.customerName,
+                    lastName: req.body.customerLastName,
+                    email: req.body.customerEmail,
+                    phone: req.body.customerPhone,
+                    address: req.body.billingAddress,
+                    city: req.body.billingCity,
+                    postcode: req.body.billingPostCode,
+                    country: req.body.billingCountry,
+                    numAdult: req.body.numAdults,
+                    numChild: req.body.numChildren,
+                    status: 'request'
+                }]
+
+
+                const bookingRequest = await fetch('https://beds24.com/api/v2/bookings', {
+                    method: 'POST',
+                    headers: {
+                        'token': tok,
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(requestBookingBody)
+                })
+
+
+                const bookingResponse = await bookingRequest.json()
+                logger.info({ message: bookingResponse[0] })
+                if (bookingResponse[0].success) {
+                    logger.info('Booking is created successfylly on Beds24, proceeding to insert into database')
+                    const insertBookingResult = insertBooking.run(req.body.customerName, req.body.customerLastName, req.body.customerEmail, req.body.customerPhone, req.body.billingAddress, req.body.billingCity, req.body.billingCountry, req.body.billingPostCode, req.body.startDate, req.body.endDate, bookingResponse[0].new.id.toString(), process.env.PAYMENT_PENDING, order.id, Date.now(), Number.parseInt(req.body.numAdults), Number.parseInt(req.body.numChildren), offerData.data[0].offers[0].price)
+
+                    logger.info({ message: insertBookingResult })
+                }
+            }
+            return res.status(response.status).json({ success: true, order })
+
+        }
+    } catch (error) {
+        logger.error(error.message)
+
+    }
+})
+
+
+
+app.post('/api/paypal/orders/capture', express.json(), async (req, res) => {
+
+    try {
+
+        const response = await fetch(`${process.env.PAYPAL_URL}/v2/checkout/orders/${req.body.orderId}/capture`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                Authorization: `Bearer ${paypalToken}`
+            }
+        })
+
+        const captureData = await response.json()
+        if (captureData.status === 'COMPLETED') {
+            const updateBooking = db.prepare(`UPDATE bookings SET bookingStatus = ? WHERE bookingTransactionId = ?`)
+            const getBooking = db.prepare(`SELECT * FROM bookings WHERE bookingTransactionId = ?`)
+
+
+            const booking = getBooking.get(captureData.id)
+            console.log(booking)
+
+            const bookingBedsBody = [{
+                id: booking.bookingId,
+                status: 'confirmed'
+            }]
+
+            const bookingBeds = await fetch('https://beds24.com/api/v2/bookings', {
+                method: 'POST',
+                headers: {
+                    'token': tok,
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(bookingBedsBody)
+            })
+
+            const bookingResponse = await bookingBeds.json()
+            if (bookingResponse[0].success) {
+                logger.info('Beds24 booking update success')
+                logger.info({ message: 'updated booking info', booking })
+                const updateBookingDatabase = updateBooking.run(process.env.PAYMENT_SUCCESSFUL, captureData.id)
+
+            }
+        }
+
+
+
+
+
+        console.log(captureData)
+        return res.json({ success: true, url: `/booking/check-payment?tid=${captureData.id}` })
+    } catch (error) {
+
+        logger.error(error.message)
+    }
+
+
+})
+
 app.get('/refresh', async (req, res) => {
     logger.info('refresh api called')
 
@@ -1156,58 +1498,6 @@ app.get("/error", (req, res) => {
 })
 
 
-
-
-// cron job to cancel any booking that didn't make it through the payment process
-// cron.schedule(`*/${process.env.CRON_CLEAR_BOOKINGS_TIME} * * * *`, async () => {
-//     logger.info("Checking for false bookings...");
-//     try {
-//         const retrieveFalseBookings = db.prepare(`SELECT * FROM bookings WHERE bookingStatus = ?`)
-//         const falseBookings = retrieveFalseBookings.all(process.env.PAYMENT_PENDING)
-//         if (falseBookings.length > 0) {
-//             const cancelBookingsBody = []
-//             for (const booking of falseBookings) {
-//                 const differenceInMs = Date.now() - booking.createdAt
-//                 const timePassed = Math.floor(differenceInMs / 1000 / 60);
-//                 logger.info(timePassed)
-//                 if (timePassed > 180) {
-//                     logger.info({ message: 'elgible for deletion' })
-//                     logger.info({ message: booking })
-//                     cancelBookingsBody.push({ id: booking.bookingId, status: "cancelled" })
-//                 } else { logger.info('booking found but not eligible for deletion') }
-//             }
-//
-//             logger.info(cancelBookingsBody)
-//
-//
-//
-//             const cancelBookingsRequest = await fetch('https://beds24.com/api/v2/bookings', {
-//                 method: 'POST',
-//                 headers: {
-//                     'token': tok,
-//                     'Accept': 'application/json'
-//                 },
-//                 body: JSON.stringify(cancelBookingsBody)
-//             })
-//
-//             const cancelBookingsResponse = await cancelBookingsRequest.json()
-//             logger.info(cancelBookingsResponse)
-//
-//             const deleteFalseBookings = db.prepare(`DELETE FROM bookings WHERE bookingStatus = ?`)
-//             const deleteFalseBookingsResult = deleteFalseBookings.run(process.env.PAYMENT_PENDING)
-//         }
-//     } catch (error) {
-//         logger.error(error)
-//     }
-// })
-
-
-// app.options('/uploadimage', (req, res) => {
-//     console.log('alo ba')
-//     res.status(200)
-// })
-//
-//
 app.post('/upload', upload.any(), (req, res) => {
 
     if (!req.files || req.files.length === 0) {
@@ -1226,7 +1516,6 @@ app.post('/upload', upload.any(), (req, res) => {
         }
     });
 });
-
 
 
 app.post('/api/saveblog', isAuthenticated, express.json(), (req, res) => {
@@ -1344,6 +1633,7 @@ app.get("/api/blog/getall", isAuthenticated, (req, res) => {
     }
 })
 
+
 app.get('/api/blog/latest', (req, res) => {
 
     try {
@@ -1391,9 +1681,6 @@ app.get('/api/blog/:id', isAuthenticated, (req, res) => {
 
 
 
-
-
-
 app.get("/blogeditor", isAuthenticated, (req, res) => {
 
     res.sendFile(path.join(__dirname, 'public', 'blog_editor.html'))
@@ -1424,10 +1711,6 @@ app.get(['/de/blogs', '/it/blogs', '/sr/blogs'], (req, res) => {
 })
 
 
-
-
-
-
 app.get('/login', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'login.html'))
 })
@@ -1441,58 +1724,64 @@ app.get('/logout', (req, res) => {
 
 
 
-
-
-
-app.get("/mail", async (req, res) => {
-    try {
-        const templatePath = path.join(__dirname, 'email.html');
-        let htmlTemplate = fs.readFileSync(templatePath, 'utf8');
-
-
-
-        const info = await transporter.sendMail({
-            from: '"Kozara Panoramic Resort" <bookings@kozarapanoramicresort.ba>',
-            to: "ghfmk9@gmail.com",
-            subject: `Booking Confirmed: #00000`, // Unique ID prevents threading
-            text: `Dear Customer, your booking at Kozara Resort is confirmed. Ref: #0000`, // Fallback plain text
-            html: htmlTemplate
-        });
-
-        logger.info({ message: info })
-        res.send('OK')
-
-    } catch (error) {
-        logger.error({ message: error.message })
-        res.status(500)
-    }
-
-
-})
-
-
-
-
 app.get('/*splat', (req, res) => {
 
-    // res.sendFile(path.join(__dirname, 'public', 'index.html'))
     renderIndex(res, 'en')
 })
 
 
-app.listen(port, async () => {
-    console.log('listening on port 5000')
-    logger.info('listening on port 5000')
-    await refreshAuthToken()
+// cron job to cancel any booking that didn't make it through the payment process
+// cron.schedule(`*/${process.env.CRON_CLEAR_BOOKINGS_TIME} * * * *`, async () => {
+//     logger.info("Checking for false bookings...");
+//     try {
+//         const retrieveFalseBookings = db.prepare(`SELECT * FROM bookings WHERE bookingStatus = ?`)
+//         const falseBookings = retrieveFalseBookings.all(process.env.PAYMENT_PENDING)
+//         if (falseBookings.length > 0) {
+//             const cancelBookingsBody = []
+//             for (const booking of falseBookings) {
+//                 const differenceInMs = Date.now() - booking.createdAt
+//                 const timePassed = Math.floor(differenceInMs / 1000 / 60);
+//                 logger.info(timePassed)
+//                 if (timePassed > 180) {
+//                     logger.info({ message: 'elgible for deletion' })
+//                     logger.info({ message: booking })
+//                     cancelBookingsBody.push({ id: booking.bookingId, status: "cancelled" })
+//                 } else { logger.info('booking found but not eligible for deletion') }
+//             }
+//
+//             logger.info(cancelBookingsBody)
+//             if (cancelBookingsBody.length === 0) {
+//                 return
+//             }
+//
+//
+//
+//             const cancelBookingsRequest = await fetch('https://beds24.com/api/v2/bookings', {
+//                 method: 'POST',
+//                 headers: {
+//                     'token': tok,
+//                     'Accept': 'application/json'
+//                 },
+//                 body: JSON.stringify(cancelBookingsBody)
+//             })
+//
+//             const cancelBookingsResponse = await cancelBookingsRequest.json()
+//             logger.info(cancelBookingsResponse)
+//             if (cancelBookingsResponse.success) {
+//                 const deleteFalseBookings = db.prepare(`DELETE FROM bookings WHERE bookingStatus = ?`)
+//                 const deleteFalseBookingsResult = deleteFalseBookings.run(process.env.PAYMENT_PENDING)
+//
+//             }
+//
+//         }
+//     } catch (error) {
+//         logger.error(error)
+//     }
+// })
 
 
-    try {
-        db = new Database('./kozarapanoramicresort.db')
-        logger.info(db)
-    } catch (error) {
 
-        logger.error(error)
-    }
-})
+
+
 
 

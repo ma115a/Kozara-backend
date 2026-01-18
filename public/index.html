@@ -5,12 +5,18 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Kozara Panoramic Resort</title>
+    <title>{{title}}</title>
     <link href="/css/vanilla_calendar.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/light.css" rel="stylesheet" />
     <link href="/css/main.css" rel="stylesheet" />
     <script src="/js/vanilla_calendar.js"></script>
     <script src="/js/vcUtils.js"></script>
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Kozara Panoramic resort" />
+    <link rel="manifest" href="/site.webmanifest" />
     <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/carousel/carousel.js"
         type="module"></script>
     <script
@@ -55,6 +61,8 @@
         type="module"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script
+        src="https://www.paypal.com/sdk/js?client-id=ATTj2-HK5tYX3BUEO_KyQu3sDdTJnD3T3q5tr7SQhMgZoreJgTmLO76oegZisFpzWk1oUbLLfjkj0PXd&disable-funding=credit,card&currency=EUR"></script>
     <script type="application/ld+json">
 			{
 				"@context": "https://schema.org",
@@ -64,14 +72,13 @@
 				"url": "https://www.kozarapanoramicresort.ba",
 				"image": "https://www.kozarapanoramicresort.ba/assets/Scenery/lander.webp",
 				"address": {
-					<MISSING>
 					"@type": "PostalAddress",
 					"streetAddress": "Kozara BB",
 					"addressLocality": "Gradiška",
 					"postalCode": "78400",
 					"addressCountry": "BA"
 				},
-			             "telephone": "+38766767622",
+			     "telephone": "+38766767622"
 			}
 		</script>
     <!-- html meta -->
@@ -79,31 +86,35 @@
     <!-- opengraph -->
     <meta content="{{meta_content}}" property="og:title" />
     <meta content="{{meta_content2}}" property="og:description" />
-    <meta content="https://kozarapanoramicresort.ba/assets/Scenery/lander.webp" property="og:image" />
-    <meta content="https://kozarapanoramicresort.ba/en" property="og:url" />
+    <meta content="https://www.kozarapanoramicresort.ba/assets/Scenery/lander.webp" property="og:image" />
+    <meta content="https://www.kozarapanoramicresort.ba/en" property="og:url" />
     <meta content="website" property="og:type" />
     <!-- twitter -->
     <meta content="summary_large_image" name="twitter:card" />
     <meta content="{{meta_content}}" name="twitter:title" />
     <meta content="{{meta_content2}}" name="twitter:description" />
-    <meta content="https://kozarapanoramicresort.ba/assets/Scenery/lander.webp" name="twitter:image" />
-    <link rel="canonical" href="https://kozarapanoramicresort.ba/{{lang_code}}" />
+    <meta content="https://www.kozarapanoramicresort.ba/assets/Scenery/lander.webp" name="twitter:image" />
+    <link rel="canonical" href="https://www.kozarapanoramicresort.ba" />
     <!-- lang -->
-    <link href="https://kozarapanoramicresort.ba/en" hreflang="en" rel="alternate" />
-    <link href="https://kozarapanoramicresort.ba/de" hreflang="de" rel="alternate" />
-    <link href="https://kozarapanoramicresort.ba/it" hreflang="it" rel="alternate" />
-    <link href="https://kozarapanoramicresort.ba/ba" hreflang="ba" rel="alternate" />
-    <link href="https://kozarapanoramicresort.ba/en" hreflang="x-default" rel="alternate" />
-    <link rel="preload" as="image" href="https://kozarapanoramicresort.ba/assets/Scenery/lander.webp"
+    <link href="https://www.kozarapanoramicresort.ba" hreflang="en" rel="alternate" />
+    <link href="https://www.kozarapanoramicresort.ba/de" hreflang="de" rel="alternate" />
+    <link href="https://www.kozarapanoramicresort.ba/it" hreflang="it" rel="alternate" />
+    <link href="https://www.kozarapanoramicresort.ba/sr" hreflang="sr" rel="alternate" />
+    <link href="https://www.kozarapanoramicresort.ba" hreflang="x-default" rel="alternate" />
+    <link rel="preload" as="image" href="https://www.kozarapanoramicresort.ba/assets/Scenery/lander.webp"
         fetchpriority="high" />
+    <meta name="keywords"
+        content="odmor kozara, privatan odmor kozara, privatan odmor bosna i hercegovina, secluded private chalets bosnia, mountain retreat kozara, luxury chalets bosnia and hercegovina, odmor planina kozara, kozara resort, planina kozara smjestaj, mountain vacation bosnia" />
+
 </head>
 
 <body>
     <div class="floating-book-btn" href="#" onclick="open_booking()">{{floating}}</div>
-    <header class="hero">
+    <header class="hero" role="img"
+        aria-label="Luxury private chalets with panoramic mountain views at Kozara Panoramic Resort">
         <div class="hero-overlay"></div>
         <div class="nav-bar">
-            <div class="logo-text">KOZARA</div>
+            <h1 class="logo-text">{{logo_text}}</h1>
             <div class="nav-links-container">
                 <a class="nav-link" href="#chalets">{{nav_chalets}}</a>
                 <a class="nav-link" href="#location">{{nav_location}}</a>
@@ -117,10 +128,10 @@
                         {{language_tag}}
                     </span>
                     <sl-menu>
-                        <sl-menu-item><a href="/">🇬🇧 EN (English)</a></sl-menu-item>
-                        <sl-menu-item><a href="/sr">🇷🇸 SR (Srpski)</a></sl-menu-item>
-                        <sl-menu-item><a href="/de">🇩🇪 DE (Deutsch)</a></sl-menu-item>
-                        <sl-menu-item><a href="/it">🇮🇹 IT (Italiano)</a></sl-menu-item>
+                        <sl-menu-item><a href="/">ðŸ‡¬ðŸ‡§ EN (English)</a></sl-menu-item>
+                        <sl-menu-item><a href="/sr">ðŸ‡·ðŸ‡¸ SR (Srpski)</a></sl-menu-item>
+                        <sl-menu-item><a href="/de">ðŸ‡©ðŸ‡ª DE (Deutsch)</a></sl-menu-item>
+                        <sl-menu-item><a href="/it">ðŸ‡®ðŸ‡¹ IT (Italiano)</a></sl-menu-item>
                     </sl-menu>
                 </sl-dropdown>
             </div>
@@ -146,10 +157,10 @@
                 {{language_tag}}
             </span>
             <sl-menu>
-                <sl-menu-item><a href="/">🇬🇧 EN (English)</a></sl-menu-item>
-                <sl-menu-item><a href="/sr">🇷🇸 SR (Srpski)</a></sl-menu-item>
-                <sl-menu-item><a href="/de">🇩🇪 DE (Deutsch)</a></sl-menu-item>
-                <sl-menu-item><a href="/it">🇮🇹 IT (Italiano)</a></sl-menu-item>
+                <sl-menu-item><a href="/">ðŸ‡¬ðŸ‡§ EN (English)</a></sl-menu-item>
+                <sl-menu-item><a href="/sr">ðŸ‡·ðŸ‡¸ SR (Srpski)</a></sl-menu-item>
+                <sl-menu-item><a href="/de">ðŸ‡©ðŸ‡ª DE (Deutsch)</a></sl-menu-item>
+                <sl-menu-item><a href="/it">ðŸ‡®ðŸ‡¹ IT (Italiano)</a></sl-menu-item>
             </sl-menu>
         </sl-dropdown>
     </sl-drawer>
@@ -195,7 +206,7 @@
     </section>
     <section class="chalets-section" id="chalets">
         <div style="text-align: center; margin-bottom: 40px">
-            <h3 class="section-title">{{chalets_title}}</h3>
+            <h2 class="section-title">{{chalets_title}}</h2>
             <p>{{chalets_desc}}</p>
         </div>
         <div class="chalet-grid">
@@ -204,7 +215,7 @@
                 <img alt="Cloud Chalet" class="chalet-img" src="/assets/Chalets/wind/chaelt41.jpeg" />
                 <div class="chalet-details">
                     <h4>The Wind Chalet</h4>
-                    <!-- <p class="amenities">Sleeps 4 • Jacuzzi • Forest View</p> -->
+                    <!-- <p class="amenities">Sleeps 4 â€¢ Jacuzzi â€¢ Forest View</p> -->
                     <button class="btn-view" onclick="openModal('wind')">{{chalets_details_btn}}</button>
                 </div>
             </div>
@@ -213,7 +224,7 @@
                 <img alt="Summit Lodge" class="chalet-img" src="/assets/Chalets/sun/chaelt51.jpeg" />
                 <div class="chalet-details">
                     <h4>The Sun Chalet</h4>
-                    <!-- <p class="amenities">Sleeps 8 • Private Spa • Panoramic Glass</p> -->
+                    <!-- <p class="amenities">Sleeps 8 â€¢ Private Spa â€¢ Panoramic Glass</p> -->
                     <button class="btn-view" onclick="openModal('summit')">{{chalets_details_btn}}</button>
                 </div>
             </div>
@@ -223,7 +234,7 @@
                 <img alt="Star Cabin" class="chalet-img" src="/assets/Chalets/star/chalet5_cropped.jpeg" />
                 <div class="chalet-details">
                     <h4>The Star Chalet</h4>
-                    <!-- <p class="amenities">Sleeps 6 • Fireplace • Large Terrace</p> -->
+                    <!-- <p class="amenities">Sleeps 6 â€¢ Fireplace â€¢ Large Terrace</p> -->
                     <button class="btn-view" onclick="openModal('star')">{{chalets_details_btn}}</button>
                 </div>
             </div>
@@ -232,7 +243,7 @@
                 <img alt="Wind Cabin" class="chalet-img" src="/assets/Chalets/sky/chalet3_cropped1.jpeg" />
                 <div class="chalet-details">
                     <h4>The Sky Chalet</h4>
-                    <!-- <p class="amenities">Sleeps 2 • Secluded • Romantic</p> -->
+                    <!-- <p class="amenities">Sleeps 2 â€¢ Secluded â€¢ Romantic</p> -->
                     <button class="btn-view" onclick="openModal('sky')">{{chalets_details_btn}}</button>
                 </div>
             </div>
@@ -241,7 +252,7 @@
                 <img alt="Sky Cabin" class="chalet-img" src="/assets/Chalets/cloud/chalet5_cropped.jpg" />
                 <div class="chalet-details">
                     <h4>The Cloud Chalet</h4>
-                    <!-- <p class="amenities">Sleeps 5 • Pet Friendly • BBQ</p> -->
+                    <!-- <p class="amenities">Sleeps 5 â€¢ Pet Friendly â€¢ BBQ</p> -->
                     <button class="btn-view" onclick="openModal('cloud')">{{chalets_details_btn}}</button>
                 </div>
             </div>
@@ -270,22 +281,22 @@
         <div class="review-grid">
             <div class="review-card">
                 <p>"The best mountain retreat we have ever experienced. The Star Cabin fireplace was magical."</p>
-                <div class="reviewer">— ANA &amp; MARKO, Sarajevo</div>
+                <div class="reviewer">â€” ANA &amp; MARKO, Sarajevo</div>
             </div>
             <div class="review-card">
                 <p>"Pure luxury in the wilderness. The Cloud Cabin jacuzzi was perfect after a long hike."</p>
-                <div class="reviewer">— DAMIR M., Beograd</div>
+                <div class="reviewer">â€” DAMIR M., Beograd</div>
             </div>
             <div class="review-card">
                 <p>"A truly unique spot in Kozara National Park. Modern but cozy design."</p>
-                <div class="reviewer">— THE JUSIC FAMILY</div>
+                <div class="reviewer">â€” THE JUSIC FAMILY</div>
             </div>
         </div>
     </section>
     <section class="section-padding" id="about-us">
         <div class="content-layout">
             <div class="content-text">
-                <h3 class="section-title" style="text-align: left">{{about_us_title}}</h3>
+                <h2 class="section-title" style="text-align: left">{{about_us_title}}</h2>
                 <p>{{about_us_desc1}}</p>
                 <p>{{about_us_desc2}}</p>
             </div>
@@ -309,23 +320,24 @@
     <section class="section-padding" id="blog">
         <h3 class="section-title">{{blog_title}}</h3>
         <div class="blog-grid" style="display: {{YES_BLOGS}};">
-            <div class="blog-card">
-                <img src="{{BLOG_IMG}}" class="blog-img" alt="Blog 1 cover image" />
-                <h4 style="min-height: 2.5em">{{BLOG_TITLE}}</h4>
-                <a class="read-blog" href="/{{language_code}}/blog/{{BLOG_ID}}">{{read_article}}</a>
-            </div>
-            <div class="blog-card">
-                <img src="{{BLOG_IMG}}" class="blog-img" alt="Blog 2 cover image" />
-                <h4 style="min-height: 2.5em">{{BLOG_TITLE}}</h4>
-                <a class="read-blog" href="/{{language_code}}/blog/{{BLOG_ID}}">{{read_article}}</a>
-            </div>
-            <div class="blog-card">
-                <img src="{{BLOG_IMG}}" class="blog-img" alt="Blog 3 cover image" />
-                <h4 style="min-height: 2.5em">{{BLOG_TITLE}}</h4>
-                <a class="read-blog" href="/{{language_code}}/blog/{{BLOG_ID}}">{{read_article}}</a>
-            </div>
+            <!-- <div class="blog-card"> -->
+            <!--     <img src="{{BLOG_IMG}}" class="blog-img" alt="Blog 1 cover image" /> -->
+            <!--     <h4 style="min-height: 2.5em">{{BLOG_TITLE}}</h4> -->
+            <!--     <a class="read-blog" href="/{{language_code}}/blog/{{BLOG_ID}}">{{read_article}}</a> -->
+            <!-- </div> -->
+            <!-- <div class="blog-card"> -->
+            <!--     <img src="{{BLOG_IMG}}" class="blog-img" alt="Blog 2 cover image" /> -->
+            <!--     <h4 style="min-height: 2.5em">{{BLOG_TITLE}}</h4> -->
+            <!--     <a class="read-blog" href="/{{language_code}}/blog/{{BLOG_ID}}">{{read_article}}</a> -->
+            <!-- </div> -->
+            <!-- <div class="blog-card"> -->
+            <!--     <img src="{{BLOG_IMG}}" class="blog-img" alt="Blog 3 cover image" /> -->
+            <!--     <h4 style="min-height: 2.5em">{{BLOG_TITLE}}</h4> -->
+            <!--     <a class="read-blog" href="/{{language_code}}/blog/{{BLOG_ID}}">{{read_article}}</a> -->
+            <!-- </div> -->
+            {{BLOGS_TEMPLATE}}
         </div>
-        <a style="display: {{YES_BLOGS}};" class="read-blog" href="/{{language_code}}/blogs">{{see_all_blogs}}</a>
+        <a style="display: {{MORE_BLOGS}};" class="read-blog" href="/{{language_code}}/blogs">{{see_all_blogs}}</a>
         <div style="display: {{NO_BLOGS}}; justify-content: center;">
             <span style="font-size: 1.5rem; font-style: italic">{{blog_desc}}</span>
         </div>
@@ -357,7 +369,7 @@
                 <!--    data-i8n-summary="faq_ev_q" -->
                 <!--    data-i8n="faq_ev_a" -->
                 <!--    summary="Do you have an EV charging station?">-->
-                <!--    Not currently, though one is planned for the future. The nearest petrol station is on the main road to Gradiška (approx. 18 km).-->
+                <!--    Not currently, though one is planned for the future. The nearest petrol station is on the main road to GradiÅ¡ka (approx. 18 km).-->
                 <!--</sl-details>-->
                 <sl-details summary="{{faq_quiet_q}}">{{faq_quiet_a}}</sl-details>
                 <sl-details summary="{{faq_airport_q}}">{{faq_airport_a}}</sl-details>
@@ -380,7 +392,7 @@
                 href="/{{language_code}}/notice#privacy">{{footer-privacy}}</a> |
             <a href="/{{language_code}}/notice#impressum">{{footer-contact}}</a>
         </div>
-        <p>© Kozara Panoramic Resort – PEVA d.o.o. All rights reserved.</p>
+        <p>Â© Kozara Panoramic Resort â€“ PEVA d.o.o. All rights reserved.</p>
     </footer>
     <sl-dialog id="chalet_dialog" label="The Cloud Cabin">
         <p class="dialog-desc" id="dialog-desc">The Cloud cabin floats above the clouds, surrounded by silence and a
@@ -465,7 +477,7 @@
                     <sl-option value="AT">Austria</sl-option>
                     <sl-option value="AZ">Azerbaijan</sl-option>
                     <sl-divider></sl-divider>
-                    <sl-option value="AX">Åland Islands</sl-option>
+                    <sl-option value="AX">Ã…land Islands</sl-option>
                     <sl-divider></sl-divider>
                     <sl-option value="BS">Bahamas</sl-option>
                     <sl-option value="BH">Bahrain</sl-option>
@@ -508,10 +520,10 @@
                     <sl-option value="CR">Costa Rica</sl-option>
                     <sl-option value="HR">Croatia</sl-option>
                     <sl-option value="CU">Cuba</sl-option>
-                    <sl-option value="CW">Curaçao</sl-option>
+                    <sl-option value="CW">CuraÃ§ao</sl-option>
                     <sl-option value="CY">Cyprus</sl-option>
                     <sl-option value="CZ">Czech Republic</sl-option>
-                    <sl-option value="CI">Côte d'Ivoire</sl-option>
+                    <sl-option value="CI">CÃ´te d'Ivoire</sl-option>
                     <sl-divider></sl-divider>
                     <sl-option value="DK">Denmark</sl-option>
                     <sl-option value="DJ">Djibouti</sl-option>
@@ -698,7 +710,7 @@
                     <sl-option value="TO">Tonga</sl-option>
                     <sl-option value="TT">Trinidad and Tobago</sl-option>
                     <sl-option value="TN">Tunisia</sl-option>
-                    <sl-option value="TR">Turkey (Türkiye)</sl-option>
+                    <sl-option value="TR">Turkey (TÃ¼rkiye)</sl-option>
                     <sl-option value="TM">Turkmenistan</sl-option>
                     <sl-option value="TC">Turks and Caicos Islands</sl-option>
                     <sl-option value="TV">Tuvalu</sl-option>
@@ -739,6 +751,7 @@
                     required="" type="tel"></sl-input>
             </fieldset>
             <sl-button id="ptp_btn" type="submit">{{booking_form_btn}}</sl-button>
+            <div id="paypal-container"></div>
         </form>
     </sl-dialog>
     <sl-dialog id="img_preview">
@@ -776,10 +789,10 @@
         }
 
         const LANGUAGE_MAP = {
-            en: {flag: "🇬🇧", abbr: "EN"},
-            sr: {flag: "🇷🇸", abbr: "SR"},
-            de: {flag: "🇩🇪", abbr: "DE"},
-            it: {flag: "🇮🇹", abbr: "IT"},
+            en: {flag: "ðŸ‡¬ðŸ‡§", abbr: "EN"},
+            sr: {flag: "ðŸ‡·ðŸ‡¸", abbr: "SR"},
+            de: {flag: "ðŸ‡©ðŸ‡ª", abbr: "DE"},
+            it: {flag: "ðŸ‡®ðŸ‡¹", abbr: "IT"},
         }
 
         let langData = {}
@@ -880,7 +893,7 @@
             type: "multiple",
             selectedTheme: "light",
             dateMin: "today",
-            displayDateMin: "2025-12-15",
+            // displayDateMin: "2025-12-15",
             // displayDateMax: "2026-03-31",
             dateMax: "2026-03-31",
             disableDatesGaps: true,
@@ -895,7 +908,7 @@
                     if (comp_date(entry.from, curr_date)) continue
                     if (comp_date(curr_date, entry.to)) continue
                     dateEl.querySelector("button").innerHTML += `<div>\
-							${Math.round(entry.price1 * currency_modifier * 10) / 10}${currency_modifier == 1 ? "KM" : "€"}
+							${Math.round(entry.price1 * currency_modifier * 10) / 10}${currency_modifier == 1 ? "KM" : "â‚¬"}
 							</div>`
                     break
                 }
@@ -903,8 +916,8 @@
             onClickDate(self, event) {
                 if (self.context.selectedDates.length < 2) return
                 const expanded_dates = window.VanillaCalendarProUtils.parseDates([`${self.context.selectedDates[0]}:${self.context.selectedDates[1]}`])
-                if (expanded_dates.length < 3) {
-                    notify("Minimum 2 nights of stay!", "neutral")
+                if (expanded_dates.length < 2) {
+                    notify("Minimum 1 nights of stay!", "neutral")
                     self.context.selectedDates = []
                 }
             },
@@ -965,7 +978,7 @@
 
         async function AJAX(fdataJSON) {
             ptp_btn.setAttribute("loading", "true")
-            const sres = await fetch("https://kozarapanoramicresort.ba/api/booking", {
+            const sres = await fetch("/api/booking", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -1002,7 +1015,7 @@
             }
             document.getElementById("chalets").scrollIntoView()
 
-            const sres = await fetch(`https://kozarapanoramicresort.ba/api/availability?startDate=${check_arrive.context.selectedDates[0]}&endDate=${check_depart.context.selectedDates[0]}`)
+            const sres = await fetch(`/api/availability?startDate=${check_arrive.context.selectedDates[0]}&endDate=${check_depart.context.selectedDates[0]}`)
             const sresJSON = await sres.json()
             const message = sresJSON.message
             if (sres.status == 503) {
@@ -1090,7 +1103,7 @@
             const curr_date = new Date()
             const next_date = new Date()
             next_date.setFullYear(curr_date.getFullYear() + 1)
-            fetch(`https://kozarapanoramicresort.ba/api/getprices?startDate=${curr_date.toISOString().substring(0, 10)}&endDate=${next_date.toISOString().substring(0, 10)}`)
+            fetch(`/api/getprices?startDate=${curr_date.toISOString().substring(0, 10)}&endDate=${next_date.toISOString().substring(0, 10)}`)
                 .then(res => res.json())
                 .then(res => (prices_data = res))
                 .then(() => {
@@ -1114,6 +1127,51 @@
                     document.querySelector("button.btn-check").setAttribute("disabled", "true")
                     chalet_dialog.querySelector("button.btn-book-dialog").setAttribute("disabled", "true")
                 })
+        }
+        {
+
+            paypal.Buttons({
+                style: {
+
+                    disableMaxWidth: true,
+
+                },
+                createOrder: async () => {
+
+
+                    const form = document.getElementById('book_form')
+                    const formData = new FormData(form)
+                    const formProps = Object.fromEntries(formData)
+                    formProps.startDate = booking_calendar.context.selectedDates[0]
+                    formProps.endDate = booking_calendar.context.selectedDates[1]
+
+                    const response = await fetch('/api/paypal/orders', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(formProps)
+                    })
+                    const orderData = await response.json()
+                    console.log(orderData)
+                    return orderData.order.id
+                },
+                onApprove: async (data) => {
+                    console.log('approve')
+                    console.log(data)
+                    const approveResponse = await fetch(`/api/paypal/orders/capture`, {
+                        method: 'POST',
+                        headers: {'Content-Type': 'application/json'},
+                        body: JSON.stringify({
+                            orderId: data.orderID,
+                        })
+                    })
+                    const approveData = await approveResponse.json()
+                    if (approveData.success) {
+                        window.location = approveData.url
+                    }
+                }
+            }).render('#paypal-container')
         }
     </script>
 </body>
