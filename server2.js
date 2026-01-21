@@ -1392,13 +1392,13 @@ app.post('/api/paypal/orders/capture', express.json(), async (req, res) => {
                 const updateBookingDatabase = updateBooking.run(process.env.PAYMENT_SUCCESSFUL, captureData.id)
 
             }
+            sendBookingConfirmation({ id: booking.bookingId, customerName: booking.customerName + ' ' + booking.customerLastName, email: booking.customerEmail, startDate: convertDateString(booking.startDate), endDate: convertDateString(booking.endDate), adults: booking.adults, children: booking.children, nights: getDaysBetween(booking.endDate, booking.startDate), totalPrice: booking.price })
         }
 
 
 
 
 
-        console.log(captureData)
         return res.json({ success: true, url: `/booking/check-payment?tid=${captureData.id}` })
     } catch (error) {
 
@@ -1485,6 +1485,52 @@ app.post("/api/callback", express.json(), async (req, res) => {
         } catch (error) {
             logger.error(error.message)
         }
+    }
+})
+
+
+
+app.get('/api/checkfalsebookings', async (req, res) => {
+    logger.info('endpoint for false bookings check called')
+    try {
+        const falseBookingsPrepare = db.prepare(`SELECT * FROM bookings WHERE bookingStatus = ?`)
+        const falseBookings = falseBookingsPrepare.all(process.env.PAYMENT_PENDING)
+        console.log(falseBookings)
+
+        if (falseBookings.length > 0) {
+            let cancelBookingsBody = []
+
+            for (const booking of falseBookings) {
+                cancelBookingsBody.push({ id: booking.bookingId, status: 'cancelled' })
+            }
+
+
+            const cancelBookingsRequest = await fetch('https://beds24.com/api/v2/bookings', {
+                method: 'POST',
+                headers: {
+                    'token': tok,
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(cancelBookingsBody)
+            })
+
+
+            const data = await cancelBookingsRequest.json()
+
+
+            console.log(data[0].success)
+            if (data[0].success) {
+
+                const deleteFalseBookingsPrepare = db.prepare(`DELETE FROM bookings WHERE bookingStatus = ?`)
+                const deleteFalseBookingsResult = deleteFalseBookingsPrepare.run(process.env.PAYMENT_PENDING)
+                console.log(deleteFalseBookingsResult)
+            }
+        }
+
+        return res.json(falseBookings)
+
+    } catch (error) {
+        logger.error(error.message)
     }
 })
 
