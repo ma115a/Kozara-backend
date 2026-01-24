@@ -84,34 +84,37 @@
 
 	<body>
 		<div class="floating-book-btn" href="#" onclick="open_booking()">{{floating}}</div>
+		<nav>
+			<h1 class="logo-text">{{logo_text}}</h1>
+			<div class="nav-links-container">
+				<a class="nav-link" href="#chalets">{{nav_chalets}}</a>
+				<a class="nav-link" href="#location">{{nav_location}}</a>
+				<!-- <a href="#reviews" class="nav-link" data-i8n="nav_reviews">Reviews</a> -->
+				<a class="nav-link" href="#blog">{{nav_blog}}</a>
+			</div>
+			<div id="logo_stripped_reserve_spacer"></div>
+			<img id="logo_stripped" src="/assets/logo_stripped.svg"></img>
+			<div class="nav-links-container">
+				<a class="nav-link" href="/{{language_code}}/notice#impressum">{{contact}}</a>
+				<sl-dropdown>
+					<!-- NEW TRIGGER: span element to display the selected language -->
+					<span class="nav-language-trigger" id="language_display_trigger" slot="trigger">
+						<!-- Initial state, set to default EN -->
+						{{language_tag}}
+					</span>
+					<sl-menu>
+						<sl-menu-item><a href="/">ðŸ‡¬ðŸ‡§ EN (English)</a></sl-menu-item>
+						<sl-menu-item><a href="/sr">ðŸ‡·ðŸ‡¸ SR (Srpski)</a></sl-menu-item>
+						<sl-menu-item><a href="/de">ðŸ‡©ðŸ‡ª DE (Deutsch)</a></sl-menu-item>
+						<sl-menu-item><a href="/it">ðŸ‡®ðŸ‡¹ IT (Italiano)</a></sl-menu-item>
+					</sl-menu>
+				</sl-dropdown>
+				<a class="nav-cta" onclick="open_booking()" style="cursor: pointer">{{nav_cta}}</a>
+			</div>
+			<sl-icon-button id="btn_menu" onclick="drawer_menu.show()" src="/assets/amenities_icons/menu.svg"></sl-icon-button>
+		</nav>
 		<header class="hero" role="img" aria-label="Luxury private chalets with panoramic mountain views at Kozara Panoramic Resort">
 			<div class="hero-overlay"></div>
-			<div class="nav-bar">
-				<h1 class="logo-text">{{logo_text}}</h1>
-				<div class="nav-links-container">
-					<a class="nav-link" href="#chalets">{{nav_chalets}}</a>
-					<a class="nav-link" href="#location">{{nav_location}}</a>
-					<!-- <a href="#reviews" class="nav-link" data-i8n="nav_reviews">Reviews</a> -->
-					<a class="nav-link" href="#blog">{{nav_blog}}</a>
-					<a class="nav-link" href="/{{language_code}}/notice#impressum">{{contact}}</a>
-					<sl-dropdown>
-						<!-- NEW TRIGGER: span element to display the selected language -->
-						<span class="nav-language-trigger" id="language_display_trigger" slot="trigger">
-							<!-- Initial state, set to default EN -->
-							{{language_tag}}
-						</span>
-						<sl-menu>
-							<sl-menu-item><a href="/">ðŸ‡¬ðŸ‡§ EN (English)</a></sl-menu-item>
-							<sl-menu-item><a href="/sr">ðŸ‡·ðŸ‡¸ SR (Srpski)</a></sl-menu-item>
-							<sl-menu-item><a href="/de">ðŸ‡©ðŸ‡ª DE (Deutsch)</a></sl-menu-item>
-							<sl-menu-item><a href="/it">ðŸ‡®ðŸ‡¹ IT (Italiano)</a></sl-menu-item>
-						</sl-menu>
-					</sl-dropdown>
-				</div>
-				<div>
-					<a class="nav-cta" onclick="open_booking()" style="cursor: pointer">{{nav_cta}}</a>
-				</div>
-			</div>
 			<div class="hero-content">
 				<div class="logo-area">KOZARA PANORAMIC RESORT</div>
 				<h2>{{subtitle}}</h2>
@@ -137,7 +140,7 @@
 				</sl-menu>
 			</sl-dropdown>
 		</sl-drawer>
-		<sl-icon-button id="btn_menu" onclick="drawer_menu.show()" src="/assets/amenities_icons/menu.svg"></sl-icon-button>
+		
 		<div class="booking-container" id="booking">
 			<div class="booking-bar">
 				<div class="input-group">
@@ -394,11 +397,11 @@
 			</button>
 		</sl-dialog>
 		<sl-dialog id="book_dialog" label="Book">
-			<div id="switch_container" slot="header-actions">
-				<span onclick="currency_switch.click()">BAM</span>
-				<sl-switch id="currency_switch"></sl-switch>
-				<span onclick="currency_switch.click()">EUR</span>
-			</div>
+			<sl-select id="currency_select" slot="header-actions" value="BAM">
+				<sl-option value="BAM">BAM</sl-option>
+				<sl-option value="EUR">EUR</sl-option>
+				<sl-option value="GBP">GBP</sl-option>
+			</sl-select>
 			<div id="book_calendar_wrapper"></div>
 			<form id="book_form">
 				<fieldset group="1">
@@ -840,6 +843,7 @@
 			check_arrive.init()
 			check_depart.init()
 			let currency_modifier = 1
+			let currency_symbol = "KM"
 
 			const booking_calendar = new Calendar("#book_calendar_wrapper", {
 				type: "multiple",
@@ -860,7 +864,7 @@
 						if (comp_date(entry.from, curr_date)) continue
 						if (comp_date(curr_date, entry.to)) continue
 						dateEl.querySelector("button").innerHTML += `<div>\
-							${Math.round(entry.price1 * currency_modifier * 10) / 10}${currency_modifier == 1 ? "KM" : "â‚¬"}
+							${Math.round(entry.price1 * currency_modifier * 10) / 10}${currency_symbol}
 							</div>`
 						break
 					}
@@ -881,8 +885,19 @@
 				},
 			})
 			booking_calendar.init()
-			currency_switch.addEventListener("sl-change", e => {
-				currency_modifier = currency_switch.checked ? 0.51 : 1
+			currency_select.addEventListener("sl-change", e => {
+				const modifiers = {
+					BAM: 1,
+					EUR: 0.51,
+					GBP: 0.44
+				}
+				const symbols = {
+					BAM: "KM",
+					EUR: "€",
+					GBP: "₤"
+				}
+				currency_modifier = modifiers[currency_select.value]
+				currency_symbol = symbols[currency_select.value]
 				booking_calendar.update()
 			})
 
@@ -1170,6 +1185,47 @@
 					ease: "none",
 					pointerEvents: "auto",
 					duration: 0.125,
+				})
+				const mm = gsap.matchMedia()
+				const shared = {
+					trigger: "header",
+					start: "top top",
+					end: "30%",
+					width: 15,
+					pad: 4
+				}
+				mm.add("max-width: 768px", () => {
+				})
+				gsap.to("#logo_stripped", {
+					scrollTrigger: {
+						trigger: shared.trigger,
+						start: shared.start,
+						end: shared.end,
+						scrub: true,
+						invalidateOnRefresh: true,
+					},
+					top: () => window.innerWidth <= 768 ? "0px" : "7px",
+					translateY: "0%",
+					width: `${shared.width}ch`,
+				})
+				gsap.to("#logo_stripped_reserve_spacer", {
+					scrollTrigger: {
+						trigger: shared.trigger,
+						start: shared.start,
+						end: shared.end,
+						scrub: true,
+					},
+					width: `${shared.width + shared.pad}ch`,
+				})
+				gsap.to("nav", {
+					scrollTrigger: {
+						trigger: shared.trigger,
+						start: shared.start,
+						end: shared.end,
+						scrub: true,
+					},
+					backgroundColor: "rgba(0, 0, 0, 0.5)",
+					backdropFilter: "blur(5px)"
 				})
 			})
 			{
