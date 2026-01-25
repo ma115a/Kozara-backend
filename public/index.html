@@ -401,6 +401,7 @@
 				<sl-option value="BAM">BAM</sl-option>
 				<sl-option value="EUR">EUR</sl-option>
 				<sl-option value="GBP">GBP</sl-option>
+				<sl-option value="USD">USD</sl-option>
 			</sl-select>
 			<div id="book_calendar_wrapper"></div>
 			<form id="book_form">
@@ -863,9 +864,16 @@
 					for (const entry of prices_data) {
 						if (comp_date(entry.from, curr_date)) continue
 						if (comp_date(curr_date, entry.to)) continue
-						dateEl.querySelector("button").innerHTML += `<div>\
-							${Math.round(entry.price1 * currency_modifier * 10) / 10}${currency_symbol}
-							</div>`
+						if (currency_select.value == "USD") {
+							dateEl.querySelector("button").innerHTML += `<div>\
+								${currency_symbol}${Math.round(entry.price1 * currency_modifier * 10) / 10}
+								</div>`
+						}
+						else {
+							dateEl.querySelector("button").innerHTML += `<div>\
+								${Math.round(entry.price1 * currency_modifier * 10) / 10}${currency_symbol}
+								</div>`
+						}
 						break
 					}
 				},
@@ -889,12 +897,14 @@
 				const modifiers = {
 					BAM: 1,
 					EUR: 0.51,
-					GBP: 0.44
+					GBP: 0.44,
+					USD: 0.6
 				}
 				const symbols = {
 					BAM: "KM",
 					EUR: "€",
-					GBP: "₤"
+					GBP: "₤",
+					USD: "$"
 				}
 				currency_modifier = modifiers[currency_select.value]
 				currency_symbol = symbols[currency_select.value]
