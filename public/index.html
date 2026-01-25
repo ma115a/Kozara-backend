@@ -143,15 +143,9 @@
 		
 		<div class="booking-container" id="booking">
 			<div class="booking-bar">
-				<div class="input-group">
-					<label>{{date_check_check_in}}</label>
-					<input id="c_arrive" />
-				</div>
-				<div class="input-group">
-					<label>{{date_check_check_out}}</label>
-					<input id="c_depart" />
-				</div>
-				<button class="btn-check" onclick="check_date_range()">{{date_check_btn}}</button>
+				<h2>Begin Your Journey</h2>
+				<div>Reserve your mountain sanctuary and escape to the tranquility of Kozara National Park.</div>
+				<button class="btn-check" onclick="open_booking()">BOOK YOUR STAY</button>
 			</div>
 		</div>
 		<section class="intro">
@@ -839,10 +833,6 @@
 				},
 			}
 			const { Calendar } = window.VanillaCalendarPro
-			const check_arrive = new Calendar("#c_arrive", calendar_settings)
-			const check_depart = new Calendar("#c_depart", calendar_settings)
-			check_arrive.init()
-			check_depart.init()
 			let currency_modifier = 1
 			let currency_symbol = "KM"
 
@@ -1096,50 +1086,6 @@
 					window.location = sresJSON.url
 				}
 				ptp_btn.removeAttribute("loading")
-			}
-
-			async function check_date_range() {
-				check_arrive.context.inputElement.setCustomValidity("")
-				check_depart.context.inputElement.setCustomValidity("")
-				if (!check_arrive.context.selectedDates || !check_arrive.context.selectedDates.length) {
-					check_arrive.context.inputElement.setCustomValidity("Select the arrival date first!")
-					check_arrive.context.inputElement.reportValidity()
-					return
-				}
-				if (!check_depart.context.selectedDates || !check_depart.context.selectedDates.length) {
-					check_depart.context.inputElement.setCustomValidity("Select the departure date first!")
-					check_depart.context.inputElement.reportValidity()
-					return
-				}
-				document.getElementById("chalets").scrollIntoView()
-
-				const sres = await fetch(`/api/availability?startDate=${check_arrive.context.selectedDates[0]}&endDate=${check_depart.context.selectedDates[0]}`)
-				const sresJSON = await sres.json()
-				const message = sresJSON.message
-				if (sres.status == 503) {
-					notify("Server is currently under maintenance", "neutral")
-					return
-				} else if (sres.status == 500) {
-					notify(message, "danger")
-					return
-				} else if (sres.status == 400) {
-					notify(message, "neutral")
-					return
-				}
-
-				const arr = sresJSON.availableUnits
-				reset_cards()
-				const chalet_cards = document.querySelectorAll("#chalets .chalet-card")
-				for (let index = 0; index < chalet_cards.length; index++) {
-					if (arr.includes(index + 1)) continue
-					chalet_cards[index].classList.add("unavailable")
-				}
-			}
-
-			function reset_cards() {
-				document.querySelectorAll(".unavailable").forEach(el => {
-					el.classList.remove("unavailable")
-				})
 			}
 
 			// Notification
