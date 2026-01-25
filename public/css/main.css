@@ -13,6 +13,10 @@ html {
 	scroll-behavior: smooth;
 }
 
+* {
+	scrollbar-color: var(--earth-brown) white;
+}
+
 :is(sl-dialog, sl-carousel, sl-dropdown, sl-icon-button):not(:defined) {
 	visibility: hidden;
 }
@@ -169,6 +173,7 @@ nav {
 	border-radius: 4px;
 	transition: 0.3s;
 	box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+	text-align: center;
 }
 
 .nav-cta:hover {
@@ -497,6 +502,9 @@ sl-dialog {
 		display: flex;
 		align-items: center;
 		width: 12ch;
+	}
+	&::part(body) {
+		padding-bottom: 1.1rem;
 	}
 }
 
@@ -952,6 +960,7 @@ footer {
 
 /* Floating btn */
 .floating-book-btn {
+	display: none;
 	position: fixed;
 	bottom: 30px;
 	right: 30px;

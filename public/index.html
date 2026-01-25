@@ -390,7 +390,7 @@
 				{{chalets_btn}}
 			</button>
 		</sl-dialog>
-		<sl-dialog id="book_dialog" label="Book" open>
+		<sl-dialog id="book_dialog" label="Book">
 			<sl-select id="currency_select" slot="header-actions" value="BAM">
 				<sl-option value="BAM">BAM</sl-option>
 				<sl-option value="EUR">EUR</sl-option>
@@ -1134,19 +1134,18 @@
 			window.addEventListener("DOMContentLoaded", () => {
 				resize()
 				gsap.registerPlugin(ScrollTrigger)
-				gsap.to("div.floating-book-btn", {
-					scrollTrigger: {
-						trigger: "header",
-						start: "center top",
-						end: "bottom top",
-						toggleActions: "play none none reverse",
-					},
-					opacity: 1,
-					ease: "none",
-					pointerEvents: "auto",
-					duration: 0.125,
-				})
-				const mm = gsap.matchMedia()
+				// gsap.to("div.floating-book-btn", {
+				// 	scrollTrigger: {
+				// 		trigger: "header",
+				// 		start: "center top",
+				// 		end: "bottom top",
+				// 		toggleActions: "play none none reverse",
+				// 	},
+				// 	opacity: 1,
+				// 	ease: "none",
+				// 	pointerEvents: "auto",
+				// 	duration: 0.125,
+				// })
 				const shared = {
 					trigger: "header",
 					start: "top top",
@@ -1154,8 +1153,6 @@
 					width: 15,
 					pad: 4
 				}
-				mm.add("max-width: 768px", () => {
-				})
 				gsap.to("#logo_stripped", {
 					scrollTrigger: {
 						trigger: shared.trigger,
