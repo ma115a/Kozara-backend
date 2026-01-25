@@ -390,13 +390,17 @@
 				{{chalets_btn}}
 			</button>
 		</sl-dialog>
-		<sl-dialog id="book_dialog" label="Book">
+		<sl-dialog id="book_dialog" label="Book" open>
 			<sl-select id="currency_select" slot="header-actions" value="BAM">
 				<sl-option value="BAM">BAM</sl-option>
 				<sl-option value="EUR">EUR</sl-option>
 				<sl-option value="GBP">GBP</sl-option>
 				<sl-option value="USD">USD</sl-option>
 			</sl-select>
+			<span class="notice">
+				<sl-icon src="/assets/amenities_icons/circle-alert.svg"></sl-icon>
+				<span>Note these are estimated prices, final will be calculated at checkout</span>
+			</span>
 			<div id="book_calendar_wrapper"></div>
 			<form id="book_form">
 				<fieldset group="1">
@@ -405,7 +409,7 @@
 						<sl-input enterkeyhint="next" inputmode="numeric" label="{{booking_form_occupants_n_ad}}" max="6" min="1" name="numAdults" required="" type="number" value="1"></sl-input>
 						<sl-input enterkeyhint="next" inputmode="numeric" label="{{booking_form_occupants_n_ch}}" max="2" min="0" name="numChildren" required="" type="number" value="0"></sl-input>
 					</div>
-					<span>
+					<span class="notice">
 						<sl-icon src="/assets/amenities_icons/circle-alert.svg"></sl-icon>
 						<span>{{booking_form_occupants_note}}</span>
 					</span>
