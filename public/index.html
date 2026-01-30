@@ -1162,16 +1162,20 @@
         const carouselPreview = document.querySelector("#img_preview")
         const previewImg = carouselPreview.querySelector("img")
 
-        const carouselImages = Array.from(document.querySelector("#autocarousel").querySelectorAll("img"))
+        let carouselImages = Array.from(document.querySelector("#autocarousel").querySelectorAll("img"))
         let carouselCurrentIndex = 0;
 
-        document.querySelector("#autocarousel").addEventListener('click', e => {
-            if (e.target.tagName != "IMG") return;
+        const carousels = document.querySelectorAll("sl-carousel")
+		for (const carousel of carousels) {
+			carousel.addEventListener('click', e => {
+				if (e.target.tagName != "IMG") return;
 
-            carouselCurrentIndex = carouselImages.indexOf(e.target)
-            updatePreview()
-            carouselPreview.show()
-        })
+				carouselImages = Array.from(carousel.querySelectorAll("img"))
+				carouselCurrentIndex = carouselImages.indexOf(e.target)
+				updatePreview()
+				carouselPreview.show()
+			})
+		}
 
         function updatePreview() {
             previewImg.src = carouselImages[carouselCurrentIndex].src
