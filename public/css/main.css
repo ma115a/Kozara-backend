@@ -323,6 +323,8 @@ sl-carousel-item img {
 	display: flex;
 	flex-direction: column;
 	border: 1px solid #eee;
+	background-position: center;
+	background-size: cover;
 }
 
 /* Standard Hover */
@@ -340,6 +342,7 @@ sl-carousel-item img {
 	width: 100%;
 	height: 300px;
 	object-fit: cover;
+	opacity: 0;
 	/* object-position: 10% 60%; */
 }
 
@@ -350,6 +353,8 @@ sl-carousel-item img {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	align-items: center;
+	position: relative;
 }
 
 .chalet-details h4 {
@@ -357,6 +362,11 @@ sl-carousel-item img {
 	font-size: 1.5rem;
 	margin: 0 0 10px 0;
 	color: var(--primary-green);
+}
+.chalet-details img {
+	object-fit: contain;
+	width: 100%;
+	height: 70%;
 }
 
 .amenities {
@@ -367,8 +377,9 @@ sl-carousel-item img {
 }
 
 .btn-view {
-	border: 1px solid var(--earth-brown);
-	background: transparent;
+	/* border: 1px solid var(--earth-brown); */
+	border: none;
+	background: rgba(255, 255, 255, 0.4);
 	color: var(--earth-brown);
 	padding: 10px 20px;
 	text-transform: uppercase;
@@ -377,6 +388,8 @@ sl-carousel-item img {
 	cursor: pointer;
 	transition: 0.3s;
 	width: 100%;
+	backdrop-filter: blur(6px);
+	border-radius: 0.4rem;
 }
 
 .btn-view:hover {
