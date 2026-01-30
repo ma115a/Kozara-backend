@@ -211,7 +211,7 @@ nav {
 	background-color: var(--bg-soft);
 }
 
-sl-carousel {
+#autocarousel {
 	--scroll-hint: 10%;
 }
 
@@ -509,11 +509,13 @@ sl-dialog {
 	&::part(header) {
 		padding-bottom: 0.2rem;
 	}
-
-	&::part(body) {
-		padding-top: 0;
-		padding-bottom: 0;
-	}
+}
+#chalet_dialog::part(body) {
+	padding-top: 0;
+	padding-bottom: 1rem;
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
 }
 
 #book_dialog {
@@ -536,10 +538,16 @@ sl-dialog {
 }
 
 .dialog-gallery {
-	--aspect-ratio: 16 / 9;
+	--aspect-ratio: unset;
+	flex-grow: 1;
+	height: 0vh;
 
 	&::part(base) {
 		row-gap: 0px;
+	}
+
+	sl-carousel-item {
+		height: 100%;
 	}
 }
 
@@ -580,7 +588,7 @@ sl-dialog {
 .dialog-gallery img {
 	width: 100%;
 	height: 100%;
-	object-fit: cover;
+	object-fit: contain;
 	border-radius: 4px;
 	transition: transform 0.3s;
 	cursor: pointer;
