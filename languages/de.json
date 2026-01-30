@@ -103,7 +103,7 @@
   "faq_lifeguard_a": "Nein. Die Nutzung des Pools erfolgt ausschließlich auf eigene Gefahr. Eltern müssen ihre Kinder jederzeit beaufsichtigen. Bitte beachten Sie, dass im Poolbereich nur Plastikgläser erlaubt sind.",
   
   "faq_checkin_q": "Wie sind die Check-in- und Check-out-Zeiten?",
-  "faq_checkin_a": "<b>Check-in:</b> 14:00 – 22:00 Uhr. <br><b>Check-out:</b> Bis 09:00 Uhr.<br>Hinweis: Ein früher Check-in oder später Check-out ist je nach Verfügbarkeit möglich; bitte kontaktieren Sie die Rezeption im Voraus.",
+  "faq_checkin_a": "<b>Check-in:</b> 14:00 – 22:00 Uhr. <br><b>Check-out:</b> Bis 10:00 Uhr.<br>Hinweis: Ein früher Check-in oder später Check-out ist je nach Verfügbarkeit möglich; bitte kontaktieren Sie die Rezeption im Voraus.",
   
   "faq_deposit_q": "Ist eine Kaution erforderlich?",
   "faq_deposit_a": "Ja. Eine Kaution von <b>250 € per Kreditkarte</b> wird beim Check-in vorautorisiert. Dies ist eine vorübergehende Reservierung zur Deckung von Schäden oder unbezahlten Extras und wird einige Tage nach dem Check-out freigegeben, sofern keine Probleme gemeldet werden.",
@@ -176,8 +176,8 @@
   "terms-bookings": "Buchungen:",
   "terms-reservation": "Eine Reservierung ist bestätigt, wenn der Gast eine schriftliche Bestätigung per E-Mail oder Messaging-Apps erhält.",
   "terms-check": "Check-in / Check-out:",
-  "terms-check-in": "Check-in: from 14:00",
-  "terms-check-out": "Check-out: until 09:00",
+  "terms-check-in": "Check-in: ab 14:00",
+  "terms-check-out": "Check-out: bis 10:00",
   "terms-early-check": "Früher Check-in oder später Check-out ist je nach Verfügbarkeit möglich.",
   "terms-payments": "Zahlungen:",
   "terms-payment": "Die Zahlung erfolgt bei der Buchung.",

@@ -104,7 +104,7 @@
   "faq_lifeguard_a": "No. Pool use is entirely at your own risk. Parents must supervise children at all times. Please note that only plastic glasses are allowed in the pool area.",
   
   "faq_checkin_q": "What are the check-in and check-out times?",
-  "faq_checkin_a": "<b>Check-in:</b> 14:00 – 22:00. <br><b>Check-out:</b> By 09:00.<br>Note: Early check-in or late check-out may be possible depending on availability; please contact reception in advance.",
+  "faq_checkin_a": "<b>Check-in:</b> 14:00 – 22:00. <br><b>Check-out:</b> By 10:00.<br>Note: Early check-in or late check-out may be possible depending on availability; please contact reception in advance.",
   
   "faq_deposit_q": "Is a security deposit required?",
   "faq_deposit_a": "Yes. A <b>€250 credit card</b> deposit is pre-authorized at check-in. This is a temporary hold to cover damages or unpaid extras and is released a few days after check-out if no issues are reported.",
@@ -177,7 +177,7 @@
   "terms-reservation": "A reservation is confirmed when the guest receives written confirmation via email or messaging apps.",
   "terms-check": "Check-in / Check-out:",
   "terms-check-in": "Check-in: from 14:00",
-  "terms-check-out": "Check-out: until 09:00",
+  "terms-check-out": "Check-out: until 10:00",
   "terms-early-check": "Early check-in or late check-out is possible depending on availability.",
   "terms-payments": "Payments:",
   "terms-payment": "Payment is made at booking.",

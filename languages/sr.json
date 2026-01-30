@@ -105,7 +105,7 @@
   "faq_lifeguard_a": "Ne. Korištenje bazena je isključivo na vašu sopstvenu odgovornost. Roditelji moraju nadgledati djecu u svakom trenutku. Napominjemo da su u prostoru bazena dozvoljene samo plastične čaše.",
   
   "faq_checkin_q": "Koje je vrijeme prijave i odjave?",
-  "faq_checkin_a": "<b>Prijava (Check-in):</b> 14:00 – 22:00. <br><b>Odjava (Check-out):</b> Do 09:00.<br>Napomena: Rana prijava ili kasna odjava mogu biti mogući u zavisnosti od raspoloživosti; molimo kontaktirajte recepciju unaprijed.",
+  "faq_checkin_a": "<b>Prijava (Check-in):</b> 14:00 – 22:00. <br><b>Odjava (Check-out):</b> Do 10:00.<br>Napomena: Rana prijava ili kasna odjava mogu biti mogući u zavisnosti od raspoloživosti; molimo kontaktirajte recepciju unaprijed.",
   
   "faq_deposit_q": "Da li je potreban sigurnosni depozit?",
   "faq_deposit_a": "Da. Depozit od <b>250 € putem kreditne kartice</b> se predautorizuje prilikom prijave. Ovo je privremena rezervacija sredstava za pokriće štete ili neplaćenih dodatnih troškova i oslobađa se nekoliko dana nakon odjave ako nema prijavljenih problema.",
@@ -173,7 +173,7 @@
   "terms-reservation": "Rezervacija je potvrđena kada gost dobije pismenu potvrdu putem e-maila ili aplikacija za razmjenu poruka.",
   "terms-check": "Prijava / Odjava (Check-in / Check-out):",
   "terms-check-in": "Prijava (Check-in): od 14:00",
-  "terms-check-out": "Odjava (Check-out): do 09:00",
+  "terms-check-out": "Odjava (Check-out): do 10:00",
   "terms-early-check": "Rana prijava ili kasna odjava su moguće zavisno od raspoloživosti.",
   "terms-payments": "Plaćanja:",
   "terms-payment": "Plaćanje se vrši prilikom rezervacije.",
