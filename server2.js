@@ -204,7 +204,7 @@ async function sendBookingConfirmation(bookingData) {
         const info = await transporter.sendMail({
             from: '"Kozara Panoramic Resort" <bookings@kozarapanoramicresort.ba>',
             to: bookingData.email,
-            subject: `Booking Confirmed: #${bookingData.id}`, // Unique ID prevents threading
+            subject: `Booking Confirmed: #${bookingData.id}`,
             text: `Dear ${bookingData.customerName}, your booking at Kozara Resort is confirmed. Ref: ${bookingData.id}`, // Fallback plain text
             html: htmlTemplate
         });
@@ -226,7 +226,6 @@ function loadLatestBlogs() {
 
         const blogsDir = path.join(__dirname, 'public/blogs')
         const files = fs.readdirSync(blogsDir)
-        logger.info(files)
         const blogs = files.sort().reverse().slice(0, 3).map(filename => {
             const filePath = path.join(blogsDir, filename)
             const blogData = JSON.parse(fs.readFileSync(filePath, 'utf8'))
@@ -249,7 +248,6 @@ function loadAllBlogs() {
 
         const blogsDir = path.join(__dirname, 'public/blogs')
         const files = fs.readdirSync(blogsDir)
-        logger.info(files)
         if (files.length === 0) { return null }
         const blogs = files.sort().reverse().map(filename => {
             const filePath = path.join(blogsDir, filename)
@@ -275,8 +273,6 @@ function renderIndex(res, lang) {
     let renderedHtml = htmlTemplateIndex
     let blogs = loadLatestBlogs()
 
-    logger.info(blogs)
-    logger.info('blogovi')
     if (blogs === null || blogs.length === 0) {
         renderedHtml = renderedHtml.replace('{{NO_BLOGS}}', 'flex')
         renderedHtml = renderedHtml.replace('{{YES_BLOGS}}', 'none')
@@ -290,13 +286,6 @@ function renderIndex(res, lang) {
             renderedHtml = renderedHtml.replace('{{MORE_BLOGS}}', 'block')
 
         }
-
-        // blogs.forEach(blog => {
-        //     renderedHtml = renderedHtml.replace('{{BLOG_TITLE}}', blog.title)
-        //     renderedHtml = renderedHtml.replace('{{BLOG_IMG}}', blog.title_img)
-        //     renderedHtml = renderedHtml.replace('{{BLOG_ID}}', blog.blogid)
-        //
-        // });
 
 
         let blogContent = ''
@@ -381,7 +370,7 @@ function renderBlog(res, lang, id) {
 
 
     } catch (error) {
-        logger.info(error)
+        logger.error(error)
 
     }
     res.send(renderedHtml)
@@ -424,21 +413,9 @@ function renderAllBlogs(res, lang) {
         })
         res.send(renderedHtml)
     }
-
-
-
 }
 
 
-
-
-
-
-
-
-
-
-//routes
 
 
 
@@ -470,11 +447,6 @@ function isAuthenticated(req, res, next) {
 }
 
 const transporter = nodemailer.createTransport({
-    // service: 'gmail',
-    // auth: {
-    //     user: process.env.EMAIL_USER,
-    //     pass: process.env.EMAIL_PASSWORD
-    // }
     host: 'mail.kozarapanoramicresort.ba',
     port: 465,
     secure: true,
@@ -486,19 +458,6 @@ const transporter = nodemailer.createTransport({
 });
 
 app.get("/mail", async (req, res) => {
-    // try {
-    //     const info = await transporter.sendMail({
-    //         from: '"Kozara Panoramic Resort" <bookings@kozarapanoramicresort.ba>',
-    //         to: "ghfmk9@gmail.com",
-    //         subject: `Booking Confirmed`, // Unique ID prevents threading
-    //         text: `Test email`, // Fallback plain text
-    //     });
-    //     logger.info({message: info})
-    //     res.status(200).send(info)
-
-    // } catch(error) {
-    //     logger.error({message: error.message})
-    // }
 
     try {
         const templatePath = path.join(__dirname, 'email.html');
@@ -530,8 +489,8 @@ app.listen(port, async () => {
     logger.info('listening on port 5000')
     logger.info(__dirname)
     await refreshAuthToken()
-    paypalToken = await getPaypalAccessToken()
-    logger.info(tok)
+    await getPaypalAccessToken()
+    console.log(tok)
 
 
     try {
@@ -567,7 +526,7 @@ let tok
 
 async function refreshAuthToken() {
 
-    logger.info('refreshToken method called')
+    logger.info('refreshToken for beds24 method called')
 
     const tokenRequest = await fetch('https://beds24.com/api/v2/authentication/token', {
         method: 'GET',
@@ -587,8 +546,8 @@ async function refreshAuthToken() {
 }
 
 
-//TODO buletproof this method
 async function getPaypalAccessToken() {
+    logger.info('paypal token method called')
 
     try {
         const auth = Buffer.from(`${process.env.PAYPAL_CLIENT}:${process.env.PAYPAL_SECRET}`).toString('base64')
@@ -602,12 +561,12 @@ async function getPaypalAccessToken() {
             }
         })
         const data = await response.json()
-        console.log(data)
-        return data.access_token
+        paypalToken = data.access_token
 
 
     } catch (error) {
 
+        console.log(error)
     }
 }
 
@@ -622,10 +581,10 @@ function findAvailableUnits(dailyStatus) {
         '5': true
     }
 
-    logger.info({
-        message: "findAvailableUnits"
-    })
-    logger.info({ messaage: dailyStatus })
+    // logger.info({
+    //     message: "findAvailableUnits"
+    // })
+    // logger.info({ messaage: dailyStatus })
 
 
     //iterating through the data from beds24
@@ -693,11 +652,9 @@ app.get(['/de/notice', '/fr/notice', '/it/notice', '/sr/notice'], (req, res) => 
 
 
 app.get("/langpack/:id", (req, res) => {
-    console.log('language endpoitn called')
     const langId = req.params.id
 
     if (!langId) {
-        console.log('no lang id')
         res.status(400).json({ message: 'no parameter' })
         return
     }
@@ -709,7 +666,6 @@ app.get("/langpack/:id", (req, res) => {
             res.status(500).json({ message: "failed to read file!" })
             return
         }
-        console.log('no error')
 
 
         try {
@@ -810,53 +766,29 @@ app.get('/api/availability', async (req, res) => {
         return
     }
     let availabilityResponse
-    let success
-    let attempt = 0
 
-    while (attempt < 2) {
-        try {
 
-            const availabilityRequest = await fetch(`https://beds24.com/api/v2/inventory/rooms/unitBookings?startDate=${startDate}&endDate=${endDate}`, {
-                method: 'GET',
-                headers: {
-                    'token': tok,
-                    'Accept': 'appliation/json'
-                }
-            })
-            availabilityResponse = await availabilityRequest.json()
-            logger.info({ message: availabilityResponse })
-            if (availabilityResponse.success) {
-                success = true
-                break
+    try {
+        const availabilityRequest = await fetch(`https://beds24.com/api/v2/inventory/rooms/unitBookings?startDate=${startDate}&endDate=${endDate}`, {
+            method: 'GET',
+            headers: {
+                'token': tok,
+                'Accept': 'appliation/json'
             }
+        })
 
-            if (availabilityResponse.code === 401) {
-                logger.warn('Beds24 token expired, trying to refresh...')
-                await refreshAuthToken()
-                attempt++
-            }
+        availabilityResponse = await availabilityRequest.json()
+        // logger.info({ message: availabilityResponse })
+        if (availabilityResponse.success) {
 
-
-            if (attempt === 1) {
-                continue
-            }
-            break
-
-        } catch (error) {
-            logger.error(error.message)
-            res.json({ success: false, message: 'Error while communicating with the channel manager! Please try again later.' })
-
+            const unitBookings = availabilityResponse.data[0].unitBookings
+            const availableUnits = findAvailableUnits(unitBookings)
+            logger.info({ message: 'Available units: ', units: availableUnits })
+            res.status(200).json({ success: true, availableUnits })
         }
-    }
 
-    if (success) {
-        const unitBookings = availabilityResponse.data[0].unitBookings
-        const availableUnits = findAvailableUnits(unitBookings)
-        logger.info({ message: 'Available units: ', units: availableUnits })
-        res.status(200).json({ success: true, availableUnits })
-    } else {
-        logger.error(`Beds24 request failed after ${attempt} attempts.`);
-        res.status(500).json({ success: false, message: 'Network or unexpected error!' })
+    } catch (error) {
+        logger.error(error.message)
     }
 })
 
@@ -877,59 +809,25 @@ app.get('/api/getprices', async (req, res) => {
 
 
     let pricesResponse
-    let attempt = 0
-    let success
 
 
     try {
-        while (attempt < 2) {
-            const pricesRequest = await fetch(`https://beds24.com/api/v2/inventory/rooms/calendar?startDate=${startDate}&endDate=${endDate}&includePrices=true&includeNumAvail=true`, {
-                method: 'GET',
-                headers: {
-                    'token': tok,
-                    'Accept': 'application/json'
-                }
-            })
 
-            pricesResponse = await pricesRequest.json()
-            logger.info(pricesResponse)
-            if (pricesResponse.success) {
-                success = true
-                break
+        const pricesRequest = await fetch(`https://beds24.com/api/v2/inventory/rooms/calendar?startDate=${startDate}&endDate=${endDate}&includePrices=true&includeNumAvail=true`, {
+            method: 'GET',
+            headers: {
+                'token': tok,
+                'Accept': 'application/json'
             }
-
-
-            if (pricesResponse.code === 401) {
-                logger.warn('Beds24 token expired, trying to refresh...')
-                await refreshAuthToken()
-                attempt++
-            }
-
-            if (attempt === 1) {
-                continue
-            }
-            break
-        }
-
-        if (success) {
-            res.json(pricesResponse.data[0].calendar)
-        } else {
-            logger.error(`Beds24 request failed after ${attempt} attempts.`);
-            res.status(500).json({ success: false, message: 'Network or unexpected error!' })
-        }
-
-
-
-
-
-
-    } catch (error) {
-        logger.error(error)
-        res.send(500).json({
-            success: false,
-            message: 'Error while communicating with the channel manager'
         })
-        return
+
+        pricesResponse = await pricesRequest.json()
+        // logger.info(pricesResponse)
+        if (pricesResponse.success) {
+            res.json(pricesResponse.data[0].calendar)
+        }
+    } catch (error) {
+        logger.error(error.message)
     }
 })
 
@@ -952,231 +850,197 @@ app.post('/api/booking', express.json(), async (req, res) => {
 
 
     let availiabilityData;
-    let availabilitySuccess
-    let availabilityAttempt = 0
-
-    while (availabilityAttempt < 2) {
-        try {
-            const availiabilityRequest = await fetch(`https://beds24.com/api/v2/inventory/rooms/availability?${availabilityParams}`, {
-                method: 'GET',
-                headers: {
-                    'token': tok,
-                    'Accept': 'application/json'
-                }
-            })
-
-            availiabilityData = await availiabilityRequest.json()
 
 
-            if (availiabilityData.success) {
-                availabilitySuccess = true
-                logger.info('availability check was a success')
-                break
+    try {
+
+        const availiabilityRequest = await fetch(`https://beds24.com/api/v2/inventory/rooms/availability?${availabilityParams}`, {
+            method: 'GET',
+            headers: {
+                'token': tok,
+                'Accept': 'application/json'
             }
-
-
-            if (availiabilityData.code === 401) {
-
-                logger.warn('Beds24 token expired, trying to refresh...')
-                await refreshAuthToken()
-                availabilityAttempt++
-            }
-
-            if (availabilityAttempt === 1) {
-                continue
-            }
-            break
-
-
-        } catch (error) {
-            logger.error(error.message)
-            res.json({ success: false, message: 'Error while communicating with the channel manager! Pleae try again later.' })
-            return
-        }
-    }
-
-
-
-    if (availabilitySuccess) {
-        logger.info('availability check was a success')
-
-        const availabilityObject = availiabilityData.data[0].availability;
-        const availabilityEntries = Object.entries(availabilityObject);
-        const totalDays = availabilityEntries.length;
-        if (totalDays === 0) {
-            logger.info(`No chalets were available from ${req.body.startDate} - ${req.body.endDate}`)
-            res.status(400).json({ success: false, message: 'No chalets are available for that set of dates!' })
-            return
-        }
-
-        const isPatternCorrect = availabilityEntries.every(([date, isAvailable], index) => {
-            return isAvailable === true;
-        });
-        if (!isPatternCorrect) {
-            logger.info(`No chalets were available from ${req.body.startDate} - ${req.body.endDate}`)
-            res.status(400).json({ success: false, message: 'No chalets are available for that set of dates!' })
-            return
-        }
-
-
-
-
-
-        //at this point the room is available and we make an offer
-        const offerParams = new URLSearchParams({
-
-            arrival: req.body.startDate,
-            departure: req.body.endDate,
-            numAdults: req.body.numAdults,
-            numChildren: req.body.numChildren,
         })
-        try {
 
-            const offerResponse = await fetch(`https://beds24.com/api/v2/inventory/rooms/offers?${offerParams}`, {
-                method: 'GET',
-                headers: {
-                    'token': tok,
-                    'Accept': 'application/json'
-                }
+        availiabilityData = await availiabilityRequest.json()
+        if (availiabilityData.success) {
+
+            logger.info('availability check was a success')
+
+            const availabilityObject = availiabilityData.data[0].availability;
+            const availabilityEntries = Object.entries(availabilityObject);
+            const totalDays = availabilityEntries.length;
+            if (totalDays === 0) {
+                logger.info(`No chalets were available from ${req.body.startDate} - ${req.body.endDate}`)
+                res.status(400).json({ success: false, message: 'No chalets are available for that set of dates!' })
+                return
+            }
+
+            const isPatternCorrect = availabilityEntries.every(([date, isAvailable], index) => {
+                return isAvailable === true;
+            });
+            if (!isPatternCorrect) {
+                logger.info(`No chalets were available from ${req.body.startDate} - ${req.body.endDate}`)
+                res.status(400).json({ success: false, message: 'No chalets are available for that set of dates!' })
+                return
+            }
+
+
+
+
+
+
+            const offerParams = new URLSearchParams({
+
+                arrival: req.body.startDate,
+                departure: req.body.endDate,
+                numAdults: req.body.numAdults,
+                numChildren: req.body.numChildren,
             })
 
-            const offerData = await offerResponse.json()
-            console.log(offerData.data[0].offers[0])
-            const price = offerData.data[0].offers[0].price
 
-            if (offerData.success) {
-                logger.info('Offer from beds24 is a success')
+            try {
 
-                const requestBodyPayment = {
-                    merchantTransactionId: uniqueId,
-                    amount: `${price}`, errorUrl: `${process.env.BASE_URL}/error?type=payment`, successUrl: `${process.env.BASE_URL}/booking/check-payment?tid=${uniqueId}`, callbackUrl: `${process.env.BASE_URL}/api/callback`, currency: "BAM",
-                    customer: {
-                        billingAddress1: req.body.billingAddress,
-                        billingCity: req.body.billingCity,
-                        billingCountry: req.body.billingCountry,
-                        billingPostcode: req.body.billingPostCode,
-                        email: req.body.customerEmail,
-                        firstName: req.body.customerName,
-                        lastName: req.body.customerLastName
-
-                    },
-                    description: `Booking payment for ${req.body.customerName} ${req.body.customerLastName}`
-                }
-
-                const paymentRequestMethod = 'POST'
-                const paymentRequestURI = `/api/v3/transaction/${process.env.API_KEY}/debit`
-                const paymentRequestContentType = 'application/json; charset=utf-8'
-                const paymentRequestJsonBody = JSON.stringify(requestBodyPayment)
-
-                const paymentRequestBasicAuth = generateBasicAuth(process.env.USERNAME, process.env.PASSWORD)
-                const paymentRequestSignature = generateSignature(paymentRequestMethod, paymentRequestJsonBody, paymentRequestContentType, date.toUTCString(), paymentRequestURI, process.env.SHARED_SECRET)
-
-                const paymentRequestHeaders = {
-                    'Content-Type': paymentRequestContentType,
-                    'Date': date.toUTCString(),
-                    'Authorization': `Basic ${paymentRequestBasicAuth}`,
-                    'Accept': 'application/json',
-                    'X-Signature': paymentRequestSignature
-                };
-
-
-                let paymentResponseData
-                try {
-
-                    const paymentRequest = await fetch(`https://gateway.bankart.si/api/v3/transaction/${process.env.API_KEY}/debit`, {
-                        method: paymentRequestMethod,
-                        headers: paymentRequestHeaders,
-                        body: paymentRequestJsonBody
-                    })
-
-                    paymentResponseData = await paymentRequest.json()
-
-                    const insertBooking = db.prepare(`INSERT INTO bookings (customerName, customerLastName, customerEmail, customerPhone, billingAddress, billingCity, billingCountry, billingPostCode, startDate, endDate, bookingId, bookingStatus, bookingTransactionId, createdAt, adults, children, price) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`);
-
-
-                    if (paymentResponseData.success) {
-                        logger.info('Payment was generated successfully')
-
-
-                        const requestBookingBody = [{
-                            roomId: process.env.ROOM_ID,
-                            arrival: req.body.startDate,
-                            departure: req.body.endDate,
-                            firstName: req.body.customerName,
-                            lastName: req.body.customerLastName,
-                            email: req.body.customerEmail,
-                            phone: req.body.customerPhone,
-                            address: req.body.billingAddress,
-                            city: req.body.billingCity,
-                            postcode: req.body.billingPostCode,
-                            country: req.body.billingCountry,
-                            numAdult: req.body.numAdults,
-                            numChild: req.body.numChildren,
-                            status: 'request'
-                        }]
-
-                        const bookingRequest = await fetch('https://beds24.com/api/v2/bookings', {
-                            method: 'POST',
-                            headers: {
-                                'token': tok,
-                                'Accept': 'application/json'
-                            },
-                            body: JSON.stringify(requestBookingBody)
-                        })
-
-                        const bookingResponse = await bookingRequest.json()
-                        logger.info({ message: bookingResponse[0] })
-
-                        if (bookingResponse[0].success) {
-                            logger.info('Booking is created successfylly on Beds24, proceeding to insert into database')
-
-
-                            try {
-                                logger.info({ message: 'inserting into database...' })
-                                const insertBookingResult = insertBooking.run(req.body.customerName, req.body.customerLastName, req.body.customerEmail, req.body.customerPhone, req.body.billingAddress, req.body.billingCity, req.body.billingCountry, req.body.billingPostCode, req.body.startDate, req.body.endDate, bookingResponse[0].new.id.toString(), process.env.PAYMENT_PENDING, uniqueId, Date.now(), Number.parseInt(req.body.numAdults), Number.parseInt(req.body.numChildren), price)
-
-                                logger.info({ message: insertBookingResult })
-
-                            } catch (error) {
-                                console.error("Error during database insert:", error);
-                                logger.error(error.message)
-                            }
-
-                        }
+                const offerResponse = await fetch(`https://beds24.com/api/v2/inventory/rooms/offers?${offerParams}`, {
+                    method: 'GET',
+                    headers: {
+                        'token': tok,
+                        'Accept': 'application/json'
                     }
-
-                } catch (error) {
-                    logger.error(error.message)
-
-                }
-
-                res.json({
-                    success: true,
-                    url: paymentResponseData.redirectUrl
                 })
 
-            }
+                const offerData = await offerResponse.json()
+                const price = offerData.data[0].offers[0].price
 
-        } catch (error) {
-            logger.error(error.message)
-            res.json({ success: false, message: 'Error while communicating with the channel manager! Please try again later.', details: error.message })
+
+
+                if (offerData.success) {
+
+                    logger.info('Offer from beds24 is a success')
+
+                    const requestBodyPayment = {
+                        merchantTransactionId: uniqueId,
+                        amount: `${price}`, errorUrl: `${process.env.BASE_URL}/error?type=payment`, successUrl: `${process.env.BASE_URL}/booking/check-payment?tid=${uniqueId}`, callbackUrl: `${process.env.BASE_URL}/api/callback`, currency: "BAM",
+                        customer: {
+                            billingAddress1: req.body.billingAddress,
+                            billingCity: req.body.billingCity,
+                            billingCountry: req.body.billingCountry,
+                            billingPostcode: req.body.billingPostCode,
+                            email: req.body.customerEmail,
+                            firstName: req.body.customerName,
+                            lastName: req.body.customerLastName
+
+                        },
+                        description: `Booking payment for ${req.body.customerName} ${req.body.customerLastName}`
+                    }
+
+                    const paymentRequestMethod = 'POST'
+                    const paymentRequestURI = `/api/v3/transaction/${process.env.API_KEY}/debit`
+                    const paymentRequestContentType = 'application/json; charset=utf-8'
+                    const paymentRequestJsonBody = JSON.stringify(requestBodyPayment)
+
+                    const paymentRequestBasicAuth = generateBasicAuth(process.env.USERNAME, process.env.PASSWORD)
+                    const paymentRequestSignature = generateSignature(paymentRequestMethod, paymentRequestJsonBody, paymentRequestContentType, date.toUTCString(), paymentRequestURI, process.env.SHARED_SECRET)
+
+                    const paymentRequestHeaders = {
+                        'Content-Type': paymentRequestContentType,
+                        'Date': date.toUTCString(),
+                        'Authorization': `Basic ${paymentRequestBasicAuth}`,
+                        'Accept': 'application/json',
+                        'X-Signature': paymentRequestSignature
+                    };
+
+
+                    let paymentResponseData
+                    try {
+
+                        const paymentRequest = await fetch(`https://gateway.bankart.si/api/v3/transaction/${process.env.API_KEY}/debit`, {
+                            method: paymentRequestMethod,
+                            headers: paymentRequestHeaders,
+                            body: paymentRequestJsonBody
+                        })
+
+                        paymentResponseData = await paymentRequest.json()
+
+                        const insertBooking = db.prepare(`INSERT INTO bookings (customerName, customerLastName, customerEmail, customerPhone, billingAddress, billingCity, billingCountry, billingPostCode, startDate, endDate, bookingId, bookingStatus, bookingTransactionId, createdAt, adults, children, price) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`);
+
+
+                        if (paymentResponseData.success) {
+                            logger.info('Payment was generated successfully')
+
+
+                            const requestBookingBody = [{
+                                roomId: process.env.ROOM_ID,
+                                arrival: req.body.startDate,
+                                departure: req.body.endDate,
+                                firstName: req.body.customerName,
+                                lastName: req.body.customerLastName,
+                                email: req.body.customerEmail,
+                                phone: req.body.customerPhone,
+                                address: req.body.billingAddress,
+                                city: req.body.billingCity,
+                                postcode: req.body.billingPostCode,
+                                country: req.body.billingCountry,
+                                numAdult: req.body.numAdults,
+                                numChild: req.body.numChildren,
+                                status: 'request'
+                            }]
+
+                            const bookingRequest = await fetch('https://beds24.com/api/v2/bookings', {
+                                method: 'POST',
+                                headers: {
+                                    'token': tok,
+                                    'Accept': 'application/json'
+                                },
+                                body: JSON.stringify(requestBookingBody)
+                            })
+
+                            const bookingResponse = await bookingRequest.json()
+                            logger.info({ message: bookingResponse[0] })
+
+                            if (bookingResponse[0].success) {
+                                logger.info('Booking is created successfylly on Beds24, proceeding to insert into database')
+
+
+                                try {
+                                    logger.info({ message: 'inserting into database...' })
+                                    const insertBookingResult = insertBooking.run(req.body.customerName, req.body.customerLastName, req.body.customerEmail, req.body.customerPhone, req.body.billingAddress, req.body.billingCity, req.body.billingCountry, req.body.billingPostCode, req.body.startDate, req.body.endDate, bookingResponse[0].new.id.toString(), process.env.PAYMENT_PENDING, uniqueId, Date.now(), Number.parseInt(req.body.numAdults), Number.parseInt(req.body.numChildren), price)
+
+                                    logger.info({ message: insertBookingResult })
+
+                                } catch (error) {
+                                    console.error("Error during database insert:", error);
+                                    logger.error(error.message)
+                                }
+
+                            }
+                        }
+
+                    } catch (error) {
+                        logger.error(error.message)
+
+                    }
+
+                    res.json({
+                        success: true,
+                        url: paymentResponseData.redirectUrl
+                    })
+
+                }
+
+            } catch (error) {
+                logger.error(error.message)
+            }
         }
 
-
-
+    } catch (error) {
+        logger.error(error.message)
     }
 })
 
 
 
 app.post('/api/paypal/orders', express.json(), async (req, res) => {
-
-
-
-    console.log(req.body)
-
-
-
     const availabilityParams = new URLSearchParams({
         startDate: req.body.startDate,
         endDate: req.body.endDate
@@ -1272,7 +1136,6 @@ app.post('/api/paypal/orders', express.json(), async (req, res) => {
 
         const offerData = await offer.json()
         logger.info(offerData.data[0].offers[0])
-        console.log(offerData)
         if (offerData.success) {
             logger.info('Offer is a success')
 
@@ -1445,36 +1308,18 @@ app.post("/api/callback", express.json(), async (req, res) => {
             let success
             let attempt = 0
 
+            const bookingRequest = await fetch('https://beds24.com/api/v2/bookings', {
+                method: 'POST',
+                headers: {
+                    'token': tok,
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(bookingRequestBody)
+            })
+            bookingResponse = await bookingRequest.json()
 
-            while (attempt < 2) {
-                const bookingRequest = await fetch('https://beds24.com/api/v2/bookings', {
-                    method: 'POST',
-                    headers: {
-                        'token': tok,
-                        'Accept': 'application/json'
-                    },
-                    body: JSON.stringify(bookingRequestBody)
-                })
-                bookingResponse = await bookingRequest.json()
-                if (bookingResponse[0].success) {
-                    success = true
-                    break
-                }
+            if (bookingResponse[0].success) {
 
-                if (bookingResponse.code === 401) {
-                    logger.warn('Beds24 token expired, trying to refresh...')
-                    refreshAuthToken()
-                    attempt++
-                }
-                if (attempt === 1) {
-                    continue
-                }
-                break
-
-            }
-
-
-            if (success) {
                 logger.info('booking was successfylly updated on Beds24')
                 const updateBookingResult = updateBookingPrepare.run(process.env.PAYMENT_SUCCESSFUL, req.body.merchantTransactionId)
                 logger.info({ message: 'booking that was updated', booking })
@@ -1774,6 +1619,22 @@ app.get('/*splat', (req, res) => {
 
     renderIndex(res, 'en')
 })
+
+
+
+//refreshing the paypal access token
+setInterval(async () => {
+    logger.info('refreshing paypal token...')
+    await getPaypalAccessToken()
+
+}, 15000000)
+
+
+//refreshing the beds24 access token
+setInterval(async () => {
+    logger.info('refreshing beds24 token...')
+    await refreshAuthToken()
+}, 86400000)
 
 
 // cron job to cancel any booking that didn't make it through the payment process

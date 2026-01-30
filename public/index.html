@@ -1,46 +1,69 @@
 <!doctype html>
 
 <html class="sl-theme-light" lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<meta content="width=device-width, initial-scale=1.0" name="viewport" />
-		<title>{{title}}</title>
-		<link href="/css/vanilla_calendar.css" rel="stylesheet" />
-		<link href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/light.css" rel="stylesheet" />
-		<link href="/css/main.css" rel="stylesheet" />
-		<script src="/js/vanilla_calendar.js"></script>
-		<script src="/js/vcUtils.js"></script>
-		<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="shortcut icon" href="/favicon.ico" />
-		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-		<meta name="apple-mobile-web-app-title" content="Kozara Panoramic resort" />
-		<link rel="manifest" href="/site.webmanifest" />
-		<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/carousel/carousel.js" type="module"></script>
-		<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/carousel-item/carousel-item.js" type="module"></script>
-		<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/icon/icon.js" type="module"></script>
-		<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/dialog/dialog.js" type="module"></script>
-		<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/icon-button/icon-button.js" type="module"></script>
-		<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/input/input.js" type="module"></script>
-		<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/select/select.js" type="module"></script>
-		<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/option/option.js" type="module"></script>
-		<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/tag/tag.js" type="module"></script>
-		<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/popup/popup.js" type="module"></script>
-		<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/divider/divider.js" type="module"></script>
-		<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/alert/alert.js" type="module"></script>
-		<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/button/button.js" type="module"></script>
-		<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/spinner/spinner.js" type="module"></script>
-		<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/switch/switch.js" type="module"></script>
-		<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/drawer/drawer.js" type="module"></script>
-		<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/menu/menu.js" type="module"></script>
-		<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/menu-item/menu-item.js" type="module"></script>
-		<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/dropdown/dropdown.js" type="module"></script>
-		<script src="https://cdn.jsdelivr.net/npm/libphonenumber-js@1.12.29/bundle/libphonenumber-js.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/details/details.js" type="module"></script>
-		<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
-		<script src="https://www.paypal.com/sdk/js?client-id=ATTj2-HK5tYX3BUEO_KyQu3sDdTJnD3T3q5tr7SQhMgZoreJgTmLO76oegZisFpzWk1oUbLLfjkj0PXd&disable-funding=credit,card&currency=EUR"></script>
-		<script type="application/ld+json">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>{{title}}</title>
+    <link href="/css/vanilla_calendar.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/light.css" rel="stylesheet" />
+    <link href="/css/main.css" rel="stylesheet" />
+    <script src="/js/vanilla_calendar.js"></script>
+    <script src="/js/vcUtils.js"></script>
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Kozara Panoramic resort" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/carousel/carousel.js"
+        type="module"></script>
+    <script
+        src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/carousel-item/carousel-item.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/icon/icon.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/dialog/dialog.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/icon-button/icon-button.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/input/input.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/select/select.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/option/option.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/tag/tag.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/popup/popup.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/divider/divider.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/alert/alert.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/button/button.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/spinner/spinner.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/switch/switch.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/drawer/drawer.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/menu/menu.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/menu-item/menu-item.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/dropdown/dropdown.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/libphonenumber-js@1.12.29/bundle/libphonenumber-js.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/details/details.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script
+        src="https://www.paypal.com/sdk/js?client-id=ATTj2-HK5tYX3BUEO_KyQu3sDdTJnD3T3q5tr7SQhMgZoreJgTmLO76oegZisFpzWk1oUbLLfjkj0PXd&disable-funding=credit,card&currency=EUR"></script>
+    <script type="application/ld+json">
 			{
 				"@context": "https://schema.org",
 				"@type": "Resort",
@@ -58,1222 +81,1594 @@
 				"telephone": "+38766767622"
 			}
 		</script>
-		<!-- html meta -->
-		<meta content="{{meta_content2}}" name="description" />
-		<!-- opengraph -->
-		<meta content="{{meta_content}}" property="og:title" />
-		<meta content="{{meta_content2}}" property="og:description" />
-		<meta content="https://www.kozarapanoramicresort.ba/assets/Scenery/lander.webp" property="og:image" />
-		<meta content="https://www.kozarapanoramicresort.ba/en" property="og:url" />
-		<meta content="website" property="og:type" />
-		<!-- twitter -->
-		<meta content="summary_large_image" name="twitter:card" />
-		<meta content="{{meta_content}}" name="twitter:title" />
-		<meta content="{{meta_content2}}" name="twitter:description" />
-		<meta content="https://www.kozarapanoramicresort.ba/assets/Scenery/lander.webp" name="twitter:image" />
-		<link rel="canonical" href="https://www.kozarapanoramicresort.ba" />
-		<!-- lang -->
-		<link href="https://www.kozarapanoramicresort.ba" hreflang="en" rel="alternate" />
-		<link href="https://www.kozarapanoramicresort.ba/de" hreflang="de" rel="alternate" />
-		<link href="https://www.kozarapanoramicresort.ba/it" hreflang="it" rel="alternate" />
-		<link href="https://www.kozarapanoramicresort.ba/sr" hreflang="sr" rel="alternate" />
-		<link href="https://www.kozarapanoramicresort.ba" hreflang="x-default" rel="alternate" />
-		<link rel="preload" as="image" href="https://www.kozarapanoramicresort.ba/assets/Scenery/lander.webp" fetchpriority="high" />
-		<meta name="keywords" content="odmor kozara, privatan odmor kozara, privatan odmor bosna i hercegovina, secluded private chalets bosnia, mountain retreat kozara, luxury chalets bosnia and hercegovina, odmor planina kozara, kozara resort, planina kozara smjestaj, mountain vacation bosnia" />
-	</head>
+    <!-- html meta -->
+    <meta content="{{meta_content2}}" name="description" />
+    <!-- opengraph -->
+    <meta content="{{meta_content}}" property="og:title" />
+    <meta content="{{meta_content2}}" property="og:description" />
+    <meta content="https://www.kozarapanoramicresort.ba/assets/Scenery/lander.webp" property="og:image" />
+    <meta content="https://www.kozarapanoramicresort.ba/en" property="og:url" />
+    <meta content="website" property="og:type" />
+    <!-- twitter -->
+    <meta content="summary_large_image" name="twitter:card" />
+    <meta content="{{meta_content}}" name="twitter:title" />
+    <meta content="{{meta_content2}}" name="twitter:description" />
+    <meta content="https://www.kozarapanoramicresort.ba/assets/Scenery/lander.webp" name="twitter:image" />
+    <link rel="canonical" href="https://www.kozarapanoramicresort.ba" />
+    <!-- lang -->
+    <link href="https://www.kozarapanoramicresort.ba" hreflang="en" rel="alternate" />
+    <link href="https://www.kozarapanoramicresort.ba/de" hreflang="de" rel="alternate" />
+    <link href="https://www.kozarapanoramicresort.ba/it" hreflang="it" rel="alternate" />
+    <link href="https://www.kozarapanoramicresort.ba/sr" hreflang="sr" rel="alternate" />
+    <link href="https://www.kozarapanoramicresort.ba" hreflang="x-default" rel="alternate" />
+    <link rel="preload" as="image" href="https://www.kozarapanoramicresort.ba/assets/Scenery/lander.webp"
+        fetchpriority="high" />
+    <meta name="keywords"
+        content="odmor kozara, privatan odmor kozara, privatan odmor bosna i hercegovina, secluded private chalets bosnia, mountain retreat kozara, luxury chalets bosnia and hercegovina, odmor planina kozara, kozara resort, planina kozara smjestaj, mountain vacation bosnia" />
+</head>
 
-	<body>
-		<div class="floating-book-btn" href="#" onclick="open_booking()">{{floating}}</div>
-		<nav>
-			<h1 class="logo-text">{{logo_text}}</h1>
-			<div class="nav-links-container">
-				<a class="nav-link" href="#chalets">{{nav_chalets}}</a>
-				<a class="nav-link" href="#location">{{nav_location}}</a>
-				<!-- <a href="#reviews" class="nav-link" data-i8n="nav_reviews">Reviews</a> -->
-				<a class="nav-link" href="#blog">{{nav_blog}}</a>
-			</div>
-			<div id="logo_stripped_reserve_spacer"></div>
-			<img id="logo_stripped" src="/assets/logo_stripped.svg"></img>
-			<div class="nav-links-container">
-				<a class="nav-link" href="/{{language_code}}/notice#impressum">{{contact}}</a>
-				<sl-dropdown>
-					<!-- NEW TRIGGER: span element to display the selected language -->
-					<span class="nav-language-trigger" id="language_display_trigger" slot="trigger">
-						<!-- Initial state, set to default EN -->
-						{{language_tag}}
-					</span>
-					<sl-menu>
-						<sl-menu-item><a href="/">ðŸ‡¬ðŸ‡§ EN (English)</a></sl-menu-item>
-						<sl-menu-item><a href="/sr">ðŸ‡·ðŸ‡¸ SR (Srpski)</a></sl-menu-item>
-						<sl-menu-item><a href="/de">ðŸ‡©ðŸ‡ª DE (Deutsch)</a></sl-menu-item>
-						<sl-menu-item><a href="/it">ðŸ‡®ðŸ‡¹ IT (Italiano)</a></sl-menu-item>
-					</sl-menu>
-				</sl-dropdown>
-				<a class="nav-cta" onclick="open_booking()" style="cursor: pointer">{{nav_cta}}</a>
-			</div>
-			<sl-icon-button id="btn_menu" onclick="drawer_menu.show()" src="/assets/amenities_icons/menu.svg"></sl-icon-button>
-		</nav>
-		<header class="hero" role="img" aria-label="Luxury private chalets with panoramic mountain views at Kozara Panoramic Resort">
-			<div class="hero-overlay"></div>
-			<div class="hero-content">
-				<div class="logo-area">KOZARA PANORAMIC RESORT</div>
-				<h2>{{subtitle}}</h2>
-			</div>
-		</header>
-		<sl-drawer id="drawer_menu" label="Navigation">
-			<a class="nav-link" href="#chalets" onclick="drawer_menu.hide()">{{nav_chalets}}</a>
-			<a class="nav-link" href="#location" onclick="drawer_menu.hide()">{{nav_location}}</a>
-			<!--<a href="#reviews" class="nav-link" onclick="drawer_menu.hide()" data-i8n="nav_reviews">Reviews</a>-->
-			<a class="nav-link" href="#blog" onclick="drawer_menu.hide()">{{nav_blog}}</a>
-			<a class="nav-link" href="/{{language_code}}/notice#impressum" onclick="drawer_menu.hide()">{{contact}}</a>
-			<sl-dropdown>
-				<!-- NEW TRIGGER: span element to display the selected language -->
-				<span class="nav-language-trigger" id="language_display_trigger" slot="trigger">
-					<!-- Initial state, set to default EN -->
-					{{language_tag}}
-				</span>
-				<sl-menu>
-					<sl-menu-item><a href="/">ðŸ‡¬ðŸ‡§ EN (English)</a></sl-menu-item>
-					<sl-menu-item><a href="/sr">ðŸ‡·ðŸ‡¸ SR (Srpski)</a></sl-menu-item>
-					<sl-menu-item><a href="/de">ðŸ‡©ðŸ‡ª DE (Deutsch)</a></sl-menu-item>
-					<sl-menu-item><a href="/it">ðŸ‡®ðŸ‡¹ IT (Italiano)</a></sl-menu-item>
-				</sl-menu>
-			</sl-dropdown>
-		</sl-drawer>
-		
-		<div class="booking-container" id="booking">
-			<div class="booking-bar">
-				<h2>Begin Your Journey</h2>
-				<div>Reserve your mountain sanctuary and escape to the tranquility of Kozara National Park.</div>
-				<button class="btn-check" onclick="open_booking()">BOOK YOUR STAY</button>
-			</div>
-		</div>
-		<section class="intro">
-			<h3 class="section-title">{{intro_title}}</h3>
-			<p class="lead">{{intro_subtitle}}</p>
-		</section>
-		<section class="disclaimer-section">
-			<div class="notice-card">
-				<div class="notice-badge">{{offer_card}}</div>
-				<h3>{{offer_title}}</h3>
-				<p class="notice-text">{{offer_desc}}</p>
-				<div class="notice-divider"></div>
-				<div class="notice-footer">
-					<strong>{{offer_notice_title}}</strong>
-					<span>{{offer_notice_desc}}</span>
-				</div>
-			</div>
-		</section>
-		<section class="carousel-container">
-			<sl-carousel autoplay="" autoplay-interval="3000" id="autocarousel" loop="" navigation="" pagination="" slides-per-page="3">
-				<sl-carousel-item><img alt="Mountain 1" src="/assets/Carousel/image00004.webp" /></sl-carousel-item>
-				<sl-carousel-item><img alt="Interior 1" src="/assets/Carousel/image00006.webp" /></sl-carousel-item>
-				<sl-carousel-item><img alt="Winter" src="/assets/Carousel/image08178.webp" /></sl-carousel-item>
-				<sl-carousel-item><img alt="Forest" src="/assets/Carousel/image08180.webp" /></sl-carousel-item>
-				<sl-carousel-item><img alt="Adventure" src="/assets/Carousel/image08195.webp" /></sl-carousel-item>
-			</sl-carousel>
-		</section>
-		<section class="chalets-section" id="chalets">
-			<div style="text-align: center; margin-bottom: 40px">
-				<h2 class="section-title">{{chalets_title}}</h2>
-				<p>{{chalets_desc}}</p>
-			</div>
-			<div class="chalet-grid">
-				<div class="chalet-card">
-					<div class="special-badge red">Unavailable for selected dates</div>
-					<img alt="Cloud Chalet" class="chalet-img" src="/assets/Chalets/wind/chaelt41.jpeg" />
-					<div class="chalet-details">
-						<h4>The Wind Chalet</h4>
-						<!-- <p class="amenities">Sleeps 4 â€¢ Jacuzzi â€¢ Forest View</p> -->
-						<button class="btn-view" onclick="openModal('wind')">{{chalets_details_btn}}</button>
-					</div>
-				</div>
-				<div class="chalet-card">
-					<div class="special-badge red">Unavailable for selected dates</div>
-					<img alt="Summit Lodge" class="chalet-img" src="/assets/Chalets/sun/chaelt51.jpeg" />
-					<div class="chalet-details">
-						<h4>The Sun Chalet</h4>
-						<!-- <p class="amenities">Sleeps 8 â€¢ Private Spa â€¢ Panoramic Glass</p> -->
-						<button class="btn-view" onclick="openModal('summit')">{{chalets_details_btn}}</button>
-					</div>
-				</div>
-				<div class="chalet-card special">
-					<div class="special-badge red">Unavailable for selected dates</div>
-					<div class="special-badge">{{secluded_badge}}</div>
-					<img alt="Star Cabin" class="chalet-img" src="/assets/Chalets/star/chalet5_cropped.jpeg" />
-					<div class="chalet-details">
-						<h4>The Star Chalet</h4>
-						<!-- <p class="amenities">Sleeps 6 â€¢ Fireplace â€¢ Large Terrace</p> -->
-						<button class="btn-view" onclick="openModal('star')">{{chalets_details_btn}}</button>
-					</div>
-				</div>
-				<div class="chalet-card">
-					<div class="special-badge red">Unavailable for selected dates</div>
-					<img alt="Wind Cabin" class="chalet-img" src="/assets/Chalets/sky/chalet3_cropped1.jpeg" />
-					<div class="chalet-details">
-						<h4>The Sky Chalet</h4>
-						<!-- <p class="amenities">Sleeps 2 â€¢ Secluded â€¢ Romantic</p> -->
-						<button class="btn-view" onclick="openModal('sky')">{{chalets_details_btn}}</button>
-					</div>
-				</div>
-				<div class="chalet-card">
-					<div class="special-badge red">Unavailable for selected dates</div>
-					<img alt="Sky Cabin" class="chalet-img" src="/assets/Chalets/cloud/chalet5_cropped.jpg" />
-					<div class="chalet-details">
-						<h4>The Cloud Chalet</h4>
-						<!-- <p class="amenities">Sleeps 5 â€¢ Pet Friendly â€¢ BBQ</p> -->
-						<button class="btn-view" onclick="openModal('cloud')">{{chalets_details_btn}}</button>
-					</div>
-				</div>
-			</div>
-		</section>
-		<section class="location-section" id="location">
-			<div class="location-overlay"></div>
-			<div class="location-content">
-				<h3 class="section-title" style="color: var(--sand-beige)">{{location_title}}</h3>
-				<p style="margin-bottom: 30px; font-size: 1.1rem">{{location_description}}</p>
-				<p class="location-quote">{{location_quote}}</p>
-				<div class="location-image-container">
-					<!-- Using the newly uploaded, cleaner filename -->
-					<img alt="Just follow the signs." class="location-signs-img" src="/assets/signs2.webp" />
-				</div>
-				<p class="map-hint">{{location_hint}}</p>
-				<div class="map-frame">
-					<iframe allowfullscreen="" height="450" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3191.7678145893565!2d17.0941569!3d45.0086252!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4767510061c8c7eb%3A0xcf311465b69a3e2c!2sKozara%20Panoramic%20Resort!5e1!3m2!1sbs!2sba!4v1763826019486!5m2!1sen!2sba" style="border: 0" width="600"></iframe>
-				</div>
-			</div>
-		</section>
-		<section class="reviews-section" id="reviews">
-			<h3 class="section-title">Guest Testimonials</h3>
-			<div class="review-grid">
-				<div class="review-card">
-					<p>"The best mountain retreat we have ever experienced. The Star Cabin fireplace was magical."</p>
-					<div class="reviewer">â€” ANA &amp; MARKO, Sarajevo</div>
-				</div>
-				<div class="review-card">
-					<p>"Pure luxury in the wilderness. The Cloud Cabin jacuzzi was perfect after a long hike."</p>
-					<div class="reviewer">â€” DAMIR M., Beograd</div>
-				</div>
-				<div class="review-card">
-					<p>"A truly unique spot in Kozara National Park. Modern but cozy design."</p>
-					<div class="reviewer">â€” THE JUSIC FAMILY</div>
-				</div>
-			</div>
-		</section>
-		<section class="section-padding" id="about-us">
-			<div class="content-layout">
-				<div class="content-text">
-					<h2 class="section-title" style="text-align: left">{{about_us_title}}</h2>
-					<p>{{about_us_desc1}}</p>
-					<p>{{about_us_desc2}}</p>
-				</div>
-				<div class="content-image">
-					<img alt="Hiking sign" src="/assets/Text Blocks/image08198.webp" />
-				</div>
-			</div>
-		</section>
-		<section class="section-padding blog-section" id="about-kozara">
-			<div class="content-layout reverse">
-				<div class="content-text">
-					<h3 class="section-title" style="text-align: left">{{about_kozara_title}}</h3>
-					<p>{{about_kozara_desc1}}</p>
-					<p>{{about_kozara_desc2}}</p>
-				</div>
-				<div class="content-image">
-					<img alt="Kozara amenity" src="/assets/Text Blocks/Kozara-fotobaza-Ajdin-Kamber.webp" />
-				</div>
-			</div>
-		</section>
-		<section class="section-padding" id="blog">
-			<h3 class="section-title">{{blog_title}}</h3>
-			<div class="blog-grid" style="display: {{YES_BLOGS}};">
-				<!-- <div class="blog-card"> -->
-				<!--     <img src="{{BLOG_IMG}}" class="blog-img" alt="Blog 1 cover image" /> -->
-				<!--     <h4 style="min-height: 2.5em">{{BLOG_TITLE}}</h4> -->
-				<!--     <a class="read-blog" href="/{{language_code}}/blog/{{BLOG_ID}}">{{read_article}}</a> -->
-				<!-- </div> -->
-				<!-- <div class="blog-card"> -->
-				<!--     <img src="{{BLOG_IMG}}" class="blog-img" alt="Blog 2 cover image" /> -->
-				<!--     <h4 style="min-height: 2.5em">{{BLOG_TITLE}}</h4> -->
-				<!--     <a class="read-blog" href="/{{language_code}}/blog/{{BLOG_ID}}">{{read_article}}</a> -->
-				<!-- </div> -->
-				<!-- <div class="blog-card"> -->
-				<!--     <img src="{{BLOG_IMG}}" class="blog-img" alt="Blog 3 cover image" /> -->
-				<!--     <h4 style="min-height: 2.5em">{{BLOG_TITLE}}</h4> -->
-				<!--     <a class="read-blog" href="/{{language_code}}/blog/{{BLOG_ID}}">{{read_article}}</a> -->
-				<!-- </div> -->
-				{{BLOGS_TEMPLATE}}
-			</div>
-			<a style="display: {{MORE_BLOGS}};" class="read-blog" href="/{{language_code}}/blogs">{{see_all_blogs}}</a>
-			<div style="display: {{NO_BLOGS}}; justify-content: center;">
-				<span style="font-size: 1.5rem; font-style: italic">{{blog_desc}}</span>
-			</div>
-		</section>
-		<section class="section-padding faq-section" id="faq" style="background-color: var(--bg-soft)">
-			<h3 class="section-title">{{faq_title}}</h3>
-			<div class="faq-container">
-				<div>
-					<sl-details summary="{{faq_heating_q}}">{{faq_heating_a}}</sl-details>
-					<sl-details summary="{{faq_kitchen_q}}">{{faq_kitchen_a}}</sl-details>
-					<sl-details summary="{{faq_linens_q}}">{{faq_linens_a}}</sl-details>
-					<sl-details summary="{{faq_wifi_q}}">{{faq_wifi_a}}</sl-details>
-					<sl-details summary="{{faq_pool_heating_q}}">{{faq_pool_heating_a}}</sl-details>
-					<sl-details summary="{{faq_lifeguard_q}}">{{faq_lifeguard_a}}</sl-details>
-					<sl-details summary="{{faq_checkin_q}}">{{faq_checkin_a}}</sl-details>
-					<sl-details summary="{{faq_deposit_q}}">{{faq_deposit_a}}</sl-details>
-					<sl-details summary="{{faq_cancel_q}}">{{faq_cancel_a}}</sl-details>
-					<sl-details summary="{{faq_payment_q}}">{{faq_payment_a}}</sl-details>
-					<sl-details summary="{{faq_tax_q}}">{{faq_tax_a}}</sl-details>
-				</div>
-				<div>
-					<sl-details summary="{{faq_shops_q}}">{{faq_shops_a}}</sl-details>
-					<sl-details summary="{{faq_housekeeping_q}}">{{faq_housekeeping_a}}</sl-details>
-					<sl-details summary="{{faq_laundry_q}}">{{faq_laundry_a}}</sl-details>
-					<sl-details summary="{{faq_baby_q}}">{{faq_baby_a}}</sl-details>
-					<sl-details summary="{{faq_pets_q}}">{{faq_pets_a}}</sl-details>
-					<sl-details summary="{{faq_parking_q}}">{{faq_parking_a}}</sl-details>
-					<!--<sl-details -->
-					<!--    data-i8n-summary="faq_ev_q" -->
-					<!--    data-i8n="faq_ev_a" -->
-					<!--    summary="Do you have an EV charging station?">-->
-					<!--    Not currently, though one is planned for the future. The nearest petrol station is on the main road to GradiÅ¡ka (approx. 18 km).-->
-					<!--</sl-details>-->
-					<sl-details summary="{{faq_quiet_q}}">{{faq_quiet_a}}</sl-details>
-					<sl-details summary="{{faq_airport_q}}">{{faq_airport_a}}</sl-details>
-					<sl-details summary="{{faq_yearround_q}}">{{faq_yearround_a}}</sl-details>
-					<sl-details summary="{{faq_find_q}}">{{faq_find_a}}</sl-details>
-				</div>
-			</div>
-		</section>
-		<section class="cta-band">
-			<h3>{{closing_title}}</h3>
-			<p>{{closing_desc}}</p>
-			<a class="btn-cta-large" href="#booking">{{date_check_btn}}</a>
-		</section>
-		<footer id="contact">
-			<div class="footer-logo">KOZARA PANORAMIC RESORT</div>
-			<!-- Updated Footer Links -->
-			<div class="footer-links">
-				<a href="/{{language_code}}/notice#impressum">{{footer-impressum}}</a> | <a href="/{{language_code}}/notice#terms">{{footer-terms}}</a> | <a href="/{{language_code}}/notice#privacy">{{footer-privacy}}</a> |
-				<a href="/{{language_code}}/notice#impressum">{{footer-contact}}</a>
-			</div>
-			<p>Â© Kozara Panoramic Resort â€“ PEVA d.o.o. All rights reserved.</p>
-		</footer>
-		<sl-dialog id="chalet_dialog" label="The Cloud Cabin">
-			<p class="dialog-desc" id="dialog-desc">The Cloud cabin floats above the clouds, surrounded by silence and a view that connects sky and earth. It's made for those who seek inspiration and peace in moments of pure stillness.</p>
-			<sl-carousel class="dialog-gallery" loop="" navigation=""> </sl-carousel>
-			<div class="dialog-thumbnails">
-				<div class="thumbnails__scroller"></div>
-			</div>
-			<div class="dialog-amenities">
-				<span class="amenity-pill"><sl-icon src="/assets/amenities_icons/wifi.svg"></sl-icon> <span>{{chalets_amenities_wifi}}</span></span>
-				<span class="amenity-pill"><sl-icon src="/assets/amenities_icons/coffee.svg"></sl-icon> <span>{{chalets_amenities_espresso}}</span></span>
-				<span class="amenity-pill"><sl-icon src="/assets/amenities_icons/air-vent.svg"></sl-icon> <span>{{chalets_amenities_ac}}</span></span>
-				<span class="amenity-pill"><sl-icon src="/assets/amenities_icons/microwave.svg"></sl-icon> <span>{{chalets_amenities_microwave}}</span></span>
-				<span class="amenity-pill"><sl-icon src="/assets/amenities_icons/sandwich.svg"></sl-icon> <span>{{chalets_amenities_toast}}</span></span>
-				<span class="amenity-pill"><sl-icon src="/assets/amenities_icons/cooking-pot.svg"></sl-icon> <span>{{chalets_amenities_hob}}</span></span>
-				<span class="amenity-pill"><sl-icon src="/assets/amenities_icons/refrigerator.svg"></sl-icon> <span>{{chalets_amenities_fridge}}</span></span>
-				<span class="amenity-pill"><sl-icon src="/assets/amenities_icons/bed.svg"></sl-icon> <span>{{chalets_amenities_bed}}</span></span>
-				<span class="amenity-pill"><sl-icon src="/assets/amenities_icons/shower-head.svg"></sl-icon> <span>{{chalets_amenities_shower}}</span></span>
-				<span class="amenity-pill"><sl-icon src="/assets/amenities_icons/tv.svg"></sl-icon> <span>Firestick TV</span></span>
-				<span class="amenity-pill"><sl-icon src="/assets/amenities_icons/sofa.svg"></sl-icon> <span>{{chalets_amenities_sofa}}</span></span>
-				<span class="amenity-pill"><sl-icon src="/assets/amenities_icons/vault.svg"></sl-icon> <span>{{chalets_amenities_safe}}</span></span>
-			</div>
-			<button
-				class="btn-book-dialog"
-				onclick="
-					chalet_dialog.hide()
-					open_booking()
-				"
-				slot="footer"
-			>
-				{{chalets_btn}}
-			</button>
-		</sl-dialog>
-		<sl-dialog id="book_dialog" label="Book">
-			<sl-select id="currency_select" slot="header-actions" value="BAM">
-				<sl-option value="BAM">BAM</sl-option>
-				<sl-option value="EUR">EUR</sl-option>
-				<sl-option value="GBP">GBP</sl-option>
-				<sl-option value="USD">USD</sl-option>
-			</sl-select>
-			<span class="notice">
-				<sl-icon src="/assets/amenities_icons/circle-alert.svg"></sl-icon>
-				<span>Note these are estimated prices, final will be calculated at checkout</span>
-			</span>
-			<div id="book_calendar_wrapper"></div>
-			<form id="book_form">
-				<fieldset group="1">
-					<legend>{{booking_form_occupants_title}}</legend>
-					<div>
-						<sl-input enterkeyhint="next" inputmode="numeric" label="{{booking_form_occupants_n_ad}}" max="6" min="1" name="numAdults" required="" type="number" value="1"></sl-input>
-						<sl-input enterkeyhint="next" inputmode="numeric" label="{{booking_form_occupants_n_ch}}" max="2" min="0" name="numChildren" required="" type="number" value="0"></sl-input>
-					</div>
-					<span class="notice">
-						<sl-icon src="/assets/amenities_icons/circle-alert.svg"></sl-icon>
-						<span>{{booking_form_occupants_note}}</span>
-					</span>
-				</fieldset>
-				<fieldset group="2">
-					<legend>{{booking_form_billing_title}}</legend>
-					<sl-input enterkeyhint="next" label="{{booking_form_billing_address}}" name="billingAddress" required=""></sl-input>
-					<sl-input enterkeyhint="next" label="{{booking_form_billing_city}}" name="billingCity" required=""></sl-input>
-					<sl-select autocomplete="country" label="{{booking_form_billing_country}}" name="billingCountry" required="">
-						<sl-divider></sl-divider>
-						<sl-option value="AF">Afghanistan</sl-option>
-						<sl-option value="AL">Albania</sl-option>
-						<sl-option value="DZ">Algeria</sl-option>
-						<sl-option value="AS">American Samoa</sl-option>
-						<sl-option value="AD">Andorra</sl-option>
-						<sl-option value="AO">Angola</sl-option>
-						<sl-option value="AI">Anguilla</sl-option>
-						<sl-option value="AQ">Antarctica</sl-option>
-						<sl-option value="AG">Antigua and Barbuda</sl-option>
-						<sl-option value="AR">Argentina</sl-option>
-						<sl-option value="AM">Armenia</sl-option>
-						<sl-option value="AW">Aruba</sl-option>
-						<sl-option value="AU">Australia</sl-option>
-						<sl-option value="AT">Austria</sl-option>
-						<sl-option value="AZ">Azerbaijan</sl-option>
-						<sl-divider></sl-divider>
-						<sl-option value="AX">Ã…land Islands</sl-option>
-						<sl-divider></sl-divider>
-						<sl-option value="BS">Bahamas</sl-option>
-						<sl-option value="BH">Bahrain</sl-option>
-						<sl-option value="BD">Bangladesh</sl-option>
-						<sl-option value="BB">Barbados</sl-option>
-						<sl-option value="BY">Belarus</sl-option>
-						<sl-option value="BE">Belgium</sl-option>
-						<sl-option value="BZ">Belize</sl-option>
-						<sl-option value="BJ">Benin</sl-option>
-						<sl-option value="BM">Bermuda</sl-option>
-						<sl-option value="BT">Bhutan</sl-option>
-						<sl-option value="BO">Bolivia (Plurinational State of)</sl-option>
-						<sl-option value="BA">Bosnia and Herzegovina</sl-option>
-						<sl-option value="BW">Botswana</sl-option>
-						<sl-option value="BV">Bouvet Island</sl-option>
-						<sl-option value="BR">Brazil</sl-option>
-						<sl-option value="IO">British Indian Ocean Territory</sl-option>
-						<sl-option value="BN">Brunei Darussalam</sl-option>
-						<sl-option value="BG">Bulgaria</sl-option>
-						<sl-option value="BF">Burkina Faso</sl-option>
-						<sl-option value="BI">Burundi</sl-option>
-						<sl-divider></sl-divider>
-						<sl-option value="CV">Cabo Verde</sl-option>
-						<sl-option value="KH">Cambodia</sl-option>
-						<sl-option value="CM">Cameroon</sl-option>
-						<sl-option value="CA">Canada</sl-option>
-						<sl-option value="BQ">Caribbean Netherlands</sl-option>
-						<sl-option value="KY">Cayman Islands</sl-option>
-						<sl-option value="CF">Central African Republic</sl-option>
-						<sl-option value="TD">Chad</sl-option>
-						<sl-option value="CL">Chile</sl-option>
-						<sl-option value="CN">China</sl-option>
-						<sl-option value="CX">Christmas Island</sl-option>
-						<sl-option value="CC">Cocos (Keeling) Islands</sl-option>
-						<sl-option value="CO">Colombia</sl-option>
-						<sl-option value="KM">Comoros</sl-option>
-						<sl-option value="CG">Congo</sl-option>
-						<sl-option value="CD">Congo, Democratic Republic of the</sl-option>
-						<sl-option value="CK">Cook Islands</sl-option>
-						<sl-option value="CR">Costa Rica</sl-option>
-						<sl-option value="HR">Croatia</sl-option>
-						<sl-option value="CU">Cuba</sl-option>
-						<sl-option value="CW">CuraÃ§ao</sl-option>
-						<sl-option value="CY">Cyprus</sl-option>
-						<sl-option value="CZ">Czech Republic</sl-option>
-						<sl-option value="CI">CÃ´te d'Ivoire</sl-option>
-						<sl-divider></sl-divider>
-						<sl-option value="DK">Denmark</sl-option>
-						<sl-option value="DJ">Djibouti</sl-option>
-						<sl-option value="DM">Dominica</sl-option>
-						<sl-option value="DO">Dominican Republic</sl-option>
-						<sl-divider></sl-divider>
-						<sl-option value="EC">Ecuador</sl-option>
-						<sl-option value="EG">Egypt</sl-option>
-						<sl-option value="SV">El Salvador</sl-option>
-						<sl-option value="GQ">Equatorial Guinea</sl-option>
-						<sl-option value="ER">Eritrea</sl-option>
-						<sl-option value="EE">Estonia</sl-option>
-						<sl-option value="SZ">Eswatini (Swaziland)</sl-option>
-						<sl-option value="ET">Ethiopia</sl-option>
-						<sl-divider></sl-divider>
-						<sl-option value="FK">Falkland Islands (Malvinas)</sl-option>
-						<sl-option value="FO">Faroe Islands</sl-option>
-						<sl-option value="FJ">Fiji</sl-option>
-						<sl-option value="FI">Finland</sl-option>
-						<sl-option value="FR">France</sl-option>
-						<sl-option value="GF">French Guiana</sl-option>
-						<sl-option value="PF">French Polynesia</sl-option>
-						<sl-option value="TF">French Southern Territories</sl-option>
-						<sl-divider></sl-divider>
-						<sl-option value="GA">Gabon</sl-option>
-						<sl-option value="GM">Gambia</sl-option>
-						<sl-option value="GE">Georgia</sl-option>
-						<sl-option value="DE">Germany</sl-option>
-						<sl-option value="GH">Ghana</sl-option>
-						<sl-option value="GI">Gibraltar</sl-option>
-						<sl-option value="GR">Greece</sl-option>
-						<sl-option value="GL">Greenland</sl-option>
-						<sl-option value="GD">Grenada</sl-option>
-						<sl-option value="GP">Guadeloupe</sl-option>
-						<sl-option value="GU">Guam</sl-option>
-						<sl-option value="GT">Guatemala</sl-option>
-						<sl-option value="GG">Guernsey</sl-option>
-						<sl-option value="GN">Guinea</sl-option>
-						<sl-option value="GW">Guinea-Bissau</sl-option>
-						<sl-option value="GY">Guyana</sl-option>
-						<sl-divider></sl-divider>
-						<sl-option value="HT">Haiti</sl-option>
-						<sl-option value="HM">Heard Island and Mcdonald Islands</sl-option>
-						<sl-option value="HN">Honduras</sl-option>
-						<sl-option value="HK">Hong Kong</sl-option>
-						<sl-option value="HU">Hungary</sl-option>
-						<sl-divider></sl-divider>
-						<sl-option value="IS">Iceland</sl-option>
-						<sl-option value="IN">India</sl-option>
-						<sl-option value="ID">Indonesia</sl-option>
-						<sl-option value="IR">Iran</sl-option>
-						<sl-option value="IQ">Iraq</sl-option>
-						<sl-option value="IE">Ireland</sl-option>
-						<sl-option value="IM">Isle of Man</sl-option>
-						<sl-option value="IL">Israel</sl-option>
-						<sl-option value="IT">Italy</sl-option>
-						<sl-divider></sl-divider>
-						<sl-option value="JM">Jamaica</sl-option>
-						<sl-option value="JP">Japan</sl-option>
-						<sl-option value="JE">Jersey</sl-option>
-						<sl-option value="JO">Jordan</sl-option>
-						<sl-divider></sl-divider>
-						<sl-option value="KZ">Kazakhstan</sl-option>
-						<sl-option value="KE">Kenya</sl-option>
-						<sl-option value="KI">Kiribati</sl-option>
-						<sl-option value="KP">Korea, North</sl-option>
-						<sl-option value="KR">Korea, South</sl-option>
-						<sl-option value="XK">Kosovo</sl-option>
-						<sl-option value="KW">Kuwait</sl-option>
-						<sl-option value="KG">Kyrgyzstan</sl-option>
-						<sl-divider></sl-divider>
-						<sl-option value="LA">Lao People's Democratic Republic</sl-option>
-						<sl-option value="LV">Latvia</sl-option>
-						<sl-option value="LB">Lebanon</sl-option>
-						<sl-option value="LS">Lesotho</sl-option>
-						<sl-option value="LR">Liberia</sl-option>
-						<sl-option value="LY">Libya</sl-option>
-						<sl-option value="LI">Liechtenstein</sl-option>
-						<sl-option value="LT">Lithuania</sl-option>
-						<sl-option value="LU">Luxembourg</sl-option>
-						<sl-divider></sl-divider>
-						<sl-option value="MO">Macao</sl-option>
-						<sl-option value="MK">Macedonia North</sl-option>
-						<sl-option value="MG">Madagascar</sl-option>
-						<sl-option value="MW">Malawi</sl-option>
-						<sl-option value="MY">Malaysia</sl-option>
-						<sl-option value="MV">Maldives</sl-option>
-						<sl-option value="ML">Mali</sl-option>
-						<sl-option value="MT">Malta</sl-option>
-						<sl-option value="MH">Marshall Islands</sl-option>
-						<sl-option value="MQ">Martinique</sl-option>
-						<sl-option value="MR">Mauritania</sl-option>
-						<sl-option value="MU">Mauritius</sl-option>
-						<sl-option value="YT">Mayotte</sl-option>
-						<sl-option value="MX">Mexico</sl-option>
-						<sl-option value="FM">Micronesia</sl-option>
-						<sl-option value="MD">Moldova</sl-option>
-						<sl-option value="MC">Monaco</sl-option>
-						<sl-option value="MN">Mongolia</sl-option>
-						<sl-option value="ME">Montenegro</sl-option>
-						<sl-option value="MS">Montserrat</sl-option>
-						<sl-option value="MA">Morocco</sl-option>
-						<sl-option value="MZ">Mozambique</sl-option>
-						<sl-option value="MM">Myanmar (Burma)</sl-option>
-						<sl-divider></sl-divider>
-						<sl-option value="NA">Namibia</sl-option>
-						<sl-option value="NR">Nauru</sl-option>
-						<sl-option value="NP">Nepal</sl-option>
-						<sl-option value="NL">Netherlands</sl-option>
-						<sl-option value="AN">Netherlands Antilles</sl-option>
-						<sl-option value="NC">New Caledonia</sl-option>
-						<sl-option value="NZ">New Zealand</sl-option>
-						<sl-option value="NI">Nicaragua</sl-option>
-						<sl-option value="NE">Niger</sl-option>
-						<sl-option value="NG">Nigeria</sl-option>
-						<sl-option value="NU">Niue</sl-option>
-						<sl-option value="NF">Norfolk Island</sl-option>
-						<sl-option value="MP">Northern Mariana Islands</sl-option>
-						<sl-option value="NO">Norway</sl-option>
-						<sl-divider></sl-divider>
-						<sl-option value="OM">Oman</sl-option>
-						<sl-divider></sl-divider>
-						<sl-option value="PK">Pakistan</sl-option>
-						<sl-option value="PW">Palau</sl-option>
-						<sl-option value="PS">Palestine</sl-option>
-						<sl-option value="PA">Panama</sl-option>
-						<sl-option value="PG">Papua New Guinea</sl-option>
-						<sl-option value="PY">Paraguay</sl-option>
-						<sl-option value="PE">Peru</sl-option>
-						<sl-option value="PH">Philippines</sl-option>
-						<sl-option value="PN">Pitcairn Islands</sl-option>
-						<sl-option value="PL">Poland</sl-option>
-						<sl-option value="PT">Portugal</sl-option>
-						<sl-option value="PR">Puerto Rico</sl-option>
-						<sl-divider></sl-divider>
-						<sl-option value="QA">Qatar</sl-option>
-						<sl-divider></sl-divider>
-						<sl-option value="RE">Reunion</sl-option>
-						<sl-option value="RO">Romania</sl-option>
-						<sl-option value="RU">Russian Federation</sl-option>
-						<sl-option value="RW">Rwanda</sl-option>
-						<sl-divider></sl-divider>
-						<sl-option value="BL">Saint Barthelemy</sl-option>
-						<sl-option value="SH">Saint Helena</sl-option>
-						<sl-option value="KN">Saint Kitts and Nevis</sl-option>
-						<sl-option value="LC">Saint Lucia</sl-option>
-						<sl-option value="MF">Saint Martin</sl-option>
-						<sl-option value="PM">Saint Pierre and Miquelon</sl-option>
-						<sl-option value="VC">Saint Vincent and the Grenadines</sl-option>
-						<sl-option value="WS">Samoa</sl-option>
-						<sl-option value="SM">San Marino</sl-option>
-						<sl-option value="ST">Sao Tome and Principe</sl-option>
-						<sl-option value="SA">Saudi Arabia</sl-option>
-						<sl-option value="SN">Senegal</sl-option>
-						<sl-option value="RS">Serbia</sl-option>
-						<sl-option value="CS">Serbia and Montenegro</sl-option>
-						<sl-option value="SC">Seychelles</sl-option>
-						<sl-option value="SL">Sierra Leone</sl-option>
-						<sl-option value="SG">Singapore</sl-option>
-						<sl-option value="SX">Sint Maarten</sl-option>
-						<sl-option value="SK">Slovakia</sl-option>
-						<sl-option value="SI">Slovenia</sl-option>
-						<sl-option value="SB">Solomon Islands</sl-option>
-						<sl-option value="SO">Somalia</sl-option>
-						<sl-option value="ZA">South Africa</sl-option>
-						<sl-option value="GS">South Georgia and the South Sandwich Islands</sl-option>
-						<sl-option value="SS">South Sudan</sl-option>
-						<sl-option value="ES">Spain</sl-option>
-						<sl-option value="LK">Sri Lanka</sl-option>
-						<sl-option value="SD">Sudan</sl-option>
-						<sl-option value="SR">Suriname</sl-option>
-						<sl-option value="SJ">Svalbard and Jan Mayen</sl-option>
-						<sl-option value="SE">Sweden</sl-option>
-						<sl-option value="CH">Switzerland</sl-option>
-						<sl-option value="SY">Syria</sl-option>
-						<sl-divider></sl-divider>
-						<sl-option value="TW">Taiwan</sl-option>
-						<sl-option value="TJ">Tajikistan</sl-option>
-						<sl-option value="TZ">Tanzania</sl-option>
-						<sl-option value="TH">Thailand</sl-option>
-						<sl-option value="TL">Timor-Leste</sl-option>
-						<sl-option value="TG">Togo</sl-option>
-						<sl-option value="TK">Tokelau</sl-option>
-						<sl-option value="TO">Tonga</sl-option>
-						<sl-option value="TT">Trinidad and Tobago</sl-option>
-						<sl-option value="TN">Tunisia</sl-option>
-						<sl-option value="TR">Turkey (TÃ¼rkiye)</sl-option>
-						<sl-option value="TM">Turkmenistan</sl-option>
-						<sl-option value="TC">Turks and Caicos Islands</sl-option>
-						<sl-option value="TV">Tuvalu</sl-option>
-						<sl-divider></sl-divider>
-						<sl-option value="UM">U.S. Outlying Islands</sl-option>
-						<sl-option value="UG">Uganda</sl-option>
-						<sl-option value="UA">Ukraine</sl-option>
-						<sl-option value="AE">United Arab Emirates</sl-option>
-						<sl-option value="GB">United Kingdom</sl-option>
-						<sl-option value="US">United States</sl-option>
-						<sl-option value="UY">Uruguay</sl-option>
-						<sl-option value="UZ">Uzbekistan</sl-option>
-						<sl-divider></sl-divider>
-						<sl-option value="VU">Vanuatu</sl-option>
-						<sl-option value="VA">Vatican City Holy See</sl-option>
-						<sl-option value="VE">Venezuela</sl-option>
-						<sl-option value="VN">Vietnam</sl-option>
-						<sl-option value="VG">Virgin Islands, British</sl-option>
-						<sl-option value="VI">Virgin Islands, U.S</sl-option>
-						<sl-divider></sl-divider>
-						<sl-option value="WF">Wallis and Futuna</sl-option>
-						<sl-option value="EH">Western Sahara</sl-option>
-						<sl-divider></sl-divider>
-						<sl-option value="YE">Yemen</sl-option>
-						<sl-divider></sl-divider>
-						<sl-option value="ZM">Zambia</sl-option>
-						<sl-option value="ZW">Zimbabwe</sl-option>
-					</sl-select>
-					<sl-input enterkeyhint="next" inputmode="numeric" label="{{booking_form_billing_postcode}}" name="billingPostCode" required=""></sl-input>
-					<sl-input enterkeyhint="next" label="{{booking_form_billing_fname}}" name="customerName" required=""></sl-input>
-					<sl-input enterkeyhint="next" label="{{booking_form_billing_lname}}" name="customerLastName" required=""></sl-input>
-					<sl-input enterkeyhint="next" inputmode="email" label="Email" name="customerEmail" required="" type="email"></sl-input>
-					<sl-input enterkeyhint="done" inputmode="tel" label="{{booking_form_billing_pnum}}" name="customerPhone" required="" type="tel"></sl-input>
-				</fieldset>
-				<sl-button id="ptp_btn" type="submit">{{booking_form_btn}}</sl-button>
-				<div id="paypal-container"></div>
-			</form>
-		</sl-dialog>
-		<sl-dialog id="img_preview">
-			<img alt="Click on an image to preview it here" src="" />
-		</sl-dialog>
-		<script>
-			let prices_data = null
-			// Data for the Modals
-			const chaletData = {
-				wind: {
-					title: "The Wind Chalet",
-					desc: `{{wind_desc}}`,
-					images: ["/assets/Chalets/wind/image00004.webp", "/assets/Chalets/wind/image00006.webp", "/assets/Chalets/wind/image00009.webp", "/assets/Chalets/wind/image00016.webp", "/assets/Chalets/wind/image00022.webp", "/assets/Chalets/wind/image00026.webp", "/assets/Chalets/wind/image00035.webp", "/assets/Chalets/wind/image00036.webp", "/assets/Chalets/wind/image08170.webp", "/assets/Chalets/wind/image08191.webp", "/assets/Chalets/wind/image08192.webp"],
-				},
-				summit: {
-					title: "The Sun Chalet",
-					desc: `{{summit_desc}}`,
-					images: ["/assets/Chalets/sun/image00004.webp", "/assets/Chalets/sun/image00006.webp", "/assets/Chalets/sun/image00009.webp", "/assets/Chalets/sun/image00016.webp", "/assets/Chalets/sun/image00022.webp", "/assets/Chalets/sun/image00026.webp", "/assets/Chalets/sun/image00035.webp", "/assets/Chalets/sun/image00036.webp", "/assets/Chalets/sun/image08170.webp", "/assets/Chalets/sun/image08191.webp", "/assets/Chalets/sun/image08192.webp"],
-				},
-				star: {
-					title: "The Star Chalet",
-					desc: `{{star_desc}}`,
-					images: ["/assets/Chalets/star/image00004.webp", "/assets/Chalets/star/image00006.webp", "/assets/Chalets/star/image00009.webp", "/assets/Chalets/star/image00010.webp", "/assets/Chalets/star/image00016.webp", "/assets/Chalets/star/image00026.webp", "/assets/Chalets/star/image00035.webp", "/assets/Chalets/star/image00036.webp", "/assets/Chalets/star/image00001.webp", "/assets/Chalets/star/image00003.webp", "/assets/Chalets/star/image08184.webp"],
-				},
-				cloud: {
-					title: "The Cloud Chalet",
-					desc: `{{cloud_desc}}`,
-					images: ["/assets/Chalets/cloud/image00004.webp", "/assets/Chalets/cloud/image00006.webp", "/assets/Chalets/cloud/image00009.webp", "/assets/Chalets/cloud/image00016.webp", "/assets/Chalets/cloud/image00022.webp", "/assets/Chalets/cloud/image00026.webp", "/assets/Chalets/cloud/image00035.webp", "/assets/Chalets/cloud/image00036.webp", "/assets/Chalets/cloud/image08170.webp", "/assets/Chalets/cloud/image08191.webp", "/assets/Chalets/cloud/image08192.webp"],
-				},
-				sky: {
-					title: "The Sky Chalet",
-					desc: `{{sky_desc}}`,
-					images: ["/assets/Chalets/sky/image00004.webp", "/assets/Chalets/sky/image00006.webp", "/assets/Chalets/sky/image00009.webp", "/assets/Chalets/sky/image00016.webp", "/assets/Chalets/sky/image00022.webp", "/assets/Chalets/sky/image00026.webp", "/assets/Chalets/sky/image00035.webp", "/assets/Chalets/sky/image00036.webp", "/assets/Chalets/sky/image08170.webp", "/assets/Chalets/sky/image08191.webp", "/assets/Chalets/sky/image08192.webp"],
-				},
-			}
+<body>
+    <div class="floating-book-btn" href="#" onclick="open_booking()">{{floating}}</div>
+    <nav>
+        <h1 class="logo-text">{{logo_text}}</h1>
+        <div class="nav-links-container">
+            <a class="nav-link" href="#chalets">{{nav_chalets}}</a>
+            <a class="nav-link" href="#location">{{nav_location}}</a>
+            <!-- <a href="#reviews" class="nav-link" data-i8n="nav_reviews">Reviews</a> -->
+            <a class="nav-link" href="#blog">{{nav_blog}}</a>
+        </div>
+        <div id="logo_stripped_reserve_spacer"></div>
+        <img id="logo_stripped" src="/assets/logo_stripped.svg"></img>
+        <div class="nav-links-container">
+            <a class="nav-link" href="/{{language_code}}/notice#impressum">{{contact}}</a>
+            <sl-dropdown>
+                <!-- NEW TRIGGER: span element to display the selected language -->
+                <span class="nav-language-trigger" id="language_display_trigger" slot="trigger">
+                    <!-- Initial state, set to default EN -->
+                    {{language_tag}}
+                </span>
+                <sl-menu>
+                    <sl-menu-item><a href="/">ðŸ‡¬ðŸ‡§ EN (English)</a></sl-menu-item>
+                    <sl-menu-item><a href="/sr">ðŸ‡·ðŸ‡¸ SR (Srpski)</a></sl-menu-item>
+                    <sl-menu-item><a href="/de">ðŸ‡©ðŸ‡ª DE (Deutsch)</a></sl-menu-item>
+                    <sl-menu-item><a href="/it">ðŸ‡®ðŸ‡¹ IT (Italiano)</a></sl-menu-item>
+                </sl-menu>
+            </sl-dropdown>
+            <a class="nav-cta" onclick="open_booking()" style="cursor: pointer">{{nav_cta}}</a>
+        </div>
+        <sl-icon-button id="btn_menu" onclick="drawer_menu.show()"
+            src="/assets/amenities_icons/menu.svg"></sl-icon-button>
+    </nav>
+    <header class="hero" role="img"
+        aria-label="Luxury private chalets with panoramic mountain views at Kozara Panoramic Resort">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <div class="logo-area">KOZARA PANORAMIC RESORT</div>
+            <h2>{{subtitle}}</h2>
+        </div>
+    </header>
+    <sl-drawer id="drawer_menu" label="Navigation">
+        <a class="nav-link" href="#chalets" onclick="drawer_menu.hide()">{{nav_chalets}}</a>
+        <a class="nav-link" href="#location" onclick="drawer_menu.hide()">{{nav_location}}</a>
+        <!--<a href="#reviews" class="nav-link" onclick="drawer_menu.hide()" data-i8n="nav_reviews">Reviews</a>-->
+        <a class="nav-link" href="#blog" onclick="drawer_menu.hide()">{{nav_blog}}</a>
+        <a class="nav-link" href="/{{language_code}}/notice#impressum" onclick="drawer_menu.hide()">{{contact}}</a>
+        <sl-dropdown>
+            <!-- NEW TRIGGER: span element to display the selected language -->
+            <span class="nav-language-trigger" id="language_display_trigger" slot="trigger">
+                <!-- Initial state, set to default EN -->
+                {{language_tag}}
+            </span>
+            <sl-menu>
+                <sl-menu-item><a href="/">ðŸ‡¬ðŸ‡§ EN (English)</a></sl-menu-item>
+                <sl-menu-item><a href="/sr">ðŸ‡·ðŸ‡¸ SR (Srpski)</a></sl-menu-item>
+                <sl-menu-item><a href="/de">ðŸ‡©ðŸ‡ª DE (Deutsch)</a></sl-menu-item>
+                <sl-menu-item><a href="/it">ðŸ‡®ðŸ‡¹ IT (Italiano)</a></sl-menu-item>
+            </sl-menu>
+        </sl-dropdown>
+    </sl-drawer>
 
-			const LANGUAGE_MAP = {
-				en: { flag: "ðŸ‡¬ðŸ‡§", abbr: "EN" },
-				sr: { flag: "ðŸ‡·ðŸ‡¸", abbr: "SR" },
-				de: { flag: "ðŸ‡©ðŸ‡ª", abbr: "DE" },
-				it: { flag: "ðŸ‡®ðŸ‡¹", abbr: "IT" },
-			}
+    <div class="booking-container" id="booking">
+        <div class="booking-bar">
+            <h2>{{booking_bar_title}}</h2>
+            <div>{{booking_bar_text}}</div>
+            <button class="btn-check" onclick="open_booking()">{{nav_cta}}</button>
+        </div>
+    </div>
+    <section class="intro">
+        <h3 class="section-title">{{intro_title}}</h3>
+        <p class="lead">{{intro_subtitle}}</p>
+    </section>
+    <section class="disclaimer-section">
+        <div class="notice-card">
+            <div class="notice-badge">{{offer_card}}</div>
+            <h3>{{offer_title}}</h3>
+            <p class="notice-text">{{offer_desc}}</p>
+            <div class="notice-divider"></div>
+            <div class="notice-footer">
+                <strong>{{offer_notice_title}}</strong>
+                <span>{{offer_notice_desc}}</span>
+            </div>
+        </div>
+    </section>
+    <section class="carousel-container">
+        <sl-carousel autoplay="" autoplay-interval="3000" id="autocarousel" loop="" navigation="" pagination=""
+            slides-per-page="3">
+            <sl-carousel-item><img alt="Mountain 1" src="/assets/Carousel/1.webp" /></sl-carousel-item>
+            <sl-carousel-item><img alt="Interior 1" src="/assets/Carousel/2.webp" /></sl-carousel-item>
+            <sl-carousel-item><img alt="Winter" src="/assets/Carousel/3.webp" /></sl-carousel-item>
+            <sl-carousel-item><img alt="Forest" src="/assets/Carousel/4.webp" /></sl-carousel-item>
+            <sl-carousel-item><img alt="Adventure" src="/assets/Carousel/5.webp" /></sl-carousel-item>
+            <sl-carousel-item><img alt="Adventure" src="/assets/Carousel/6.webp" /></sl-carousel-item>
+            <sl-carousel-item><img alt="Adventure" src="/assets/Carousel/7.webp" /></sl-carousel-item>
+            <sl-carousel-item><img alt="Adventure" src="/assets/Carousel/8.webp" /></sl-carousel-item>
+            <sl-carousel-item><img alt="Adventure" src="/assets/Carousel/9.webp" /></sl-carousel-item>
+            <sl-carousel-item><img alt="Adventure" src="/assets/Carousel/10.webp" /></sl-carousel-item>
+            <sl-carousel-item><img alt="Adventure" src="/assets/Carousel/11.webp" /></sl-carousel-item>
+            <sl-carousel-item><img alt="Adventure" src="/assets/Carousel/12.webp" /></sl-carousel-item>
+            <sl-carousel-item><img alt="Adventure" src="/assets/Carousel/13.webp" /></sl-carousel-item>
+            <sl-carousel-item><img alt="Adventure" src="/assets/Carousel/14.webp" /></sl-carousel-item>
+            <sl-carousel-item><img alt="Adventure" src="/assets/Carousel/15.webp" /></sl-carousel-item>
+            <sl-carousel-item><img alt="Adventure" src="/assets/Carousel/16.webp" /></sl-carousel-item>
+        </sl-carousel>
+    </section>
+    <section class="chalets-section" id="chalets">
+        <div style="text-align: center; margin-bottom: 40px">
+            <h2 class="section-title">{{chalets_title}}</h2>
+            <p>{{chalets_desc}}</p>
+        </div>
+        <div class="chalet-grid">
+            <div class="chalet-card">
+                <div class="special-badge red">Unavailable for selected dates</div>
+                <img alt="Cloud Chalet" class="chalet-img" src="/assets/Chalets/wind/1.webp" />
+                <div class="chalet-details">
+                    <h4>The Wind Chalet</h4>
+                    <!-- <p class="amenities">Sleeps 4 â€¢ Jacuzzi â€¢ Forest View</p> -->
+                    <button class="btn-view" onclick="openModal('wind')">{{chalets_details_btn}}</button>
+                </div>
+            </div>
+            <div class="chalet-card">
+                <div class="special-badge red">Unavailable for selected dates</div>
+                <img alt="Summit Lodge" class="chalet-img" src="/assets/Chalets/sun/2.webp" />
+                <div class="chalet-details">
+                    <h4>The Sun Chalet</h4>
+                    <!-- <p class="amenities">Sleeps 8 â€¢ Private Spa â€¢ Panoramic Glass</p> -->
+                    <button class="btn-view" onclick="openModal('summit')">{{chalets_details_btn}}</button>
+                </div>
+            </div>
+            <div class="chalet-card special">
+                <div class="special-badge red">Unavailable for selected dates</div>
+                <div class="special-badge">{{secluded_badge}}</div>
+                <img alt="Star Cabin" class="chalet-img" src="/assets/Chalets/star/chalet5_cropped.jpeg" />
+                <div class="chalet-details">
+                    <h4>The Star Chalet</h4>
+                    <!-- <p class="amenities">Sleeps 6 â€¢ Fireplace â€¢ Large Terrace</p> -->
+                    <button class="btn-view" onclick="openModal('star')">{{chalets_details_btn}}</button>
+                </div>
+            </div>
+            <div class="chalet-card">
+                <div class="special-badge red">Unavailable for selected dates</div>
+                <img alt="Wind Cabin" class="chalet-img" src="/assets/Chalets/sky/chalet3_cropped1.jpeg" />
+                <div class="chalet-details">
+                    <h4>The Sky Chalet</h4>
+                    <!-- <p class="amenities">Sleeps 2 â€¢ Secluded â€¢ Romantic</p> -->
+                    <button class="btn-view" onclick="openModal('sky')">{{chalets_details_btn}}</button>
+                </div>
+            </div>
+            <div class="chalet-card">
+                <div class="special-badge red">Unavailable for selected dates</div>
+                <img alt="Sky Cabin" class="chalet-img" src="/assets/Chalets/cloud/1.webp" />
+                <div class="chalet-details">
+                    <h4>The Cloud Chalet</h4>
+                    <!-- <p class="amenities">Sleeps 5 â€¢ Pet Friendly â€¢ BBQ</p> -->
+                    <button class="btn-view" onclick="openModal('cloud')">{{chalets_details_btn}}</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="facilities-section" id="facilities">
+        <div class="facilities-container">
 
-			let langData = {}
-			const carousel = document.querySelector(".dialog-gallery")
-			const scroller = document.querySelector(".thumbnails__scroller")
-			const modal = document.getElementById("chalet_dialog")
-			const descEl = document.getElementById("dialog-desc")
+            <div class="facilities-header">
+                <h3 class="section-title">{{amenities_title}}</h3>
 
-			function openModal(chaletId) {
-				const data = chaletData[chaletId] || chaletData["cloud"]
+                <div class="top-highlights">
+                    <div class="highlight-item">
+                        <sl-icon src="/assets/amenities_icons/waves.svg"></sl-icon>
+                        <span>{{highlight_pool}}</span>
+                    </div>
+                    <div class="highlight-item">
+                        <sl-icon src="/assets/amenities_icons/users.svg"></sl-icon>
+                        <span>{{highlight_family}}</span>
+                    </div>
+                    <div class="highlight-item">
+                        <sl-icon src="/assets/amenities_icons/circle-parking.svg"></sl-icon>
+                        <span>{{highlight_parking}}</span>
+                    </div>
+                    <div class="highlight-item">
+                        <sl-icon src="/assets/amenities_icons/wifi.svg"></sl-icon>
+                        <span>{{highlight_wifi}}</span>
+                    </div>
+                    <div class="highlight-item">
+                        <sl-icon src="/assets/amenities_icons/cigarette-off.svg"></sl-icon>
+                        <span>{{highlight_nonsmoking}}</span>
+                    </div>
+                </div>
+            </div>
 
-				console.log(langData)
-				console.log(chaletId)
-				const translatedDesc = langData[chaletId + "_desc"]
+            <div class="facilities-grid">
 
-				console.log(translatedDesc)
-				modal.label = data.title
-				descEl.innerText = translatedDesc || data.desc
-				// descEl.innerText = data.desc
-				carousel.innerHTML = ""
-				scroller.innerHTML = ""
-				data.images.forEach(img_uri => {
-					carousel.innerHTML += `<sl-carousel-item><img src="${img_uri}"></sl-carousel-item>`
-					const new_thumbnail = document.createElement("img")
-					new_thumbnail.setAttribute("src", img_uri)
-					new_thumbnail.classList.add("thumbnails__image")
-					scroller.appendChild(new_thumbnail)
-				})
-				scroller.children[0].classList.add("active")
+                <!-- Bathroom -->
+                <div class="facility-category">
+                    <div class="category-header">
+                        <sl-icon src="/assets/amenities_icons/shower-head.svg"></sl-icon>
+                        <h4>{{cat_bathroom}}</h4>
+                    </div>
+                    <ul class="facility-list">
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_toilet_paper}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_towels}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_private_bath}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_toilet}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_bathrobe}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_hairdryer}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_shower}}</li>
+                    </ul>
+                </div>
 
-				modal.show()
-				carousel.goToSlide(0)
-			}
+                <!-- Bedroom -->
+                <div class="facility-category">
+                    <div class="category-header">
+                        <sl-icon src="/assets/amenities_icons/bed-double.svg"></sl-icon>
+                        <h4>{{cat_bedroom}}</h4>
+                    </div>
+                    <ul class="facility-list">
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_linen}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_wardrobe}}</li>
+                    </ul>
+                </div>
 
-			// modal carousel
+                <!-- View -->
+                <div class="facility-category">
+                    <div class="category-header">
+                        <sl-icon src="/assets/amenities_icons/mountain.svg"></sl-icon>
+                        <h4>{{cat_view}}</h4>
+                    </div>
+                    <ul class="facility-list">
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_view_landmark}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_view_mountain}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_view_pool}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_view_general}}</li>
+                    </ul>
+                </div>
 
-			scroller.addEventListener("click", e => {
-				const target = e.target
+                <!-- Outdoors -->
+                <div class="facility-category">
+                    <div class="category-header">
+                        <sl-icon src="/assets/amenities_icons/tree-pine.svg"></sl-icon>
+                        <h4>{{cat_outdoors}}</h4>
+                    </div>
+                    <ul class="facility-list">
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_outdoor_furniture}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_private_pool}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_patio}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_terrace}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_garden}}</li>
+                    </ul>
+                </div>
 
-				if (target.matches(".thumbnails__image")) {
-					const thumbnails = scroller.querySelectorAll(".thumbnails__image")
-					const index = [...thumbnails].indexOf(target)
-					carousel.goToSlide(index)
-				}
-			})
+                <!-- Kitchen -->
+                <div class="facility-category">
+                    <div class="category-header">
+                        <sl-icon src="/assets/amenities_icons/cooking-pot.svg"></sl-icon>
+                        <h4>{{cat_kitchen}}</h4>
+                    </div>
+                    <ul class="facility-list">
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_dining_table}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_coffee_machine}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_toaster}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_stovetop}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_oven}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_kitchenware}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_kettle}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_kitchen_general}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_dishwasher}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_microwave}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_fridge}}</li>
+                    </ul>
+                </div>
 
-			carousel.addEventListener("sl-slide-change", e => {
-				const slideIndex = e.detail.index
-				const thumbnails = scroller.querySelectorAll(".thumbnails__image")
+                <!-- Room Amenities -->
+                <!-- <div class="facility-category"> -->
+                <!--     <div class="category-header"> -->
+                <!--         <sl-icon src="/assets/amenities_icons/plug.svg"></sl-icon> -->
+                <!--         <h4>{{cat_room_amenities}}</h4> -->
+                <!--     </div> -->
+                <!--     <ul class="facility-list"> -->
+                <!--         <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_socket}}</li> -->
+                <!--         <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_clothes_rack}}</li> -->
+                <!--     </ul> -->
+                <!-- </div> -->
 
-				;[...thumbnails].forEach((thumb, i) => {
-					thumb.classList.toggle("active", i === slideIndex)
-					if (i === slideIndex) {
-						thumb.scrollIntoView({
-							block: "nearest",
-						})
-					}
-				})
-			})
+                <!-- Pets -->
+                <div class="facility-category">
+                    <div class="category-header">
+                        <sl-icon src="/assets/amenities_icons/paw-print.svg"></sl-icon>
+                        <h4>{{cat_pets}}</h4>
+                    </div>
+                    <div class="note">{{note_pets}}</div>
+                </div>
 
-			document.querySelectorAll("sl-carousel").forEach(el => {
-				el.addEventListener("click", e => {
-					if (e.target.tagName != "IMG") return
-					preview(e.target.src)
-				})
-			})
+                <!-- Activities -->
+                <div class="facility-category">
+                    <div class="category-header">
+                        <sl-icon src="/assets/amenities_icons/footprints.svg"></sl-icon>
+                        <h4>{{cat_activities}}</h4>
+                    </div>
+                    <ul class="facility-list">
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_bike_tours}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_walking_tours}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_hiking}}</li>
+                    </ul>
+                </div>
 
-			function preview(src) {
-				img_preview.querySelector("img").setAttribute("src", src)
-				img_preview.show()
-			}
+                <!-- Living Area -->
+                <div class="facility-category">
+                    <div class="category-header">
+                        <sl-icon src="/assets/amenities_icons/armchair.svg"></sl-icon>
+                        <h4>{{cat_living_area}}</h4>
+                    </div>
+                    <ul class="facility-list">
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_dining_area}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_sofa}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_seating_area}}</li>
+                    </ul>
+                </div>
 
-			// Calendar logic
-			const calendar_settings = {
-				inputMode: true,
-				selectedTheme: "light",
-				dateMin: "today",
-				displayDateMin: "today",
-				enableDateToggle: false,
-				onInit(self) {
-					self.context.inputElement.blur()
-					self.context.inputElement.addEventListener("focus", () => {
-						self.context.inputElement.blur()
-					})
-				},
-				onClickDate(self, event) {
-					self.context.inputElement.value = self.context.selectedDates[0].split("-").reverse().join("/")
-				},
-			}
-			const { Calendar } = window.VanillaCalendarPro
-			let currency_modifier = 1
-			let currency_symbol = "KM"
+                <!-- Media & Technology -->
+                <div class="facility-category">
+                    <div class="category-header">
+                        <sl-icon src="/assets/amenities_icons/tv.svg"></sl-icon>
+                        <h4>{{cat_media}}</h4>
+                    </div>
+                    <ul class="facility-list">
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_streaming}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_flatscreen}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_satellite}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_tv}}</li>
+                    </ul>
+                </div>
 
-			const booking_calendar = new Calendar("#book_calendar_wrapper", {
-				type: "multiple",
-				selectedTheme: "light",
-				dateMin: "today",
-				// displayDateMin: "2025-12-15",
-				// displayDateMax: "2026-03-31",
-				dateMax: "2026-03-31",
-				disableDatesGaps: true,
-				disableToday: true,
-				enableEdgeDatesOnly: true,
-				enableDateToggle: false,
-				selectionDatesMode: "multiple-ranged",
-				onCreateDateEls(self, dateEl) {
-					if (!prices_data) return
-					const curr_date = dateEl.dataset.vcDate
-					for (const entry of prices_data) {
-						if (comp_date(entry.from, curr_date)) continue
-						if (comp_date(curr_date, entry.to)) continue
-						if (currency_select.value == "USD") {
-							dateEl.querySelector("button").innerHTML += `<div>\
+                <!-- Food & Drink -->
+                <div class="facility-category">
+                    <div class="category-header">
+                        <sl-icon src="/assets/amenities_icons/coffee.svg"></sl-icon>
+                        <h4>{{cat_food_drink}}</h4>
+                    </div>
+                    <ul class="facility-list">
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_tea_coffee}}</li>
+                    </ul>
+                </div>
+
+                <!-- Internet -->
+                <div class="facility-category">
+                    <div class="category-header">
+                        <sl-icon src="/assets/amenities_icons/wifi.svg"></sl-icon>
+                        <h4>{{cat_internet}}</h4>
+                    </div>
+                    <div class="note">{{note_internet}}</div>
+                </div>
+
+                <!-- Parking -->
+                <div class="facility-category">
+                    <div class="category-header">
+                        <sl-icon src="/assets/amenities_icons/circle-parking.svg"></sl-icon>
+                        <h4>{{cat_parking}}</h4>
+                    </div>
+                    <div class="note">{{note_parking}}</div>
+                </div>
+
+                <!-- Services -->
+                <div class="facility-category">
+                    <div class="category-header">
+                        <sl-icon src="/assets/amenities_icons/bell.svg"></sl-icon>
+                        <h4>{{cat_services}}</h4>
+                    </div>
+                    <ul class="facility-list">
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_checkin_out}}</li>
+                    </ul>
+                </div>
+
+                <!-- Safety & security -->
+                <div class="facility-category">
+                    <div class="category-header">
+                        <sl-icon src="/assets/amenities_icons/shield-check.svg"></sl-icon>
+                        <h4>{{cat_safety}}</h4>
+                    </div>
+                    <ul class="facility-list">
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_extinguishers}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_cctv}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_safe}}</li>
+                    </ul>
+                </div>
+
+                <!-- General -->
+                <div class="facility-category">
+                    <div class="category-header">
+                        <sl-icon src="/assets/amenities_icons/info.svg"></sl-icon>
+                        <h4>{{cat_general}}</h4>
+                    </div>
+                    <ul class="facility-list">
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_co_detector}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_ac}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_nonsmoking_general}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_tile_floor}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_heating}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_private_entrance}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_laptop_safe}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_family_rooms}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_nonsmoking_rooms}}</li>
+                    </ul>
+                </div>
+
+                <!-- Swimming Pool -->
+                <div class="facility-category">
+                    <div class="category-header">
+                        <sl-icon src="/assets/amenities_icons/waves.svg"></sl-icon>
+                        <h4>{{cat_pool}} <span class="highlight-tag">{{tag_free}}</span></h4>
+                    </div>
+                    <ul class="facility-list">
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_opening_times}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_seasonal}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_all_ages}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_pool_view}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_heated_pool}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_pool_cover}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_loungers}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_umbrellas}}</li>
+                    </ul>
+                </div>
+
+                <!-- Wellness -->
+                <div class="facility-category">
+                    <div class="category-header">
+                        <sl-icon src="/assets/amenities_icons/flower-2.svg"></sl-icon>
+                        <h4>{{cat_wellness}}</h4>
+                    </div>
+                    <ul class="facility-list">
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_umbrellas}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_loungers}}</li>
+                    </ul>
+                </div>
+
+                <!-- Languages -->
+                <div class="facility-category">
+                    <div class="category-header">
+                        <sl-icon src="/assets/amenities_icons/languages.svg"></sl-icon>
+                        <h4>{{cat_languages}}</h4>
+                    </div>
+                    <ul class="facility-list">
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{lang_english}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{lang_serbian}}</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    <section class="location-section" id="location">
+        <div class="location-overlay"></div>
+        <div class="location-content">
+            <h3 class="section-title" style="color: var(--sand-beige)">{{location_title}}</h3>
+            <p style="margin-bottom: 30px; font-size: 1.1rem">{{location_description}}</p>
+            <p class="location-quote">{{location_quote}}</p>
+            <div class="location-image-container">
+                <!-- Using the newly uploaded, cleaner filename -->
+                <img alt="Just follow the signs." class="location-signs-img" src="/assets/signs2.webp" />
+            </div>
+            <p class="map-hint">{{location_hint}}</p>
+            <div class="map-frame">
+                <iframe allowfullscreen="" height="450" referrerpolicy="no-referrer-when-downgrade"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3191.7678145893565!2d17.0941569!3d45.0086252!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4767510061c8c7eb%3A0xcf311465b69a3e2c!2sKozara%20Panoramic%20Resort!5e1!3m2!1sbs!2sba!4v1763826019486!5m2!1sen!2sba"
+                    style="border: 0" width="600"></iframe>
+            </div>
+        </div>
+    </section>
+    <section class="reviews-section" id="reviews">
+        <h3 class="section-title">Guest Testimonials</h3>
+        <div class="review-grid">
+            <div class="review-card">
+                <p>"The best mountain retreat we have ever experienced. The Star Cabin fireplace was magical."</p>
+                <div class="reviewer">â€” ANA &amp; MARKO, Sarajevo</div>
+            </div>
+            <div class="review-card">
+                <p>"Pure luxury in the wilderness. The Cloud Cabin jacuzzi was perfect after a long hike."</p>
+                <div class="reviewer">â€” DAMIR M., Beograd</div>
+            </div>
+            <div class="review-card">
+                <p>"A truly unique spot in Kozara National Park. Modern but cozy design."</p>
+                <div class="reviewer">â€” THE JUSIC FAMILY</div>
+            </div>
+        </div>
+    </section>
+    <section class="section-padding" id="about-us">
+        <div class="content-layout">
+            <div class="content-text">
+                <h2 class="section-title" style="text-align: left">{{about_us_title}}</h2>
+                <p>{{about_us_desc1}}</p>
+                <p>{{about_us_desc2}}</p>
+            </div>
+            <div class="content-image">
+                <img alt="Hiking sign" src="/assets/Text Blocks/image08198.webp" />
+            </div>
+        </div>
+    </section>
+    <section class="section-padding blog-section" id="about-kozara">
+        <div class="content-layout reverse">
+            <div class="content-text">
+                <h3 class="section-title" style="text-align: left">{{about_kozara_title}}</h3>
+                <p>{{about_kozara_desc1}}</p>
+                <p>{{about_kozara_desc2}}</p>
+            </div>
+            <div class="content-image">
+                <img alt="Kozara amenity" src="/assets/Text Blocks/Kozara-fotobaza-Ajdin-Kamber.webp" />
+            </div>
+        </div>
+    </section>
+    <section class="section-padding" id="blog">
+        <h3 class="section-title">{{blog_title}}</h3>
+        <div class="blog-grid" style="display: {{YES_BLOGS}};">
+            <!-- <div class="blog-card"> -->
+            <!--     <img src="{{BLOG_IMG}}" class="blog-img" alt="Blog 1 cover image" /> -->
+            <!--     <h4 style="min-height: 2.5em">{{BLOG_TITLE}}</h4> -->
+            <!--     <a class="read-blog" href="/{{language_code}}/blog/{{BLOG_ID}}">{{read_article}}</a> -->
+            <!-- </div> -->
+            <!-- <div class="blog-card"> -->
+            <!--     <img src="{{BLOG_IMG}}" class="blog-img" alt="Blog 2 cover image" /> -->
+            <!--     <h4 style="min-height: 2.5em">{{BLOG_TITLE}}</h4> -->
+            <!--     <a class="read-blog" href="/{{language_code}}/blog/{{BLOG_ID}}">{{read_article}}</a> -->
+            <!-- </div> -->
+            <!-- <div class="blog-card"> -->
+            <!--     <img src="{{BLOG_IMG}}" class="blog-img" alt="Blog 3 cover image" /> -->
+            <!--     <h4 style="min-height: 2.5em">{{BLOG_TITLE}}</h4> -->
+            <!--     <a class="read-blog" href="/{{language_code}}/blog/{{BLOG_ID}}">{{read_article}}</a> -->
+            <!-- </div> -->
+            {{BLOGS_TEMPLATE}}
+        </div>
+        <a style="display: {{MORE_BLOGS}};" class="read-blog" href="/{{language_code}}/blogs">{{see_all_blogs}}</a>
+        <div style="display: {{NO_BLOGS}}; justify-content: center;">
+            <span style="font-size: 1.5rem; font-style: italic">{{blog_desc}}</span>
+        </div>
+    </section>
+    <section class="section-padding faq-section" id="faq" style="background-color: var(--bg-soft)">
+        <h3 class="section-title">{{faq_title}}</h3>
+        <div class="faq-container">
+            <div>
+                <sl-details summary="{{faq_heating_q}}">{{faq_heating_a}}</sl-details>
+                <sl-details summary="{{faq_kitchen_q}}">{{faq_kitchen_a}}</sl-details>
+                <sl-details summary="{{faq_linens_q}}">{{faq_linens_a}}</sl-details>
+                <sl-details summary="{{faq_wifi_q}}">{{faq_wifi_a}}</sl-details>
+                <sl-details summary="{{faq_pool_heating_q}}">{{faq_pool_heating_a}}</sl-details>
+                <sl-details summary="{{faq_lifeguard_q}}">{{faq_lifeguard_a}}</sl-details>
+                <sl-details summary="{{faq_checkin_q}}">{{faq_checkin_a}}</sl-details>
+                <sl-details summary="{{faq_deposit_q}}">{{faq_deposit_a}}</sl-details>
+                <sl-details summary="{{faq_cancel_q}}">{{faq_cancel_a}}</sl-details>
+                <sl-details summary="{{faq_payment_q}}">{{faq_payment_a}}</sl-details>
+                <sl-details summary="{{faq_tax_q}}">{{faq_tax_a}}</sl-details>
+            </div>
+            <div>
+                <sl-details summary="{{faq_shops_q}}">{{faq_shops_a}}</sl-details>
+                <sl-details summary="{{faq_housekeeping_q}}">{{faq_housekeeping_a}}</sl-details>
+                <sl-details summary="{{faq_laundry_q}}">{{faq_laundry_a}}</sl-details>
+                <sl-details summary="{{faq_baby_q}}">{{faq_baby_a}}</sl-details>
+                <sl-details summary="{{faq_pets_q}}">{{faq_pets_a}}</sl-details>
+                <sl-details summary="{{faq_parking_q}}">{{faq_parking_a}}</sl-details>
+                <!--<sl-details -->
+                <!--    data-i8n-summary="faq_ev_q" -->
+                <!--    data-i8n="faq_ev_a" -->
+                <!--    summary="Do you have an EV charging station?">-->
+                <!--    Not currently, though one is planned for the future. The nearest petrol station is on the main road to GradiÅ¡ka (approx. 18 km).-->
+                <!--</sl-details>-->
+                <sl-details summary="{{faq_quiet_q}}">{{faq_quiet_a}}</sl-details>
+                <sl-details summary="{{faq_airport_q}}">{{faq_airport_a}}</sl-details>
+                <sl-details summary="{{faq_yearround_q}}">{{faq_yearround_a}}</sl-details>
+                <sl-details summary="{{faq_find_q}}">{{faq_find_a}}</sl-details>
+            </div>
+        </div>
+    </section>
+    <section class="cta-band">
+        <h3>{{closing_title}}</h3>
+        <p>{{closing_desc}}</p>
+        <a class="btn-cta-large" onclick="open_booking()">{{nav_cta}}</a>
+    </section>
+    <footer id="contact">
+        <div class="footer-logo">KOZARA PANORAMIC RESORT</div>
+        <!-- Updated Footer Links -->
+        <div class="footer-links">
+            <a href="/{{language_code}}/notice#impressum">{{footer-impressum}}</a> | <a
+                href="/{{language_code}}/notice#terms">{{footer-terms}}</a> | <a
+                href="/{{language_code}}/notice#privacy">{{footer-privacy}}</a> |
+            <a href="/{{language_code}}/notice#impressum">{{footer-contact}}</a>
+        </div>
+        <p>Â© Kozara Panoramic Resort â€“ PEVA d.o.o. All rights reserved.</p>
+    </footer>
+    <sl-dialog id="chalet_dialog" label="The Cloud Cabin">
+        <p class="dialog-desc" id="dialog-desc">The Cloud cabin floats above the clouds, surrounded by silence and a
+            view that connects sky and earth. It's made for those who seek inspiration and peace in moments of pure
+            stillness.</p>
+        <sl-carousel class="dialog-gallery" loop="" navigation=""> </sl-carousel>
+        <div class="dialog-thumbnails">
+            <div class="thumbnails__scroller"></div>
+        </div>
+        <div class="dialog-amenities">
+            <!-- <span class="amenity-pill"><sl-icon src="/assets/amenities_icons/wifi.svg"></sl-icon> -->
+            <!--     <span>{{chalets_amenities_wifi}}</span></span> -->
+            <!-- <span class="amenity-pill"><sl-icon src="/assets/amenities_icons/coffee.svg"></sl-icon> -->
+            <!--     <span>{{chalets_amenities_espresso}}</span></span> -->
+            <!-- <span class="amenity-pill"><sl-icon src="/assets/amenities_icons/air-vent.svg"></sl-icon> -->
+            <!--     <span>{{chalets_amenities_ac}}</span></span> -->
+            <!-- <span class="amenity-pill"><sl-icon src="/assets/amenities_icons/microwave.svg"></sl-icon> -->
+            <!--     <span>{{chalets_amenities_microwave}}</span></span> -->
+            <!-- <span class="amenity-pill"><sl-icon src="/assets/amenities_icons/sandwich.svg"></sl-icon> -->
+            <!--     <span>{{chalets_amenities_toast}}</span></span> -->
+            <!-- <span class="amenity-pill"><sl-icon src="/assets/amenities_icons/cooking-pot.svg"></sl-icon> -->
+            <!--     <span>{{chalets_amenities_hob}}</span></span> -->
+            <!-- <span class="amenity-pill"><sl-icon src="/assets/amenities_icons/refrigerator.svg"></sl-icon> -->
+            <!--     <span>{{chalets_amenities_fridge}}</span></span> -->
+            <!-- <span class="amenity-pill"><sl-icon src="/assets/amenities_icons/bed.svg"></sl-icon> -->
+            <!--     <span>{{chalets_amenities_bed}}</span></span> -->
+            <!-- <span class="amenity-pill"><sl-icon src="/assets/amenities_icons/shower-head.svg"></sl-icon> -->
+            <!--     <span>{{chalets_amenities_shower}}</span></span> -->
+            <!-- <span class="amenity-pill"><sl-icon src="/assets/amenities_icons/tv.svg"></sl-icon> <span>Firestick -->
+            <!--         TV</span></span> -->
+            <!-- <span class="amenity-pill"><sl-icon src="/assets/amenities_icons/sofa.svg"></sl-icon> -->
+            <!--     <span>{{chalets_amenities_sofa}}</span></span> -->
+            <!-- <span class="amenity-pill"><sl-icon src="/assets/amenities_icons/vault.svg"></sl-icon> -->
+            <!--     <span>{{chalets_amenities_safe}}</span></span> -->
+        </div>
+    </sl-dialog>
+    <sl-dialog id="book_dialog" label="Book">
+        <sl-select id="currency_select" slot="header-actions" value="BAM">
+            <sl-option value="BAM">BAM</sl-option>
+            <sl-option value="EUR">EUR</sl-option>
+            <sl-option value="GBP">GBP</sl-option>
+            <sl-option value="USD">USD</sl-option>
+        </sl-select>
+        <span class="notice">
+            <sl-icon src="/assets/amenities_icons/circle-alert.svg"></sl-icon>
+            <span>{{booking_modal_note}}</span>
+        </span>
+        <div id="book_calendar_wrapper"></div>
+        <form id="book_form">
+            <fieldset group="1">
+                <legend>{{booking_form_occupants_title}}</legend>
+                <div>
+                    <sl-input enterkeyhint="next" inputmode="numeric" label="{{booking_form_occupants_n_ad}}" max="6"
+                        min="1" name="numAdults" required="" type="number" value="1"></sl-input>
+                    <sl-input enterkeyhint="next" inputmode="numeric" label="{{booking_form_occupants_n_ch}}" max="2"
+                        min="0" name="numChildren" required="" type="number" value="0"></sl-input>
+                </div>
+                <span class="notice">
+                    <sl-icon src="/assets/amenities_icons/circle-alert.svg"></sl-icon>
+                    <span>{{booking_form_occupants_note}}</span>
+                </span>
+            </fieldset>
+            <fieldset group="2">
+                <legend>{{booking_form_billing_title}}</legend>
+                <sl-input enterkeyhint="next" label="{{booking_form_billing_address}}" name="billingAddress"
+                    required=""></sl-input>
+                <sl-input enterkeyhint="next" label="{{booking_form_billing_city}}" name="billingCity"
+                    required=""></sl-input>
+                <sl-select autocomplete="country" label="{{booking_form_billing_country}}" name="billingCountry"
+                    required="">
+                    <sl-divider></sl-divider>
+                    <sl-option value="AF">Afghanistan</sl-option>
+                    <sl-option value="AL">Albania</sl-option>
+                    <sl-option value="DZ">Algeria</sl-option>
+                    <sl-option value="AS">American Samoa</sl-option>
+                    <sl-option value="AD">Andorra</sl-option>
+                    <sl-option value="AO">Angola</sl-option>
+                    <sl-option value="AI">Anguilla</sl-option>
+                    <sl-option value="AQ">Antarctica</sl-option>
+                    <sl-option value="AG">Antigua and Barbuda</sl-option>
+                    <sl-option value="AR">Argentina</sl-option>
+                    <sl-option value="AM">Armenia</sl-option>
+                    <sl-option value="AW">Aruba</sl-option>
+                    <sl-option value="AU">Australia</sl-option>
+                    <sl-option value="AT">Austria</sl-option>
+                    <sl-option value="AZ">Azerbaijan</sl-option>
+                    <sl-divider></sl-divider>
+                    <sl-option value="AX">Ã…land Islands</sl-option>
+                    <sl-divider></sl-divider>
+                    <sl-option value="BS">Bahamas</sl-option>
+                    <sl-option value="BH">Bahrain</sl-option>
+                    <sl-option value="BD">Bangladesh</sl-option>
+                    <sl-option value="BB">Barbados</sl-option>
+                    <sl-option value="BY">Belarus</sl-option>
+                    <sl-option value="BE">Belgium</sl-option>
+                    <sl-option value="BZ">Belize</sl-option>
+                    <sl-option value="BJ">Benin</sl-option>
+                    <sl-option value="BM">Bermuda</sl-option>
+                    <sl-option value="BT">Bhutan</sl-option>
+                    <sl-option value="BO">Bolivia (Plurinational State of)</sl-option>
+                    <sl-option value="BA">Bosnia and Herzegovina</sl-option>
+                    <sl-option value="BW">Botswana</sl-option>
+                    <sl-option value="BV">Bouvet Island</sl-option>
+                    <sl-option value="BR">Brazil</sl-option>
+                    <sl-option value="IO">British Indian Ocean Territory</sl-option>
+                    <sl-option value="BN">Brunei Darussalam</sl-option>
+                    <sl-option value="BG">Bulgaria</sl-option>
+                    <sl-option value="BF">Burkina Faso</sl-option>
+                    <sl-option value="BI">Burundi</sl-option>
+                    <sl-divider></sl-divider>
+                    <sl-option value="CV">Cabo Verde</sl-option>
+                    <sl-option value="KH">Cambodia</sl-option>
+                    <sl-option value="CM">Cameroon</sl-option>
+                    <sl-option value="CA">Canada</sl-option>
+                    <sl-option value="BQ">Caribbean Netherlands</sl-option>
+                    <sl-option value="KY">Cayman Islands</sl-option>
+                    <sl-option value="CF">Central African Republic</sl-option>
+                    <sl-option value="TD">Chad</sl-option>
+                    <sl-option value="CL">Chile</sl-option>
+                    <sl-option value="CN">China</sl-option>
+                    <sl-option value="CX">Christmas Island</sl-option>
+                    <sl-option value="CC">Cocos (Keeling) Islands</sl-option>
+                    <sl-option value="CO">Colombia</sl-option>
+                    <sl-option value="KM">Comoros</sl-option>
+                    <sl-option value="CG">Congo</sl-option>
+                    <sl-option value="CD">Congo, Democratic Republic of the</sl-option>
+                    <sl-option value="CK">Cook Islands</sl-option>
+                    <sl-option value="CR">Costa Rica</sl-option>
+                    <sl-option value="HR">Croatia</sl-option>
+                    <sl-option value="CU">Cuba</sl-option>
+                    <sl-option value="CW">CuraÃ§ao</sl-option>
+                    <sl-option value="CY">Cyprus</sl-option>
+                    <sl-option value="CZ">Czech Republic</sl-option>
+                    <sl-option value="CI">CÃ´te d'Ivoire</sl-option>
+                    <sl-divider></sl-divider>
+                    <sl-option value="DK">Denmark</sl-option>
+                    <sl-option value="DJ">Djibouti</sl-option>
+                    <sl-option value="DM">Dominica</sl-option>
+                    <sl-option value="DO">Dominican Republic</sl-option>
+                    <sl-divider></sl-divider>
+                    <sl-option value="EC">Ecuador</sl-option>
+                    <sl-option value="EG">Egypt</sl-option>
+                    <sl-option value="SV">El Salvador</sl-option>
+                    <sl-option value="GQ">Equatorial Guinea</sl-option>
+                    <sl-option value="ER">Eritrea</sl-option>
+                    <sl-option value="EE">Estonia</sl-option>
+                    <sl-option value="SZ">Eswatini (Swaziland)</sl-option>
+                    <sl-option value="ET">Ethiopia</sl-option>
+                    <sl-divider></sl-divider>
+                    <sl-option value="FK">Falkland Islands (Malvinas)</sl-option>
+                    <sl-option value="FO">Faroe Islands</sl-option>
+                    <sl-option value="FJ">Fiji</sl-option>
+                    <sl-option value="FI">Finland</sl-option>
+                    <sl-option value="FR">France</sl-option>
+                    <sl-option value="GF">French Guiana</sl-option>
+                    <sl-option value="PF">French Polynesia</sl-option>
+                    <sl-option value="TF">French Southern Territories</sl-option>
+                    <sl-divider></sl-divider>
+                    <sl-option value="GA">Gabon</sl-option>
+                    <sl-option value="GM">Gambia</sl-option>
+                    <sl-option value="GE">Georgia</sl-option>
+                    <sl-option value="DE">Germany</sl-option>
+                    <sl-option value="GH">Ghana</sl-option>
+                    <sl-option value="GI">Gibraltar</sl-option>
+                    <sl-option value="GR">Greece</sl-option>
+                    <sl-option value="GL">Greenland</sl-option>
+                    <sl-option value="GD">Grenada</sl-option>
+                    <sl-option value="GP">Guadeloupe</sl-option>
+                    <sl-option value="GU">Guam</sl-option>
+                    <sl-option value="GT">Guatemala</sl-option>
+                    <sl-option value="GG">Guernsey</sl-option>
+                    <sl-option value="GN">Guinea</sl-option>
+                    <sl-option value="GW">Guinea-Bissau</sl-option>
+                    <sl-option value="GY">Guyana</sl-option>
+                    <sl-divider></sl-divider>
+                    <sl-option value="HT">Haiti</sl-option>
+                    <sl-option value="HM">Heard Island and Mcdonald Islands</sl-option>
+                    <sl-option value="HN">Honduras</sl-option>
+                    <sl-option value="HK">Hong Kong</sl-option>
+                    <sl-option value="HU">Hungary</sl-option>
+                    <sl-divider></sl-divider>
+                    <sl-option value="IS">Iceland</sl-option>
+                    <sl-option value="IN">India</sl-option>
+                    <sl-option value="ID">Indonesia</sl-option>
+                    <sl-option value="IR">Iran</sl-option>
+                    <sl-option value="IQ">Iraq</sl-option>
+                    <sl-option value="IE">Ireland</sl-option>
+                    <sl-option value="IM">Isle of Man</sl-option>
+                    <sl-option value="IL">Israel</sl-option>
+                    <sl-option value="IT">Italy</sl-option>
+                    <sl-divider></sl-divider>
+                    <sl-option value="JM">Jamaica</sl-option>
+                    <sl-option value="JP">Japan</sl-option>
+                    <sl-option value="JE">Jersey</sl-option>
+                    <sl-option value="JO">Jordan</sl-option>
+                    <sl-divider></sl-divider>
+                    <sl-option value="KZ">Kazakhstan</sl-option>
+                    <sl-option value="KE">Kenya</sl-option>
+                    <sl-option value="KI">Kiribati</sl-option>
+                    <sl-option value="KP">Korea, North</sl-option>
+                    <sl-option value="KR">Korea, South</sl-option>
+                    <sl-option value="XK">Kosovo</sl-option>
+                    <sl-option value="KW">Kuwait</sl-option>
+                    <sl-option value="KG">Kyrgyzstan</sl-option>
+                    <sl-divider></sl-divider>
+                    <sl-option value="LA">Lao People's Democratic Republic</sl-option>
+                    <sl-option value="LV">Latvia</sl-option>
+                    <sl-option value="LB">Lebanon</sl-option>
+                    <sl-option value="LS">Lesotho</sl-option>
+                    <sl-option value="LR">Liberia</sl-option>
+                    <sl-option value="LY">Libya</sl-option>
+                    <sl-option value="LI">Liechtenstein</sl-option>
+                    <sl-option value="LT">Lithuania</sl-option>
+                    <sl-option value="LU">Luxembourg</sl-option>
+                    <sl-divider></sl-divider>
+                    <sl-option value="MO">Macao</sl-option>
+                    <sl-option value="MK">Macedonia North</sl-option>
+                    <sl-option value="MG">Madagascar</sl-option>
+                    <sl-option value="MW">Malawi</sl-option>
+                    <sl-option value="MY">Malaysia</sl-option>
+                    <sl-option value="MV">Maldives</sl-option>
+                    <sl-option value="ML">Mali</sl-option>
+                    <sl-option value="MT">Malta</sl-option>
+                    <sl-option value="MH">Marshall Islands</sl-option>
+                    <sl-option value="MQ">Martinique</sl-option>
+                    <sl-option value="MR">Mauritania</sl-option>
+                    <sl-option value="MU">Mauritius</sl-option>
+                    <sl-option value="YT">Mayotte</sl-option>
+                    <sl-option value="MX">Mexico</sl-option>
+                    <sl-option value="FM">Micronesia</sl-option>
+                    <sl-option value="MD">Moldova</sl-option>
+                    <sl-option value="MC">Monaco</sl-option>
+                    <sl-option value="MN">Mongolia</sl-option>
+                    <sl-option value="ME">Montenegro</sl-option>
+                    <sl-option value="MS">Montserrat</sl-option>
+                    <sl-option value="MA">Morocco</sl-option>
+                    <sl-option value="MZ">Mozambique</sl-option>
+                    <sl-option value="MM">Myanmar (Burma)</sl-option>
+                    <sl-divider></sl-divider>
+                    <sl-option value="NA">Namibia</sl-option>
+                    <sl-option value="NR">Nauru</sl-option>
+                    <sl-option value="NP">Nepal</sl-option>
+                    <sl-option value="NL">Netherlands</sl-option>
+                    <sl-option value="AN">Netherlands Antilles</sl-option>
+                    <sl-option value="NC">New Caledonia</sl-option>
+                    <sl-option value="NZ">New Zealand</sl-option>
+                    <sl-option value="NI">Nicaragua</sl-option>
+                    <sl-option value="NE">Niger</sl-option>
+                    <sl-option value="NG">Nigeria</sl-option>
+                    <sl-option value="NU">Niue</sl-option>
+                    <sl-option value="NF">Norfolk Island</sl-option>
+                    <sl-option value="MP">Northern Mariana Islands</sl-option>
+                    <sl-option value="NO">Norway</sl-option>
+                    <sl-divider></sl-divider>
+                    <sl-option value="OM">Oman</sl-option>
+                    <sl-divider></sl-divider>
+                    <sl-option value="PK">Pakistan</sl-option>
+                    <sl-option value="PW">Palau</sl-option>
+                    <sl-option value="PS">Palestine</sl-option>
+                    <sl-option value="PA">Panama</sl-option>
+                    <sl-option value="PG">Papua New Guinea</sl-option>
+                    <sl-option value="PY">Paraguay</sl-option>
+                    <sl-option value="PE">Peru</sl-option>
+                    <sl-option value="PH">Philippines</sl-option>
+                    <sl-option value="PN">Pitcairn Islands</sl-option>
+                    <sl-option value="PL">Poland</sl-option>
+                    <sl-option value="PT">Portugal</sl-option>
+                    <sl-option value="PR">Puerto Rico</sl-option>
+                    <sl-divider></sl-divider>
+                    <sl-option value="QA">Qatar</sl-option>
+                    <sl-divider></sl-divider>
+                    <sl-option value="RE">Reunion</sl-option>
+                    <sl-option value="RO">Romania</sl-option>
+                    <sl-option value="RU">Russian Federation</sl-option>
+                    <sl-option value="RW">Rwanda</sl-option>
+                    <sl-divider></sl-divider>
+                    <sl-option value="BL">Saint Barthelemy</sl-option>
+                    <sl-option value="SH">Saint Helena</sl-option>
+                    <sl-option value="KN">Saint Kitts and Nevis</sl-option>
+                    <sl-option value="LC">Saint Lucia</sl-option>
+                    <sl-option value="MF">Saint Martin</sl-option>
+                    <sl-option value="PM">Saint Pierre and Miquelon</sl-option>
+                    <sl-option value="VC">Saint Vincent and the Grenadines</sl-option>
+                    <sl-option value="WS">Samoa</sl-option>
+                    <sl-option value="SM">San Marino</sl-option>
+                    <sl-option value="ST">Sao Tome and Principe</sl-option>
+                    <sl-option value="SA">Saudi Arabia</sl-option>
+                    <sl-option value="SN">Senegal</sl-option>
+                    <sl-option value="RS">Serbia</sl-option>
+                    <sl-option value="CS">Serbia and Montenegro</sl-option>
+                    <sl-option value="SC">Seychelles</sl-option>
+                    <sl-option value="SL">Sierra Leone</sl-option>
+                    <sl-option value="SG">Singapore</sl-option>
+                    <sl-option value="SX">Sint Maarten</sl-option>
+                    <sl-option value="SK">Slovakia</sl-option>
+                    <sl-option value="SI">Slovenia</sl-option>
+                    <sl-option value="SB">Solomon Islands</sl-option>
+                    <sl-option value="SO">Somalia</sl-option>
+                    <sl-option value="ZA">South Africa</sl-option>
+                    <sl-option value="GS">South Georgia and the South Sandwich Islands</sl-option>
+                    <sl-option value="SS">South Sudan</sl-option>
+                    <sl-option value="ES">Spain</sl-option>
+                    <sl-option value="LK">Sri Lanka</sl-option>
+                    <sl-option value="SD">Sudan</sl-option>
+                    <sl-option value="SR">Suriname</sl-option>
+                    <sl-option value="SJ">Svalbard and Jan Mayen</sl-option>
+                    <sl-option value="SE">Sweden</sl-option>
+                    <sl-option value="CH">Switzerland</sl-option>
+                    <sl-option value="SY">Syria</sl-option>
+                    <sl-divider></sl-divider>
+                    <sl-option value="TW">Taiwan</sl-option>
+                    <sl-option value="TJ">Tajikistan</sl-option>
+                    <sl-option value="TZ">Tanzania</sl-option>
+                    <sl-option value="TH">Thailand</sl-option>
+                    <sl-option value="TL">Timor-Leste</sl-option>
+                    <sl-option value="TG">Togo</sl-option>
+                    <sl-option value="TK">Tokelau</sl-option>
+                    <sl-option value="TO">Tonga</sl-option>
+                    <sl-option value="TT">Trinidad and Tobago</sl-option>
+                    <sl-option value="TN">Tunisia</sl-option>
+                    <sl-option value="TR">Turkey (TÃ¼rkiye)</sl-option>
+                    <sl-option value="TM">Turkmenistan</sl-option>
+                    <sl-option value="TC">Turks and Caicos Islands</sl-option>
+                    <sl-option value="TV">Tuvalu</sl-option>
+                    <sl-divider></sl-divider>
+                    <sl-option value="UM">U.S. Outlying Islands</sl-option>
+                    <sl-option value="UG">Uganda</sl-option>
+                    <sl-option value="UA">Ukraine</sl-option>
+                    <sl-option value="AE">United Arab Emirates</sl-option>
+                    <sl-option value="GB">United Kingdom</sl-option>
+                    <sl-option value="US">United States</sl-option>
+                    <sl-option value="UY">Uruguay</sl-option>
+                    <sl-option value="UZ">Uzbekistan</sl-option>
+                    <sl-divider></sl-divider>
+                    <sl-option value="VU">Vanuatu</sl-option>
+                    <sl-option value="VA">Vatican City Holy See</sl-option>
+                    <sl-option value="VE">Venezuela</sl-option>
+                    <sl-option value="VN">Vietnam</sl-option>
+                    <sl-option value="VG">Virgin Islands, British</sl-option>
+                    <sl-option value="VI">Virgin Islands, U.S</sl-option>
+                    <sl-divider></sl-divider>
+                    <sl-option value="WF">Wallis and Futuna</sl-option>
+                    <sl-option value="EH">Western Sahara</sl-option>
+                    <sl-divider></sl-divider>
+                    <sl-option value="YE">Yemen</sl-option>
+                    <sl-divider></sl-divider>
+                    <sl-option value="ZM">Zambia</sl-option>
+                    <sl-option value="ZW">Zimbabwe</sl-option>
+                </sl-select>
+                <sl-input enterkeyhint="next" inputmode="numeric" label="{{booking_form_billing_postcode}}"
+                    name="billingPostCode" required=""></sl-input>
+                <sl-input enterkeyhint="next" label="{{booking_form_billing_fname}}" name="customerName"
+                    required=""></sl-input>
+                <sl-input enterkeyhint="next" label="{{booking_form_billing_lname}}" name="customerLastName"
+                    required=""></sl-input>
+                <sl-input enterkeyhint="next" inputmode="email" label="Email" name="customerEmail" required=""
+                    type="email"></sl-input>
+                <sl-input enterkeyhint="done" inputmode="tel" label="{{booking_form_billing_pnum}}" name="customerPhone"
+                    required="" type="tel"></sl-input>
+            </fieldset>
+            <sl-button id="ptp_btn" type="submit">{{booking_form_btn}}</sl-button>
+            <div id="paypal-container"></div>
+        </form>
+    </sl-dialog>
+    <!-- <sl-dialog id="img_preview"> -->
+    <!--     <img alt="Click on an image to preview it here" src="" /> -->
+    <!-- </sl-dialog> -->
+    <sl-dialog id="img_preview">
+        <sl-icon-button src="/assets/amenities_icons/chevron-left.svg" id="prev_btn" class="nav-btn"></sl-icon-button>
+
+        <img alt="Click on an image to preview it here" src="" />
+
+        <sl-icon-button src="/assets/amenities_icons/chevron-right.svg" id="next_btn" class="nav-btn"></sl-icon-button>
+    </sl-dialog>
+    <script>
+        let prices_data = null
+        // Data for the Modals
+        const chaletData = {
+            wind: {
+                title: "The Wind Chalet",
+                desc: `{{wind_desc}}`,
+                images: ["/assets/Chalets/wind/17.webp", "/assets/Chalets/wind/6.webp", "/assets/Chalets/wind/3.webp", "/assets/Chalets/wind/14.webp", "/assets/Chalets/wind/9.webp", "/assets/Chalets/wind/4.webp", "/assets/Chalets/wind/5.webp", "/assets/Chalets/wind/10.webp", "/assets/Chalets/wind/12.webp", "/assets/Chalets/wind/13.webp", "/assets/Chalets/wind/15.webp", "/assets/Chalets/wind/16.webp", "/assets/Chalets/wind/11.webp"],
+            },
+            summit: {
+                title: "The Sun Chalet",
+                desc: `{{summit_desc}}`,
+                images: ["/assets/Chalets/sun/15.webp", "/assets/Chalets/sun/1.webp", "/assets/Chalets/sun/7.webp", "/assets/Chalets/sun/9.webp", "/assets/Chalets/sun/10.webp", "/assets/Chalets/sun/11.webp", "/assets/Chalets/sun/4.webp", "/assets/Chalets/sun/5.webp", "/assets/Chalets/sun/14.webp", "/assets/Chalets/sun/6.webp", "/assets/Chalets/sun/3.webp", "/assets/Chalets/sun/12.webp", "/assets/Chalets/sun/17.webp", "/assets/Chalets/sun/8.webp"],
+            },
+            star: {
+                title: "The Star Chalet",
+                desc: `{{star_desc}}`,
+                images: ["/assets/Chalets/star/image00004.webp", "/assets/Chalets/star/image00006.webp", "/assets/Chalets/star/image00009.webp", "/assets/Chalets/star/image00010.webp", "/assets/Chalets/star/image00016.webp", "/assets/Chalets/star/image00026.webp", "/assets/Chalets/star/image00035.webp", "/assets/Chalets/star/image00036.webp", "/assets/Chalets/star/image00001.webp", "/assets/Chalets/star/image00003.webp", "/assets/Chalets/star/image08184.webp"],
+            },
+            cloud: {
+                title: "The Cloud Chalet",
+                desc: `{{cloud_desc}}`,
+                images: ["/assets/Chalets/cloud/10.webp", "/assets/Chalets/cloud/9.webp", "/assets/Chalets/cloud/6.webp", "/assets/Chalets/cloud/7.webp", "/assets/Chalets/cloud/8.webp", "/assets/Chalets/cloud/3.webp", "/assets/Chalets/cloud/4.webp", "/assets/Chalets/cloud/2.webp", "/assets/Chalets/cloud/image08170.webp", "/assets/Chalets/cloud/image08191.webp", "/assets/Chalets/cloud/image08192.webp"],
+            },
+            sky: {
+                title: "The Sky Chalet",
+                desc: `{{sky_desc}}`,
+                images: ["/assets/Chalets/sky/image00004.webp", "/assets/Chalets/sky/image00006.webp", "/assets/Chalets/sky/image00009.webp", "/assets/Chalets/sky/image00016.webp", "/assets/Chalets/sky/image00022.webp", "/assets/Chalets/sky/image00026.webp", "/assets/Chalets/sky/image00035.webp", "/assets/Chalets/sky/image00036.webp", "/assets/Chalets/sky/image08170.webp", "/assets/Chalets/sky/image08191.webp", "/assets/Chalets/sky/image08192.webp"],
+            },
+        }
+
+        const LANGUAGE_MAP = {
+            en: {flag: "ðŸ‡¬ðŸ‡§", abbr: "EN"},
+            sr: {flag: "ðŸ‡·ðŸ‡¸", abbr: "SR"},
+            de: {flag: "ðŸ‡©ðŸ‡ª", abbr: "DE"},
+            it: {flag: "ðŸ‡®ðŸ‡¹", abbr: "IT"},
+        }
+
+        let langData = {}
+        const carousel = document.querySelector(".dialog-gallery")
+        const scroller = document.querySelector(".thumbnails__scroller")
+        const modal = document.getElementById("chalet_dialog")
+        const descEl = document.getElementById("dialog-desc")
+
+        function openModal(chaletId) {
+            const data = chaletData[chaletId] || chaletData["cloud"]
+
+            console.log(langData)
+            console.log(chaletId)
+            const translatedDesc = langData[chaletId + "_desc"]
+
+            console.log(translatedDesc)
+            modal.label = data.title
+            descEl.innerText = translatedDesc || data.desc
+            // descEl.innerText = data.desc
+            carousel.innerHTML = ""
+            scroller.innerHTML = ""
+            data.images.forEach(img_uri => {
+                carousel.innerHTML += `<sl-carousel-item><img src="${img_uri}"></sl-carousel-item>`
+                const new_thumbnail = document.createElement("img")
+                new_thumbnail.setAttribute("src", img_uri)
+                new_thumbnail.classList.add("thumbnails__image")
+                scroller.appendChild(new_thumbnail)
+            })
+            scroller.children[0].classList.add("active")
+
+            modal.show()
+            carousel.goToSlide(0)
+        }
+
+        // modal carousel
+
+        scroller.addEventListener("click", e => {
+            const target = e.target
+
+            if (target.matches(".thumbnails__image")) {
+                const thumbnails = scroller.querySelectorAll(".thumbnails__image")
+                const index = [...thumbnails].indexOf(target)
+                carousel.goToSlide(index)
+            }
+        })
+
+        carousel.addEventListener("sl-slide-change", e => {
+            const slideIndex = e.detail.index
+            const thumbnails = scroller.querySelectorAll(".thumbnails__image")
+
+                ;[...thumbnails].forEach((thumb, i) => {
+                    thumb.classList.toggle("active", i === slideIndex)
+                    if (i === slideIndex) {
+                        thumb.scrollIntoView({
+                            block: "nearest",
+                        })
+                    }
+                })
+        })
+
+        const carouselPreview = document.querySelector("#img_preview")
+        const previewImg = carouselPreview.querySelector("img")
+
+        const carouselImages = Array.from(document.querySelector("#autocarousel").querySelectorAll("img"))
+        let carouselCurrentIndex = 0;
+
+        document.querySelector("#autocarousel").addEventListener('click', e => {
+            if (e.target.tagName != "IMG") return;
+
+            carouselCurrentIndex = carouselImages.indexOf(e.target)
+            updatePreview()
+            carouselPreview.show()
+        })
+
+        function updatePreview() {
+            previewImg.src = carouselImages[carouselCurrentIndex].src
+        }
+
+
+        document.querySelector("#prev_btn").addEventListener('click', () => {
+            carouselCurrentIndex = (carouselCurrentIndex - 1 + carouselImages.length) % carouselImages.length
+            updatePreview()
+        })
+
+        document.querySelector("#next_btn").addEventListener('click', () => {
+            carouselCurrentIndex = (carouselCurrentIndex + 1) % carouselImages.length
+            updatePreview()
+        })
+
+
+        document.addEventListener('keydown', (e) => {
+            if (!carouselPreview.open) return
+
+            if (e.key === 'ArrowLeft') {
+                document.querySelector('#prev_btn').click()
+            }
+            if (e.key === 'ArrowRight') {
+                document.querySelector('#next_btn').click()
+            }
+        })
+
+        // document.querySelectorAll("sl-carousel").forEach(el => {
+        //     el.addEventListener("click", e => {
+        //         if (e.target.tagName != "IMG") return
+        //         preview(e.target.src)
+        //     })
+        // })
+        //
+        // function preview(src) {
+        //     img_preview.querySelector("img").setAttribute("src", src)
+        //     img_preview.show()
+        // }
+
+        // Calendar logic
+        const calendar_settings = {
+            inputMode: true,
+            selectedTheme: "light",
+            dateMin: "today",
+            displayDateMin: "today",
+            enableDateToggle: false,
+            onInit(self) {
+                self.context.inputElement.blur()
+                self.context.inputElement.addEventListener("focus", () => {
+                    self.context.inputElement.blur()
+                })
+            },
+            onClickDate(self, event) {
+                self.context.inputElement.value = self.context.selectedDates[0].split("-").reverse().join("/")
+            },
+        }
+        const {Calendar} = window.VanillaCalendarPro
+        let currency_modifier = 1
+        let currency_symbol = "KM"
+
+        const booking_calendar = new Calendar("#book_calendar_wrapper", {
+            type: "multiple",
+            selectedTheme: "light",
+            dateMin: "today",
+            // displayDateMin: "2025-12-15",
+            // displayDateMax: "2026-03-31",
+            dateMax: "2026-03-31",
+            disableDatesGaps: true,
+            disableToday: true,
+            enableEdgeDatesOnly: true,
+            enableDateToggle: false,
+            selectionDatesMode: "multiple-ranged",
+            onCreateDateEls(self, dateEl) {
+                if (!prices_data) return
+                const curr_date = dateEl.dataset.vcDate
+                for (const entry of prices_data) {
+                    if (comp_date(entry.from, curr_date)) continue
+                    if (comp_date(curr_date, entry.to)) continue
+                    if (currency_select.value == "USD") {
+                        dateEl.querySelector("button").innerHTML += `<div>\
 								${currency_symbol}${Math.round(entry.price1 * currency_modifier * 10) / 10}
 								</div>`
-						}
-						else {
-							dateEl.querySelector("button").innerHTML += `<div>\
+                    }
+                    else {
+                        dateEl.querySelector("button").innerHTML += `<div>\
 								${Math.round(entry.price1 * currency_modifier * 10) / 10}${currency_symbol}
 								</div>`
-						}
-						break
-					}
-				},
-				onClickDate(self, event) {
-					if (self.context.selectedDates.length < 2) return
-					const expanded_dates = window.VanillaCalendarProUtils.parseDates([`${self.context.selectedDates[0]}:${self.context.selectedDates[1]}`])
-					if (expanded_dates.length < 2) {
-						notify("Minimum 1 nights of stay!", "neutral")
-						self.context.selectedDates = []
-					}
-				},
-				onInit(self) {
-					self.context.selectedDates = []
-				},
-				onUpdate(self) {
-					self.context.selectedDates = []
-				},
-			})
-			booking_calendar.init()
-			currency_select.addEventListener("sl-change", e => {
-				const modifiers = {
-					BAM: 1,
-					EUR: 0.51,
-					GBP: 0.44,
-					USD: 0.6
-				}
-				const symbols = {
-					BAM: "KM",
-					EUR: "€",
-					GBP: "₤",
-					USD: "$"
-				}
-				currency_modifier = modifiers[currency_select.value]
-				currency_symbol = symbols[currency_select.value]
-				booking_calendar.update()
-			})
+                    }
+                    break
+                }
+            },
+            onClickDate(self, event) {
+                if (self.context.selectedDates.length < 2) return
+                const expanded_dates = window.VanillaCalendarProUtils.parseDates([`${self.context.selectedDates[0]}:${self.context.selectedDates[1]}`])
+                if (expanded_dates.length < 2) {
+                    notify("Minimum 1 nights of stay!", "neutral")
+                    self.context.selectedDates = []
+                }
+            },
+            onInit(self) {
+                self.context.selectedDates = []
+            },
+            onUpdate(self) {
+                self.context.selectedDates = []
+            },
+        })
+        booking_calendar.init()
+        currency_select.addEventListener("sl-change", e => {
+            const modifiers = {
+                BAM: 1,
+                EUR: 0.51,
+                GBP: 0.44,
+                USD: 0.6
+            }
+            const symbols = {
+                BAM: "KM",
+                EUR: "€",
+                GBP: "₤",
+                USD: "$"
+            }
+            currency_modifier = modifiers[currency_select.value]
+            currency_symbol = symbols[currency_select.value]
+            booking_calendar.update()
+        })
 
-			// Formatting
-			let ayt_formatter = null
-			book_form.querySelector("[name=billingCountry]").addEventListener("sl-change", e => {
-				ayt_formatter = new libphonenumber.AsYouType(e.target.value)
-			})
-			book_form.querySelector("[name=customerPhone]").addEventListener("sl-input", e => {
-				if (!ayt_formatter) return
-				ayt_formatter.reset()
-				e.target.value = ayt_formatter.input(e.target.value)
-			})
+        // Formatting
+        let ayt_formatter = null
+        book_form.querySelector("[name=billingCountry]").addEventListener("sl-change", e => {
+            ayt_formatter = new libphonenumber.AsYouType(e.target.value)
+        })
+        book_form.querySelector("[name=customerPhone]").addEventListener("sl-input", e => {
+            if (!ayt_formatter) return
+            ayt_formatter.reset()
+            e.target.value = ayt_formatter.input(e.target.value)
+        })
 
-			function open_booking() {
-				booking_calendar.update()
-				book_dialog.show()
-			}
-			// Form
-			book_form.addEventListener("submit", e => {
-				if (!check_booking_form_validity(e)) return
+        function open_booking() {
+            booking_calendar.update()
+            book_dialog.show()
+        }
+        // Form
+        book_form.addEventListener("submit", e => {
+            if (!check_booking_form_validity(e)) return
 
-				const fdata = new FormData(book_form)
-				fdataJSON = {}
-				for (const [key, value] of fdata.entries()) {
-					fdataJSON[key] = value
-				}
-				// fdataJSON.customerPhone = phoneN.formatInternational()
-				try {
-					const phoneN = libphonenumber.parsePhoneNumber(fdata.get("customerPhone"), fdata.get("billingCountry"))
-					fdataJSON.customerPhone = phoneN.formatInternational()
-				} catch (err) {
-					fdataJSON.customerPhone = fdata.get("customerPhone")
-				}
-				fdataJSON.startDate = booking_calendar.context.selectedDates[0]
-				fdataJSON.endDate = booking_calendar.context.selectedDates[1]
+            const fdata = new FormData(book_form)
+            fdataJSON = {}
+            for (const [key, value] of fdata.entries()) {
+                fdataJSON[key] = value
+            }
+            // fdataJSON.customerPhone = phoneN.formatInternational()
+            try {
+                const phoneN = libphonenumber.parsePhoneNumber(fdata.get("customerPhone"), fdata.get("billingCountry"))
+                fdataJSON.customerPhone = phoneN.formatInternational()
+            } catch (err) {
+                fdataJSON.customerPhone = fdata.get("customerPhone")
+            }
+            fdataJSON.startDate = booking_calendar.context.selectedDates[0]
+            fdataJSON.endDate = booking_calendar.context.selectedDates[1]
 
-				AJAX(fdataJSON)
-			})
+            AJAX(fdataJSON)
+        })
 
-			// function check_booking_form_validity(e, silent = false) {
-			//     e?.preventDefault()
-			//     if (booking_calendar.context.selectedDates.length < 2) {
-			//         if (!silent) notify("Please select the days you would like to stay")
-			//         e?.stopImmediatePropagation()
-			//         return false
-			//     }
-			//     const fdata = new FormData(book_form)
-			//     // check ppl number
-			//     book_form.querySelector("[name='numAdults']").setCustomValidity("")
-			//     if (parseInt(fdata.get("numAdults")) + parseInt(fdata.get("numChildren")) > 6) {
-			//         if (!silent) book_form.querySelector("[name='numAdults']").setCustomValidity("Maximum of 6 people per chalet")
-			//         return false
-			//     }
-			//     // const phoneN = libphonenumber.parsePhoneNumber(fdata.get("customerPhone"), fdata.get("billingCountry"))
-			//     // console.log(fdata.get('customerPhone'))
-			//     // console.log(fdata.get('billingCountry'))
-			//     // book_form.querySelector("[name=customerPhone]").setCustomValidity("")
-			//     // if (!phoneN.isValid()) {
-			//     //     if (!silent) book_form.querySelector("[name=customerPhone]").setCustomValidity("Invalid phone number")
-			//     //     return false
-			//     // }
-			//     const rawPhone = fdata.get("customerPhone");
-			//     const country = fdata.get("billingCountry");
-			//     const phoneInput = book_form.querySelector("[name=customerPhone]");
-			//
-			//     phoneInput.setCustomValidity("");
-			//
-			//     // 1. Check if phone is empty before parsing to avoid NOT_A_NUMBER
-			//     if (!rawPhone || rawPhone.trim().length === 0) {
-			//         if (!silent) phoneInput.setCustomValidity("Phone number is required");
-			//         return false;
-			//     }
-			//
-			//     try {
-			//         const phoneN = libphonenumber.parsePhoneNumber(rawPhone, country);
-			//
-			//         if (!phoneN.isValid()) {
-			//             if (!silent) phoneInput.setCustomValidity("Invalid phone number");
-			//             return false;
-			//         }
-			//     } catch (error) {
-			//         // This catches NOT_A_NUMBER, INVALID_COUNTRY, etc.
-			//         console.error("Phone Parsing Error:", error.message);
-			//         if (!silent) phoneInput.setCustomValidity("Please enter a valid phone number");
-			//         return false;
-			//     }
-			//     return true
-			// }
+        // function check_booking_form_validity(e, silent = false) {
+        //     e?.preventDefault()
+        //     if (booking_calendar.context.selectedDates.length < 2) {
+        //         if (!silent) notify("Please select the days you would like to stay")
+        //         e?.stopImmediatePropagation()
+        //         return false
+        //     }
+        //     const fdata = new FormData(book_form)
+        //     // check ppl number
+        //     book_form.querySelector("[name='numAdults']").setCustomValidity("")
+        //     if (parseInt(fdata.get("numAdults")) + parseInt(fdata.get("numChildren")) > 6) {
+        //         if (!silent) book_form.querySelector("[name='numAdults']").setCustomValidity("Maximum of 6 people per chalet")
+        //         return false
+        //     }
+        //     // const phoneN = libphonenumber.parsePhoneNumber(fdata.get("customerPhone"), fdata.get("billingCountry"))
+        //     // console.log(fdata.get('customerPhone'))
+        //     // console.log(fdata.get('billingCountry'))
+        //     // book_form.querySelector("[name=customerPhone]").setCustomValidity("")
+        //     // if (!phoneN.isValid()) {
+        //     //     if (!silent) book_form.querySelector("[name=customerPhone]").setCustomValidity("Invalid phone number")
+        //     //     return false
+        //     // }
+        //     const rawPhone = fdata.get("customerPhone");
+        //     const country = fdata.get("billingCountry");
+        //     const phoneInput = book_form.querySelector("[name=customerPhone]");
+        //
+        //     phoneInput.setCustomValidity("");
+        //
+        //     // 1. Check if phone is empty before parsing to avoid NOT_A_NUMBER
+        //     if (!rawPhone || rawPhone.trim().length === 0) {
+        //         if (!silent) phoneInput.setCustomValidity("Phone number is required");
+        //         return false;
+        //     }
+        //
+        //     try {
+        //         const phoneN = libphonenumber.parsePhoneNumber(rawPhone, country);
+        //
+        //         if (!phoneN.isValid()) {
+        //             if (!silent) phoneInput.setCustomValidity("Invalid phone number");
+        //             return false;
+        //         }
+        //     } catch (error) {
+        //         // This catches NOT_A_NUMBER, INVALID_COUNTRY, etc.
+        //         console.error("Phone Parsing Error:", error.message);
+        //         if (!silent) phoneInput.setCustomValidity("Please enter a valid phone number");
+        //         return false;
+        //     }
+        //     return true
+        // }
 
-			function check_booking_form_validity(e, silent = false) {
-				e?.preventDefault()
-				const fdata = new FormData(book_form)
+        function check_booking_form_validity(e, silent = false) {
+            e?.preventDefault()
+            const fdata = new FormData(book_form)
 
-				// 1. Calendar Check
-				if (booking_calendar.context.selectedDates.length < 2) {
-					if (!silent) notify("Please select the days you would like to stay")
-					e?.stopImmediatePropagation()
-					return false
-				}
+            // 1. Calendar Check
+            if (booking_calendar.context.selectedDates.length < 2) {
+                if (!silent) notify("Please select the days you would like to stay")
+                e?.stopImmediatePropagation()
+                return false
+            }
 
-				// 2. Generic Required Fields Check (Handles Address, City, Name, Country, etc.)
-				// Visual order is respected by querySelectorAll
-				const requiredFields = book_form.querySelectorAll("[required]")
-				for (const field of requiredFields) {
-					field.setCustomValidity("") // Clear previous
-					if (!field.value || field.value.trim() === "") {
-						if (!silent) {
-							field.setCustomValidity("This field is required")
-							field.reportValidity() // This makes the bubble appear
-							field.focus()
-						}
-						return false
-					}
-				}
+            // 2. Generic Required Fields Check (Handles Address, City, Name, Country, etc.)
+            // Visual order is respected by querySelectorAll
+            const requiredFields = book_form.querySelectorAll("[required]")
+            for (const field of requiredFields) {
+                field.setCustomValidity("") // Clear previous
+                if (!field.value || field.value.trim() === "") {
+                    if (!silent) {
+                        field.setCustomValidity("This field is required")
+                        field.reportValidity() // This makes the bubble appear
+                        field.focus()
+                    }
+                    return false
+                }
+            }
 
-				// 3. Occupants Check
-				const adultsInput = book_form.querySelector("[name='numAdults']")
-				adultsInput.setCustomValidity("")
-				if (parseInt(fdata.get("numAdults")) + parseInt(fdata.get("numChildren")) > 6) {
-					if (!silent) {
-						adultsInput.setCustomValidity("Maximum of 6 people per chalet")
-						adultsInput.reportValidity()
-						adultsInput.focus()
-					}
-					return false
-				}
+            // 3. Occupants Check
+            const adultsInput = book_form.querySelector("[name='numAdults']")
+            adultsInput.setCustomValidity("")
+            if (parseInt(fdata.get("numAdults")) + parseInt(fdata.get("numChildren")) > 6) {
+                if (!silent) {
+                    adultsInput.setCustomValidity("Maximum of 6 people per chalet")
+                    adultsInput.reportValidity()
+                    adultsInput.focus()
+                }
+                return false
+            }
 
-				// 4. Phone Validation
-				const rawPhone = fdata.get("customerPhone")
-				const country = fdata.get("billingCountry")
-				const phoneInput = book_form.querySelector("[name=customerPhone]")
-				phoneInput.setCustomValidity("")
+            // 4. Phone Validation
+            const rawPhone = fdata.get("customerPhone")
+            const country = fdata.get("billingCountry")
+            const phoneInput = book_form.querySelector("[name=customerPhone]")
+            phoneInput.setCustomValidity("")
 
-				if (!rawPhone || rawPhone.trim().length === 0) {
-					if (!silent) {
-						phoneInput.setCustomValidity("Phone number is required")
-						phoneInput.reportValidity()
-						phoneInput.focus()
-					}
-					return false
-				}
+            if (!rawPhone || rawPhone.trim().length === 0) {
+                if (!silent) {
+                    phoneInput.setCustomValidity("Phone number is required")
+                    phoneInput.reportValidity()
+                    phoneInput.focus()
+                }
+                return false
+            }
 
-				try {
-					const phoneN = libphonenumber.parsePhoneNumber(rawPhone, country)
-					if (!phoneN.isValid()) {
-						if (!silent) {
-							phoneInput.setCustomValidity("Invalid phone number")
-							phoneInput.reportValidity()
-							phoneInput.focus()
-						}
-						return false
-					}
-				} catch (error) {
-					console.error("Phone Parsing Error:", error.message)
-					if (!silent) {
-						phoneInput.setCustomValidity("Please enter a valid phone number")
-						phoneInput.reportValidity()
-						phoneInput.focus()
-					}
-					return false
-				}
+            try {
+                const phoneN = libphonenumber.parsePhoneNumber(rawPhone, country)
+                if (!phoneN.isValid()) {
+                    if (!silent) {
+                        phoneInput.setCustomValidity("Invalid phone number")
+                        phoneInput.reportValidity()
+                        phoneInput.focus()
+                    }
+                    return false
+                }
+            } catch (error) {
+                console.error("Phone Parsing Error:", error.message)
+                if (!silent) {
+                    phoneInput.setCustomValidity("Please enter a valid phone number")
+                    phoneInput.reportValidity()
+                    phoneInput.focus()
+                }
+                return false
+            }
 
-				return true
-			}
+            return true
+        }
 
-			async function AJAX(fdataJSON) {
-				ptp_btn.setAttribute("loading", "true")
-				const sres = await fetch("/api/booking", {
-					method: "POST",
-					headers: {
-						"Content-Type": "application/json",
-					},
-					body: JSON.stringify(fdataJSON),
-				})
-				const sresJSON = await sres.json()
+        async function AJAX(fdataJSON) {
+            ptp_btn.setAttribute("loading", "true")
+            const sres = await fetch("/api/booking", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(fdataJSON),
+            })
+            const sresJSON = await sres.json()
 
-				const message = sresJSON.message
-				if (sres.status == 503) {
-					notify("Server under maintenance", "neutral")
-				} else if (sres.status == 500) {
-					notify(message, "danger")
-				} else if (sres.status == 400) {
-					notify(message, "neutral")
-				} else if (sres.status == 200) {
-					window.location = sresJSON.url
-				}
-				ptp_btn.removeAttribute("loading")
-			}
+            const message = sresJSON.message
+            if (sres.status == 503) {
+                notify("Server under maintenance", "neutral")
+            } else if (sres.status == 500) {
+                notify(message, "danger")
+            } else if (sres.status == 400) {
+                notify(message, "neutral")
+            } else if (sres.status == 200) {
+                window.location = sresJSON.url
+            }
+            ptp_btn.removeAttribute("loading")
+        }
 
-			// Notification
-			function notify(message, variant = "warning", duration = 3000) {
-				const alert = Object.assign(document.createElement("sl-alert"), {
-					variant,
-					closable: true,
-					duration: duration,
-					innerHTML: `<sl-icon src="/assets/amenities_icons/circle-alert.svg" slot="icon"></sl-icon>${message}`,
-				})
+        // Notification
+        function notify(message, variant = "warning", duration = 3000) {
+            const alert = Object.assign(document.createElement("sl-alert"), {
+                variant,
+                closable: true,
+                duration: duration,
+                innerHTML: `<sl-icon src="/assets/amenities_icons/circle-alert.svg" slot="icon"></sl-icon>${message}`,
+            })
 
-				document.body.append(alert)
-				return alert.toast()
-			}
+            document.body.append(alert)
+            return alert.toast()
+        }
 
-			function comp_date(str1, str2) {
-				const d1 = new Date(str1)
-				const d2 = new Date(str2)
-				if (d1 > d2) return true
-				else return false
-			}
+        function comp_date(str1, str2) {
+            const d1 = new Date(str1)
+            const d2 = new Date(str2)
+            if (d1 > d2) return true
+            else return false
+        }
 
-			// resize
-			window.addEventListener("resize", resize)
-			let old_w = 800000000000
-			function resize() {
-				const w = window.innerWidth
-				if (w < 680 && old_w >= 680) {
-					booking_calendar.set({ type: "default" })
-				} else if (w > 680 && old_w <= 680) {
-					booking_calendar.set({ type: "multiple" })
-				}
-				if (w < 800) {
-					autocarousel.setAttribute("slides-per-page", 1)
-				} else if (w < 1270) {
-					autocarousel.setAttribute("slides-per-page", 2)
-				} else if (w > 1270) {
-					autocarousel.setAttribute("slides-per-page", 3)
-				}
-				old_w = w
-			}
-			window.addEventListener("DOMContentLoaded", () => {
-				resize()
-				gsap.registerPlugin(ScrollTrigger)
-				// gsap.to("div.floating-book-btn", {
-				// 	scrollTrigger: {
-				// 		trigger: "header",
-				// 		start: "center top",
-				// 		end: "bottom top",
-				// 		toggleActions: "play none none reverse",
-				// 	},
-				// 	opacity: 1,
-				// 	ease: "none",
-				// 	pointerEvents: "auto",
-				// 	duration: 0.125,
-				// })
-				const shared = {
-					trigger: "header",
-					start: "top top",
-					end: "30%",
-					width: 15,
-					pad: 4
-				}
-				gsap.to("#logo_stripped", {
-					scrollTrigger: {
-						trigger: shared.trigger,
-						start: shared.start,
-						end: shared.end,
-						scrub: true,
-						invalidateOnRefresh: true,
-					},
-					top: () => window.innerWidth <= 768 ? "0px" : "7px",
-					translateY: "0%",
-					width: `${shared.width}ch`,
-				})
-				gsap.to("#logo_stripped_reserve_spacer", {
-					scrollTrigger: {
-						trigger: shared.trigger,
-						start: shared.start,
-						end: shared.end,
-						scrub: true,
-					},
-					width: `${shared.width + shared.pad}ch`,
-				})
-				gsap.to("nav", {
-					scrollTrigger: {
-						trigger: shared.trigger,
-						start: shared.start,
-						end: shared.end,
-						scrub: true,
-					},
-					backgroundColor: "rgba(0, 0, 0, 0.5)",
-					backdropFilter: "blur(5px)"
-				})
-			})
-			{
-				const curr_date = new Date()
-				const next_date = new Date()
-				next_date.setFullYear(curr_date.getFullYear() + 1)
-				fetch(`/api/getprices?startDate=${curr_date.toISOString().substring(0, 10)}&endDate=${next_date.toISOString().substring(0, 10)}`)
-					.then(res => res.json())
-					.then(res => (prices_data = res))
-					.then(() => {
-						let disabled_dates = []
-						prices_data.forEach(entry => {
-							if (entry.numAvail == 0) {
-								disabled_dates.push(`${entry.from}:${entry.to}`)
-							}
-						})
-						booking_calendar.set({
-							disableDates: disabled_dates,
-							// 			dateMax: next_date.toISOString().substring(0, 10),
-							// 			displayDateMax: next_date.toISOString().substring(0, 10),
-						})
-						booking_calendar.update()
-					})
-					.catch(err => {
-						notify("Server down", "danger")
-						document.querySelector("a.nav-cta").setAttribute("disabled", "true")
-						document.querySelector("div.floating-book-btn").setAttribute("disabled", "true")
-						document.querySelector("button.btn-check").setAttribute("disabled", "true")
-						chalet_dialog.querySelector("button.btn-book-dialog").setAttribute("disabled", "true")
-					})
-			}
-			{
-				paypal
-					.Buttons({
-						style: {
-							disableMaxWidth: true,
-						},
-						createOrder: async () => {
-							const form = document.getElementById("book_form")
-							const formData = new FormData(form)
-							const formProps = Object.fromEntries(formData)
-							formProps.startDate = booking_calendar.context.selectedDates[0]
-							formProps.endDate = booking_calendar.context.selectedDates[1]
+        // resize
+        window.addEventListener("resize", resize)
+        let old_w = 800000000000
+        function resize() {
+            const w = window.innerWidth
+            if (w < 680 && old_w >= 680) {
+                booking_calendar.set({type: "default"})
+            } else if (w > 680 && old_w <= 680) {
+                booking_calendar.set({type: "multiple"})
+            }
+            if (w < 800) {
+                autocarousel.setAttribute("slides-per-page", 1)
+            } else if (w < 1270) {
+                autocarousel.setAttribute("slides-per-page", 2)
+            } else if (w > 1270) {
+                autocarousel.setAttribute("slides-per-page", 3)
+            }
+            old_w = w
+        }
+        window.addEventListener("DOMContentLoaded", () => {
+            resize()
+            gsap.registerPlugin(ScrollTrigger)
+            // gsap.to("div.floating-book-btn", {
+            // 	scrollTrigger: {
+            // 		trigger: "header",
+            // 		start: "center top",
+            // 		end: "bottom top",
+            // 		toggleActions: "play none none reverse",
+            // 	},
+            // 	opacity: 1,
+            // 	ease: "none",
+            // 	pointerEvents: "auto",
+            // 	duration: 0.125,
+            // })
+            const shared = {
+                trigger: "header",
+                start: "top top",
+                end: "30%",
+                width: 15,
+                pad: 4
+            }
+            gsap.to("#logo_stripped", {
+                scrollTrigger: {
+                    trigger: shared.trigger,
+                    start: shared.start,
+                    end: shared.end,
+                    scrub: true,
+                    invalidateOnRefresh: true,
+                },
+                top: () => window.innerWidth <= 768 ? "0px" : "7px",
+                translateY: "0%",
+                width: `${shared.width}ch`,
+            })
+            gsap.to("#logo_stripped_reserve_spacer", {
+                scrollTrigger: {
+                    trigger: shared.trigger,
+                    start: shared.start,
+                    end: shared.end,
+                    scrub: true,
+                },
+                width: `${shared.width + shared.pad}ch`,
+            })
+            gsap.to("nav", {
+                scrollTrigger: {
+                    trigger: shared.trigger,
+                    start: shared.start,
+                    end: shared.end,
+                    scrub: true,
+                },
+                backgroundColor: "rgba(0, 0, 0, 0.5)",
+                backdropFilter: "blur(5px)"
+            })
+        })
+        {
+            const curr_date = new Date()
+            const next_date = new Date()
+            next_date.setFullYear(curr_date.getFullYear() + 1)
+            fetch(`/api/getprices?startDate=${curr_date.toISOString().substring(0, 10)}&endDate=${next_date.toISOString().substring(0, 10)}`)
+                .then(res => res.json())
+                .then(res => (prices_data = res))
+                .then(() => {
+                    let disabled_dates = []
+                    prices_data.forEach(entry => {
+                        if (entry.numAvail == 0) {
+                            disabled_dates.push(`${entry.from}:${entry.to}`)
+                        }
+                    })
+                    booking_calendar.set({
+                        disableDates: disabled_dates,
+                        // 			dateMax: next_date.toISOString().substring(0, 10),
+                        // 			displayDateMax: next_date.toISOString().substring(0, 10),
+                    })
+                    booking_calendar.update()
+                })
+                .catch(err => {
+                    notify("Server down", "danger")
+                    document.querySelector("a.nav-cta").setAttribute("disabled", "true")
+                    document.querySelector("div.floating-book-btn").setAttribute("disabled", "true")
+                    document.querySelector("button.btn-check").setAttribute("disabled", "true")
+                    chalet_dialog.querySelector("button.btn-book-dialog").setAttribute("disabled", "true")
+                })
+        }
+        {
+            paypal
+                .Buttons({
+                    style: {
+                        disableMaxWidth: true,
+                    },
+                    createOrder: async () => {
+                        const form = document.getElementById("book_form")
+                        const formData = new FormData(form)
+                        const formProps = Object.fromEntries(formData)
+                        formProps.startDate = booking_calendar.context.selectedDates[0]
+                        formProps.endDate = booking_calendar.context.selectedDates[1]
 
-							const response = await fetch("/api/paypal/orders", {
-								method: "POST",
-								headers: {
-									"Content-Type": "application/json",
-								},
-								body: JSON.stringify(formProps),
-							})
-							const orderData = await response.json()
-							console.log(orderData)
-							return orderData.order.id
-						},
-						onApprove: async data => {
-							console.log("approve")
-							console.log(data)
-							const approveResponse = await fetch(`/api/paypal/orders/capture`, {
-								method: "POST",
-								headers: { "Content-Type": "application/json" },
-								body: JSON.stringify({
-									orderId: data.orderID,
-								}),
-							})
-							const approveData = await approveResponse.json()
-							if (approveData.success) {
-								window.location = approveData.url
-							}
-						},
-						onInit: (data, actions) => {
-							actions.disable()
+                        const response = await fetch("/api/paypal/orders", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type": "application/json",
+                            },
+                            body: JSON.stringify(formProps),
+                        })
+                        const orderData = await response.json()
+                        console.log(orderData)
+                        return orderData.order.id
+                    },
+                    onApprove: async data => {
+                        console.log("approve")
+                        console.log(data)
+                        const approveResponse = await fetch(`/api/paypal/orders/capture`, {
+                            method: "POST",
+                            headers: {"Content-Type": "application/json"},
+                            body: JSON.stringify({
+                                orderId: data.orderID,
+                            }),
+                        })
+                        const approveData = await approveResponse.json()
+                        if (approveData.success) {
+                            window.location = approveData.url
+                        }
+                    },
+                    onInit: (data, actions) => {
+                        actions.disable()
 
-							document.querySelector("#book_form").addEventListener("sl-input", function (event) {
-								if (check_booking_form_validity(null, true) && book_form.checkValidity()) {
-									actions.enable()
-								} else {
-									actions.disable()
-								}
-							})
-						},
-						onClick: (data, actions) => {
-							// book_form.requestSubmit()
-							if (!check_booking_form_validity(null, false)) {
-								// This prevents the PayPal window from opening
-								return actions.reject()
-							}
-						},
-					})
-					.render("#paypal-container")
-			}
-		</script>
-	</body>
+                        document.querySelector("#book_form").addEventListener("sl-input", function (event) {
+                            if (check_booking_form_validity(null, true) && book_form.checkValidity()) {
+                                actions.enable()
+                            } else {
+                                actions.disable()
+                            }
+                        })
+                    },
+                    onClick: (data, actions) => {
+                        // book_form.requestSubmit()
+                        if (!check_booking_form_validity(null, false)) {
+                            // This prevents the PayPal window from opening
+                            return actions.reject()
+                        }
+                    },
+                })
+                .render("#paypal-container")
+        }
+    </script>
+</body>
+
 </html>
