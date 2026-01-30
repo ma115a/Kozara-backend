@@ -141,6 +141,8 @@
     </nav>
     <header class="hero" role="img"
         aria-label="Luxury private chalets with panoramic mountain views at Kozara Panoramic Resort">
+		<div class="header-bg shown"></div>
+		<div class="header-bg"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
             <div class="logo-area">KOZARA PANORAMIC RESORT</div>
@@ -1065,6 +1067,27 @@
         <sl-icon-button src="/assets/amenities_icons/chevron-right.svg" id="next_btn" class="nav-btn"></sl-icon-button>
     </sl-dialog>
     <script>
+		const bg_images = [
+			"/assets/Scenery/lander.webp",
+			"/assets/Scenery/lander2.webp",
+			"/assets/Scenery/lander3.webp",
+			"/assets/Scenery/lander4.webp",
+			"/assets/Scenery/lander6.webp",
+		]
+		let bg_index = 0;
+		const bg_containers = document.querySelectorAll("div.header-bg")
+		bg_containers[0].style.setProperty("background-image", `url("${bg_images[bg_index]}")`)
+		setInterval(() => {
+			console.log("tried")
+			bg_index = (bg_index+1) % bg_images.length
+			for (const bg_container of bg_containers) {
+				if (!bg_container.classList.contains("shown")) {
+					bg_container.style.setProperty("background-image", `url("${bg_images[bg_index]}")`)
+				}
+				bg_container.classList.toggle("shown")
+			}
+		}, 7000);
+
         let prices_data = null
         // Data for the Modals
         const chaletData = {
