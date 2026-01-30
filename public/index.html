@@ -701,32 +701,6 @@
         <div class="dialog-thumbnails">
             <div class="thumbnails__scroller"></div>
         </div>
-        <div class="dialog-amenities">
-            <!-- <span class="amenity-pill"><sl-icon src="/assets/amenities_icons/wifi.svg"></sl-icon> -->
-            <!--     <span>{{chalets_amenities_wifi}}</span></span> -->
-            <!-- <span class="amenity-pill"><sl-icon src="/assets/amenities_icons/coffee.svg"></sl-icon> -->
-            <!--     <span>{{chalets_amenities_espresso}}</span></span> -->
-            <!-- <span class="amenity-pill"><sl-icon src="/assets/amenities_icons/air-vent.svg"></sl-icon> -->
-            <!--     <span>{{chalets_amenities_ac}}</span></span> -->
-            <!-- <span class="amenity-pill"><sl-icon src="/assets/amenities_icons/microwave.svg"></sl-icon> -->
-            <!--     <span>{{chalets_amenities_microwave}}</span></span> -->
-            <!-- <span class="amenity-pill"><sl-icon src="/assets/amenities_icons/sandwich.svg"></sl-icon> -->
-            <!--     <span>{{chalets_amenities_toast}}</span></span> -->
-            <!-- <span class="amenity-pill"><sl-icon src="/assets/amenities_icons/cooking-pot.svg"></sl-icon> -->
-            <!--     <span>{{chalets_amenities_hob}}</span></span> -->
-            <!-- <span class="amenity-pill"><sl-icon src="/assets/amenities_icons/refrigerator.svg"></sl-icon> -->
-            <!--     <span>{{chalets_amenities_fridge}}</span></span> -->
-            <!-- <span class="amenity-pill"><sl-icon src="/assets/amenities_icons/bed.svg"></sl-icon> -->
-            <!--     <span>{{chalets_amenities_bed}}</span></span> -->
-            <!-- <span class="amenity-pill"><sl-icon src="/assets/amenities_icons/shower-head.svg"></sl-icon> -->
-            <!--     <span>{{chalets_amenities_shower}}</span></span> -->
-            <!-- <span class="amenity-pill"><sl-icon src="/assets/amenities_icons/tv.svg"></sl-icon> <span>Firestick -->
-            <!--         TV</span></span> -->
-            <!-- <span class="amenity-pill"><sl-icon src="/assets/amenities_icons/sofa.svg"></sl-icon> -->
-            <!--     <span>{{chalets_amenities_sofa}}</span></span> -->
-            <!-- <span class="amenity-pill"><sl-icon src="/assets/amenities_icons/vault.svg"></sl-icon> -->
-            <!--     <span>{{chalets_amenities_safe}}</span></span> -->
-        </div>
     </sl-dialog>
     <sl-dialog id="book_dialog" label="Book">
         <sl-select id="currency_select" slot="header-actions" value="BAM">
@@ -1067,26 +1041,28 @@
         <sl-icon-button src="/assets/amenities_icons/chevron-right.svg" id="next_btn" class="nav-btn"></sl-icon-button>
     </sl-dialog>
     <script>
-		const bg_images = [
-			"/assets/Scenery/lander.webp",
-			"/assets/Scenery/lander2.webp",
-			"/assets/Scenery/lander3.webp",
-			"/assets/Scenery/lander4.webp",
-			"/assets/Scenery/lander6.webp",
-		]
-		let bg_index = 0;
-		const bg_containers = document.querySelectorAll("div.header-bg")
-		bg_containers[0].style.setProperty("background-image", `url("${bg_images[bg_index]}")`)
-		setInterval(() => {
-			console.log("tried")
-			bg_index = (bg_index+1) % bg_images.length
-			for (const bg_container of bg_containers) {
-				if (!bg_container.classList.contains("shown")) {
-					bg_container.style.setProperty("background-image", `url("${bg_images[bg_index]}")`)
+		{
+			const bg_images = [
+				"/assets/Scenery/lander.webp",
+				"/assets/Scenery/lander2.webp",
+				"/assets/Scenery/lander3.webp",
+				"/assets/Scenery/lander4.webp",
+				"/assets/Scenery/lander6.webp",
+			]
+			let bg_index = 0;
+			const bg_containers = document.querySelectorAll("div.header-bg")
+			bg_containers[0].style.setProperty("background-image", `url("${bg_images[bg_index]}")`)
+			setInterval(() => {
+				console.log("tried")
+				bg_index = (bg_index+1) % bg_images.length
+				for (const bg_container of bg_containers) {
+					if (!bg_container.classList.contains("shown")) {
+						bg_container.style.setProperty("background-image", `url("${bg_images[bg_index]}")`)
+					}
+					bg_container.classList.toggle("shown")
 				}
-				bg_container.classList.toggle("shown")
-			}
-		}, 7000);
+			}, 7000);
+		}
 
         let prices_data = null
         // Data for the Modals
