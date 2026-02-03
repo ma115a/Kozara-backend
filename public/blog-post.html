@@ -176,40 +176,49 @@
         type="module"></script>
     <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/icon/icon.js" type="module"
         defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
 </head>
 
 <body>
-    <header class="hero">
-        <div class="hero-overlay"></div>
-        <div class="nav-bar">
-            <div class="logo-text">KOZARA</div>
-            <div class="nav-links-container">
-                <a class="nav-link" href="/{{language_code}}/#chalets">{{nav_chalets}}</a>
-                <a class="nav-link" href="/{{language_code}}/#location">{{nav_location}}</a>
-                <!-- <a href="#reviews" class="nav-link" data-i8n="nav_reviews">Reviews</a> -->
-                <a class="nav-link" href="/{{language_code}}/#blog">{{nav_blog}}</a>
-                <a class="nav-link" href="/{{language_code}}/notice#impressum">{{contact}}</a>
-                <sl-dropdown>
-                    <!-- NEW TRIGGER: span element to display the selected language -->
-                    <span class="nav-language-trigger" id="language_display_trigger" slot="trigger">
-                        <!-- Initial state, set to default EN -->
-                        {{language_tag}}
-                    </span>
-                    <sl-menu>
-                        <sl-menu-item><a href="/blog/{{BLOG_ID}}">🇬🇧 EN (English)</a></sl-menu-item>
-                        <sl-menu-item><a href="/sr/blog/{{BLOG_ID}}">🇷🇸 SR (Srpski)</a></sl-menu-item>
-                        <sl-menu-item><a href="/de/blog/{{BLOG_ID}}">🇩🇪 DE (Deutsch)</a></sl-menu-item>
-                        <sl-menu-item><a href="/it/blog/{{BLOG_ID}}">🇮🇹 IT (Italiano)</a></sl-menu-item>
-                    </sl-menu>
-                </sl-dropdown>
-            </div>
-            <div>
-                <a class="nav-cta" style="visibility: hidden">{{nav_cta}}</a>
-            </div>
+    <nav>
+        <h1 class="logo-text">{{logo_text}}</h1>
+        <div class="nav-links-container">
+            <a class="nav-link" href="/{{language_code}}#chalets">{{nav_chalets}}</a>
+            <a class="nav-link" href="/{{language_code}}#location">{{nav_location}}</a>
+            <!-- <a href="#reviews" class="nav-link" data-i8n="nav_reviews">Reviews</a> -->
+            <a class="nav-link" href="/{{language_code}}#blog">{{nav_blog}}</a>
         </div>
+        <div id="logo_stripped_reserve_spacer"></div>
+        <img id="logo_stripped" src="/assets/logo_stripped.svg"></img>
+        <div class="nav-links-container">
+            <a class="nav-link" href="/{{language_code}}/notice#impressum">{{contact}}</a>
+            <sl-dropdown>
+                <!-- NEW TRIGGER: span element to display the selected language -->
+                <span class="nav-language-trigger" id="language_display_trigger" slot="trigger">
+                    <!-- Initial state, set to default EN -->
+                    {{language_tag}}
+                </span>
+                <sl-menu>
+                    <sl-menu-item><a href="/">ðŸ‡¬ðŸ‡§ EN (English)</a></sl-menu-item>
+                    <sl-menu-item><a href="/sr">ðŸ‡·ðŸ‡¸ SR (Srpski)</a></sl-menu-item>
+                    <sl-menu-item><a href="/de">ðŸ‡©ðŸ‡ª DE (Deutsch)</a></sl-menu-item>
+                    <sl-menu-item><a href="/it">ðŸ‡®ðŸ‡¹ IT (Italiano)</a></sl-menu-item>
+                </sl-menu>
+            </sl-dropdown>
+            <a class="nav-cta" style="cursor: pointer; visibility: hidden;">{{nav_cta}}</a>
+        </div>
+        <sl-icon-button id="btn_menu" onclick="drawer_menu.show()"
+            src="/assets/amenities_icons/menu.svg"></sl-icon-button>
+    </nav>
+    <header class="hero" role="img"
+        aria-label="Luxury private chalets with panoramic mountain views at Kozara Panoramic Resort">
+        <div class="header-bg shown"></div>
+        <div class="header-bg"></div>
+        <div class="hero-overlay"></div>
         <div class="hero-content">
             <div class="logo-area">KOZARA PANORAMIC RESORT</div>
-            <h2>{{BLOG_TITLE}}</h2>
+            <h2>{{subtitle}}</h2>
         </div>
     </header>
     <sl-drawer id="drawer_menu" label="Navigation">
@@ -252,5 +261,82 @@
         <p>© Kozara Panoramic Resort – PEVA d.o.o. All rights reserved.</p>
     </footer>
 </body>
+<script>
+
+    {
+        const bg_images = [
+            "/assets/Scenery/lander.webp",
+            "/assets/Scenery/lander2.webp",
+            "/assets/Scenery/lander3.webp",
+            "/assets/Scenery/lander4.webp",
+            "/assets/Scenery/lander6.webp",
+        ]
+        let bg_index = 0;
+        const bg_containers = document.querySelectorAll("div.header-bg")
+        bg_containers[0].style.setProperty("background-image", `url("${bg_images[bg_index]}")`)
+        setInterval(() => {
+            bg_index = (bg_index + 1) % bg_images.length
+            for (const bg_container of bg_containers) {
+                if (!bg_container.classList.contains("shown")) {
+                    bg_container.style.setProperty("background-image", `url("${bg_images[bg_index]}")`)
+                }
+                bg_container.classList.toggle("shown")
+            }
+        }, 7000);
+    }
+    window.addEventListener("DOMContentLoaded", () => {
+        gsap.registerPlugin(ScrollTrigger)
+        // gsap.to("div.floating-book-btn", {
+        // 	scrollTrigger: {
+        // 		trigger: "header",
+        // 		start: "center top",
+        // 		end: "bottom top",
+        // 		toggleActions: "play none none reverse",
+        // 	},
+        // 	opacity: 1,
+        // 	ease: "none",
+        // 	pointerEvents: "auto",
+        // 	duration: 0.125,
+        // })
+        const shared = {
+            trigger: "header",
+            start: "top top",
+            end: "30%",
+            width: 15,
+            pad: 4
+        }
+        gsap.to("#logo_stripped", {
+            scrollTrigger: {
+                trigger: shared.trigger,
+                start: shared.start,
+                end: shared.end,
+                scrub: true,
+                invalidateOnRefresh: true,
+            },
+            top: () => window.innerWidth <= 768 ? "0px" : "7px",
+            translateY: "0%",
+            width: `${shared.width}ch`,
+        })
+        gsap.to("#logo_stripped_reserve_spacer", {
+            scrollTrigger: {
+                trigger: shared.trigger,
+                start: shared.start,
+                end: shared.end,
+                scrub: true,
+            },
+            width: `${shared.width + shared.pad}ch`,
+        })
+        gsap.to("nav", {
+            scrollTrigger: {
+                trigger: shared.trigger,
+                start: shared.start,
+                end: shared.end,
+                scrub: true,
+            },
+            backgroundColor: "rgba(0, 0, 0, 0.5)",
+            backdropFilter: "blur(5px)"
+        })
+    })
+</script>
 
 </html>

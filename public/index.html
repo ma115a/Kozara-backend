@@ -128,10 +128,10 @@
                     {{language_tag}}
                 </span>
                 <sl-menu>
-                    <sl-menu-item><a href="/">ðŸ‡¬ðŸ‡§ EN (English)</a></sl-menu-item>
-                    <sl-menu-item><a href="/sr">ðŸ‡·ðŸ‡¸ SR (Srpski)</a></sl-menu-item>
-                    <sl-menu-item><a href="/de">ðŸ‡©ðŸ‡ª DE (Deutsch)</a></sl-menu-item>
-                    <sl-menu-item><a href="/it">ðŸ‡®ðŸ‡¹ IT (Italiano)</a></sl-menu-item>
+                    <sl-menu-item><a href="/">🇬🇧 EN (English)</a></sl-menu-item>
+                    <sl-menu-item><a href="/sr">🇷🇸 SR (Srpski)</a></sl-menu-item>
+                    <sl-menu-item><a href="/de">🇩🇪 DE (Deutsch)</a></sl-menu-item>
+                    <sl-menu-item><a href="/it">🇮🇹 IT (Italiano)</a></sl-menu-item>
                 </sl-menu>
             </sl-dropdown>
             <a class="nav-cta" onclick="open_booking()" style="cursor: pointer">{{nav_cta}}</a>
@@ -226,23 +226,23 @@
                 <button class="btn-view" onclick="openModal('wind')">{{chalets_details_btn}}</button>
             </div>
             <div class="chalet-card">
-                <img alt="Summit Lodge" class="chalet-img" src="/assets/Chalets/sun/2.webp" />
+                <img alt="Sun Chalet" class="chalet-img" src="/assets/Chalets/sun/2.webp" />
                 <img src="/assets/chalet_icons/SUN.svg">
                 <button class="btn-view" onclick="openModal('summit')">{{chalets_details_btn}}</button>
             </div>
             <div class="chalet-card special">
                 <div class="special-badge">{{secluded_badge}}</div>
-                <img alt="Star Cabin" class="chalet-img" src="/assets/Chalets/star/11.webp" />
+                <img alt="Star Chalet" class="chalet-img" src="/assets/Chalets/star/11.webp" />
                 <img src="/assets/chalet_icons/STAR.svg" alt="">
                 <button class="btn-view" onclick="openModal('star')">{{chalets_details_btn}}</button>
             </div>
             <div class="chalet-card">
-                <img alt="Wind Cabin" class="chalet-img" src="/assets/Chalets/sky/1.webp" />
+                <img alt="Sky Chalet" class="chalet-img" src="/assets/Chalets/sky/1.webp" />
                 <img src="/assets/chalet_icons/SKY.svg" alt="">
                 <button class="btn-view" onclick="openModal('sky')">{{chalets_details_btn}}</button>
             </div>
             <div class="chalet-card">
-                <img alt="Sky Cabin" class="chalet-img" src="/assets/Chalets/cloud/1.webp" />
+                <img alt="Cloud Chalet" class="chalet-img" src="/assets/Chalets/cloud/1.webp" />
                 <img src="/assets/chalet_icons/CLOUD.svg" alt="">
                 <button class="btn-view" onclick="openModal('cloud')">{{chalets_details_btn}}</button>
             </div>
@@ -671,7 +671,7 @@
                 href="/{{language_code}}/notice#privacy">{{footer-privacy}}</a> |
             <a href="/{{language_code}}/notice#impressum">{{footer-contact}}</a>
         </div>
-        <p>Â© Kozara Panoramic Resort â€“ PEVA d.o.o. All rights reserved.</p>
+        <p>© Kozara Panoramic Resort – PEVA d.o.o. All rights reserved.</p>
     </footer>
     <sl-dialog id="chalet_dialog" label="The Cloud Cabin">
         <p class="dialog-desc" id="dialog-desc">The Cloud cabin floats above the clouds, surrounded by silence and a
@@ -1007,7 +1007,7 @@
                     required="" type="tel"></sl-input>
             </fieldset>
             <sl-button id="ptp_btn" type="submit">{{booking_form_btn}}</sl-button>
-            <div id="paypal-container"></div>
+            <!-- <div id="paypal-container"></div> -->
         </form>
     </sl-dialog>
     <!-- <sl-dialog id="img_preview"> -->
@@ -1033,7 +1033,6 @@
             const bg_containers = document.querySelectorAll("div.header-bg")
             bg_containers[0].style.setProperty("background-image", `url("${bg_images[bg_index]}")`)
             setInterval(() => {
-                console.log("tried")
                 bg_index = (bg_index + 1) % bg_images.length
                 for (const bg_container of bg_containers) {
                     if (!bg_container.classList.contains("shown")) {
@@ -1048,27 +1047,27 @@
         // Data for the Modals
         const chaletData = {
             wind: {
-                title: "The Wind Chalet",
+                title: "Wind Chalet",
                 desc: `{{wind_desc}}`,
                 images: ["/assets/Chalets/wind/17.webp", "/assets/Chalets/wind/6.webp", "/assets/Chalets/wind/3.webp", "/assets/Chalets/wind/14.webp", "/assets/Chalets/wind/9.webp", "/assets/Chalets/wind/4.webp", "/assets/Chalets/wind/5.webp", "/assets/Chalets/wind/10.webp", "/assets/Chalets/wind/12.webp", "/assets/Chalets/wind/13.webp", "/assets/Chalets/wind/15.webp", "/assets/Chalets/wind/16.webp", "/assets/Chalets/wind/11.webp"],
             },
             summit: {
-                title: "The Sun Chalet",
+                title: "Sun Chalet",
                 desc: `{{summit_desc}}`,
                 images: ["/assets/Chalets/sun/15.webp", "/assets/Chalets/sun/1.webp", "/assets/Chalets/sun/7.webp", "/assets/Chalets/sun/9.webp", "/assets/Chalets/sun/10.webp", "/assets/Chalets/sun/11.webp", "/assets/Chalets/sun/4.webp", "/assets/Chalets/sun/5.webp", "/assets/Chalets/sun/14.webp", "/assets/Chalets/sun/6.webp", "/assets/Chalets/sun/3.webp", "/assets/Chalets/sun/12.webp", "/assets/Chalets/sun/17.webp", "/assets/Chalets/sun/8.webp"],
             },
             star: {
-                title: "The Star Chalet",
+                title: "Star Chalet",
                 desc: `{{star_desc}}`,
-                images: ["/assets/Chalets/star/9.webp", "/assets/Chalets/star/2.webp", "/assets/Chalets/star/3.webp", "/assets/Chalets/star/12.webp", "/assets/Chalets/star/13.webp", "/assets/Chalets/star/8.webp", "/assets/Chalets/star/1.webp", "/assets/Chalets/star/4.webp", "/assets/Chalets/star/10.webp", "/assets/Chalets/star/6.webp", "/assets/Chalets/star/7.webp", "/assets/Chalets/star/5.webp"],
+                images: ["/assets/Chalets/star/9.webp", "/assets/Chalets/star/2.webp", "/assets/Chalets/star/3.webp", "/assets/Chalets/star/12.webp", "/assets/Chalets/star/13.webp", "/assets/Chalets/star/8.webp", "/assets/Chalets/star/1.webp", "/assets/Chalets/star/4.webp", "/assets/Chalets/star/6.webp", "/assets/Chalets/star/7.webp", "/assets/Chalets/star/5.webp"],
             },
             cloud: {
-                title: "The Cloud Chalet",
+                title: "Cloud Chalet",
                 desc: `{{cloud_desc}}`,
-                images: ["/assets/Chalets/cloud/13.webp", "/assets/Chalets/cloud/8.webp", "/assets/Chalets/cloud/11.webp", "/assets/Chalets/cloud/10.webp", "/assets/Chalets/cloud/14.webp", "/assets/Chalets/cloud/6.webp", "/assets/Chalets/cloud/12.webp", "/assets/Chalets/cloud/7.webp", "/assets/Chalets/cloud/3.webp", "/assets/Chalets/cloud/4.webp", "/assets/Chalets/cloud/2.webp"],
+                images: ["/assets/Chalets/cloud/9.webp", "/assets/Chalets/cloud/8.webp", "/assets/Chalets/cloud/11.webp", "/assets/Chalets/cloud/10.webp", "/assets/Chalets/cloud/14.webp", "/assets/Chalets/cloud/6.webp", "/assets/Chalets/cloud/12.webp", "/assets/Chalets/cloud/7.webp", "/assets/Chalets/cloud/13.webp", "/assets/Chalets/cloud/3.webp", "/assets/Chalets/cloud/4.webp", "/assets/Chalets/cloud/2.webp"],
             },
             sky: {
-                title: "The Sky Chalet",
+                title: "Sky Chalet",
                 desc: `{{sky_desc}}`,
                 images: ["/assets/Chalets/sky/13.webp", "/assets/Chalets/sky/4.webp", "/assets/Chalets/sky/3.webp", "/assets/Chalets/sky/2.webp", "/assets/Chalets/sky/6.webp", "/assets/Chalets/sky/7.webp", "/assets/Chalets/sky/15.webp", "/assets/Chalets/sky/16.webp", "/assets/Chalets/sky/14.webp", "/assets/Chalets/sky/5.webp", "/assets/Chalets/sky/8.webp", "/assets/Chalets/sky/10.webp", "/assets/Chalets/sky/11.webp", "/assets/Chalets/sky/9.webp"],
             },

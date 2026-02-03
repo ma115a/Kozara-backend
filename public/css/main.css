@@ -82,7 +82,7 @@ div.header-bg {
     background-size: cover;
     position: absolute;
     opacity: 0;
-    transition: opacity 0.4s ease-in-out;
+    transition: opacity 2s ease-in-out;
     inset: 0;
 
     &.shown {
@@ -315,41 +315,41 @@ sl-carousel-item img {
 /*}*/
 
 .chalet-card {
-	background: white;
-	border-radius: 8px;
-	overflow: hidden;
-	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-	transition: transform 0.3s;
-	position: relative;
-	border: 1px solid #eee;
-	background-position: center;
-	background-size: cover;
-	aspect-ratio: 1/1.5;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	align-items: center;
-	padding: 0.5rem;
+    background: white;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s;
+    position: relative;
+    border: 1px solid #eee;
+    background-position: center;
+    background-size: cover;
+    aspect-ratio: 1/1.5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
 
-	& .chalet-img {
-		position: absolute;
-		object-fit: cover;
-		inset: 0;
-		width: 100%;
-		height: 100%;
-		display: block;
-		z-index: 0;
-	}
+    & .chalet-img {
+        position: absolute;
+        object-fit: cover;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        display: block;
+        z-index: 0;
+    }
 
-	& img[src$="svg"] {
-		display: block;
-		height: 50%;
-		width: 100%;
-		position: relative;
-		z-index: 1;
-		/* filter: drop-shadow(1px 0 0 black) drop-shadow(-1px 0 0 black) drop-shadow(0 1px 0 black) drop-shadow(0 -1px 0 black); */
-		filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6));
-	}
+    & img[src$="svg"] {
+        display: block;
+        height: 50%;
+        width: 100%;
+        position: relative;
+        z-index: 1;
+        /* filter: drop-shadow(1px 0 0 black) drop-shadow(-1px 0 0 black) drop-shadow(0 1px 0 black) drop-shadow(0 -1px 0 black); */
+        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6));
+    }
 }
 
 /* Standard Hover */
@@ -373,7 +373,7 @@ sl-carousel-item img {
 .btn-view {
     /* border: 1px solid var(--earth-brown); */
     border: none;
-    background: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 1);
     color: var(--earth-brown);
     padding: 10px 20px;
     text-transform: uppercase;
@@ -425,14 +425,15 @@ sl-carousel-item img {
 }
 
 @media (width < 1150px) {
-	.chalet-grid {
-		grid-template-columns: repeat(2, 1fr);
-	}
-	.special {
-		order: 5;
-		transform: scale(1) !important;
-		translate: calc(50% + 20px);
-	}
+    .chalet-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .special {
+        order: 5;
+        transform: scale(1) !important;
+        translate: calc(50% + 20px);
+    }
 }
 
 @media (width < 650px) {
@@ -1318,14 +1319,30 @@ sl-carousel img {
     }
 
     &::part(body) {
+        position: relative;
         display: flex;
         justify-content: center;
         align-items: center;
-        padding: 0.2rem;
+        padding: 0;
+        min-height: 800px;
         gap: 20px;
     }
 
 
+    .nav-btn {
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%);
+        z-index: 10;
+    }
+
+    #prev_btn {
+        left: 20px;
+    }
+
+    #next_btn {
+        right: 20px;
+    }
 
     img {
         max-width: calc(100% - 170px);
@@ -1348,39 +1365,47 @@ sl-carousel img {
 @media (max-width: 768px) {
     #img_preview {
 
-        /* 1. Allow the image to take full width */
-        img {
-            max-width: 100%;
-            width: 100%;
-            height: auto;
-        }
-
-        /* 2. Set the container to relative so we can float buttons inside it */
+        /* 1. Force the body to fill the available height of the dialog */
         &::part(body) {
             position: relative;
-            gap: 0;
-            /* Remove gap */
+            display: flex;
+            flex-direction: column;
+            /* Stack vertically if needed */
+            justify-content: center;
+            /* Vertical Center */
+            align-items: center;
+            /* Horizontal Center */
+            height: 100%;
+            /* Fill the dialog panel */
+            min-height: 70dvh;
+            /* Ensure a minimum height for small images */
+            padding: 0;
         }
 
-        /* 3. Float the buttons over the image edges */
+        /* 2. Ensure the image scales but remains centered */
+        img {
+            max-width: 100%;
+            max-height: 100%;
+            width: auto;
+            /* Allow it to shrink if narrow */
+            height: auto;
+            /* Maintain aspect ratio */
+            object-fit: contain;
+            margin: auto;
+            /* Extra insurance for centering */
+        }
+
+        /* 3. Keep arrows pinned regardless of image height */
         .nav-btn {
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
             z-index: 10;
-
-            /* Add a subtle background so they are visible over the image */
-            background: rgba(0, 0, 0, 0.3);
+            background: rgba(0, 0, 0, 0.4);
+            /* Darker for better visibility */
             border-radius: 50%;
-            padding: 5px;
-            /* Adjust if icon is off-center */
         }
 
-        .nav-btn::part(base) {
-            font-size: 1rem;
-        }
-
-        /* Pin them to the sides */
         #prev_btn {
             left: 10px;
         }

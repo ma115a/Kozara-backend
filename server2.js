@@ -294,7 +294,7 @@ function renderIndex(res, lang) {
             blogContent += `<div class="blog-card">
 <img src="${blog.title_img}" class="blog-img" alt="Blog 1 cover image" />
 <h4 style="min-height: 2.5em">${blog.title}</h4>
-                    <a class="read-blog" href="https://translate.google.com/translate?sl=sr&tl={{language_code}}&u=https://www.kozarapanoramicresort.ba/blog/${blog.blogid}&op=translate">{{read_article}}</a>
+                    <a class="read-blog" href="/blog/${blog.blogid}">{{read_article}}</a>
 </div>`
         })
         renderedHtml = renderedHtml.replace('{{BLOGS_TEMPLATE}}', blogContent)
