@@ -62,13 +62,14 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
     <script
-        src="https://www.paypal.com/sdk/js?client-id=ATTj2-HK5tYX3BUEO_KyQu3sDdTJnD3T3q5tr7SQhMgZoreJgTmLO76oegZisFpzWk1oUbLLfjkj0PXd&disable-funding=credit,card&currency=EUR"></script>
+        src="https://www.paypal.com/sdk/js?client-id=AWXmQqv6jUWdXTuOicE0JrfpPBM13eMDpMt4rs7OniJyXUKQmT7lBqOUexj-bjYGsxOYng1Hm9ugihW4&disable-funding=credit,card&currency=EUR"></script>
     <script type="application/ld+json">
 			{
 				"@context": "https://schema.org",
 				"@type": "Resort",
 				"name": "Kozara Panoramic Resort",
 				"description": "{{meta_content2}}",
+                "priceRange" : "$$$",
 				"url": "https://www.kozarapanoramicresort.ba",
 				"image": "https://www.kozarapanoramicresort.ba/assets/Scenery/lander.webp",
 				"address": {
@@ -78,6 +79,11 @@
 					"postalCode": "78400",
 					"addressCountry": "BA"
 				},
+                "geo" : {
+                    "@type": "GeoCoordinates",
+                    "latitude": "45.00874", 
+                    "longitude": "17.09418"
+                },
 				"telephone": "+38766767622"
 			}
 		</script>
@@ -87,24 +93,21 @@
     <meta content="{{meta_content}}" property="og:title" />
     <meta content="{{meta_content2}}" property="og:description" />
     <meta content="https://www.kozarapanoramicresort.ba/assets/Scenery/lander.webp" property="og:image" />
-    <meta content="https://www.kozarapanoramicresort.ba/en" property="og:url" />
+    <meta content="https://www.kozarapanoramicresort.ba/{{language_code}}" property="og:url" />
     <meta content="website" property="og:type" />
     <!-- twitter -->
     <meta content="summary_large_image" name="twitter:card" />
     <meta content="{{meta_content}}" name="twitter:title" />
     <meta content="{{meta_content2}}" name="twitter:description" />
     <meta content="https://www.kozarapanoramicresort.ba/assets/Scenery/lander.webp" name="twitter:image" />
-    <link rel="canonical" href="https://www.kozarapanoramicresort.ba" />
+    <link rel="canonical" href="https://www.kozarapanoramicresort.ba/{{language_code}}" />
     <!-- lang -->
     <link href="https://www.kozarapanoramicresort.ba" hreflang="en" rel="alternate" />
     <link href="https://www.kozarapanoramicresort.ba/de" hreflang="de" rel="alternate" />
     <link href="https://www.kozarapanoramicresort.ba/it" hreflang="it" rel="alternate" />
     <link href="https://www.kozarapanoramicresort.ba/sr" hreflang="sr" rel="alternate" />
     <link href="https://www.kozarapanoramicresort.ba" hreflang="x-default" rel="alternate" />
-    <link rel="preload" as="image" href="https://www.kozarapanoramicresort.ba/assets/Scenery/lander.webp"
-        fetchpriority="high" />
-    <meta name="keywords"
-        content="odmor kozara, privatan odmor kozara, privatan odmor bosna i hercegovina, secluded private chalets bosnia, mountain retreat kozara, luxury chalets bosnia and hercegovina, odmor planina kozara, kozara resort, planina kozara smjestaj, mountain vacation bosnia" />
+    <meta name="keywords" content="{{seo_keywords}}" />
 </head>
 
 <body>
@@ -196,22 +199,102 @@
     <section class="carousel-container">
         <sl-carousel autoplay="" autoplay-interval="3000" id="autocarousel" loop="" navigation="" pagination=""
             slides-per-page="3">
-            <sl-carousel-item><img alt="Mountain 1" src="/assets/Carousel/1.webp" /></sl-carousel-item>
-            <sl-carousel-item><img alt="Interior 1" src="/assets/Carousel/2.webp" /></sl-carousel-item>
-            <sl-carousel-item><img alt="Winter" src="/assets/Carousel/3.webp" /></sl-carousel-item>
-            <sl-carousel-item><img alt="Forest" src="/assets/Carousel/4.webp" /></sl-carousel-item>
-            <sl-carousel-item><img alt="Adventure" src="/assets/Carousel/5.webp" /></sl-carousel-item>
-            <sl-carousel-item><img alt="Adventure" src="/assets/Carousel/6.webp" /></sl-carousel-item>
-            <sl-carousel-item><img alt="Adventure" src="/assets/Carousel/7.webp" /></sl-carousel-item>
-            <sl-carousel-item><img alt="Adventure" src="/assets/Carousel/8.webp" /></sl-carousel-item>
-            <sl-carousel-item><img alt="Adventure" src="/assets/Carousel/9.webp" /></sl-carousel-item>
-            <sl-carousel-item><img alt="Adventure" src="/assets/Carousel/10.webp" /></sl-carousel-item>
-            <sl-carousel-item><img alt="Adventure" src="/assets/Carousel/11.webp" /></sl-carousel-item>
-            <sl-carousel-item><img alt="Adventure" src="/assets/Carousel/12.webp" /></sl-carousel-item>
-            <sl-carousel-item><img alt="Adventure" src="/assets/Carousel/13.webp" /></sl-carousel-item>
-            <sl-carousel-item><img alt="Adventure" src="/assets/Carousel/14.webp" /></sl-carousel-item>
-            <sl-carousel-item><img alt="Adventure" src="/assets/Carousel/15.webp" /></sl-carousel-item>
-            <sl-carousel-item><img alt="Adventure" src="/assets/Carousel/16.webp" /></sl-carousel-item>
+            <sl-carousel-item>
+                <picture>
+                    <source media="(max-width: 768px)" srcset="/assets/Carousel/mobile/1.webp">
+                    <img alt="Mountain 1" src="/assets/Carousel/1.webp" />
+                </picture>
+            </sl-carousel-item>
+            <sl-carousel-item>
+                <picture>
+                    <source media="(max-width: 768px)" srcset="/assets/Carousel/mobile/2.webp">
+                    <img alt="Interior 1" src="/assets/Carousel/2.webp" />
+                </picture>
+            </sl-carousel-item>
+            <sl-carousel-item>
+                <picture>
+                    <source media="(max-width: 768px)" srcset="/assets/Carousel/mobile/3.webp">
+                    <img alt="Winter" src="/assets/Carousel/3.webp" />
+                </picture>
+            </sl-carousel-item>
+            <sl-carousel-item>
+                <picture>
+                    <source media="(max-width: 768px)" srcset="/assets/Carousel/mobile/4.webp">
+                    <img alt="Forest" src="/assets/Carousel/4.webp" />
+                </picture>
+            </sl-carousel-item>
+            <sl-carousel-item>
+                <picture>
+                    <source media="(max-width: 768px)" srcset="/assets/Carousel/mobile/5.webp">
+                    <img alt="Adventure" src="/assets/Carousel/5.webp" />
+                </picture>
+            </sl-carousel-item>
+            <sl-carousel-item>
+                <picture>
+                    <source media="(max-width: 768px)" srcset="/assets/Carousel/mobile/6.webp">
+                    <img alt="Adventure" src="/assets/Carousel/6.webp" />
+                </picture>
+            </sl-carousel-item>
+            <sl-carousel-item>
+                <picture>
+                    <source media="(max-width: 768px)" srcset="/assets/Carousel/mobile/7.webp">
+                    <img alt="Adventure" src="/assets/Carousel/7.webp" />
+                </picture>
+            </sl-carousel-item>
+            <sl-carousel-item>
+                <picture>
+                    <source media="(max-width: 768px)" srcset="/assets/Carousel/mobile/8.webp">
+                    <img alt="Adventure" src="/assets/Carousel/8.webp" />
+                </picture>
+            </sl-carousel-item>
+            <sl-carousel-item>
+                <picture>
+                    <source media="(max-width: 768px)" srcset="/assets/Carousel/mobile/9.webp">
+                    <img alt="Adventure" src="/assets/Carousel/9.webp" />
+                </picture>
+            </sl-carousel-item>
+            <sl-carousel-item>
+                <picture>
+                    <source media="(max-width: 768px)" srcset="/assets/Carousel/mobile/10.webp">
+                    <img alt="Adventure" src="/assets/Carousel/10.webp" />
+                </picture>
+            </sl-carousel-item>
+            <sl-carousel-item>
+                <picture>
+                    <source media="(max-width: 768px)" srcset="/assets/Carousel/mobile/11.webp">
+                    <img alt="Adventure" src="/assets/Carousel/11.webp" />
+                </picture>
+            </sl-carousel-item>
+            <sl-carousel-item>
+                <picture>
+                    <source media="(max-width: 768px)" srcset="/assets/Carousel/mobile/12.webp">
+                    <img alt="Adventure" src="/assets/Carousel/12.webp" />
+                </picture>
+            </sl-carousel-item>
+            <sl-carousel-item>
+                <picture>
+                    <source media="(max-width: 768px)" srcset="/assets/Carousel/mobile/13.webp">
+                    <img alt="Adventure" src="/assets/Carousel/13.webp" />
+                </picture>
+            </sl-carousel-item>
+            <sl-carousel-item>
+                <picture>
+                    <source media="(max-width: 768px)" srcset="/assets/Carousel/mobile/14.webp">
+                    <img alt="Adventure" src="/assets/Carousel/14.webp" />
+                </picture>
+            </sl-carousel-item>
+            <sl-carousel-item>
+                <picture>
+                    <source media="(max-width: 768px)" srcset="/assets/Carousel/mobile/15.webp">
+                    <img alt="Adventure" src="/assets/Carousel/15.webp" />
+                </picture>
+            </sl-carousel-item>
+            <sl-carousel-item>
+                <picture>
+                    <source media="(max-width: 768px)" srcset="/assets/Carousel/mobile/16.webp">
+                    <img alt="Adventure" src="/assets/Carousel/16.webp" />
+                </picture>
+            </sl-carousel-item>
         </sl-carousel>
     </section>
     <section class="chalets-section" id="chalets">
@@ -280,7 +363,19 @@
 
             <div class="facilities-grid">
 
-                <!-- Bathroom -->
+                <div class="facility-category">
+                    <div class="category-header">
+                        <sl-icon src="/assets/amenities_icons/footprints.svg"></sl-icon>
+                        <h4>{{cat_activities}}</h4>
+                    </div>
+                    <ul class="facility-list">
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_bike_tours}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_walking_tours}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_hiking}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_authentic}}</li>
+                    </ul>
+                </div>
+
                 <div class="facility-category">
                     <div class="category-header">
                         <sl-icon src="/assets/amenities_icons/shower-head.svg"></sl-icon>
@@ -297,7 +392,6 @@
                     </ul>
                 </div>
 
-                <!-- Bedroom -->
                 <div class="facility-category">
                     <div class="category-header">
                         <sl-icon src="/assets/amenities_icons/bed-double.svg"></sl-icon>
@@ -306,39 +400,44 @@
                     <ul class="facility-list">
                         <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_linen}}</li>
                         <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_wardrobe}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_bedding}}</li>
                     </ul>
                 </div>
 
-                <!-- View -->
                 <div class="facility-category">
                     <div class="category-header">
-                        <sl-icon src="/assets/amenities_icons/mountain.svg"></sl-icon>
-                        <h4>{{cat_view}}</h4>
+                        <sl-icon src="/assets/amenities_icons/coffee.svg"></sl-icon>
+                        <h4>{{cat_food_drink}}</h4>
                     </div>
                     <ul class="facility-list">
-                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_view_landmark}}</li>
-                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_view_mountain}}</li>
-                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_view_pool}}</li>
-                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_view_general}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_self_catering}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_food_meals}}</li>
                     </ul>
                 </div>
 
-                <!-- Outdoors -->
                 <div class="facility-category">
                     <div class="category-header">
-                        <sl-icon src="/assets/amenities_icons/tree-pine.svg"></sl-icon>
-                        <h4>{{cat_outdoors}}</h4>
+                        <sl-icon src="/assets/amenities_icons/info.svg"></sl-icon>
+                        <h4>{{cat_general}}</h4>
                     </div>
                     <ul class="facility-list">
-                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_outdoor_furniture}}</li>
-                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_private_pool}}</li>
-                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_patio}}</li>
-                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_terrace}}</li>
-                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_garden}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_co_detector}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_ac}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_tile_floor}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_heating}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_private_entrance}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_nonsmoking_rooms}}</li>
                     </ul>
                 </div>
 
-                <!-- Kitchen -->
+                <div class="facility-category">
+                    <div class="category-header">
+                        <sl-icon src="/assets/amenities_icons/wifi.svg"></sl-icon>
+                        <h4>{{cat_internet}}</h4>
+                    </div>
+                    <div class="note">{{note_internet}}</div>
+                </div>
+
                 <div class="facility-category">
                     <div class="category-header">
                         <sl-icon src="/assets/amenities_icons/cooking-pot.svg"></sl-icon>
@@ -352,48 +451,24 @@
                         <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_oven}}</li>
                         <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_kitchenware}}</li>
                         <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_kettle}}</li>
-                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_kitchen_general}}</li>
                         <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_dishwasher}}</li>
                         <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_microwave}}</li>
                         <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_fridge}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_freezer}}</li>
                     </ul>
                 </div>
 
-                <!-- Room Amenities -->
-                <!-- <div class="facility-category"> -->
-                <!--     <div class="category-header"> -->
-                <!--         <sl-icon src="/assets/amenities_icons/plug.svg"></sl-icon> -->
-                <!--         <h4>{{cat_room_amenities}}</h4> -->
-                <!--     </div> -->
-                <!--     <ul class="facility-list"> -->
-                <!--         <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_socket}}</li> -->
-                <!--         <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_clothes_rack}}</li> -->
-                <!--     </ul> -->
-                <!-- </div> -->
-
-                <!-- Pets -->
                 <div class="facility-category">
                     <div class="category-header">
-                        <sl-icon src="/assets/amenities_icons/paw-print.svg"></sl-icon>
-                        <h4>{{cat_pets}}</h4>
-                    </div>
-                    <div class="note">{{note_pets}}</div>
-                </div>
-
-                <!-- Activities -->
-                <div class="facility-category">
-                    <div class="category-header">
-                        <sl-icon src="/assets/amenities_icons/footprints.svg"></sl-icon>
-                        <h4>{{cat_activities}}</h4>
+                        <sl-icon src="/assets/amenities_icons/languages.svg"></sl-icon>
+                        <h4>{{cat_languages}}</h4>
                     </div>
                     <ul class="facility-list">
-                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_bike_tours}}</li>
-                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_walking_tours}}</li>
-                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_hiking}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{lang_english}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{lang_serbian}}</li>
                     </ul>
                 </div>
 
-                <!-- Living Area -->
                 <div class="facility-category">
                     <div class="category-header">
                         <sl-icon src="/assets/amenities_icons/armchair.svg"></sl-icon>
@@ -406,7 +481,6 @@
                     </ul>
                 </div>
 
-                <!-- Media & Technology -->
                 <div class="facility-category">
                     <div class="category-header">
                         <sl-icon src="/assets/amenities_icons/tv.svg"></sl-icon>
@@ -420,27 +494,37 @@
                     </ul>
                 </div>
 
-                <!-- Food & Drink -->
                 <div class="facility-category">
                     <div class="category-header">
-                        <sl-icon src="/assets/amenities_icons/coffee.svg"></sl-icon>
-                        <h4>{{cat_food_drink}}</h4>
+                        <sl-icon src="/assets/amenities_icons/tree-pine.svg"></sl-icon>
+                        <h4>{{cat_outdoors}}</h4>
                     </div>
                     <ul class="facility-list">
-                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_tea_coffee}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_outdoor_furniture}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_private_pool}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_patio}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_terrace}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_garden}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_bbq}}</li>
                     </ul>
                 </div>
 
-                <!-- Internet -->
                 <div class="facility-category">
                     <div class="category-header">
-                        <sl-icon src="/assets/amenities_icons/wifi.svg"></sl-icon>
-                        <h4>{{cat_internet}}</h4>
+                        <sl-icon src="/assets/amenities_icons/waves.svg"></sl-icon>
+                        <h4>{{cat_pool}} <span class="highlight-tag">{{tag_free}}</span></h4>
                     </div>
-                    <div class="note">{{note_internet}}</div>
+                    <ul class="facility-list">
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_opening_times}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_seasonal}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_pool_view}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_heated_pool}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_pool_cover}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_loungers}}</li>
+                    </ul>
+                    <div class="note">{{note_pool}}</div>
                 </div>
 
-                <!-- Parking -->
                 <div class="facility-category">
                     <div class="category-header">
                         <sl-icon src="/assets/amenities_icons/circle-parking.svg"></sl-icon>
@@ -449,7 +533,26 @@
                     <div class="note">{{note_parking}}</div>
                 </div>
 
-                <!-- Services -->
+                <div class="facility-category">
+                    <div class="category-header">
+                        <sl-icon src="/assets/amenities_icons/paw-print.svg"></sl-icon>
+                        <h4>{{cat_pets}}</h4>
+                    </div>
+                    <div class="note">{{note_pets}}</div>
+                </div>
+
+                <div class="facility-category">
+                    <div class="category-header">
+                        <sl-icon src="/assets/amenities_icons/shield-check.svg"></sl-icon>
+                        <h4>{{cat_safety}}</h4>
+                    </div>
+                    <ul class="facility-list">
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_extinguishers}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_cctv}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_laptop_safe}}</li>
+                    </ul>
+                </div>
+
                 <div class="facility-category">
                     <div class="category-header">
                         <sl-icon src="/assets/amenities_icons/bell.svg"></sl-icon>
@@ -460,78 +563,26 @@
                     </ul>
                 </div>
 
-                <!-- Safety & security -->
+
                 <div class="facility-category">
                     <div class="category-header">
-                        <sl-icon src="/assets/amenities_icons/shield-check.svg"></sl-icon>
-                        <h4>{{cat_safety}}</h4>
+                        <sl-icon src="/assets/amenities_icons/mountain.svg"></sl-icon>
+                        <h4>{{cat_view}}</h4>
                     </div>
                     <ul class="facility-list">
-                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_extinguishers}}</li>
-                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_cctv}}</li>
-                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_safe}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_view_landmark}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_view_mountain}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_view_pool}}</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_view_general}}</li>
                     </ul>
                 </div>
 
-                <!-- General -->
-                <div class="facility-category">
-                    <div class="category-header">
-                        <sl-icon src="/assets/amenities_icons/info.svg"></sl-icon>
-                        <h4>{{cat_general}}</h4>
-                    </div>
-                    <ul class="facility-list">
-                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_co_detector}}</li>
-                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_ac}}</li>
-                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_nonsmoking_general}}</li>
-                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_tile_floor}}</li>
-                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_heating}}</li>
-                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_private_entrance}}</li>
-                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_laptop_safe}}</li>
-                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_family_rooms}}</li>
-                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_nonsmoking_rooms}}</li>
-                    </ul>
-                </div>
-
-                <!-- Swimming Pool -->
-                <div class="facility-category">
-                    <div class="category-header">
-                        <sl-icon src="/assets/amenities_icons/waves.svg"></sl-icon>
-                        <h4>{{cat_pool}} <span class="highlight-tag">{{tag_free}}</span></h4>
-                    </div>
-                    <ul class="facility-list">
-                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_opening_times}}</li>
-                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_seasonal}}</li>
-                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_all_ages}}</li>
-                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_pool_view}}</li>
-                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_heated_pool}}</li>
-                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_pool_cover}}</li>
-                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_loungers}}</li>
-                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_umbrellas}}</li>
-                    </ul>
-                </div>
-
-                <!-- Wellness -->
                 <div class="facility-category">
                     <div class="category-header">
                         <sl-icon src="/assets/amenities_icons/flower-2.svg"></sl-icon>
                         <h4>{{cat_wellness}}</h4>
                     </div>
-                    <ul class="facility-list">
-                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_umbrellas}}</li>
-                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{item_loungers}}</li>
-                    </ul>
-                </div>
-
-                <!-- Languages -->
-                <div class="facility-category">
-                    <div class="category-header">
-                        <sl-icon src="/assets/amenities_icons/languages.svg"></sl-icon>
-                        <h4>{{cat_languages}}</h4>
-                    </div>
-                    <ul class="facility-list">
-                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{lang_english}}</li>
-                        <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> {{lang_serbian}}</li>
-                    </ul>
+                    <div class="note">{{note_sauna}}</div>
                 </div>
 
             </div>
@@ -580,7 +631,10 @@
                 <p>{{about_us_desc2}}</p>
             </div>
             <div class="content-image">
-                <img alt="Hiking sign" src="/assets/Text Blocks/image08198.webp" />
+                <picture>
+                    <source media="(max-width: 768px)" srcset="/assets/Text%20Blocks/mobile/image08198.webp">
+                    <img alt="Hiking sign" src="/assets/Text Blocks/image08198.webp" />
+                </picture>
             </div>
         </div>
     </section>
@@ -592,28 +646,17 @@
                 <p>{{about_kozara_desc2}}</p>
             </div>
             <div class="content-image">
-                <img alt="Kozara amenity" src="/assets/Text Blocks/Kozara-fotobaza-Ajdin-Kamber.webp" />
+                <picture>
+                    <source media="(max-width: 768px)"
+                        srcset="/assets/Text%20Blocks/mobile/Kozara-fotobaza-Ajdin-Kamber.webp">
+                    <img alt="Kozara amenity" src="/assets/Text Blocks/Kozara-fotobaza-Ajdin-Kamber.webp" />
+                </picture>
             </div>
         </div>
     </section>
     <section class="section-padding" id="blog">
         <h3 class="section-title">{{blog_title}}</h3>
         <div class="blog-grid" style="display: {{YES_BLOGS}};">
-            <!-- <div class="blog-card"> -->
-            <!--     <img src="{{BLOG_IMG}}" class="blog-img" alt="Blog 1 cover image" /> -->
-            <!--     <h4 style="min-height: 2.5em">{{BLOG_TITLE}}</h4> -->
-            <!--     <a class="read-blog" href="/{{language_code}}/blog/{{BLOG_ID}}">{{read_article}}</a> -->
-            <!-- </div> -->
-            <!-- <div class="blog-card"> -->
-            <!--     <img src="{{BLOG_IMG}}" class="blog-img" alt="Blog 2 cover image" /> -->
-            <!--     <h4 style="min-height: 2.5em">{{BLOG_TITLE}}</h4> -->
-            <!--     <a class="read-blog" href="/{{language_code}}/blog/{{BLOG_ID}}">{{read_article}}</a> -->
-            <!-- </div> -->
-            <!-- <div class="blog-card"> -->
-            <!--     <img src="{{BLOG_IMG}}" class="blog-img" alt="Blog 3 cover image" /> -->
-            <!--     <h4 style="min-height: 2.5em">{{BLOG_TITLE}}</h4> -->
-            <!--     <a class="read-blog" href="/{{language_code}}/blog/{{BLOG_ID}}">{{read_article}}</a> -->
-            <!-- </div> -->
             {{BLOGS_TEMPLATE}}
         </div>
         <a style="display: {{MORE_BLOGS}};" class="read-blog" href="/{{language_code}}/blogs">{{see_all_blogs}}</a>
@@ -1007,7 +1050,7 @@
                     required="" type="tel"></sl-input>
             </fieldset>
             <sl-button id="ptp_btn" type="submit">{{booking_form_btn}}</sl-button>
-            <!-- <div id="paypal-container"></div> -->
+            <div id="paypal-container"></div>
         </form>
     </sl-dialog>
     <!-- <sl-dialog id="img_preview"> -->
@@ -1021,17 +1064,26 @@
         <sl-icon-button src="/assets/amenities_icons/chevron-right.svg" id="next_btn" class="nav-btn"></sl-icon-button>
     </sl-dialog>
     <script>
+
+        const isMobile = window.innerWidth <= 768;
         {
+            // Function to inject /mobile/ into the path if on a small screen
+            const getPath = (path) => isMobile ? path.replace("/Scenery/", "/Scenery/mobile/") : path;
+
             const bg_images = [
                 "/assets/Scenery/lander.webp",
                 "/assets/Scenery/lander2.webp",
                 "/assets/Scenery/lander3.webp",
                 "/assets/Scenery/lander4.webp",
                 "/assets/Scenery/lander6.webp",
-            ]
+            ].map(getPath); // This transforms all paths in the array at once
+
             let bg_index = 0;
             const bg_containers = document.querySelectorAll("div.header-bg")
+
+            // Set the initial image
             bg_containers[0].style.setProperty("background-image", `url("${bg_images[bg_index]}")`)
+
             setInterval(() => {
                 bg_index = (bg_index + 1) % bg_images.length
                 for (const bg_container of bg_containers) {
@@ -1080,6 +1132,19 @@
             it: {flag: "ðŸ‡®ðŸ‡¹", abbr: "IT"},
         }
 
+
+        let minimumStay = 5
+        {
+
+            fetch('/api/baseinfo').then(res => res.json()).then(res => {
+                if (res.success) {
+                    minimumStay = res.value
+                } else {
+                    minimumStay = 1
+                }
+            })
+        }
+
         let langData = {}
         const carousel = document.querySelector(".dialog-gallery")
         const scroller = document.querySelector(".thumbnails__scroller")
@@ -1100,9 +1165,10 @@
             carousel.innerHTML = ""
             scroller.innerHTML = ""
             data.images.forEach(img_uri => {
-                carousel.innerHTML += `<sl-carousel-item><img src="${img_uri}"></sl-carousel-item>`
+                const final_uri = isMobile ? img_uri.replace(/([^/]+)$/, "mobile/$1") : img_uri;
+                carousel.innerHTML += `<sl-carousel-item><img src="${final_uri}"></sl-carousel-item>`
                 const new_thumbnail = document.createElement("img")
-                new_thumbnail.setAttribute("src", img_uri)
+                new_thumbnail.setAttribute("src", final_uri)
                 new_thumbnail.classList.add("thumbnails__image")
                 scroller.appendChild(new_thumbnail)
             })
@@ -1183,17 +1249,6 @@
             }
         })
 
-        // document.querySelectorAll("sl-carousel").forEach(el => {
-        //     el.addEventListener("click", e => {
-        //         if (e.target.tagName != "IMG") return
-        //         preview(e.target.src)
-        //     })
-        // })
-        //
-        // function preview(src) {
-        //     img_preview.querySelector("img").setAttribute("src", src)
-        //     img_preview.show()
-        // }
 
         // Calendar logic
         const calendar_settings = {
@@ -1222,7 +1277,7 @@
             dateMin: "today",
             // displayDateMin: "2025-12-15",
             // displayDateMax: "2026-03-31",
-            dateMax: "2026-03-31",
+            dateMax: "2026-12-31",
             disableDatesGaps: true,
             disableToday: true,
             enableEdgeDatesOnly: true,
@@ -1250,8 +1305,8 @@
             onClickDate(self, event) {
                 if (self.context.selectedDates.length < 2) return
                 const expanded_dates = window.VanillaCalendarProUtils.parseDates([`${self.context.selectedDates[0]}:${self.context.selectedDates[1]}`])
-                if (expanded_dates.length < 2) {
-                    notify("Minimum 1 nights of stay!", "neutral")
+                if (expanded_dates.length < (minimumStay + 1)) {
+                    notify(`Minimum ${minimumStay} nights of stay!`, "neutral")
                     self.context.selectedDates = []
                 }
             },
@@ -1318,55 +1373,6 @@
             AJAX(fdataJSON)
         })
 
-        // function check_booking_form_validity(e, silent = false) {
-        //     e?.preventDefault()
-        //     if (booking_calendar.context.selectedDates.length < 2) {
-        //         if (!silent) notify("Please select the days you would like to stay")
-        //         e?.stopImmediatePropagation()
-        //         return false
-        //     }
-        //     const fdata = new FormData(book_form)
-        //     // check ppl number
-        //     book_form.querySelector("[name='numAdults']").setCustomValidity("")
-        //     if (parseInt(fdata.get("numAdults")) + parseInt(fdata.get("numChildren")) > 6) {
-        //         if (!silent) book_form.querySelector("[name='numAdults']").setCustomValidity("Maximum of 6 people per chalet")
-        //         return false
-        //     }
-        //     // const phoneN = libphonenumber.parsePhoneNumber(fdata.get("customerPhone"), fdata.get("billingCountry"))
-        //     // console.log(fdata.get('customerPhone'))
-        //     // console.log(fdata.get('billingCountry'))
-        //     // book_form.querySelector("[name=customerPhone]").setCustomValidity("")
-        //     // if (!phoneN.isValid()) {
-        //     //     if (!silent) book_form.querySelector("[name=customerPhone]").setCustomValidity("Invalid phone number")
-        //     //     return false
-        //     // }
-        //     const rawPhone = fdata.get("customerPhone");
-        //     const country = fdata.get("billingCountry");
-        //     const phoneInput = book_form.querySelector("[name=customerPhone]");
-        //
-        //     phoneInput.setCustomValidity("");
-        //
-        //     // 1. Check if phone is empty before parsing to avoid NOT_A_NUMBER
-        //     if (!rawPhone || rawPhone.trim().length === 0) {
-        //         if (!silent) phoneInput.setCustomValidity("Phone number is required");
-        //         return false;
-        //     }
-        //
-        //     try {
-        //         const phoneN = libphonenumber.parsePhoneNumber(rawPhone, country);
-        //
-        //         if (!phoneN.isValid()) {
-        //             if (!silent) phoneInput.setCustomValidity("Invalid phone number");
-        //             return false;
-        //         }
-        //     } catch (error) {
-        //         // This catches NOT_A_NUMBER, INVALID_COUNTRY, etc.
-        //         console.error("Phone Parsing Error:", error.message);
-        //         if (!silent) phoneInput.setCustomValidity("Please enter a valid phone number");
-        //         return false;
-        //     }
-        //     return true
-        // }
 
         function check_booking_form_validity(e, silent = false) {
             e?.preventDefault()

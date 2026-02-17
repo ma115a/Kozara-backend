@@ -16,6 +16,9 @@ require('winston-daily-rotate-file')
 const multer = require('multer')
 const session = require('express-session');
 
+const Groq = require("groq-sdk");
+const groq = new Groq({ apiKey: process.env.GROK_API_KEY });
+
 let db
 let paypalToken
 
@@ -108,7 +111,7 @@ const storage = multer.diskStorage({
 
 // File filter (Validate Images Only)
 const fileFilter = (req, file, cb) => {
-    const allowedTypes = /jpeg|jpg|png|gif/;
+    const allowedTypes = /jpeg|jpg|png|gif|webp/;
     const extName = allowedTypes.test(path.extname(file.originalname).toLowerCase());
     const mimeType = allowedTypes.test(file.mimetype);
 
@@ -209,6 +212,24 @@ async function sendBookingConfirmation(bookingData) {
             html: htmlTemplate
         });
 
+
+        const info2 = await transporter.sendMail({
+            from: '"Kozara Panoramic Resort" <bookings@kozarapanoramicresort.ba>',
+            to: 'vukajlovic.mih@gmail.com',
+            subject: `Booking Confirmed: #${bookingData.id}`,
+            text: `Dear ${bookingData.customerName}, your booking at Kozara Resort is confirmed. Ref: ${bookingData.id}`, // Fallback plain text
+            html: htmlTemplate
+        });
+
+        const info3 = await transporter.sendMail({
+            from: '"Kozara Panoramic Resort" <bookings@kozarapanoramicresort.ba>',
+            to: 'aaaaaaa2122w@gmail.com',
+            subject: `Booking Confirmed: #${bookingData.id}`,
+            text: `Dear ${bookingData.customerName}, your booking at Kozara Resort is confirmed. Ref: ${bookingData.id}`, // Fallback plain text
+            html: htmlTemplate
+        });
+
+
         console.log("Message sent: %s", info.messageId);
         logger.info({ message: info.messageId })
         return true;
@@ -294,7 +315,7 @@ function renderIndex(res, lang) {
             blogContent += `<div class="blog-card">
 <img src="${blog.title_img}" class="blog-img" alt="Blog 1 cover image" />
 <h4 style="min-height: 2.5em">${blog.title}</h4>
-                    <a class="read-blog" href="/blog/${blog.blogid}">{{read_article}}</a>
+                    <a class="read-blog" href="${lang}/blog/${blog.blogid}">{{read_article}}</a>
 </div>`
         })
         renderedHtml = renderedHtml.replace('{{BLOGS_TEMPLATE}}', blogContent)
@@ -338,14 +359,7 @@ function renderNotice(res, lang) {
 function renderBlog(res, lang, id) {
     const t = languages[lang] || languages['en']
 
-    let renderedHtml = htmlTemplateBlog
-    renderedHtml = renderedHtml.replace('<html lang="en" class="sl-theme-light">', `<html lang="${lang}" class="sl-theme-light">`);
 
-    Object.keys(t).forEach(key => {
-
-        const regex = new RegExp(`{{${key}}}`, 'g');
-        renderedHtml = renderedHtml.replace(regex, t[key]);
-    })
     const filePath = path.join(__dirname, 'public/blogs', `${id}.json`)
     try {
         if (!fs.existsSync(filePath)) {
@@ -354,26 +368,62 @@ function renderBlog(res, lang, id) {
 
         const blog = JSON.parse(fs.readFileSync(filePath, 'utf8'))
 
+        let renderedHtml = htmlTemplateBlog
+        const metaKey = `${lang}_meta`
+        const seo = blog[metaKey] || blog.en_meta || {}
+
+        const metaTitle = seo.title || blog.title || 'Untitled'
+        const metaDesc = seo.desc || ''
+        const metaKeywords = seo.keywords || ''
+        const ogImage = blog.title_img ? `https://www.kozarapanoramicresort.ba${blog.title_img}` : ''
+        const canonicalUrl = `https://www.kozarapanoramicresort.ba/${lang}/blog/${id}`
+        const altText = seo.img_alt
+
+        let contentHtml = blog.editor.replace(/<img([^>]+)>/, `<img alt="${altText}" $1`)
+
+        const schemaData = {
+            "@context": "https://schema.org",
+            "@type": 'BlogPosting',
+            "headline": metaTitle,
+            "image": [ogImage],
+            "author": { "@type": "Organization", "name": "Kozara Panoramic Resort" },
+            "publisher": {
+                "@type": "Organization",
+                "name": "Kozara Panoramic Resort",
+                "logo": { "@type": "ImageObject", "url": "https://kozarapanoramicresort.ba/assets/logo_stripped.svg" }
+            },
+            "description": metaDesc
+        }
+
+        renderedHtml = renderedHtml.replace('<html lang="en" class="sl-theme-light">', `<html lang="${lang}" class="sl-theme-light">`);
+
+
+
+
 
         Object.keys(t).forEach(key => {
 
             const regex = new RegExp(`{{${key}}}`, 'g');
             renderedHtml = renderedHtml.replace(regex, t[key]);
         })
-        renderedHtml = renderedHtml.replace('{{BLOG_TITLE}}', blog.title || 'Untitled');
-        renderedHtml = renderedHtml.replace('{{BLOG_TITLE}}', blog.title || 'Untitled');
-        renderedHtml = renderedHtml.replace('{{BLOG_TITLE}}', blog.title || 'Untitled');
-        renderedHtml = renderedHtml.replace(/\{\{BLOG_TITLE\}\}/g, blog.title || 'Untitled');
-        renderedHtml = renderedHtml.replace('{{BLOG_CONTENT}}', blog.editor || 'Untitled');
-        renderedHtml = renderedHtml.replace('{{OG_IMAGE}}', blog.title_img || 'Untitled');
-        renderedHtml = renderedHtml.replace(/\{\{BLOG_ID\}\}/g, id || 'Untitled');
 
+        // SEO Replacements
+        renderedHtml = renderedHtml.replace(/\{\{BLOG_TITLE_META\}\}/g, metaTitle);
+        renderedHtml = renderedHtml.replace(/\{\{META_DESCRIPTION\}\}/g, metaDesc);
+        renderedHtml = renderedHtml.replace(/\{\{META_KEYWORDS\}\}/g, metaKeywords);
+        renderedHtml = renderedHtml.replace(/\{\{BLOG_SLUG\}\}/g, id); // Using ID as slug
+        renderedHtml = renderedHtml.replace(/\{\{OG_IMAGE\}\}/g, blog.title_img || '');
+        renderedHtml = renderedHtml.replace('{{SCHEMA_JSON_LD}}', `<script type="application/ld+json">${JSON.stringify(schemaData)}</script>`);
+
+        // Blog Content
+        renderedHtml = renderedHtml.replace('{{BLOG_CONTENT}}', contentHtml || 'Untitled');
+        renderedHtml = renderedHtml.replace(/\{\{BLOG_ID\}\}/g, id);
+        res.send(renderedHtml)
 
     } catch (error) {
         logger.error(error)
 
     }
-    res.send(renderedHtml)
 }
 
 
@@ -415,6 +465,77 @@ function renderAllBlogs(res, lang) {
     }
 }
 
+
+
+async function generateBlogSEO(htmlContent) {
+    if (!htmlContent) return { seo_desc: "", seo_keywords: "" }
+
+    const cleanText = htmlContent.replace(/<[^>]*?/gm, '')
+
+
+    try {
+
+        const chatCompletion = await groq.chat.completions.create({
+            "messages": [
+                {
+                    "role": "system",
+                    "content": `You are an elite SEO & Content Strategist for "Kozara Panoramic Resort" in Bosnia.
+                    
+                    Your Goal:
+                    Analyze the provided blog text and generate localized SEO metadata for: 
+                    Serbian (sr), English (en), German (de), and Italian (it).
+
+                    CRITICAL BRANDING RULES:
+                    1. Brand Name Protection: NEVER translate "Kozara Panoramic Resort". 
+
+                    CRITICAL LINGUISTIC RULES:
+                    1. Target Language ONLY: 
+                       - The 'sr' section must be 100% Serbian (Ijekavian). NO English words (e.g., use "Sunčane padine", NOT "Sunny slopes").
+                       - The 'de' section must be 100% German.
+                       - The 'it' section must be 100% Italian.
+                    2. Serbian Dialect: STRICTLY IJEKAVIAN (e.g., "lijepo", "bijeg").
+
+                    OUTPUT FORMAT (JSON ONLY - NO MARKDOWN):
+                    {
+                        "sr": { "title": "...", "desc": "...", "keywords": "...", "img_alt": "..." },
+                        "en": { "title": "...", "desc": "...", "keywords": "...", "img_alt": "..." },
+                        "de": { "title": "...", "desc": "...", "keywords": "...", "img_alt": "..." },
+                        "it": { "title": "...", "desc": "...", "keywords": "...", "img_alt": "..." }
+                    }
+
+                    CONSTRAINTS:
+                    - Titles: 50-60 chars. Catchy & Specific.
+                    - Descriptions: 130-155 chars. Call-to-action included.
+                    - Keywords: Exactly 8 tags, comma-separated.
+                    - Img_Alt: Max 125 chars. Describe the visual scene based on the text. 
+                      *IMPORTANT: Translate the description fully into the target language.*`
+                },
+                {
+                    "role": "user",
+                    "content": `Analyze this blog post and generate the JSON.
+                    
+                    Focus on visuals mentioned here: "${cleanText.substring(0, 500)}..."
+                    
+                    Full Text:
+                    "${cleanText.substring(0, 4000)}"`
+                }
+            ],
+            "model": "llama-3.3-70b-versatile",
+            "temperature": 0.2,
+            "response_format": { "type": "json_object" }
+        });
+
+        return JSON.parse(chatCompletion.choices[0].message.content)
+
+    } catch (error) {
+        logger.error('SEO Generation error', error)
+        return {
+            seo_desc: cleanText.substring(0, 155) + "...",
+            seo_keywords: "Kozara, Nature, Resort, Vacation"
+        }
+
+    }
+}
 
 
 
@@ -694,6 +815,7 @@ app.get('/booking/check-payment', (req, res) => {
     try {
         // Look up the booking using the Transaction ID (uniqueId)
         const booking = db.prepare('SELECT bookingId FROM bookings WHERE bookingTransactionId = ?').get(transactionId);
+        console.log(booking)
 
         if (booking && booking.bookingId) {
             // Found it! Redirect to the nice display page using the Real Booking ID
@@ -712,10 +834,13 @@ app.get('/booking/check-payment', (req, res) => {
 
 app.get('/booking/success/:id', (req, res) => {
     const bookingId = req.params.id;
+    console.log('success page')
+    console.log(bookingId)
 
     try {
         // 1. Fetch full details from DB using the Beds24 Booking ID
         const bookingData = db.prepare('SELECT * FROM bookings WHERE bookingId = ?').get(bookingId);
+        console.log(bookingData)
 
         if (!bookingData) {
             return res.status(404).send("Booking not found");
@@ -735,6 +860,7 @@ app.get('/booking/success/:id', (req, res) => {
             '{{guestsCount}}': `${bookingData.adults} Adults, ${bookingData.children} Children`,
             '{{price}}': bookingData.price
         };
+        console.log(replacements)
 
         for (const [key, value] of Object.entries(replacements)) {
             htmlPage = htmlPage.replace(new RegExp(key, 'g'), value);
@@ -747,6 +873,45 @@ app.get('/booking/success/:id', (req, res) => {
         res.status(500).send("Error generating confirmation page.");
     }
 });
+
+
+app.get('/api/baseinfo', async (req, res) => {
+
+
+    try {
+
+
+        const info = await fetch('https://beds24.com/api/v2/properties?id=301806&includeLanguages=&includeTexts=&includePictures=false&includeOffers=false&includePriceRules=true&includeUpsellItems=false&includeAllRooms=false&includeUnitDetails=false', {
+            method: 'GET',
+            headers: {
+                'token': tok,
+                'Accept': 'application/json'
+            }
+        })
+        if (info.ok) {
+            const infoData = await info.json()
+            if (infoData.success) {
+                res.json({ success: true, value: infoData.data[0].roomTypes[0].priceRules[0].minimumStay })
+            } else {
+                res.json({ success: true, message: "Failed to retrieve minimum stay!" })
+            }
+
+        } else {
+            res.json({ success: true, message: "Failed to retrieve minimum stay!" })
+        }
+
+
+
+
+    } catch (error) {
+        logger.error(error.message)
+        res.json({ success: true, message: "Failed to retrieve minimum stay!" })
+    }
+
+
+
+
+})
 
 
 
@@ -773,7 +938,7 @@ app.get('/api/availability', async (req, res) => {
             method: 'GET',
             headers: {
                 'token': tok,
-                'Accept': 'appliation/json'
+                'Accept': 'application/json'
             }
         })
 
@@ -1139,25 +1304,60 @@ app.post('/api/paypal/orders', express.json(), async (req, res) => {
         if (offerData.success) {
             logger.info('Offer is a success')
 
+            const paypalPrice = offerData.data[0].offers[0].price * 0.53
+
+            // const response = await fetch(`${process.env.PAYPAL_URL}/v2/checkout/orders`, {
+            //     method: 'POST',
+            //     headers: {
+            //         "Content-Type": "application/json",
+            //         Authorization: `Bearer ${paypalToken}`
+            //     },
+            //     body: JSON.stringify({
+            //         intent: 'CAPTURE',
+            //         purchase_units: [{
+            //             amount: { currency_code: 'EUR', value: '10.00' },
+            //             // description: `Chalet booking for ${req.body.customerName} ${req.body.customerLastName} from ${req.body.startDate} to ${req.body.endDate}`
+            //             description: 'Booking Deposit'
+            //         }],
+            //         application_context: {
+            //             shipping_preference: 'NO_SHIPPING',
+            //             user_action: 'PAY_NOW'
+            //         }
+            //     })
+            // })
             const response = await fetch(`${process.env.PAYPAL_URL}/v2/checkout/orders`, {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json",
-                    Authorization: `Bearer ${paypalToken}`
+                    Authorization: `Bearer ${paypalToken}`,
+                    "PayPal-Request-Id": `unique-id-${Date.now()}` // Add idempotency key
                 },
                 body: JSON.stringify({
                     intent: 'CAPTURE',
                     purchase_units: [{
-                        amount: { currency_code: 'EUR', value: offerData.data[0].offers[0].price * 0.53 },
-                        description: `Chalet booking for ${req.body.customerName} ${req.body.customerLastName} from ${req.body.startDate} to ${req.body.endDate}`
+                        amount: {
+                            currency_code: 'EUR',
+                            value: '10.00',
+                            breakdown: { // Add breakdown for clarity
+                                item_total: { currency_code: 'EUR', value: '10.00' }
+                            }
+                        },
+                        description: 'Chalet Booking Deposit',
+                        items: [{ // Add item details
+                            name: 'Booking Deposit',
+                            quantity: '1',
+                            unit_amount: { currency_code: 'EUR', value: '10.00' }
+                        }]
                     }],
                     application_context: {
                         shipping_preference: 'NO_SHIPPING',
-                        user_action: 'PAY_NOW'
+                        user_action: 'PAY_NOW',
+                        brand_name: 'PEVA DOO', // Add your business name
+                        // return_url: 'https://yourdomain.com/success',
+                        // cancel_url: 'https://yourdomain.com/cancel'
                     }
                 })
             })
-
             const order = await response.json()
 
             logger.info(order)
@@ -1226,6 +1426,7 @@ app.post('/api/paypal/orders/capture', express.json(), async (req, res) => {
         })
 
         const captureData = await response.json()
+        logger.info(captureData)
         if (captureData.status === 'COMPLETED') {
             const updateBooking = db.prepare(`UPDATE bookings SET bookingStatus = ? WHERE bookingTransactionId = ?`)
             const getBooking = db.prepare(`SELECT * FROM bookings WHERE bookingTransactionId = ?`)
@@ -1408,44 +1609,57 @@ app.post('/upload', upload.any(), (req, res) => {
     });
 });
 
-
-app.post('/api/saveblog', isAuthenticated, express.json(), (req, res) => {
-    console.log(req.body)
-
-    const date = new Date()
-    const uniqueId = formatDate(date)
-    console.log(uniqueId)
+app.post('/api/saveblog', isAuthenticated, express.json(), async (req, res) => {
     const { title, title_img, editor, blogid } = req.body
 
     if (!title || !title_img || !editor) {
-        return res.status(400).json({ success: false, message: "Title, title image or blog content are missing!" })
+        return res.status(400).json({ success: false, message: "Title, image or content missing!" })
+    }
+
+    const slugify = (title) => {
+        return title
+            .toLowerCase()                   // Convert to lowercase
+            .trim()                          // Remove whitespace from both ends
+            .replace(/[^\w\s-]/g, '')        // Remove all non-word chars (except spaces/hyphens)
+            .replace(/[\s_-]+/g, '-')       // Replace spaces, underscores, or multiple hyphens with a single hyphen
+            .replace(/^-+|-+$/g, '');        // Remove leading or trailing hyphens
+    };
+
+    const uniqueId = slugify(title)
+
+    // 2. Create the data object (ensuring SEO fields are saved)
+    const aiResult = await generateBlogSEO(editor)
+    console.log(aiResult)
+    const blogData = {
+        title,
+        title_img,
+        editor,
+        blogid: blogid || uniqueId,
+        "sr_meta": aiResult.sr,
+        "en_meta": aiResult.en,
+        "de_meta": aiResult.de,
+        "it_meta": aiResult.it
     }
 
 
+
     if (blogid === null) {
-        console.log("saving new blog")
+        // Saving NEW blog
         try {
             const filename = `${uniqueId}.json`
             const filePath = path.join(__dirname, 'public/blogs', filename)
 
-            const entireBlog = req.body
-            entireBlog.blogid = uniqueId
-
-            fs.writeFileSync(filePath, JSON.stringify(entireBlog, null, 2), 'utf8')
-
+            // Save the blogData object we created above
+            fs.writeFileSync(filePath, JSON.stringify(blogData, null, 2), 'utf8')
             res.json({ success: true, message: "Blog saved successfully", blogid: uniqueId })
 
         } catch (error) {
             console.log(error)
             res.status(500).json({ success: false, message: "Failed to save blog" })
-
         }
 
-
     } else {
-        console.log("editing existing blog")
-
-
+        // Editing EXISTING blog
         try {
             const filename = `${blogid}.json`
             const filePath = path.join(__dirname, 'public/blogs', filename)
@@ -1454,21 +1668,17 @@ app.post('/api/saveblog', isAuthenticated, express.json(), (req, res) => {
                 return res.status(404).json({ success: false, message: "Blog not found!" })
             }
 
-            const entireBlog = JSON.stringify(req.body, null, 2)
-
-            fs.writeFileSync(filePath, entireBlog, 'utf8')
+            // Overwrite with new data
+            fs.writeFileSync(filePath, JSON.stringify(blogData, null, 2), 'utf8')
             res.json({ success: true, message: "Blog updated successfully!" })
 
         } catch (error) {
             console.log(error)
             res.status(500).json({ success: false, message: "Failed to save blog" })
         }
-
-
-
-
     }
 })
+
 
 
 app.delete("/api/blog/:id", isAuthenticated, (req, res) => {
@@ -1550,7 +1760,7 @@ app.get('/api/blog/latest', (req, res) => {
 })
 
 
-app.get('/api/blog/:id', isAuthenticated, (req, res) => {
+app.get('/api/blog/:id', (req, res) => {
 
     const blogId = req.params.id
     if (!blogId) {
@@ -1614,6 +1824,60 @@ app.get('/logout', (req, res) => {
 });
 
 
+app.get('/sitemap.xml', (req, res) => {
+    const blogsDir = path.join(__dirname, 'public/blogs');
+    const blogFiles = fs.readdirSync(blogsDir).filter(file => file.endsWith('.json'));
+    const langs = ['en', 'sr', 'de', 'it'];
+    const baseUrl = 'https://kozarapanoramicresort.ba';
+
+    let xml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <url>
+    <loc>${baseUrl}/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="${baseUrl}/" />
+    <xhtml:link rel="alternate" hreflang="de" href="${baseUrl}/de" />
+    <xhtml:link rel="alternate" hreflang="sr" href="${baseUrl}/sr" />
+    <xhtml:link rel="alternate" hreflang="it" href="${baseUrl}/it" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="${baseUrl}/" />
+  </url>
+
+  <url>
+    <loc>${baseUrl}/notice</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="${baseUrl}/notice" />
+    <xhtml:link rel="alternate" hreflang="de" href="${baseUrl}/de/notice" />
+    <xhtml:link rel="alternate" hreflang="sr" href="${baseUrl}/sr/notice" />
+    <xhtml:link rel="alternate" hreflang="it" href="${baseUrl}/it/notice" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="${baseUrl}/notice" />
+  </url>`;
+
+    // Add Dynamic Blog Posts
+    blogFiles.forEach(file => {
+        const blogId = file.replace('.json', '');
+
+        langs.forEach(currentLang => {
+            const pathPrefix = currentLang === 'en' ? '' : `/${currentLang}`;
+            const langUrl = `${baseUrl}${pathPrefix}/blog/${blogId}`;
+
+            xml += `
+  <url>
+    <loc>${langUrl}</loc>
+    ${langs.map(l => {
+                const p = l === 'en' ? '' : `/${l}`;
+                return `<xhtml:link rel="alternate" hreflang="${l}" href="${baseUrl}${p}/blog/${blogId}" />`;
+            }).join('')}
+    <xhtml:link rel="alternate" hreflang="x-default" href="${baseUrl}/blog/${blogId}" />
+  </url>`;
+        });
+    });
+
+    xml += `\n</urlset>`;
+    res.header('Content-Type', 'application/xml');
+    res.send(xml);
+});
+
+
 
 app.get('/*splat', (req, res) => {
 
@@ -1634,7 +1898,7 @@ setInterval(async () => {
 setInterval(async () => {
     logger.info('refreshing beds24 token...')
     await refreshAuthToken()
-}, 86400000)
+}, 100000)
 
 
 // cron job to cancel any booking that didn't make it through the payment process

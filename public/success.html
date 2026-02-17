@@ -434,25 +434,25 @@
             <div class="data-box mb-8">
                 <div class="data-header">
                     <span class="label-tiny">Booking Reference</span>
-                    <span id="booking-ref" class="ref-number">#81163777</span>
+                    <span id="booking-ref" class="ref-number">#{{bookingId}}</span>
                 </div>
 
                 <div class="data-grid">
                     <div class="data-point">
                         <span class="label-tiny">Check-In</span>
-                        <p id="date-in">Feb 18, 2026</p>
+                        <p id="date-in">{{checkInDate}}</p>
                     </div>
                     <div class="data-point text-right">
                         <span class="label-tiny">Check-Out</span>
-                        <p id="date-out">Feb 20, 2026</p>
+                        <p id="date-out">{{checkOutDate}}</p>
                     </div>
                     <div class="data-point">
                         <span class="label-tiny">Guests</span>
-                        <p id="guest-count">2 Adults</p>
+                        <p id="guest-count">{{guestsCount}}</p>
                     </div>
                     <div class="data-point text-right">
                         <span class="label-tiny">Total Paid</span>
-                        <p id="total-price" class="price-total serif">660.00 BAM</p>
+                        <p id="total-price" class="price-total serif">{{price}}BAM</p>
                     </div>
                 </div>
             </div>

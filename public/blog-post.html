@@ -5,14 +5,33 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{BLOG_TITLE}} | Kozara Panoramic Resort</title>
+    <title>{{BLOG_TITLE_META}} | Kozara Panoramic Resort</title>
 
     <link rel="stylesheet" href="/css/main.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/light.css" />
-    <meta property="og:title" content="{{BLOG_TITLE}}" />
-    <!-- <meta property="og:description" content="{{META_DESCRIPTION}}"> -->
-    <meta property="og:image" content="{{OG_IMAGE}}" />
+    <meta name="description" content="{{META_DESCRIPTION}}" />
+    <meta name="keywords" content="{{META_KEYWORDS}}" />
+    <link rel="canonical" href="https://www.kozarapanoramicresort.ba/{{language_code}}/blog/{{BLOG_ID}}" />
+
+    <meta property="og:title" content="{{BLOG_TITLE_META}}" />
+    <meta property="og:description" content="{{META_DESCRIPTION}}" />
+    <meta property="og:image" content="https://www.kozarapanoramicresort.ba{{OG_IMAGE}}" />
+    <meta property="og:url" content="https://www.kozarapanoramicresort.ba/{{language_code}}/blog/{{BLOG_SLUG}}" />
     <meta property="og:type" content="article" />
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{BLOG_TITLE_META}}">
+    <meta name="twitter:description" content="{{META_DESCRIPTION}}">
+    <meta name="twitter:image" content="https://www.kozarapanoramicresort.ba{{OG_IMAGE}}">
+
+    {{SCHEMA_JSON_LD}}
+
+
+    <link rel="alternate" hreflang="en" href="https://www.kozarapanoramicresort.ba/en/blog/{{BLOG_ID}}" />
+    <link rel="alternate" hreflang="sr" href="https://www.kozarapanoramicresort.ba/sr/blog/{{BLOG_ID}}" />
+    <link rel="alternate" hreflang="de" href="https://www.kozarapanoramicresort.ba/de/blog/{{BLOG_ID}}" />
+    <link rel="alternate" hreflang="it" href="https://www.kozarapanoramicresort.ba/it/blog/{{BLOG_ID}}" />
+    <link rel="alternate" hreflang="x-default" href="https://www.kozarapanoramicresort.ba/en/blog/{{BLOG_ID}}" />
     <style>
         .blog-container {
             width: clamp(20ch, 80dvw, 120ch);
@@ -200,10 +219,10 @@
                     {{language_tag}}
                 </span>
                 <sl-menu>
-                    <sl-menu-item><a href="/">ðŸ‡¬ðŸ‡§ EN (English)</a></sl-menu-item>
-                    <sl-menu-item><a href="/sr">ðŸ‡·ðŸ‡¸ SR (Srpski)</a></sl-menu-item>
-                    <sl-menu-item><a href="/de">ðŸ‡©ðŸ‡ª DE (Deutsch)</a></sl-menu-item>
-                    <sl-menu-item><a href="/it">ðŸ‡®ðŸ‡¹ IT (Italiano)</a></sl-menu-item>
+                    <sl-menu-item><a href="/en/{{BLOG_ID}}">ðŸ‡¬ðŸ‡§ EN (English)</a></sl-menu-item>
+                    <sl-menu-item><a href="/sr/{{BLOG_ID}}">ðŸ‡·ðŸ‡¸ SR (Srpski)</a></sl-menu-item>
+                    <sl-menu-item><a href="/de/{{BLOG_ID}}">ðŸ‡©ðŸ‡ª DE (Deutsch)</a></sl-menu-item>
+                    <sl-menu-item><a href="/it/{{BLOG_ID}}">ðŸ‡®ðŸ‡¹ IT (Italiano)</a></sl-menu-item>
                 </sl-menu>
             </sl-dropdown>
             <a class="nav-cta" style="cursor: pointer; visibility: hidden;">{{nav_cta}}</a>
@@ -222,10 +241,10 @@
         </div>
     </header>
     <sl-drawer id="drawer_menu" label="Navigation">
-        <a class="nav-link" href="/{{langauge_code}}/#chalets" onclick="drawer_menu.hide()">{{nav_chalets}}</a>
-        <a class="nav-link" href="/{{langauge_code}}/#location" onclick="drawer_menu.hide()">{{nav_location}}</a>
+        <a class="nav-link" href="/{{language_code}}/#chalets" onclick="drawer_menu.hide()">{{nav_chalets}}</a>
+        <a class="nav-link" href="/{{language_code}}/#location" onclick="drawer_menu.hide()">{{nav_location}}</a>
         <!--<a href="#reviews" class="nav-link" onclick="drawer_menu.hide()" data-i8n="nav_reviews">Reviews</a>-->
-        <a class="nav-link" href="/{{langauge_code}}/#blog" onclick="drawer_menu.hide()">{{nav_blog}}</a>
+        <a class="nav-link" href="/{{language_code}}/#blog" onclick="drawer_menu.hide()">{{nav_blog}}</a>
         <a class="nav-link" href="/{{language_code}}/notice#impressum" onclick="drawer_menu.hide()">{{contact}}</a>
         <sl-dropdown>
             <!-- NEW TRIGGER: span element to display the selected language -->
@@ -234,10 +253,10 @@
                 {{language_tag}}
             </span>
             <sl-menu>
-                <sl-menu-item><a href="/blog/{{BLOG_ID}}">🇬🇧 EN (English)</a></sl-menu-item>
-                <sl-menu-item><a href="/sr/blog/{{BLOG_ID}}">🇷🇸 SR (Srpski)</a></sl-menu-item>
-                <sl-menu-item><a href="/de/blog/{{BLOG_ID}}">🇩🇪 DE (Deutsch)</a></sl-menu-item>
-                <sl-menu-item><a href="/it/blog/{{BLOG_ID}}">🇮🇹 IT (Italiano)</a></sl-menu-item>
+                <sl-menu-item><a href="/en/{{BLOG_ID}}">ðŸ‡¬ðŸ‡§ EN (English)</a></sl-menu-item>
+                <sl-menu-item><a href="/sr/{{BLOG_ID}}">ðŸ‡·ðŸ‡¸ SR (Srpski)</a></sl-menu-item>
+                <sl-menu-item><a href="/de/{{BLOG_ID}}">ðŸ‡©ðŸ‡ª DE (Deutsch)</a></sl-menu-item>
+                <sl-menu-item><a href="/it/{{BLOG_ID}}">ðŸ‡®ðŸ‡¹ IT (Italiano)</a></sl-menu-item>
             </sl-menu>
         </sl-dropdown>
     </sl-drawer>

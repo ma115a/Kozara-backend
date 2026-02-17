@@ -31,6 +31,10 @@
     <script type="module"
         src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/alert/alert.js"></script>
     <script src="./js/jodit.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/input/input.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/textarea/textarea.js"
+        type="module"></script>
 </head>
 
 <body>
@@ -51,7 +55,7 @@
 <script>
     let open_tabs = 0
     let editors = {}
-    const baseurl = "https://lenders-store-plot-elite.trycloudflare.com"
+    const baseurl = "https://kozara.share.zrok.io"
 
     // close tab logic
     tabgroup.addEventListener("sl-close", async event => {
@@ -104,6 +108,12 @@
 						</sl-button>
 					</sl-button-group>
 				</div>
+                <sl-details summary="SEO Settings" style="margin-top: 1rem; border: 1px solid #ddd; border-radius: 4px;">
+                        <div style="display: flex; flex-direction: column; gap: 10px; padding: 10px;">
+                            <sl-textarea class="seo-desc" label="Meta Description" maxlength="160" rows="2" resize="none" help-text="Recommended length: 150-160 characters"></sl-textarea>
+                            <sl-input class="seo-keywords" label="Keywords" help-text="Comma separated (e.g. hiking, nature, spa)"></sl-input>
+                        </div>
+                    </sl-details>
 				<div class='doc_body'>
 					<textarea class='editor'></textarea>
 				</div>`,
@@ -130,6 +140,10 @@
         const panel = document.querySelector(`sl-tab-panel[name="${panel_name}"]`)
         const blogid = panel.dataset.blogid || null
 
+
+        const seo_desc = panel.querySelector(".seo-desc").value;
+        const seo_keywords = panel.querySelector(".seo-keywords").value;
+
         let title_img = null
         try {
             title_img = /<img.*?src="(.*?)".*?>/.exec(editors[panel_name].value)[1]
@@ -155,6 +169,8 @@
                 title_img,
                 editor: editors[panel_name].value,
                 blogid,
+                seo_desc,
+                seo_keywords
             }),
         })
         server_response = await server_response.json()
@@ -250,6 +266,13 @@
 						</sl-button>
 					</sl-button-group>
 				</div>
+
+                <sl-details summary="SEO Settings" style="margin-top: 1rem; border: 1px solid #ddd; border-radius: 4px;">
+                        <div style="display: flex; flex-direction: column; gap: 10px; padding: 10px;">
+                            <sl-textarea class="seo-desc" label="Meta Description" maxlength="160" rows="2" resize="none" help-text="Recommended length: 150-160 characters"></sl-textarea>
+                            <sl-input class="seo-keywords" label="Keywords" help-text="Comma separated (e.g. hiking, nature, spa)"></sl-input>
+                        </div>
+                    </sl-details>
 				<div class='doc_body'>
 					<textarea class='editor'></textarea>
 				</div>`,
@@ -257,6 +280,10 @@
         newpanel.dataset.blogid = server_response.blogid
         newtab.dataset.blogid = server_response.blogid
         const editor_holder = newpanel.querySelector(".editor")
+        const seo_desc = newpanel.querySelector('.seo-desc')
+        const seo_keywords = newpanel.querySelector('.seo-keywords')
+        seo_desc.value = server_response.seo_desc
+        seo_keywords.value = server_response.seo_keywords
         editors[newtab.panel] = Jodit.make(newpanel.querySelector(".editor"), {
             toolbarAdaptive: false,
             uploader: {
