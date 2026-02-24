@@ -8,10 +8,14 @@
 
     <!-- Import Fonts -->
     <link rel="stylesheet"
-        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap">
-    <!-- Shoelace Icons -->
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;700;900&display=swap">
+
+    <!-- Shoelace Theme & Components -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/light.css" />
     <script type="module"
         src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/icon/icon.js"></script>
+    <script type="module"
+        src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/details/details.js"></script>
 
     <style>
         :root {
@@ -20,9 +24,10 @@
             --muted-green: #5c6d4c;
             --soft-bg: #fdfdfb;
             --text-main: #333333;
-            --text-muted: #666666;
-            --text-light: #999999;
+            --text-muted: #555555;
+            --text-light: #888888;
             --white: #ffffff;
+            --border-color: #e5e5e5;
         }
 
         /* Centering Logic */
@@ -31,6 +36,13 @@
             height: 100%;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: inherit;
         }
 
         body {
@@ -38,18 +50,20 @@
             background-color: #1a1a1a;
             color: var(--text-main);
             display: flex;
-            align-items: center;
             justify-content: center;
             min-height: 100vh;
             width: 100%;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            padding: 40px 20px;
+            /* Provides scroll spacing */
         }
 
         .serif {
             font-family: 'Playfair Display', serif;
         }
 
-        /* Hero Background - No Blur */
+        /* Hero Background */
         .hero-bg {
             position: fixed;
             top: 0;
@@ -59,7 +73,7 @@
             background-image: url("/assets/Scenery/lander6.webp");
             background-size: cover;
             background-position: center;
-            z-index: -1;
+            z-index: -2;
         }
 
         .hero-overlay {
@@ -68,82 +82,43 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.55);
+            background: rgba(0, 0, 0, 0.4);
             z-index: -1;
         }
 
         /* Main Confirmation Card */
         .confirmation-card {
             background: var(--soft-bg);
-            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.45);
-            border-radius: 12px;
+            box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.5);
+            border-radius: 16px;
             overflow: hidden;
-            width: calc(100% - 40px);
-            max-width: 1200px;
+            width: 100%;
+            max-width: 1000px;
             position: relative;
             z-index: 10;
             display: flex;
             flex-direction: column;
+            margin: auto;
+            /* Centers safely without clipping top */
         }
 
-        /* Desktop Layout (1000px+) */
-        @media (min-width: 1000px) {
-            .confirmation-card {
-                flex-direction: row;
-            }
-
-            .card-image-container {
-                display: block;
-                width: 42%;
-                position: relative;
-                min-height: 100%;
-            }
-
+        /* Desktop Layout */
+        @media (min-width: 900px) {
             .card-content-container {
-                width: 58%;
-                padding: 60px;
+                width: 100%;
+                padding: 60px 80px;
             }
         }
 
-        /* Mobile Layout (<1000px) */
-        @media (max-width: 999px) {
+        /* Mobile Layout */
+        @media (max-width: 899px) {
             .confirmation-card {
                 max-width: 600px;
-                margin: 40px 20px;
-            }
-
-            .card-image-container {
-                display: none;
             }
 
             .card-content-container {
-                padding: 40px 25px;
+                padding: 40px 30px;
             }
-        }
-
-        /* Image Styling */
-        .card-image-container img {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .image-overlay-text {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            padding: 40px;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
-            color: var(--white);
-        }
-
-        .image-overlay-text p {
-            font-style: italic;
-            font-size: 1.125rem;
-            margin: 0;
         }
 
         /* Content Elements */
@@ -168,37 +143,40 @@
         }
 
         .success-checkmark {
-            width: 80px;
-            height: 80px;
+            width: 72px;
+            height: 72px;
             margin: 0 auto 1.5rem;
-            background: #f0f4ea;
+            background: #eef2e6;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--primary-green);
-            font-size: 2.5rem;
+            font-size: 2.2rem;
+            box-shadow: 0 0 0 10px rgba(54, 77, 20, 0.05);
         }
 
         h1 {
-            font-size: 2.25rem;
+            font-size: 2.2rem;
             color: var(--primary-green);
             margin-top: 0;
+            font-weight: 700;
         }
 
         .subtitle {
             color: var(--text-muted);
             line-height: 1.6;
-            font-size: 1rem;
+            font-size: 1.05rem;
+            margin: 0;
         }
 
         /* Data Box */
         .data-box {
             background-color: var(--white);
-            border: 1px solid #eee;
-            border-radius: 8px;
-            padding: 24px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 24px 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
         }
 
         .data-header {
@@ -206,34 +184,37 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
-            padding-bottom: 15px;
-            border-bottom: 1px solid #f0f0f0;
+            padding-bottom: 16px;
+            border-bottom: 1px dashed var(--border-color);
         }
 
         .label-tiny {
             text-transform: uppercase;
-            font-size: 0.65rem;
+            font-size: 0.7rem;
             font-weight: 700;
-            letter-spacing: 0.1em;
+            letter-spacing: 0.12em;
             color: var(--text-light);
+            display: block;
         }
 
         .ref-number {
             font-weight: 700;
             color: var(--earth-brown);
-            font-size: 1.125rem;
+            font-size: 1.2rem;
+            letter-spacing: 0.05em;
         }
 
         .data-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 20px;
+            gap: 20px 30px;
         }
 
         .data-point p {
-            margin: 4px 0 0 0;
+            margin: 6px 0 0 0;
             font-weight: 700;
-            font-size: 0.9rem;
+            font-size: 1rem;
+            color: var(--text-main);
         }
 
         .text-right {
@@ -242,67 +223,118 @@
 
         .price-total {
             color: var(--primary-green);
-            font-size: 1.25rem;
-            font-weight: 700;
+            font-size: 1.3rem !important;
+            font-weight: 900 !important;
         }
 
-        /* Contact/Location Section */
-        .info-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 24px;
+        /* Important Information Section using sl-details */
+        .important-info-container {
             margin: 30px 0;
-            text-align: left;
+            background: #fdfdfb;
+            border: 1px solid var(--border-color);
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
         }
 
-        @media (min-width: 640px) {
-            .info-grid {
-                grid-template-columns: 1fr 1fr;
-            }
+        .important-info-container h3 {
+            margin-top: 0;
+            margin-bottom: 20px;
+            color: var(--primary-green);
+            font-size: 1.4rem;
         }
 
-        .info-item {
+        .info-list {
             display: flex;
-            gap: 16px;
+            flex-direction: column;
+            gap: 12px;
+            /* Spacing between accordions */
         }
 
-        .info-icon {
-            color: var(--earth-brown);
-            font-size: 1.25rem;
-            margin-top: 4px;
+        sl-details {
+            --background-color: var(--white);
         }
 
-        .info-content h3 {
-            font-size: 1.1rem;
+        sl-details::part(base) {
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            background-color: var(--white);
+            transition: border-color 0.2s ease;
+        }
+
+        sl-details::part(base):hover {
+            border-color: var(--earth-brown);
+        }
+
+        sl-details::part(header) {
+            padding: 16px;
+        }
+
+        sl-details::part(content) {
+            padding: 0 16px 20px 16px;
+        }
+
+        .custom-summary {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.05rem;
             font-weight: 700;
-            margin: 0 0 4px 0;
+            color: var(--text-main);
         }
 
-        .info-content p {
-            font-size: 0.875rem;
-            color: var(--text-muted);
+        .custom-summary sl-icon {
+            color: var(--earth-brown);
+            font-size: 1.4rem;
+        }
+
+        .details-content p {
             margin: 0 0 8px 0;
+            font-size: 0.95rem;
+            color: var(--text-muted);
             line-height: 1.5;
         }
 
+        .details-content p:last-child {
+            margin-bottom: 0;
+        }
+
+        .details-content ul {
+            margin: 0;
+            padding-left: 20px;
+            font-size: 0.95rem;
+            color: var(--text-muted);
+            line-height: 1.5;
+        }
+
+        .details-content li {
+            margin-bottom: 6px;
+        }
+
         .info-link {
-            font-size: 0.75rem;
-            font-weight: 700;
             color: var(--primary-green);
-            text-transform: uppercase;
-            text-decoration: underline;
-            letter-spacing: 0.05em;
+            text-decoration: none;
+            font-weight: 700;
         }
 
         .info-link:hover {
+            color: var(--earth-brown);
             text-decoration: underline;
+        }
+
+        /* Sign-off */
+        .sign-off {
+            margin-bottom: 30px;
+            font-size: 1.2rem;
+            color: var(--primary-green);
+            line-height: 1.4;
         }
 
         /* Buttons */
         .action-container {
             display: flex;
             flex-direction: column;
-            gap: 16px;
+            gap: 12px;
         }
 
         @media (min-width: 640px) {
@@ -313,10 +345,10 @@
 
         .btn {
             flex: 1;
-            padding: 14px 24px;
-            border-radius: 4px;
+            padding: 16px 24px;
+            border-radius: 8px;
             text-align: center;
-            font-size: 0.75rem;
+            font-size: 0.85rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.1em;
@@ -331,14 +363,15 @@
         }
 
         .btn-outline {
-            border: 1px solid var(--earth-brown);
-            color: var(--earth-brown);
+            border: 2px solid var(--border-color);
+            color: var(--text-main);
             background: transparent;
         }
 
         .btn-outline:hover {
-            background: var(--earth-brown);
-            color: var(--white);
+            border-color: var(--primary-green);
+            color: var(--primary-green);
+            background: #f4f6f0;
         }
 
         .btn-primary {
@@ -347,22 +380,24 @@
         }
 
         .btn-primary:hover {
-            background-color: var(--earth-brown);
-            transform: translateY(-1px);
+            background-color: #2a3d0f;
+            box-shadow: 0 4px 12px rgba(54, 77, 20, 0.3);
+            transform: translateY(-2px);
         }
 
         .return-home {
             display: block;
             margin-top: 24px;
             text-align: center;
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: var(--text-light);
-            text-decoration: underline;
-            text-underline-offset: 4px;
+            text-decoration: none;
+            font-weight: 700;
         }
 
         .return-home:hover {
             color: var(--earth-brown);
+            text-decoration: underline;
         }
 
         /* Print Styles */
@@ -374,6 +409,7 @@
             body {
                 background: white;
                 display: block;
+                padding: 0;
             }
 
             .hero-bg,
@@ -383,20 +419,33 @@
 
             .confirmation-card {
                 box-shadow: none;
-                border: 1px solid #ddd;
+                border: 1px solid var(--border-color);
                 margin: 0;
                 width: 100%;
                 max-width: none;
                 flex-direction: column;
             }
 
-            .card-image-container {
-                display: none;
-            }
-
             .card-content-container {
                 padding: 20px;
                 width: 100%;
+            }
+
+            .important-info-container {
+                box-shadow: none;
+                padding: 0;
+                border: none;
+            }
+
+            /* Expand details for print */
+            sl-details::part(base) {
+                border: none;
+                margin-bottom: 20px;
+            }
+
+            sl-details::part(content) {
+                display: block !important;
+                padding: 10px 0;
             }
         }
     </style>
@@ -405,15 +454,9 @@
 <body>
 
     <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
 
     <main class="confirmation-card">
-
-        <div class="card-image-container">
-            <img src="/assets/Scenery/1.webp" alt="Kozara Resort">
-            <div class="image-overlay-text">
-                <p class="serif">"The mountains are calling, and you must go."</p>
-            </div>
-        </div>
 
         <div class="card-content-container">
 
@@ -423,11 +466,12 @@
                 </div>
                 <h1 class="serif mb-2">Reservation Secured</h1>
                 <p class="subtitle">
-                    Warm greetings, <span id="customer-name"
-                        style="font-weight: 700; color: #333;">{{customerName}}</span>!
-                    Your sanctuary among the pines of Kozara is officially secured. We are so delighted to host you.
-                    We’ve sent your booking details to your email—we can’t wait to welcome you to our mountain
-                    paradise.
+                    Dear <span id="customer-name"
+                        style="font-weight: 700; color: var(--text-main);">{{customerName}}</span> <span
+                        id="customer-lastname" style="font-weight: 700; color: var(--text-main);"></span>,<br><br>
+                    Thank you for choosing Kozara Panoramic Resort. We look forward to welcoming you to your private
+                    panoramic chalet in the peaceful nature of Kozara. We’ve also sent your full itinerary to <span
+                        id="customer-email" style="font-weight: 700;">your email</span>.
                 </p>
             </div>
 
@@ -457,35 +501,131 @@
                 </div>
             </div>
 
-            <div class="info-grid">
-                <div class="info-item">
-                    <div class="info-icon">
-                        <sl-icon name="geo-alt"></sl-icon>
-                    </div>
-                    <div class="info-content">
-                        <h3>Our Location</h3>
-                        <p>Kozara National Park, Mrakovica, Bosnia and Herzegovina.</p>
-                        <a href="https://maps.app.goo.gl/TCrvP6iavY38Xbp7A" target="_blank" class="info-link">Open in
-                            Maps</a>
-                    </div>
-                </div>
-                <div class="info-item">
-                    <div class="info-icon">
-                        <sl-icon name="envelope"></sl-icon>
-                    </div>
-                    <div class="info-content">
-                        <h3>Need Assistance?</h3>
-                        <p>Questions about your stay or special requests?</p>
-                        <a href="mailto:info@kozarapanoramicresort.ba"
-                            class="info-link">info@kozarapanoramicresort.ba</a>
-                    </div>
+            <div class="important-info-container">
+                <h3 class="serif">Important Guest Information</h3>
+
+                <div class="info-list">
+                    <!-- Amenities -->
+                    <sl-details open>
+                        <div slot="summary" class="custom-summary">
+
+                            <sl-icon src="/assets/amenities_icons/house.svg"></sl-icon>
+                            Your Chalet & Amenities
+                        </div>
+                        <div class="details-content">
+                            <p>Your chalet (Sun / Star / Sky / Cloud / Wind) includes:</p>
+                            <ul>
+                                <li>Fully equipped kitchen (oven, hob, fridge-freezer, dishwasher, kettle, toaster,
+                                    coffee machine)</li>
+                                <li>Underfloor heating & air-conditioning</li>
+                                <li>Fresh premium bedding & towels</li>
+                                <li>High-speed Wi-Fi</li>
+                                <li>Private seasonal swimming pool (heated in Sky Chalet)</li>
+                                <li>Free private parking directly at your chalet</li>
+                            </ul>
+                        </div>
+                    </sl-details>
+
+                    <!-- Check-in -->
+                    <sl-details>
+                        <div slot="summary" class="custom-summary">
+
+                            <sl-icon src="/assets/amenities_icons/clock.svg"></sl-icon>
+                            Check-in & Check-out
+                        </div>
+                        <div class="details-content">
+                            <p><strong>Check-in:</strong> from 15:00<br><strong>Check-out:</strong> until 10:00</p>
+                            <p>Flexible self check-in available. Access details will be sent before arrival.</p>
+                        </div>
+                    </sl-details>
+
+                    <!-- Arrival -->
+                    <sl-details>
+                        <div slot="summary" class="custom-summary">
+                            <sl-icon src="/assets/amenities_icons/signpost.svg"></sl-icon> Arrival Information
+                        </div>
+                        <div class="details-content">
+                            <p>From Gradiška, follow the Kozara region road and resort signage. Remain on paved roads
+                                until the final section.</p>
+                            <p>The last approximately 1 km is an unpaved natural road — completely normal and accessible
+                                with standard vehicles.</p>
+                        </div>
+                    </sl-details>
+
+                    <!-- Self Catering -->
+                    <sl-details>
+                        <div slot="summary" class="custom-summary">
+                            <sl-icon src="/assets/amenities_icons/basket.svg"></sl-icon> Self-Catering
+                        </div>
+                        <div class="details-content">
+                            <p>Kozara Panoramic Resort is a private self-catering retreat. We do not provide fresh food
+                                products before arrival for hygiene reasons.</p>
+                            <ul>
+                                <li><strong>Small shop:</strong> Turjak village (on your way)</li>
+                                <li><strong>Large supermarkets:</strong> Gradiška & Banja Luka</li>
+                            </ul>
+                        </div>
+                    </sl-details>
+
+                    <!-- Organic Garden -->
+                    <sl-details>
+                        <div slot="summary" class="custom-summary">
+                            <sl-icon src="/assets/amenities_icons/flower.svg"></sl-icon> Organic Garden
+                        </div>
+                        <div class="details-content">
+                            <p>Seasonal organic baskets from our garden can be arranged upon request.</p>
+                        </div>
+                    </sl-details>
+
+                    <!-- Outdoor Cooking -->
+                    <sl-details>
+                        <div slot="summary" class="custom-summary">
+                            <sl-icon src="/assets/amenities_icons/flame.svg"></sl-icon> Outdoor Cooking
+                        </div>
+                        <div class="details-content">
+                            <p>Open fires and charcoal BBQs are not permitted. A modern electric smoker BBQ is available
+                                upon request.</p>
+                        </div>
+                    </sl-details>
+
+                    <!-- Peace & Privacy -->
+                    <sl-details>
+                        <div slot="summary" class="custom-summary">
+                            <sl-icon src="/assets/amenities_icons/moon-star.svg"></sl-icon> Peace & Privacy
+                        </div>
+                        <div class="details-content">
+                            <p><strong>Quiet hours:</strong> 22:00 – 08:00.</p>
+                            <p>For exclusive full-resort bookings (all five chalets), quiet hours may be relaxed upon
+                                prior agreement.</p>
+                        </div>
+                    </sl-details>
+
+                    <!-- Contacts -->
+                    <sl-details>
+                        <div slot="summary" class="custom-summary">
+                            <sl-icon src="/assets/amenities_icons/contact.svg"></sl-icon> Resort Contacts
+                        </div>
+                        <div class="details-content">
+                            <p>Also available on WhatsApp.</p>
+                            <p><strong>Dragana Truscott – Resort Owner</strong><br>
+                                🇧🇦 Bosnia: +387 66 767 622<br>
+                                🇩🇪 Germany: +49 151 176 27478<br>
+                                ✉️ <a href="mailto:info@kozara-panoramic-resort.com"
+                                    class="info-link">info@kozarapanoramicresort.com</a></p>
+                        </div>
+                    </sl-details>
                 </div>
             </div>
 
+            <div class="sign-off serif">
+                Warm regards,<br>
+                James & Dragana
+            </div>
+
             <div class="action-container no-print">
-                <a href="/#location" class="btn btn-outline">
-                    View Details about Location
-                </a>
+                <!-- <button onclick="addToCalendar()" class="btn btn-outline"> -->
+                <!--     <sl-icon name="calendar-plus"></sl-icon> Add to Calendar -->
+                <!-- </button> -->
                 <button onclick="window.print()" class="btn btn-primary">
                     <sl-icon name="printer"></sl-icon> Print Details
                 </button>
@@ -496,35 +636,6 @@
         </div>
     </main>
 
-    <script>
-        window.addEventListener("DOMContentLoaded", () => {
-            const urlParams = new URLSearchParams(window.location.search);
-
-            // Mapping IDs to URL Parameter keys
-            const mappings = {
-                "booking-ref": {key: "ref", prefix: "#"},
-                "customer-name": {key: "name", prefix: ""},
-                "customer-email": {key: "email", prefix: ""},
-                "date-in": {key: "in", prefix: ""},
-                "date-out": {key: "out", prefix: ""},
-                "total-price": {key: "price", prefix: ""},
-                "guest-count": {key: "guests", prefix: ""}
-            };
-
-            Object.keys(mappings).forEach(id => {
-                const map = mappings[id];
-                const element = document.getElementById(id);
-                if (element && urlParams.has(map.key)) {
-                    let value = urlParams.get(map.key);
-                    // Add currency if it's the price field
-                    if (id === "total-price" && !value.includes("BAM")) {
-                        value = value + " BAM";
-                    }
-                    element.textContent = map.prefix + value;
-                }
-            });
-        });
-    </script>
 </body>
 
 </html>

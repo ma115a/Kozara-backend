@@ -182,6 +182,7 @@ function formatDate(date) {
 
 async function sendBookingConfirmation(bookingData) {
     try {
+        logger.info('sending booking confirmation email...')
         // Read the HTML template file
         const templatePath = path.join(__dirname, 'email.html');
         let htmlTemplate = fs.readFileSync(templatePath, 'utf8');
@@ -232,12 +233,142 @@ async function sendBookingConfirmation(bookingData) {
 
         console.log("Message sent: %s", info.messageId);
         logger.info({ message: info.messageId })
+        if (info.accepted.length >= 1) {
+            try {
+                const updateBooking = db.prepare(`UPDATE bookings SET emailConfirmation = ? WHERE id = ?`)
+
+                console.log(bookingData.id)
+                console.log(bookingData.dbid)
+                const updatedBooking = updateBooking.run(1, bookingData.dbid)
+                logger.info(updatedBooking)
+            } catch (error) {
+                logger.error(error.message)
+
+            }
+
+        }
         return true;
 
     } catch (error) {
         logger.error({ message: error.message })
         console.error("Error sending email:", error);
         return false;
+    }
+}
+
+
+async function sendEmail72Hours(bookingData) {
+
+    const templatePath = path.join(__dirname, 'email72hours.html')
+    let htmlTemplate = fs.readFileSync(templatePath, 'utf8')
+
+
+    const replacements = {
+        '{{customerName}}': bookingData.customerName
+    }
+
+    for (const [key, value] of Object.entries(replacements)) {
+        htmlTemplate = htmlTemplate.replace(new RegExp(key, 'g'), value);
+    }
+
+
+    const info = await transporter.sendMail({
+        from: '"Kozara Panoramic Resort" <bookings@kozarapanoramicresort.ba>',
+        to: bookingData.email,
+        subject: `Your stay at Kozara Resort is almost here! 🌲`,
+        text: `Dear ${bookingData.customerName},\n\nYour stay at Kozara Panoramic Resort is almost here! \n\nCheck-in is from 15:00. Please remember to bring personal groceries, toiletries, comfortable footwear, and swimwear (fresh towels and bedding are provided).\n\nIf you need any assistance before you arrive, please contact us at +387 66 767 622 or reply to this email.\n\nWarm regards,\nJames & Dragana`,
+        html: htmlTemplate
+    });
+    logger.info(info)
+    if (info.accepted.length >= 1) {
+        try {
+            const updateBooking = db.prepare(`UPDATE bookings SET email3days = ? WHERE id = ?`)
+
+            console.log(bookingData.id)
+            const updatedBooking = updateBooking.run(1, bookingData.id)
+            logger.info(updatedBooking)
+        } catch (error) {
+            logger.error(error.message)
+
+        }
+
+    }
+
+}
+
+
+async function sendCheckInEmail(bookingData) {
+
+    const templatePath = path.join(__dirname, 'checkinemail.html')
+    let htmlTemplate = fs.readFileSync(templatePath, 'utf8')
+
+
+    const replacements = {
+        '{{customerName}}': bookingData.customerName
+    }
+
+    for (const [key, value] of Object.entries(replacements)) {
+        htmlTemplate = htmlTemplate.replace(new RegExp(key, 'g'), value);
+    }
+
+    const info = await transporter.sendMail({
+        from: '"Kozara Panoramic Resort" <bookings@kozarapanoramicresort.ba>',
+        to: bookingData.email,
+        subject: `Checking in on your stay at Kozara Panoramic Resort 🌲`,
+        text: `Dear ${bookingData.customerName},\n\nWe hope you arrived comfortably and are already enjoying your stay with us at Kozara Panoramic Resort.\n\nIf there is anything you need or if something is not absolutely perfect, please inform us immediately — we want to ensure your sanctuary experience is flawless.\n\nCall or WhatsApp us at:\nBosnia: +387 66 767 622\nGermany: +49 151 176 27478\nEmail: info@kozarapanoramicresort.ba\n\nEnjoy the peace and beauty of Kozara!\n\nOur best regards,\nJames & Dragana`,
+        html: htmlTemplate
+    });
+    if (info.accepted.length >= 1) {
+        try {
+            const updateBooking = db.prepare(`UPDATE bookings SET emailCheckIn = ? WHERE id = ?`)
+
+            console.log(bookingData.id)
+            const updatedBooking = updateBooking.run(1, bookingData.id)
+            logger.info(updatedBooking)
+        } catch (error) {
+            logger.error(error.message)
+
+        }
+
+    }
+}
+
+
+async function sendEmailAfter(bookingData) {
+
+    const templatePath = path.join(__dirname, 'emailafter.html')
+    let htmlTemplate = fs.readFileSync(templatePath, 'utf8')
+
+
+    const replacements = {
+        '{{customerName}}': bookingData.customerName
+    }
+
+    for (const [key, value] of Object.entries(replacements)) {
+        htmlTemplate = htmlTemplate.replace(new RegExp(key, 'g'), value);
+    }
+
+    const info = await transporter.sendMail({
+        from: '"Kozara Panoramic Resort" <bookings@kozarapanoramicresort.ba>',
+        to: bookingData.email,
+        subject: `Thank you for staying at Kozara Panoramic Resort 🌲`,
+        text: `Dear ${bookingData.customerName},\n\nThank you for staying with us at Kozara Panoramic Resort. We truly hope you enjoyed the peace, privacy and nature experience.\n\nIf everything met your expectations, we would sincerely appreciate your review on Booking.com or Google, as it helps our small boutique resort grow.\n\nIf anything was not perfect, please contact us directly — your feedback is extremely valuable to us.\n\nWe hope to welcome you back again soon.\n\nOur kind regards to you,\nJames & Dragana`,
+        html: htmlTemplate
+    });
+    logger.info(info)
+
+    if (info.accepted.length >= 1) {
+        try {
+            const updateBooking = db.prepare(`UPDATE bookings SET emailCheckOut = ? WHERE id = ?`)
+
+            console.log(bookingData.id)
+            const updatedBooking = updateBooking.run(1, bookingData.id)
+            logger.info(updatedBooking)
+        } catch (error) {
+            logger.error(error.message)
+
+        }
+
     }
 }
 
@@ -589,7 +720,7 @@ app.get("/mail", async (req, res) => {
         const info = await transporter.sendMail({
             from: '"Kozara Panoramic Resort" <bookings@kozarapanoramicresort.ba>',
             to: "ghfmk9@gmail.com",
-            subject: `Booking Confirmed: #00000`, // Unique ID prevents threading
+            subject: `Booking Confirmed: #000000`, // Unique ID prevents threading
             text: `Dear Customer, your booking at Kozara Resort is confirmed. Ref: #0000`, // Fallback plain text
             html: htmlTemplate
         });
@@ -602,6 +733,51 @@ app.get("/mail", async (req, res) => {
         res.status(500)
     }
 
+
+})
+
+
+app.get('/sendemailconfirmation/:id', async (req, res) => {
+
+    const bookingId = req.params.id
+    if (!bookingId) {
+        return res.send('Booking does not exist')
+    }
+
+    try {
+        const bookingPrepare = db.prepare('SELECT * FROM bookings WHERE bookingId = ?')
+        const booking = bookingPrepare.get(bookingId)
+        if (!booking) return res.send("Booking does not exist")
+
+
+
+        sendBookingConfirmation({ id: booking.bookingId, customerName: booking.customerName + ' ' + booking.customerLastName, email: booking.customerEmail, startDate: convertDateString(booking.startDate), endDate: convertDateString(booking.endDate), adults: booking.adults, children: booking.children, nights: getDaysBetween(booking.endDate, booking.startDate), totalPrice: booking.price })
+        res.send(booking)
+    } catch (error) {
+        logger.error(error.messageeg)
+    }
+})
+
+
+app.get('/send72hrs/:id', async (req, res) => {
+    const bookingId = req.params.id
+    if (!bookingId) {
+        return res.send('Booking does not exist')
+    }
+
+    try {
+        const bookingPrepare = db.prepare('SELECT id, customerName, customerLastName, customerEmail FROM bookings WHERE bookingId = ?')
+        const booking = bookingPrepare.get(bookingId)
+        if (!booking) return res.send("Booking does not exist")
+
+
+
+        sendEmail72Hours({ customerName: booking.customerName, email: booking.customerEmail, id: booking.id })
+
+        res.send(booking)
+    } catch (error) {
+        logger.error(error.messageeg)
+    }
 
 })
 
@@ -1126,7 +1302,6 @@ app.post('/api/booking', express.json(), async (req, res) => {
                         })
 
                         paymentResponseData = await paymentRequest.json()
-
                         const insertBooking = db.prepare(`INSERT INTO bookings (customerName, customerLastName, customerEmail, customerPhone, billingAddress, billingCity, billingCountry, billingPostCode, startDate, endDate, bookingId, bookingStatus, bookingTransactionId, createdAt, adults, children, price) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`);
 
 
@@ -1306,58 +1481,58 @@ app.post('/api/paypal/orders', express.json(), async (req, res) => {
 
             const paypalPrice = offerData.data[0].offers[0].price * 0.53
 
-            // const response = await fetch(`${process.env.PAYPAL_URL}/v2/checkout/orders`, {
-            //     method: 'POST',
-            //     headers: {
-            //         "Content-Type": "application/json",
-            //         Authorization: `Bearer ${paypalToken}`
-            //     },
-            //     body: JSON.stringify({
-            //         intent: 'CAPTURE',
-            //         purchase_units: [{
-            //             amount: { currency_code: 'EUR', value: '10.00' },
-            //             // description: `Chalet booking for ${req.body.customerName} ${req.body.customerLastName} from ${req.body.startDate} to ${req.body.endDate}`
-            //             description: 'Booking Deposit'
-            //         }],
-            //         application_context: {
-            //             shipping_preference: 'NO_SHIPPING',
-            //             user_action: 'PAY_NOW'
-            //         }
-            //     })
-            // })
             const response = await fetch(`${process.env.PAYPAL_URL}/v2/checkout/orders`, {
                 method: 'POST',
                 headers: {
                     "Content-Type": "application/json",
-                    Authorization: `Bearer ${paypalToken}`,
-                    "PayPal-Request-Id": `unique-id-${Date.now()}` // Add idempotency key
+                    Authorization: `Bearer ${paypalToken}`
                 },
                 body: JSON.stringify({
                     intent: 'CAPTURE',
                     purchase_units: [{
-                        amount: {
-                            currency_code: 'EUR',
-                            value: '10.00',
-                            breakdown: { // Add breakdown for clarity
-                                item_total: { currency_code: 'EUR', value: '10.00' }
-                            }
-                        },
-                        description: 'Chalet Booking Deposit',
-                        items: [{ // Add item details
-                            name: 'Booking Deposit',
-                            quantity: '1',
-                            unit_amount: { currency_code: 'EUR', value: '10.00' }
-                        }]
+                        amount: { currency_code: 'EUR', value: '10.00' },
+                        // description: `Chalet booking for ${req.body.customerName} ${req.body.customerLastName} from ${req.body.startDate} to ${req.body.endDate}`
+                        description: 'Booking Deposit'
                     }],
                     application_context: {
                         shipping_preference: 'NO_SHIPPING',
-                        user_action: 'PAY_NOW',
-                        brand_name: 'PEVA DOO', // Add your business name
-                        // return_url: 'https://yourdomain.com/success',
-                        // cancel_url: 'https://yourdomain.com/cancel'
+                        user_action: 'PAY_NOW'
                     }
                 })
             })
+            // const response = await fetch(`${process.env.PAYPAL_URL}/v2/checkout/orders`, {
+            //     method: 'POST',
+            //     headers: {
+            //         "Content-Type": "application/json",
+            //         Authorization: `Bearer ${paypalToken}`,
+            //         "PayPal-Request-Id": `unique-id-${Date.now()}` // Add idempotency key
+            //     },
+            //     body: JSON.stringify({
+            //         intent: 'CAPTURE',
+            //         purchase_units: [{
+            //             amount: {
+            //                 currency_code: 'EUR',
+            //                 value: '10.00',
+            //                 breakdown: { // Add breakdown for clarity
+            //                     item_total: { currency_code: 'EUR', value: '10.00' }
+            //                 }
+            //             },
+            //             description: 'Chalet Booking Deposit',
+            //             items: [{ // Add item details
+            //                 name: 'Booking Deposit',
+            //                 quantity: '1',
+            //                 unit_amount: { currency_code: 'EUR', value: '10.00' }
+            //             }]
+            //         }],
+            //         application_context: {
+            //             shipping_preference: 'NO_SHIPPING',
+            //             user_action: 'PAY_NOW',
+            //             brand_name: 'PEVA DOO', // Add your business name
+            //             // return_url: 'https://yourdomain.com/success',
+            //             // cancel_url: 'https://yourdomain.com/cancel'
+            //         }
+            //     })
+            // })
             const order = await response.json()
 
             logger.info(order)
@@ -1525,7 +1700,7 @@ app.post("/api/callback", express.json(), async (req, res) => {
                 const updateBookingResult = updateBookingPrepare.run(process.env.PAYMENT_SUCCESSFUL, req.body.merchantTransactionId)
                 logger.info({ message: 'booking that was updated', booking })
 
-                sendBookingConfirmation({ id: booking.bookingId, customerName: booking.customerName + ' ' + booking.customerLastName, email: booking.customerEmail, startDate: convertDateString(booking.startDate), endDate: convertDateString(booking.endDate), adults: booking.adults, children: booking.children, nights: getDaysBetween(booking.endDate, booking.startDate), totalPrice: booking.price })
+                sendBookingConfirmation({ id: booking.bookingId, customerName: booking.customerName + ' ' + booking.customerLastName, email: booking.customerEmail, startDate: convertDateString(booking.startDate), endDate: convertDateString(booking.endDate), adults: booking.adults, children: booking.children, nights: getDaysBetween(booking.endDate, booking.startDate), totalPrice: booking.price, dbid: booking.id })
             }
 
         } catch (error) {
@@ -1879,12 +2054,79 @@ app.get('/sitemap.xml', (req, res) => {
 
 
 
-app.get('/*splat', (req, res) => {
+app.get('/test', (req, res) => {
 
-    renderIndex(res, 'en')
+    const successPage = path.join(__dirname, 'public', 'success.html')
+    let successHtml = fs.readFileSync(successPage, 'utf8')
+    res.send(successHtml)
 })
 
 
+app.post('/createpayment', express.json(), async (req, res) => {
+
+    const date = new Date()
+    const uniqueId = formatDate(date)
+    console.log(req.body)
+
+
+    const requestBodyPayment = {
+        merchantTransactionId: uniqueId,
+        amount: `${req.body.price}`, errorUrl: `${process.env.BASE_URL}/error?type=payment`, successUrl: `${process.env.BASE_URL}/`, callbackUrl: `${process.env.BASE_URL}/api/callback`, currency: "BAM",
+        customer: {
+            billingAddress1: req.body.billingAddress,
+            billingCity: req.body.billingCity,
+            billingCountry: req.body.billingCountry,
+            billingPostcode: req.body.billingPostCode,
+            email: req.body.customerEmail,
+            firstName: req.body.customerName,
+            lastName: req.body.customerLastName
+
+        },
+        description: `Booking payment for ${req.body.customerName} ${req.body.customerLastName}`
+    }
+
+    const paymentRequestMethod = 'POST'
+    const paymentRequestURI = `/api/v3/transaction/${process.env.API_KEY}/debit`
+    const paymentRequestContentType = 'application/json; charset=utf-8'
+    const paymentRequestJsonBody = JSON.stringify(requestBodyPayment)
+
+    const paymentRequestBasicAuth = generateBasicAuth(process.env.USERNAME, process.env.PASSWORD)
+    const paymentRequestSignature = generateSignature(paymentRequestMethod, paymentRequestJsonBody, paymentRequestContentType, date.toUTCString(), paymentRequestURI, process.env.SHARED_SECRET)
+
+    const paymentRequestHeaders = {
+        'Content-Type': paymentRequestContentType,
+        'Date': date.toUTCString(),
+        'Authorization': `Basic ${paymentRequestBasicAuth}`,
+        'Accept': 'application/json',
+        'X-Signature': paymentRequestSignature
+    };
+
+
+    let paymentResponseData
+    try {
+
+        const paymentRequest = await fetch(`https://gateway.bankart.si/api/v3/transaction/${process.env.API_KEY}/debit`, {
+            method: paymentRequestMethod,
+            headers: paymentRequestHeaders,
+            body: paymentRequestJsonBody
+        })
+
+        paymentResponseData = await paymentRequest.json()
+        logger.info(paymentResponseData)
+        res.send(paymentResponseData.redirectUrl)
+    } catch (error) {
+        logger.error(error.message)
+    }
+})
+
+
+
+app.get('/*splat', (req, res) => {
+
+    renderIndex(res, 'en')
+
+
+})
 
 //refreshing the paypal access token
 setInterval(async () => {
@@ -1901,54 +2143,136 @@ setInterval(async () => {
 }, 100000)
 
 
-// cron job to cancel any booking that didn't make it through the payment process
-// cron.schedule(`*/${process.env.CRON_CLEAR_BOOKINGS_TIME} * * * *`, async () => {
-//     logger.info("Checking for false bookings...");
-//     try {
-//         const retrieveFalseBookings = db.prepare(`SELECT * FROM bookings WHERE bookingStatus = ?`)
-//         const falseBookings = retrieveFalseBookings.all(process.env.PAYMENT_PENDING)
-//         if (falseBookings.length > 0) {
-//             const cancelBookingsBody = []
-//             for (const booking of falseBookings) {
-//                 const differenceInMs = Date.now() - booking.createdAt
-//                 const timePassed = Math.floor(differenceInMs / 1000 / 60);
-//                 logger.info(timePassed)
-//                 if (timePassed > 180) {
-//                     logger.info({ message: 'elgible for deletion' })
-//                     logger.info({ message: booking })
-//                     cancelBookingsBody.push({ id: booking.bookingId, status: "cancelled" })
-//                 } else { logger.info('booking found but not eligible for deletion') }
-//             }
-//
-//             logger.info(cancelBookingsBody)
-//             if (cancelBookingsBody.length === 0) {
-//                 return
-//             }
-//
-//
-//
-//             const cancelBookingsRequest = await fetch('https://beds24.com/api/v2/bookings', {
-//                 method: 'POST',
-//                 headers: {
-//                     'token': tok,
-//                     'Accept': 'application/json'
-//                 },
-//                 body: JSON.stringify(cancelBookingsBody)
-//             })
-//
-//             const cancelBookingsResponse = await cancelBookingsRequest.json()
-//             logger.info(cancelBookingsResponse)
-//             if (cancelBookingsResponse.success) {
-//                 const deleteFalseBookings = db.prepare(`DELETE FROM bookings WHERE bookingStatus = ?`)
-//                 const deleteFalseBookingsResult = deleteFalseBookings.run(process.env.PAYMENT_PENDING)
-//
-//             }
-//
-//         }
-//     } catch (error) {
-//         logger.error(error)
-//     }
-// })
+cron.schedule('0 15 * * *', async () => {
+
+    logger.info('checking for 3 day emails...')
+
+    const today = new Date()
+    const maxDate = new Date()
+    maxDate.setDate(today.getDate() + 3)
+
+    const formatDate = (date) => date.toISOString().split('T')[0]
+    const todayStr = formatDate(today)
+    const maxDateStr = formatDate(maxDate)
+    try {
+        const bookingsPrepare = db.prepare('SELECT id, startDate, customerName, customerEmail from bookings WHERE bookingStatus = ? AND email3days IS NULL AND startDate BETWEEN ? AND ?')
+        const bookings = bookingsPrepare.all(process.env.PAYMENT_SUCCESSFUL, todayStr, maxDateStr)
+        logger.info(bookings)
+        for (const booking of bookings) {
+            sendEmail72Hours({ customerName: booking.customerName, email: booking.customerEmail, id: booking.id })
+        }
+
+    } catch (error) {
+        logger.error(error.message)
+    }
+});
+
+
+
+cron.schedule('0 15 * * *', async () => {
+
+    logger.info('checking for check in emails...')
+
+
+    const today = new Date()
+    const formatDate = (date) => date.toISOString().split('T')[0]
+    const todayStr = formatDate(today)
+
+
+    try {
+        const bookingsPrepare = db.prepare('SELECT id, startDate, customerName, customerEmail from bookings WHERE bookingStatus = ? AND emailCheckIn IS NULL AND startDate = ?')
+        const bookings = bookingsPrepare.all(process.env.PAYMENT_SUCCESSFUL, todayStr)
+        logger.info(bookings)
+
+        for (const booking of bookings) {
+            sendCheckInEmail({ customerName: booking.customerName, email: booking.customerEmail, id: booking.id })
+        }
+    } catch (error) {
+        logger.error(error.message)
+    }
+});
+
+
+cron.schedule('0 15 * * *', () => {
+    logger.info('checking for check out emails...')
+    const today = new Date()
+    const formatDate = (date) => date.toISOString().split('T')[0]
+    const todayStr = formatDate(today)
+
+
+    try {
+        const bookingsPrepare = db.prepare('SELECT id, customerName, customerEmail from bookings WHERE bookingStatus = ? AND emailCheckOut IS NULL AND endDate < ?')
+        const bookings = bookingsPrepare.all(process.env.PAYMENT_SUCCESSFUL, todayStr)
+        logger.info(bookings)
+        for (const booking of bookings) {
+            sendEmailAfter({ customerName: booking.customerName, email: booking.customerEmail, id: booking.id })
+        }
+
+    } catch (error) {
+        logger.error(error.message)
+    }
+});
+
+setInterval(async () => {
+
+    logger.info("Checking for false bookings...");
+    try {
+        const retrieveFalseBookings = db.prepare(`SELECT * FROM bookings WHERE bookingStatus = ?`)
+        const falseBookings = retrieveFalseBookings.all(process.env.PAYMENT_PENDING)
+        const cancelBookingsBody = []
+        if (falseBookings.length > 0) {
+            for (const booking of falseBookings) {
+                const differenceInMs = Date.now() - booking.createdAt
+                const timePassed = Math.floor(differenceInMs / 1000 / 60);
+                logger.info(timePassed)
+                if (timePassed > 180) {
+                    logger.info({ message: 'elgible for deletion' })
+                    logger.info({ message: booking })
+                    cancelBookingsBody.push({ id: booking.bookingId, status: "cancelled" })
+                } else { logger.info('booking found but not eligible for deletion') }
+            }
+
+            logger.info(cancelBookingsBody)
+            if (cancelBookingsBody.length === 0) {
+                return
+            }
+
+        } else {
+            logger.info('no bookings for deletion found')
+            return;
+        }
+
+        const cancelBookingsRequest = await fetch('https://beds24.com/api/v2/bookings', {
+            method: 'POST',
+            headers: {
+                'token': tok,
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify(cancelBookingsBody)
+        })
+
+        const cancelBookingsResponse = await cancelBookingsRequest.json()
+        console.log(cancelBookingsResponse)
+        for (const status of cancelBookingsResponse) {
+            console.log(status)
+            console.log('uga buga')
+        }
+        for (let i = 0; i < cancelBookingsResponse.length; i++) {
+            if (cancelBookingsResponse[i].success) {
+                const deleteFalseBookings = db.prepare(`DELETE FROM bookings WHERE bookingId = ?`)
+                const deleteFalseBookingsResult = deleteFalseBookings.run(cancelBookingsBody[i].id)
+            }
+        }
+    } catch (error) {
+        logger.error(error)
+    }
+}, 14400000)
+
+
+
+
+
+
 
 
 

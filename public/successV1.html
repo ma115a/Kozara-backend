@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmed | Kozara Panoramic Resort</title>
+
+    <!-- Import Fonts -->
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;700&display=swap">
+    <!-- Shoelace Icons -->
+    <script type="module"
+        src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/icon/icon.js"></script>
+
+    <style>
+        :root {
+            --primary-green: #364d14;
+            --earth-brown: #968067;
+            --muted-green: #5c6d4c;
+            --soft-bg: #fdfdfb;
+            --text-main: #333333;
+            --text-muted: #666666;
+            --text-light: #999999;
+            --white: #ffffff;
+        }
+
+        /* Centering Logic */
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Lato', sans-serif;
+            background-color: #1a1a1a;
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        .serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Hero Background - No Blur */
+        .hero-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("/assets/Scenery/lander6.webp");
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+        }
+
+        .hero-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.55);
+            z-index: -1;
+        }
+
+        /* Main Confirmation Card */
+        .confirmation-card {
+            background: var(--soft-bg);
+            box-shadow: 0 30px 60px -12px rgba(0, 0, 0, 0.45);
+            border-radius: 12px;
+            overflow: hidden;
+            width: calc(100% - 40px);
+            max-width: 1200px;
+            position: relative;
+            z-index: 10;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* Desktop Layout (1000px+) */
+        @media (min-width: 1000px) {
+            .confirmation-card {
+                flex-direction: row;
+            }
+
+            .card-image-container {
+                display: block;
+                width: 42%;
+                position: relative;
+                min-height: 100%;
+            }
+
+            .card-content-container {
+                width: 58%;
+                padding: 60px;
+            }
+        }
+
+        /* Mobile Layout (<1000px) */
+        @media (max-width: 999px) {
+            .confirmation-card {
+                max-width: 600px;
+                margin: 40px 20px;
+            }
+
+            .card-image-container {
+                display: none;
+            }
+
+            .card-content-container {
+                padding: 40px 25px;
+            }
+        }
+
+        /* Image Styling */
+        .card-image-container img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .image-overlay-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 40px;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            color: var(--white);
+        }
+
+        .image-overlay-text p {
+            font-style: italic;
+            font-size: 1.125rem;
+            margin: 0;
+        }
+
+        /* Content Elements */
+        .text-center {
+            text-align: center;
+        }
+
+        .mb-10 {
+            margin-bottom: 2.5rem;
+        }
+
+        .mb-8 {
+            margin-bottom: 2rem;
+        }
+
+        .mb-4 {
+            margin-bottom: 1rem;
+        }
+
+        .mb-2 {
+            margin-bottom: 0.5rem;
+        }
+
+        .success-checkmark {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background: #f0f4ea;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-green);
+            font-size: 2.5rem;
+        }
+
+        h1 {
+            font-size: 2.25rem;
+            color: var(--primary-green);
+            margin-top: 0;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        /* Data Box */
+        .data-box {
+            background-color: var(--white);
+            border: 1px solid #eee;
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+        }
+
+        .data-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .label-tiny {
+            text-transform: uppercase;
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            color: var(--text-light);
+        }
+
+        .ref-number {
+            font-weight: 700;
+            color: var(--earth-brown);
+            font-size: 1.125rem;
+        }
+
+        .data-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .data-point p {
+            margin: 4px 0 0 0;
+            font-weight: 700;
+            font-size: 0.9rem;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .price-total {
+            color: var(--primary-green);
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        /* Contact/Location Section */
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            margin: 30px 0;
+            text-align: left;
+        }
+
+        @media (min-width: 640px) {
+            .info-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        .info-item {
+            display: flex;
+            gap: 16px;
+        }
+
+        .info-icon {
+            color: var(--earth-brown);
+            font-size: 1.25rem;
+            margin-top: 4px;
+        }
+
+        .info-content h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin: 0 0 4px 0;
+        }
+
+        .info-content p {
+            font-size: 0.875rem;
+            color: var(--text-muted);
+            margin: 0 0 8px 0;
+            line-height: 1.5;
+        }
+
+        .info-link {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            text-transform: uppercase;
+            text-decoration: underline;
+            letter-spacing: 0.05em;
+        }
+
+        .info-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Buttons */
+        .action-container {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        @media (min-width: 640px) {
+            .action-container {
+                flex-direction: row;
+            }
+        }
+
+        .btn {
+            flex: 1;
+            padding: 14px 24px;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            border: none;
+        }
+
+        .btn-outline {
+            border: 1px solid var(--earth-brown);
+            color: var(--earth-brown);
+            background: transparent;
+        }
+
+        .btn-outline:hover {
+            background: var(--earth-brown);
+            color: var(--white);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-green);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--earth-brown);
+            transform: translateY(-1px);
+        }
+
+        .return-home {
+            display: block;
+            margin-top: 24px;
+            text-align: center;
+            font-size: 1rem;
+            color: var(--text-light);
+            text-decoration: underline;
+            text-underline-offset: 4px;
+        }
+
+        .return-home:hover {
+            color: var(--earth-brown);
+        }
+
+        /* Print Styles */
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+
+            body {
+                background: white;
+                display: block;
+            }
+
+            .hero-bg,
+            .hero-overlay {
+                display: none;
+            }
+
+            .confirmation-card {
+                box-shadow: none;
+                border: 1px solid #ddd;
+                margin: 0;
+                width: 100%;
+                max-width: none;
+                flex-direction: column;
+            }
+
+            .card-image-container {
+                display: none;
+            }
+
+            .card-content-container {
+                padding: 20px;
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="hero-bg"></div>
+
+    <main class="confirmation-card">
+
+        <div class="card-image-container">
+            <img src="/assets/Scenery/1.webp" alt="Kozara Resort">
+            <div class="image-overlay-text">
+                <p class="serif">"The mountains are calling, and you must go."</p>
+            </div>
+        </div>
+
+        <div class="card-content-container">
+
+            <div class="text-center mb-10">
+                <div class="success-checkmark">
+                    <sl-icon src="/assets/amenities_icons/circle-check.svg"></sl-icon>
+                </div>
+                <h1 class="serif mb-2">Reservation Secured</h1>
+                <p class="subtitle">
+                    Warm greetings, <span id="customer-name"
+                        style="font-weight: 700; color: #333;">{{customerName}}</span>!
+                    Your sanctuary among the pines of Kozara is officially secured. We are so delighted to host you.
+                    We’ve sent your booking details to your email—we can’t wait to welcome you to our mountain
+                    paradise.
+                </p>
+            </div>
+
+            <div class="data-box mb-8">
+                <div class="data-header">
+                    <span class="label-tiny">Booking Reference</span>
+                    <span id="booking-ref" class="ref-number">#{{bookingId}}</span>
+                </div>
+
+                <div class="data-grid">
+                    <div class="data-point">
+                        <span class="label-tiny">Check-In</span>
+                        <p id="date-in">{{checkInDate}}</p>
+                    </div>
+                    <div class="data-point text-right">
+                        <span class="label-tiny">Check-Out</span>
+                        <p id="date-out">{{checkOutDate}}</p>
+                    </div>
+                    <div class="data-point">
+                        <span class="label-tiny">Guests</span>
+                        <p id="guest-count">{{guestsCount}}</p>
+                    </div>
+                    <div class="data-point text-right">
+                        <span class="label-tiny">Total Paid</span>
+                        <p id="total-price" class="price-total serif">{{price}}BAM</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-icon">
+                        <sl-icon name="geo-alt"></sl-icon>
+                    </div>
+                    <div class="info-content">
+                        <h3>Our Location</h3>
+                        <p>Kozara National Park, Mrakovica, Bosnia and Herzegovina.</p>
+                        <a href="https://maps.app.goo.gl/TCrvP6iavY38Xbp7A" target="_blank" class="info-link">Open in
+                            Maps</a>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <div class="info-icon">
+                        <sl-icon name="envelope"></sl-icon>
+                    </div>
+                    <div class="info-content">
+                        <h3>Need Assistance?</h3>
+                        <p>Questions about your stay or special requests?</p>
+                        <a href="mailto:info@kozarapanoramicresort.ba"
+                            class="info-link">info@kozarapanoramicresort.ba</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="action-container no-print">
+                <a href="/#location" class="btn btn-outline">
+                    View Details about Location
+                </a>
+                <button onclick="window.print()" class="btn btn-primary">
+                    <sl-icon name="printer"></sl-icon> Print Details
+                </button>
+            </div>
+
+            <a href="/" class="return-home no-print">Return to Homepage</a>
+
+        </div>
+    </main>
+
+    <script>
+        window.addEventListener("DOMContentLoaded", () => {
+            const urlParams = new URLSearchParams(window.location.search);
+
+            // Mapping IDs to URL Parameter keys
+            const mappings = {
+                "booking-ref": {key: "ref", prefix: "#"},
+                "customer-name": {key: "name", prefix: ""},
+                "customer-email": {key: "email", prefix: ""},
+                "date-in": {key: "in", prefix: ""},
+                "date-out": {key: "out", prefix: ""},
+                "total-price": {key: "price", prefix: ""},
+                "guest-count": {key: "guests", prefix: ""}
+            };
+
+            Object.keys(mappings).forEach(id => {
+                const map = mappings[id];
+                const element = document.getElementById(id);
+                if (element && urlParams.has(map.key)) {
+                    let value = urlParams.get(map.key);
+                    // Add currency if it's the price field
+                    if (id === "total-price" && !value.includes("BAM")) {
+                        value = value + " BAM";
+                    }
+                    element.textContent = map.prefix + value;
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>

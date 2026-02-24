@@ -5,7 +5,7 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>{{title}}</title>
+    <title>Kozara Panoramic Resort | Secluded Private Retreat & Vacations</title>
     <link href="/css/vanilla_calendar.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/light.css" rel="stylesheet" />
     <link href="/css/main.css" rel="stylesheet" />
@@ -34,8 +34,8 @@
         type="module"></script>
     <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/option/option.js"
         type="module"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/tag/tag.js"
-        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/tag/tag.js" type="module">
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/popup/popup.js"
         type="module"></script>
     <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/divider/divider.js"
@@ -62,13 +62,14 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
     <script
-        src="https://www.paypal.com/sdk/js?client-id=AWXmQqv6jUWdXTuOicE0JrfpPBM13eMDpMt4rs7OniJyXUKQmT7lBqOUexj-bjYGsxOYng1Hm9ugihW4&disable-funding=credit,card&currency=EUR"></script>
+        src="https://www.paypal.com/sdk/js?client-id=AWXmQqv6jUWdXTuOicE0JrfpPBM13eMDpMt4rs7OniJyXUKQmT7lBqOUexj-bjYGsxOYng1Hm9ugihW4&disable-funding=credit,card&currency=EUR">
+        </script>
     <script type="application/ld+json">
-			{
+        {
 				"@context": "https://schema.org",
 				"@type": "Resort",
 				"name": "Kozara Panoramic Resort",
-				"description": "{{meta_content2}}",
+				"description": "Escape to Kozara Panoramic Resort. Secluded private chalets with pools in the heart of the mountain. Experience luxury, silence, and untouched nature.",
                 "priceRange" : "$$$",
 				"url": "https://www.kozarapanoramicresort.ba",
 				"image": "https://www.kozarapanoramicresort.ba/assets/Scenery/lander.webp",
@@ -86,48 +87,56 @@
                 },
 				"telephone": "+38766767622"
 			}
-		</script>
+    </script>
     <!-- html meta -->
-    <meta content="{{meta_content2}}" name="description" />
+    <meta
+        content="Escape to Kozara Panoramic Resort. Secluded private chalets with pools in the heart of the mountain. Experience luxury, silence, and untouched nature."
+        name="description" />
     <!-- opengraph -->
-    <meta content="{{meta_content}}" property="og:title" />
-    <meta content="{{meta_content2}}" property="og:description" />
+    <meta content="Book Your Chalet at Kozara Panoramic Resort" property="og:title" />
+    <meta
+        content="Escape to Kozara Panoramic Resort. Secluded private chalets with pools in the heart of the mountain. Experience luxury, silence, and untouched nature."
+        property="og:description" />
     <meta content="https://www.kozarapanoramicresort.ba/assets/Scenery/lander.webp" property="og:image" />
-    <meta content="https://www.kozarapanoramicresort.ba/{{language_code}}" property="og:url" />
+    <meta content="https://www.kozarapanoramicresort.ba/en" property="og:url" />
     <meta content="website" property="og:type" />
     <!-- twitter -->
     <meta content="summary_large_image" name="twitter:card" />
-    <meta content="{{meta_content}}" name="twitter:title" />
-    <meta content="{{meta_content2}}" name="twitter:description" />
+    <meta content="Book Your Chalet at Kozara Panoramic Resort" name="twitter:title" />
+    <meta
+        content="Escape to Kozara Panoramic Resort. Secluded private chalets with pools in the heart of the mountain. Experience luxury, silence, and untouched nature."
+        name="twitter:description" />
     <meta content="https://www.kozarapanoramicresort.ba/assets/Scenery/lander.webp" name="twitter:image" />
-    <link rel="canonical" href="https://www.kozarapanoramicresort.ba/{{language_code}}" />
+    <link rel="canonical" href="https://www.kozarapanoramicresort.ba/en" />
     <!-- lang -->
     <link href="https://www.kozarapanoramicresort.ba" hreflang="en" rel="alternate" />
     <link href="https://www.kozarapanoramicresort.ba/de" hreflang="de" rel="alternate" />
     <link href="https://www.kozarapanoramicresort.ba/it" hreflang="it" rel="alternate" />
     <link href="https://www.kozarapanoramicresort.ba/sr" hreflang="sr" rel="alternate" />
     <link href="https://www.kozarapanoramicresort.ba" hreflang="x-default" rel="alternate" />
-    <meta name="keywords" content="{{seo_keywords}}" />
+    <meta name="keywords"
+        content="Kozara Panoramic Resort, luxury chalets Bosnia, mountain retreat, private pool villa, nature resort, holidays in Bosnia, Banja Luka accommodation, secluded getaway, hiking Kozara" />
 </head>
 
 <body>
-    <div class="floating-book-btn" role="button" tabindex="0" href="#" onclick="open_booking()">{{floating}}</div>
+    <div class="floating-book-btn" href="#" onclick="open_booking()">BOOK NOW</div>
     <nav>
+        <!-- <h1 class="logo-text">Kozara Panoramic Resort: Secluded Mountain Retreat</h1> -->
         <div class="nav-links-container">
-            <a class="nav-link" href="#chalets">{{nav_chalets}}</a>
-            <a class="nav-link" href="#location">{{nav_location}}</a>
+            <a class="nav-link" href="#chalets">Chalets</a>
+            <a class="nav-link" href="#location">Location</a>
             <!-- <a href="#reviews" class="nav-link" data-i8n="nav_reviews">Reviews</a> -->
-            <a class="nav-link" href="#blog">{{nav_blog}}</a>
+            <a class="nav-link" href="#blog">Blog</a>
         </div>
         <div id="logo_stripped_reserve_spacer"></div>
-        <img id="logo_stripped" src="/assets/logo_stripped.svg" alt="Kozara Panoramic Resort Logo"></img>
+        <img id="logo_stripped" src="/assets/logo_stripped.svg"></img>
         <div class="nav-links-container">
-            <a class="nav-link" href="/{{language_code}}/notice#impressum">{{contact}}</a>
+            <a class="nav-link" href="/en/notice#impressum">Contact</a>
             <sl-dropdown>
                 <!-- NEW TRIGGER: span element to display the selected language -->
                 <span class="nav-language-trigger" id="language_display_trigger" slot="trigger">
                     <!-- Initial state, set to default EN -->
-                    {{language_tag}}
+                    🇬🇧 EN
                 </span>
                 <sl-menu>
                     <sl-menu-item><a href="/">🇬🇧 EN (English)</a></sl-menu-item>
@@ -136,8 +145,7 @@
                     <sl-menu-item><a href="/it">🇮🇹 IT (Italiano)</a></sl-menu-item>
                 </sl-menu>
             </sl-dropdown>
-            <a class="nav-cta" role="button" tabindex="0" onclick="open_booking()"
-                style="cursor: pointer">{{nav_cta}}</a>
+            <a class="nav-cta" role="button" onclick="open_booking()" style="cursor: pointer">BOOK YOUR STAY</a>
         </div>
         <sl-icon-button id="btn_menu" onclick="drawer_menu.show()"
             src="/assets/amenities_icons/menu.svg"></sl-icon-button>
@@ -148,21 +156,21 @@
         <div class="header-bg"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1 class="logo-area">KOZARA PANORAMIC RESORT</h1>
-            <h2>{{subtitle}}</h2>
+            <div class="logo-area">KOZARA PANORAMIC RESORT</div>
+            <h2>Private vacation on Kozara</h2>
         </div>
     </header>
     <sl-drawer id="drawer_menu" label="Navigation">
-        <a class="nav-link" href="#chalets" onclick="drawer_menu.hide()">{{nav_chalets}}</a>
-        <a class="nav-link" href="#location" onclick="drawer_menu.hide()">{{nav_location}}</a>
+        <a class="nav-link" href="#chalets" onclick="drawer_menu.hide()">Chalets</a>
+        <a class="nav-link" href="#location" onclick="drawer_menu.hide()">Location</a>
         <!--<a href="#reviews" class="nav-link" onclick="drawer_menu.hide()" data-i8n="nav_reviews">Reviews</a>-->
-        <a class="nav-link" href="#blog" onclick="drawer_menu.hide()">{{nav_blog}}</a>
-        <a class="nav-link" href="/{{language_code}}/notice#impressum" onclick="drawer_menu.hide()">{{contact}}</a>
+        <a class="nav-link" href="#blog" onclick="drawer_menu.hide()">Blog</a>
+        <a class="nav-link" href="/en/notice#impressum" onclick="drawer_menu.hide()">Contact</a>
         <sl-dropdown>
             <!-- NEW TRIGGER: span element to display the selected language -->
             <span class="nav-language-trigger" id="language_display_trigger" slot="trigger">
                 <!-- Initial state, set to default EN -->
-                {{language_tag}}
+                🇬🇧 EN
             </span>
             <sl-menu>
                 <sl-menu-item><a href="/">ðŸ‡¬ðŸ‡§ EN (English)</a></sl-menu-item>
@@ -175,30 +183,31 @@
 
     <div class="booking-container" id="booking">
         <div class="booking-bar">
-            <h2>{{booking_bar_title}}</h2>
-            <div>{{booking_bar_text}}</div>
-            <button class="btn-check" onclick="open_booking()">{{nav_cta}}</button>
+            <h2>Begin Your Journey</h2>
+            <div>Reserve your mountain sanctuary and escape to the peace of mount Kozara.</div>
+            <button class="btn-check" onclick="open_booking()">BOOK YOUR STAY</button>
         </div>
     </div>
     <section class="retreat-intro">
         <div class="retreat-content">
-            <h2 class="section-title">{{retreat-title}}</h2>
-            <p class="lead">{{retreat-lead}}</p>
+            <h3 class="section-title">Where Nature Meets Private Luxury</h3>
+            <p class="lead">Nestled in the pristine hills of Kozara, our brand-new panoramic chalets offer a rare escape
+                into unspoilt countryside.</p>
 
             <div class="retreat-highlights">
-                <!-- <span>Private spaces.</span> -->
-                <!-- <span class="dot">&#8226;</span> -->
-                <!-- <span>Pure air.</span> -->
-                <!-- <span class="dot">&#8226;</span> -->
-                <!-- <span>Total silence.</span> -->
-                {{retreat-highlights}}
+                <span>Private spaces.</span>
+                <span class="dot">&#8226;</span>
+                <span>Pure air.</span>
+                <span class="dot">&#8226;</span>
+                <span>Total silence.</span>
             </div>
 
-            <p class="retreat-desc">{{retreat-desc}}</p>
+            <p class="retreat-desc">Designed for guests who value privacy, comfort and authentic nature — without
+                compromise.</p>
 
             <div class="retreat-footer">
-                <span class="not-hotel">{{retreat-not-hotel}}</span>
-                <span class="your-retreat">{{retreat-your-retreat}}</span>
+                <span class="not-hotel">This is not a hotel.</span>
+                <span class="your-retreat">This is your own retreat in the mountains.</span>
             </div>
         </div>
     </section>
@@ -305,53 +314,574 @@
     </section>
     <section class="chalets-section" id="chalets">
         <div style="text-align: center; margin-bottom: 40px">
-            <h2 class="section-title">{{chalets_title}}</h2>
-            <p>{{chalets_desc}}</p>
+            <h2 class="section-title">Where privacy meets nature</h2>
+            <p>Our private chalets are immersed in nature and designed for peace, privacy and comfort. Each chalet has
+                its own character, created to slow you down and offer a truly personal retreat.</p>
         </div>
         <div class="chalet-grid">
             <div class="chalet-card">
                 <img alt="Cloud Chalet" class="chalet-img" src="/assets/Chalets/wind/1.webp" />
                 <img src="/assets/chalet_icons/WIND.svg">
-                <button class="btn-view" onclick="openModal('wind')">{{chalets_details_btn}}</button>
+                <button class="btn-view" onclick="openModal('wind')">View Details</button>
             </div>
             <div class="chalet-card">
                 <img alt="Sun Chalet" class="chalet-img" src="/assets/Chalets/sun/2.webp" />
                 <img src="/assets/chalet_icons/SUN.svg">
-                <button class="btn-view" onclick="openModal('summit')">{{chalets_details_btn}}</button>
+                <button class="btn-view" onclick="openModal('summit')">View Details</button>
             </div>
             <div class="chalet-card special">
-                <div class="special-badge">{{secluded_badge}}</div>
+                <div class="special-badge">Secluded</div>
                 <img alt="Star Chalet" class="chalet-img" src="/assets/Chalets/star/11.webp" />
                 <img src="/assets/chalet_icons/STAR.svg" alt="">
-                <button class="btn-view" onclick="openModal('star')">{{chalets_details_btn}}</button>
+                <button class="btn-view" onclick="openModal('star')">View Details</button>
             </div>
             <div class="chalet-card">
                 <img alt="Sky Chalet" class="chalet-img" src="/assets/Chalets/sky/1.webp" />
                 <img src="/assets/chalet_icons/SKY.svg" alt="">
-                <button class="btn-view" onclick="openModal('sky')">{{chalets_details_btn}}</button>
+                <button class="btn-view" onclick="openModal('sky')">View Details</button>
             </div>
             <div class="chalet-card">
                 <img alt="Cloud Chalet" class="chalet-img" src="/assets/Chalets/cloud/1.webp" />
                 <img src="/assets/chalet_icons/CLOUD.svg" alt="">
-                <button class="btn-view" onclick="openModal('cloud')">{{chalets_details_btn}}</button>
+                <button class="btn-view" onclick="openModal('cloud')">View Details</button>
             </div>
         </div>
     </section>
     <section class="facilities-section" id="facilities">
-        {{facilities_template}}
+        <div class="facilities-container">
+            <div class="facilities-header">
+                <h3 class="section-title">Your Comfort &amp; Convenience</h3>
+                <div class="top-highlights">
+                    <div class="highlight-item"><sl-icon src="/assets/amenities_icons/waves.svg"
+                            aria-hidden="true"></sl-icon><span>6x3 meters private pool per chalet</span></div>
+                    <div class="highlight-item"><sl-icon src="/assets/amenities_icons/circle-parking.svg"
+                            aria-hidden="true"></sl-icon><span>Free parking</span></div>
+                    <div class="highlight-item"><sl-icon src="/assets/amenities_icons/wifi.svg"
+                            aria-hidden="true"></sl-icon><span>Free WiFi</span></div>
+                    <div class="highlight-item"><sl-icon src="/assets/amenities_icons/cigarette-off.svg"
+                            aria-hidden="true"></sl-icon><span>Non-smoking rooms</span></div>
+                    <div class="highlight-item"><sl-icon src="/assets/amenities_icons/users.svg"
+                            aria-hidden="true"></sl-icon><span>Solid wooden chalets</span></div>
+                </div>
+            </div>
+            <div class="facilities-grid">
+                <div class="facility-category">
+                    <div class="category-header"><sl-icon src="/assets/amenities_icons/footprints.svg"
+                            aria-hidden="true"></sl-icon>
+                        <h4>Activities</h4>
+                    </div>
+                    <ul class="facility-list">
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Authentic
+                            Kozara village experience</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Bike tours
+                        </li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Hiking</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Walking tours
+                        </li>
+                    </ul>
+                </div>
+                <div class="facility-category">
+                    <div class="category-header"><sl-icon src="/assets/amenities_icons/shower-head.svg"
+                            aria-hidden="true"></sl-icon>
+                        <h4>Bathroom</h4>
+                    </div>
+                    <ul class="facility-list">
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Bathrobe</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Hairdryer
+                        </li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Private
+                            bathroom</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Shower</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Toilet</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Toilet paper
+                        </li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Towels</li>
+                    </ul>
+                </div>
+                <div class="facility-category">
+                    <div class="category-header"><sl-icon src="/assets/amenities_icons/bed-double.svg"
+                            aria-hidden="true"></sl-icon>
+                        <h4>Bedroom</h4>
+                    </div>
+                    <ul class="facility-list">
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> 100% cotton
+                            bedding</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Linen</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Wardrobe or
+                            closet</li>
+                    </ul>
+                </div>
+                <div class="facility-category">
+                    <div class="category-header"><sl-icon src="/assets/amenities_icons/coffee.svg"
+                            aria-hidden="true"></sl-icon>
+                        <h4>Food &amp; Drink</h4>
+                    </div>
+                    <ul class="facility-list">
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Meals can be
+                            ordered locally</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Self catering
+                        </li>
+                    </ul>
+                </div>
+                <div class="facility-category">
+                    <div class="category-header"><sl-icon src="/assets/amenities_icons/info.svg"
+                            aria-hidden="true"></sl-icon>
+                        <h4>General</h4>
+                    </div>
+                    <ul class="facility-list">
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Air
+                            conditioning</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Carbon
+                            monoxide detector</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Heating</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Non-smoking
+                            rooms</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Private
+                            entrance</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Tile/marble
+                            floor</li>
+                    </ul>
+                </div>
+                <div class="facility-category">
+                    <div class="category-header"><sl-icon src="/assets/amenities_icons/wifi.svg"
+                            aria-hidden="true"></sl-icon>
+                        <h4>Internet</h4>
+                    </div>
+                    <div class="note">WiFi is available in all areas and is free of charge.</div>
+                </div>
+                <div class="facility-category">
+                    <div class="category-header"><sl-icon src="/assets/amenities_icons/cooking-pot.svg"
+                            aria-hidden="true"></sl-icon>
+                        <h4>Kitchen</h4>
+                    </div>
+                    <ul class="facility-list">
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Coffee
+                            machine</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Dining table
+                        </li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Dishwasher
+                        </li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Electric hob
+                        </li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Electric
+                            kettle</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Freezer</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Kitchenware
+                        </li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Microwave
+                        </li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Oven</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Refrigerator
+                        </li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Toaster</li>
+                    </ul>
+                </div>
+                <div class="facility-category">
+                    <div class="category-header"><sl-icon src="/assets/amenities_icons/languages.svg"
+                            aria-hidden="true"></sl-icon>
+                        <h4>Languages spoken</h4>
+                    </div>
+                    <ul class="facility-list">
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> English</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Serbian</li>
+                    </ul>
+                </div>
+                <div class="facility-category">
+                    <div class="category-header"><sl-icon src="/assets/amenities_icons/armchair.svg"
+                            aria-hidden="true"></sl-icon>
+                        <h4>Living Area</h4>
+                    </div>
+                    <ul class="facility-list">
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Dining area
+                        </li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Seating Area
+                        </li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Sofa</li>
+                    </ul>
+                </div>
+                <div class="facility-category">
+                    <div class="category-header"><sl-icon src="/assets/amenities_icons/tv.svg"
+                            aria-hidden="true"></sl-icon>
+                        <h4>Media &amp; Technology</h4>
+                    </div>
+                    <ul class="facility-list">
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Flat-screen
+                            TV</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Satellite
+                            channels</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Streaming
+                            service (like Netflix)</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> TV</li>
+                    </ul>
+                </div>
+                <div class="facility-category">
+                    <div class="category-header"><sl-icon src="/assets/amenities_icons/tree-pine.svg"
+                            aria-hidden="true"></sl-icon>
+                        <h4>Outdoors</h4>
+                    </div>
+                    <ul class="facility-list">
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Electring BBQ
+                            (upon request)</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Garden</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Outdoor
+                            furniture</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Patio</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Private pool
+                        </li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Terrace</li>
+                    </ul>
+                </div>
+                <div class="facility-category">
+                    <div class="category-header"><sl-icon src="/assets/amenities_icons/waves.svg"
+                            aria-hidden="true"></sl-icon>
+                        <h4>Outdoor swimming pool <span class="highlight-tag">Free!</span></h4>
+                    </div>
+                    <ul class="facility-list">
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> A private
+                            pool with view</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Heated pool
+                        </li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Opening times
+                        </li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Pool cover
+                        </li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Seasonal</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Sun loungers
+                            with luxury mat</li>
+                    </ul>
+                    <div class="note">Children must be supervised at all times</div>
+                </div>
+                <div class="facility-category">
+                    <div class="category-header"><sl-icon src="/assets/amenities_icons/circle-parking.svg"
+                            aria-hidden="true"></sl-icon>
+                        <h4>Parking</h4>
+                    </div>
+                    <div class="note">Free private parking is possible on site (reservation is not needed).</div>
+                </div>
+                <div class="facility-category">
+                    <div class="category-header"><sl-icon src="/assets/amenities_icons/paw-print.svg"
+                            aria-hidden="true"></sl-icon>
+                        <h4>Pets</h4>
+                    </div>
+                    <div class="note">Pets are allowed on request. Charges may be applicable.</div>
+                </div>
+                <div class="facility-category">
+                    <div class="category-header"><sl-icon src="/assets/amenities_icons/shield-check.svg"
+                            aria-hidden="true"></sl-icon>
+                        <h4>Safety &amp; security</h4>
+                    </div>
+                    <ul class="facility-list">
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> CCTV outside
+                            property</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Fire
+                            extinguishers</li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Laptop safe
+                        </li>
+                    </ul>
+                </div>
+                <div class="facility-category">
+                    <div class="category-header"><sl-icon src="/assets/amenities_icons/bell.svg"
+                            aria-hidden="true"></sl-icon>
+                        <h4>Services</h4>
+                    </div>
+                    <ul class="facility-list">
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Private
+                            check-in/check-out</li>
+                    </ul>
+                </div>
+                <div class="facility-category">
+                    <div class="category-header"><sl-icon src="/assets/amenities_icons/mountain.svg"
+                            aria-hidden="true"></sl-icon>
+                        <h4>View</h4>
+                    </div>
+                    <ul class="facility-list">
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Landmark view
+                        </li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Mountain view
+                        </li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> Pool view
+                        </li>
+                        <li><sl-icon src="/assets/amenities_icons/check.svg" aria-hidden="true"></sl-icon> View</li>
+                    </ul>
+                </div>
+                <div class="facility-category">
+                    <div class="category-header"><sl-icon src="/assets/amenities_icons/flower-2.svg"
+                            aria-hidden="true"></sl-icon>
+                        <h4>Wellness</h4>
+                    </div>
+                    <div class="note">Sauna coming soon</div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="facilities-container"> -->
+        <!---->
+        <!--     <div class="facilities-header"> -->
+        <!--         <h3 class="section-title">Your Comfort & Convenience</h3> -->
+        <!---->
+        <!--         <div class="top-highlights"> -->
+        <!--             <div class="highlight-item"> -->
+        <!--                 <sl-icon src="/assets/amenities_icons/waves.svg"></sl-icon> -->
+        <!--                 <span>6x3 meters private pool per chalet</span> -->
+        <!--             </div> -->
+        <!--             <div class="highlight-item"> -->
+        <!--                 <sl-icon src="/assets/amenities_icons/users.svg"></sl-icon> -->
+        <!--                 <span>Solid wooden chalets</span> -->
+        <!--             </div> -->
+        <!--             <div class="highlight-item"> -->
+        <!--                 <sl-icon src="/assets/amenities_icons/circle-parking.svg"></sl-icon> -->
+        <!--                 <span>Free parking</span> -->
+        <!--             </div> -->
+        <!--             <div class="highlight-item"> -->
+        <!--                 <sl-icon src="/assets/amenities_icons/wifi.svg"></sl-icon> -->
+        <!--                 <span>Free WiFi</span> -->
+        <!--             </div> -->
+        <!--             <div class="highlight-item"> -->
+        <!--                 <sl-icon src="/assets/amenities_icons/cigarette-off.svg"></sl-icon> -->
+        <!--                 <span>Non-smoking rooms</span> -->
+        <!--             </div> -->
+        <!--         </div> -->
+        <!--     </div> -->
+        <!---->
+        <!--     <div class="facilities-grid"> -->
+        <!---->
+        <!--         <div class="facility-category"> -->
+        <!--             <div class="category-header"> -->
+        <!--                 <sl-icon src="/assets/amenities_icons/footprints.svg"></sl-icon> -->
+        <!--                 <h4>Activities</h4> -->
+        <!--             </div> -->
+        <!--             <ul class="facility-list"> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Bike tours</li> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Walking tours</li> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Hiking</li> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Authentic Kozara village experience</li> -->
+        <!--             </ul> -->
+        <!--         </div> -->
+        <!---->
+        <!--         <div class="facility-category"> -->
+        <!--             <div class="category-header"> -->
+        <!--                 <sl-icon src="/assets/amenities_icons/shower-head.svg"></sl-icon> -->
+        <!--                 <h4>Bathroom</h4> -->
+        <!--             </div> -->
+        <!--             <ul class="facility-list"> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Toilet paper</li> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Towels</li> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Private bathroom</li> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Toilet</li> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Bathrobe</li> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Hairdryer</li> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Shower</li> -->
+        <!--             </ul> -->
+        <!--         </div> -->
+        <!---->
+        <!--         <div class="facility-category"> -->
+        <!--             <div class="category-header"> -->
+        <!--                 <sl-icon src="/assets/amenities_icons/bed-double.svg"></sl-icon> -->
+        <!--                 <h4>Bedroom</h4> -->
+        <!--             </div> -->
+        <!--             <ul class="facility-list"> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Linen</li> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Wardrobe or closet</li> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> 100% cotton bedding</li> -->
+        <!--             </ul> -->
+        <!--         </div> -->
+        <!---->
+        <!--         <div class="facility-category"> -->
+        <!--             <div class="category-header"> -->
+        <!--                 <sl-icon src="/assets/amenities_icons/coffee.svg"></sl-icon> -->
+        <!--                 <h4>Food & Drink</h4> -->
+        <!--             </div> -->
+        <!--             <ul class="facility-list"> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Self catering</li> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Meals can be ordered locally</li> -->
+        <!--             </ul> -->
+        <!--         </div> -->
+        <!---->
+        <!--         <div class="facility-category"> -->
+        <!--             <div class="category-header"> -->
+        <!--                 <sl-icon src="/assets/amenities_icons/info.svg"></sl-icon> -->
+        <!--                 <h4>General</h4> -->
+        <!--             </div> -->
+        <!--             <ul class="facility-list"> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Carbon monoxide detector</li> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Air conditioning</li> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Tile/marble floor</li> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Heating</li> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Private entrance</li> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Non-smoking rooms</li> -->
+        <!--             </ul> -->
+        <!--         </div> -->
+        <!---->
+        <!--         <div class="facility-category"> -->
+        <!--             <div class="category-header"> -->
+        <!--                 <sl-icon src="/assets/amenities_icons/wifi.svg"></sl-icon> -->
+        <!--                 <h4>Internet</h4> -->
+        <!--             </div> -->
+        <!--             <div class="note">WiFi is available in all areas and is free of charge.</div> -->
+        <!--         </div> -->
+        <!---->
+        <!--         <div class="facility-category"> -->
+        <!--             <div class="category-header"> -->
+        <!--                 <sl-icon src="/assets/amenities_icons/cooking-pot.svg"></sl-icon> -->
+        <!--                 <h4>Kitchen</h4> -->
+        <!--             </div> -->
+        <!--             <ul class="facility-list"> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Dining table</li> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Coffee machine</li> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Toaster</li> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Electric hob</li> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Oven</li> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Kitchenware</li> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Electric kettle</li> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Dishwasher</li> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Microwave</li> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Refrigerator</li> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Freezer</li> -->
+        <!--             </ul> -->
+        <!--         </div> -->
+        <!---->
+        <!--         <div class="facility-category"> -->
+        <!--             <div class="category-header"> -->
+        <!--                 <sl-icon src="/assets/amenities_icons/languages.svg"></sl-icon> -->
+        <!--                 <h4>Languages spoken</h4> -->
+        <!--             </div> -->
+        <!--             <ul class="facility-list"> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> English</li> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Serbian</li> -->
+        <!--             </ul> -->
+        <!--         </div> -->
+        <!---->
+        <!--         <div class="facility-category"> -->
+        <!--             <div class="category-header"> -->
+        <!--                 <sl-icon src="/assets/amenities_icons/armchair.svg"></sl-icon> -->
+        <!--                 <h4>Living Area</h4> -->
+        <!--             </div> -->
+        <!--             <ul class="facility-list"> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Dining area</li> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Sofa</li> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Seating Area</li> -->
+        <!--             </ul> -->
+        <!--         </div> -->
+        <!---->
+        <!--         <div class="facility-category"> -->
+        <!--             <div class="category-header"> -->
+        <!--                 <sl-icon src="/assets/amenities_icons/tv.svg"></sl-icon> -->
+        <!--                 <h4>Media & Technology</h4> -->
+        <!--             </div> -->
+        <!--             <ul class="facility-list"> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Streaming service (like Netflix)</li> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Flat-screen TV</li> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Satellite channels</li> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> TV</li> -->
+        <!--             </ul> -->
+        <!--         </div> -->
+        <!---->
+        <!--         <div class="facility-category"> -->
+        <!--             <div class="category-header"> -->
+        <!--                 <sl-icon src="/assets/amenities_icons/tree-pine.svg"></sl-icon> -->
+        <!--                 <h4>Outdoors</h4> -->
+        <!--             </div> -->
+        <!--             <ul class="facility-list"> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Outdoor furniture</li> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Private pool</li> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Patio</li> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Terrace</li> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Garden</li> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Electring BBQ (upon request)</li> -->
+        <!--             </ul> -->
+        <!--         </div> -->
+        <!---->
+        <!--         <div class="facility-category"> -->
+        <!--             <div class="category-header"> -->
+        <!--                 <sl-icon src="/assets/amenities_icons/waves.svg"></sl-icon> -->
+        <!--                 <h4>Outdoor swimming pool <span class="highlight-tag">Free!</span></h4> -->
+        <!--             </div> -->
+        <!--             <ul class="facility-list"> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Opening times</li> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Seasonal</li> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> A private pool with view</li> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Heated pool</li> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Pool cover</li> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Sun loungers with luxury mat</li> -->
+        <!--             </ul> -->
+        <!--             <div class="note">Children must be supervised at all times</div> -->
+        <!--         </div> -->
+        <!---->
+        <!--         <div class="facility-category"> -->
+        <!--             <div class="category-header"> -->
+        <!--                 <sl-icon src="/assets/amenities_icons/circle-parking.svg"></sl-icon> -->
+        <!--                 <h4>Parking</h4> -->
+        <!--             </div> -->
+        <!--             <div class="note">Free private parking is possible on site (reservation is not needed).</div> -->
+        <!--         </div> -->
+        <!---->
+        <!--         <div class="facility-category"> -->
+        <!--             <div class="category-header"> -->
+        <!--                 <sl-icon src="/assets/amenities_icons/paw-print.svg"></sl-icon> -->
+        <!--                 <h4>Pets</h4> -->
+        <!--             </div> -->
+        <!--             <div class="note">Pets are allowed on request. Charges may be applicable.</div> -->
+        <!--         </div> -->
+        <!---->
+        <!--         <div class="facility-category"> -->
+        <!--             <div class="category-header"> -->
+        <!--                 <sl-icon src="/assets/amenities_icons/shield-check.svg"></sl-icon> -->
+        <!--                 <h4>Safety & security</h4> -->
+        <!--             </div> -->
+        <!--             <ul class="facility-list"> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Fire extinguishers</li> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> CCTV outside property</li> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Laptop safe</li> -->
+        <!--             </ul> -->
+        <!--         </div> -->
+        <!---->
+        <!--         <div class="facility-category"> -->
+        <!--             <div class="category-header"> -->
+        <!--                 <sl-icon src="/assets/amenities_icons/bell.svg"></sl-icon> -->
+        <!--                 <h4>Services</h4> -->
+        <!--             </div> -->
+        <!--             <ul class="facility-list"> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Private check-in/check-out</li> -->
+        <!--             </ul> -->
+        <!--         </div> -->
+        <!---->
+        <!---->
+        <!--         <div class="facility-category"> -->
+        <!--             <div class="category-header"> -->
+        <!--                 <sl-icon src="/assets/amenities_icons/mountain.svg"></sl-icon> -->
+        <!--                 <h4>View</h4> -->
+        <!--             </div> -->
+        <!--             <ul class="facility-list"> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Landmark view</li> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Mountain view</li> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> Pool view</li> -->
+        <!--                 <li><sl-icon src="/assets/amenities_icons/check.svg"></sl-icon> View</li> -->
+        <!--             </ul> -->
+        <!--         </div> -->
+        <!---->
+        <!--         <div class="facility-category"> -->
+        <!--             <div class="category-header"> -->
+        <!--                 <sl-icon src="/assets/amenities_icons/flower-2.svg"></sl-icon> -->
+        <!--                 <h4>Wellness</h4> -->
+        <!--             </div> -->
+        <!--             <div class="note">Sauna coming soon</div> -->
+        <!--         </div> -->
+        <!---->
+        <!--     </div> -->
+        <!-- </div> -->
     </section>
     <section class="location-section" id="location">
         <div class="location-overlay"></div>
         <div class="location-content">
-            <h2 class="section-title" style="color: var(--sand-beige)">{{location_title}}</h2>
-            <p style="margin-bottom: 30px; font-size: 1.1rem">{{location_description}}</p>
-            <p class="location-quote">{{location_quote}}</p>
+            <h2 class="section-title" style="color: var(--sand-beige)">Find Us on the Mountain</h2>
+            <p style="margin-bottom: 30px; font-size: 1.1rem">45-65 km from Banja Luka (depending on route) • 165 km
+                from Zagreb • 260-280 km from Sarajevo (depending on route) • 310-350 km from Belgrade (depending on
+                route)</p>
+            <p class="location-quote">Just follow the signs.</p>
             <div class="location-image-container">
                 <!-- Using the newly uploaded, cleaner filename -->
-                <img alt="Just follow the signs." alt="Direction signs to Kozara Panoramic Resort"
-                    class="location-signs-img" class="location-signs-img" src="/assets/signs2.webp" />
+                <img alt="Just follow the signs." class="location-signs-img" src="/assets/signs2.webp" />
             </div>
-            <p class="map-hint">{{location_hint}}</p>
+            <p class="map-hint">Or find us on the map below</p>
             <div class="map-frame">
                 <iframe allowfullscreen="" height="450" referrerpolicy="no-referrer-when-downgrade"
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3191.7678145893565!2d17.0941569!3d45.0086252!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4767510061c8c7eb%3A0xcf311465b69a3e2c!2sKozara%20Panoramic%20Resort!5e1!3m2!1sbs!2sba!4v1763826019486!5m2!1sen!2sba"
@@ -379,9 +909,16 @@
     <section class="section-padding" id="about-us">
         <div class="content-layout">
             <div class="content-text">
-                <h2 class="section-title" style="text-align: left">{{about_us_title}}</h2>
-                <p>{{about_us_desc1}}</p>
-                <p>{{about_us_desc2}}</p>
+                <h2 class="section-title" style="text-align: left">Our Story</h2>
+                <p>Kozara Panoramic Resort was created out of love for nature and the idea that luxury and peace can
+                    exist in perfect harmony. Our mission is to create a place where every guest feels a deep balance
+                    between nature, comfort, and serenity. Nestled in the heart of Mount Kozara, the resort offers an
+                    unforgettable experience where every detail reflects warmth, care, and elegance.</p>
+                <p>Our modern cabins offer privacy and intimacy, while still providing all the amenities of contemporary
+                    accommodation. Panoramic views, pure mountain air, and forest silence make every morning special and
+                    every evening calm. Kozara Panoramic Resort is more than a place to stay – it’s an experience that
+                    restores inner balance, reconnects you with nature, and reminds you how little is needed to feel
+                    true peace. Welcome to a space where time slows down and every moment becomes a lasting memory.</p>
             </div>
             <div class="content-image">
                 <picture>
@@ -394,79 +931,128 @@
     <section class="section-padding blog-section" id="about-kozara">
         <div class="content-layout reverse">
             <div class="content-text">
-                <h2 class="section-title" style="text-align: left">{{about_kozara_title}}</h2>
-                <p>{{about_kozara_desc1}}</p>
-                <p>{{about_kozara_desc2}}</p>
+                <h2 class="section-title" style="text-align: left">Discover Kozara</h2>
+                <p>Mount Kozara, known as the “air spa” and the green jewel of Krajina, is a place where nature still
+                    breathes freely. Its dense forests, pure air, and peaceful viewpoints offer the perfect escape from
+                    city life. Kozara blends wilderness and tranquility, creating an ideal setting for relaxation,
+                    adventure, and self-discovery. Mount Kozara, known as the air spa and green oasis of Western
+                    Krajina, is where nature reveals its true beauty. Its dense forests, mountain streams, and fresh air
+                    make it a perfect retreat for rest, adventure, and spiritual renewal. The mountain trails lead
+                    through scenic viewpoints and fragrant meadows, offering views that calm the soul and fill you with
+                    energy.</p>
+                <p>Kozara is more than a mountain – it’s an experience of connection with nature, a place where time
+                    slows down and thoughts become clear. Every visitor finds their moment of peace here, whether in the
+                    quiet of the forest, the whisper of the wind, or the sunset that paints the peaks in golden tones.
+                    Kozara invites you to pause, breathe deeply, and feel what true freedom means.</p>
             </div>
             <div class="content-image">
                 <picture>
                     <source media="(max-width: 768px)"
                         srcset="/assets/Text%20Blocks/mobile/Kozara-fotobaza-Ajdin-Kamber.webp">
-                    <img alt="Scenic viewpoint from Mount Kozara overlooking the landscape"
-                        src="/assets/Text Blocks/Kozara-fotobaza-Ajdin-Kamber.webp" />
+                    <img alt="Kozara amenity" src="/assets/Text Blocks/Kozara-fotobaza-Ajdin-Kamber.webp" />
                 </picture>
             </div>
         </div>
     </section>
     <section class="section-padding" id="blog">
-        <h2 class="section-title">{{blog_title}}</h2>
-        <div class="blog-grid" style="display: {{YES_BLOGS}};">
-            {{BLOGS_TEMPLATE}}
+        <h3 class="section-title">From Our Blog</h3>
+        <div class="blog-grid" style="display: grid;">
+            <div class="blog-card">
+                <img src="/uploads/1770384829656-brdjo.png" class="blog-img" alt="Blog 1 cover image" />
+                <h4 style="min-height: 2.5em">testni blog</h4>
+                <a class="read-blog" href="en/blog/testni-blog">Read Blog</a>
+            </div>
+            <div class="blog-card">
+                <img src="/uploads/1767010989077-borovnica-61.jpg" class="blog-img" alt="Blog 1 cover image" />
+                <h4 style="min-height: 2.5em">Dragana and James are creating a hedonist's paradise on Kozara: Luxury in
+                    untouched nature</h4>
+                <a class="read-blog" href="en/blog/borovnice">Read Blog</a>
+            </div>
         </div>
-        <a style="display: {{MORE_BLOGS}};" class="read-blog" href="/{{language_code}}/blogs">{{see_all_blogs}}</a>
-        <div style="display: {{NO_BLOGS}}; justify-content: center;">
-            <span style="font-size: 1.5rem; font-style: italic">{{blog_desc}}</span>
+        <a style="display: none;" class="read-blog" href="/en/blogs">See all blogs</a>
+        <div style="display: none; justify-content: center;">
+            <span style="font-size: 1.5rem; font-style: italic">Coming soon ...</span>
         </div>
     </section>
     <section class="section-padding faq-section" id="faq" style="background-color: var(--bg-soft)">
-        <h2 class="section-title">{{faq_title}}</h2>
+        <h3 class="section-title">Frequently Asked Questions</h3>
         <div class="faq-container">
             <div>
-                <sl-details summary="{{faq_heating_q}}">{{faq_heating_a}}</sl-details>
-                <sl-details summary="{{faq_kitchen_q}}">{{faq_kitchen_a}}</sl-details>
-                <sl-details summary="{{faq_linens_q}}">{{faq_linens_a}}</sl-details>
-                <sl-details summary="{{faq_wifi_q}}">{{faq_wifi_a}}</sl-details>
-                <sl-details summary="{{faq_pool_heating_q}}">{{faq_pool_heating_a}}</sl-details>
-                <sl-details summary="{{faq_lifeguard_q}}">{{faq_lifeguard_a}}</sl-details>
-                <sl-details summary="{{faq_checkin_q}}">{{faq_checkin_a}}</sl-details>
-                <sl-details summary="{{faq_deposit_q}}">{{faq_deposit_a}}</sl-details>
-                <sl-details summary="{{faq_cancel_q}}">{{faq_cancel_a}}</sl-details>
-                <sl-details summary="{{faq_payment_q}}">{{faq_payment_a}}</sl-details>
-                <sl-details summary="{{faq_tax_q}}">{{faq_tax_a}}</sl-details>
+                <sl-details summary="Are the chalets heated and air-conditioned?">Yes. All chalets feature fully
+                    automated air conditioning and heating for year-round comfort, including underfloor heating in the
+                    living area, dining area, kitchen, and bathroom.</sl-details>
+                <sl-details summary="What is included in the kitchen?">The kitchens are fully equipped for
+                    self-catering. Features include a hob, large oven, microwave, large fridge-freezer, dishwasher,
+                    cookware, dishes, and glassware.</sl-details>
+                <sl-details summary="Do I need to bring my own bedding or towels?">No. All bedding and towels are
+                    provided. Bathrobes and swimming pool towels are available upon request.</sl-details>
+                <sl-details summary="Is there internet access?">Yes, Wi-Fi access is provided. The network name and
+                    password will be given to you at check-in.</sl-details>
+                <sl-details summary="Are the pools private and heated?">Yes, each chalet has its private pool (seasonal
+                    opening times). </sl-details>
+                <sl-details summary="Is there a lifeguard at the pool?">No. Pool use is entirely at your own risk.
+                    Parents must supervise children at all times. Please note that only plastic glasses are allowed in
+                    the pool area.</sl-details>
+                <sl-details summary="What are the check-in and check-out times?"><b>Check-in:</b> 14:00 – 22:00.
+                    <br><b>Check-out:</b> By
+                    10:00.<br>Note: Early check-in or late check-out may be possible depending on availability; please
+                    contact reception in advance.</sl-details>
+                <sl-details summary="Is a security deposit required?">Yes. A <b>€250 credit card</b> deposit is
+                    pre-authorized at check-in. This is a temporary hold to cover damages or unpaid extras and is
+                    released a few days after check-out if no issues are reported.</sl-details>
+                <sl-details summary="What is the cancellation policy?"><b>Standard Season (April–June,
+                        Mid-Sept–Oct):</b> 25%
+                    refund >14 days before arrival; 50% refund 7–13 days before. No refund if <7 days.<br>
+                        <b>Peak Season (July, August, Holidays):</b> No cancellations or refund available</sl-details>
+                <sl-details summary="What payment methods are accepted?">We accept Visa, Mastercard, and American
+                    Express. Tourist tax is added to the booking. Extras can be paid by cash or card at
+                    check-out.</sl-details>
+                <sl-details summary="Is there a tourist tax?">Yes, a tourist tax is charged per person, per night. The
+                    rates are as follows:<br><b>Adults:</b> €1.30 per night.<br><b>Children (12 to 18 years):</b> €0.80
+                    per night.<br><b>Children (under 12 years):</b> Free of charge.</sl-details>
             </div>
             <div>
-                <sl-details summary="{{faq_shops_q}}">{{faq_shops_a}}</sl-details>
-                <sl-details summary="{{faq_housekeeping_q}}">{{faq_housekeeping_a}}</sl-details>
-                <sl-details summary="{{faq_laundry_q}}">{{faq_laundry_a}}</sl-details>
-                <sl-details summary="{{faq_baby_q}}">{{faq_baby_a}}</sl-details>
-                <sl-details summary="{{faq_pets_q}}">{{faq_pets_a}}</sl-details>
-                <sl-details summary="{{faq_parking_q}}">{{faq_parking_a}}</sl-details>
+                <sl-details summary="Where are the nearest shops and restaurants?"><b>Turjak (approx. 4 km):</b> Nearest
+                    grocery store, restaurants, and cafés.<br><b>Gradiška (approx. 20 km):</b> Larger supermarkets,
+                    pharmacies, and main highway connections.</sl-details>
+                <sl-details summary="Is housekeeping included?">Could be provided for stays longer than 7
+                    days.</sl-details>
+                <sl-details summary="Do you offer laundry services?">Upon request.</sl-details>
+                <sl-details summary="Is equipment available for babies?">No. We do not provide baby cots or highchairs,
+                    so we strongly advise parents to bring their own equipment for their children.</sl-details>
+                <sl-details summary="Are pets allowed?">Yes, pets are allowed upon request. Please note there is an
+                    additional fee of €15 per stay.</sl-details>
+                <sl-details summary="Is parking available?">Yes, there is free private parking directly next to each
+                    chalet.</sl-details>
                 <!--<sl-details -->
                 <!--    data-i8n-summary="faq_ev_q" -->
                 <!--    data-i8n="faq_ev_a" -->
                 <!--    summary="Do you have an EV charging station?">-->
                 <!--    Not currently, though one is planned for the future. The nearest petrol station is on the main road to GradiÅ¡ka (approx. 18 km).-->
                 <!--</sl-details>-->
-                <sl-details summary="{{faq_quiet_q}}">{{faq_quiet_a}}</sl-details>
-                <sl-details summary="{{faq_airport_q}}">{{faq_airport_a}}</sl-details>
-                <sl-details summary="{{faq_yearround_q}}">{{faq_yearround_a}}</sl-details>
-                <sl-details summary="{{faq_find_q}}">{{faq_find_a}}</sl-details>
+                <sl-details summary="When are the quiet hours?">Quiet hours are from 22:00 to 08:00. (Exceptions may be
+                    made if one group has booked all 5 chalets).</sl-details>
+                <sl-details summary="What are the transport options for arriving by air?">We can arrange private
+                    transfers to and from Banja Luka (45 min), Zagreb (1.5h), and Belgrade (4h). Local taxis are also
+                    available. Please contact us in advance to schedule your service.</sl-details>
+                <sl-details summary="Is the resort open all year-round?">Yes.</sl-details>
+                <sl-details summary="How do I find the Resort?">Please follow our sign posts for Kozara Panoramic
+                    Resort.</sl-details>
             </div>
         </div>
     </section>
     <section class="cta-band">
-        <h2>{{closing_title}}</h2>
-        <p>{{closing_desc}}</p>
-        <a class="btn-cta-large" onclick="open_booking()">{{nav_cta}}</a>
+        <h3>Ready to Experience the Silence?</h3>
+        <p>Book your stay today and discover the magic of Mount Kozara.</p>
+        <a class="btn-cta-large" onclick="open_booking()">BOOK YOUR STAY</a>
     </section>
     <footer id="contact">
         <div class="footer-logo">KOZARA PANORAMIC RESORT</div>
         <!-- Updated Footer Links -->
         <div class="footer-links">
-            <a href="/{{language_code}}/notice#impressum">{{footer-impressum}}</a> | <a
-                href="/{{language_code}}/notice#terms">{{footer-terms}}</a> | <a
-                href="/{{language_code}}/notice#privacy">{{footer-privacy}}</a> |
-            <a href="/{{language_code}}/notice#impressum">{{footer-contact}}</a>
+            <a href="/en/notice#impressum">Impressum</a> | <a href="/en/notice#terms">Terms & Conditions</a> | <a
+                href="/en/notice#privacy">Privacy Policy</a> |
+            <a href="/en/notice#impressum">Contact</a>
         </div>
         <p>© Kozara Panoramic Resort – PEVA d.o.o. All rights reserved.</p>
     </footer>
@@ -488,31 +1074,28 @@
         </sl-select>
         <span class="notice">
             <sl-icon src="/assets/amenities_icons/circle-alert.svg"></sl-icon>
-            <span>{{booking_modal_note}}</span>
+            <span>Note these are estimated prices, final will be calculated at checkout.</span>
         </span>
         <div id="book_calendar_wrapper"></div>
         <form id="book_form">
             <fieldset group="1">
-                <legend>{{booking_form_occupants_title}}</legend>
+                <legend>Occupant Info</legend>
                 <div>
-                    <sl-input enterkeyhint="next" inputmode="numeric" label="{{booking_form_occupants_n_ad}}" max="6"
-                        min="1" name="numAdults" required="" type="number" value="1"></sl-input>
-                    <sl-input enterkeyhint="next" inputmode="numeric" label="{{booking_form_occupants_n_ch}}" max="2"
-                        min="0" name="numChildren" required="" type="number" value="0"></sl-input>
+                    <sl-input enterkeyhint="next" inputmode="numeric" label="Number of Adults" max="6" min="1"
+                        name="numAdults" required="" type="number" value="1"></sl-input>
+                    <sl-input enterkeyhint="next" inputmode="numeric" label="Number of Children" max="2" min="0"
+                        name="numChildren" required="" type="number" value="0"></sl-input>
                 </div>
                 <span class="notice">
                     <sl-icon src="/assets/amenities_icons/circle-alert.svg"></sl-icon>
-                    <span>{{booking_form_occupants_note}}</span>
+                    <span>Up to 6 Adults, or 4 Adults and 2 Children</span>
                 </span>
             </fieldset>
             <fieldset group="2">
-                <legend>{{booking_form_billing_title}}</legend>
-                <sl-input enterkeyhint="next" label="{{booking_form_billing_address}}" name="billingAddress"
-                    required=""></sl-input>
-                <sl-input enterkeyhint="next" label="{{booking_form_billing_city}}" name="billingCity"
-                    required=""></sl-input>
-                <sl-select autocomplete="country" label="{{booking_form_billing_country}}" name="billingCountry"
-                    required="">
+                <legend>Billing Info</legend>
+                <sl-input enterkeyhint="next" label="Address" name="billingAddress" required=""></sl-input>
+                <sl-input enterkeyhint="next" label="City" name="billingCity" required=""></sl-input>
+                <sl-select autocomplete="country" label="Country" name="billingCountry" required="">
                     <sl-divider></sl-divider>
                     <sl-option value="AF">Afghanistan</sl-option>
                     <sl-option value="AL">Albania</sl-option>
@@ -792,18 +1375,16 @@
                     <sl-option value="ZM">Zambia</sl-option>
                     <sl-option value="ZW">Zimbabwe</sl-option>
                 </sl-select>
-                <sl-input enterkeyhint="next" inputmode="numeric" label="{{booking_form_billing_postcode}}"
-                    name="billingPostCode" required=""></sl-input>
-                <sl-input enterkeyhint="next" label="{{booking_form_billing_fname}}" name="customerName"
+                <sl-input enterkeyhint="next" inputmode="numeric" label="Post Code" name="billingPostCode"
                     required=""></sl-input>
-                <sl-input enterkeyhint="next" label="{{booking_form_billing_lname}}" name="customerLastName"
-                    required=""></sl-input>
+                <sl-input enterkeyhint="next" label="First Name" name="customerName" required=""></sl-input>
+                <sl-input enterkeyhint="next" label="Last Name" name="customerLastName" required=""></sl-input>
                 <sl-input enterkeyhint="next" inputmode="email" label="Email" name="customerEmail" required=""
                     type="email"></sl-input>
-                <sl-input enterkeyhint="done" inputmode="tel" label="{{booking_form_billing_pnum}}" name="customerPhone"
-                    required="" type="tel"></sl-input>
+                <sl-input enterkeyhint="done" inputmode="tel" label="Phone Number" name="customerPhone" required=""
+                    type="tel"></sl-input>
             </fieldset>
-            <sl-button id="ptp_btn" type="submit">{{booking_form_btn}}</sl-button>
+            <sl-button id="ptp_btn" type="submit">PROCEED TO PAYMENT</sl-button>
             <div id="paypal-container"></div>
         </form>
     </sl-dialog>
@@ -818,7 +1399,6 @@
         <sl-icon-button src="/assets/amenities_icons/chevron-right.svg" id="next_btn" class="nav-btn"></sl-icon-button>
     </sl-dialog>
     <script>
-
         const isMobile = window.innerWidth <= 768;
         {
             // Function to inject /mobile/ into the path if on a small screen
@@ -854,27 +1434,27 @@
         const chaletData = {
             wind: {
                 title: "Wind Chalet",
-                desc: `{{wind_desc}}`,
+                desc: `The Wind chalet carries the freshness of the mountain breeze and the feeling of freedom in every breath. Perfect for those who wish to feel the rhythm of nature and the harmony between wind and trees.`,
                 images: ["/assets/Chalets/wind/17.webp", "/assets/Chalets/wind/6.webp", "/assets/Chalets/wind/3.webp", "/assets/Chalets/wind/14.webp", "/assets/Chalets/wind/9.webp", "/assets/Chalets/wind/4.webp", "/assets/Chalets/wind/5.webp", "/assets/Chalets/wind/10.webp", "/assets/Chalets/wind/12.webp", "/assets/Chalets/wind/13.webp", "/assets/Chalets/wind/15.webp", "/assets/Chalets/wind/16.webp", "/assets/Chalets/wind/11.webp"],
             },
             summit: {
                 title: "Sun Chalet",
-                desc: `{{summit_desc}}`,
+                desc: `The Sun chalet glows with golden light, perfect for mornings filled with warmth and energy. Every ray of sunshine brings joy and reminds you that each day is a new beginning.`,
                 images: ["/assets/Chalets/sun/15.webp", "/assets/Chalets/sun/1.webp", "/assets/Chalets/sun/7.webp", "/assets/Chalets/sun/9.webp", "/assets/Chalets/sun/10.webp", "/assets/Chalets/sun/11.webp", "/assets/Chalets/sun/4.webp", "/assets/Chalets/sun/5.webp", "/assets/Chalets/sun/14.webp", "/assets/Chalets/sun/6.webp", "/assets/Chalets/sun/3.webp", "/assets/Chalets/sun/12.webp", "/assets/Chalets/sun/17.webp", "/assets/Chalets/sun/8.webp"],
             },
             star: {
                 title: "Star Chalet",
-                desc: `{{star_desc}}`,
+                desc: `The Star chalet lies beneath a sky full of stars, where nights turn into magical moments. It’s ideal for couples or anyone wishing to find calmness under the endless sparkle of the night sky.`,
                 images: ["/assets/Chalets/star/9.webp", "/assets/Chalets/star/2.webp", "/assets/Chalets/star/3.webp", "/assets/Chalets/star/12.webp", "/assets/Chalets/star/13.webp", "/assets/Chalets/star/8.webp", "/assets/Chalets/star/1.webp", "/assets/Chalets/star/4.webp", "/assets/Chalets/star/6.webp", "/assets/Chalets/star/7.webp", "/assets/Chalets/star/5.webp"],
             },
             cloud: {
                 title: "Cloud Chalet",
-                desc: `{{cloud_desc}}`,
+                desc: `The Cloud chalet floats above the clouds, surrounded by silence and a view that connects sky and earth. It’s made for those who seek inspiration and peace in moments of pure stillness.`,
                 images: ["/assets/Chalets/cloud/9.webp", "/assets/Chalets/cloud/8.webp", "/assets/Chalets/cloud/11.webp", "/assets/Chalets/cloud/10.webp", "/assets/Chalets/cloud/14.webp", "/assets/Chalets/cloud/6.webp", "/assets/Chalets/cloud/12.webp", "/assets/Chalets/cloud/7.webp", "/assets/Chalets/cloud/13.webp", "/assets/Chalets/cloud/3.webp", "/assets/Chalets/cloud/4.webp", "/assets/Chalets/cloud/2.webp"],
             },
             sky: {
                 title: "Sky Chalet",
-                desc: `{{sky_desc}}`,
+                desc: `The Sky chalet stands at the boundary where the world fades and the heavens begin, offering boundless horizons and a sense of absolute freedom. It is the perfect vantage point for seekers of clarity, allowing you to breathe in the vastness and connect with the world's grand scale.`,
                 images: ["/assets/Chalets/sky/13.webp", "/assets/Chalets/sky/4.webp", "/assets/Chalets/sky/3.webp", "/assets/Chalets/sky/2.webp", "/assets/Chalets/sky/6.webp", "/assets/Chalets/sky/7.webp", "/assets/Chalets/sky/15.webp", "/assets/Chalets/sky/16.webp", "/assets/Chalets/sky/14.webp", "/assets/Chalets/sky/5.webp", "/assets/Chalets/sky/8.webp", "/assets/Chalets/sky/10.webp", "/assets/Chalets/sky/11.webp", "/assets/Chalets/sky/9.webp"],
             },
         }

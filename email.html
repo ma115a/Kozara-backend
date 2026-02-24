@@ -1,5 +1,3 @@
-<!-- <!DOCTYPE html PUBLIC "-//W4C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> -->
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -7,234 +5,359 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <title>Booking Confirmed - Kozara Panoramic Resort</title>
+
+    <!-- Import Fonts (Supported by some clients like Apple Mail, iOS) -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:wght@400;700;900&display=swap"
+        rel="stylesheet">
+
     <style type="text/css">
+        /* Client-specific Resets */
+        body,
+        table,
+        td,
+        a {
+            -webkit-text-size-adjust: 100%;
+            -ms-text-size-adjust: 100%;
+        }
+
+        table,
+        td {
+            mso-table-lspace: 0pt;
+            mso-table-rspace: 0pt;
+        }
+
+        img {
+            -ms-interpolation-mode: bicubic;
+            border: 0;
+            height: auto;
+            line-height: 100%;
+            outline: none;
+            text-decoration: none;
+        }
+
         /* MEDIA QUERIES */
-        @media screen and (max-width: 1000px) {
+        @media screen and (max-width: 650px) {
             .email-container {
                 width: 100% !important;
+                border-radius: 0 !important;
+                border-left: none !important;
+                border-right: none !important;
+            }
+
+            .padding-mobile {
+                padding: 30px 20px !important;
             }
 
             .stack-column {
                 display: block !important;
                 width: 100% !important;
-                max-width: 100% !important;
-                padding: 0 !important;
+                text-align: left !important;
+                margin-bottom: 15px !important;
             }
 
-            .padding-mobile {
-                padding: 40px 20px !important;
-            }
-
-            .img-holder {
-                width: 100% !important;
-                max-width: 100% !important;
-                height: 250px !important;
-            }
-
-            .info-stack {
-                display: block !important;
-                width: 100% !important;
-                margin-bottom: 20px !important;
+            .text-right-mobile {
+                text-align: left !important;
             }
         }
     </style>
 </head>
 
 <body
-    style="margin: 0; padding: 0; background-color: #f4f4f2; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;">
+    style="margin: 0; padding: 0; background-color: #ffffff; font-family: 'Lato', Helvetica, Arial, sans-serif; color: #333333;">
 
-    <center style="width: 100%; background-color: #f4f4f2; padding: 40px 0;">
+    <!-- Background Container -->
+    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%"
+        style="background-color: #ffffff;">
+        <tr>
+            <td align="center" style="padding: 40px 10px;">
 
-        <!-- Preview Text -->
+                <!-- Preview Text -->
+                <div
+                    style="display: none; font-size: 1px; line-height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all; font-family: sans-serif;">
+                    Reservation Secured, {{customerName}}! Your sanctuary among the pines of Kozara is confirmed. Ref:
+                    #{{bookingId}}
+                </div>
 
-        <div
-            style="display: none; font-size: 1px; line-height: 1px; max-height: 0px; max-width: 0px; opacity: 0; overflow: hidden; mso-hide: all; font-family: sans-serif;">
-            Reservation Confirmed, {{customerName}}! Your sanctuary among the pines of Kozara is secured. Ref: #{{bookingId}}
-        </div>
+                <!-- Main Card Container -->
+                <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%"
+                    class="email-container"
+                    style="max-width: 800px; margin: auto; background-color: #fbfbf9; border-radius: 12px; border: 1px solid #e5e5e5; box-shadow: 0 10px 30px rgba(0,0,0,0.05); border-collapse: collapse;">
+                    <tr>
+                        <td class="padding-mobile" style="padding: 60px 80px;">
 
-        <!-- Main Card Container -->
-        <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%" class="email-container"
-            style="max-width: 1000px; margin: auto; background-color: #fdfdfb; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); border-collapse: collapse;">
+                            <!-- Success Icon & Header -->
+                            <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%">
+                                <tr>
+                                    <td align="center" style="padding-bottom: 30px;">
+                                        <div
+                                            style="width: 72px; height: 72px; background-color: #eef2e6; border-radius: 50%; display: inline-block; line-height: 72px; font-size: 32px; color: #364d14; font-weight: bold; font-family: Arial, sans-serif;">
+                                            ✓
+                                        </div>
+                                        <h1
+                                            style="margin: 20px 0 10px; font-size: 32px; color: #364d14; font-family: 'Playfair Display', Georgia, serif; font-weight: 700;">
+                                            Reservation Secured
+                                        </h1>
+                                        <p
+                                            style="margin: 0; font-size: 16px; line-height: 26px; color: #555555; text-align: center;">
+                                            Dear <strong>{{customerName}}</strong>,<br><br>
+                                            Thank you for choosing Kozara Panoramic Resort. We look forward to welcoming
+                                            you to your private panoramic chalet in the peaceful nature of Kozara.
+                                        </p>
+                                    </td>
+                                </tr>
+                            </table>
 
-            <!-- Side-by-Side Content -->
-            <tr>
-                <td style="padding: 0;">
-                    <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%"
-                        style="border-collapse: collapse;">
-                        <tr>
-                            <!-- LEFT COLUMN: IMAGE -->
-                            <td class="stack-column img-holder" width="42%" valign="top"
-                                style="padding: 0; background-color: #364d14; background-image: url('https://kozarapanoramicresort.ba/assets/Carousel/image08180.webp'); background-size: cover; background-position: center; min-height: 600px;">
-                                <!--[if mso]>
-                            <v:rect xmlns:v="urn:schemas-microsoft-com:vml" fill="true" stroke="false" style="width:420px;height:700px;">
-                            <v:fill type="frame" src="https://kozarapanoramicresort.ba/assets/Carousel/image08180.webp" color="#364d14" />
-                            <v:textbox inset="0,0,0,0">
-                            <![endif]-->
-                                <div style="height: 100%; min-height: 600px;">&nbsp;</div>
-                                <!--[if mso]>
-                            </v:textbox>
-                            </v:rect>
-                            <![endif]-->
-                            </td>
+                            <!-- Data Box -->
+                            <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%"
+                                style="background-color: #ffffff; border: 1px solid #e5e5e5; border-radius: 8px; margin-bottom: 40px; box-shadow: 0 2px 8px rgba(0,0,0,0.02);">
+                                <tr>
+                                    <td style="padding: 24px 30px;">
+                                        <!-- Header: Booking Ref -->
+                                        <table role="presentation" border="0" cellpadding="0" cellspacing="0"
+                                            width="100%"
+                                            style="border-bottom: 1px dashed #e5e5e5; padding-bottom: 16px; margin-bottom: 20px;">
+                                            <tr>
+                                                <td
+                                                    style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #888888;">
+                                                    Booking Reference
+                                                </td>
+                                                <td align="right"
+                                                    style="font-size: 18px; font-weight: 700; color: #968067; letter-spacing: 1px;">
+                                                    #{{bookingId}}
+                                                </td>
+                                            </tr>
+                                        </table>
 
-                            <!-- RIGHT COLUMN: TEXT CONTENT -->
-                            <td class="stack-column" width="58%" valign="top" style="padding: 0;">
-                                <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%"
-                                    style="border-collapse: collapse;">
-                                    <tr>
-                                        <td class="padding-mobile" style="padding: 60px 50px;">
+                                        <!-- Grid: Dates & Details -->
+                                        <table role="presentation" border="0" cellpadding="0" cellspacing="0"
+                                            width="100%">
+                                            <tr>
+                                                <td class="stack-column" width="50%" valign="top"
+                                                    style="padding-bottom: 20px;">
+                                                    <div
+                                                        style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #888888;">
+                                                        Check-In</div>
+                                                    <div
+                                                        style="font-size: 16px; font-weight: 700; color: #333333; margin-top: 6px;">
+                                                        {{checkInDate}}</div>
+                                                </td>
+                                                <td class="stack-column text-right-mobile" width="50%" valign="top"
+                                                    align="right" style="padding-bottom: 20px;">
+                                                    <div
+                                                        style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #888888;">
+                                                        Check-Out</div>
+                                                    <div
+                                                        style="font-size: 16px; font-weight: 700; color: #333333; margin-top: 6px;">
+                                                        {{checkOutDate}}</div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="stack-column" width="50%" valign="top">
+                                                    <div
+                                                        style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #888888;">
+                                                        Guests</div>
+                                                    <div
+                                                        style="font-size: 16px; font-weight: 700; color: #333333; margin-top: 6px;">
+                                                        {{guestsCount}}</div>
+                                                </td>
+                                                <td class="stack-column text-right-mobile" width="50%" valign="top"
+                                                    align="right">
+                                                    <div
+                                                        style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: #888888;">
+                                                        Total Paid</div>
+                                                    <div
+                                                        style="font-size: 20px; font-weight: 900; color: #364d14; margin-top: 6px; font-family: 'Playfair Display', Georgia, serif;">
+                                                        {{totalPrice}} BAM</div>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
 
-                                            <!-- Icon & Welcome -->
-                                            <div style="text-align: center; margin-bottom: 30px;">
-                                                <h1
-                                                    style="margin: 0; font-size: 32px; color: #364d14; font-family: 'Playfair Display', Georgia, serif; font-weight: normal;">
-                                                    Welcome Home</h1>
-                                                <div
-                                                    style="height: 1px; width: 60px; background-color: #968067; margin: 15px auto;">
-                                                </div>
+                            <!-- Important Guest Information -->
+                            <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%"
+                                style="background-color: #ffffff; border: 1px solid #e5e5e5; border-radius: 8px; margin-bottom: 40px; box-shadow: 0 2px 8px rgba(0,0,0,0.02);">
+                                <tr>
+                                    <td style="padding: 30px;">
+                                        <h3
+                                            style="margin: 0 0 24px 0; font-size: 22px; color: #364d14; font-family: 'Playfair Display', Georgia, serif; font-weight: 700; border-bottom: 2px solid #eef2e6; padding-bottom: 12px;">
+                                            Important Guest Information
+                                        </h3>
+
+                                        <!-- Item: Amenities -->
+                                        <div style="margin-bottom: 24px;">
+                                            <div
+                                                style="font-size: 16px; font-weight: 700; color: #333333; margin-bottom: 8px;">
+                                                <span style="color: #968067; margin-right: 5px;">•</span> Your Chalet &
+                                                Amenities
                                             </div>
-
                                             <p
-                                                style="margin: 0 0 30px; font-size: 16px; line-height: 28px; color: #5c6d4c; font-family: 'Lato', Helvetica, Arial, sans-serif; text-align: center;">
-                                                Warmest greetings, <strong
-                                                    style="color: #333;">{{customerName}}</strong>!<br><br>
-                                                Your sanctuary among the pines of Kozara is officially secured. We are
-                                                so delighted to host you. Below you will find your <strong>booking
-                                                    details</strong>—we can't wait to welcome you to our mountain
-                                                paradise.
+                                                style="margin: 0 0 8px 0; font-size: 15px; color: #555555; line-height: 1.5;">
+                                                Your chalet (Sun / Star / Sky / Cloud / Wind) includes:</p>
+                                            <ul
+                                                style="margin: 0; padding-left: 20px; font-size: 15px; color: #555555; line-height: 1.5;">
+                                                <li style="margin-bottom: 6px;">Fully equipped kitchen (oven, hob,
+                                                    fridge-freezer, dishwasher, kettle, toaster, coffee machine)</li>
+                                                <li style="margin-bottom: 6px;">Underfloor heating & air-conditioning
+                                                </li>
+                                                <li style="margin-bottom: 6px;">Fresh premium bedding & towels</li>
+                                                <li style="margin-bottom: 6px;">High-speed Wi-Fi</li>
+                                                <li style="margin-bottom: 6px;">Private seasonal swimming pool (heated
+                                                    in Sky Chalet)</li>
+                                                <li style="margin-bottom: 6px;">Free private parking directly at your
+                                                    chalet</li>
+                                            </ul>
+                                        </div>
+
+                                        <!-- Item: Check-in -->
+                                        <div style="margin-bottom: 24px;">
+                                            <div
+                                                style="font-size: 16px; font-weight: 700; color: #333333; margin-bottom: 8px;">
+                                                <span style="color: #968067; margin-right: 5px;">•</span> Check-in &
+                                                Check-out
+                                            </div>
+                                            <p
+                                                style="margin: 0 0 8px 0; font-size: 15px; color: #555555; line-height: 1.5;">
+                                                <strong>Check-in:</strong> from 15:00<br>
+                                                <strong>Check-out:</strong> until 10:00
                                             </p>
+                                            <p style="margin: 0; font-size: 15px; color: #555555; line-height: 1.5;">
+                                                Flexible self check-in available. Access details will be sent before
+                                                arrival.</p>
+                                        </div>
 
-                                            <!-- Data Box -->
-                                            <table role="presentation" border="0" cellpadding="0" cellspacing="0"
-                                                width="100%"
-                                                style="background-color: #ffffff; border: 1px solid #eeeeee; border-radius: 8px; border-collapse: collapse;">
-                                                <tr>
-                                                    <td style="padding: 30px;">
-                                                        <!-- Ref -->
-                                                        <table width="100%">
-                                                            <tr>
-                                                                <td
-                                                                    style="font-family: 'Lato', sans-serif; font-size: 11px; text-transform: uppercase; color: #999; letter-spacing: 2px; padding-bottom: 5px;">
-                                                                    Booking Reference</td>
-                                                                <td align="right"
-                                                                    style="font-family: 'Lato', sans-serif; font-size: 16px; font-weight: bold; color: #968067;">
-                                                                    #{{bookingId}}</td>
-                                                            </tr>
-                                                        </table>
-                                                        <div style="border-bottom: 1px solid #f0f0f0; margin: 15px 0;">
-                                                        </div>
+                                        <!-- Item: Arrival -->
+                                        <div style="margin-bottom: 24px;">
+                                            <div
+                                                style="font-size: 16px; font-weight: 700; color: #333333; margin-bottom: 8px;">
+                                                <span style="color: #968067; margin-right: 5px;">•</span> Arrival
+                                                Information
+                                            </div>
+                                            <p
+                                                style="margin: 0 0 8px 0; font-size: 15px; color: #555555; line-height: 1.5;">
+                                                From Gradiška, follow the Kozara region road and resort signage. Remain
+                                                on paved roads until the final section.</p>
+                                            <p style="margin: 0; font-size: 15px; color: #555555; line-height: 1.5;">The
+                                                last approximately 1 km is an unpaved natural road — completely normal
+                                                and accessible with standard vehicles.</p>
+                                        </div>
 
-                                                        <!-- Dates -->
-                                                        <table width="100%">
-                                                            <tr>
-                                                                <td width="50%" style="padding-bottom: 20px;">
-                                                                    <p
-                                                                        style="margin: 0; font-family: 'Lato', sans-serif; font-size: 10px; text-transform: uppercase; color: #999; letter-spacing: 1px;">
-                                                                        Check-in</p>
-                                                                    <p
-                                                                        style="margin: 5px 0 0; font-family: 'Lato', sans-serif; font-size: 15px; font-weight: bold; color: #333;">
-                                                                        {{checkInDate}}</p>
-                                                                </td>
-                                                                <td width="50%" align="right"
-                                                                    style="padding-bottom: 20px;">
-                                                                    <p
-                                                                        style="margin: 0; font-family: 'Lato', sans-serif; font-size: 10px; text-transform: uppercase; color: #999; letter-spacing: 1px;">
-                                                                        Check-out</p>
-                                                                    <p
-                                                                        style="margin: 5px 0 0; font-family: 'Lato', sans-serif; font-size: 15px; font-weight: bold; color: #333;">
-                                                                        {{checkOutDate}}</p>
-                                                                </td>
-                                                            </tr>
-                                                            <tr>
-                                                                <td>
-                                                                    <p
-                                                                        style="margin: 0; font-family: 'Lato', sans-serif; font-size: 10px; text-transform: uppercase; color: #999; letter-spacing: 1px;">
-                                                                        Guests</p>
-                                                                    <p
-                                                                        style="margin: 5px 0 0; font-family: 'Lato', sans-serif; font-size: 15px; font-weight: bold; color: #333;">
-                                                                        {{guestsCount}}</p>
-                                                                </td>
-                                                                <td align="right">
-                                                                    <p
-                                                                        style="margin: 0; font-family: 'Lato', sans-serif; font-size: 10px; text-transform: uppercase; color: #999; letter-spacing: 1px;">
-                                                                        Total Paid</p>
-                                                                    <p
-                                                                        style="margin: 5px 0 0; font-family: 'Playfair Display', serif; font-size: 18px; font-weight: bold; color: #364d14;">
-                                                                        {{totalPrice}} BAM</p>
-                                                                </td>
-                                                            </tr>
-                                                        </table>
-                                                    </td>
-                                                </tr>
-                                            </table>
+                                        <!-- Item: Self Catering -->
+                                        <div style="margin-bottom: 24px;">
+                                            <div
+                                                style="font-size: 16px; font-weight: 700; color: #333333; margin-bottom: 8px;">
+                                                <span style="color: #968067; margin-right: 5px;">•</span> Self-Catering
+                                            </div>
+                                            <p
+                                                style="margin: 0 0 8px 0; font-size: 15px; color: #555555; line-height: 1.5;">
+                                                Kozara Panoramic Resort is a private self-catering retreat. We do not
+                                                provide fresh food products before arrival for hygiene reasons.</p>
+                                            <ul
+                                                style="margin: 0; padding-left: 20px; font-size: 15px; color: #555555; line-height: 1.5;">
+                                                <li style="margin-bottom: 6px;"><strong>Small shop:</strong> Turjak
+                                                    village (on your way)</li>
+                                                <li style="margin-bottom: 6px;"><strong>Large supermarkets:</strong>
+                                                    Gradiška & Banja Luka</li>
+                                            </ul>
+                                        </div>
 
-                                            <!-- Location & Support Section -->
-                                            <table role="presentation" border="0" cellpadding="0" cellspacing="0"
-                                                width="100%" style="margin-top: 40px; border-collapse: collapse;">
-                                                <tr>
-                                                    <td class="info-stack" width="50%" valign="top"
-                                                        style="padding-right: 10px;">
-                                                        <p
-                                                            style="margin: 0 0 5px; font-family: 'Lato', sans-serif; font-size: 14px; font-weight: bold; color: #333;">
-                                                            Our Location</p>
-                                                        <p
-                                                            style="margin: 0 0 10px; font-family: 'Lato', sans-serif; font-size: 12px; color: #666; line-height: 18px;">
-                                                            Kozara National Park, Mrakovica, Bosnia and Herzegovina.</p>
-                                                        <a href="https://maps.app.goo.gl/TCrvP6iavY38Xbp7A"
-                                                            style="font-family: 'Lato', sans-serif; font-size: 11px; font-weight: bold; color: #364d14; text-transform: uppercase; text-decoration: underline;">Open
-                                                            in Maps</a>
-                                                    </td>
-                                                    <td class="info-stack" width="50%" valign="top"
-                                                        style="padding-left: 10px;">
-                                                        <p
-                                                            style="margin: 0 0 5px; font-family: 'Lato', sans-serif; font-size: 14px; font-weight: bold; color: #333;">
-                                                            Need Assistance?</p>
-                                                        <p
-                                                            style="margin: 0 0 10px; font-family: 'Lato', sans-serif; font-size: 12px; color: #666; line-height: 18px;">
-                                                            Questions about your stay or special requests?</p>
-                                                        <a href="mailto:info@kozarapanoramicresort.ba"
-                                                            style="font-family: 'Lato', sans-serif; font-size: 11px; font-weight: bold; color: #364d14; text-transform: uppercase; text-decoration: underline;">info@kozarapanoramicreort.ba</a>
-                                                    </td>
-                                                </tr>
-                                            </table>
+                                        <!-- Item: Organic Garden -->
+                                        <div style="margin-bottom: 24px;">
+                                            <div
+                                                style="font-size: 16px; font-weight: 700; color: #333333; margin-bottom: 8px;">
+                                                <span style="color: #968067; margin-right: 5px;">•</span> Organic Garden
+                                            </div>
+                                            <p style="margin: 0; font-size: 15px; color: #555555; line-height: 1.5;">
+                                                Seasonal organic baskets from our garden can be arranged upon request.
+                                            </p>
+                                        </div>
 
-                                        </td>
-                                    </tr>
-                                </table>
-                            </td>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
+                                        <!-- Item: Outdoor Cooking -->
+                                        <div style="margin-bottom: 24px;">
+                                            <div
+                                                style="font-size: 16px; font-weight: 700; color: #333333; margin-bottom: 8px;">
+                                                <span style="color: #968067; margin-right: 5px;">•</span> Outdoor
+                                                Cooking
+                                            </div>
+                                            <p style="margin: 0; font-size: 15px; color: #555555; line-height: 1.5;">
+                                                Open fires and charcoal BBQs are not permitted. A modern electric smoker
+                                                BBQ is available upon request.</p>
+                                        </div>
 
-            <!-- Footer -->
-            <tr>
-                <td align="center" style="padding: 40px; background-color: #364d14;">
-                    <p
-                        style="margin: 0 0 10px; font-size: 20px; color: #ffffff; font-family: 'Playfair Display', Georgia, serif;">
-                        Kozara Panoramic Resort</p>
-                    <div style="height: 1px; width: 40px; background-color: #968067; margin: 15px auto;"></div>
-                    <p
-                        style="margin: 0; font-size: 12px; line-height: 20px; color: #d9c7b2; font-family: 'Lato', Helvetica, Arial, sans-serif; letter-spacing: 1px; text-transform: uppercase;">
-                        Find Your Peace. Find Your Peak.
-                    </p>
-                </td>
-            </tr>
+                                        <!-- Item: Peace & Privacy -->
+                                        <div style="margin-bottom: 24px;">
+                                            <div
+                                                style="font-size: 16px; font-weight: 700; color: #333333; margin-bottom: 8px;">
+                                                <span style="color: #968067; margin-right: 5px;">•</span> Peace &
+                                                Privacy
+                                            </div>
+                                            <p
+                                                style="margin: 0 0 8px 0; font-size: 15px; color: #555555; line-height: 1.5;">
+                                                <strong>Quiet hours:</strong> 22:00 – 08:00.
+                                            </p>
+                                            <p style="margin: 0; font-size: 15px; color: #555555; line-height: 1.5;">For
+                                                exclusive full-resort bookings (all five chalets), quiet hours may be
+                                                relaxed upon prior agreement.</p>
+                                        </div>
 
-        </table>
+                                        <!-- Item: Contacts -->
+                                        <div>
+                                            <div
+                                                style="font-size: 16px; font-weight: 700; color: #333333; margin-bottom: 8px;">
+                                                <span style="color: #968067; margin-right: 5px;">•</span> Resort
+                                                Contacts
+                                            </div>
+                                            <p
+                                                style="margin: 0 0 8px 0; font-size: 15px; color: #555555; line-height: 1.5;">
+                                                Also available on WhatsApp.</p>
+                                            <p style="margin: 0; font-size: 15px; color: #555555; line-height: 1.5;">
+                                                <strong>Dragana Truscott – Resort Owner</strong><br>
+                                                Bosnia: +387 66 767 622<br>
+                                                Germany: +49 151 176 27478<br>
+                                                <a href="mailto:info@kozarapanoramicresort.com"
+                                                    style="color: #364d14; text-decoration: none; font-weight: 700;">info@kozarapanoramicresort.com</a>
+                                            </p>
+                                        </div>
+                                    </td>
+                                </tr>
+                            </table>
 
-        <!-- Unsubscribe/Legal (Optional but recommended) -->
-        <table width="100%" style="max-width: 1000px; margin-top: 20px;">
-            <tr>
-                <td align="center" style="font-family: 'Lato', sans-serif; font-size: 11px; color: #999;">
-                    © 2026 Kozara Panoramic Resort. All rights reserved.<br>
-                    You received this email because of your recent booking.
-                </td>
-            </tr>
-        </table>
+                            <!-- Sign Off -->
+                            <div
+                                style="font-size: 20px; color: #364d14; font-family: 'Playfair Display', Georgia, serif; line-height: 1.4;">
+                                Warm regards,<br>
+                                James & Dragana
+                            </div>
 
-    </center>
+                        </td>
+                    </tr>
+                </table>
 
+                <!-- Footer Section -->
+                <table role="presentation" border="0" cellpadding="0" cellspacing="0" width="100%"
+                    style="max-width: 800px; margin: 30px auto 0;">
+                    <tr>
+                        <td align="center"
+                            style="font-family: 'Lato', Helvetica, Arial, sans-serif; font-size: 12px; color: #888888; line-height: 18px;">
+                            <p
+                                style="margin: 0 0 10px; font-size: 18px; color: #364d14; font-family: 'Playfair Display', Georgia, serif;">
+                                Kozara Panoramic Resort
+                            </p>
+                            Kozara National Park, Mrakovica, Bosnia and Herzegovina.<br>
+                            <a href="https://maps.app.goo.gl/TCrvP6iavY38Xbp7A"
+                                style="color: #968067; text-decoration: underline;">Open in Maps</a>
+                            <br><br>
+                            © 2026 Kozara Panoramic Resort. All rights reserved.<br>
+                            You received this email because of your recent booking.
+                        </td>
+                    </tr>
+                </table>
+
+            </td>
+        </tr>
+    </table>
 
 </body>
 

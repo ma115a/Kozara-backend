@@ -131,7 +131,7 @@ nav {
 .logo-text {
     font-weight: 900;
     font-size: 1.2rem;
-    color: transparent;
+    color: black;
     width: 210px;
     position: absolute;
     user-select: none;
@@ -983,7 +983,7 @@ footer {
     border-top: 1px solid #eee;
 }
 
-.cta-band h3 {
+.cta-band h2 {
     font-family: "Playfair Display", serif;
     font-size: 2.5rem;
     color: var(--primary-green);
@@ -1757,5 +1757,111 @@ h3.section-title {
 
     h3.section-title {
         font-size: 2rem;
+    }
+}
+
+.retreat-intro {
+    text-align: center;
+    padding: 100px 20px;
+    background-color: var(--bg-soft);
+    display: flex;
+    justify-content: center;
+}
+
+.retreat-content {
+    max-width: 800px;
+    width: 100%;
+}
+
+.retreat-content .section-title {
+    font-family: "Playfair Display", serif;
+    font-size: 2.2rem;
+    color: var(--primary-green);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+.retreat-content .lead {
+    font-size: 1.15rem;
+    line-height: 1.6;
+    color: var(--muted-green);
+    font-weight: 500;
+    margin-bottom: 40px;
+}
+
+.retreat-highlights {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    font-family: "Playfair Display", serif;
+    font-size: 1.6rem;
+    color: var(--earth-brown);
+    font-style: italic;
+    margin: 40px 0;
+}
+
+.retreat-highlights .dot {
+    font-size: 1.2rem;
+    color: var(--sand-beige);
+    font-style: normal;
+}
+
+.retreat-desc {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--muted-green);
+    margin-bottom: 40px;
+    font-weight: 500;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.retreat-footer {
+    margin-top: 40px;
+    padding-top: 40px;
+    border-top: 1px solid var(--sand-beige);
+}
+
+.not-hotel {
+    display: block;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--earth-brown);
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    font-family: "Lato", sans-serif;
+}
+
+.your-retreat {
+    display: block;
+    font-family: "Playfair Display", serif;
+    font-size: 2rem;
+    color: var(--primary-green);
+}
+
+@media (max-width: 768px) {
+    .retreat-intro {
+        padding: 80px 20px 40px 20px;
+    }
+
+    .retreat-highlights {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .retreat-highlights .dot {
+        display: none;
+    }
+
+    .retreat-content .section-title {
+        font-size: 1.6rem;
+    }
+
+    .your-retreat {
+        font-size: 1.5rem;
     }
 }
