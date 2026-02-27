@@ -65,7 +65,7 @@ p.lead {
 /* Hero */
 .hero {
     position: relative;
-    height: 85vh;
+    height: 60vh;
     background-image: url("../assets/Scenery/lander3.webp");
     background-size: cover;
     background-position: center;
@@ -170,8 +170,18 @@ nav {
     position: fixed;
     width: 45ch;
     max-width: 90dvw;
-    top: 21.25dvh;
+    top: 13.25dvh;
     transform: translateY(-50%);
+}
+
+
+@media (width < 588px) {
+
+    #logo_stripped {
+        top: 8;
+        width: 35ch;
+    }
+
 }
 
 #logo_stripped_reserve_spacer {
@@ -250,11 +260,15 @@ sl-carousel-item img {
     gap: 20px;
     align-items: center;
     flex-wrap: wrap;
+    width: 30vw;
     border-bottom: 4px solid var(--earth-brown);
     box-shadow: 1px 4px 11px 3px rgba(0, 0, 0, 0.4);
 
     h2 {
+        font-size: 1.8rem;
+        color: var(--primary-green);
         margin: 0;
+        letter-spacing: 0.5px;
     }
 
     max-width: 50ch;
@@ -1178,7 +1192,12 @@ form {
 
     .booking-bar {
         flex-direction: column;
-        width: 80%;
+        width: 60%;
+    }
+
+
+    .logo-area {
+        font-size: 2rem;
     }
 
     .content-layout {
@@ -1864,4 +1883,38 @@ h3.section-title {
     .your-retreat {
         font-size: 1.5rem;
     }
+}
+
+.price-tag {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--earth-brown);
+    margin-top: -10px;
+}
+
+.highlights-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: left;
+    width: 100%;
+}
+
+.highlight-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.05rem;
+    color: #444;
+    font-weight: 400;
+}
+
+.highlight-item::before {
+    content: "•";
+    color: var(--earth-brown);
+    font-size: 1.5rem;
+    line-height: 1;
 }

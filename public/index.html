@@ -176,7 +176,15 @@
     <div class="booking-container" id="booking">
         <div class="booking-bar">
             <h2>{{booking_bar_title}}</h2>
-            <div>{{booking_bar_text}}</div>
+            <!-- <div>{{booking_bar_text}}</div> -->
+
+            <ul class="highlights-list">
+                <li class="highlight-item">{{booking_bar_text1}}</li>
+                <li class="highlight-item">{{booking_bar_text2}}</li>
+                <li class="highlight-item">{{booking_bar_text3}}</li>
+                <li class="highlight-item">{{booking_bar_text4}}</li>
+            </ul>
+            <div class="price-tag">{{booking_bar_text5}}</div>
             <button class="btn-check" onclick="open_booking()">{{nav_cta}}</button>
         </div>
     </div>
@@ -197,7 +205,7 @@
             <p class="retreat-desc">{{retreat-desc}}</p>
 
             <div class="retreat-footer">
-                <span class="not-hotel">{{retreat-not-hotel}}</span>
+                <!-- <span class="not-hotel">{{retreat-not-hotel}}</span> -->
                 <span class="your-retreat">{{retreat-your-retreat}}</span>
             </div>
         </div>
@@ -1297,7 +1305,7 @@
                     scrub: true,
                     invalidateOnRefresh: true,
                 },
-                top: () => window.innerWidth <= 768 ? "0px" : "7px",
+                top: () => window.innerWidth <= 768 ? "20px" : "7px",
                 translateY: "0%",
                 width: `${shared.width}ch`,
             })
