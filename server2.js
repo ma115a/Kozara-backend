@@ -234,11 +234,12 @@ async function sendBookingConfirmation(bookingData) {
         console.log("Message sent: %s", info.messageId);
         logger.info({ message: info.messageId })
         if (info.accepted.length >= 1) {
+            logger.info('updating booking after confirmation email')
             try {
                 const updateBooking = db.prepare(`UPDATE bookings SET emailConfirmation = ? WHERE id = ?`)
 
-                console.log(bookingData.id)
-                console.log(bookingData.dbid)
+                logger.info(bookingData.id)
+                logger.info(bookingData.dbid)
                 const updatedBooking = updateBooking.run(1, bookingData.dbid)
                 logger.info(updatedBooking)
             } catch (error) {

@@ -36,7 +36,7 @@ body {
 
 .section-padding {
     padding: 80px 10%;
-    background-color: var(--bg-soft);
+    background-color: var(--bg-white);
 }
 
 h3.section-title {
@@ -219,7 +219,7 @@ nav {
 /* Carousel */
 .carousel-container {
     padding: 0 5% 60px 5%;
-    background-color: var(--bg-soft);
+    background-color: var(--bg-white);
 }
 
 #autocarousel {
@@ -248,6 +248,7 @@ sl-carousel-item img {
     margin-top: -40px;
     display: flex;
     justify-content: center;
+    /* background-color: var(--bg-soft); */
 }
 
 .booking-bar {
@@ -305,7 +306,7 @@ sl-carousel-item img {
 /* Chalets */
 .chalets-section {
     padding: 50px 10%;
-    background-color: var(--bg-soft);
+    background-color: var(--bg-white);
 }
 
 .chalet-grid {
@@ -314,6 +315,7 @@ sl-carousel-item img {
     gap: 40px;
     row-gap: 15px;
     align-items: center;
+    margin-bottom: 80px;
 }
 
 /*.chalet-card {*/
@@ -576,7 +578,7 @@ sl-dialog {
     flex-wrap: wrap;
     padding: 20px;
     margin-top: 15px;
-    background-color: var(--bg-soft);
+    background-color: var(--bg-white);
     border-radius: 8px;
 }
 
@@ -628,7 +630,7 @@ sl-dialog {
     display: flex;
     justify-content: center;
 
-    background-color: var(--bg-soft);
+    background-color: var(--bg-white);
 }
 
 .notice-card {
@@ -861,7 +863,7 @@ sl-dialog {
 }
 
 .blog-section {
-    background-color: var(--bg-soft);
+    background-color: var(--bg-white);
     padding-top: 80px;
     padding-bottom: 80px;
 }
@@ -991,10 +993,10 @@ footer {
 
 /* Pre-footer */
 .cta-band {
-    background-color: var(--bg-soft);
+    background-color: var(--bg-white);
     padding: 80px 20px;
     text-align: center;
-    border-top: 1px solid #eee;
+    /* border-top: 1px solid #eee; */
 }
 
 .cta-band h2 {
@@ -1606,7 +1608,7 @@ section:has(> .blog-grid) {
 
 .facilities-section {
     padding: 80px 10%;
-    background-color: var(--bg-soft);
+    background-color: var(--bg-white);
 }
 
 .facilities-container {
@@ -1782,7 +1784,7 @@ h3.section-title {
 .retreat-intro {
     text-align: center;
     padding: 100px 20px;
-    background-color: var(--bg-soft);
+    background-color: var(--bg-white);
     display: flex;
     justify-content: center;
 }
@@ -1917,4 +1919,476 @@ h3.section-title {
     color: var(--earth-brown);
     font-size: 1.5rem;
     line-height: 1;
+}
+
+.price-notice {
+    display: flex;
+    align-items: center;
+    gap: 0.5ch;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background-color: var(--bg-white);
+    border: 1px solid var(--sand-beige);
+    border-radius: 4px;
+    /* color: var(--primary-green); */
+}
+
+.price-notice sl-icon {
+    font-size: 1.4em;
+    color: var(--earth-brown);
+}
+
+.price-label {
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+}
+
+#estimated_price_value {
+    font-family: "Lato", serif;
+    /* Matches your numeric/heading style */
+    font-size: 1.25rem;
+    font-weight: 700;
+    /* color: var(--primary-green); */
+    margin-left: auto;
+    /* Pushes the price to the right side of the notice bar */
+}
+
+
+
+.retreat-redesign {
+    padding: 100px 20px;
+    background-color: var(--bg-white);
+    text-align: center;
+}
+
+.section-accent {
+    color: var(--earth-brown);
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.main-headline {
+    font-size: clamp(1.8rem, 5vw, 2.8rem);
+    color: var(--primary-green);
+    line-height: 1.2;
+    max-width: 900px;
+    margin: 0 auto 40px;
+}
+
+.divider {
+    width: 60px;
+    height: 1px;
+    background-color: var(--sand-beige);
+    margin: 0 auto 40px;
+}
+
+.features-grid {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+.feature-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 200px;
+}
+
+.feature-item span {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.2rem;
+    color: var(--muted-green);
+    margin-top: 10px;
+}
+
+.feature-icon {
+    font-size: 2.5rem;
+    /* Adjusted for sl-icon sizing */
+    margin-bottom: 15px;
+    color: var(--earth-brown);
+}
+
+.lead-text {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: var(--muted-green);
+    max-width: 700px;
+    margin: 0 auto;
+    font-weight: 400;
+}
+
+.highlight-gold {
+    color: var(--earth-brown);
+    font-weight: 700;
+}
+
+@media (max-width: 768px) {
+    .retreat-redesign {
+        padding: 60px 20px;
+    }
+
+    .features-grid {
+        gap: 20px;
+    }
+
+    .feature-item {
+        max-width: 140px;
+    }
+
+    .feature-item span {
+        font-size: 1rem;
+    }
+
+    .feature-icon {
+        font-size: 2rem;
+    }
+}
+
+.why-choose-us {
+    background-color: var(--bg-white);
+}
+
+/* Switched to Flexbox to allow centering of trailing items */
+.benefits-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.benefit-item {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+    /* Shrink them horizontally to fit better in a single line */
+    flex: 0 1 200px;
+    min-width: 180px;
+}
+
+/* Animations removed as requested */
+
+.benefit-icon {
+    font-size: 2.4rem;
+    /* Slightly smaller icon to match the narrower profile */
+    color: var(--earth-brown);
+    margin-bottom: 15px;
+}
+
+.benefit-text {
+    font-family: "Playfair Display", serif;
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--primary-green);
+    margin-bottom: 8px;
+    line-height: 1.2;
+}
+
+.benefit-desc {
+    font-size: 0.9rem;
+    color: var(--muted-green);
+    line-height: 1.5;
+    margin: 0;
+    font-weight: 400;
+}
+
+@media (max-width: 768px) {
+    .section-padding {
+        padding: 60px 5%;
+    }
+
+    .section-title {
+        font-size: 1.8rem;
+    }
+
+    .benefit-item {
+        flex: 1 1 40%;
+        /* Two columns on mobile */
+    }
+}
+
+
+.chalet-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 24px;
+    color: var(--primary-green);
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 1.5px;
+}
+
+.chalet-features li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.chalet-features li::before {
+    content: "";
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    background-color: var(--earth-brown);
+    border-radius: 50%;
+}
+
+
+@media (max-width: 768px) {
+    .chalet-features {
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+    }
+}
+
+
+.strategic-location-info {
+    margin: 0 auto 50px;
+    padding: 40px 0;
+    border-top: 1px solid rgba(217, 199, 178, 0.4);
+    border-bottom: 1px solid rgba(217, 199, 178, 0.4);
+    max-width: 800px;
+    text-align: center;
+}
+
+.strategic-location-info h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 1.8rem;
+    color: var(--sand-beige);
+    margin-top: 0;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+}
+
+.strategic-location-info p {
+    font-size: 1.2rem;
+    line-height: 1.6;
+    color: #fff;
+    margin-bottom: 20px;
+    font-weight: 300;
+}
+
+.target-audience {
+    font-family: "Lato", sans-serif;
+    color: var(--sand-beige);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    display: block;
+    opacity: 0.9;
+}
+
+
+@media (max-width: 768px) {
+    /* .location-section { */
+    /*     padding: 80px 5%; */
+    /*     background-attachment: scroll; */
+    /* } */
+    /**/
+    /* .section-title { */
+    /*     font-size: 2.2rem; */
+    /* } */
+
+    .strategic-location-info h3 {
+        font-size: 1.5rem;
+    }
+
+    .strategic-location-info p {
+        font-size: 1.1rem;
+    }
+}
+
+.book-direct-card {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #fff;
+    border: 1px solid var(--earth-brown);
+    border-radius: 4px;
+    padding: 50px 40px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.book-direct-card h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 2rem;
+    color: var(--primary-green);
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+.book-direct-card p {
+    font-size: 1.1rem;
+    color: var(--muted-green);
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+/* THE BOOK BUTTON */
+.btn-book-direct {
+    display: inline-block;
+    background-color: var(--primary-green);
+    color: white;
+    padding: 16px 45px;
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    margin-bottom: 40px;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 12px rgba(54, 77, 20, 0.2);
+}
+
+.btn-book-direct:hover {
+    background-color: var(--earth-brown);
+    transform: translateY(-2px);
+}
+
+.direct-benefits {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    padding-top: 30px;
+    border-top: 1px solid var(--sand-beige);
+}
+
+.benefit-tag {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 700;
+    color: var(--primary-green);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+
+    .chalet-features,
+    .direct-benefits {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .book-direct-card {
+        padding: 30px 20px;
+    }
+
+    .btn-book-direct {
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+
+.experience-bridge {
+    position: relative;
+    padding: 30px 10%;
+    background-color: var(--bg-white);
+    color: #333;
+    text-align: center;
+    overflow: hidden;
+}
+
+.experience-content {
+    position: relative;
+    z-index: 2;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.experience-accent {
+    font-family: 'Lato', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--earth-brown);
+    margin-bottom: 25px;
+    display: block;
+}
+
+.experience-title {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
+    line-height: 1.3;
+    margin-bottom: 45px;
+    color: var(--primary-green);
+}
+
+.experience-grid {
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    align-items: center;
+    gap: 40px;
+    text-align: center;
+}
+
+.exp-text {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: var(--muted-green);
+    font-weight: 400;
+}
+
+.exp-text.italic {
+    font-style: italic;
+}
+
+.exp-divider {
+    background-color: var(--sand-beige);
+    height: 60px;
+    width: 1px;
+    opacity: 0.6;
+}
+
+@media (max-width: 768px) {
+    .experience-bridge {
+        padding: 80px 5%;
+    }
+
+    .experience-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .exp-divider {
+        width: 40px;
+        height: 1px;
+        margin: 0 auto;
+    }
+
+    .experience-title {
+        font-size: 1.6rem;
+        margin-bottom: 30px;
+    }
 }

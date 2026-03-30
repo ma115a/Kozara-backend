@@ -148,7 +148,7 @@
         <div class="header-bg"></div>
         <div class="hero-overlay"></div>
         <div class="hero-content">
-            <h1 class="logo-area">KOZARA PANORAMIC RESORT</h1>
+            <h1 class="logo-area">{{mainH1}}</h1>
             <h2>{{subtitle}}</h2>
         </div>
     </header>
@@ -165,10 +165,10 @@
                 {{language_tag}}
             </span>
             <sl-menu>
-                <sl-menu-item><a href="/">ðŸ‡¬ðŸ‡§ EN (English)</a></sl-menu-item>
-                <sl-menu-item><a href="/sr">ðŸ‡·ðŸ‡¸ SR (Srpski)</a></sl-menu-item>
-                <sl-menu-item><a href="/de">ðŸ‡©ðŸ‡ª DE (Deutsch)</a></sl-menu-item>
-                <sl-menu-item><a href="/it">ðŸ‡®ðŸ‡¹ IT (Italiano)</a></sl-menu-item>
+                <sl-menu-item><a href="/">🇬🇧 EN (English)</a></sl-menu-item>
+                <sl-menu-item><a href="/sr">🇷🇸 SR (Srpski)</a></sl-menu-item>
+                <sl-menu-item><a href="/de">🇩🇪 DE (Deutsch)</a></sl-menu-item>
+                <sl-menu-item><a href="/it">🇮🇹 IT (Italiano)</a></sl-menu-item>
             </sl-menu>
         </sl-dropdown>
     </sl-drawer>
@@ -188,26 +188,43 @@
             <button class="btn-check" onclick="open_booking()">{{nav_cta}}</button>
         </div>
     </div>
-    <section class="retreat-intro">
-        <div class="retreat-content">
-            <h2 class="section-title">{{retreat-title}}</h2>
-            <p class="lead">{{retreat-lead}}</p>
+    <section class="retreat-redesign">
+        <div class="container mx-auto px-4">
+            <!-- Subtle Accent Label -->
+            <span class="section-accent">{{retreat-accent}}</span>
 
-            <div class="retreat-highlights">
-                <!-- <span>Private spaces.</span> -->
-                <!-- <span class="dot">&#8226;</span> -->
-                <!-- <span>Pure air.</span> -->
-                <!-- <span class="dot">&#8226;</span> -->
-                <!-- <span>Total silence.</span> -->
-                {{retreat-highlights}}
+            <!-- Main Headline -->
+            <h2 class="main-headline playfair">
+                {{retreat-title}}
+            </h2>
+
+            <!-- Elegant Divider -->
+            <div class="divider"></div>
+
+            <!-- Features Icons/Text -->
+            <div class="features-grid">
+                <div class="feature-item">
+                    <sl-icon src="/assets/amenities_icons/house.svg" class="feature-icon"></sl-icon>
+                    <span>{{retreat-item1}}</span>
+                </div>
+                <div class="feature-item">
+                    <sl-icon src="/assets/amenities_icons/waves.svg" class="feature-icon"></sl-icon>
+                    <span>{{retreat-item2}}</span>
+                </div>
+                <div class="feature-item">
+                    <sl-icon src="/assets/amenities_icons/eye.svg" class="feature-icon"></sl-icon>
+                    <span>{{retreat-item3}}</span>
+                </div>
+                <div class="feature-item">
+                    <sl-icon src="/assets/amenities_icons/lock.svg" class="feature-icon"></sl-icon>
+                    <span>{{retreat-item4}}</span>
+                </div>
             </div>
 
-            <p class="retreat-desc">{{retreat-desc}}</p>
-
-            <div class="retreat-footer">
-                <!-- <span class="not-hotel">{{retreat-not-hotel}}</span> -->
-                <span class="your-retreat">{{retreat-your-retreat}}</span>
-            </div>
+            <!-- Description Body -->
+            <p class="lead-text">
+                {{retreat-lead}}
+            </p>
         </div>
     </section>
     <section class="carousel-container">
@@ -311,10 +328,59 @@
             </sl-carousel-item>
         </sl-carousel>
     </section>
+    <section class="why-choose-us section-padding" id="why-kpr">
+        <div class="container">
+            <h2 class="section-title">{{wcu-title}}</h2>
+            <div class="divider"></div>
+
+            <div class="benefits-grid">
+                <!-- Point 1 -->
+                <div class="benefit-item">
+                    <sl-icon src="/assets/amenities_icons/waves.svg" class="benefit-icon"></sl-icon>
+                    <div class="benefit-text">{{benefit-text1}}</div>
+                    <p class="benefit-desc">{{benefit-desc1}}</p>
+                </div>
+
+                <!-- Point 2 -->
+                <div class="benefit-item">
+                    <sl-icon src="/assets/amenities_icons/wind.svg" class="benefit-icon"></sl-icon>
+                    <div class="benefit-text">{{benefit-text2}}</div>
+                    <p class="benefit-desc">{{benefit-desc2}}</p>
+                </div>
+
+                <!-- Point 3 -->
+                <div class="benefit-item">
+                    <sl-icon src="/assets/amenities_icons/mountain.svg" class="benefit-icon"></sl-icon>
+                    <div class="benefit-text">{{benefit-text3}}</div>
+                    <p class="benefit-desc">{{benefit-desc3}}</p>
+                </div>
+
+                <!-- Point 4 -->
+                <div class="benefit-item">
+                    <sl-icon src="/assets/amenities_icons/gem.svg" class="benefit-icon"></sl-icon>
+                    <div class="benefit-text">{{benefit-text4}}</div>
+                    <p class="benefit-desc">{{benefit-desc4}}</p>
+                </div>
+
+                <!-- Point 5 -->
+                <div class="benefit-item">
+                    <sl-icon src="/assets/amenities_icons/clock.svg" class="benefit-icon"></sl-icon>
+                    <div class="benefit-text">{{benefit-text5}}</div>
+                    <p class="benefit-desc">{{benefit-desc5}}</p>
+                </div>
+            </div>
+        </div>
+    </section>
     <section class="chalets-section" id="chalets">
         <div style="text-align: center; margin-bottom: 40px">
             <h2 class="section-title">{{chalets_title}}</h2>
             <p>{{chalets_desc}}</p>
+            <ul class="chalet-features">
+                <li>Up to 6 guests</li>
+                <li>Private pool (heated option available)</li>
+                <li>Large terrace with views</li>
+                <li>Modern bathroom & kitchen</li>
+            </ul>
         </div>
         <div class="chalet-grid">
             <div class="chalet-card">
@@ -344,18 +410,55 @@
                 <button class="btn-view" onclick="openModal('cloud')">{{chalets_details_btn}}</button>
             </div>
         </div>
+
+        <div class="book-direct-card">
+            <h3>{{book-direct-title}}</h3>
+            <p>{{book-direct-p}}</p>
+
+            <button class="btn-book-direct">{{nav_cta}}</button>
+
+            <div class="direct-benefits">
+                {{book-direct-benefits}}
+            </div>
+        </div>
     </section>
     <section class="facilities-section" id="facilities">
         {{facilities_template}}
+    </section>
+
+    <section class="experience-bridge">
+        <div class="experience-content">
+            <span class="experience-accent">{{experience-accent}}</span>
+            <h2 class="experience-title">{{experience-title}}</h2>
+
+            <div class="experience-grid">
+                <p class="exp-text italic">
+                    {{exp-text1}}
+                </p>
+
+                <div class="exp-divider"></div>
+
+                <p class="exp-text">
+                    {{exp-text2}}
+                </p>
+            </div>
+        </div>
     </section>
     <section class="location-section" id="location">
         <div class="location-overlay"></div>
         <div class="location-content">
             <h2 class="section-title" style="color: var(--sand-beige)">{{location_title}}</h2>
             <p style="margin-bottom: 30px; font-size: 1.1rem">{{location_description}}</p>
+            <div class="strategic-location-info">
+                <h3>{{strategic-location-info}}</h3>
+                <p>{{strategic-location-info-p}}
+                </p>
+                <span class="target-audience">
+                    {{strategic-location-target}}
+                </span>
+            </div>
             <p class="location-quote">{{location_quote}}</p>
             <div class="location-image-container">
-                <!-- Using the newly uploaded, cleaner filename -->
                 <img alt="Just follow the signs." alt="Direction signs to Kozara Panoramic Resort"
                     class="location-signs-img" class="location-signs-img" src="/assets/signs2.webp" />
             </div>
@@ -364,23 +467,6 @@
                 <iframe allowfullscreen="" height="450" referrerpolicy="no-referrer-when-downgrade"
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3191.7678145893565!2d17.0941569!3d45.0086252!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4767510061c8c7eb%3A0xcf311465b69a3e2c!2sKozara%20Panoramic%20Resort!5e1!3m2!1sbs!2sba!4v1763826019486!5m2!1sen!2sba"
                     style="border: 0" width="600" title="Google Maps Location of Kozara Panoramic Resort"></iframe>
-            </div>
-        </div>
-    </section>
-    <section class="reviews-section" id="reviews">
-        <h3 class="section-title">Guest Testimonials</h3>
-        <div class="review-grid">
-            <div class="review-card">
-                <p>"The best mountain retreat we have ever experienced. The Star Cabin fireplace was magical."</p>
-                <div class="reviewer">â€” ANA &amp; MARKO, Sarajevo</div>
-            </div>
-            <div class="review-card">
-                <p>"Pure luxury in the wilderness. The Cloud Cabin jacuzzi was perfect after a long hike."</p>
-                <div class="reviewer">â€” DAMIR M., Beograd</div>
-            </div>
-            <div class="review-card">
-                <p>"A truly unique spot in Kozara National Park. Modern but cozy design."</p>
-                <div class="reviewer">â€” THE JUSIC FAMILY</div>
             </div>
         </div>
     </section>
@@ -426,7 +512,7 @@
             <span style="font-size: 1.5rem; font-style: italic">{{blog_desc}}</span>
         </div>
     </section>
-    <section class="section-padding faq-section" id="faq" style="background-color: var(--bg-soft)">
+    <section class="section-padding faq-section" id="faq">
         <h2 class="section-title">{{faq_title}}</h2>
         <div class="faq-container">
             <div>
@@ -449,12 +535,6 @@
                 <sl-details summary="{{faq_baby_q}}">{{faq_baby_a}}</sl-details>
                 <sl-details summary="{{faq_pets_q}}">{{faq_pets_a}}</sl-details>
                 <sl-details summary="{{faq_parking_q}}">{{faq_parking_a}}</sl-details>
-                <!--<sl-details -->
-                <!--    data-i8n-summary="faq_ev_q" -->
-                <!--    data-i8n="faq_ev_a" -->
-                <!--    summary="Do you have an EV charging station?">-->
-                <!--    Not currently, though one is planned for the future. The nearest petrol station is on the main road to GradiÅ¡ka (approx. 18 km).-->
-                <!--</sl-details>-->
                 <sl-details summary="{{faq_quiet_q}}">{{faq_quiet_a}}</sl-details>
                 <sl-details summary="{{faq_airport_q}}">{{faq_airport_a}}</sl-details>
                 <sl-details summary="{{faq_yearround_q}}">{{faq_yearround_a}}</sl-details>
@@ -811,6 +891,11 @@
                 <sl-input enterkeyhint="done" inputmode="tel" label="{{booking_form_billing_pnum}}" name="customerPhone"
                     required="" type="tel"></sl-input>
             </fieldset>
+            <div class="price-notice">
+                <sl-icon src="/assets/amenities_icons/hand-coins.svg"></sl-icon>
+                <span class="price-label">{{booking_form_estimated_price}}</span>
+                <span id="estimated_price_value">0 KM</span>
+            </div>
             <sl-button id="ptp_btn" type="submit">{{booking_form_btn}}</sl-button>
             <div id="paypal-container"></div>
         </form>
@@ -873,7 +958,7 @@
             star: {
                 title: "Star Chalet",
                 desc: `{{star_desc}}`,
-                images: ["/assets/Chalets/star/9.webp", "/assets/Chalets/star/2.webp", "/assets/Chalets/star/3.webp", "/assets/Chalets/star/12.webp", "/assets/Chalets/star/13.webp", "/assets/Chalets/star/8.webp", "/assets/Chalets/star/1.webp", "/assets/Chalets/star/4.webp", "/assets/Chalets/star/6.webp", "/assets/Chalets/star/7.webp", "/assets/Chalets/star/5.webp"],
+                images: ["/assets/Chalets/star/9.webp", "/assets/Chalets/star/2.webp", "/assets/Chalets/star/3.webp", "/assets/Chalets/star/12.webp", "/assets/Chalets/star/13.webp", "/assets/Chalets/star/8.webp", "/assets/Chalets/star/1.webp", "/assets/Chalets/star/4.webp", "/assets/Chalets/star/14.webp", "/assets/Chalets/star/6.webp", "/assets/Chalets/star/7.webp", "/assets/Chalets/star/5.webp"],
             },
             cloud: {
                 title: "Cloud Chalet",
@@ -1033,6 +1118,43 @@
         let currency_modifier = 1
         let currency_symbol = "KM"
 
+
+        function updateEstimatedPrice(selectedDates) {
+            const priceValueDisplay = document.getElementById("estimated_price_value");
+            if (!priceValueDisplay) return;
+
+            // Reset if selection is invalid or incomplete
+            if (!selectedDates || selectedDates.length < 2 || !prices_data) {
+                priceValueDisplay.textContent = `0 ${currency_symbol}`;
+                return;
+            }
+
+            const sortedDates = [...selectedDates].sort();
+            const range = window.VanillaCalendarProUtils.parseDates([`${sortedDates[0]}:${sortedDates[sortedDates.length - 1]}`]);
+
+            // Calculate nights (excluding checkout day)
+            const nightsToCharge = range.slice(0, -1);
+            let total = 0;
+
+            nightsToCharge.forEach(dateStr => {
+                const entry = prices_data.find(e =>
+                    !comp_date(e.from, dateStr) && !comp_date(dateStr, e.to)
+                );
+                if (entry) {
+                    total += entry.price1;
+                }
+            });
+
+            const finalPrice = Math.round(total * currency_modifier * 10) / 10;
+
+            // Handle currency symbol placement
+            if (currency_select.value === "USD") {
+                priceValueDisplay.textContent = `${currency_symbol}${finalPrice}`;
+            } else {
+                priceValueDisplay.textContent = `${finalPrice} ${currency_symbol}`;
+            }
+        }
+
         const booking_calendar = new Calendar("#book_calendar_wrapper", {
             type: "multiple",
             selectedTheme: "light",
@@ -1064,16 +1186,42 @@
                     break
                 }
             },
+            // onClickDate(self, event) {
+            //     if (self.context.selectedDates.length < 2) return
+            //     const expanded_dates = window.VanillaCalendarProUtils.parseDates([`${self.context.selectedDates[0]}:${self.context.selectedDates[1]}`])
+            //     if (expanded_dates.length < (minimumStay + 1)) {
+            //         notify(`Minimum ${minimumStay} nights of stay!`, "neutral")
+            //         self.context.selectedDates = []
+            //     }
+            // },
+            // onInit(self) {
+            //     self.context.selectedDates = []
+            // },
             onClickDate(self, event) {
-                if (self.context.selectedDates.length < 2) return
-                const expanded_dates = window.VanillaCalendarProUtils.parseDates([`${self.context.selectedDates[0]}:${self.context.selectedDates[1]}`])
+                // Your existing minimumStay logic
+                if (self.context.selectedDates.length < 2) {
+                    updateEstimatedPrice([]); // Reset if selection is incomplete
+                    return;
+                }
+
+                const expanded_dates = window.VanillaCalendarProUtils.parseDates([
+                    `${self.context.selectedDates[0]}:${self.context.selectedDates[1]}`
+                ]);
+
                 if (expanded_dates.length < (minimumStay + 1)) {
-                    notify(`Minimum ${minimumStay} nights of stay!`, "neutral")
-                    self.context.selectedDates = []
+                    notify(`Minimum ${minimumStay} nights of stay!`, "neutral");
+                    self.context.selectedDates = [];
+                    updateEstimatedPrice([]);
+                } else {
+                    // Update the price if the range is valid
+                    updateEstimatedPrice(self.context.selectedDates);
                 }
             },
+
+            // Ensure price resets on init/update
             onInit(self) {
-                self.context.selectedDates = []
+                self.context.selectedDates = [];
+                updateEstimatedPrice([]);
             },
             onUpdate(self) {
                 self.context.selectedDates = []
@@ -1095,7 +1243,11 @@
             }
             currency_modifier = modifiers[currency_select.value]
             currency_symbol = symbols[currency_select.value]
+
+            const currentDates = booking_calendar.context.selectedDates
+
             booking_calendar.update()
+            updateEstimatedPrice([])
         })
 
         // Formatting
