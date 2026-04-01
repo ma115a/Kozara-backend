@@ -6,63 +6,37 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>{{title}}</title>
-    <link href="/css/vanilla_calendar.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/light.css" rel="stylesheet" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net">
+    <link rel="preload" href="/css/vanilla_calendar.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="/css/vanilla_calendar.css">
+    </noscript>
     <link href="/css/main.css" rel="stylesheet" />
-    <script src="/js/vanilla_calendar.js"></script>
-    <script src="/js/vcUtils.js"></script>
+
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/light.css"
+        as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/light.css">
+    </noscript>
+
+    <script src="/js/vanilla_calendar.js" defer></script>
+    <script src="/js/vcUtils.js" defer></script>
+
     <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="shortcut icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="Kozara Panoramic resort" />
     <link rel="manifest" href="/site.webmanifest" />
-    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/carousel/carousel.js"
-        type="module"></script>
-    <script
-        src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/carousel-item/carousel-item.js"
-        type="module"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/icon/icon.js"
-        type="module"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/dialog/dialog.js"
-        type="module"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/icon-button/icon-button.js"
-        type="module"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/input/input.js"
-        type="module"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/select/select.js"
-        type="module"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/option/option.js"
-        type="module"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/tag/tag.js"
-        type="module"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/popup/popup.js"
-        type="module"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/divider/divider.js"
-        type="module"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/alert/alert.js"
-        type="module"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/button/button.js"
-        type="module"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/spinner/spinner.js"
-        type="module"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/switch/switch.js"
-        type="module"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/drawer/drawer.js"
-        type="module"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/menu/menu.js"
-        type="module"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/menu-item/menu-item.js"
-        type="module"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/dropdown/dropdown.js"
-        type="module"></script>
-    <script src="https://cdn.jsdelivr.net/npm/libphonenumber-js@1.12.29/bundle/libphonenumber-js.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/details/details.js"
-        type="module"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
-    <script
-        src="https://www.paypal.com/sdk/js?client-id=AWXmQqv6jUWdXTuOicE0JrfpPBM13eMDpMt4rs7OniJyXUKQmT7lBqOUexj-bjYGsxOYng1Hm9ugihW4&disable-funding=credit,card&currency=EUR"></script>
+    <script type="module"
+        src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/shoelace-autoloader.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/libphonenumber-js@1.12.29/bundle/libphonenumber-js.min.js" defer></script>
+
     <script type="application/ld+json">
 			{
 				"@context": "https://schema.org",
@@ -87,6 +61,46 @@
 				"telephone": "+38766767622"
 			}
 		</script>
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {
+            "@type": "Question",
+        "name": "{{faq_heating_q}}",
+            "acceptedAnswer": {
+                "@type": "Answer",
+        "text": "{{faq_heating_a}}"
+            }
+            },
+            {
+            "@type": "Question",
+        "name": "{{faq_pool_heating_q}}",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "{{faq_pool_heating_a}}"
+            }
+            },
+            {
+            "@type": "Question",
+        "name": "{{faq_pets_q}}",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "{{faq_pets_a}}"
+            }
+            },
+            {
+            "@type": "Question",
+        "name": "{{faq_find_q}}",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "{{faq_find_a}}"
+            }
+            }
+        ]
+        }
+</script>
     <!-- html meta -->
     <meta content="{{meta_content2}}" name="description" />
     <!-- opengraph -->
@@ -107,7 +121,6 @@
     <link href="https://www.kozarapanoramicresort.ba/it" hreflang="it" rel="alternate" />
     <link href="https://www.kozarapanoramicresort.ba/sr" hreflang="sr" rel="alternate" />
     <link href="https://www.kozarapanoramicresort.ba" hreflang="x-default" rel="alternate" />
-    <meta name="keywords" content="{{seo_keywords}}" />
 </head>
 
 <body>
@@ -120,7 +133,7 @@
             <a class="nav-link" href="#blog">{{nav_blog}}</a>
         </div>
         <div id="logo_stripped_reserve_spacer"></div>
-        <img id="logo_stripped" src="/assets/logo_stripped.svg" alt="Kozara Panoramic Resort Logo"></img>
+        <img id="logo_stripped" src="/assets/logo_stripped.svg" alt="{{alt_logo}}"></img>
         <div class="nav-links-container">
             <a class="nav-link" href="/{{language_code}}/notice#impressum">{{contact}}</a>
             <sl-dropdown>
@@ -150,6 +163,9 @@
         <div class="hero-content">
             <h1 class="logo-area">{{mainH1}}</h1>
             <h2>{{subtitle}}</h2>
+            <button class="btn-cta-large" onclick="open_booking()" style="margin-top: 30px; ">
+                {{date_check_btn}}
+            </button>
         </div>
     </header>
     <sl-drawer id="drawer_menu" label="Navigation">
@@ -176,9 +192,9 @@
     <div class="booking-container" id="booking">
         <div class="booking-bar">
             <h2>{{booking_bar_title}}</h2>
-            <!-- <div>{{booking_bar_text}}</div> -->
 
             <ul class="highlights-list">
+                <li class="highlight-item" style="color: darkred; font-weight: bold;">{{booking_bar_text6}}</li>
                 <li class="highlight-item">{{booking_bar_text1}}</li>
                 <li class="highlight-item">{{booking_bar_text2}}</li>
                 <li class="highlight-item">{{booking_bar_text3}}</li>
@@ -233,97 +249,97 @@
             <sl-carousel-item>
                 <picture>
                     <source media="(max-width: 768px)" srcset="/assets/Carousel/mobile/1.webp">
-                    <img alt="Mountain 1" src="/assets/Carousel/1.webp" />
+                    <img alt="{{alt_carousel_1}}" src="/assets/Carousel/1.webp" />
                 </picture>
             </sl-carousel-item>
             <sl-carousel-item>
                 <picture>
                     <source media="(max-width: 768px)" srcset="/assets/Carousel/mobile/2.webp">
-                    <img alt="Interior 1" src="/assets/Carousel/2.webp" />
+                    <img alt="{{alt_carousel_2}}" src="/assets/Carousel/2.webp" />
                 </picture>
             </sl-carousel-item>
             <sl-carousel-item>
                 <picture>
                     <source media="(max-width: 768px)" srcset="/assets/Carousel/mobile/3.webp">
-                    <img alt="Winter" src="/assets/Carousel/3.webp" />
+                    <img alt="{{alt_carousel_3}}" src="/assets/Carousel/3.webp" />
                 </picture>
             </sl-carousel-item>
             <sl-carousel-item>
                 <picture>
                     <source media="(max-width: 768px)" srcset="/assets/Carousel/mobile/4.webp">
-                    <img alt="Forest" src="/assets/Carousel/4.webp" />
+                    <img alt="{{alt_carousel_4}}" src="/assets/Carousel/4.webp" loading="lazy" />
                 </picture>
             </sl-carousel-item>
             <sl-carousel-item>
                 <picture>
                     <source media="(max-width: 768px)" srcset="/assets/Carousel/mobile/5.webp">
-                    <img alt="Adventure" src="/assets/Carousel/5.webp" />
+                    <img alt="{{alt_carousel_5}}" src="/assets/Carousel/5.webp" loading="lazy" />
                 </picture>
             </sl-carousel-item>
             <sl-carousel-item>
                 <picture>
                     <source media="(max-width: 768px)" srcset="/assets/Carousel/mobile/6.webp">
-                    <img alt="Adventure" src="/assets/Carousel/6.webp" />
+                    <img alt="{{alt_carousel_6}}" src="/assets/Carousel/6.webp" loading="lazy" />
                 </picture>
             </sl-carousel-item>
             <sl-carousel-item>
                 <picture>
                     <source media="(max-width: 768px)" srcset="/assets/Carousel/mobile/7.webp">
-                    <img alt="Adventure" src="/assets/Carousel/7.webp" />
+                    <img alt="{{alt_carousel_7}}" src="/assets/Carousel/7.webp" loading="lazy" />
                 </picture>
             </sl-carousel-item>
             <sl-carousel-item>
                 <picture>
                     <source media="(max-width: 768px)" srcset="/assets/Carousel/mobile/8.webp">
-                    <img alt="Adventure" src="/assets/Carousel/8.webp" />
+                    <img alt="{{alt_carousel_8}}" src="/assets/Carousel/8.webp" loading="lazy" />
                 </picture>
             </sl-carousel-item>
             <sl-carousel-item>
                 <picture>
                     <source media="(max-width: 768px)" srcset="/assets/Carousel/mobile/9.webp">
-                    <img alt="Adventure" src="/assets/Carousel/9.webp" />
+                    <img alt="{{alt_carousel_9}}" src="/assets/Carousel/9.webp" loading="lazy" />
                 </picture>
             </sl-carousel-item>
             <sl-carousel-item>
                 <picture>
                     <source media="(max-width: 768px)" srcset="/assets/Carousel/mobile/10.webp">
-                    <img alt="Adventure" src="/assets/Carousel/10.webp" />
+                    <img alt="{{alt_carousel_10}}" src="/assets/Carousel/10.webp" loading="lazy" />
                 </picture>
             </sl-carousel-item>
             <sl-carousel-item>
                 <picture>
                     <source media="(max-width: 768px)" srcset="/assets/Carousel/mobile/11.webp">
-                    <img alt="Adventure" src="/assets/Carousel/11.webp" />
+                    <img alt="{{alt_carousel_11}}" src="/assets/Carousel/11.webp" loading="lazy" />
                 </picture>
             </sl-carousel-item>
             <sl-carousel-item>
                 <picture>
                     <source media="(max-width: 768px)" srcset="/assets/Carousel/mobile/12.webp">
-                    <img alt="Adventure" src="/assets/Carousel/12.webp" />
+                    <img alt="{{alt_carousel_12}}" src="/assets/Carousel/12.webp" loading="lazy" />
                 </picture>
             </sl-carousel-item>
             <sl-carousel-item>
                 <picture>
                     <source media="(max-width: 768px)" srcset="/assets/Carousel/mobile/13.webp">
-                    <img alt="Adventure" src="/assets/Carousel/13.webp" />
+                    <img alt="{{alt_carousel_13}}" src="/assets/Carousel/13.webp" loading="lazy" />
                 </picture>
             </sl-carousel-item>
             <sl-carousel-item>
                 <picture>
                     <source media="(max-width: 768px)" srcset="/assets/Carousel/mobile/14.webp">
-                    <img alt="Adventure" src="/assets/Carousel/14.webp" />
+                    <img alt="{{alt_carousel_14}}" src="/assets/Carousel/14.webp" loading="lazy" />
                 </picture>
             </sl-carousel-item>
             <sl-carousel-item>
                 <picture>
                     <source media="(max-width: 768px)" srcset="/assets/Carousel/mobile/15.webp">
-                    <img alt="Adventure" src="/assets/Carousel/15.webp" />
+                    <img alt="{{alt_carousel_15}}" src="/assets/Carousel/15.webp" loading="lazy" />
                 </picture>
             </sl-carousel-item>
             <sl-carousel-item>
                 <picture>
                     <source media="(max-width: 768px)" srcset="/assets/Carousel/mobile/16.webp">
-                    <img alt="Adventure" src="/assets/Carousel/16.webp" />
+                    <img alt="{{alt_carousel_16}}" src="/assets/Carousel/16.webp" loading="lazy" />
                 </picture>
             </sl-carousel-item>
         </sl-carousel>
@@ -337,35 +353,35 @@
                 <!-- Point 1 -->
                 <div class="benefit-item">
                     <sl-icon src="/assets/amenities_icons/waves.svg" class="benefit-icon"></sl-icon>
-                    <div class="benefit-text">{{benefit-text1}}</div>
+                    <h3 class="benefit-text">{{benefit-text1}}</h3>
                     <p class="benefit-desc">{{benefit-desc1}}</p>
                 </div>
 
                 <!-- Point 2 -->
                 <div class="benefit-item">
                     <sl-icon src="/assets/amenities_icons/wind.svg" class="benefit-icon"></sl-icon>
-                    <div class="benefit-text">{{benefit-text2}}</div>
+                    <h3 class="benefit-text">{{benefit-text2}}</h3>
                     <p class="benefit-desc">{{benefit-desc2}}</p>
                 </div>
 
                 <!-- Point 3 -->
                 <div class="benefit-item">
                     <sl-icon src="/assets/amenities_icons/mountain.svg" class="benefit-icon"></sl-icon>
-                    <div class="benefit-text">{{benefit-text3}}</div>
+                    <h3 class="benefit-text">{{benefit-text3}}</h3>
                     <p class="benefit-desc">{{benefit-desc3}}</p>
                 </div>
 
                 <!-- Point 4 -->
                 <div class="benefit-item">
                     <sl-icon src="/assets/amenities_icons/gem.svg" class="benefit-icon"></sl-icon>
-                    <div class="benefit-text">{{benefit-text4}}</div>
+                    <h3 class="benefit-text">{{benefit-text4}}</h3>
                     <p class="benefit-desc">{{benefit-desc4}}</p>
                 </div>
 
                 <!-- Point 5 -->
                 <div class="benefit-item">
                     <sl-icon src="/assets/amenities_icons/clock.svg" class="benefit-icon"></sl-icon>
-                    <div class="benefit-text">{{benefit-text5}}</div>
+                    <h3 class="benefit-text">{{benefit-text5}}</h3>
                     <p class="benefit-desc">{{benefit-desc5}}</p>
                 </div>
             </div>
@@ -376,49 +392,71 @@
             <h2 class="section-title">{{chalets_title}}</h2>
             <p>{{chalets_desc}}</p>
             <ul class="chalet-features">
-                <li>Up to 6 guests</li>
-                <li>Private pool (heated option available)</li>
-                <li>Large terrace with views</li>
-                <li>Modern bathroom & kitchen</li>
+                {{chalet_features}}
             </ul>
         </div>
         <div class="chalet-grid">
             <div class="chalet-card">
-                <img alt="Cloud Chalet" class="chalet-img" src="/assets/Chalets/wind/1.webp" />
-                <img src="/assets/chalet_icons/WIND.svg">
+                <img alt="{{alt_chalet_wind_img}}" class="chalet-img" src="/assets/Chalets/wind/1.webp" />
+                <img src="/assets/chalet_icons/WIND.svg" alt="{{alt_chalet_wind_icon}}">
                 <button class="btn-view" onclick="openModal('wind')">{{chalets_details_btn}}</button>
             </div>
             <div class="chalet-card">
-                <img alt="Sun Chalet" class="chalet-img" src="/assets/Chalets/sun/2.webp" />
-                <img src="/assets/chalet_icons/SUN.svg">
+                <img alt="{{alt_chalet_sun_img}}" class="chalet-img" src="/assets/Chalets/sun/2.webp" />
+                <img src="/assets/chalet_icons/SUN.svg" alt="{{alt_chalet_sun_icon}}">
                 <button class="btn-view" onclick="openModal('summit')">{{chalets_details_btn}}</button>
             </div>
             <div class="chalet-card special">
                 <div class="special-badge">{{secluded_badge}}</div>
-                <img alt="Star Chalet" class="chalet-img" src="/assets/Chalets/star/11.webp" />
-                <img src="/assets/chalet_icons/STAR.svg" alt="">
+                <img alt="{{alt_chalet_star_img}}" class="chalet-img" src="/assets/Chalets/star/11.webp" />
+                <img src="/assets/chalet_icons/STAR.svg" alt="{{alt_chalet_star_icon}}">
                 <button class="btn-view" onclick="openModal('star')">{{chalets_details_btn}}</button>
             </div>
             <div class="chalet-card">
-                <img alt="Sky Chalet" class="chalet-img" src="/assets/Chalets/sky/1.webp" />
-                <img src="/assets/chalet_icons/SKY.svg" alt="">
+                <img alt="{{alt_chalet_sky_img}}" class="chalet-img" src="/assets/Chalets/sky/1.webp" />
+                <img src="/assets/chalet_icons/SKY.svg" alt="{{alt_chalet_sky_icon}}">
                 <button class="btn-view" onclick="openModal('sky')">{{chalets_details_btn}}</button>
             </div>
             <div class="chalet-card">
-                <img alt="Cloud Chalet" class="chalet-img" src="/assets/Chalets/cloud/1.webp" />
-                <img src="/assets/chalet_icons/CLOUD.svg" alt="">
+                <img alt="{{alt_chalet_cloud_img}}" class="chalet-img" src="/assets/Chalets/cloud/1.webp" />
+                <img src="/assets/chalet_icons/CLOUD.svg" alt="{{alt_chalet_cloud_icon}}">
                 <button class="btn-view" onclick="openModal('cloud')">{{chalets_details_btn}}</button>
             </div>
         </div>
 
         <div class="book-direct-card">
             <h3>{{book-direct-title}}</h3>
-            <p>{{book-direct-p}}</p>
 
-            <button class="btn-book-direct">{{nav_cta}}</button>
+            <div style="margin-bottom: 30px;">
+                <p class="price-tag" style="font-size: 1.5rem; margin-top: 0; margin-bottom: 10px;">
+                    {{offer_card}} </p>
+                <p style="color: darkred; font-weight: bold;">
+                    {{offer_title}}
+                </p>
+            </div>
 
+            <button class="btn-book-direct" onclick="open_booking()">{{nav_cta}}</button>
+
+            <h4
+                style="font-family: 'Playfair Display', serif; font-size: 1.3rem; color: var(--primary-green); margin-bottom: 25px; font-weight: normal;">
+                {{book-direct-title}}
+            </h4>
             <div class="direct-benefits">
-                {{book-direct-benefits}}
+                <div style="color: var(--muted-green); font-weight: 700; display: flex; align-items: center;">
+                    <span style="color: var(--earth-brown); margin-right: 8px;">✔</span> {{book-direct1}}
+                </div>
+                <div style="color: var(--muted-green); font-weight: 700; display: flex; align-items: center;">
+                    <span style="color: var(--earth-brown); margin-right: 8px;">✔</span>
+                    {{book-direct2}}
+                </div>
+                <div style="color: var(--muted-green); font-weight: 700; display: flex; align-items: center;">
+                    <span style="color: var(--earth-brown); margin-right: 8px;">✔</span>
+                    {{book-direct3}}
+                </div>
+                <div style="color: var(--muted-green); font-weight: 700; display: flex; align-items: center;">
+                    <span style="color: var(--earth-brown); margin-right: 8px;">✔</span>
+                    {{book-direct4}}
+                </div>
             </div>
         </div>
     </section>
@@ -459,14 +497,16 @@
             </div>
             <p class="location-quote">{{location_quote}}</p>
             <div class="location-image-container">
-                <img alt="Just follow the signs." alt="Direction signs to Kozara Panoramic Resort"
-                    class="location-signs-img" class="location-signs-img" src="/assets/signs2.webp" />
+                <img alt="{{alt_location_signs}}" class="location-signs-img" class="location-signs-img"
+                    src="/assets/signs2.webp" />
             </div>
             <p class="map-hint">{{location_hint}}</p>
             <div class="map-frame">
-                <iframe allowfullscreen="" height="450" referrerpolicy="no-referrer-when-downgrade"
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3191.7678145893565!2d17.0941569!3d45.0086252!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4767510061c8c7eb%3A0xcf311465b69a3e2c!2sKozara%20Panoramic%20Resort!5e1!3m2!1sbs!2sba!4v1763826019486!5m2!1sen!2sba"
-                    style="border: 0" width="600" title="Google Maps Location of Kozara Panoramic Resort"></iframe>
+                <iframe
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3467.2367433745676!2d17.091576612418592!3d45.008625170949635!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4767510061c8c7eb%3A0xcf311465b69a3e2c!2sKozara%20Panoramic%20Resort!5e1!3m2!1sen!2sba!4v1774952882457!5m2!1sen!2sba"
+                    width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade" title="Google Maps Location of Kozara Panoramic Resort">
+                </iframe>
             </div>
         </div>
     </section>
@@ -474,13 +514,14 @@
         <div class="content-layout">
             <div class="content-text">
                 <h2 class="section-title" style="text-align: left">{{about_us_title}}</h2>
+                <h3 style="font-size: 1.2rem; color: var(--gold); margin-top: -10px;">{{about_us_h3}}</h3>
                 <p>{{about_us_desc1}}</p>
                 <p>{{about_us_desc2}}</p>
             </div>
             <div class="content-image">
                 <picture>
                     <source media="(max-width: 768px)" srcset="/assets/Text%20Blocks/mobile/image08198.webp">
-                    <img alt="Hiking sign" src="/assets/Text Blocks/image08198.webp" />
+                    <img alt="{{alt_about_hiking_sign}}" src="/assets/Text Blocks/image08198.webp" />
                 </picture>
             </div>
         </div>
@@ -489,15 +530,18 @@
         <div class="content-layout reverse">
             <div class="content-text">
                 <h2 class="section-title" style="text-align: left">{{about_kozara_title}}</h2>
+                <h3>{{about_kozara_h31}}</h3>
                 <p>{{about_kozara_desc1}}</p>
+                <h3>{{about_kozara_h32}}</h3>
                 <p>{{about_kozara_desc2}}</p>
+
+                <p>{{about_kozara_desc3}}</p>
             </div>
             <div class="content-image">
                 <picture>
                     <source media="(max-width: 768px)"
                         srcset="/assets/Text%20Blocks/mobile/Kozara-fotobaza-Ajdin-Kamber.webp">
-                    <img alt="Scenic viewpoint from Mount Kozara overlooking the landscape"
-                        src="/assets/Text Blocks/Kozara-fotobaza-Ajdin-Kamber.webp" />
+                    <img alt="{{alt_about_viewpoint}}" src="/assets/Text Blocks/Kozara-fotobaza-Ajdin-Kamber.webp" />
                 </picture>
             </div>
         </div>
@@ -549,6 +593,7 @@
     </section>
     <footer id="contact">
         <div class="footer-logo">KOZARA PANORAMIC RESORT</div>
+        <p>Kozara BB, 78400 Gradiška, Bosnia & Herzegovina</p>
         <!-- Updated Footer Links -->
         <div class="footer-links">
             <a href="/{{language_code}}/notice#impressum">{{footer-impressum}}</a> | <a
@@ -565,6 +610,14 @@
         <sl-carousel class="dialog-gallery" loop="" navigation=""> </sl-carousel>
         <div class="dialog-thumbnails">
             <div class="thumbnails__scroller"></div>
+        </div>
+        <div slot="footer" style="display: flex; justify-content: space-between; align-items: center;">
+            <span style="font-weight: bold; color: var(--earth-brown);">{{booking_bar_text5}}</span>
+            <sl-button variant="primary"
+                style="--sl-color-primary-600: var(--primary-green); --sl-color-primary-500: var(--earth-brown);"
+                onclick="document.getElementById('chalet_dialog').hide(); open_booking();">
+                {{floating}}
+            </sl-button>
         </div>
     </sl-dialog>
     <sl-dialog id="book_dialog" label="Book">
@@ -906,7 +959,7 @@
     <sl-dialog id="img_preview">
         <sl-icon-button src="/assets/amenities_icons/chevron-left.svg" id="prev_btn" class="nav-btn"></sl-icon-button>
 
-        <img alt="Click on an image to preview it here" src="" />
+        <img alt="{{alt_modal_preview}}" src="" />
 
         <sl-icon-button src="/assets/amenities_icons/chevron-right.svg" id="next_btn" class="nav-btn"></sl-icon-button>
     </sl-dialog>
@@ -1114,7 +1167,97 @@
                 self.context.inputElement.value = self.context.selectedDates[0].split("-").reverse().join("/")
             },
         }
-        const {Calendar} = window.VanillaCalendarPro
+
+        let booking_calendar
+        document.addEventListener('DOMContentLoaded', () => {
+            // This code only runs after the deferred vanilla_calendar.js has loaded
+            if (window.VanillaCalendarPro) {
+                const {Calendar} = window.VanillaCalendarPro;
+                booking_calendar = new Calendar("#book_calendar_wrapper", {
+                    type: "multiple",
+                    selectedTheme: "light",
+                    dateMin: "today",
+                    // displayDateMin: "2025-12-15",
+                    // displayDateMax: "2026-03-31",
+                    dateMax: "2026-12-31",
+                    disableDatesGaps: true,
+                    disableToday: true,
+                    enableEdgeDatesOnly: true,
+                    enableDateToggle: false,
+                    selectionDatesMode: "multiple-ranged",
+                    onCreateDateEls(self, dateEl) {
+                        if (!prices_data) return
+                        const curr_date = dateEl.dataset.vcDate
+                        for (const entry of prices_data) {
+                            if (comp_date(entry.from, curr_date)) continue
+                            if (comp_date(curr_date, entry.to)) continue
+                            if (currency_select.value == "USD") {
+                                dateEl.querySelector("button").innerHTML += `<div>\
+								${currency_symbol}${Math.round(entry.price1 * currency_modifier * 10) / 10}
+								</div>`
+                            }
+                            else {
+                                dateEl.querySelector("button").innerHTML += `<div>\
+								${Math.round(entry.price1 * currency_modifier * 10) / 10}${currency_symbol}
+								</div>`
+                            }
+                            break
+                        }
+                    },
+                    onClickDate(self, event) {
+                        // Your existing minimumStay logic
+                        if (self.context.selectedDates.length < 2) {
+                            updateEstimatedPrice([]); // Reset if selection is incomplete
+                            return;
+                        }
+
+                        const expanded_dates = window.VanillaCalendarProUtils.parseDates([
+                            `${self.context.selectedDates[0]}:${self.context.selectedDates[1]}`
+                        ]);
+
+                        if (expanded_dates.length < (minimumStay + 1)) {
+                            notify(`Minimum ${minimumStay} nights of stay!`, "neutral");
+                            self.context.selectedDates = [];
+                            updateEstimatedPrice([]);
+                        } else {
+                            // Update the price if the range is valid
+                            updateEstimatedPrice(self.context.selectedDates);
+                        }
+                    },
+
+                    // Ensure price resets on init/update
+                    onInit(self) {
+                        self.context.selectedDates = [];
+                        updateEstimatedPrice([]);
+                    },
+                    onUpdate(self) {
+                        self.context.selectedDates = []
+                    },
+                })
+                booking_calendar.init()
+                currency_select.addEventListener("sl-change", e => {
+                    const modifiers = {
+                        BAM: 1,
+                        EUR: 0.51,
+                        GBP: 0.44,
+                        USD: 0.6
+                    }
+                    const symbols = {
+                        BAM: "KM",
+                        EUR: "€",
+                        GBP: "₤",
+                        USD: "$"
+                    }
+                    currency_modifier = modifiers[currency_select.value]
+                    currency_symbol = symbols[currency_select.value]
+
+                    const currentDates = booking_calendar.context.selectedDates
+
+                    booking_calendar.update()
+                    updateEstimatedPrice([])
+                })
+            }
+        })
         let currency_modifier = 1
         let currency_symbol = "KM"
 
@@ -1154,101 +1297,6 @@
                 priceValueDisplay.textContent = `${finalPrice} ${currency_symbol}`;
             }
         }
-
-        const booking_calendar = new Calendar("#book_calendar_wrapper", {
-            type: "multiple",
-            selectedTheme: "light",
-            dateMin: "today",
-            // displayDateMin: "2025-12-15",
-            // displayDateMax: "2026-03-31",
-            dateMax: "2026-12-31",
-            disableDatesGaps: true,
-            disableToday: true,
-            enableEdgeDatesOnly: true,
-            enableDateToggle: false,
-            selectionDatesMode: "multiple-ranged",
-            onCreateDateEls(self, dateEl) {
-                if (!prices_data) return
-                const curr_date = dateEl.dataset.vcDate
-                for (const entry of prices_data) {
-                    if (comp_date(entry.from, curr_date)) continue
-                    if (comp_date(curr_date, entry.to)) continue
-                    if (currency_select.value == "USD") {
-                        dateEl.querySelector("button").innerHTML += `<div>\
-								${currency_symbol}${Math.round(entry.price1 * currency_modifier * 10) / 10}
-								</div>`
-                    }
-                    else {
-                        dateEl.querySelector("button").innerHTML += `<div>\
-								${Math.round(entry.price1 * currency_modifier * 10) / 10}${currency_symbol}
-								</div>`
-                    }
-                    break
-                }
-            },
-            // onClickDate(self, event) {
-            //     if (self.context.selectedDates.length < 2) return
-            //     const expanded_dates = window.VanillaCalendarProUtils.parseDates([`${self.context.selectedDates[0]}:${self.context.selectedDates[1]}`])
-            //     if (expanded_dates.length < (minimumStay + 1)) {
-            //         notify(`Minimum ${minimumStay} nights of stay!`, "neutral")
-            //         self.context.selectedDates = []
-            //     }
-            // },
-            // onInit(self) {
-            //     self.context.selectedDates = []
-            // },
-            onClickDate(self, event) {
-                // Your existing minimumStay logic
-                if (self.context.selectedDates.length < 2) {
-                    updateEstimatedPrice([]); // Reset if selection is incomplete
-                    return;
-                }
-
-                const expanded_dates = window.VanillaCalendarProUtils.parseDates([
-                    `${self.context.selectedDates[0]}:${self.context.selectedDates[1]}`
-                ]);
-
-                if (expanded_dates.length < (minimumStay + 1)) {
-                    notify(`Minimum ${minimumStay} nights of stay!`, "neutral");
-                    self.context.selectedDates = [];
-                    updateEstimatedPrice([]);
-                } else {
-                    // Update the price if the range is valid
-                    updateEstimatedPrice(self.context.selectedDates);
-                }
-            },
-
-            // Ensure price resets on init/update
-            onInit(self) {
-                self.context.selectedDates = [];
-                updateEstimatedPrice([]);
-            },
-            onUpdate(self) {
-                self.context.selectedDates = []
-            },
-        })
-        booking_calendar.init()
-        currency_select.addEventListener("sl-change", e => {
-            const modifiers = {
-                BAM: 1,
-                EUR: 0.51,
-                GBP: 0.44,
-                USD: 0.6
-            }
-            const symbols = {
-                BAM: "KM",
-                EUR: "€",
-                GBP: "₤",
-                USD: "$"
-            }
-            currency_modifier = modifiers[currency_select.value]
-            currency_symbol = symbols[currency_select.value]
-
-            const currentDates = booking_calendar.context.selectedDates
-
-            booking_calendar.update()
-            updateEstimatedPrice([])
-        })
 
         // Formatting
         let ayt_formatter = null
@@ -1389,7 +1437,7 @@
         }
 
         // Notification
-        function notify(message, variant = "warning", duration = 3000) {
+        async function notify(message, variant = "warning", duration = 3000) {
             const alert = Object.assign(document.createElement("sl-alert"), {
                 variant,
                 closable: true,
@@ -1398,6 +1446,7 @@
             })
 
             document.body.append(alert)
+            await customElements.whenDefined('sl-alert');
             return alert.toast()
         }
 
@@ -1430,18 +1479,18 @@
         window.addEventListener("DOMContentLoaded", () => {
             resize()
             gsap.registerPlugin(ScrollTrigger)
-            // gsap.to("div.floating-book-btn", {
-            // 	scrollTrigger: {
-            // 		trigger: "header",
-            // 		start: "center top",
-            // 		end: "bottom top",
-            // 		toggleActions: "play none none reverse",
-            // 	},
-            // 	opacity: 1,
-            // 	ease: "none",
-            // 	pointerEvents: "auto",
-            // 	duration: 0.125,
-            // })
+            gsap.to("div.floating-book-btn", {
+                scrollTrigger: {
+                    trigger: "header",
+                    start: "center top",
+                    end: "bottom top",
+                    toggleActions: "play none none reverse",
+                },
+                opacity: 1,
+                ease: "none",
+                pointerEvents: "auto",
+                duration: 0.125,
+            })
             const shared = {
                 trigger: "header",
                 start: "top top",
@@ -1480,6 +1529,16 @@
                 backgroundColor: "rgba(0, 0, 0, 0.5)",
                 backdropFilter: "blur(5px)"
             })
+
+
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('openBooking') === 'true') {
+                setTimeout(() => {
+                    open_booking();
+                    const newUrl = window.location.pathname;
+                    window.history.replaceState({}, document.title, newUrl);
+                }, 500);
+            }
         })
         {
             const curr_date = new Date()
@@ -1510,66 +1569,66 @@
                     chalet_dialog.querySelector("button.btn-book-dialog").setAttribute("disabled", "true")
                 })
         }
-        {
-            paypal
-                .Buttons({
-                    style: {
-                        disableMaxWidth: true,
-                    },
-                    createOrder: async () => {
-                        const form = document.getElementById("book_form")
-                        const formData = new FormData(form)
-                        const formProps = Object.fromEntries(formData)
-                        formProps.startDate = booking_calendar.context.selectedDates[0]
-                        formProps.endDate = booking_calendar.context.selectedDates[1]
-
-                        const response = await fetch("/api/paypal/orders", {
-                            method: "POST",
-                            headers: {
-                                "Content-Type": "application/json",
-                            },
-                            body: JSON.stringify(formProps),
-                        })
-                        const orderData = await response.json()
-                        console.log(orderData)
-                        return orderData.order.id
-                    },
-                    onApprove: async data => {
-                        console.log("approve")
-                        console.log(data)
-                        const approveResponse = await fetch(`/api/paypal/orders/capture`, {
-                            method: "POST",
-                            headers: {"Content-Type": "application/json"},
-                            body: JSON.stringify({
-                                orderId: data.orderID,
-                            }),
-                        })
-                        const approveData = await approveResponse.json()
-                        if (approveData.success) {
-                            window.location = approveData.url
-                        }
-                    },
-                    onInit: (data, actions) => {
-                        actions.disable()
-
-                        document.querySelector("#book_form").addEventListener("sl-input", function (event) {
-                            if (check_booking_form_validity(null, true) && book_form.checkValidity()) {
-                                actions.enable()
-                            } else {
-                                actions.disable()
-                            }
-                        })
-                    },
-                    onClick: (data, actions) => {
-                        // book_form.requestSubmit()
-                        if (!check_booking_form_validity(null, false)) {
-                            // This prevents the PayPal window from opening
-                            return actions.reject()
-                        }
-                    },
-                })
-                .render("#paypal-container")
-        }
+        // {
+        //     paypal
+        //         .Buttons({
+        //             style: {
+        //                 disableMaxWidth: true,
+        //             },
+        //             createOrder: async () => {
+        //                 const form = document.getElementById("book_form")
+        //                 const formData = new FormData(form)
+        //                 const formProps = Object.fromEntries(formData)
+        //                 formProps.startDate = booking_calendar.context.selectedDates[0]
+        //                 formProps.endDate = booking_calendar.context.selectedDates[1]
+        //
+        //                 const response = await fetch("/api/paypal/orders", {
+        //                     method: "POST",
+        //                     headers: {
+        //                         "Content-Type": "application/json",
+        //                     },
+        //                     body: JSON.stringify(formProps),
+        //                 })
+        //                 const orderData = await response.json()
+        //                 console.log(orderData)
+        //                 return orderData.order.id
+        //             },
+        //             onApprove: async data => {
+        //                 console.log("approve")
+        //                 console.log(data)
+        //                 const approveResponse = await fetch(`/api/paypal/orders/capture`, {
+        //                     method: "POST",
+        //                     headers: {"Content-Type": "application/json"},
+        //                     body: JSON.stringify({
+        //                         orderId: data.orderID,
+        //                     }),
+        //                 })
+        //                 const approveData = await approveResponse.json()
+        //                 if (approveData.success) {
+        //                     window.location = approveData.url
+        //                 }
+        //             },
+        //             onInit: (data, actions) => {
+        //                 actions.disable()
+        //
+        //                 document.querySelector("#book_form").addEventListener("sl-input", function (event) {
+        //                     if (check_booking_form_validity(null, true) && book_form.checkValidity()) {
+        //                         actions.enable()
+        //                     } else {
+        //                         actions.disable()
+        //                     }
+        //                 })
+        //             },
+        //             onClick: (data, actions) => {
+        //                 // book_form.requestSubmit()
+        //                 if (!check_booking_form_validity(null, false)) {
+        //                     // This prevents the PayPal window from opening
+        //                     return actions.reject()
+        //                 }
+        //             },
+        //         })
+        //         .render("#paypal-container")
+        // }
     </script>
 </body>
 

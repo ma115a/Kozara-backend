@@ -949,6 +949,11 @@ app.get(['/de/notice', '/fr/notice', '/it/notice', '/sr/notice'], (req, res) => 
 });
 
 
+app.get('/booknow', (req, res) => {
+    res.redirect('/?openBooking=true')
+})
+
+
 app.get("/langpack/:id", (req, res) => {
     const langId = req.params.id
 
