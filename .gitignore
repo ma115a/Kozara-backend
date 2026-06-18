@@ -1,0 +1,8 @@
+
+.env
+combined.log
+error.log
+images/
+logs/
+node_modules/
+blogpictures/
