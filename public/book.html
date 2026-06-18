@@ -1,0 +1,651 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth sl-theme-light">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Dedicated Booking Center | Kozara Panoramic Resort</title>
+
+    <meta
+        content="Securely book your boutique mountain chalet with a private heated pool at Mount Kozara. Best rate guaranteed with flexible payment options."
+        name="description" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Playfair+Display:ital,wght=0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link href="css/base.css" rel="stylesheet" />
+    <!-- <link rel="stylesheet" href="/css/vanilla_calendar.css"> -->
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/light.css" />
+    <script type="module"
+        src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/shoelace-autoloader.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/libphonenumber-js@1.12.29/bundle/libphonenumber-js.min.js" defer></script>
+
+    <link rel="preload" href="/css/vanilla_calendar.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="/css/vanilla_calendar.css">
+    </noscript>
+
+    <link href="css/book.css" rel="stylesheet" />
+
+    <script src="/js/vanilla_calendar.js" defer></script>
+    <script src="/js/vcUtils.js" defer></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-green': '#364d14',
+                        'earth-brown': '#968067',
+                        'sand-beige': '#d9c7b2',
+                        'muted-green': '#5c6d4c',
+                        'bg-soft': '#f8f9fa',
+                    },
+                    fontFamily: {
+                        sans: ['Lato', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+</head>
+
+<body class="bg-white text-stone-800 antialiased min-h-screen">
+
+    <nav id="main-nav" class="py-2 md:py-5 px-6 md:px-12">
+        <div class="nav-links-container hidden lg:flex flex-1 justify-end mr-8">
+            <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300"
+                href="/#showcase">Chalets</a>
+            <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300 ml-8"
+                href="/#why-love-us">Why Us</a>
+            <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300 ml-8"
+                href="/amenities">Amenities</a>
+        </div>
+
+        <div id="logo_stripped_reserve_spacer" class="hidden lg:block"></div>
+        <a href="/" id="logo_stripped" class="block">
+            <img src="/assets/logo_stripped.svg"
+                onerror="this.onerror=null; this.src='https://www.kozarapanoramicresort.ba/assets/logo_stripped.svg';"
+                alt="Kozara Panoramic Resort Logo" class="w-full h-auto block">
+        </a>
+        <div class="nav-links-container hidden lg:flex flex-1 justify-start ml-8">
+            <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300" href="/#location">About
+                Us</a>
+            <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300 ml-8"
+                href="/#blog">Blog</a>
+            <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300 ml-8" href="/faq">FAQ</a>
+
+            <sl-dropdown class="ml-8">
+                <button slot="trigger"
+                    class="nav-lang-btn flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/20 hover:border-sand-beige/60 transition-all text-xs font-semibold bg-white/5 backdrop-blur-sm text-white focus:outline-none">
+                    <span>🇬🇧 EN</span> <i class="fa-solid fa-chevron-down text-[10px] opacity-70"></i>
+                </button>
+                <sl-menu class="text-stone-800">
+                    <sl-menu-item value="en">🇬🇧 EN (English)</sl-menu-item>
+                    <sl-menu-item value="sr">🇷🇸 SR (Srpski)</sl-menu-item>
+                    <sl-menu-item value="de">🇩🇪 DE (Deutsch)</sl-menu-item>
+                    <sl-menu-item value="it">🇮🇹 IT (Italiano)</sl-menu-item>
+                </sl-menu>
+            </sl-dropdown>
+
+            <a href="/book"
+                class="bg-earth-brown hover:bg-primary-green text-white font-bold text-xs tracking-widest uppercase px-6 py-3 rounded-full transition-all duration-300 shadow-lg ml-6 text-center">
+                Book Your Stay
+            </a>
+        </div>
+
+        <div class="lg:hidden w-full flex justify-between items-center py-2">
+            <sl-dropdown>
+                <button slot="trigger"
+                    class="nav-lang-btn flex items-center gap-1 px-3 py-1.5 rounded-full border border-white/20 text-xs font-semibold bg-white/5 backdrop-blur-sm text-white focus:outline-none">
+                    <span>🇬🇧 EN</span>
+                </button>
+                <sl-menu class="text-stone-800">
+                    <sl-menu-item value="en">🇬🇧 EN</sl-menu-item>
+                    <sl-menu-item value="sr">🇷🇸 SR</sl-menu-item>
+                    <sl-menu-item value="de">🇩🇪 DE</sl-menu-item>
+                    <sl-menu-item value="it">🇮🇹 IT</sl-menu-item>
+                </sl-menu>
+            </sl-dropdown>
+
+            <div class="w-[16ch]"></div>
+
+            <button onclick="toggleMobileMenu()"
+                class="mobile-hamburger-btn text-2xl focus:outline-none p-1 text-white hover:text-sand-beige transition">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-stone-950/95 backdrop-blur-md z-[60] flex flex-col justify-between p-8 text-white translate-x-full transition-transform duration-500 ease-in-out">
+        <div class="flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <img src="/assets/logo_stripped.svg"
+                    onerror="this.onerror=null; this.src='https://www.kozarapanoramicresort.ba/assets/logo_stripped.svg';"
+                    alt="Kozara Panoramic Resort Logo" class="h-5 w-auto brightness-0 invert">
+                <span class="font-serif tracking-widest text-xl font-bold">KOZARA PANORAMIC RESORT</span>
+            </div>
+            <button onclick="toggleMobileMenu()" class="text-3xl hover:text-sand-beige">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <div class="flex flex-col gap-6 text-xl font-serif text-center my-auto">
+            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="/#showcase">
+                Chalets</a>
+            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="/#why-love-us">Why
+                Us</a>
+            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="/amenities">Amenities</a>
+            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="/#location">About
+                Us</a>
+            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="/faq">FAQ</a>
+        </div>
+
+        <div class="flex flex-col gap-4 text-center">
+            <a href="/book" onclick="toggleMobileMenu();"
+                class="bg-earth-brown text-white py-4 rounded-full font-bold uppercase tracking-wider text-sm block">
+                Book Your Stay
+            </a>
+            <p class="text-xs text-stone-500">© 2026 Kozara Panoramic Resort</p>
+        </div>
+    </div>
+
+    <header
+        class="relative h-[80vh]  flex flex-col justify-center items-center text-center px-4 overflow-hidden bg-stone-900">
+        <div class="hero-slide shown"
+            style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url('https://www.kozarapanoramicresort.ba/assets/Scenery/lander.webp');">
+        </div>
+        <div class="hero-slide"
+            style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url('https://www.kozarapanoramicresort.ba/assets/Scenery/lander2.webp');">
+        </div>
+        <div class="hero-slide"
+            style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url('https://www.kozarapanoramicresort.ba/assets/Scenery/lander3.webp');">
+        </div>
+        <div class="hero-slide"
+            style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url('https://www.kozarapanoramicresort.ba/assets/Scenery/lander4.webp');">
+        </div>
+        <div class="hero-slide"
+            style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url('https://www.kozarapanoramicresort.ba/assets/Scenery/lander5.webp');">
+        </div>
+
+        <div class="relative z-10 max-w-4xl mx-auto text-white px-4 pt-24">
+            <span class="text-xs md:text-sm font-bold tracking-[0.4em] uppercase text-sand-beige mb-4 block">Boutique
+                Mountain Sanctuary</span>
+            <h1 class="font-serif text-3xl sm:text-5xl md:text-6xl font-bold leading-tight mb-4">
+                Luxury Private Chalets <br><span class="italic text-sand-beige font-normal">with Heated Pools</span>
+            </h1>
+            <p class="text-base sm:text-lg md:text-xl font-light text-stone-200 max-w-2xl mx-auto mb-8 leading-relaxed">
+                Peaceful nature escape near Banja Luka & Croatia. Enjoy untouched nature, panoramic views, and
+                5-star comfort.
+            </p>
+        </div>
+
+    </header>
+
+    <main class="py-16 px-4 max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+
+            <div class="lg:col-span-8 space-y-8">
+                <div id="booking-feedback-alert"
+                    class="hidden p-6 rounded-2xl border transition duration-300 flex items-start gap-4">
+                    <div id="feedback-icon" class="text-2xl"></div>
+                    <div>
+                        <h4 id="feedback-headline" class="font-serif font-bold text-lg"></h4>
+                        <p id="feedback-paragraph" class="text-xs mt-1 leading-relaxed"></p>
+                    </div>
+                </div>
+
+                <form id="resort-booking-form" onsubmit="handleBookingRequest(event)" class="space-y-6 text-left">
+                    <div class="bg-white border border-stone-200/80 p-6 md:p-8 rounded-2xl shadow-sm">
+                        <span class="text-[10px] font-bold text-earth-brown uppercase tracking-widest block mb-2">Step
+                            One</span>
+                        <h3 class="font-serif text-xl font-bold text-primary-green mb-6 pb-2 border-b border-stone-100">
+                            Arrival Timelines & Guests</h3>
+
+                        <div class="grid grid-cols-1  gap-6 mb-6">
+                            <div id="book_calendar_wrapper"></div>
+                        </div>
+
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                            <div>
+                                <label
+                                    class="block text-xs font-bold uppercase text-stone-600 mb-2 tracking-wider">Adult
+                                    Occupants (Max 6)</label>
+                                <input type="number" required min="1" max="6" value="2" id="b-adults"
+                                    onchange="recalculateEstimatedTotal()"
+                                    class="w-full border border-stone-200 rounded-xl p-4 bg-stone-50/50 text-stone-800 text-sm focus:outline-none focus:ring-2 focus:ring-earth-brown">
+                            </div>
+                            <div>
+                                <label
+                                    class="block text-xs font-bold uppercase text-stone-600 mb-2 tracking-wider">Children
+                                    (Max 2)</label>
+                                <input type="number" min="0" max="2" value="0" id="b-children"
+                                    onchange="recalculateEstimatedTotal()"
+                                    class="w-full border border-stone-200 rounded-xl p-4 bg-stone-50/50 text-stone-800 text-sm focus:outline-none focus:ring-2 focus:ring-earth-brown">
+                            </div>
+                        </div>
+
+                        <span class="text-[10px] text-stone-400 italic block mt-4"><i
+                                class="fa-solid fa-circle-exclamation mr-1"></i> Maximum total limit is 6 persons per
+                            cabin. Families must supervise children around pools.</span>
+                    </div>
+
+                    <div class="bg-white border border-stone-200/80 p-6 md:p-8 rounded-2xl shadow-sm">
+                        <span class="text-[10px] font-bold text-earth-brown uppercase tracking-widest block mb-2">Step
+                            Two</span>
+                        <h3 class="font-serif text-xl font-bold text-primary-green mb-6 pb-2 border-b border-stone-100">
+                            Guest Coordinates & Billing</h3>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label
+                                    class="block text-xs font-bold uppercase text-stone-600 mb-2 tracking-wider">First
+                                    Name</label>
+                                <input type="text" id="b-firstname" required
+                                    class="w-full border border-stone-200 rounded-xl p-4 bg-stone-50/50 text-sm focus:outline-none focus:ring-2 focus:ring-earth-brown">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-stone-600 mb-2 tracking-wider">Last
+                                    Name</label>
+                                <input type="text" id="b-lastname" required
+                                    class="w-full border border-stone-200 rounded-xl p-4 bg-stone-50/50 text-sm focus:outline-none focus:ring-2 focus:ring-earth-brown">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label
+                                    class="block text-xs font-bold uppercase text-stone-600 mb-2 tracking-wider">Email
+                                    Address</label>
+                                <input type="email" id="b-email" required
+                                    class="w-full border border-stone-200 rounded-xl p-4 bg-stone-50/50 text-sm focus:outline-none focus:ring-2 focus:ring-earth-brown">
+                            </div>
+                            <div>
+                                <label
+                                    class="block text-xs font-bold uppercase text-stone-600 mb-2 tracking-wider">Phone
+                                    Number</label>
+                                <input type="tel" id="b-phone" required placeholder="+387..."
+                                    class="w-full border border-stone-200 rounded-xl p-4 bg-stone-50/50 text-sm focus:outline-none focus:ring-2 focus:ring-earth-brown">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                            <div class="md:col-span-2">
+                                <label
+                                    class="block text-xs font-bold uppercase text-stone-600 mb-2 tracking-wider">Billing
+                                    Address</label>
+                                <input type="text" id="b-address" required
+                                    class="w-full border border-stone-200 rounded-xl p-4 bg-stone-50/50 text-sm focus:outline-none focus:ring-2 focus:ring-earth-brown">
+                            </div>
+                            <div>
+                                <label class="block text-xs font-bold uppercase text-stone-600 mb-2 tracking-wider">Post
+                                    Code</label>
+                                <input type="text" id="b-postcode" required
+                                    class="w-full border border-stone-200 rounded-xl p-4 bg-stone-50/50 text-sm focus:outline-none focus:ring-2 focus:ring-earth-brown">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bg-white border border-stone-200/80 p-6 md:p-8 rounded-2xl shadow-sm">
+                        <span class="text-[10px] font-bold text-earth-brown uppercase tracking-widest block mb-2">Step
+                            Three</span>
+                        <h3 class="font-serif text-xl font-bold text-primary-green mb-6 pb-2 border-b border-stone-100">
+                            Settlement Preferences</h3>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <label
+                                class="border border-stone-200 rounded-xl p-4 flex items-start gap-4 cursor-pointer hover:border-earth-brown transition bg-stone-50/50">
+                                <input type="radio" name="b-payment" value="at-property" checked
+                                    class="accent-primary-green w-4 h-4 mt-1">
+                                <div>
+                                    <p class="font-bold text-stone-800 text-sm">Pay at Property</p>
+                                    <span class="text-stone-400 text-xs">No credit card authorization required online.
+                                        Settle on the mountain.</span>
+                                </div>
+                            </label>
+
+                            <label
+                                class="border border-stone-200 rounded-xl p-4 flex items-start gap-4 cursor-pointer hover:border-earth-brown transition bg-stone-50/50">
+                                <input type="radio" name="b-payment" value="online"
+                                    class="accent-primary-green w-4 h-4 mt-1">
+                                <div>
+                                    <p class="font-bold text-stone-800 text-sm">Pay Online Now</p>
+                                    <span class="text-stone-400 text-xs text-amber-700 font-semibold"><i
+                                            class="fa-solid fa-circle-exclamation mr-1"></i>Settled strictly in BAM
+                                        (Convertible Marks).</span>
+                                </div>
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="submit"
+                        class="w-full bg-primary-green hover:bg-earth-brown text-white font-bold tracking-widest uppercase py-5 rounded-2xl transition duration-300 shadow-lg text-sm flex items-center justify-center gap-2">
+                        <i class="fa-regular fa-calendar-check text-base"></i> Confirm Reservation Request
+                    </button>
+                </form>
+            </div>
+
+            <div class="lg:col-span-4 lg:sticky lg:top-28 space-y-6">
+                <div class="bg-white border border-stone-200/80 p-6 rounded-2xl shadow-sm space-y-4">
+                    <label class="block text-xs font-bold uppercase text-stone-600 tracking-wider">Display Rate
+                        Currency</label>
+                    <select id="b-currency" onchange="recalculateEstimatedTotal()"
+                        class="w-full border border-stone-200 rounded-xl p-4 bg-stone-50 text-stone-800 text-sm focus:outline-none focus:ring-2 focus:ring-earth-brown">
+                        <option value="BAM" selected>BAM (KM)</option>
+                        <option value="EUR">EUR (€)</option>
+                        <option value="GBP">GBP (₤)</option>
+                        <option value="USD">USD ($)</option>
+                    </select>
+                    <span class="text-[10px] text-stone-400 italic block"><i class="fa-solid fa-circle-info mr-1"></i>
+                        This toggle changes the displayed estimate only. Actual transaction remains in BAM.</span>
+                </div>
+
+                <div class="bg-primary-green text-white p-8 rounded-3xl shadow-xl space-y-6 relative overflow-hidden">
+                    <div class="absolute inset-0 bg-cover bg-center opacity-5"
+                        style="background-image: url('https://www.kozarapanoramicresort.ba/assets/Scenery/lander3.webp');">
+                    </div>
+
+                    <div class="relative z-10 border-b border-white/10 pb-4">
+                        <span class="text-[9px] font-bold uppercase tracking-[0.2em] text-sand-beige block mb-1">Live
+                            Invoice Estimate</span>
+                        <h4 class="font-serif text-2xl font-semibold">Your Mountain Retreat</h4>
+                    </div>
+
+                    <div class="relative z-10 space-y-4 text-xs">
+                        <div class="flex justify-between items-center text-stone-300">
+                            <span>Chalet Specification:</span>
+                            <span class="font-bold text-white">Solid Timber Luxury Cabin</span>
+                        </div>
+                        <div class="flex justify-between items-center text-stone-300">
+                            <span>Duration of Stay:</span>
+                            <span id="summary-duration" class="font-bold text-white">0 Nights</span>
+                        </div>
+                        <div class="flex justify-between items-center text-stone-300">
+                            <span>Guest Alignment:</span>
+                            <span id="summary-occupants" class="font-bold text-white">2 Adults, 0 Children</span>
+                        </div>
+                    </div>
+
+                    <div class="relative z-10 border-t border-white/10 pt-6 flex justify-between items-end">
+                        <div>
+                            <span
+                                class="text-[10px] text-sand-beige uppercase tracking-wider font-semibold block mb-1">Estimated
+                                Total</span>
+                            <h2 id="b-total-display" class="font-serif text-3xl font-extrabold text-white">0 KM</h2>
+                            <p id="b-sub-transaction-notice" class="text-[9px] text-sand-beige/70 mt-1 italic hidden">
+                            </p>
+                        </div>
+                        <i class="fa-solid fa-hotel text-4xl text-white/10"></i>
+                    </div>
+                </div>
+
+                <div class="bg-stone-50 border border-stone-200/60 p-6 rounded-2xl">
+                    <h5 class="font-serif font-bold text-stone-800 text-sm mb-4">Direct Booking Advantages</h5>
+                    <ul class="text-xs text-stone-600 space-y-3">
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Best price
+                            guaranteed over external agents</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Premium welcome
+                            artisan basket</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Instant priority
+                            pool temperature check</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Seamless direct
+                            support from James & Dragana</li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="bg-primary-green text-white py-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <div class="space-y-6">
+                    <div class="flex items-center gap-3">
+                        <img src="/assets/logo_stripped.svg"
+                            onerror="this.onerror=null; this.src='https://www.kozarapanoramicresort.ba/assets/logo_stripped.svg';"
+                            alt="Kozara Panoramic Resort Logo" class="h-10 w-auto brightness-0 invert">
+                        <span class="font-serif tracking-widest text-2xl font-bold">KOZARA PANORAMIC RESORT</span>
+                    </div>
+                    <p class="text-stone-300 text-sm leading-relaxed">
+                        A boutique mountain sanctuary offering five luxury private chalets with heated pools.
+                        Discover untouched nature and 5-star comfort in Northern Bosnia.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-earth-brown transition-colors">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-earth-brown transition-colors">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-serif text-lg font-bold mb-6 text-sand-beige">Quick Links</h4>
+                    <ul class="space-y-4 text-sm text-stone-300">
+                        <li><a href="/#showcase" class="hover:text-white transition">The Chalets</a></li>
+                        <li><a href="/amenities" class="hover:text-white transition">Resort Amenities</a></li>
+                        <li><a href="/#location" class="hover:text-white transition">Our Location</a></li>
+                        <li><a href="/faq" class="hover:text-white transition">Frequently Asked Questions</a>
+                        </li>
+                        <li><a href="/book" class="hover:text-white transition">Book Your Stay</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-serif text-lg font-bold mb-6 text-sand-beige">Contact Us</h4>
+                    <ul class="space-y-4 text-sm text-stone-300">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot mt-1 text-earth-brown"></i>
+                            <span>Kozara Mountain, Gradiška,<br>Bosnia and Herzegovina</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-phone text-earth-brown"></i>
+                            <span>+387 00 000 000</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-earth-brown"></i>
+                            <span>info@kozarapanoramicresort.ba</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div
+                class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-stone-400">
+                <p>© 2026 Kozara Panoramic Resort. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a href="/notice#privacy" class="hover:text-white transition">Privacy Policy</a>
+                    <a href="/notice#terms" class="hover:text-white transition">Terms of Service</a>
+                    <a href="/notice#cookies" class="hover:text-white transition">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const baseRateBAM = 330;
+
+        function recalculateEstimatedTotal() {
+            const checkinVal = document.getElementById('b-checkin').value;
+            const checkoutVal = document.getElementById('b-checkout').value;
+            const currencyKey = document.getElementById('b-currency').value;
+            const totalDisplay = document.getElementById('b-total-display');
+            const summaryDuration = document.getElementById('summary-duration');
+            const summaryOccupants = document.getElementById('summary-occupants');
+            const transactionNotice = document.getElementById('b-sub-transaction-notice');
+
+            const adultsCount = document.getElementById('b-adults').value || 2;
+            const childrenCount = document.getElementById('b-children').value || 0;
+
+            summaryOccupants.innerText = `${adultsCount} Adults, ${childrenCount} Children`;
+
+            if (!checkinVal || !checkoutVal) {
+                totalDisplay.innerText = `0 ${currencyKey === 'EUR' ? '€' : currencyKey === 'GBP' ? '₤' : currencyKey === 'USD' ? '$' : 'KM'}`;
+                summaryDuration.innerText = "0 Nights";
+                transactionNotice.classList.add('hidden');
+                return;
+            }
+
+            const d1 = new Date(checkinVal);
+            const d2 = new Date(checkoutVal);
+            const diffTime = Math.abs(d2 - d1);
+            const diffNights = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+
+            if (diffNights <= 0) {
+                totalDisplay.innerText = `0 ${currencyKey === 'EUR' ? '€' : currencyKey === 'GBP' ? '₤' : currencyKey === 'USD' ? '$' : 'KM'}`;
+                summaryDuration.innerText = "0 Nights";
+                transactionNotice.classList.add('hidden');
+                return;
+            }
+
+            summaryDuration.innerText = `${diffNights} Night${diffNights > 1 ? 's' : ''}`;
+
+            const rates = {BAM: 1, EUR: 0.51, GBP: 0.44, USD: 0.6};
+            const symbols = {BAM: "KM", EUR: "€", GBP: "₤", USD: "$"};
+
+            const totalInBAM = diffNights * baseRateBAM;
+            const rateMultiplier = rates[currencyKey] || 1;
+            const symbolValue = symbols[currencyKey] || "KM";
+
+            const calculatedTotal = totalInBAM * rateMultiplier;
+
+            if (currencyKey === "USD") {
+                totalDisplay.innerText = `${symbolValue}${calculatedTotal.toFixed(2)}`;
+            } else {
+                totalDisplay.innerText = `${calculatedTotal.toFixed(2)} ${symbolValue}`;
+            }
+
+            if (currencyKey !== "BAM") {
+                transactionNotice.innerText = `* Actual checkout charge: ${totalInBAM.toFixed(2)} KM`;
+                transactionNotice.classList.remove('hidden');
+            } else {
+                transactionNotice.classList.add('hidden');
+            }
+        }
+
+        function handleBookingRequest(event) {
+            event.preventDefault();
+
+            const feedbackAlert = document.getElementById('booking-feedback-alert');
+            const fIcon = document.getElementById('feedback-icon');
+            const fHeadline = document.getElementById('feedback-headline');
+            const fParagraph = document.getElementById('feedback-paragraph');
+
+            window.scrollTo({top: 150, behavior: 'smooth'});
+
+            feedbackAlert.className = "p-6 rounded-2xl border bg-stone-50 border-stone-200 block text-stone-700 flex items-start gap-4";
+            fIcon.innerHTML = "<i class='fa-solid fa-spinner animate-spin text-earth-brown'></i>";
+            fHeadline.innerText = "Connecting with pre-arrival concierge...";
+            fParagraph.innerText = "Validating secure property parameters on Mount Kozara servers. Symmetrical slots allocation check underway.";
+
+            setTimeout(() => {
+                feedbackAlert.className = "p-6 rounded-2xl border bg-emerald-50 border-emerald-200 text-emerald-800 block flex items-start gap-4";
+                fIcon.innerHTML = "<i class='fa-regular fa-circle-check text-emerald-600'></i>";
+                fHeadline.innerText = "Reservation Request Processed Successfully";
+                fParagraph.innerText = "Your luxury mountain stay has been securely registered. Dragana or Vesna will contact you shortly via email or phone to confirm and finalize check-in instructions. Redirecting you home...";
+
+                document.getElementById('resort-booking-form').reset();
+                recalculateEstimatedTotal();
+
+                setTimeout(() => {
+                    window.location.href = "index.html";
+                }, 4000);
+
+            }, 2500);
+        }
+
+        function toggleMobileMenu() {
+            const drawer = document.getElementById('mobile-menu');
+            drawer.classList.toggle('translate-x-full');
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.VanillaCalendarPro) {
+                const {Calendar} = window.VanillaCalendarPro;
+                const booking_calendar = new Calendar("#book_calendar_wrapper", {
+                    type: "multiple",
+                    selectedTheme: "light",
+                    dateMin: "today",
+                    dateMax: "2026-12-31",
+                    disableToday: true,
+                    enableEdgeDatesOnly: true,
+                    enableDateToggle: false,
+                    selectionDatesMode: "multiple-ranged"
+
+
+
+                }
+
+                );
+
+                booking_calendar.init();
+            }
+
+            if (window.gsap && window.ScrollTrigger) {
+                gsap.registerPlugin(ScrollTrigger);
+
+                const shared = {
+                    trigger: "header",
+                    start: "top top",
+                    end: "30%",
+                    width: 15,
+                    pad: 4
+                };
+
+                gsap.set("#logo_stripped", {xPercent: -50, yPercent: -50});
+
+                gsap.to("#logo_stripped", {
+                    scrollTrigger: {
+                        trigger: shared.trigger,
+                        start: shared.start,
+                        end: shared.end,
+                        scrub: true,
+                        invalidateOnRefresh: true,
+                    },
+                    top: () => window.innerWidth <= 768 ? "30px" : "35px",
+                    yPercent: -50,
+                    width: () => window.innerWidth <= 768 ? "16ch" : "15ch",
+                });
+
+                gsap.to("#logo_stripped_reserve_spacer", {
+                    scrollTrigger: {
+                        trigger: shared.trigger,
+                        start: shared.start,
+                        end: shared.end,
+                        scrub: true,
+                    },
+                    width: `${shared.width + shared.pad}ch`,
+                });
+
+                ScrollTrigger.create({
+                    trigger: shared.trigger,
+                    start: "top top",
+                    end: shared.end,
+                    onLeave: () => document.getElementById('main-nav').classList.add('scrolled'),
+                    onEnterBack: () => document.getElementById('main-nav').classList.remove('scrolled'),
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>

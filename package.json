@@ -1,0 +1,31 @@
+{
+  "name": "kozara-demo",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+    "dependencies": {
+        "better-sqlite3": "^12.2.0",
+        "cors": "^2.8.5",
+        "crypto": "^1.0.1",
+        "dotenv": "^17.2.0",
+        "ejs": "^3.1.10",
+        "express": "^5.1.0",
+        "express-fileupload": "^1.5.2",
+        "express-session": "^1.18.2",
+        "groq-sdk": "^0.37.0",
+        "ical-generator": "^9.0.0",
+        "mime-types": "^3.0.2",
+        "multer": "^2.0.2",
+        "node-cron": "^4.2.1",
+        "nodemailer": "^7.0.10",
+        "uuid": "^13.0.0",
+        "winston": "^3.17.0",
+        "winston-daily-rotate-file": "^5.0.0"
+    }
+}

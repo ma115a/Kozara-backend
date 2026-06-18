@@ -1,0 +1,654 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth sl-theme-light">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Resort Amenities & Comforts | Kozara Panoramic Resort</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Playfair+Display:ital,wght=0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link href="css/main.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/light.css" />
+    <script type="module"
+        src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/shoelace-autoloader.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-green': '#364d14',
+                        'earth-brown': '#968067',
+                        'sand-beige': '#d9c7b2',
+                        'muted-green': '#5c6d4c',
+                        'bg-soft': '#f8f9fa',
+                    },
+                    fontFamily: {
+                        sans: ['Lato', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+</head>
+
+<body class="bg-white text-stone-800 antialiased min-h-screen">
+
+    <nav id="main-nav" class="py-2 md:py-5 px-6 md:px-12">
+        <div class="nav-links-container hidden lg:flex flex-1 justify-end mr-8">
+            <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300"
+                href="/#showcase">Chalets</a>
+            <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300 ml-8"
+                href="/#why-love-us">Why Us</a>
+            <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300 ml-8"
+                href="/amenities">Amenities</a>
+        </div>
+
+        <div id="logo_stripped_reserve_spacer" class="hidden lg:block"></div>
+        <a href="/" id="logo_stripped" class="block">
+            <img src="/assets/logo_stripped.svg"
+                onerror="this.onerror=null; this.src='https://www.kozarapanoramicresort.ba/assets/logo_stripped.svg';"
+                alt="Kozara Panoramic Resort Logo" class="w-full h-auto block">
+        </a>
+        <div class="nav-links-container hidden lg:flex flex-1 justify-start ml-8">
+            <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300" href="/#location">About
+                Us</a>
+            <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300 ml-8"
+                href="/#blog">Blog</a>
+            <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300 ml-8" href="/faq">FAQ</a>
+
+            <sl-dropdown class="ml-8">
+                <button slot="trigger"
+                    class="nav-lang-btn flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/20 hover:border-sand-beige/60 transition-all text-xs font-semibold bg-white/5 backdrop-blur-sm text-white focus:outline-none">
+                    <span>🇬🇧 EN</span> <i class="fa-solid fa-chevron-down text-[10px] opacity-70"></i>
+                </button>
+                <sl-menu class="text-stone-800">
+                    <sl-menu-item value="en">🇬🇧 EN (English)</sl-menu-item>
+                    <sl-menu-item value="sr">🇷🇸 SR (Srpski)</sl-menu-item>
+                    <sl-menu-item value="de">🇩🇪 DE (Deutsch)</sl-menu-item>
+                    <sl-menu-item value="it">🇮🇹 IT (Italiano)</sl-menu-item>
+                </sl-menu>
+            </sl-dropdown>
+
+            <a href="/book"
+                class="bg-earth-brown hover:bg-primary-green text-white font-bold text-xs tracking-widest uppercase px-6 py-3 rounded-full transition-all duration-300 shadow-lg ml-6 text-center">
+                Book Your Stay
+            </a>
+        </div>
+
+        <div class="lg:hidden w-full flex justify-between items-center py-2">
+            <sl-dropdown>
+                <button slot="trigger"
+                    class="nav-lang-btn flex items-center gap-1 px-3 py-1.5 rounded-full border border-white/20 text-xs font-semibold bg-white/5 backdrop-blur-sm text-white focus:outline-none">
+                    <span>🇬🇧 EN</span>
+                </button>
+                <sl-menu class="text-stone-800">
+                    <sl-menu-item value="en">🇬🇧 EN</sl-menu-item>
+                    <sl-menu-item value="sr">🇷🇸 SR</sl-menu-item>
+                    <sl-menu-item value="de">🇩🇪 DE</sl-menu-item>
+                    <sl-menu-item value="it">🇮🇹 IT</sl-menu-item>
+                </sl-menu>
+            </sl-dropdown>
+
+            <div class="w-[16ch]"></div>
+
+            <button onclick="toggleMobileMenu()"
+                class="mobile-hamburger-btn text-2xl focus:outline-none p-1 text-white hover:text-sand-beige transition">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-stone-950/95 backdrop-blur-md z-[60] flex flex-col justify-between p-8 text-white translate-x-full transition-transform duration-500 ease-in-out">
+        <div class="flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <img src="/assets/logo_stripped.svg"
+                    onerror="this.onerror=null; this.src='https://www.kozarapanoramicresort.ba/assets/logo_stripped.svg';"
+                    alt="Kozara Panoramic Resort Logo" class="h-5 w-auto brightness-0 invert">
+                <span class="font-serif tracking-widest text-xl font-bold">KOZARA PANORAMIC RESORT</span>
+            </div>
+            <button onclick="toggleMobileMenu()" class="text-3xl hover:text-sand-beige">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <div class="flex flex-col gap-6 text-xl font-serif text-center my-auto">
+            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="/#showcase">
+                Chalets</a>
+            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="/#why-love-us">Why
+                Us</a>
+            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="/amenities">Amenities</a>
+            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="/#location">About
+                Us</a>
+            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="/faq">FAQ</a>
+        </div>
+
+        <div class="flex flex-col gap-4 text-center">
+            <a href="/book" onclick="toggleMobileMenu();"
+                class="bg-earth-brown text-white py-4 rounded-full font-bold uppercase tracking-wider text-sm block">
+                Book Your Stay
+            </a>
+            <p class="text-xs text-stone-500">© 2026 Kozara Panoramic Resort</p>
+        </div>
+    </div>
+
+    <header
+        class="relative h-[80dvh] flex flex-col justify-center items-center text-center px-4 overflow-hidden bg-stone-900 text-white">
+        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat"
+            style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.65), rgba(0,0,0,0.4)), url('https://www.kozarapanoramicresort.ba/assets/Scenery/lander5.webp');">
+        </div>
+
+        <div class="relative z-10 max-w-4xl mx-auto px-4 pt-16">
+            <span class="text-xs md:text-sm font-bold tracking-[0.4em] uppercase text-sand-beige mb-3 block">Resort
+                Specifications</span>
+            <h1 class="font-serif text-3xl sm:text-5xl font-bold leading-tight mb-2">Comforts &amp; Amenities</h1>
+            <p class="text-xs sm:text-sm font-light text-stone-300 max-w-xl mx-auto leading-relaxed">
+                Explore every thoughtfully-curated detail included verbatim across all five of our custom mountain
+                timber chalets.
+            </p>
+        </div>
+    </header>
+
+    <main class="py-20 px-4 max-w-7xl mx-auto space-y-16">
+
+        <div
+            class="bg-stone-50 border border-stone-200/60 p-8 rounded-3xl grid grid-cols-2 md:grid-cols-5 gap-6 text-center text-xs font-semibold text-stone-700 shadow-sm hover:shadow-md transition">
+            <div class="space-y-2">
+                <div
+                    class="w-10 h-10 rounded-full bg-primary-green/5 text-primary-green flex items-center justify-center mx-auto text-lg">
+                    <i class="fa-solid fa-water"></i>
+                </div>
+                <p class="font-bold text-stone-900">Private Pool</p>
+                <span class="text-[10px] text-stone-500 block">6x3m Individual Heated</span>
+            </div>
+            <div class="space-y-2 md:border-t-0 md:border-l border-stone-200/80 pt-4 md:pt-0">
+                <div
+                    class="w-10 h-10 rounded-full bg-primary-green/5 text-primary-green flex items-center justify-center mx-auto text-lg">
+                    <i class="fa-solid fa-wifi"></i>
+                </div>
+                <p class="font-bold text-stone-900">Free WiFi</p>
+                <span class="text-[10px] text-stone-500 block">High-Speed Coverage</span>
+            </div>
+            <div class="space-y-2 border-t md:border-t-0 md:border-l border-stone-200/80 pt-4 md:pt-0">
+                <div
+                    class="w-10 h-10 rounded-full bg-primary-green/5 text-primary-green flex items-center justify-center mx-auto text-lg">
+                    <i class="fa-solid fa-square-parking"></i>
+                </div>
+                <p class="font-bold text-stone-900">Free Parking</p>
+                <span class="text-[10px] text-stone-500 block">Private Secured Onsite</span>
+            </div>
+            <div class="space-y-2 border-t md:border-t-0 md:border-l border-stone-200/80 pt-4 md:pt-0">
+                <div
+                    class="w-10 h-10 rounded-full bg-primary-green/5 text-primary-green flex items-center justify-center mx-auto text-lg">
+                    <i class="fa-solid fa-ban-smoking"></i>
+                </div>
+                <p class="font-bold text-stone-900">Non-Smoking</p>
+                <span class="text-[10px] text-stone-500 block">100% Pristine Air Space</span>
+            </div>
+            <div class="space-y-2 border-t md:border-t-0 md:border-l border-stone-200/80 pt-4 md:pt-0">
+                <div
+                    class="w-10 h-10 rounded-full bg-primary-green/5 text-primary-green flex items-center justify-center mx-auto text-lg">
+                    <i class="fa-solid fa-tree"></i>
+                </div>
+                <p class="font-bold text-stone-900">Solid Wood</p>
+                <span class="text-[10px] text-stone-500 block">Natural Eco-Architecture</span>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+
+            <div
+                class="bg-stone-50 border border-stone-200/80 p-8 rounded-3xl relative overflow-hidden shadow-sm hover:shadow-md flex flex-col justify-between transition">
+                <div>
+                    <div
+                        class="absolute top-4 right-4 bg-emerald-700 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">
+                        Included!</div>
+                    <span class="text-[10px] font-bold text-earth-brown uppercase tracking-widest block mb-2">Outdoor
+                        Oasis</span>
+                    <h3 class="font-serif text-2xl font-bold text-primary-green mb-6 pb-2 border-b border-stone-200/60">
+                        Heated Swimming Pool</h3>
+
+                    <ul class="space-y-3.5 text-sm text-stone-600 mb-6">
+                        <li class="flex items-start gap-3"><i
+                                class="fa-solid fa-circle-check text-earth-brown text-xs mt-1"></i> <span><strong>Heated
+                                    Options</strong>: Individual temperature regulation for spring to autumn.</span>
+                        </li>
+                        <li class="flex items-start gap-3"><i
+                                class="fa-solid fa-circle-check text-earth-brown text-xs mt-1"></i> <span><strong>Scenic
+                                    Vistas</strong>: Completely panoramic mountain peak views.</span></li>
+                        <li class="flex items-start gap-3"><i
+                                class="fa-solid fa-circle-check text-earth-brown text-xs mt-1"></i>
+                            <span><strong>Dimensions</strong>: 6x3 meters private footprint, 1.40m water depth.</span>
+                        </li>
+                        <li class="flex items-start gap-3"><i
+                                class="fa-solid fa-circle-check text-earth-brown text-xs mt-1"></i> <span><strong>Sun
+                                    Lounge</strong>: Premium pool loungers with luxury cushioning.</span></li>
+                        <li class="flex items-start gap-3"><i
+                                class="fa-solid fa-circle-check text-earth-brown text-xs mt-1"></i>
+                            <span><strong>Protection Cover</strong>: Retractable pool cover protection.</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div
+                    class="bg-red-50 border border-red-200/60 p-4 rounded-xl text-xs text-red-800 font-bold flex items-start gap-3 mt-4">
+                    <i class="fa-solid fa-circle-exclamation text-base mt-0.5"></i>
+                    <span>Safety Notice: Private pool decks have open access; children must be supervised by parents or
+                        guardians at all times. No glass allowed.</span>
+                </div>
+            </div>
+
+            <div
+                class="bg-white border border-stone-200/80 p-8 rounded-3xl shadow-sm hover:shadow-md transition flex flex-col justify-between">
+                <div>
+                    <span class="text-[10px] font-bold text-earth-brown uppercase tracking-widest block mb-2">Kitchen &
+                        Dining</span>
+                    <h3 class="font-serif text-2xl font-bold text-primary-green mb-6 pb-2 border-b border-stone-200/60">
+                        Fully Equipped Kitchen</h3>
+
+                    <div class="space-y-4 text-stone-600">
+                        <div class="flex items-start gap-3">
+                            <span class="text-earth-brown text-xs mt-1"><i class="fa-solid fa-mug-hot"></i></span>
+                            <div>
+                                <h4 class="font-bold text-stone-800 text-xs uppercase tracking-wider">Dolce Gusto Coffee
+                                    Machine</h4>
+                                <p class="text-xs text-stone-500 mt-0.5 font-light">Nescafé pod compatibility. 4
+                                    complimentary pods are supplied on arrival. Additional pods can be bought in
+                                    Gradiška supermarkets.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-earth-brown text-xs mt-1"><i
+                                    class="fa-solid fa-temperature-arrow-up"></i></span>
+                            <div>
+                                <h4 class="font-bold text-stone-800 text-xs uppercase tracking-wider">Electric Cooking
+                                    Hob &amp; Oven</h4>
+                                <p class="text-xs text-stone-500 mt-0.5 font-light">High-end induction hobs and built-in
+                                    convection ovens.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-earth-brown text-xs mt-1"><i class="fa-solid fa-water-ladder"></i></span>
+                            <div>
+                                <h4 class="font-bold text-stone-800 text-xs uppercase tracking-wider">Integrated
+                                    Dishwasher</h4>
+                                <p class="text-xs text-stone-500 mt-0.5 font-light">Full-sized dishwashers with
+                                    pre-supplied cleaning tablets.</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <span class="text-earth-brown text-xs mt-1"><i class="fa-solid fa-snowflake"></i></span>
+                            <div>
+                                <h4 class="font-bold text-stone-800 text-xs uppercase tracking-wider">Refrigerator &amp;
+                                    Freezer</h4>
+                                <p class="text-xs text-stone-500 mt-0.5 font-light">Spacious chilling cabinets, toaster,
+                                    microwave, and electric tea kettle.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                class="bg-stone-50 border border-stone-200/80 p-8 rounded-3xl shadow-sm hover:shadow-md flex flex-col justify-between">
+                <div>
+                    <span class="text-[10px] font-bold text-earth-brown uppercase tracking-widest block mb-2">Resort
+                        Exterior</span>
+                    <h3 class="font-serif text-2xl font-bold text-primary-green mb-6 pb-2 border-b border-stone-200/60">
+                        Patios, Garden &amp; Outdoors</h3>
+
+                    <ul class="space-y-4 text-sm text-stone-600">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-tree text-earth-brown text-xs mt-1"></i>
+                            <div>
+                                <strong class="text-stone-800">Resort Garden Slopes</strong>
+                                <p class="text-xs text-stone-500 mt-0.5 font-light">Beautiful pine-rich private grounds
+                                    with winding paths.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-chair text-earth-brown text-xs mt-1"></i>
+                            <div>
+                                <strong class="text-stone-800">Outdoor Seating Furniture</strong>
+                                <p class="text-xs text-stone-500 mt-0.5 font-light">Premium rattan tables & chairs
+                                    nestled on private stone terraces.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-fire text-earth-brown text-xs mt-1"></i>
+                            <div>
+                                <strong class="text-stone-800">Electric Barbecue</strong>
+                                <p class="text-xs text-stone-500 mt-0.5 font-light">Modern Ninja Woodfire BBQ units
+                                    available upon request.</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-compass text-earth-brown text-xs mt-1"></i>
+                            <div>
+                                <strong class="text-stone-800">Expansive Private Patio</strong>
+                                <p class="text-xs text-stone-500 mt-0.5 font-light">Fully covered layout sections ideal
+                                    for quiet, shaded relaxation or stargazing.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+
+        <div>
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <span class="text-xs font-bold tracking-[0.3em] uppercase text-earth-brown block mb-3">Granular
+                    Inventory</span>
+                <h3 class="font-serif text-2xl md:text-3xl font-bold text-primary-green">The Resort Specifications
+                    Directory</h3>
+                <div class="w-12 h-[1px] bg-sand-beige mx-auto mt-4"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+                <!-- Category 1: General Utilities -->
+                <div class="bg-white border border-stone-200/80 p-6 rounded-2xl shadow-sm hover:shadow-md transition">
+                    <h4
+                        class="font-serif text-base font-bold text-primary-green mb-4 pb-2 border-b border-stone-100 flex items-center gap-2">
+                        <i class="fa-solid fa-house-circle-check text-earth-brown text-sm"></i> General Utilities
+                    </h4>
+                    <ul class="text-stone-600 text-xs space-y-3">
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Responsive
+                            underfloor heating</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Air conditioning
+                        </li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Carbon monoxide
+                            detector</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> 100% Non-smoking
+                            cabins</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Secure private
+                            entrance keys</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Elegant tile/marble
+                            flooring</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white border border-stone-200/80 p-6 rounded-2xl shadow-sm hover:shadow-md transition">
+                    <h4
+                        class="font-serif text-base font-bold text-primary-green mb-4 pb-2 border-b border-stone-100 flex items-center gap-2">
+                        <i class="fa-solid fa-bed text-earth-brown text-sm"></i> Bed &amp; Bath
+                    </h4>
+                    <ul class="text-stone-600 text-xs space-y-3">
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> 100% Cotton organic
+                            bedding</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Premium resort linen
+                            supplied</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Wardrobe &amp;
+                            storage cabinetry</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Cozy plush bathrobe
+                            sets</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Professional ionic
+                            hairdryer</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Premium towels &amp;
+                            toilet paper</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white border border-stone-200/80 p-6 rounded-2xl shadow-sm hover:shadow-md transition">
+                    <h4
+                        class="font-serif text-base font-bold text-primary-green mb-4 pb-2 border-b border-stone-100 flex items-center gap-2">
+                        <i class="fa-solid fa-chair text-earth-brown text-sm"></i> Living Area
+                    </h4>
+                    <ul class="text-stone-600 text-xs space-y-3">
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Cozy seating sofa
+                            setups</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Broad indoor dining
+                            areas</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Full-sized timber
+                            dining tables</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Double-glazed
+                            panoramic slides</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Sun terrace loungers
+                            with mats</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white border border-stone-200/80 p-6 rounded-2xl shadow-sm hover:shadow-md transition">
+                    <h4
+                        class="font-serif text-base font-bold text-primary-green mb-4 pb-2 border-b border-stone-100 flex items-center gap-2">
+                        <i class="fa-solid fa-tv text-earth-brown text-sm"></i> Media &amp; Tech
+                    </h4>
+                    <ul class="text-stone-600 text-xs space-y-3">
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Flat-screen Smart TV
+                            setups</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Direct satellite
+                            channel feeds</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Streaming services
+                            (like Netflix)</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> High-speed WiFi (all
+                            areas)</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Multi-point charging
+                            stations</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white border border-stone-200/80 p-6 rounded-2xl shadow-sm hover:shadow-md transition">
+                    <h4
+                        class="font-serif text-base font-bold text-primary-green mb-4 pb-2 border-b border-stone-100 flex items-center gap-2">
+                        <i class="fa-solid fa-bell text-earth-brown text-sm"></i> Personal Services
+                    </h4>
+                    <ul class="text-stone-600 text-xs space-y-3">
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Private
+                            check-in/check-out</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> English speaking
+                            staff</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Serbian speaking
+                            staff</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Domestic pet request
+                            approvals</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Organic breakfast
+                            hampers (future)</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white border border-stone-200/80 p-6 rounded-2xl shadow-sm hover:shadow-md transition">
+                    <h4
+                        class="font-serif text-base font-bold text-primary-green mb-4 pb-2 border-b border-stone-100 flex items-center gap-2">
+                        <i class="fa-solid fa-shield-halved text-earth-brown text-sm"></i> Safety &amp; Security
+                    </h4>
+                    <ul class="text-stone-600 text-xs space-y-3">
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> CCTV outside
+                            property borders</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> On-property fire
+                            extinguishers</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Integrated digital
+                            laptop safe</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Fenced resort
+                            boundaries</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Carbon monoxide
+                            safety alarms</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white border border-stone-200/80 p-6 rounded-2xl shadow-sm hover:shadow-md transition">
+                    <h4
+                        class="font-serif text-base font-bold text-primary-green mb-4 pb-2 border-b border-stone-100 flex items-center gap-2">
+                        <i class="fa-solid fa-mountain-sun text-earth-brown text-sm"></i> Scenic Landscapes
+                    </h4>
+                    <ul class="text-stone-600 text-xs space-y-3">
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Landmark landscape
+                            view</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Panoramic mountain
+                            view</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Private pool horizon
+                            view</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Sunrise orientation
+                            profiles</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Forest canopy
+                            scenery vistas</li>
+                    </ul>
+                </div>
+
+                <div class="bg-white border border-stone-200/80 p-6 rounded-2xl shadow-sm hover:shadow-md transition">
+                    <h4
+                        class="font-serif text-base font-bold text-primary-green mb-4 pb-2 border-b border-stone-100 flex items-center gap-2">
+                        <i class="fa-solid fa-person-hiking text-earth-brown text-sm"></i> Activities &amp; Tours
+                    </h4>
+                    <ul class="text-stone-600 text-xs space-y-3">
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Authentic Kozara
+                            village strolls</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Guided country bike
+                            tours</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Pristine forest
+                            hiking paths</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Staggered mountain
+                            walking tours</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Kozara National Park
+                            explorations</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+    </main>
+
+    <footer class="bg-primary-green text-white py-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                <div class="space-y-6">
+                    <div class="flex items-center gap-3">
+                        <img src="/assets/logo_stripped.svg"
+                            onerror="this.onerror=null; this.src='https://www.kozarapanoramicresort.ba/assets/logo_stripped.svg';"
+                            alt="Kozara Panoramic Resort Logo" class="h-10 w-auto brightness-0 invert">
+                        <span class="font-serif tracking-widest text-2xl font-bold">KOZARA PANORAMIC RESORT</span>
+                    </div>
+                    <p class="text-stone-300 text-sm leading-relaxed">
+                        A boutique mountain sanctuary offering five luxury private chalets with heated pools.
+                        Discover untouched nature and 5-star comfort in Northern Bosnia.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-earth-brown transition-colors">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-earth-brown transition-colors">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="font-serif text-lg font-bold mb-6 text-sand-beige">Quick Links</h4>
+                    <ul class="space-y-4 text-sm text-stone-300">
+                        <li><a href="/#showcase" class="hover:text-white transition">The Chalets</a></li>
+                        <li><a href="/amenities" class="hover:text-white transition">Resort Amenities</a></li>
+                        <li><a href="/#location" class="hover:text-white transition">Our Location</a></li>
+                        <li><a href="/faq" class="hover:text-white transition">Frequently Asked Questions</a>
+                        </li>
+                        <li><a href="/book" class="hover:text-white transition">Book Your Stay</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-serif text-lg font-bold mb-6 text-sand-beige">Contact Us</h4>
+                    <ul class="space-y-4 text-sm text-stone-300">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot mt-1 text-earth-brown"></i>
+                            <span>Kozara Mountain, Gradiška,<br>Bosnia and Herzegovina</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-phone text-earth-brown"></i>
+                            <span>+387 00 000 000</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope text-earth-brown"></i>
+                            <span>info@kozarapanoramicresort.ba</span>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div
+                class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-stone-400">
+                <p>© 2026 Kozara Panoramic Resort. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a href="/notice#privacy" class="hover:text-white transition">Privacy Policy</a>
+                    <a href="/notice#terms" class="hover:text-white transition">Terms of Service</a>
+                    <a href="/notice#cookies" class="hover:text-white transition">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        function toggleMobileMenu() {
+            const drawer = document.getElementById('mobile-menu');
+            drawer.classList.toggle('translate-x-full');
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.gsap && window.ScrollTrigger) {
+                gsap.registerPlugin(ScrollTrigger);
+
+                const shared = {
+                    trigger: "header",
+                    start: "top top",
+                    end: "30%",
+                    width: 15,
+                    pad: 4
+                };
+
+                gsap.set("#logo_stripped", {xPercent: -50, yPercent: -50});
+
+                gsap.to("#logo_stripped", {
+                    scrollTrigger: {
+                        trigger: shared.trigger,
+                        start: shared.start,
+                        end: shared.end,
+                        scrub: true,
+                        invalidateOnRefresh: true,
+                    },
+                    top: () => window.innerWidth <= 768 ? "30px" : "35px",
+                    yPercent: -50,
+                    width: () => window.innerWidth <= 768 ? "16ch" : "15ch",
+                });
+
+                gsap.to("#logo_stripped_reserve_spacer", {
+                    scrollTrigger: {
+                        trigger: shared.trigger,
+                        start: shared.start,
+                        end: shared.end,
+                        scrub: true,
+                    },
+                    width: `${shared.width + shared.pad}ch`,
+                });
+
+                ScrollTrigger.create({
+                    trigger: shared.trigger,
+                    start: "top top",
+                    end: shared.end,
+                    onLeave: () => document.getElementById('main-nav').classList.add('scrolled'),
+                    onEnterBack: () => document.getElementById('main-nav').classList.remove('scrolled'),
+                });
+            }
+        });
+    </script>
+</body>
+
+</html>
