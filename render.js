@@ -23,7 +23,7 @@ module.exports = function (logger) {
         sr: JSON.parse(fs.readFileSync(path.join(__dirname, 'locales', 'sr.json'), 'utf8')),
     }
 
-    function loadLatestBlogs() {
+    function loadLatestBlogs(lang) {
 
         try {
 
@@ -32,7 +32,14 @@ module.exports = function (logger) {
             const blogs = files.sort().reverse().slice(0, 2).map(filename => {
                 const filePath = path.join(blogsDir, filename)
                 const blogData = JSON.parse(fs.readFileSync(filePath, 'utf8'))
-                const data = { title: blogData.title, title_img: blogData.title_img, blogid: blogData.blogid }
+                
+                const metaKey = `${lang}_meta`;
+                let title = blogData.title;
+                if (lang !== 'en' && blogData[metaKey] && blogData[metaKey].title) {
+                    title = blogData[metaKey].title;
+                }
+                
+                const data = { title: title, title_img: blogData.title_img, blogid: blogData.blogid }
                 return data
             })
 
@@ -50,55 +57,33 @@ module.exports = function (logger) {
 
         const t = languages[lang] || languages['en']
         let renderedHtml = htmlTemplateIndex
-        let blogs = loadLatestBlogs()
+        let blogs = loadLatestBlogs(lang)
         console.log(blogs)
         let blogContent = ''
 
         if (blogs === null || blogs.length === 0) {
-
-            renderedHtml = renderedHtml.replace('{{BLOGS_TEMPLATE}}', "no blogs")
-
+            renderedHtml = renderedHtml.replace('{{BLOGS_SECTION_DISPLAY}}', 'hidden')
+            renderedHtml = renderedHtml.replace('{{BLOGS_TEMPLATE}}', '')
         } else {
+            renderedHtml = renderedHtml.replace('{{BLOGS_SECTION_DISPLAY}}', 'block')
             blogs.forEach(blog => {
-                if (lang === 'en') {
-                    blogContent += `
-                    <div
-                        class="bg-white rounded-2xl overflow-hidden border border-stone-200/80 shadow-sm flex flex-col justify-between">
-                        <div class="zoom-hover h-[240px] overflow-hidden">
-                            <img class="w-full h-full object-cover"
-                                src="${blog.title_img}"
-                                >
+                blogContent += `
+                <div
+                    class="bg-white rounded-2xl overflow-hidden border border-stone-200/80 shadow-sm flex flex-col justify-between">
+                    <div class="zoom-hover h-[240px] overflow-hidden">
+                        <img class="w-full h-full object-cover"
+                            src="${blog.title_img}"
+                            >
+                    </div>
+                    <div class="p-6 md:p-8 flex-grow flex flex-col justify-between">
+                        <div>
+                            <h3 class="font-serif text-xl font-bold text-primary-green mb-3">${blog.title}
+                            </h3>
                         </div>
-                        <div class="p-6 md:p-8 flex-grow flex flex-col justify-between">
-                            <div>
-                                <h3 class="font-serif text-xl font-bold text-primary-green mb-3">${blog.title}
-                                </h3>
-                            </div>
-                            <a href="/blog/${blog.blogid}"
-                                class="inline-block border border-earth-brown hover:bg-earth-brown hover:text-white text-earth-brown font-bold text-xs tracking-wider uppercase text-center py-3.5 rounded-lg transition duration-300">{{blog_read_cta}}</a>
-                        </div>
-                    </div>`
-
-                } else {
-                    blogContent += `
-                    <div
-                        class="bg-white rounded-2xl overflow-hidden border border-stone-200/80 shadow-sm flex flex-col justify-between">
-                        <div class="zoom-hover h-[240px] overflow-hidden">
-                            <img class="w-full h-full object-cover"
-                                src="${blog.title_img}"
-                                >
-                        </div>
-                        <div class="p-6 md:p-8 flex-grow flex flex-col justify-between">
-                            <div>
-                                <h3 class="font-serif text-xl font-bold text-primary-green mb-3">${blog.title}
-                                </h3>
-                            </div>
-                            <a href="/${lang}/blog/${blog.blogid}"
-                                class="inline-block border border-earth-brown hover:bg-earth-brown hover:text-white text-earth-brown font-bold text-xs tracking-wider uppercase text-center py-3.5 rounded-lg transition duration-300">{{blog_read_cta}}</a>
-                        </div>
-                    </div>`
-
-                }
+                        <a href="{{lang_prefix}}/blog/${blog.blogid}"
+                            class="inline-block border border-earth-brown hover:bg-earth-brown hover:text-white text-earth-brown font-bold text-xs tracking-wider uppercase text-center py-3.5 rounded-lg transition duration-300">{{blog_read_cta}}</a>
+                    </div>
+                </div>`
             })
         }
 
@@ -353,6 +338,10 @@ module.exports = function (logger) {
 
             renderedHtml = renderedHtml.replace('{{BLOG_CONTENT}}', contentHtml || 'Untitled');
             renderedHtml = renderedHtml.replace(/\{\{BLOG_ID\}\}/g, id);
+
+            const langPrefix = lang === 'en' ? '' : `/${lang}`;
+            renderedHtml = renderedHtml.replace(/\{\{lang_prefix\}\}/g, langPrefix);
+
             res.send(renderedHtml)
 
         } catch (error) {

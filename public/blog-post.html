@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/light.css" />
     <meta name="description" content="{{META_DESCRIPTION}}" />
     <meta name="keywords" content="{{META_KEYWORDS}}" />
-    <link rel="canonical" href="https://www.kozarapanoramicresort.ba/{{language_code}}/blog/{{BLOG_ID}}" />
+    <link rel="canonical" href="https://www.kozarapanoramicresort.ba{{lang_prefix}}/blog/{{BLOG_ID}}" />
 
     <link href="/css/base.css" rel="stylesheet" />
 
@@ -32,7 +32,7 @@
     <meta property="og:title" content="{{BLOG_TITLE_META}}" />
     <meta property="og:description" content="{{META_DESCRIPTION}}" />
     <meta property="og:image" content="https://www.kozarapanoramicresort.ba{{OG_IMAGE}}" />
-    <meta property="og:url" content="https://www.kozarapanoramicresort.ba/{{language_code}}/blog/{{BLOG_SLUG}}" />
+    <meta property="og:url" content="https://www.kozarapanoramicresort.ba{{lang_prefix}}/blog/{{BLOG_SLUG}}" />
     <meta property="og:type" content="article" />
 
     <!-- Twitter Card Metadata -->
@@ -239,7 +239,7 @@
             <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300 ml-8"
                 href="#why-love-us">Why Us</a>
             <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300 ml-8"
-                href="/amenities">Amenities</a>
+                href="{{lang_prefix}}/amenities">Amenities</a>
         </div>
 
         <div id="logo_stripped_reserve_spacer" class="hidden lg:block"></div>
@@ -254,7 +254,7 @@
                 Us</a>
             <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300 ml-8"
                 href="#blog">Blog</a>
-            <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300 ml-8" href="/faq">FAQ</a>
+            <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300 ml-8" href="{{lang_prefix}}/faq">FAQ</a>
 
             <sl-dropdown class="ml-8">
                 <button slot="trigger"
@@ -269,7 +269,7 @@
                 </sl-menu>
             </sl-dropdown>
 
-            <a href="/book"
+            <a href="{{lang_prefix}}/book"
                 class="bg-earth-brown hover:bg-primary-green text-white font-bold text-xs tracking-widest uppercase px-6 py-3 rounded-full transition-all duration-300 shadow-lg ml-6 text-center">
                 Book Your Stay
             </a>
@@ -317,14 +317,14 @@
                 Chalets</a>
             <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="#why-love-us">Why
                 Us</a>
-            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="/amenities">Amenities</a>
+            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="{{lang_prefix}}/amenities">Amenities</a>
             <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="#location">About
                 Us</a>
-            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="/faq">FAQ</a>
+            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="{{lang_prefix}}/faq">FAQ</a>
         </div>
 
         <div class="flex flex-col gap-4 text-center">
-            <a href="/book" onclick="toggleMobileMenu();"
+            <a href="{{lang_prefix}}/book" onclick="toggleMobileMenu();"
                 class="bg-earth-brown text-white py-4 rounded-full font-bold uppercase tracking-wider text-sm block">
                 Book Your Stay
             </a>
@@ -381,7 +381,7 @@
                 <!-- Back navigation and sharing links -->
                 <div
                     class="flex flex-col sm:flex-row justify-between items-center gap-4 pt-6 border-t border-stone-100 text-sm">
-                    <a href="/{{language_code}}#blog"
+                    <a href="{{lang_prefix}}/#blog"
                         class="inline-flex items-center gap-2 text-earth-brown hover:text-primary-green transition font-bold uppercase tracking-wider text-xs">
                         <i class="fa-solid fa-arrow-left-long text-xs"></i> Return to Blog Chronicles
                     </a>
@@ -438,13 +438,13 @@
                 <div>
                     <h4 class="font-serif text-lg font-bold mb-6 text-sand-beige">Quick Links</h4>
                     <ul class="space-y-4 text-sm text-stone-300 font-light">
-                        <li><a href="/{{language_code}}#showcase" class="hover:text-white transition">The Chalets</a>
+                        <li><a href="{{lang_prefix}}/#showcase" class="hover:text-white transition">The Chalets</a>
                         </li>
-                        <li><a href="amenities.html" class="hover:text-white transition">Resort Amenities</a></li>
-                        <li><a href="/{{language_code}}#location" class="hover:text-white transition">Our Location</a>
+                        <li><a href="{{lang_prefix}}/amenities" class="hover:text-white transition">Resort Amenities</a></li>
+                        <li><a href="{{lang_prefix}}/#location" class="hover:text-white transition">Our Location</a>
                         </li>
-                        <li><a href="faq.html" class="hover:text-white transition">Frequently Asked Questions</a></li>
-                        <li><a href="book.html" class="hover:text-white transition">Book Your Stay</a></li>
+                        <li><a href="{{lang_prefix}}/faq" class="hover:text-white transition">Frequently Asked Questions</a></li>
+                        <li><a href="{{lang_prefix}}/book" class="hover:text-white transition">Book Your Stay</a></li>
                     </ul>
                 </div>
 
@@ -477,9 +477,9 @@
                 class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-stone-400 text-left">
                 <p>© 2026 Kozara Panoramic Resort. All rights reserved.</p>
                 <div class="flex gap-6">
-                    <a href="/{{language_code}}/notice#privacy" class="hover:text-white transition">Privacy Policy</a>
-                    <a href="/{{language_code}}/notice#terms" class="hover:text-white transition">Terms of Service</a>
-                    <a href="/{{language_code}}/notice#cookies" class="hover:text-white transition">Cookie Policy</a>
+                    <a href="{{lang_prefix}}/notice#privacy" class="hover:text-white transition">Privacy Policy</a>
+                    <a href="{{lang_prefix}}/notice#terms" class="hover:text-white transition">Terms of Service</a>
+                    <a href="{{lang_prefix}}/notice#cookies" class="hover:text-white transition">Cookie Policy</a>
                 </div>
             </div>
         </div>
