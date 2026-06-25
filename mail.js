@@ -4,7 +4,7 @@ const path = require('path')
 const fs = require('fs')
 
 
-module.exports = function (logger) {
+module.exports = function (logger, db) {
 
     const transporter = nodemailer.createTransport({
         host: 'mail.kozarapanoramicresort.ba',

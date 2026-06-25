@@ -6,11 +6,9 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Error Page | Kozara Panoramic Resort</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
+    <link rel="stylesheet"
         href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Playfair+Display:ital,wght=0,400;0,600;0,700;1,400&display=swap"
-        rel="stylesheet">
+        media="print" onload="this.media='all'" />
 
     <link rel="icon" type="image/png" href="/favicon-96x96.webp" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -19,20 +17,24 @@
     <meta name="apple-mobile-web-app-title" content="Kozara Panoramic resort" />
     <link rel="manifest" href="/site.webmanifest" />
 
-    
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/light.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        media="print" onload="this.media='all'" />
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/light.css"
+        media="print" onload="this.media='all'" />
     <script type="module"
         src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/shoelace-autoloader.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
 
-    <link href="css/base.css" rel="stylesheet" />
+        <link href="/css/tailwind.css" rel="stylesheet" />
+    <link href="/css/base.css" rel="stylesheet" />
 
-    
+
+
 
     <style>
         #logo_stripped {
@@ -69,42 +71,40 @@
             transition: all 0.3s ease;
         }
     </style>
-    <link href="/css/tailwind.css" rel="stylesheet" />
 </head>
 
 <body
     class="font-sans antialiased relative min-h-screen w-full flex items-center justify-center p-4 sm:p-8 bg-stone-900">
 
     <!-- Fixed Scenic Background Cover with linear shadowing mask -->
-    <div class="fixed inset-0 bg-cover bg-center z-[-2]"
-        style="background-image: url('/assets/Scenery/lander4.webp');"></div>
+    <div class="fixed inset-0 bg-cover bg-center z-[-2]" style="background-image: url('/assets/Scenery/DJI_0167.webp');">
+    </div>
     <div class="fixed inset-0 bg-black/55 backdrop-blur-sm z-[-1]"></div>
 
     <!-- Symmetrical Dual-Wing Desktop Header Navigation -->
     <nav id="main-nav" class="py-2 md:py-5 px-6 md:px-12">
         <div class="nav-links-container hidden lg:flex flex-1 justify-end mr-8">
             <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300"
-                href="{{lang_prefix}}/#showcase">Chalets</a>
+                href="{{lang_prefix}}/#showcase">{{nav_chalets}}</a>
             <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300 ml-8"
-                href="{{lang_prefix}}/#why-love-us">Why Us</a>
+                href="{{lang_prefix}}/#why-love-us">{{nav_why_us}}</a>
             <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300 ml-8"
-                href="{{lang_prefix}}/amenities">Amenities</a>
+                href="{{lang_prefix}}/amenities">{{nav_amenities}}</a>
         </div>
 
         <div id="logo_stripped_reserve_spacer" class="hidden lg:block"></div>
         <a href="{{lang_prefix}}/" id="logo_stripped" class="block">
-            <img src="/assets/logo_stripped.svg"
-                onerror="this.onerror=null; this.src='/assets/logo_stripped.svg';"
-                alt="Kozara Panoramic Resort Logo" class="w-full h-auto block">
+            <img src="/assets/logo_stripped.svg" onerror="this.onerror=null; this.src='/assets/logo_stripped.svg';"
+                alt="{{alt_logo}}" class="w-full h-auto block">
         </a>
 
         <div class="nav-links-container hidden lg:flex flex-1 justify-start ml-8">
-            <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300" href="#about">About
-                Us</a>
+            <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300"
+                href="{{lang_prefix}}/#about">{{nav_about_us}}</a>
             <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300 ml-8"
-                href="{{lang_prefix}}/#blog">Blog</a>
+                href="{{lang_prefix}}/#blog">{{nav_blog}}</a>
             <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300 ml-8"
-                href="{{lang_prefix}}/faq">FAQ</a>
+                href="{{lang_prefix}}/faq">{{nav_faq}}</a>
 
             <sl-dropdown class="ml-8">
                 <button slot="trigger"
@@ -121,7 +121,7 @@
 
             <a href="{{lang_prefix}}/book"
                 class="bg-earth-brown hover:bg-primary-green text-white font-bold text-xs tracking-widest uppercase px-6 py-3 rounded-full transition-all duration-300 shadow-lg ml-6 text-center">
-                Book Your Stay
+                {{nav_cta}}
             </a>
         </div>
 
@@ -152,9 +152,8 @@
         class="fixed inset-0 bg-stone-950/95 backdrop-blur-md z-[60] flex flex-col justify-between p-8 text-white translate-x-full transition-transform duration-500 ease-in-out">
         <div class="flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <img src="/assets/logo_stripped.svg"
-                    onerror="this.onerror=null; this.src='/assets/logo_stripped.svg';"
-                    alt="Kozara Panoramic Resort Logo" class="h-5 w-auto brightness-0 invert">
+                <img src="/assets/logo_stripped.svg" onerror="this.onerror=null; this.src='/assets/logo_stripped.svg';"
+                    alt="{{alt_logo}}" class="h-5 w-auto brightness-0 invert">
                 <span class="font-serif tracking-widest text-xl font-bold">KOZARA PANORAMIC RESORT</span>
             </div>
             <button onclick="toggleMobileMenu()" class="text-3xl hover:text-sand-beige">
@@ -163,23 +162,22 @@
         </div>
 
         <div class="flex flex-col gap-6 text-xl font-serif text-center my-auto">
-            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="{{lang_prefix}}/#showcase">
-                Chalets</a>
             <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition"
-                href="{{lang_prefix}}/#why-love-us">Why
-                Us</a>
+                href="{{lang_prefix}}/#showcase">{{nav_chalets}}</a>
             <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition"
-                href="{{lang_prefix}}/amenities">Amenities</a>
+                href="{{lang_prefix}}/#why-love-us">{{nav_why_us}}</a>
             <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition"
-                href="{{lang_prefix}}/#location">About
-                Us</a>
-            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="{{lang_prefix}}/faq">FAQ</a>
+                href="{{lang_prefix}}/amenities">{{nav_amenities}}</a>
+            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition"
+                href="{{lang_prefix}}/#location">{{nav_about_us}}</a>
+            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition"
+                href="{{lang_prefix}}/faq">{{nav_faq}}</a>
         </div>
 
         <div class="flex flex-col gap-4 text-center">
             <a href="{{lang_prefix}}/book" onclick="toggleMobileMenu();"
                 class="bg-earth-brown text-white py-4 rounded-full font-bold uppercase tracking-wider text-sm block">
-                Book Your Stay
+                {{nav_cta}}
             </a>
             <p class="text-xs text-stone-500">© 2026 Kozara Panoramic Resort</p>
         </div>
@@ -190,7 +188,9 @@
 
         <div
             class="lg:col-span-5 relative h-64 lg:h-auto min-h-[300px] overflow-hidden bg-stone-900 flex items-center justify-center">
-            <img loading="lazy" src="/assets/Carousel/DSC_8299.webp" alt="Misty Forest Resort View"
+            <img loading="lazy" src="/assets/Carousel/DSC_8299.webp"
+                srcset="/assets/Carousel/DSC_8299-800w.webp 800w, /assets/Carousel/DSC_8299.webp 1920w"
+                sizes="(max-width: 768px) 100vw, 50vw" alt="Misty Forest Resort View"
                 class="absolute inset-0 w-full h-full object-cover opacity-80 filter sepia-[0.15]">
             <div
                 class="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-stone-950/20 via-transparent to-stone-50/10">

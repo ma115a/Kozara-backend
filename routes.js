@@ -6,7 +6,7 @@ module.exports = function(app, deps) {
     const { 
         logger, getToken, db, generateBasicAuth, generateSignature, 
         formatDate, sendBookingConfirmation, getDaysBetween, convertDateString,
-        renderIndex, renderBook, renderFaq, renderAmenities, renderNotice, renderBlog
+        renderIndex, renderBook, renderFaq, renderAmenities, renderNotice, renderBlog, renderError
     } = deps;
 
     app.get('/api/baseinfo', async (req, res) => {
@@ -467,8 +467,13 @@ app.get('/booking/success/:id', (req, res) => {
     }
 });
 
-app.get("/error", (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'error.html'))
+app.get(['/de/error', '/it/error', '/sr/error'], (req, res) => {
+    const lang = req.path.split('/')[1];
+    renderError(res, lang);
+});
+
+app.get('/error', (req, res) => {
+    renderError(res, 'en')
 })
 
 app.get('/', (req, res) => {

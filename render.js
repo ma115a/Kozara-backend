@@ -15,6 +15,8 @@ module.exports = function (logger) {
     let htmlTemplateNotice = fs.readFileSync(templatePathNotice, 'utf8')
     const templatePathBlog = path.join(__dirname, 'public', 'blog-post.html')
     let htmlTemplateBlog = fs.readFileSync(templatePathBlog, 'utf8')
+    const templatePathError = path.join(__dirname, 'public', 'error.html')
+    let htmlTemplateError = fs.readFileSync(templatePathError, 'utf8')
 
     const languages = {
         en: JSON.parse(fs.readFileSync(path.join(__dirname, 'locales', 'en.json'), 'utf8')),
@@ -117,6 +119,7 @@ module.exports = function (logger) {
             const regex = new RegExp(`{{${key}}}`, 'g');
             renderedHtml = renderedHtml.replace(regex, t[key]);
         })
+        renderedHtml = renderedHtml.replace(/<html lang="en"/, `<html lang="${lang}"`);
         res.send(renderedHtml)
     }
 
@@ -134,6 +137,7 @@ module.exports = function (logger) {
             const regex = new RegExp(`{{${key}}}`, 'g');
             renderedHtml = renderedHtml.replace(regex, t[key]);
         })
+        renderedHtml = renderedHtml.replace(/<html lang="en"/, `<html lang="${lang}"`);
         res.send(renderedHtml)
 
     }
@@ -192,6 +196,7 @@ module.exports = function (logger) {
             const regex = new RegExp(`{{${key}}}`, 'g');
             renderedHtml = renderedHtml.replace(regex, t[key]);
         });
+        renderedHtml = renderedHtml.replace(/<html lang="en"/, `<html lang="${lang}"`);
         res.send(renderedHtml);
     }
 
@@ -209,6 +214,7 @@ module.exports = function (logger) {
                 renderedHtml = renderedHtml.replace(regex, t[key]);
             }
         });
+        renderedHtml = renderedHtml.replace(/<html lang="en"/, `<html lang="${lang}"`);
         res.send(renderedHtml);
     }
 
@@ -217,15 +223,34 @@ module.exports = function (logger) {
         let renderedHtml = htmlTemplateNotice
 
         const langPrefix = lang === 'en' ? '' : `/${lang}`;
-        renderedHtml = renderedHtml.replace(/{{lang_prefix}}/g, langPrefix);
+        renderedHtml = renderedHtml.replace(/\{\{lang_prefix\}\}/g, langPrefix);
 
 
         Object.keys(t).forEach(key => {
             if (typeof t[key] === 'string') {
-                const regex = new RegExp(`{{${key}}}`, 'g');
+                const regex = new RegExp(`\\{\\{${key}\\}\\}`, 'g');
                 renderedHtml = renderedHtml.replace(regex, t[key]);
             }
         });
+        renderedHtml = renderedHtml.replace(/<html lang="en"/, `<html lang="${lang}"`);
+        res.send(renderedHtml);
+    }
+
+    function renderError(res, lang) {
+        const t = languages[lang] || languages['en']
+        let renderedHtml = htmlTemplateError
+
+        const langPrefix = lang === 'en' ? '' : `/${lang}`;
+        renderedHtml = renderedHtml.replace(/\{\{lang_prefix\}\}/g, langPrefix);
+
+
+        Object.keys(t).forEach(key => {
+            if (typeof t[key] === 'string') {
+                const regex = new RegExp(`\\{\\{${key}\\}\\}`, 'g');
+                renderedHtml = renderedHtml.replace(regex, t[key]);
+            }
+        });
+        renderedHtml = renderedHtml.replace(/<html lang="en"/, `<html lang="${lang}"`);
         res.send(renderedHtml);
     }
 
@@ -293,6 +318,7 @@ module.exports = function (logger) {
             const langPrefix = lang === 'en' ? '' : `/${lang}`;
             renderedHtml = renderedHtml.replace(/\{\{lang_prefix\}\}/g, langPrefix);
 
+            renderedHtml = renderedHtml.replace(/<html lang="en"/, `<html lang="${lang}"`);
             res.send(renderedHtml)
 
         } catch (error) {
@@ -307,6 +333,7 @@ module.exports = function (logger) {
         renderFaq,
         renderAmenities,
         renderNotice,
-        renderBlog
+        renderBlog,
+        renderError
     }
 }

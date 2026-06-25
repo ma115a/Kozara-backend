@@ -62,16 +62,15 @@ const {
     getToken
 } = require('./tokens')(logger)
 
-const {
-    sendBookingConfirmation
-} = require('./mail')(logger)
+
 const {
     renderIndex,
     renderBook,
     renderFaq,
     renderAmenities,
     renderNotice,
-    renderBlog
+    renderBlog,
+    renderError
 } = require('./render')(logger)
 
 if (process.env.NODE_ENV != 'production') {
@@ -98,6 +97,10 @@ try {
     logger.error("Failed to connect to database: " + e.message);
 }
 
+const {
+    sendBookingConfirmation
+} = require('./mail')(logger, db)
+
 require('./routes')(app, {
     logger,
     getToken,
@@ -113,7 +116,8 @@ require('./routes')(app, {
     renderFaq,
     renderAmenities,
     renderNotice,
-    renderBlog
+    renderBlog,
+    renderError
 });
 
 app.listen(port, async () => {
