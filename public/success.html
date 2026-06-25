@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth sl-theme-light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking Confirmed | Kozara Panoramic Resort</title>
+
+    <!-- Import Luxury Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Playfair+Display:ital,wght=0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Kozara Panoramic resort" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Official Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- FontAwesome for Luxury Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Shoelace Theme & Components -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/light.css" />
+    <script type="module"
+        src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/shoelace-autoloader.js"></script>
+
+    <link href="/css/base.css" rel="stylesheet" />
+
+    <!-- Tailwind Custom Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-green': '#364d14',
+                        'earth-brown': '#968067',
+                        'sand-beige': '#d9c7b2',
+                        'muted-green': '#5c6d4c',
+                        'bg-soft': '#f8f9fa',
+                    },
+                    fontFamily: {
+                        sans: ['Lato', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        sl-details {
+            border: 1px solid #e5e5e5;
+            border-radius: 0.75rem;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            background: #fafaf9;
+            transition: all 0.3s ease;
+        }
+
+        sl-details::part(base) {
+            border: none;
+            background: transparent;
+        }
+
+        sl-details::part(header) {
+            font-family: 'Playfair Display', serif;
+            font-weight: bold;
+            color: #1c1917;
+            padding: 1.25rem;
+            background: #fafaf9;
+            font-size: 0.95rem;
+        }
+
+        sl-details::part(header):hover {
+            color: var(--primary-green);
+        }
+
+        sl-details::part(content) {
+            padding: 1.25rem;
+            background: #ffffff;
+            font-size: 0.875rem;
+            color: #44403c;
+            line-height: 1.6;
+            border-top: 1px solid #e5e5e5;
+        }
+
+        @media print {
+            .no-print {
+                display: none !important;
+            }
+
+            body {
+                background: white !important;
+                color: #000 !important;
+                display: block !important;
+                padding: 0 !important;
+            }
+
+            .hero-bg,
+            .hero-overlay {
+                display: none !important;
+            }
+
+            .confirmation-card {
+                box-shadow: none !important;
+                border: 1px solid #e5e5e5 !important;
+                margin: 0 !important;
+                width: 100% !important;
+                max-width: none !important;
+                background: white !important;
+            }
+
+            sl-details::part(base) {
+                border: none !important;
+                margin-bottom: 20px !important;
+            }
+
+            sl-details::part(content) {
+                display: block !important;
+                padding: 10px 0 !important;
+            }
+        }
+    </style>
+</head>
+
+<body
+    class="font-sans antialiased relative min-h-screen w-full flex items-center justify-center p-4 sm:p-8 bg-stone-900">
+
+    <div class="hero-bg fixed inset-0 bg-cover bg-center z-[-2]"
+        style="background-image: url('/assets/Scenery/lander4.webp');"></div>
+    <div class="hero-overlay fixed inset-0 bg-black/60 backdrop-blur-sm z-[-1]"></div>
+
+    <main
+        class="confirmation-card bg-stone-50/95 border border-stone-200/40 rounded-3xl shadow-2xl overflow-hidden w-full max-w-4xl z-10 flex flex-col my-auto transition duration-300">
+        <div class="w-full bg-sand-beige h-1.5"></div>
+
+        <div class="card-content-container p-6 sm:p-12 md:p-16">
+
+            <div class="text-center mb-12">
+                <div
+                    class="w-20 h-20 bg-primary-green/10 border border-primary-green/20 rounded-full flex items-center justify-center mx-auto mb-6 text-primary-green text-3xl shadow-inner">
+                    <i class="fa-regular fa-calendar-check"></i>
+                </div>
+                <h1 class="font-serif text-3xl sm:text-4xl font-bold text-primary-green tracking-tight mb-4">Reservation
+                    Secured</h1>
+                <p class="text-stone-600 text-sm sm:text-base max-w-2xl mx-auto leading-relaxed font-light">
+                    Dear <span id="customer-name" class="font-bold text-stone-900">{{customerName}}</span><span
+                        id="customer-lastname" class="font-bold text-stone-900"></span>,<br
+                        class="hidden sm:inline"><br>
+                    Thank you for choosing Kozara Panoramic Resort. We look forward to welcoming you to your private
+                    panoramic chalet in the peaceful nature of Kozara. We’ve sent your full itinerary to <span
+                        id="customer-email" class="font-semibold text-primary-green">your email</span>.
+                </p>
+            </div>
+
+            <!-- Details Receipt Grid -->
+            <div class="bg-white border border-stone-200 rounded-2xl p-6 sm:p-8 mb-8 shadow-sm">
+                <div class="flex justify-between items-center border-b border-dashed border-stone-200 pb-4 mb-6">
+                    <span class="text-[10px] font-bold uppercase tracking-wider text-stone-400">Booking Reference</span>
+                    <span id="booking-ref"
+                        class="font-serif font-bold text-earth-brown text-lg sm:text-xl tracking-wider">#{{bookingId}}</span>
+                </div>
+
+                <div class="grid grid-cols-2 gap-x-8 gap-y-6">
+                    <div class="space-y-1">
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-stone-400">Check-In</span>
+                        <p id="date-in" class="font-bold text-stone-800 text-sm sm:text-base">{{checkInDate}}</p>
+                    </div>
+                    <div class="space-y-1 text-right">
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-stone-400">Check-Out</span>
+                        <p id="date-out" class="font-bold text-stone-800 text-sm sm:text-base">{{checkOutDate}}</p>
+                    </div>
+                    <div class="space-y-1 border-t border-stone-100 pt-4">
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-stone-400">Guests</span>
+                        <p id="guest-count" class="font-bold text-stone-800 text-sm sm:text-base">{{guestsCount}}</p>
+                    </div>
+                    <div class="space-y-1 text-right border-t border-stone-100 pt-4">
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-stone-400">Total Paid</span>
+                        <p id="total-price" class="font-serif font-extrabold text-primary-green text-base sm:text-xl">
+                            {{price}}BAM</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-white border border-stone-200 rounded-2xl p-6 sm:p-8 mb-8 shadow-sm">
+                <h3 class="font-serif text-xl font-bold text-primary-green mb-6 border-b border-stone-100 pb-2">
+                    Important Guest Information</h3>
+
+                <div class="space-y-4">
+
+                    <sl-details open>
+                        <div slot="summary"
+                            class="custom-summary flex items-center gap-3 text-sm sm:text-base font-bold text-stone-800">
+                            <span class="text-earth-brown text-base flex items-center"><i
+                                    class="fa-solid fa-hotel"></i></span>
+                            Your Chalet &amp; Amenities
+                        </div>
+                        <div
+                            class="details-content space-y-2 text-xs sm:text-sm text-stone-600 leading-relaxed font-light">
+                            <p>Your chalet (Sun / Star / Sky / Cloud / Wind) includes:</p>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li>Fully equipped kitchen (oven, hob, fridge-freezer, dishwasher, kettle, toaster,
+                                    coffee machine)</li>
+                                <li>Underfloor heating & air-conditioning</li>
+                                <li>Fresh premium bedding & towels</li>
+                                <li>High-speed Wi-Fi</li>
+                                <li>Private seasonal swimming pool (heated in Sky Chalet)</li>
+                                <li>Free private parking directly at your chalet</li>
+                            </ul>
+                        </div>
+                    </sl-details>
+
+                    <sl-details>
+                        <div slot="summary"
+                            class="custom-summary flex items-center gap-3 text-sm sm:text-base font-bold text-stone-800">
+                            <span class="text-earth-brown text-base flex items-center"><i
+                                    class="fa-regular fa-clock"></i></span>
+                            Check-in &amp; Check-out
+                        </div>
+                        <div
+                            class="details-content space-y-2 text-xs sm:text-sm text-stone-600 leading-relaxed font-light">
+                            <p><strong>Check-in:</strong> from 15:00<br><strong>Check-out:</strong> until 10:00</p>
+                            <p>Flexible self check-in available. Access details will be sent before arrival.</p>
+                        </div>
+                    </sl-details>
+
+                    <sl-details>
+                        <div slot="summary"
+                            class="custom-summary flex items-center gap-3 text-sm sm:text-base font-bold text-stone-800">
+                            <span class="text-earth-brown text-base flex items-center"><i
+                                    class="fa-solid fa-map-location-dot"></i></span>
+                            Arrival Information
+                        </div>
+                        <div class="details-content space-y-2 text-xs text-stone-600 leading-relaxed font-light">
+                            <p>The final 5.1 km to the resort are signposted. From Gradiška, follow the Kozara region
+                                road and resort signage. Remain on paved roads until the final section.</p>
+                            <p>The last approximately 1 km is an unpaved natural road — completely normal and accessible
+                                with standard vehicles.</p>
+                        </div>
+                    </sl-details>
+
+                    <sl-details>
+                        <div slot="summary"
+                            class="custom-summary flex items-center gap-3 text-sm sm:text-base font-bold text-stone-800">
+                            <span class="text-earth-brown text-base flex items-center gap-3"><i
+                                    class="fa-solid fa-basket-shopping"></i></span>
+                            <div class="text-stone-800 font-bold">Food, Drinks &amp; Self-Catering</div>
+                        </div>
+                        <div class="space-y-2 text-xs sm:text-sm text-stone-600 leading-relaxed font-light">
+                            <p>Kozara Panoramic Resort is a private self-catering retreat. We do not provide fresh food
+                                products before arrival for hygiene reasons.</p>
+                            <ul class="list-disc pl-5 space-y-1">
+                                <li><strong>Small shop:</strong> Turjak village (on your way)</li>
+                                <li><strong>Large supermarkets:</strong> Gradiška & Banja Luka</li>
+                            </ul>
+                        </div>
+                    </sl-details>
+
+                    <sl-details>
+                        <div slot="summary"
+                            class="custom-summary flex items-center gap-3 text-sm sm:text-base font-bold text-stone-800">
+                            <span class="text-earth-brown text-base flex items-center"><i
+                                    class="fa-solid fa-seedling"></i></span>
+                            Organic Garden
+                        </div>
+                        <div class="details-content text-xs sm:text-sm text-stone-600 leading-relaxed font-light">
+                            <p>Seasonal organic baskets from our garden can be arranged upon request.</p>
+                        </div>
+                    </sl-details>
+
+                    <sl-details>
+                        <div slot="summary"
+                            class="custom-summary flex items-center gap-3 text-sm sm:text-base font-bold text-stone-800">
+                            <span class="text-earth-brown text-base flex items-center"><i
+                                    class="fa-solid fa-fire-burner"></i></span>
+                            Outdoor Cooking
+                        </div>
+                        <div class="details-content text-xs sm:text-sm text-stone-600 leading-relaxed font-light">
+                            <p>Open fires and charcoal BBQs are not permitted. A modern electric smoker BBQ is available
+                                upon request.</p>
+                        </div>
+                    </sl-details>
+
+                    <sl-details>
+                        <div slot="summary"
+                            class="custom-summary flex items-center gap-3 text-sm sm:text-base font-bold text-stone-800">
+                            <span class="text-earth-brown text-base flex items-center"><i
+                                    class="fa-regular fa-moon"></i></span>
+                            Peace &amp; Privacy
+                        </div>
+                        <div
+                            class="details-content space-y-2 text-xs sm:text-sm text-stone-600 leading-relaxed font-light">
+                            <p><strong>Quiet hours:</strong> 22:00 – 08:00.</p>
+                            <p>For exclusive full-resort bookings (all five chalets), quiet hours may be relaxed upon
+                                prior agreement.</p>
+                        </div>
+                    </sl-details>
+
+                    <sl-details>
+                        <div slot="summary"
+                            class="custom-summary flex items-center gap-3 text-sm sm:text-base font-bold text-stone-800">
+                            <span class="text-earth-brown text-base flex items-center"><i
+                                    class="fa-regular fa-envelope"></i></span>
+                            Resort Contacts
+                        </div>
+                        <div
+                            class="details-content space-y-2 text-xs sm:text-sm text-stone-600 leading-relaxed font-light">
+                            <p>Also available on WhatsApp.</p>
+                            <p><strong>Dragana Truscott – Resort Owner</strong><br>
+                                🇧🇦 Bosnia: +387 66 767 622<br>
+                                🇩🇪 Germany: +49 151 176 27478<br>
+                                ✉️ <a href="mailto:info@kozarapanoramicresort.com"
+                                    class="text-primary-green font-bold hover:underline">info@kozarapanoramicresort.com</a>
+                            </p>
+                        </div>
+                    </sl-details>
+
+                </div>
+            </div>
+
+            <div class="font-serif text-lg text-primary-green mb-8 italic">
+                Warm regards,<br>
+                <span class="font-bold not-italic">James &amp; Dragana</span>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-4 no-print border-t border-stone-200/60 pt-8">
+                <button onclick="window.print()"
+                    class="flex-1 bg-primary-green hover:bg-earth-brown text-white font-bold text-xs tracking-widest uppercase py-4 rounded-xl transition duration-300 shadow-lg flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-print text-sm"></i> Print Receipt Details
+                </button>
+                <a href="/"
+                    class="flex-1 border border-stone-300 hover:border-primary-green hover:bg-stone-100 text-stone-700 font-bold text-xs tracking-widest uppercase py-4 rounded-xl transition duration-300 text-center flex items-center justify-center gap-2">
+                    <i class="fa-solid fa-arrow-left-long text-xs"></i> Return to Homepage
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <script src="/js/lang.js"></script>
+</body>
+
+</html>

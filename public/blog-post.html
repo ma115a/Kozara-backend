@@ -1,0 +1,574 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth sl-theme-light">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{BLOG_TITLE_META}} | Kozara Panoramic Resort</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Playfair+Display:ital,wght=0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Official Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- FontAwesome for Luxury Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Shoelace Light Theme and Scripts -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/light.css" />
+    <meta name="description" content="{{META_DESCRIPTION}}" />
+    <meta name="keywords" content="{{META_KEYWORDS}}" />
+    <link rel="canonical" href="https://www.kozarapanoramicresort.ba/{{language_code}}/blog/{{BLOG_ID}}" />
+
+    <link href="/css/base.css" rel="stylesheet" />
+
+    <!-- Open Graph Metadata -->
+    <meta property="og:title" content="{{BLOG_TITLE_META}}" />
+    <meta property="og:description" content="{{META_DESCRIPTION}}" />
+    <meta property="og:image" content="https://www.kozarapanoramicresort.ba{{OG_IMAGE}}" />
+    <meta property="og:url" content="https://www.kozarapanoramicresort.ba/{{language_code}}/blog/{{BLOG_SLUG}}" />
+    <meta property="og:type" content="article" />
+
+    <!-- Twitter Card Metadata -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="{{BLOG_TITLE_META}}">
+    <meta name="twitter:description" content="{{META_DESCRIPTION}}">
+    <meta name="twitter:image" content="https://www.kozarapanoramicresort.ba{{OG_IMAGE}}">
+
+    <!-- {{SCHEMA_JSON_LD}} -->
+
+    <!-- Hreflang Alternates -->
+    <link rel="alternate" hreflang="en" href="https://www.kozarapanoramicresort.ba/en/blog/{{BLOG_ID}}" />
+    <link rel="alternate" hreflang="sr" href="https://www.kozarapanoramicresort.ba/sr/blog/{{BLOG_ID}}" />
+    <link rel="alternate" hreflang="de" href="https://www.kozarapanoramicresort.ba/de/blog/{{BLOG_ID}}" />
+    <link rel="alternate" hreflang="it" href="https://www.kozarapanoramicresort.ba/it/blog/{{BLOG_ID}}" />
+    <link rel="alternate" hreflang="x-default" href="https://www.kozarapanoramicresort.ba/en/blog/{{BLOG_ID}}" />
+
+    <!-- Tailwind Custom Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-green': '#364d14',
+                        'earth-brown': '#968067',
+                        'sand-beige': '#d9c7b2',
+                        'muted-green': '#5c6d4c',
+                        'bg-soft': '#f8f9fa',
+                    },
+                    fontFamily: {
+                        sans: ['Lato', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Custom Luxury Layout Style Overrides -->
+    <style>
+        /* */
+        /* Editorial Content Overrides for Jodit Content Blocks */
+        .blog-content {
+            font-family: 'Lato', sans-serif;
+            color: #44403c;
+            line-height: 1.85;
+            font-size: 1.05rem;
+        }
+
+        .blog-content h1,
+        .blog-content h2,
+        .blog-content h3 {
+            font-family: 'Playfair Display', serif;
+            color: var(--primary-green);
+            font-weight: 700;
+            line-height: 1.35;
+        }
+
+        .blog-content h1 {
+            font-size: 2.25rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1.25rem;
+        }
+
+        .blog-content h2 {
+            font-size: 1.85rem;
+            margin-top: 2.25rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-b: 1px solid rgba(150, 128, 103, 0.15);
+        }
+
+        .blog-content h3 {
+            font-size: 1.45rem;
+            margin-top: 1.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .blog-content p {
+            margin-bottom: 1.5rem;
+            font-weight: 300;
+        }
+
+        .blog-content strong {
+            font-weight: 700;
+            color: #1c1917;
+        }
+
+        .blog-content blockquote {
+            border-left: 4px solid var(--earth-brown);
+            background-color: #fafaf9;
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.15rem;
+            color: #57534e;
+            border-radius: 0 0.75rem 0.75rem 0;
+        }
+
+        .blog-content ul {
+            list-style-type: disc;
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-left: 0.5rem;
+        }
+
+        .blog-content ol {
+            list-style-type: decimal;
+            margin-left: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-left: 0.5rem;
+        }
+
+        .blog-content li {
+            margin-bottom: 0.5rem;
+            font-weight: 300;
+        }
+
+        .blog-content img {
+            border-radius: 1rem;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            margin: 2rem auto;
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .blog-content a {
+            color: var(--primary-green);
+            text-decoration: underline;
+            font-weight: 700;
+            transition: color 0.3s;
+        }
+
+        .blog-content a:hover {
+            color: var(--earth-brown);
+        }
+
+        /* Table styles */
+        .blog-content table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 0.9rem;
+        }
+
+        .blog-content th,
+        .blog-content td {
+            border: 1px solid #e7e5e4;
+            padding: 1rem;
+            text-align: left;
+        }
+
+        .blog-content th {
+            background-color: #fafaf9;
+            font-weight: 700;
+            color: #1c1917;
+        }
+
+        .blog-content pre {
+            background-color: #fafaf9;
+            padding: 1.5rem;
+            border-radius: 0.75rem;
+            overflow-x: auto;
+            margin: 1.5rem 0;
+            border: 1px solid #e7e5e4;
+        }
+
+        .blog-content code {
+            font-family: monospace;
+            background-color: #f5f5f4;
+            padding: 0.2rem 0.4rem;
+            border-radius: 0.25rem;
+            font-size: 0.9em;
+        }
+    </style>
+
+    <!-- Component Modules -->
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/dropdown/dropdown.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/menu/menu.js" type="module"
+        defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/menu-item/menu-item.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/drawer/drawer.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/icon-button/icon-button.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/button/button.js"
+        type="module"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/components/icon/icon.js" type="module"
+        defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+</head>
+
+<body class="bg-white text-stone-800 antialiased font-sans min-h-screen">
+
+    <nav id="main-nav" class="py-2 md:py-5 px-6 md:px-12">
+        <div class="nav-links-container hidden lg:flex flex-1 justify-end mr-8">
+            <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300"
+                href="#showcase">Chalets</a>
+            <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300 ml-8"
+                href="#why-love-us">Why Us</a>
+            <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300 ml-8"
+                href="/amenities">Amenities</a>
+        </div>
+
+        <div id="logo_stripped_reserve_spacer" class="hidden lg:block"></div>
+        <a href="/" id="logo_stripped" class="block">
+            <img src="/assets/logo_stripped.svg"
+                onerror="this.onerror=null; this.src='https://www.kozarapanoramicresort.ba/assets/logo_stripped.svg';"
+                alt="Kozara Panoramic Resort Logo" class="w-full h-auto block">
+        </a>
+
+        <div class="nav-links-container hidden lg:flex flex-1 justify-start ml-8">
+            <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300" href="#about">About
+                Us</a>
+            <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300 ml-8"
+                href="#blog">Blog</a>
+            <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300 ml-8" href="/faq">FAQ</a>
+
+            <sl-dropdown class="ml-8">
+                <button slot="trigger"
+                    class="nav-lang-btn flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/20 hover:border-sand-beige/60 transition-all text-xs font-semibold bg-white/5 backdrop-blur-sm text-white focus:outline-none">
+                    <span>🇬🇧 EN</span> <i class="fa-solid fa-chevron-down text-[10px] opacity-70"></i>
+                </button>
+                <sl-menu class="text-stone-800">
+                    <sl-menu-item value="en">🇬🇧 EN (English)</sl-menu-item>
+                    <sl-menu-item value="sr">🇷🇸 SR (Srpski)</sl-menu-item>
+                    <sl-menu-item value="de">🇩🇪 DE (Deutsch)</sl-menu-item>
+                    <sl-menu-item value="it">🇮🇹 IT (Italiano)</sl-menu-item>
+                </sl-menu>
+            </sl-dropdown>
+
+            <a href="/book"
+                class="bg-earth-brown hover:bg-primary-green text-white font-bold text-xs tracking-widest uppercase px-6 py-3 rounded-full transition-all duration-300 shadow-lg ml-6 text-center">
+                Book Your Stay
+            </a>
+        </div>
+
+        <div class="lg:hidden w-full flex justify-between items-center py-2">
+            <sl-dropdown>
+                <button slot="trigger"
+                    class="nav-lang-btn flex items-center gap-1 px-3 py-1.5 rounded-full border border-white/20 text-xs font-semibold bg-white/5 backdrop-blur-sm text-white focus:outline-none">
+                    <span>🇬🇧 EN</span>
+                </button>
+                <sl-menu class="text-stone-800">
+                    <sl-menu-item value="en">🇬🇧 EN</sl-menu-item>
+                    <sl-menu-item value="sr">🇷🇸 SR</sl-menu-item>
+                    <sl-menu-item value="de">🇩🇪 DE</sl-menu-item>
+                    <sl-menu-item value="it">🇮🇹 IT</sl-menu-item>
+                </sl-menu>
+            </sl-dropdown>
+
+            <div class="w-[16ch]"></div>
+
+            <button onclick="toggleMobileMenu()"
+                class="mobile-hamburger-btn text-2xl focus:outline-none p-1 text-white hover:text-sand-beige transition">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-stone-950/95 backdrop-blur-md z-[60] flex flex-col justify-between p-8 text-white translate-x-full transition-transform duration-500 ease-in-out">
+        <div class="flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <img src="/assets/logo_stripped.svg"
+                    onerror="this.onerror=null; this.src='https://www.kozarapanoramicresort.ba/assets/logo_stripped.svg';"
+                    alt="Kozara Panoramic Resort Logo" class="h-5 w-auto brightness-0 invert">
+                <span class="font-serif tracking-widest text-xl font-bold">KOZARA PANORAMIC RESORT</span>
+            </div>
+            <button onclick="toggleMobileMenu()" class="text-3xl hover:text-sand-beige">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <div class="flex flex-col gap-6 text-xl font-serif text-center my-auto">
+            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="#showcase">
+                Chalets</a>
+            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="#why-love-us">Why
+                Us</a>
+            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="/amenities">Amenities</a>
+            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="#location">About
+                Us</a>
+            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="/faq">FAQ</a>
+        </div>
+
+        <div class="flex flex-col gap-4 text-center">
+            <a href="/book" onclick="toggleMobileMenu();"
+                class="bg-earth-brown text-white py-4 rounded-full font-bold uppercase tracking-wider text-sm block">
+                Book Your Stay
+            </a>
+            <p class="text-xs text-stone-500">© 2026 Kozara Panoramic Resort</p>
+        </div>
+    </div>
+
+    <header
+        class="relative h-[80vh] md:h-[85vh] flex flex-col justify-center items-center text-center px-4 overflow-hidden bg-stone-900">
+        <div class="hero-slide shown"
+            style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url('https://www.kozarapanoramicresort.ba/assets/Scenery/lander.webp');">
+        </div>
+        <div class="hero-slide"
+            style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url('https://www.kozarapanoramicresort.ba/assets/Scenery/lander2.webp');">
+        </div>
+        <div class="hero-slide"
+            style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url('https://www.kozarapanoramicresort.ba/assets/Scenery/lander3.webp');">
+        </div>
+        <div class="hero-slide"
+            style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url('https://www.kozarapanoramicresort.ba/assets/Scenery/lander4.webp');">
+        </div>
+        <div class="hero-slide"
+            style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url('https://www.kozarapanoramicresort.ba/assets/Scenery/lander5.webp');">
+        </div>
+
+        <div class="relative z-10 max-w-4xl mx-auto text-white px-4 pt-24">
+            <span class="text-xs md:text-sm font-bold tracking-[0.4em] uppercase text-sand-beige mb-4 block">Boutique
+                Mountain Sanctuary</span>
+            <h1 class="font-serif text-3xl sm:text-5xl md:text-6xl font-bold leading-tight mb-4">
+                Luxury Private Chalets <br><span class="italic text-sand-beige font-normal">with Heated Pools</span>
+            </h1>
+            <p class="text-base sm:text-lg md:text-xl font-light text-stone-200 max-w-2xl mx-auto mb-8 leading-relaxed">
+                Peaceful nature escape near Banja Luka & Croatia. Enjoy untouched nature, panoramic views, and
+                5-star comfort.
+            </p>
+        </div>
+
+    </header>
+
+    <!-- -->
+    <!-- Editorial Blog Workspace -->
+    <section class="relative z-20 pb-24 px-4 bg-bg-soft">
+        <div class="max-w-4xl mx-auto -mt-24">
+            <article class="bg-white border border-stone-200/60 p-8 sm:p-12 md:p-16 rounded-3xl shadow-2xl relative">
+
+                <!-- Dynamic Content Entry -->
+                <div id="blog-content" class="blog-content">
+                    {{BLOG_CONTENT}}
+                </div>
+
+                <!-- Gold Symmetrical Divider End -->
+                <div class="w-16 h-0.5 bg-sand-beige mx-auto my-12"></div>
+
+                <!-- Back navigation and sharing links -->
+                <div
+                    class="flex flex-col sm:flex-row justify-between items-center gap-4 pt-6 border-t border-stone-100 text-sm">
+                    <a href="/{{language_code}}#blog"
+                        class="inline-flex items-center gap-2 text-earth-brown hover:text-primary-green transition font-bold uppercase tracking-wider text-xs">
+                        <i class="fa-solid fa-arrow-left-long text-xs"></i> Return to Blog Chronicles
+                    </a>
+
+                    <div class="flex items-center gap-3">
+                        <span class="text-stone-400 text-xs tracking-wider uppercase font-semibold">Share:</span>
+                        <a href="#"
+                            class="w-8 h-8 rounded-full border border-stone-200 flex items-center justify-center hover:bg-primary-green hover:text-white transition-colors duration-300 text-stone-600"><i
+                                class="fa-brands fa-facebook-f text-xs"></i></a>
+                        <a href="#"
+                            class="w-8 h-8 rounded-full border border-stone-200 flex items-center justify-center hover:bg-primary-green hover:text-white transition-colors duration-300 text-stone-600"><i
+                                class="fa-brands fa-instagram text-xs"></i></a>
+                    </div>
+                </div>
+
+            </article>
+        </div>
+    </section>
+
+    <!-- Shared Luxury Footer -->
+    <footer id="contact" class="bg-primary-green text-stone-200 py-20 px-4">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16 text-left">
+
+                <!-- Brand Column -->
+                <div class="space-y-6">
+                    <div class="flex items-center gap-3">
+                        <img src="/assets/logo_stripped.svg"
+                            onerror="this.onerror=null; this.src='https://www.kozarapanoramicresort.ba/assets/logo_stripped.svg';"
+                            alt="Kozara Panoramic Resort Logo" class="h-10 w-auto brightness-0 invert">
+                        <span class="font-serif tracking-widest text-2xl font-bold">KOZARA PANORAMIC RESORT</span>
+                    </div>
+                    <p class="text-stone-300 text-sm leading-relaxed font-light font-sans">
+                        A boutique mountain sanctuary offering five luxury private chalets with heated pools. Discover
+                        untouched nature and 5-star comfort in Northern Bosnia.
+                    </p>
+                    <div class="flex gap-4">
+                        <a href="#"
+                            class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-earth-brown transition-colors">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-earth-brown transition-colors">
+                            <i class="fa-brands fa-facebook-f"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-earth-brown transition-colors">
+                            <i class="fa-brands fa-tripadvisor"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="font-serif text-lg font-bold mb-6 text-sand-beige">Quick Links</h4>
+                    <ul class="space-y-4 text-sm text-stone-300 font-light">
+                        <li><a href="/{{language_code}}#showcase" class="hover:text-white transition">The Chalets</a>
+                        </li>
+                        <li><a href="amenities.html" class="hover:text-white transition">Resort Amenities</a></li>
+                        <li><a href="/{{language_code}}#location" class="hover:text-white transition">Our Location</a>
+                        </li>
+                        <li><a href="faq.html" class="hover:text-white transition">Frequently Asked Questions</a></li>
+                        <li><a href="book.html" class="hover:text-white transition">Book Your Stay</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-serif text-lg font-bold mb-6 text-sand-beige">Contact Us</h4>
+                    <ul class="space-y-4 text-sm text-stone-300">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot mt-1 text-earth-brown"></i>
+                            <span>Kozara BB, 78400 Gradiška,<br>Bosnia and Herzegovina</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-phone mr-1 text-earth-brown"></i> <a href="tel:+38766767622"
+                                class="hover:underline">+387 66 767 622</a> (BA)
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-brands fa-whatsapp mr-1 text-earth-brown"></i> <a href="tel:+4915117627478"
+                                class="hover:underline">+49 151 176 27478</a> (DE)
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope mr-1 text-earth-brown"></i> <a
+                                href="mailto:info@kozarapanoramicresort.ba"
+                                class="hover:underline">info@kozarapanoramicresort.ba</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div
+                class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-stone-400 text-left">
+                <p>© 2026 Kozara Panoramic Resort. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a href="/{{language_code}}/notice#privacy" class="hover:text-white transition">Privacy Policy</a>
+                    <a href="/{{language_code}}/notice#terms" class="hover:text-white transition">Terms of Service</a>
+                    <a href="/{{language_code}}/notice#cookies" class="hover:text-white transition">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripting and animations -->
+    <script>
+        // Mobile drawer toggler
+        function toggleMobileMenu() {
+            const drawer = document.getElementById('mobile-menu');
+            drawer.classList.toggle('translate-x-full');
+        }
+
+        // Automatic hero slide cycle
+        let currentSlideIdx = 0;
+        const slides = document.querySelectorAll('.header-bg');
+        setInterval(() => {
+            if (slides.length > 1) {
+                slides[currentSlideIdx].classList.remove('shown');
+                currentSlideIdx = (currentSlideIdx + 1) % slides.length;
+                slides[currentSlideIdx].classList.add('shown');
+            }
+        }, 7500);
+
+        // GSAP scroll interactions
+        window.addEventListener('DOMContentLoaded', () => {
+            if (window.gsap && window.ScrollTrigger) {
+                gsap.registerPlugin(ScrollTrigger);
+
+                gsap.to('#floating-book-btn', {
+                    scrollTrigger: {
+                        trigger: 'header',
+                        start: 'bottom 20%',
+                        toggleActions: 'play none none reverse',
+                    },
+                    opacity: 1,
+                    scale: 1,
+                    pointerEvents: 'auto',
+                    duration: 0.3
+                });
+
+                const shared = {
+                    trigger: "header",
+                    start: "top top",
+                    end: "30%",
+                    width: 15,
+                    pad: 4
+                };
+
+                gsap.set("#logo_stripped", {xPercent: -50, yPercent: -50});
+
+                gsap.to("#logo_stripped", {
+                    scrollTrigger: {
+                        trigger: shared.trigger,
+                        start: shared.start,
+                        end: shared.end,
+                        scrub: true,
+                        invalidateOnRefresh: true,
+                    },
+                    top: () => window.innerWidth <= 768 ? "30px" : "35px", // Center perfectly in scrolled nav
+                    yPercent: -50, // Keep centered vertically!
+                    width: () => window.innerWidth <= 768 ? "16ch" : "15ch", // Reduced width on mobile to avoid horizontal collisions!
+                });
+
+                gsap.to("#logo_stripped_reserve_spacer", {
+                    scrollTrigger: {
+                        trigger: shared.trigger,
+                        start: shared.start,
+                        end: shared.end,
+                        scrub: true,
+                    },
+                    width: `${shared.width + shared.pad}ch`,
+                });
+
+                ScrollTrigger.create({
+                    trigger: shared.trigger,
+                    start: "top top",
+                    end: shared.end,
+                    onLeave: () => {
+                        document.getElementById('main-nav').classList.add('scrolled');
+                    },
+                    onEnterBack: () => {
+                        document.getElementById('main-nav').classList.remove('scrolled');
+                    },
+                });
+            }
+        });
+    </script>
+    <script src="/js/lang.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,928 @@
+{
+    "nav_chalets": "Chalet",
+    "nav_why_us": "Perché noi",
+    "nav_amenities": "Servizi",
+    "nav_about_us": "Chi siamo",
+    "nav_blog": "Blog",
+    "nav_faq": "Domande frequenti",
+    "nav_cta": "Prenota",
+    "floating_book_now": "Prenota ora",
+    "title": "Chalet di lusso con piscine private | Località panoramica di Kozara",
+    "meta_description": "Scopri lussuosi chalet di montagna con piscine private riscaldate vicino a Banja Luka. Goditi la natura incontaminata, le viste panoramiche e il comfort a 5 stelle. Prenota oggi la tua fuga a Kozara.",
+    "hero_badge": "Santuario di montagna boutique",
+    "hero_title_main": "Chalet privati ​​di lusso",
+    "hero_title_italic": "con piscine riscaldate",
+    "hero_subtitle": "Fuga tranquilla nella natura vicino a Banja Luka e in Croazia. Goditi la natura incontaminata, le viste panoramiche e il comfort a 5 stelle.",
+    "highlight_resort_badge": "Resort esclusivo",
+    "highlight_resort_title": "Solo 5 chalet privati",
+    "highlight_resort_desc": "Garantire l'esclusività totale, la pace assoluta e la sicurezza del ritiro nella natura poco affollata.",
+    "highlight_serenity_badge": "Serenità totale",
+    "highlight_serenity_title": "Piscine private riscaldate",
+    "highlight_serenity_desc": "Ogni chalet dispone di una propria piscina panoramica all'aperto con possibilità di controllo della temperatura.",
+    "highlight_location_badge": "Posizione privilegiata",
+    "highlight_location_title": "Accesso senza sforzo",
+    "highlight_location_desc": "A soli 45 minuti dall'aeroporto di Banja Luka e vicino al confine croato.",
+    "intro_badge": "Un Santuario di Pace",
+    "intro_title": "Scopri un Boutique Resort unico nelle montagne di Kozara",
+    "intro_desc": "Scopri cinque chalet privati ​​di lusso, ciascuno progettato con cura e dotato di <span class=\"font-semibold text-primary-green\">piscina</span> e vista panoramica sulle montagne. Perfetto per coppie, famiglie e ospiti che desiderano fuggire dal rumore della città e riconnettersi con la natura.",
+    "wcu-title": "Perché gli ospiti amano il Kozara Panoramic Resort",
+    "benefit-text1": "Il tuo Santuario",
+    "benefit-desc1": "Piscina privata per ogni chalet, garantendo totale esclusività.",
+    "benefit-text2": "Pura serenità",
+    "benefit-desc2": "Pace e silenzio assoluti nella natura, lontano dal caos urbano.",
+    "benefit-text3": "Orizzonti illimitati",
+    "benefit-desc3": "Viste panoramiche che si estendono sui paesaggi della Bosnia e della Croazia.",
+    "showcase_badge": "L'esperienza dello chalet",
+    "showcase_title": "Cinque spiriti unici, uno standard di lusso",
+    "showcase_desc": "I nostri cinque chalet privati ​​sono identici nel design strutturale, condividono configurazioni in legno di prima qualità, allestimenti interni a 5 stelle e prezzi diretti uniformi.",
+    "blueprint_badge": "Inclusioni principali (tutte le unità)",
+    "blueprint_title": "Progetto architettonico",
+    "blueprint_desc": "Costruito in modo sostenibile con struttura in legno massiccio, riscaldamento a pavimento, cucine completamente attrezzate e ampi pannelli vetrati per terrazze.",
+    "blueprint_spec_pool_title": "Piscina privata riscaldata",
+    "blueprint_spec_pool_desc": "Piscina individuale 6x3 m per unità.",
+    "blueprint_spec_sleeps_title": "Può ospitare fino a 6",
+    "blueprint_spec_sleeps_desc": "Per famiglie o coppie.",
+    "chalet_wind_title": "Chalet del vento",
+    "chalet_wind_desc": "Fresche brezze di montagna e libertà in ogni respiro.",
+    "chalet_sun_title": "Chalet del sole",
+    "chalet_sun_desc": "Splendente di luce dorata mattutina e calore positivo.",
+    "chalet_star_badge": "Appartato",
+    "chalet_star_title": "Chalet Stella",
+    "chalet_star_desc": "Posizionamento autonomo sotto gli altri per una totale privacy romantica.",
+    "chalet_sky_title": "Chalet del cielo",
+    "chalet_sky_desc": "Orizzonti sconfinati e accesso diretto ai sentieri di montagna dall'aria pura.",
+    "chalet_cloud_title": "Chalet sulle nuvole",
+    "chalet_cloud_desc": "Galleggia sopra le nebbie in completo silenzio e in una pace ispiratrice.",
+    "teaser_title": "Prenota direttamente e risparmia",
+    "teaser_desc": "Solo cinque chalet privati ​​nascosti sul pendio della nostra montagna.",
+    "teaser_cta": "Prenota il tuo soggiorno",
+    "excellence_badge": "Eccellenza del resort",
+    "excellence_title": "Lusso in ogni dettaglio",
+    "excellence_feat_pools": "Piscine private riscaldate",
+    "excellence_feat_wifi": "Wi-Fi ad alta velocità",
+    "excellence_feat_parking": "Parcheggio gratuito",
+    "excellence_feat_trails": "Percorsi naturalistici",
+    "excellence_cta": "Visualizza l'elenco completo dei servizi",
+    "brochure_badge": "Opuscolo della guida del resort",
+    "brochure_title": "Scarica la nostra brochure ufficiale di benvenuto",
+    "brochure_desc": "Preparati per la tua fuga sul Monte Kozara scaricando il nostro manuale completo. Formattato perfettamente per la visualizzazione offline.",
+    "brochure_card_title": "Manuale ufficiale di benvenuto",
+    "brochure_card_desc": "Include la griglia della mappa del resort, le indicazioni del villaggio e le regole di sicurezza locali.",
+    "brochure_download_text": "Scarica il libretto in PDF",
+    "location_badge": "Trovaci sulla montagna",
+    "location_title": "La nostra maestosa posizione",
+    "location_desc": "45-65 km da Banja Luka (a seconda del percorso) • Gradiška • vicino al confine croato.",
+    "story_badge": "Lusso e pace",
+    "story_title": "La nostra storia: lusso e pace in perfetta armonia",
+  "story_desc": "Il Kozara Panoramic Resort nasce dalla passione per la natura incontaminata e dalla visione che <strong>alloggi di lusso premium</strong> possano esistere in totale armonia con l'ambiente. La nostra missione è offrire un <strong>rifugio di montagna isolato</strong> dove gli ospiti trovino un profondo equilibrio tra comfort e serenità.",
+  "story_desc2": "Immerso nei rigogliosi paesaggi del nord della Bosnia, il nostro resort offre un'indimenticabile <strong>esperienza boutique</strong>. I nostri <strong>moderni chalet privati</strong> garantiscono un'intimità totale, offrendo al contempo tutti i comfort esclusivi di una <strong>villa di lusso</strong>, tra cui piscine private riscaldate e riscaldamento a pavimento. Al Kozara Panoramic Resort, il tempo rallenta, permettendoti di riconnetterti con la natura in un ambiente elegante e tranquillo vicino a <strong>Gradiška e Banja Luka</strong>.",
+	"kozara_title": "Scopri il Monte Kozara: Il Gioiello Verde della Bosnia",
+  "kozara_desc" : "Il Monte Kozara, famoso come la \"spa dell'aria\" dei Balcani, è una destinazione unica dove l'aria è eccezionalmente pura. Essendo il gioiello verde della Krajina occidentale, offre un <strong>rifugio di salute naturale</strong> perfetto per il rinnovamento spirituale e il recupero fisico. Le sue fitte foreste di pini e i ruscelli di montagna cristallini creano un microclima ricco di ossigeno raro nel mondo di oggi.",
+  "kozara_desc2" : "Che tu stia cercando <strong>escursioni nel Parco Nazionale di Kozara</strong>, percorsi in mountain bike o tranquille passeggiate, questa montagna offre tutto. I sentieri escursionistici ben segnalati conducono a punti panoramici spettacolari e prati profumati, offrendo viste che si estendono attraverso i paesaggi di <strong>Bosnia e Croazia</strong>.",
+  "kozara_desc3" : "Kozara è molto più di una semplice destinazione; è un'esperienza di libertà, rendendola la perfetta <strong>fuga nella natura vicino a Banja Luka</strong> per avventurieri e famiglie.",
+    "blog_badge": "Approfondimenti e viaggi",
+    "blog_title": "Dal nostro blog",
+    "blog_post1_title": "Il villaggio di Kozara emerge come una nuova destinazione naturalistica di lusso",
+    "blog_post2_title": "Dragana e James creano un paradiso per gli edonisti a Kozara",
+    "blog_read_cta": "Leggi il blog",
+    "footer_brand_desc": "Un santuario di montagna boutique che offre cinque lussuosi chalet privati ​​con piscine riscaldate. Scopri la natura incontaminata e il comfort a 5 stelle nel nord della Bosnia.",
+    "footer_col_links": "Collegamenti rapidi",
+    "footer_col_contact": "Contattaci",
+    "footer_contact_address": "Monte Kozara, Gradiška,<br>Bosnia ed Erzegovina",
+    "footer_copyright": "© 2026 Resort panoramico Kozara. Tutti i diritti riservati.",
+    "footer_policy_privacy": "Politica sulla riservatezza",
+    "footer_policy_terms": "Termini di servizio",
+    "footer_policy_cookie": "Politica sui cookie",
+    "book_title": "Prenota il tuo soggiorno | Kozara Panoramic Resort",
+    "book_meta_desc": "Prenota in tutta sicurezza il tuo chalet di montagna boutique con piscina privata riscaldata sul Monte Kozara. Miglior tariffa garantita con opzioni di pagamento flessibili.",
+    "book_step_1_badge": "Primo passo",
+    "book_step_1_title": "Orari di arrivo e ospiti",
+    "book_adult_occupants": "Occupanti adulti (massimo 6)",
+    "book_child_occupants": "Bambini (massimo 2)",
+    "book_occupant_limit_warning": "Il limite massimo totale è di 6 persone per cabina. Le famiglie devono sorvegliare i bambini intorno alle piscine.",
+    "book_step_2_badge": "Passo due",
+    "book_step_2_title": "Coordinate e fatturazione degli ospiti",
+    "book_first_name": "Nome di battesimo",
+    "book_last_name": "Cognome",
+    "book_email": "Indirizzo e-mail",
+    "book_country": "Paese",
+    "book_country_placeholder": "Seleziona il tuo paese...",
+    "book_city": "Città",
+    "book_phone": "Numero di telefono",
+    "book_address": "Indirizzo di fatturazione",
+    "book_post_code": "Codice postale",
+    "book_step_3_badge": "Passo tre",
+    "book_step_3_title": "Preferenze di regolamento",
+    "book_pay_property": "Paga presso la struttura",
+    "book_pay_property_desc": "Nessuna autorizzazione della carta di credito richiesta online. Stabilirsi sulla montagna.",
+    "book_pay_online": "Paga online adesso",
+    "book_pay_online_desc": "Il saldo è rigorosamente in BAM (Marchi Convertibili).",
+    "book_display_currency": "Visualizza la valuta del tasso",
+    "book_currency_notice": "Questa opzione modifica solo la stima visualizzata. La transazione effettiva rimane in BAM.",
+    "book_invoice_estimate": "Stima della fattura in tempo reale",
+    "book_mountain_retreat": "Il tuo rifugio in montagna",
+    "book_duration_stay": "Durata del soggiorno:",
+    "book_guest_alignment": "Allineamento degli ospiti:",
+    "book_estimated_total": "Totale stimato",
+    "book_advantages_title": "Vantaggi della prenotazione diretta",
+    "book_adv_1": "Miglior prezzo garantito rispetto agli agenti esterni",
+    "book_adv_2": "Cesto artigianale di benvenuto premium",
+    "book_adv_3": "Controllo prioritario immediato della temperatura della piscina",
+    "book_adv_4": "Connessione portineria dedicata",
+    "book_finalize_btn": "Finalizzare la prenotazione",
+    "faq_spirit_badge": "Desk di supporto personalizzato",
+    "faq_spirit_title": "Lo spirito dell'ospitalità di Kozara",
+    "faq_spirit_desc": "Al Kozara Panoramic Resort combiniamo l'aspra natura selvaggia dei Balcani con i comfort continentali a 5 stelle. Se hai domande sulle stagioni operative della nostra piscina privata riscaldata, sugli orari di check-in locali, sulle strade di accesso locali non asfaltate, sul supporto del medico di famiglia o sui cestini con angolo cottura, il nostro team è sempre vicino per aiutarti.",
+    "faq_spirit_feature_1": "Tocca Acqua sicura",
+    "faq_spirit_feature_2": "Confini del resort recintato",
+    "faq_spirit_feature_3": "Accesso alla consultazione del medico di famiglia privato",
+    "faq_help_desk_title": "Help Desk locale",
+    "faq_help_desk_desc": "Hai bisogno di assistenza offline immediata con trasferimenti aeroportuali o accordi speciali per cesti di benvenuto?",
+    "faq_help_desk_cta": "Chatta con Dragana su WhatsApp",
+    "faq_guidelines_badge": "Linee guida per il soggiorno",
+    "faq_guidelines_title": "Il codice della serenità",
+    "faq_guidelines_desc": "Per preservare l'atmosfera incontaminata e tranquilla della spa naturale per tutti gli ospiti, chiediamo gentilmente il rispetto dei valori del nostro resort.",
+    "faq_guide_1_title": "Rispettare le ore tranquille",
+    "faq_guide_1_desc": "Per onorare il nostro cielo notturno assolutamente privo di rumore, chiediamo a tutti gli ospiti di preservare ore di silenzio tra le 22:00 e le 08:00. Durante questi orari non è consentito utilizzare altoparlanti all'aperto.",
+    "faq_guide_2_title": "Pratiche sicure per la piscina",
+    "faq_guide_2_desc": "Non sono ammesse bottiglie di vetro o bicchieri direttamente attorno ai bordi della piscina o sui sentieri in pietra. Le famiglie devono sorvegliare i bambini intorno alle piscine e ai balconi aperti in ogni momento.",
+    "faq_guide_3_title": "Prontezza stagionale",
+    "faq_guide_3_desc": "La montagna Kozara riceve drammatiche nevicate durante l'inverno. Secondo le normative locali, gli pneumatici invernali sono obbligatori a partire da novembre. Per i soggiorni in neve profonda sono suggerite opzioni 4x4 di base.",
+    "faq_contact_badge": "Contattaci",
+    "faq_contact_title": "Hai ancora domande?",
+    "faq_contact_desc": "Se non sei riuscito a trovare la risposta che cercavi, non esitare a contattarci direttamente.",
+    "faq_contact_cta": "Inviaci un messaggio su WhatsApp",
+    "faq_data": {
+        "A": [
+            {
+                "category": "chalet",
+                "keyword": "Aria condizionata",
+                "question": "C'è l'aria condizionata negli chalet?",
+                "answer": "SÌ. Tutti gli chalet sono dotati di aria condizionata per il comfort degli ospiti durante i mesi più caldi."
+            },
+            {
+                "category": "viaggio",
+                "keyword": "Aeroporti",
+                "question": "Quale aeroporto è più vicino al resort?",
+                "answer": "<p class=\"mb-2\">L'aeroporto internazionale di Banja Luka è l'aeroporto più vicino a circa 45 minuti\n                        tempo di guida.</p>\n                    <p class=\"mb-2\">Altri aeroporti convenienti includono:</p>\n                    <ul class=\"list-disc pl-5 mb-2 spazio-y-1 testo-xs\">\n                        <li><strong>Aeroporto di Zagabria</strong>: circa 2 ore a seconda degli orari di attraversamento della frontiera\n                        </li>\n                        <li><strong>Aeroporto internazionale di Sarajevo</strong>: circa 3,5 ore</li>\n                        <li><strong>Aeroporto Nikola Tesla di Belgrado</strong>: circa 4 ore</li>\n                    </ul>\n                    <p>L'assistenza per il trasferimento aeroportuale può essere disponibile su richiesta in base alla disponibilità.</p>"
+            },
+            {
+                "category": "viaggio",
+                "keyword": "ATM",
+                "question": "C'è un bancomat nelle vicinanze?",
+                "answer": "SÌ. I bancomat sono disponibili a Gradiška, a circa 25-30 minuti dal resort."
+            }
+        ],
+        "B": [
+            {
+                "category": "locale",
+                "keyword": "Attrezzature per barbecue",
+                "question": "Possiamo fare un barbecue al resort?",
+                "answer": "SÌ. A seconda dello chalet, è possibile noleggiare le moderne attrezzature per barbecue elettrico Ninja Woodfire\n                    e stagione."
+            },
+            {
+                "category": "locale",
+                "keyword": "Biciclette e ciclismo",
+                "question": "È possibile andare in bicicletta in tutto il resort?",
+                "answer": "SÌ. La regione di Kozara offre bellissime opportunità ciclistiche attraverso boschi, colline, panorami\n                    aree rurali e percorsi verso il Parco Nazionale di Kozara."
+            },
+            {
+                "category": "politiche",
+                "keyword": "Prenotazione",
+                "question": "Come posso prenotare il resort?",
+                "answer": "Puoi prenotare direttamente attraverso il sito web ufficiale del Kozara Panoramic Resort o tramite la prenotazione selezionata\n                    piattaforme."
+            },
+            {
+                "category": "locale",
+                "keyword": "Colazione",
+                "question": "La colazione è inclusa?",
+                "answer": "<p class=\"mb-2\">Il resort funziona principalmente come alloggio con angolo cottura.</p>\n                    <p class=\"font-bold mb-1\">Saranno disponibili cestini per la colazione in futuro?</p>\n                    <p>In futuro il resort potrebbe introdurre cestini per la colazione biologici opzionali con prodotti selezionati\n                        prodotti locali.</p>"
+            }
+        ],
+        "C": [
+            {
+                "category": "locale",
+                "keyword": "Caffè",
+                "question": "Viene fornito il caffè negli chalet?",
+                "answer": "<p class=\"mb-2\">Sì. Agli ospiti viene fornita una piccola fornitura di benvenuto gratuita di 4 cialde di caffè\n                        arrivo.</p>\n                    <p class=\"font-bold mb-1\">Quale sistema di caffè viene utilizzato?</p>\n                    <p class=\"mb-2\">Gli chalet utilizzano il sistema di caffè a cialde Nescafé Dolce Gusto.</p>\n                    <p class=\"font-bold mb-1\">Possiamo acquistare altre cialde di caffè nelle vicinanze?</p>\n                    <p>Sì. Ulteriori cialde di caffè Dolce Gusto possono essere facilmente acquistate nei supermercati e nei negozi di Milano\n                        Gradiška.</p>"
+            },
+            {
+                "category": "politiche",
+                "keyword": "Politica di cancellazione",
+                "question": "Qual è la vostra politica di cancellazione?",
+                "answer": "Le politiche di cancellazione dipendono dalla piattaforma di prenotazione e dalla tariffa selezionata."
+            },
+            {
+                "category": "chalet",
+                "keyword": "Capacità dello chalet",
+                "question": "Quante persone possono soggiornare in uno chalet?",
+                "answer": "Ogni chalet può ospitare fino a 6 persone."
+            },
+            {
+                "category": "chalet",
+                "keyword": "Cucine degli chalet",
+                "question": "Gli chalet hanno la cucina?",
+                "answer": "SÌ. Ogni chalet dispone di una cucina completamente attrezzata."
+            },
+            {
+                "category": "chalet",
+                "keyword": "Chalet “Stella”",
+                "question": "Cosa rende speciale lo Chalet “Star”?",
+                "answer": "<p class=\"mb-2\">Lo chalet “Star” si trova separatamente sotto gli altri quattro chalet e offre:</p>\n                    <ul class=\"list-disc pl-5 mb-2 spazio-y-1 testo-xs\">\n                        <li>Massima privacy</li>\n                        <li>Un luogo autonomo</li>\n                        <li>Vista panoramica sulla valle</li>\n                        <li>Un'atmosfera tranquilla e romantica</li>\n                        <li>Una delle migliori posizioni di alba e tramonto nel resort</li>\n                    </ul>\n                    <p class=\"font-bold mb-1\">Lo Chalet “Star” è più costoso?</p>\n                    <p class=\"mb-2\">No. Lo chalet “Star” segue la stessa struttura dei prezzi degli altri chalet a seconda\n                        in base alla stagione e alla disponibilità.</p>\n                    <p class=\"font-bold mb-1\">Perché lo Chalet “Star” spesso non è disponibile?</p>\n                    <p class=\"mb-2\">Di solito è il primo chalet ad essere prenotato per la sua eccezionale privacy e\n                        posizione.</p>\n                    <p class=\"font-bold mb-1\">Come si richiede lo Chalet “Star”?</p>\n                    <p class=\"mb-2\">Gli ospiti possono richiedere lo Chalet “Star” durante il processo di prenotazione a seconda\n                        disponibilità.</p>\n                    <p class=\"font-bold mb-1\">Possiamo accedere allo Chalet “Star” in auto?</p>\n                    <p>Sì. Gli ospiti dello Chalet “Star” potranno accedere con l'auto alla zona chalet per l'arrivo e lo scarico\n                        bagagli e ritiro bagagli alla partenza. Il parcheggio generale per gli ospiti si trova altrimenti\n                        separatamente all'esterno delle aree principali dello chalet per contribuire a mantenere l'atmosfera tranquilla e la privacy\n                        intorno a tutti gli chalet.</p>"
+            },
+            {
+                "category": "politiche",
+                "keyword": "Check-in e check-out",
+                "question": "Quali sono gli orari standard?",
+                "answer": "<p class=\"mb-2\">Il check-in standard viene normalmente effettuato tra le 08:00 e le 14:00. Orario di check-out standard\n                        sono le 10:00.</p>\n                    <p class=\"font-bold mb-1\">È disponibile il check-in automatico?</p>\n                    <p>Sì. Il check-in automatico è disponibile 24 ore su 24, 7 giorni su 7, previo preavviso e accordo anticipato con il resort.\n                    </p>"
+            },
+            {
+                "category": "politiche",
+                "keyword": "Bambini",
+                "question": "Il resort è adatto alle famiglie?",
+                "answer": "<p class=\"mb-2\">Sì. Le famiglie sono le benvenute e gli chalet sono adatti a famiglie con bambini.\n                    </p>\n                    <p>I bambini rimangono sempre sotto la responsabilità dei genitori o dei tutori, soprattutto intorno alle piscine,\n                        terrazze e aree esterne.</p>"
+            },
+            {
+                "category": "viaggio",
+                "keyword": "Cambio valuta",
+                "question": "È possibile cambiare la valuta estera?",
+                "answer": "SÌ. Le principali valute internazionali possono essere facilmente cambiate in marchi convertibili (KM/BAM).\n                    Gradiška."
+            }
+        ],
+        "D": [
+            {
+                "category": "politiche",
+                "keyword": "Prenotazione diretta",
+                "question": "La prenotazione diretta è più economica?",
+                "answer": "La prenotazione diretta può offrire i migliori prezzi disponibili e offerte speciali."
+            },
+            {
+                "category": "politiche",
+                "keyword": "Medici e assistenza medica",
+                "question": "C'è un medico nelle vicinanze?",
+                "answer": "SÌ. Il resort ha anche accesso al proprio medico di famiglia privato (GP) per le consultazioni degli ospiti\n                    se richiesto."
+            },
+            {
+                "category": "politiche",
+                "keyword": "Droni",
+                "question": "Sono ammessi i droni?",
+                "answer": "Si prega di chiedere alla reception prima di utilizzare i droni nel resort."
+            }
+        ],
+        "E": [
+            {
+                "category": "politiche",
+                "keyword": "Check-in anticipato",
+                "question": "È possibile effettuare il check-in anticipato?",
+                "answer": "Il check-in anticipato potrebbe essere possibile a seconda della preparazione dello chalet e del livello di occupazione."
+            },
+            {
+                "category": "viaggio",
+                "keyword": "Veicoli elettrici",
+                "question": "I veicoli elettrici possono ricaricarsi nel resort?",
+                "answer": "Nel resort è prevista al più presto una stazione di ricarica dedicata per veicoli elettrici."
+            },
+            {
+                "category": "politiche",
+                "keyword": "Contatti di emergenza",
+                "question": "Sono disponibili i dettagli di contatto di emergenza?",
+                "answer": "SÌ. All'interno degli chalet sono forniti importanti numeri di emergenza locali e recapiti."
+            },
+            {
+                "category": "politiche",
+                "keyword": "Lingua inglese",
+                "question": "Si parla inglese nel resort?",
+                "answer": "SÌ. Il personale del resort può assistere gli ospiti internazionali in inglese."
+            }
+        ],
+        "F": [
+            {
+                "category": "locale",
+                "keyword": "Consegna del cibo",
+                "question": "Il cibo può essere consegnato al resort?",
+                "answer": "<p class=\"mb-2\">Sì. La consegna di cibo locale può essere organizzata prima dell'arrivo o durante il soggiorno\n                        a seconda della disponibilità.</p>\n                    <p>Le richieste vengono preferibilmente effettuate tramite e-mail o messaggio scritto per garantire la precisione.</p>"
+            },
+            {
+                "category": "politiche",
+                "keyword": "Noleggio completo del resort",
+                "question": "Possiamo prenotare l'intero resort?",
+                "answer": "<p class=\"mb-2\">Sì. È possibile organizzare prenotazioni complete del resort per:</p>\n                    <ul class=\"list-disc pl-5 spazio-y-1 testo-xs\">\n                        <li>Riunioni di famiglia</li>\n                        <li>Ritiri di benessere</li>\n                        <li>Eventi di team building</li>\n                        <li>Piccoli matrimoni</li>\n                        <li>Celebrazioni private</li>\n                    </ul>"
+            }
+        ],
+        "G": [
+            {
+                "category": "politiche",
+                "keyword": "Lingua tedesca",
+                "question": "Nel resort si parla tedesco?",
+                "answer": "Potrebbe essere disponibile anche la comunicazione di base in tedesco."
+            },
+            {
+                "category": "locale",
+                "keyword": "Buoni regalo",
+                "question": "Offrite buoni regalo?",
+                "answer": "SÌ. Potrebbero essere disponibili buoni regalo e pacchetti soggiorno speciali."
+            },
+            {
+                "category": "locale",
+                "keyword": "Vetro vicino alle piscine",
+                "question": "Sono ammesse bottiglie di vetro vicino alle piscine?",
+                "answer": "No. Per la sicurezza degli ospiti, il vetro non è consentito vicino alle aree della piscina."
+            },
+            {
+                "category": "locale",
+                "keyword": "Consegna di generi alimentari",
+                "question": "La spesa può essere consegnata prima dell'arrivo?",
+                "answer": "In alcuni casi, generi alimentari o articoli di benvenuto possono essere organizzati prima dell'arrivo o durante il soggiorno\n                    a seconda della disponibilità."
+            }
+        ],
+        "H": [
+            {
+                "category": "chalet",
+                "keyword": "Asciugacapelli",
+                "question": "C'è un asciugacapelli nello chalet?",
+                "answer": "SÌ. Ogni chalet è dotato di un asciugacapelli di buona qualità a disposizione degli ospiti."
+            },
+            {
+                "category": "chalet",
+                "keyword": "Riscaldamento",
+                "question": "C'è il riscaldamento negli chalet?",
+                "answer": "SÌ. Gli chalet dispongono di riscaldamento a pavimento e sistemi di riscaldamento aggiuntivi."
+            },
+            {
+                "category": "locale",
+                "keyword": "Escursionismo",
+                "question": "Ci sono sentieri escursionistici nelle vicinanze?",
+                "answer": "SÌ. Le colline e le foreste circostanti offrono opportunità di passeggiate ed escursioni panoramiche. Visite giornaliere\n                    sono possibili anche al Parco Nazionale di Kozara."
+            },
+            {
+                "category": "politiche",
+                "keyword": "Pulizie",
+                "question": "Durante il soggiorno viene effettuato il servizio di pulizia?",
+                "answer": "Le modalità di pulizia dipendono dalla durata del soggiorno e dal tipo di prenotazione. Potrebbero essere previste ulteriori pulizie\n                    disponibile su richiesta."
+            }
+        ],
+        "I": [
+            {
+                "category": "locale",
+                "keyword": "Instagram",
+                "question": "Qual è la tua pagina Instagram?",
+                "answer": "Dai un'occhiata al <a href=\"#\" class=\"text-primary-green underline font-bold\">Kozara Panoramic Resort\n                        Instagram</a>."
+            },
+            {
+                "category": "chalet",
+                "keyword": "Isolamento",
+                "question": "Gli chalet sono isolati?",
+                "answer": "SÌ. Gli chalet sono progettati per il comfort sia in estate che in inverno."
+            },
+            {
+                "category": "chalet",
+                "keyword": "Internet e Wi-Fi",
+                "question": "C'è la connessione Wi-Fi nel resort?",
+                "answer": "SÌ. La connessione Wi-Fi gratuita è disponibile in tutto il resort e negli chalet."
+            }
+        ],
+        "J": [
+            {
+                "category": "locale",
+                "keyword": "James & Dragana – Fondatori del resort",
+                "question": "Chi ha creato il Kozara Panoramica Resort?",
+                "answer": "Il Kozara Panoramic Resort è stato creato da James e Dragana Truscott come un progetto familiare che unisce\n                    Influenze britanniche e bosniache con una visione condivisa di costruire un tranquillo rifugio panoramico nella natura\n                    incentrato sulla privacy, il relax, il comfort e l'autentica ospitalità."
+            }
+        ],
+        "K": [
+            {
+                "category": "locale",
+                "keyword": "Parco Nazionale di Kozara",
+                "question": "Il Parco Nazionale di Kozara è nelle vicinanze?",
+                "answer": "SÌ. Il Parco Nazionale di Kozara è raggiungibile in auto ed è ideale per escursioni a piedi, in bicicletta, visite turistiche e\n                    godersi la natura."
+            }
+        ],
+        "L": [
+            {
+                "category": "politiche",
+                "keyword": "Check-out posticipato",
+                "question": "È possibile effettuare il check-out tardivo?",
+                "answer": "Il check-out posticipato potrebbe essere disponibile a seconda dell'occupazione e previo accordo."
+            },
+            {
+                "category": "politiche",
+                "keyword": "Servizio di lavanderia",
+                "question": "È disponibile il servizio di lavanderia?",
+                "answer": "Potrebbe essere disponibile un'assistenza limitata per la lavanderia, a seconda dell'occupazione e del personale."
+            },
+            {
+                "category": "viaggio",
+                "keyword": "Posizione e navigazione",
+                "question": "Cosa dobbiamo inserire nel nostro navigatore?",
+                "answer": "Prima dell'arrivo verranno inviate istruzioni dettagliate per l'arrivo e indicazioni GPS."
+            },
+            {
+                "category": "politiche",
+                "keyword": "Oggetti smarriti",
+                "question": "Cosa succede se dimentico qualcosa al resort?",
+                "answer": "Si prega di contattare il resort il prima possibile."
+            },
+            {
+                "category": "politiche",
+                "keyword": "Musica ad alto volume",
+                "question": "È consentita la musica ad alto volume?",
+                "answer": "Gli ospiti sono pregati di rispettare l'atmosfera tranquilla del resort, soprattutto nei periodi di quiete\n                    ore."
+            },
+            {
+                "category": "politiche",
+                "keyword": "Deposito bagagli",
+                "question": "È possibile depositare i bagagli prima del check-in o dopo il check-out?",
+                "answer": "È possibile usufruire di un deposito bagagli limitato previo accordo."
+            }
+        ],
+        "M": [
+            {
+                "category": "politiche",
+                "keyword": "Soggiorno minimo",
+                "question": "C'è un requisito di soggiorno minimo?",
+                "answer": "I requisiti di soggiorno minimo dipendono dalla stagione e dallo chalet selezionato."
+            },
+            {
+                "category": "politiche",
+                "keyword": "Segnale del telefono cellulare",
+                "question": "C'è segnale del cellulare?",
+                "answer": "SÌ. A seconda del tuo fornitore e della posizione nel resort, potresti ricevere sia bosniaco che\n                    Opzioni di rete mobile croata (UE)."
+            },
+            {
+                "category": "politiche",
+                "keyword": "Musica durante il noleggio esclusivo del resort",
+                "question": "È possibile riprodurre musica durante le prenotazioni esclusive dell'intero resort?",
+                "answer": "SÌ. Musica ragionevole e attività sociali possono essere consentite se un gruppo affitta tutti e 5 gli chalet."
+            }
+        ],
+        "N": [
+            {
+                "category": "chalet",
+                "keyword": "Natura e relax",
+                "question": "Cosa rende speciale il resort?",
+                "answer": "Il resort offre lussuosi chalet privati in legno con piscine riscaldate, viste panoramiche, fresca montagna\n                    aria, silenzio, privacy e tranquillo relax immersi nella natura."
+            },
+            {
+                "category": "chalet",
+                "keyword": "Uso notturno della piscina",
+                "question": "Possiamo usare la piscina di notte?",
+                "answer": "SÌ. Le piscine sono dotate di illuminazione per l'uso serale. L’uso della piscina è sempre a rischio e pericolo degli ospiti."
+            }
+        ],
+        "O": [
+            {
+                "category": "chalet",
+                "keyword": "Terrazza all'aperto",
+                "question": "Gli chalet hanno terrazze private?",
+                "answer": "SÌ. Ogni chalet dispone di una terrazza panoramica privata dotata di scorrevoli di alta qualità\n                    sistemi di vetro con doppi vetri, creando uno spazio abitativo interno flessibile con la possibilità di aprirsi completamente\n                    le porte scorrevoli durante la stagione più calda."
+            }
+        ],
+        "P": [
+            {
+                "category": "viaggio",
+                "keyword": "Parcheggio",
+                "question": "È disponibile un parcheggio?",
+                "answer": "SÌ. Vicino agli chalet è disponibile un parcheggio gratuito."
+            },
+            {
+                "category": "politiche",
+                "keyword": "Parti",
+                "question": "E' un resort per feste?",
+                "answer": "<p class=\"mb-2\">No. Il Kozara Panoramic Resort è concepito principalmente come natura pacifica e benessere\n                        ritirarsi.</p>\n                    <p class=\"font-bold mb-1\">Sono consentite feste?</p>\n                    <p>Non sono consentite grandi parti non controllate.</p>"
+            },
+            {
+                "category": "politiche",
+                "keyword": "Metodi di pagamento",
+                "question": "Quali metodi di pagamento accettate?",
+                "answer": "Accettiamo contanti, le principali carte bancarie, bonifico bancario e metodi di pagamento digitali selezionati."
+            },
+            {
+                "category": "viaggio",
+                "keyword": "Distributore di benzina",
+                "question": "C'è un distributore di benzina nelle vicinanze?",
+                "answer": "SÌ. Le stazioni di servizio sono disponibili nell'intera regione di Gradiška."
+            },
+            {
+                "category": "politiche",
+                "keyword": "Animali domestici",
+                "question": "Sono ammessi animali domestici?",
+                "answer": "SÌ. Animali domestici di piccola taglia e cani da assistenza registrati possono essere ammessi previo accordo."
+            },
+            {
+                "category": "viaggio",
+                "keyword": "Farmacia",
+                "question": "C'è una farmacia nelle vicinanze?",
+                "answer": "SÌ. Le farmacie sono disponibili a Gradiška."
+            },
+            {
+                "category": "locale",
+                "keyword": "Fotografia",
+                "question": "Il resort è adatto per la fotografia?",
+                "answer": "Assolutamente. Molti ospiti visitano appositamente per le albe spettacolari, le viste panoramiche sulle nuvole,\n                    tramonti, fauna selvatica e paesaggi pacifici della foresta."
+            },
+            {
+                "category": "chalet",
+                "keyword": "Profondità della piscina",
+                "question": "Quanto sono profonde e grandi le piscine?",
+                "answer": "Ciascuna piscina privata misura circa 6 metri x 3 metri e comprende un'area subacquea integrata\n                    panca a sporgenza per rilassarsi. L'area principale della piscina ha una profondità dell'acqua di circa 1,40 metri."
+            },
+            {
+                "category": "chalet",
+                "keyword": "Sicurezza della piscina",
+                "question": "I bambini devono essere sorvegliati vicino alle piscine?",
+                "answer": "SÌ. I bambini devono essere sempre sorvegliati dagli adulti nelle zone della piscina."
+            },
+            {
+                "category": "chalet",
+                "keyword": "Piscine",
+                "question": "Ogni chalet ha la propria piscina?",
+                "answer": "<p class=\"mb-2\">Sì. Ogni chalet ha la propria piscina privata riscaldata.</p>\n                    <p class=\"font-bold mb-1\">Le piscine sono riscaldate?</p>\n                    <p class=\"mb-2\">Sì. Le piscine sono riscaldate durante la stagione operativa.</p>\n                    <p class=\"font-bold mb-1\">Le piscine sono private?</p>\n                    <p class=\"mb-2\">Sì. Ogni piscina appartiene esclusivamente al suo chalet.</p>\n                    <p class=\"font-bold mb-1\">Quando sono aperte le piscine?</p>\n                    <p class=\"mb-2\">La stagione delle piscine generalmente va dalla primavera all'autunno a seconda delle condizioni meteorologiche.\n                    </p>\n                    <p>L'uso della piscina è a rischio e pericolo degli ospiti.</p>"
+            },
+            {
+                "category": "chalet",
+                "keyword": "Privacy",
+                "question": "Quale chalet è il più privato?",
+                "answer": "Lo chalet “Star” è lo chalet più privato, situato separatamente sotto gli altri chalet."
+            }
+        ],
+        "Q": [
+            {
+                "category": "politiche",
+                "keyword": "Ore tranquille",
+                "question": "Esiste una politica del silenzio?",
+                "answer": "<p class=\"mb-2\">Sì. Le ore di silenzio vengono normalmente osservate tra le 22:00 e le 08:00.</p>\n                    <p class=\"font-bold mb-1\">Le ore tranquille possono mai essere rilassate?</p>\n                    <p>Sì. Se un gruppo affitta privatamente l'intero resort, le regole relative al silenzio potrebbero essere allentate in anticipo\n                        accordo.</p>"
+            }
+        ],
+        "R": [
+            {
+                "category": "politiche",
+                "keyword": "Lavoro a distanza",
+                "question": "Il resort è adatto al lavoro a distanza?",
+                "answer": "SÌ. Molti ospiti amano combinare il relax con il lavoro a distanza grazie all'ambiente tranquillo e\n                    Accesso Wi-Fi."
+            },
+            {
+                "category": "politiche",
+                "keyword": "Ripeti i vantaggi per gli ospiti",
+                "question": "Gli ospiti che ritornano ricevono offerte speciali?",
+                "answer": "Di tanto in tanto, gli ospiti che ritornano possono ricevere offerte fedeltà o promozioni speciali."
+            },
+            {
+                "category": "viaggio",
+                "keyword": "Ristoranti",
+                "question": "Ci sono ristoranti nelle vicinanze?",
+                "answer": "SÌ. I ristoranti locali sono disponibili a breve distanza in auto."
+            },
+            {
+                "category": "locale",
+                "keyword": "Soggiorni romantici",
+                "question": "Il resort è adatto alle coppie?",
+                "answer": "<p class=\"mb-2\">Sì. Molti ospiti vengono qui per fughe romantiche e week-end benessere.</p>\n                    <p class=\"font-bold mb-1\">Puoi organizzare sorprese romantiche?</p>\n                    <p>Sì. In base alla disponibilità, potrebbero essere possibili decorazioni romantiche e allestimenti speciali.</p>"
+            },
+            {
+                "category": "viaggio",
+                "keyword": "Strade e accesso",
+                "question": "La strada è asfaltata?",
+                "answer": "<p class=\"mb-2\">L'ultima strada principale di accesso al resort attualmente non è asfaltata. Tuttavia, la pavimentazione\n                        sono previsti lavori.</p>\n                    <p class=\"font-bold mb-1\">La strada è difficile in inverno?</p>\n                    <p>In caso di neve sono necessari pneumatici invernali in linea con le leggi locali.</p>"
+            }
+        ],
+        "S": [
+            {
+                "category": "chalet",
+                "keyword": "Conservazione sicura",
+                "question": "C'è una cassaforte nello chalet?",
+                "answer": "SÌ. Ogni chalet dispone di una propria cassaforte privata per riporre oggetti di valore e oggetti personali importanti\n                    in modo sicuro."
+            },
+            {
+                "category": "politiche",
+                "keyword": "Sicurezza",
+                "question": "Il resort è sicuro?",
+                "answer": "SÌ. Il resort è situato in una tranquilla zona di campagna ed è monitorato per la sicurezza degli ospiti."
+            },
+            {
+                "category": "locale",
+                "keyword": "Stagioni e tempo",
+                "question": "Il resort è aperto tutto l'anno?",
+                "answer": "<p class=\"mb-2\">Sì. Il resort è aperto tutto l'anno.</p>\n                    <p class=\"font-bold mb-1\">Nevica in inverno?</p>\n                    <p class=\"mb-2\">Sì. Durante i mesi invernali sono possibili nevicate.</p>\n                    <p class=\"font-bold mb-1\">Il resort è bellissimo in autunno?</p>\n                    <p class=\"mb-2\">Sì. I colori autunnali a Kozara sono particolarmente belli.</p>\n                    <p class=\"font-bold mb-1\">L'estate è molto calda?</p>\n                    <p>Le temperature estive possono essere calde, ma la posizione collinare elevata garantisce serate più fresche.</p>"
+            },
+            {
+                "category": "politiche",
+                "keyword": "Deposito cauzionale",
+                "question": "È richiesto un deposito cauzionale?",
+                "answer": "A seconda della tipologia di prenotazione potrebbe essere richiesto un deposito cauzionale rimborsabile."
+            },
+            {
+                "category": "viaggio",
+                "keyword": "Shopping",
+                "question": "Ci sono supermercati nelle vicinanze?",
+                "answer": "SÌ. Supermercati e negozi locali sono accessibili in auto."
+            },
+            {
+                "category": "politiche",
+                "keyword": "Fumare",
+                "question": "È consentito fumare?",
+                "answer": "<p class=\"mb-2\">Non è consentito fumare all'interno degli chalet o all'interno delle aree terrazzate vetrate.</p>\n                    <p>È consentito fumare solo negli idonei spazi esterni nel rispetto degli chalet vicini,\n                        altri ospiti e l'ambiente naturale circostante.</p>"
+            },
+            {
+                "category": "locale",
+                "keyword": "Mezzi sociali",
+                "question": "Possiamo taggare il resort sui social media?",
+                "answer": "SÌ. Adoriamo vedere le foto e le esperienze degli ospiti condivise online."
+            },
+            {
+                "category": "locale",
+                "keyword": "Osservare le stelle",
+                "question": "Il resort è adatto per osservare le stelle?",
+                "answer": "SÌ. Grazie alla tranquilla posizione in campagna con basso inquinamento luminoso, gli ospiti possono spesso divertirsi\n                    splendidi cieli notturni e viste stellari."
+            }
+        ],
+        "T": [
+            {
+                "category": "viaggio",
+                "keyword": "Taxi e Trasferimenti",
+                "question": "Il resort può organizzare trasferimenti aeroportuali o in taxi?",
+                "answer": "L'assistenza al trasferimento può essere possibile con preavviso a seconda della disponibilità."
+            },
+            {
+                "category": "chalet",
+                "keyword": "Televisione",
+                "question": "C'è la TV nello chalet?",
+                "answer": "SÌ. Sono disponibili sistemi Smart TV."
+            },
+            {
+                "category": "politiche",
+                "keyword": "Sicurezza turistica",
+                "question": "La Bosnia ed Erzegovina è sicura per i turisti?",
+                "answer": "SÌ. La Bosnia ed Erzegovina è generalmente considerata molto sicura e accogliente per i visitatori."
+            },
+            {
+                "category": "politiche",
+                "keyword": "Tassa di soggiorno",
+                "question": "La tassa di soggiorno è inclusa?",
+                "answer": "La tassa di soggiorno può essere addebitata separatamente in base alle normative locali."
+            },
+            {
+                "category": "chalet",
+                "keyword": "Asciugamani e accappatoi",
+                "question": "Vengono forniti gli asciugamani?",
+                "answer": "<p class=\"mb-2\">Sì. Vengono forniti teli da bagno e da piscina.</p>\n                    <p class=\"font-bold mb-1\">Vengono forniti gli accappatoi?</p>\n                    <p>Sì. Gli accappatoi possono essere disponibili su richiesta.</p>"
+            },
+            {
+                "category": "viaggio",
+                "keyword": "Viaggio e arrivo",
+                "question": "Come troviamo facilmente il resort?",
+                "answer": "<p class=\"mb-2\">Gli ultimi 5,1 km fino al resort sono segnalati.</p>\n                    <p>Si consiglia agli ospiti di rimanere sulle strade principali verso il villaggio di Turjak e di utilizzare Google\n                        Mappe, dove è chiaramente indicato Kozara Panoramica Resort.</p>"
+            }
+        ],
+        "U": [
+            {
+                "category": "chalet",
+                "keyword": "Riscaldamento a pavimento",
+                "question": "Gli chalet hanno il riscaldamento a pavimento?",
+                "answer": "SÌ. Gli chalet sono dotati di moderni sistemi di riscaldamento a pavimento."
+            }
+        ],
+        "V": [
+            {
+                "category": "politiche",
+                "keyword": "Visitatori",
+                "question": "I visitatori possono venire allo chalet?",
+                "answer": "Sono ammessi solo ospiti registrati salvo accordi con la direzione."
+            }
+        ],
+        "W": [
+            {
+                "category": "chalet",
+                "keyword": "Acqua",
+                "question": "L'acqua del rubinetto è sicura?",
+                "answer": "SÌ. L'acqua è adatta per un uso normale."
+            },
+            {
+                "category": "locale",
+                "keyword": "Meteo per stagione",
+                "question": "Com'è il tempo durante tutto l'anno?",
+                "answer": "La primavera e l'autunno sono generalmente miti e colorati, le estati sono calde con serate più fresche\n                    gli inverni possono includere neve."
+            },
+            {
+                "category": "locale",
+                "keyword": "Sorprese di benvenuto",
+                "question": "È possibile organizzare fiori, vino o sorprese romantiche?",
+                "answer": "SÌ. A seconda della disponibilità e del preavviso, il resort può aiutare a organizzare fiori, vino,\n                    decorazioni o sorprese romantiche."
+            },
+            {
+                "category": "locale",
+                "keyword": "Animali selvatici",
+                "question": "Possiamo vedere la fauna selvatica nelle vicinanze?",
+                "answer": "Occasionalmente sì. L'area che circonda il resort è ricca di natura e fauna selvatica. capriolo,\n                    scoiattoli e gufi sono originari del monte Kozara."
+            }
+        ],
+        "X": [
+            {
+                "category": "locale",
+                "keyword": "X (Esperienze extra)",
+                "question": "Offrite esperienze extra o accordi speciali?",
+                "answer": "SÌ. A seconda della stagione e della disponibilità, il resort può aiutare ad organizzare sorprese romantiche,\n                    esperienze di benessere, consegne di cibo locale, attività nella natura o prenotazioni private di resort completi."
+            }
+        ],
+        "Y": [
+            {
+                "category": "locale",
+                "keyword": "Yoga e Benessere",
+                "question": "Il resort è adatto per yoga, meditazione o ritiri benessere?",
+                "answer": "SÌ. Le attività possono svolgersi su terrazze, vicino a piscine o in tranquille aree esterne circondate da\n                    natura."
+            }
+        ],
+        "Z": [
+            {
+                "category": "locale",
+                "keyword": "Atmosfera a rumore zero",
+                "question": "Il resort è tranquillo di notte?",
+                "answer": "SÌ. Una delle caratteristiche più apprezzate del Kozara Panoramic Resort è la sua natura tranquilla e silenziosa\n                    atmosfera."
+            }
+        ]
+    },
+    "am_title" : "Servizi e Comfort del Resort | Kozara Panoramic Resort",
+    "am_header_badge": "Specifiche del resort",
+    "am_header_title": "Comfort e servizi",
+    "am_header_desc": "Esplora ogni dettaglio minuziosamente curato incluso alla lettera in tutti e cinque i nostri chalet personalizzati in legno di montagna.",
+    "am_icon_1_title": "Piscina privata",
+    "am_icon_1_desc": "Riscaldamento individuale 6x3m",
+    "am_icon_2_title": "WiFi gratuito",
+    "am_icon_2_desc": "Copertura ad alta velocità",
+    "am_icon_3_title": "Parcheggio gratuito",
+    "am_icon_3_desc": "Privato protetto in loco",
+    "am_icon_4_title": "Non fumatori",
+    "am_icon_4_desc": "Spazio aereo incontaminato al 100%.",
+    "am_icon_5_title": "Legno massiccio",
+    "am_icon_5_desc": "Ecoarchitettura naturale",
+    "am_sec1_badge": "Oasi all'aperto",
+    "am_sec1_title": "Piscina riscaldata",
+    "am_sec1_li1": "<strong>Opzioni riscaldate</strong>: regolazione individuale della temperatura dalla primavera all'autunno.",
+    "am_sec1_li2": "<strong>Viste panoramiche</strong>: vista completamente panoramica sulle vette delle montagne.",
+    "am_sec1_li3": "<strong>Dimensioni</strong>: superficie privata 6x3 metri, profondità acqua 1,40 m.",
+    "am_sec1_li4": "<strong>Sun Lounge</strong>: lettini da piscina premium con imbottitura di lusso.",
+    "am_sec1_li5": "<strong>Copertura di protezione</strong>: protezione della copertura della piscina retrattile.",
+    "am_sec1_notice": "Avviso di sicurezza: i ponti della piscina privata hanno accesso libero; i bambini devono essere sempre sorvegliati dai genitori o dai tutori. Non è consentito il vetro.",
+    "am_sec2_badge": "Cucina e sala da pranzo",
+    "am_sec2_title": "Cucina completamente attrezzata",
+    "am_sec2_i1_t": "Macchina da caffè Dolce Gusto",
+    "am_sec2_i1_d": "Compatibilità con le cialde Nescafé. All'arrivo verranno fornite 4 cialde in omaggio. Le cialde aggiuntive possono essere acquistate nei supermercati Gradiška.",
+    "am_sec2_i2_t": "Piano cottura e forno elettrici",
+    "am_sec2_i2_d": "Piani cottura a induzione e forni a convezione da incasso di fascia alta.",
+    "am_sec2_i3_t": "Lavastoviglie integrata",
+    "am_sec2_i3_d": "Lavastoviglie di grandi dimensioni con pastiglie detergenti prefornite.",
+    "am_sec2_i4_t": "Frigorifero e congelatore",
+    "am_sec2_i4_d": "Spaziosi armadietti refrigeranti, tostapane, forno a microonde e bollitore elettrico.",
+    "am_sec3_badge": "Esterno del resort",
+    "am_sec3_title": "Patio, giardino e attività all'aperto",
+    "am_sec3_i1_t": "Piste del giardino del resort",
+    "am_sec3_i1_d": "Splendidi terreni privati ​​ricchi di pini con sentieri tortuosi.",
+    "am_sec3_i2_t": "Mobili per sedersi all'aperto",
+    "am_sec3_i2_d": "Tavoli e sedie in rattan premium annidati su terrazze private in pietra.",
+    "am_sec3_i3_t": "Barbecue elettrico",
+    "am_sec3_i3_d": "Moderne unità barbecue Ninja Woodfire disponibili su richiesta.",
+    "am_sec3_i4_t": "Ampio patio privato",
+    "am_sec3_i4_d": "Sezioni di layout completamente coperte ideali per il relax tranquillo e ombreggiato o per osservare le stelle.",
+    "am_dir_badge": "Inventario granulare",
+    "am_dir_title": "Directory delle specifiche del resort",
+    "am_dir_1_t": "Utilità generali",
+    "am_dir_1_1": "Riscaldamento a pavimento reattivo",
+    "am_dir_1_2": "Aria condizionata",
+    "am_dir_1_3": "Rilevatore di monossido di carbonio",
+    "am_dir_1_4": "Cabine 100% non fumatori",
+    "am_dir_1_5": "Sicuro chiavi di ingresso private",
+    "am_dir_1_6": "Elegante pavimento in piastrelle/marmo",
+    "am_dir_2_t": "Letto e bagno",
+    "am_dir_2_1": "Biancheria da letto biologica 100% cotone",
+    "am_dir_2_2": "Biancheria da resort premium fornita",
+    "am_dir_2_3": "Armadio e mobili portaoggetti",
+    "am_dir_2_4": "Comodi set di accappatoi in peluche",
+    "am_dir_2_5": "Asciugacapelli ionico professionale",
+    "am_dir_2_6": "Asciugamani e carta igienica di alta qualità",
+    "am_dir_3_t": "Zona giorno",
+    "am_dir_3_1": "Configurazioni di divani accoglienti",
+    "am_dir_3_2": "Ampie sale da pranzo interne",
+    "am_dir_3_3": "Tavoli da pranzo in legno di dimensioni standard",
+    "am_dir_3_4": "Scivoli panoramici con doppio vetro",
+    "am_dir_3_5": "Lettini per terrazza solarium con materassini",
+    "am_dir_4_t": "Media e tecnologia",
+    "am_dir_4_1": "Configurazioni Smart TV a schermo piatto",
+    "am_dir_4_2": "Feed diretti dei canali satellitari",
+    "am_dir_4_3": "Servizi di streaming (come Netflix)",
+    "am_dir_4_4": "WiFi ad alta velocità (tutte le aree)",
+    "am_dir_4_5": "Stazioni di ricarica multipunto",
+    "am_dir_5_t": "Servizi personali",
+    "am_dir_5_1": "Check-in/check-out privato",
+    "am_dir_5_2": "Personale che parla inglese",
+    "am_dir_5_3": "Personale di lingua serba",
+    "am_dir_5_4": "Approvazioni per richieste di animali domestici",
+    "am_dir_5_5": "Cestini colazione biologici (futuro)",
+    "am_dir_6_t": "Sicurezza e protezione",
+    "am_dir_6_1": "CCTV fuori dai confini della proprietà",
+    "am_dir_6_2": "Estintori presenti nella proprietà",
+    "am_dir_6_3": "Cassaforte digitale integrata per laptop",
+    "am_dir_6_4": "Confini del resort recintati",
+    "am_dir_6_5": "Allarmi di sicurezza per monossido di carbonio",
+    "am_dir_7_t": "Paesaggi panoramici",
+    "am_dir_7_1": "Vista panoramica del paesaggio",
+    "am_dir_7_2": "Vista panoramica sulle montagne",
+    "am_dir_7_3": "Vista sull'orizzonte della piscina privata",
+    "am_dir_7_4": "Profili di orientamento all'alba",
+    "am_dir_7_5": "Viste dello scenario della chioma della foresta",
+    "am_dir_8_t": "Attività e tour",
+    "am_dir_8_1": "Autentiche passeggiate nel villaggio di Kozara",
+    "am_dir_8_2": "Tour guidati in bici in campagna",
+    "am_dir_8_3": "Sentieri escursionistici nella foresta incontaminata",
+    "am_dir_8_4": "Escursioni in montagna scaglionate",
+    "am_dir_8_5": "Esplorazioni del Parco Nazionale di Kozara",
+    "footer_link_chalets": "Gli chalet",
+    "footer_link_amenities": "Servizi del resort",
+    "footer_link_location": "La nostra posizione",
+    "footer_link_faq": "Domande frequenti",
+    "notice_meta_title": "Avviso legale e politiche | Località panoramica di Kozara",
+    "notice_header_badge": "Santuario di montagna boutique",
+    "notice_header_title": "Chalet privati ​​di lusso <br><span class=\"italic text-sand-beige font-normal\">con piscine riscaldate</span>",
+    "notice_header_desc": "Fuga tranquilla nella natura vicino a Banja Luka e in Croazia. Goditi la natura incontaminata, le viste panoramiche e il comfort a 5 stelle.",
+    "notice_sidebar_title": "Hai bisogno di assistenza legale diretta?",
+    "notice_sidebar_desc": "Il nostro desk amministrativo è pronto ad assistere con fatturazione aziendale personalizzata, protocolli di prenotazione di gruppo e registrazioni.",
+    "notice_sidebar_btn": "Contatta lo sportello anagrafe",
+    "notice_imp_badge": "REGISTRO OPERATORI",
+    "notice_imp_title": "Impressum / Informazioni legali",
+    "notice_imp_col1_t1": "Entità registrata della società",
+    "notice_imp_col1_d1": "Proprietario del marchio Kozara Panoramica Resort",
+    "notice_imp_col1_t2": "Indirizzo registrato",
+    "notice_imp_col1_d2": "Selo Kozara BB<br>78400 Gradiška, Bosnia ed Erzegovina",
+    "notice_imp_col1_t3": "Direttore della Rappresentanza Legale",
+    "notice_imp_col2_t1": "Identificatori di registrazione",
+    "notice_imp_col2_d1_1": "Numero di registrazione: 11260985",
+    "notice_imp_col2_d1_2": "Codice Fiscale: 4405281640008",
+    "notice_imp_col2_t2": "Coordinate cancelleria",
+    "notice_terms_badge": "REGOLE OPERATIVE",
+    "notice_terms_title": "Termini e condizioni",
+    "notice_terms_1_t": "Conferme e prenotazioni",
+    "notice_terms_1_d": "Una prenotazione è confermata quando l'ospite riceve conferma scritta tramite email o app di messaggistica.",
+    "notice_terms_2_t": "Coordinate controllate",
+    "notice_terms_2_d1": "<strong>Data di check-in</strong>: a partire dalle <span class=\"font-bold text-stone-800\">14:00</span>",
+    "notice_terms_2_d2": "<strong>Data di check-out</strong>: limite massimo rigoroso <span class=\"font-bold text-stone-800\">10:00</span>",
+    "notice_terms_2_d3": "Le opzioni di arrivo anticipato o di sdoganamento tardivo dipendono strettamente dai check-in effettuati prima dell'arrivo.",
+    "notice_terms_3_t": "Cancellazioni di insediamenti e stagioni di punta",
+    "notice_terms_3_d": "I pagamenti vengono saldati per intero al momento della prenotazione. Le tasse turistiche locali vengono addebitate separatamente al momento del pagamento.",
+    "notice_terms_3_s1_t": "Stagione standard (aprile - giugno, metà settembre - ottobre)",
+    "notice_terms_3_s1_li1": "<strong>Rimborso del 25%</strong>: oltre 14 giorni prima dell'arrivo",
+    "notice_terms_3_s1_li2": "<strong>Rimborso del 50%</strong>: 7 - 13 giorni prima dell'arrivo",
+    "notice_terms_3_s1_li3": "Nessun rimborso disponibile sotto i 7 giorni",
+    "notice_terms_3_s2_t": "Alta stagione (luglio, agosto, festivi)",
+    "notice_terms_3_s2_d": "Regola rigorosa di protezione dalla cancellazione: non si accettano rimborsi o cancellazioni nelle date di punta dell'estate o nelle settimane di vacanza designate.",
+    "notice_terms_4_t": "Dichiarazione di non responsabilità e danni per la sicurezza della piscina",
+    "notice_terms_4_d": "PEVA d.o.o. mantiene uno standard di lusso incontaminato. Il mancato rispetto delle regole della casa stabilite può comportare l'immediata cancellazione dell'alloggio. Al momento del check-in è richiesto un deposito cauzionale di protezione danni di <strong>€ 250 (EUR)</strong>.",
+    "notice_terms_4_st": "Regole rigorose del pool (tutte le unità):",
+    "notice_terms_4_li1": "L'uso delle piscine è interamente a rischio e pericolo dell'ospite.",
+    "notice_terms_4_li2": "Nel giardino del resort non è presente alcun bagnino.",
+    "notice_terms_4_li3": "I bambini devono essere sorvegliati in ogni momento.",
+    "notice_terms_4_li4": "Zero assoluto di vetro consentito vicino alle aree della piscina.",
+    "notice_terms_4_li5": "Rigoroso limite di immersione zero (profondità della piscina 1,40 m).",
+    "notice_terms_5_t": "Politica sul fumo",
+    "notice_terms_5_d": "All'interno delle strutture in legno e dei patii con doppi vetri è severamente vietato fumare. È consentito fumare sulla terrazza esterna con cautela.",
+    "notice_terms_6_t": "Alloggi per animali domestici",
+    "notice_terms_6_d": "Gli animali domestici sono ammessi previa richiesta prima dell'arrivo. Viene applicato un costo separato di <strong>€ 15,00 per animale</strong> per soggiorno.",
+    "notice_terms_7_t": "Limiti di occupazione",
+    "notice_terms_7_d": "Massimo <strong>6 persone</strong> per chalet. La disposizione prevede 1 camera matrimoniale, 2 camere singole doppie, opzioni soppalco o configurazioni di divani personalizzate.",
+    "notice_priv_badge": "ELABORAZIONE DEI DATI",
+"notice_priv_title": "Politica sulla riservatezza",
+    "notice_priv_desc": "PEVA d.o.o. raccoglie e tratta i dati personali nel rigoroso rispetto degli adempimenti anagrafici regionali e dei parametri di sicurezza legale.",
+    "notice_priv_1_t": "1. Coordinate raccolte e scopo",
+    "notice_priv_1_d": "Registriamo in modo sicuro: nome completo, indirizzo, coordinate telefoniche, registri di posta elettronica e credenziali di identità legale/passaporto. Questi dati vengono raccolti esclusivamente per adempiere ai contratti di prenotazione, completare i registri legali degli ingressi degli ospiti e gestire le coordinate pre-arrivo.",
+    "notice_priv_2_t": "2. Conservazione legale",
+    "notice_priv_2_d": "In quanto entità registrata, siamo tenuti per legge a inviare i registri degli ospiti all'ufficio turistico locale. Tutti i dati vengono gestiti attraverso canali crittografati e cancellati dopo la scadenza della conservazione legale.",
+    "notice_priv_3_t": "3. Flusso di terze parti",
+    "notice_priv_3_d": "Nessun registro personale o coordinata di tracciamento viene mai venduto, scambiato o trasferito a entità esterne non autorizzate. I pagamenti digitali vengono elaborati in modo sicuro tramite gateway Bankart / Stripe.",
+    "notice_cookie_badge": "IMPRONTA DIGITALE",
+    "notice_cookie_title": "Politica sui cookie",
+    "notice_cookie_desc": "Per garantire un flusso di prenotazione digitale ottimale, Kozara Panoramica Resort utilizza cookie log temporanei standard.",
+    "notice_cookie_1_t": "Protocollo necessario",
+    "notice_cookie_1_d": "Fondamentale per la conservazione della sessione e l'elaborazione sicura del flusso di prenotazione.",
+    "notice_cookie_2_t": "Matrici prestazionali",
+    "notice_cookie_2_d": "Metriche aggregate e anonime (tramite Analytics) distribuite per osservare i tempi di caricamento e le mappe del traffico geografico.",
+    "notice_cookie_consent": "Protocollo di consenso: rimanendo nel dominio ufficiale (kozarapanoramicresort.ba), riconosci e acconsenti ai nostri registri di distribuzione tecnica strettamente necessari.",
+"notice_priv_2_t": "2. Divulgazione sicura e Condivisione",
+  "notice_priv_2_d": "I vostri dati personali sono conservati tramite crittografia sicura e non vengono mai venduti o condivisi con agenti commerciali. Le trasmissioni a terzi sono limitate esclusivamente all'Organizzazione Turistica di Gradiška (requisito legale per il turismo in Bosnia-Erzegovina) e ai portali di elaborazione dei pagamenti al momento del checkout.",
+  "notice_priv_note": "Ai sensi delle normative sulla protezione dei dati, gli ospiti possono richiedere la cancellazione completa dei propri profili dati commerciali dopo il check-out, a condizione che siano stati assolti tutti gli obblighi legali e fiscali di conservazione delle prenotazioni.",
+  
+  "notice_cookie_badge": "CONSENSO DELL'UTENTE",
+  "notice_cookie_title": "Informativa sui Cookie",
+  "notice_cookie_p1": "Il sito web di questo resort utilizza cookie di base per facilitare la navigazione, ricordare le preferenze di visualizzazione, analizzare il traffico e garantire un'esperienza di prenotazione sicura.",
+  "notice_cookie_p2": "Continuando a esplorare le nostre pagine o confermando il check-in, l'utente accetta l'inserimento di cookie essenziali sui propri dispositivi. Il tracciamento analitico (come Google Tag Manager) viene attivato solo in seguito a una conferma esplicita di consenso.",
+  
+  "notice_price_badge": "TARIFFE TRASPARENTI",
+  "notice_price_title": "Trasparenza dei Prezzi",
+  "notice_price_desc": "Manteniamo uno standard di prezzi con zero costi nascosti. Tutte le tariffe calcolate durante il checkout diretto includono i servizi completi della struttura.",
+  "notice_price_inc_t": "Rigorosamente Incluso:",
+  "notice_price_inc_d": "Riscaldamento a pavimento, piani cottura elettrici, piscine private, WiFi ad alta velocità, parcheggio custodito, asciugamani, lenzuola e pulizia finale.",
+  "notice_price_exc_t": "Escluso:",
+  "notice_price_exc_d": "La tassa di soggiorno locale non è calcolata nella tariffa web e viene aggiunta separatamente al momento del checkout. L'assistenza medica opzionale di un medico di base privato o il noleggio di barbecue Ninja sono conteggiati su richiesta.",
+"booking_dates_missing": "Per favore, seleziona le date di check-in e check-out sul calendario!",
+  "booking_connecting_headline": "Conferma del tuo chalet privato in corso...",
+  "booking_connecting_paragraph": "Verifica della disponibilità e conferma delle date in corso...",
+  "booking_success_headline": "Richiesta di prenotazione elaborata con successo",
+  "booking_success_paragraph_property": "Il tuo lussuoso soggiorno in montagna è confermato. Stiamo generando la conferma della prenotazione...",
+  "booking_success_paragraph_online": "Le tue date sono riservate in modo sicuro. Reindirizzamento al nostro portale di pagamento per finalizzare la prenotazione..."
+}

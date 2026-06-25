@@ -4,26 +4,27 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Luxury Chalets with Private Pools | Kozara Panoramic Resort</title>
+    <title>{{title}}</title>
 
     <!-- SEO Metadata & OpenGraph -->
-    <meta
-        content="Discover luxury mountain chalets with private heated pools near Banja Luka. Enjoy untouched nature, panoramic views, and 5-star comfort. Book your Kozara escape today."
-        name="description" />
+    <meta content="{{meta_description}}" name="description" />
     <meta content="Book Your Chalet at Kozara Panoramic Resort" property="og:title" />
-    <meta
-        content="Discover luxury mountain chalets with private heated pools near Banja Luka. Enjoy untouched nature, panoramic views, and 5-star comfort. Book your Kozara escape today."
-        property="og:description" />
+    <meta content="{{meta_description}}" property="og:description" />
     <meta content="https://www.kozarapanoramicresort.ba/assets/Scenery/lander.webp" property="og:image" />
     <meta content="https://www.kozarapanoramicresort.ba/" property="og:url" />
     <meta content="website" property="og:type" />
     <meta content="summary_large_image" name="twitter:card" />
     <meta content="Book Your Chalet at Kozara Panoramic Resort" name="twitter:title" />
-    <meta
-        content="Discover luxury mountain chalets with private heated pools near Banja Luka. Enjoy untouched nature, panoramic views, and 5-star comfort. Book your Kozara escape today."
-        name="twitter:description" />
+    <meta content="{{meta_description}}" name="twitter:description" />
     <meta content="https://www.kozarapanoramicresort.ba/assets/Scenery/lander.webp" name="twitter:image" />
     <link rel="canonical" href="https://www.kozarapanoramicresort.ba/" />
+
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Kozara Panoramic resort" />
+    <link rel="manifest" href="/site.webmanifest" />
 
     <!-- Alternates -->
     <link href="https://www.kozarapanoramicresort.ba/" hreflang="en" rel="alternate" />
@@ -40,24 +41,18 @@
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/light.css" />
 
-    <link href="css/base.css" rel="stylesheet" />
-    <link href="css/index.css" rel="stylesheet" />
-    <!-- Official Tailwind CSS CDN -->
+    <link href="/css/base.css" rel="stylesheet" />
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <!-- FontAwesome for Luxury Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <!-- Shoelace Light Theme and Scripts -->
     <script type="module"
         src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/shoelace-autoloader.js"></script>
 
-    <!-- GSAP for Smooth Scroll Effects -->
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/libphonenumber-js@1.12.29/bundle/libphonenumber-js.min.js" defer></script>
 
-    <!-- Tailwind Custom Configuration -->
     <script>
         tailwind.config = {
             theme: {
@@ -82,34 +77,35 @@
 
 <body class="bg-white text-stone-800 antialiased">
 
-    <a href="/book" id="floating-book-btn"
-        class="fixed bottom-8 right-8 bg-earth-brown hover:bg-primary-green text-white font-bold tracking-widest uppercase px-8 py-4 rounded-full shadow-2xl z-40 transition-all duration-300 transform scale-90 opacity-0 pointer-events-none">
-        Book Now
+    <a href="{{lang_prefix}}/book" id="floating-book-btn"
+        class="fixed bottom-8 right-8 bg-earth-brown hover:bg-primary-green text-white font-bold tracking-widest uppercase px-8 py-4 rounded-full shadow-2xl z-40 transition-all duration-300 transform scale-100 opacity-100 pointer-events-auto">
+        {{floating_book_now}}
     </a>
 
     <nav id="main-nav" class="py-2 md:py-5 px-6 md:px-12">
         <div class="nav-links-container hidden lg:flex flex-1 justify-end mr-8">
             <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300"
-                href="#showcase">Chalets</a>
+                href="#showcase">{{nav_chalets}}</a>
             <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300 ml-8"
-                href="#why-love-us">Why Us</a>
+                href="#why-love-us">{{nav_why_us}}</a>
             <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300 ml-8"
-                href="/amenities">Amenities</a>
+                href="{{lang_prefix}}/amenities">{{nav_amenities}}</a>
         </div>
 
         <div id="logo_stripped_reserve_spacer" class="hidden lg:block"></div>
-        <a href="/" id="logo_stripped" class="block">
+        <a href="{{lang_prefix}}/" id="logo_stripped" class="block">
             <img src="/assets/logo_stripped.svg"
                 onerror="this.onerror=null; this.src='https://www.kozarapanoramicresort.ba/assets/logo_stripped.svg';"
                 alt="Kozara Panoramic Resort Logo" class="w-full h-auto block">
         </a>
 
         <div class="nav-links-container hidden lg:flex flex-1 justify-start ml-8">
-            <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300" href="#about">About
-                Us</a>
+            <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300"
+                href="#about">{{nav_about_us}}</a>
             <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300 ml-8"
-                href="#blog">Blog</a>
-            <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300 ml-8" href="/faq">FAQ</a>
+                href="#blog">{{nav_blog}}</a>
+            <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300 ml-8"
+                href="{{lang_prefix}}/faq">{{nav_faq}}</a>
 
             <sl-dropdown class="ml-8">
                 <button slot="trigger"
@@ -124,9 +120,9 @@
                 </sl-menu>
             </sl-dropdown>
 
-            <a href="/book"
+            <a href="{{lang_prefix}}/book"
                 class="bg-earth-brown hover:bg-primary-green text-white font-bold text-xs tracking-widest uppercase px-6 py-3 rounded-full transition-all duration-300 shadow-lg ml-6 text-center">
-                Book Your Stay
+                {{nav_cta}}
             </a>
         </div>
 
@@ -168,20 +164,22 @@
         </div>
 
         <div class="flex flex-col gap-6 text-xl font-serif text-center my-auto">
-            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="#showcase">
-                Chalets</a>
-            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="#why-love-us">Why
-                Us</a>
-            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="/amenities">Amenities</a>
-            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="#location">About
-                Us</a>
-            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="/faq">FAQ</a>
+            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition"
+                href="#showcase">{{nav_chalets}}</a>
+            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition"
+                href="#why-love-us">{{nav_why_us}}</a>
+            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition"
+                href="{{lang_prefix}}/amenities">{{nav_amenities}}</a>
+            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition"
+                href="#location">{{nav_about_us}}</a>
+            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition"
+                href="{{lang_prefix}}/faq">{{nav_faq}}</a>
         </div>
 
         <div class="flex flex-col gap-4 text-center">
-            <a href="/book" onclick="toggleMobileMenu();"
+            <a href="{{lang_prefix}}/book" onclick="toggleMobileMenu();"
                 class="bg-earth-brown text-white py-4 rounded-full font-bold uppercase tracking-wider text-sm block">
-                Book Your Stay
+                {{nav_cta}}
             </a>
             <p class="text-xs text-stone-500">© 2026 Kozara Panoramic Resort</p>
         </div>
@@ -209,15 +207,14 @@
 
             <div class="relative z-10 max-w-4xl mx-auto text-white px-4 pt-24">
                 <span
-                    class="text-xs md:text-sm font-bold tracking-[0.4em] uppercase text-sand-beige mb-4 block">Boutique
-                    Mountain Sanctuary</span>
+                    class="text-xs md:text-sm font-bold tracking-[0.4em] uppercase text-sand-beige mb-4 block">{{hero_badge}}</span>
                 <h1 class="font-serif text-3xl sm:text-5xl md:text-6xl font-bold leading-tight mb-4">
-                    Luxury Private Chalets <br><span class="italic text-sand-beige font-normal">with Heated Pools</span>
+                    {{hero_title_main}} <br><span
+                        class="italic text-sand-beige font-normal">{{hero_title_italic}}</span>
                 </h1>
                 <p
                     class="text-base sm:text-lg md:text-xl font-light text-stone-200 max-w-2xl mx-auto mb-8 leading-relaxed">
-                    Peaceful nature escape near Banja Luka & Croatia. Enjoy untouched nature, panoramic views, and
-                    5-star comfort.
+                    {{hero_subtitle}}
                 </p>
             </div>
 
@@ -227,40 +224,34 @@
             <div
                 class="bg-white rounded-2xl shadow-2xl border border-stone-100 p-8 md:p-10 grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
                 <div class="text-center md:text-left md:border-r border-stone-100 md:pr-8">
-                    <span class="text-xs uppercase font-bold tracking-widest text-earth-brown block mb-1">Exclusive
-                        Resort</span>
-                    <h3 class="font-serif text-xl font-bold text-primary-green mb-2">Only 5 Private Chalets</h3>
-                    <p class="text-sm text-stone-500">Ensuring total exclusivity, absolute peace, and uncrowded nature
-                        retreat safety.</p>
+                    <span
+                        class="text-xs uppercase font-bold tracking-widest text-earth-brown block mb-1">{{highlight_resort_badge}}</span>
+                    <h3 class="font-serif text-xl font-bold text-primary-green mb-2">{{highlight_resort_title}}</h3>
+                    <p class="text-sm text-stone-500">{{highlight_resort_desc}}</p>
                 </div>
                 <div class="text-center md:text-left md:border-r border-stone-100 md:px-8">
-                    <span class="text-xs uppercase font-bold tracking-widest text-earth-brown block mb-1">Total
-                        Serenity</span>
-                    <h3 class="font-serif text-xl font-bold text-primary-green mb-2">Private Heated Pools</h3>
-                    <p class="text-sm text-stone-500">Every chalet features its own panoramic outdoor pool with
-                        temperature control option.</p>
+                    <span
+                        class="text-xs uppercase font-bold tracking-widest text-earth-brown block mb-1">{{highlight_serenity_badge}}</span>
+                    <h3 class="font-serif text-xl font-bold text-primary-green mb-2">{{highlight_serenity_title}}</h3>
+                    <p class="text-sm text-stone-500">{{highlight_serenity_desc}}</p>
                 </div>
                 <div class="text-center md:text-left md:pl-8">
-                    <span class="text-xs uppercase font-bold tracking-widest text-earth-brown block mb-1">Prime
-                        Location</span>
-                    <h3 class="font-serif text-xl font-bold text-primary-green mb-2">Effortless Access</h3>
-                    <p class="text-sm text-stone-500">Only 45 minutes from Banja Luka Airport and close to the Croatian
-                        border.</p>
+                    <span
+                        class="text-xs uppercase font-bold tracking-widest text-earth-brown block mb-1">{{highlight_location_badge}}</span>
+                    <h3 class="font-serif text-xl font-bold text-primary-green mb-2">{{highlight_location_title}}</h3>
+                    <p class="text-sm text-stone-500">{{highlight_location_desc}}</p>
                 </div>
             </div>
         </section>
 
         <section class="py-20 px-4 text-center max-w-4xl mx-auto bg-white">
-            <span class="text-xs font-bold tracking-[0.3em] uppercase text-earth-brown block mb-2">A Sanctuary of
-                Peace</span>
-            <h2 class="font-serif text-3xl md:text-4xl font-bold text-primary-green mb-6">Discover a Unique Boutique
-                Resort in the Mountains of Kozara</h2>
+            <span
+                class="text-xs font-bold tracking-[0.3em] uppercase text-earth-brown block mb-2">{{intro_badge}}</span>
+            <h2 class="font-serif text-3xl md:text-4xl font-bold text-primary-green mb-6">{{intro_title}}</h2>
             <div class="w-16 h-[1px] bg-sand-beige mx-auto mb-8"></div>
 
             <p class="text-stone-600 text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-12">
-                Experience five private luxury chalets, each thoughtfully designed with its own <span
-                    class="font-semibold text-primary-green">swimming pool</span> and panoramic mountain views. Perfect
-                for couples, families, and guests looking to escape the noise of the city and reconnect with nature.
+                {{intro_desc}}
             </p>
         </section>
 
@@ -287,8 +278,7 @@
                 <div class="text-center max-w-2xl mx-auto mb-16">
                     <span class="text-xs font-bold tracking-[0.3em] uppercase text-earth-brown block mb-3">Why Choose
                         Us</span>
-                    <h2 class="font-serif text-3xl md:text-4xl font-bold text-primary-green mb-4">Why Guests Love Kozara
-                        Panoramic Resort</h2>
+                    <h2 class="font-serif text-3xl md:text-4xl font-bold text-primary-green mb-4">{{wcu-title}}</h2>
                     <div class="w-16 h-[1px] bg-sand-beige mx-auto"></div>
                 </div>
 
@@ -296,23 +286,20 @@
                     <div
                         class="bg-white p-8 rounded-2xl border border-stone-200/60 hover:shadow-lg transition duration-300">
                         <div class="text-earth-brown text-2xl mb-4"><i class="fa-solid fa-water"></i></div>
-                        <h3 class="font-serif text-lg font-bold text-primary-green mb-2">Your Own Sanctuary</h3>
-                        <p class="text-stone-600 text-sm">Private swimming pool for every chalet, ensuring total
-                            exclusivity.</p>
+                        <h3 class="font-serif text-lg font-bold text-primary-green mb-2">{{benefit-text1}}</h3>
+                        <p class="text-stone-600 text-sm">{{benefit-desc1}}</p>
                     </div>
                     <div
                         class="bg-white p-8 rounded-2xl border border-stone-200/60 hover:shadow-lg transition duration-300">
                         <div class="text-earth-brown text-2xl mb-4"><i class="fa-solid fa-dove"></i></div>
-                        <h3 class="font-serif text-lg font-bold text-primary-green mb-2">Pure Serenity</h3>
-                        <p class="text-stone-600 text-sm">Absolute peace and silence in nature, far from the urban rush.
-                        </p>
+                        <h3 class="font-serif text-lg font-bold text-primary-green mb-2">{{benefit-text2}}</h3>
+                        <p class="text-stone-600 text-sm">{{benefit-desc2}}</p>
                     </div>
                     <div
                         class="bg-white p-8 rounded-2xl border border-stone-200/60 hover:shadow-lg transition duration-300">
                         <div class="text-earth-brown text-2xl mb-4"><i class="fa-solid fa-compass"></i></div>
-                        <h3 class="font-serif text-lg font-bold text-primary-green mb-2">Limitless Horizons</h3>
-                        <p class="text-stone-600 text-sm">Panoramic views stretching across the landscapes of Bosnia and
-                            Croatia.</p>
+                        <h3 class="font-serif text-lg font-bold text-primary-green mb-2">{{benefit-text3}}</h3>
+                        <p class="text-stone-600 text-sm">{{benefit-desc3}}</p>
                     </div>
                 </div>
             </div>
@@ -320,14 +307,12 @@
 
         <section id="showcase" class="py-24 px-4 max-w-7xl mx-auto scroll-mt-20">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <span class="text-xs font-bold tracking-[0.3em] uppercase text-earth-brown block mb-3">The Chalet
-                    Experience</span>
-                <h2 class="font-serif text-3xl md:text-5xl font-bold text-primary-green mb-4">Five Unique Spirits, One
-                    Luxury Standard</h2>
+                <span
+                    class="text-xs font-bold tracking-[0.3em] uppercase text-earth-brown block mb-3">{{showcase_badge}}</span>
+                <h2 class="font-serif text-3xl md:text-5xl font-bold text-primary-green mb-4">{{showcase_title}}</h2>
                 <div class="w-16 h-[1px] bg-sand-beige mx-auto mb-6"></div>
                 <p class="text-stone-600 text-sm md:text-base leading-relaxed">
-                    Our five private chalets are identical in structural design, sharing premium wood configurations,
-                    5-star interior setups, and uniform direct pricing.
+                    {{showcase_desc}}
                 </p>
             </div>
 
@@ -345,29 +330,29 @@
                 </div>
 
                 <div class="lg:col-span-4 space-y-6">
-                    <span class="text-[10px] font-bold uppercase tracking-widest text-earth-brown block">Core Inclusions
-                        (All Units)</span>
-                    <h3 class="font-serif text-2xl md:text-3xl font-bold text-primary-green">Architectural Blueprint
+                    <span
+                        class="text-[10px] font-bold uppercase tracking-widest text-earth-brown block">{{blueprint_badge}}</span>
+                    <h3 class="font-serif text-2xl md:text-3xl font-bold text-primary-green">{{blueprint_title}}
                     </h3>
                     <p class="text-stone-600 text-sm leading-relaxed">
-                        Built sustainably with solid timber framing, underfloor heating, fully-featured kitchens, and
-                        expansive glazed terrace panels.
+                        {{blueprint_desc}}
                     </p>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-stone-200">
                         <div class="flex items-start gap-3">
                             <div class="text-earth-brown mt-0.5"><i class="fa-solid fa-water-ladder text-sm"></i></div>
                             <div>
-                                <h4 class="font-bold text-stone-800 text-[11px] uppercase tracking-wider">Private Heated
-                                    Pool</h4>
-                                <p class="text-stone-500 text-xs">Individual 6x3m pool per unit.</p>
+                                <h4 class="font-bold text-stone-800 text-[11px] uppercase tracking-wider">
+                                    {{blueprint_spec_pool_title}}</h4>
+                                <p class="text-stone-500 text-xs">{{blueprint_spec_pool_desc}}</p>
                             </div>
                         </div>
                         <div class="flex items-start gap-3">
                             <div class="text-earth-brown mt-0.5"><i class="fa-solid fa-users text-sm"></i></div>
                             <div>
-                                <h4 class="font-bold text-stone-800 text-[11px] uppercase tracking-wider">Sleeps up to 6
+                                <h4 class="font-bold text-stone-800 text-[11px] uppercase tracking-wider">
+                                    {{blueprint_spec_sleeps_title}}
                                 </h4>
-                                <p class="text-stone-500 text-xs">For families or couples.</p>
+                                <p class="text-stone-500 text-xs">{{blueprint_spec_sleeps_desc}}</p>
                             </div>
                         </div>
                     </div>
@@ -381,9 +366,8 @@
                         class="w-10 h-10 rounded-lg bg-stone-50 text-primary-green flex items-center justify-center text-lg mb-4">
                         <i class="fa-solid fa-wind"></i>
                     </div>
-                    <h4 class="font-serif font-bold text-stone-900 text-lg mb-2">Wind Chalet</h4>
-                    <p class="text-stone-600 text-xs leading-relaxed">Fresh mountain breezes and freedom in every
-                        breath.</p>
+                    <h4 class="font-serif font-bold text-stone-900 text-lg mb-2">{{chalet_wind_title}}</h4>
+                    <p class="text-stone-600 text-xs leading-relaxed">{{chalet_wind_desc}}</p>
                 </div>
                 <div
                     class="bg-white border border-stone-200/80 rounded-2xl p-6 shadow-sm hover:border-earth-brown transition-all duration-300">
@@ -391,21 +375,19 @@
                         class="w-10 h-10 rounded-lg bg-stone-50 text-primary-green flex items-center justify-center text-lg mb-4">
                         <i class="fa-solid fa-sun"></i>
                     </div>
-                    <h4 class="font-serif font-bold text-stone-900 text-lg mb-2">Sun Chalet</h4>
-                    <p class="text-stone-600 text-xs leading-relaxed">Glowing with golden morning light and positive
-                        warmth.</p>
+                    <h4 class="font-serif font-bold text-stone-900 text-lg mb-2">{{chalet_sun_title}}</h4>
+                    <p class="text-stone-600 text-xs leading-relaxed">{{chalet_sun_desc}}</p>
                 </div>
                 <div
                     class="bg-white border border-stone-200/80 rounded-2xl p-6 shadow-sm hover:border-earth-brown transition-all duration-300 relative overflow-hidden">
                     <span
-                        class="absolute top-2 right-2 bg-earth-brown text-white text-[8px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">Secluded</span>
+                        class="absolute top-2 right-2 bg-earth-brown text-white text-[8px] font-bold px-2 py-0.5 rounded-full uppercase tracking-wider">{{chalet_star_badge}}</span>
                     <div
                         class="w-10 h-10 rounded-lg bg-stone-50 text-primary-green flex items-center justify-center text-lg mb-4">
                         <i class="fa-solid fa-star"></i>
                     </div>
-                    <h4 class="font-serif font-bold text-stone-900 text-lg mb-2">Star Chalet</h4>
-                    <p class="text-stone-600 text-xs leading-relaxed">Standalone placement below the others for total
-                        romantic privacy.</p>
+                    <h4 class="font-serif font-bold text-stone-900 text-lg mb-2">{{chalet_star_title}}</h4>
+                    <p class="text-stone-600 text-xs leading-relaxed">{{chalet_star_desc}}</p>
                 </div>
                 <div
                     class="bg-white border border-stone-200/80 rounded-2xl p-6 shadow-sm hover:border-earth-brown transition-all duration-300">
@@ -413,9 +395,8 @@
                         class="w-10 h-10 rounded-lg bg-stone-50 text-primary-green flex items-center justify-center text-lg mb-4">
                         <i class="fa-solid fa-cloud-sun"></i>
                     </div>
-                    <h4 class="font-serif font-bold text-stone-900 text-lg mb-2">Sky Chalet</h4>
-                    <p class="text-stone-600 text-xs leading-relaxed">Boundless horizons and direct access to mountain
-                        clear air paths.</p>
+                    <h4 class="font-serif font-bold text-stone-900 text-lg mb-2">{{chalet_sky_title}}</h4>
+                    <p class="text-stone-600 text-xs leading-relaxed">{{chalet_sky_desc}}</p>
                 </div>
                 <div
                     class="bg-white border border-stone-200/80 rounded-2xl p-6 shadow-sm hover:border-earth-brown transition-all duration-300">
@@ -423,53 +404,54 @@
                         class="w-10 h-10 rounded-lg bg-stone-50 text-primary-green flex items-center justify-center text-lg mb-4">
                         <i class="fa-solid fa-cloud"></i>
                     </div>
-                    <h4 class="font-serif font-bold text-stone-900 text-lg mb-2">Cloud Chalet</h4>
-                    <p class="text-stone-600 text-xs leading-relaxed">Float above the mists in complete silence and
-                        inspiring peace.</p>
+                    <h4 class="font-serif font-bold text-stone-900 text-lg mb-2">{{chalet_cloud_title}}</h4>
+                    <p class="text-stone-600 text-xs leading-relaxed">{{chalet_cloud_desc}}</p>
                 </div>
             </div>
 
             <div
                 class="mt-16 bg-white border border-earth-brown rounded-2xl p-8 md:p-12 text-center max-w-5xl mx-auto shadow-2xl">
-                <h3 class="font-serif text-2xl md:text-3xl font-bold text-primary-green mb-3">Book Direct & Save</h3>
-                <p class="text-earth-brown font-semibold text-sm uppercase tracking-wider mb-6">Only five private
-                    chalets hidden on our mountain slope.</p>
-                <a href="/book"
+                <h3 class="font-serif text-2xl md:text-3xl font-bold text-primary-green mb-3">{{teaser_title}}</h3>
+                <p class="text-earth-brown font-semibold text-sm uppercase tracking-wider mb-6">{{teaser_desc}}</p>
+                <a href="{{lang_prefix}}/book"
                     class="inline-block bg-primary-green hover:bg-earth-brown text-white font-bold text-sm tracking-widest uppercase px-10 py-4 rounded-full transition duration-300 shadow-lg">
-                    Book Your Stay
+                    {{teaser_cta}}
                 </a>
             </div>
         </section>
         <section id="amenities-highlights" class="py-24 bg-white px-4 text-center">
             <div class="max-w-4xl mx-auto">
-                <span class="text-xs font-bold tracking-[0.3em] uppercase text-earth-brown block mb-3">Resort
-                    Excellence</span>
-                <h2 class="font-serif text-3xl md:text-4xl font-bold text-primary-green mb-12">Luxury In Every Detail
+                <span
+                    class="text-xs font-bold tracking-[0.3em] uppercase text-earth-brown block mb-3">{{excellence_badge}}</span>
+                <h2 class="font-serif text-3xl md:text-4xl font-bold text-primary-green mb-12">{{excellence_title}}
                 </h2>
 
                 <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
                     <div class="flex flex-col items-center gap-4">
                         <i class="fa-solid fa-person-swimming text-2xl text-earth-brown"></i>
-                        <span class="text-xs font-bold uppercase tracking-wider text-stone-700">Private Heated
-                            Pools</span>
+                        <span
+                            class="text-xs font-bold uppercase tracking-wider text-stone-700">{{excellence_feat_pools}}</span>
                     </div>
                     <div class="flex flex-col items-center gap-4">
                         <i class="fa-solid fa-wifi text-2xl text-earth-brown"></i>
-                        <span class="text-xs font-bold uppercase tracking-wider text-stone-700">High-Speed WiFi</span>
+                        <span
+                            class="text-xs font-bold uppercase tracking-wider text-stone-700">{{excellence_feat_wifi}}</span>
                     </div>
                     <div class="flex flex-col items-center gap-4">
                         <i class="fa-solid fa-parking text-2xl text-earth-brown"></i>
-                        <span class="text-xs font-bold uppercase tracking-wider text-stone-700">Free Parking</span>
+                        <span
+                            class="text-xs font-bold uppercase tracking-wider text-stone-700">{{excellence_feat_parking}}</span>
                     </div>
                     <div class="flex flex-col items-center gap-4">
                         <i class="fa-solid fa-tree text-2xl text-earth-brown"></i>
-                        <span class="text-xs font-bold uppercase tracking-wider text-stone-700">Nature Trails</span>
+                        <span
+                            class="text-xs font-bold uppercase tracking-wider text-stone-700">{{excellence_feat_trails}}</span>
                     </div>
                 </div>
 
-                <a href="/amenities"
+                <a href="{{lang_prefix}}/amenities"
                     class="inline-block border border-earth-brown text-earth-brown hover:bg-earth-brown hover:text-white font-bold text-xs tracking-widest uppercase px-8 py-4 rounded-full transition-all duration-300">
-                    View Full Amenities List
+                    {{excellence_cta}}
                 </a>
             </div>
         </section>
@@ -477,28 +459,26 @@
         <section id="brochure" class="py-24 bg-stone-50 border-t border-b border-stone-200 px-4">
             <div class="max-w-6xl mx-auto">
                 <div class="text-center max-w-3xl mx-auto mb-16">
-                    <span class="text-xs font-bold tracking-[0.3em] uppercase text-earth-brown block mb-3">Resort Guide
-                        Booklet</span>
-                    <h2 class="font-serif text-3xl md:text-4xl font-bold text-primary-green mb-4">Download Our Official
-                        Welcome Brochure</h2>
+                    <span
+                        class="text-xs font-bold tracking-[0.3em] uppercase text-earth-brown block mb-3">{{brochure_badge}}</span>
+                    <h2 class="font-serif text-3xl md:text-4xl font-bold text-primary-green mb-4">{{brochure_title}}
+                    </h2>
                     <div class="w-16 h-[1px] bg-sand-beige mx-auto mb-6"></div>
                     <p class="text-stone-600 text-sm md:text-base leading-relaxed">
-                        Prepare for your escape to Mount Kozara by downloading our comprehensive handbook. Formatted
-                        perfectly for your offline viewing.
+                        {{brochure_desc}}
                     </p>
                 </div>
 
                 <div
                     class="p-8 bg-earth-brown/5 border border-earth-brown/20 rounded-3xl flex flex-col md:flex-row justify-between items-center gap-6 max-w-4xl mx-auto shadow-inner text-center md:text-left">
                     <div>
-                        <h4 class="font-serif text-lg font-bold text-primary-green">Official Welcome Handbook</h4>
-                        <p class="text-stone-500 text-xs">Includes resort map grid, village directions, and local safety
-                            rules.</p>
+                        <h4 class="font-serif text-lg font-bold text-primary-green">{{brochure_card_title}}</h4>
+                        <p class="text-stone-500 text-xs">{{brochure_card_desc}}</p>
                     </div>
                     <a href="Brochure Kozara Panoramic Resort Summer 2026.pdf"
                         download="Brochure Kozara Panoramic Resort Summer 2026.pdf"
                         class="bg-primary-green hover:bg-earth-brown text-white font-bold text-xs tracking-widest uppercase px-10 py-4 rounded-xl transition duration-300 shadow-md flex items-center gap-2">
-                        <i class="fa-solid fa-file-pdf"></i> Download PDF Booklet
+                        <i class="fa-solid fa-file-pdf"></i> {{brochure_download_text}}
                     </a>
                 </div>
             </div>
@@ -509,11 +489,11 @@
                 style="background-image: url('https://www.kozarapanoramicresort.ba/assets/Scenery/location.webp');">
             </div>
             <div class="relative z-10 max-w-6xl mx-auto px-4 text-center">
-                <span class="text-xs font-bold tracking-[0.3em] uppercase text-sand-beige block mb-3">Find Us On the
-                    Mountain</span>
-                <h2 class="font-serif text-3xl md:text-4xl font-bold mb-6">Our Majestic Location</h2>
+                <span
+                    class="text-xs font-bold tracking-[0.3em] uppercase text-sand-beige block mb-3">{{location_badge}}</span>
+                <h2 class="font-serif text-3xl md:text-4xl font-bold mb-6">{{location_title}}</h2>
                 <p class="text-sm text-stone-300 max-w-2xl mx-auto mb-10 leading-relaxed">
-                    45-65 km from Banja Luka (depending on route) • Gradiška • close to the Croatian border.
+                    {{location_desc}}
                 </p>
 
                 <div
@@ -531,13 +511,14 @@
             <div class="max-w-6xl mx-auto space-y-24">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                     <div class="space-y-4">
-                        <span class="text-xs font-bold tracking-[0.2em] uppercase text-earth-brown block">Luxury &
-                            Peace</span>
-                        <h2 class="font-serif text-3xl font-bold text-primary-green">Our Story: Luxury and Peace in
-                            Perfect Harmony</h2>
+                        <span
+                            class="text-xs font-bold tracking-[0.2em] uppercase text-earth-brown block">{{story_badge}}</span>
+                        <h2 class="font-serif text-3xl font-bold text-primary-green">{{story_title}}</h2>
                         <p class="text-stone-600 text-sm leading-relaxed">
-                            Nestled in the lush landscapes of Northern Bosnia, our resort offers an unforgettable
-                            boutique experience with complete intimacy.
+                            {{story_desc}}
+                        </p>
+                        <p class="text-stone-600 text-sm leading-relaxed">
+                            {{story_desc2}}
                         </p>
                     </div>
                     <div class="rounded-2xl overflow-hidden shadow-xl aspect-video md:aspect-[4/3] zoom-hover">
@@ -549,51 +530,44 @@
             </div>
         </section>
 
+        <section id="about-kozara" class="py-24 px-4 bg-white border-b border-stone-200">
+            <div class="max-w-6xl mx-auto space-y-24">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+
+                    <div class="rounded-2xl overflow-hidden shadow-xl aspect-video md:aspect-[4/3] zoom-hover">
+                        <img class="w-full h-full object-cover"
+                            src="https://www.kozarapanoramicresort.ba/assets/Text Blocks/image08198.webp"
+                            alt="Authentic Village Hike">
+                    </div>
+                    <div class="space-y-4">
+                        <span
+                            class="text-xs font-bold tracking-[0.2em] uppercase text-earth-brown block">{{story_badge}}</span>
+                        <h2 class="font-serif text-3xl font-bold text-primary-green">{{kozara_title}}</h2>
+                        <p class="text-stone-600 text-sm leading-relaxed">
+                            {{kozara_desc}}
+                        </p>
+                        <p class="text-stone-600 text-sm leading-relaxed">
+                            {{kozara_desc2}}
+                        </p>
+                        <p class="text-stone-600 text-sm leading-relaxed">
+                            {{kozara_desc3}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <section id="blog" class="py-24 px-4 bg-bg-soft scroll-mt-20">
             <div class="max-w-6xl mx-auto">
                 <div class="text-center max-w-2xl mx-auto mb-16">
-                    <span class="text-xs font-bold tracking-[0.3em] uppercase text-earth-brown block mb-3">Insights &
-                        Travel</span>
-                    <h2 class="font-serif text-3xl md:text-4xl font-bold text-primary-green mb-4">From Our Blog</h2>
+                    <span
+                        class="text-xs font-bold tracking-[0.3em] uppercase text-earth-brown block mb-3">{{blog_badge}}</span>
+                    <h2 class="font-serif text-3xl md:text-4xl font-bold text-primary-green mb-4">{{blog_title}}</h2>
                     <div class="w-16 h-px bg-sand-beige mx-auto"></div>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div
-                        class="bg-white rounded-2xl overflow-hidden border border-stone-200/80 shadow-sm flex flex-col justify-between">
-                        <div class="zoom-hover h-[240px] overflow-hidden">
-                            <img class="w-full h-full object-cover"
-                                src="https://www.kozarapanoramicresort.ba/uploads/1772232438330-Kozara-panoramic-resort-27.02.2026-8.jpg"
-                                alt="Southeast Europe Destination">
-                        </div>
-                        <div class="p-6 md:p-8 flex-grow flex flex-col justify-between">
-                            <div>
-                                <h3 class="font-serif text-xl font-bold text-primary-green mb-3">Kozara Village Emerging
-                                    as a New Luxury Nature Destination</h3>
-                            </div>
-                            <a href="#"
-                                class="inline-block border border-earth-brown hover:bg-earth-brown hover:text-white text-earth-brown font-bold text-xs tracking-wider uppercase text-center py-3.5 rounded-lg transition duration-300">Read
-                                Blog</a>
-                        </div>
-                    </div>
-
-                    <div
-                        class="bg-white rounded-2xl overflow-hidden border border-stone-200/80 shadow-sm flex flex-col justify-between">
-                        <div class="zoom-hover h-[240px] overflow-hidden">
-                            <img class="w-full h-full object-cover"
-                                src="https://www.kozarapanoramicresort.ba/uploads/1767010989077-borovnica-61.jpg"
-                                alt="Dragana and James founders">
-                        </div>
-                        <div class="p-6 md:p-8 flex-grow flex flex-col justify-between">
-                            <div>
-                                <h3 class="font-serif text-xl font-bold text-primary-green mb-3">Dragana and James
-                                    create a paradise for hedonists on Kozara</h3>
-                            </div>
-                            <a href="#"
-                                class="inline-block border border-earth-brown hover:bg-earth-brown hover:text-white text-earth-brown font-bold text-xs tracking-wider uppercase text-center py-3.5 rounded-lg transition duration-300">Read
-                                Blog</a>
-                        </div>
-                    </div>
+                    {{BLOGS_TEMPLATE}}
                 </div>
             </div>
         </section>
@@ -607,14 +581,12 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                     <div class="space-y-6">
                         <div class="flex items-center gap-3">
-                            <img src="/assets/logo_stripped.svg"
-                                onerror="this.onerror=null; this.src='https://www.kozarapanoramicresort.ba/assets/logo_stripped.svg';"
-                                alt="Kozara Panoramic Resort Logo" class="h-10 w-auto brightness-0 invert">
+                            <img src="/assets/logo_stripped.svg" alt="Kozara Panoramic Resort Logo"
+                                class="h-10 w-auto brightness-0 invert">
                             <span class="font-serif tracking-widest text-2xl font-bold">KOZARA PANORAMIC RESORT</span>
                         </div>
                         <p class="text-stone-300 text-sm leading-relaxed">
-                            A boutique mountain sanctuary offering five luxury private chalets with heated pools.
-                            Discover untouched nature and 5-star comfort in Northern Bosnia.
+                            {{footer_brand_desc}}
                         </p>
                         <div class="flex gap-4">
                             <a href="#"
@@ -629,31 +601,42 @@
                     </div>
 
                     <div>
-                        <h4 class="font-serif text-lg font-bold mb-6 text-sand-beige">Quick Links</h4>
+                        <h4 class="font-serif text-lg font-bold mb-6 text-sand-beige">{{footer_col_links}}</h4>
                         <ul class="space-y-4 text-sm text-stone-300">
-                            <li><a href="#showcase" class="hover:text-white transition">The Chalets</a></li>
-                            <li><a href="/amenities" class="hover:text-white transition">Resort Amenities</a></li>
-                            <li><a href="#location" class="hover:text-white transition">Our Location</a></li>
-                            <li><a href="/faq" class="hover:text-white transition">Frequently Asked Questions</a>
+                            <li><a href="#showcase" class="hover:text-white transition">{{footer_link_chalets}}</a></li>
+                            <li><a href="{{lang_prefix}}/amenities"
+                                    class="hover:text-white transition">{{footer_link_amenities}}</a>
                             </li>
-                            <li><a href="/book" class="hover:text-white transition">Book Your Stay</a></li>
+                            <li><a href="#location" class="hover:text-white transition">{{footer_link_location}}</a>
+                            </li>
+                            <li><a href="{{lang_prefix}}/faq"
+                                    class="hover:text-white transition">{{footer_link_faq}}</a>
+                            </li>
+                            <li><a href="{{lang_prefix}}/book" class="hover:text-white transition">
+                                    {{nav_cta}}
+                                </a></li>
                         </ul>
                     </div>
 
                     <div>
-                        <h4 class="font-serif text-lg font-bold mb-6 text-sand-beige">Contact Us</h4>
+                        <h4 class="font-serif text-lg font-bold mb-6 text-sand-beige">{{footer_col_contact}}</h4>
                         <ul class="space-y-4 text-sm text-stone-300">
                             <li class="flex items-start gap-3">
                                 <i class="fa-solid fa-location-dot mt-1 text-earth-brown"></i>
-                                <span>Kozara Mountain, Gradiška,<br>Bosnia and Herzegovina</span>
+                                <span>Kozara BB, 78400 Gradiška, Bosnia & Herzegovina</span>
                             </li>
                             <li class="flex items-center gap-3">
-                                <i class="fa-solid fa-phone text-earth-brown"></i>
-                                <span>+387 00 000 000</span>
+                                <i class="fa-solid fa-phone mr-1 text-earth-brown"></i> <a href="tel:+38766767622"
+                                    class="hover:underline">+387 66 767 622</a> (BA)
                             </li>
                             <li class="flex items-center gap-3">
-                                <i class="fa-solid fa-envelope text-earth-brown"></i>
-                                <span>info@kozarapanoramicresort.ba</span>
+                                <i class="fa-brands fa-whatsapp mr-1 text-earth-brown"></i> <a href="tel:+4915117627478"
+                                    class="hover:underline">+49 151 176 27478</a> (DE)
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i class="fa-solid fa-envelope mr-1 text-earth-brown"></i> <a
+                                    href="mailto:info@kozarapanoramicresort.ba"
+                                    class="hover:underline">info@kozarapanoramicresort.ba</a>
                             </li>
                         </ul>
                     </div>
@@ -662,11 +645,14 @@
 
                 <div
                     class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-stone-400">
-                    <p>© 2026 Kozara Panoramic Resort. All rights reserved.</p>
+                    <p>{{footer_copyright}}</p>
                     <div class="flex gap-6">
-                        <a href="/notice#privacy" class="hover:text-white transition">Privacy Policy</a>
-                        <a href="/notice#terms" class="hover:text-white transition">Terms of Service</a>
-                        <a href="/notice#cookies" class="hover:text-white transition">Cookie Policy</a>
+                        <a href="{{lang_prefix}}/notice#privacy"
+                            class="hover:text-white transition">{{footer_policy_privacy}}</a>
+                        <a href="{{lang_prefix}}/notice#terms"
+                            class="hover:text-white transition">{{footer_policy_terms}}</a>
+                        <a href="{{lang_prefix}}/notice#cookies"
+                            class="hover:text-white transition">{{footer_policy_cookie}}</a>
                     </div>
                 </div>
             </div>
@@ -698,17 +684,6 @@
             if (window.gsap && window.ScrollTrigger) {
                 gsap.registerPlugin(ScrollTrigger);
 
-                gsap.to('#floating-book-btn', {
-                    scrollTrigger: {
-                        trigger: 'header',
-                        start: 'bottom 20%',
-                        toggleActions: 'play none none reverse',
-                    },
-                    opacity: 1,
-                    scale: 1,
-                    pointerEvents: 'auto',
-                    duration: 0.3
-                });
 
                 const shared = {
                     trigger: "header",
@@ -795,6 +770,7 @@
             fullCarousel.innerHTML = "";
         });
     </script>
+    <script src="/js/lang.js"></script>
 </body>
 
 </html>

@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Frequently Asked Questions | Kozara Panoramic Resort</title>
+    <title>FAQ | Kozara Panoramic Resort</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,9 +12,16 @@
         href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Playfair+Display:ital,wght=0,400;0,600;0,700;1,400&display=swap"
         rel="stylesheet">
 
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Kozara Panoramic resort" />
+    <link rel="manifest" href="/site.webmanifest" />
+
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <link href="css/main.css" rel="stylesheet" />
+    <link href="/css/base.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -52,25 +59,26 @@
     <nav id="main-nav" class="py-2 md:py-5 px-6 md:px-12">
         <div class="nav-links-container hidden lg:flex flex-1 justify-end mr-8">
             <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300"
-                href="/#showcase">Chalets</a>
+                href="{{lang_prefix}}/#showcase">{{nav_chalets}}</a>
             <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300 ml-8"
-                href="/#why-love-us">Why Us</a>
+                href="{{lang_prefix}}/#why-love-us">{{nav_why_us}}</a>
             <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300 ml-8"
-                href="/amenities">Amenities</a>
+                href="{{lang_prefix}}/amenities">{{nav_amenities}}</a>
         </div>
 
         <div id="logo_stripped_reserve_spacer" class="hidden lg:block"></div>
-        <a href="/" id="logo_stripped" class="block">
+        <a href="{{lang_prefix}}/" id="logo_stripped" class="block">
             <img src="/assets/logo_stripped.svg"
                 onerror="this.onerror=null; this.src='https://www.kozarapanoramicresort.ba/assets/logo_stripped.svg';"
                 alt="Kozara Panoramic Resort Logo" class="w-full h-auto block">
         </a>
         <div class="nav-links-container hidden lg:flex flex-1 justify-start ml-8">
-            <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300" href="/#location">About
-                Us</a>
+            <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300"
+                href="{{lang_prefix}}/#location">{{nav_about_us}}</a>
             <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300 ml-8"
-                href="/#blog">Blog</a>
-            <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300 ml-8" href="/faq">FAQ</a>
+                href="{{lang_prefix}}/#blog">{{nav_blog}}</a>
+            <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300 ml-8"
+                href="{{lang_prefix}}/faq">{{nav_faq}}</a>
 
             <sl-dropdown class="ml-8">
                 <button slot="trigger"
@@ -85,9 +93,9 @@
                 </sl-menu>
             </sl-dropdown>
 
-            <a href="/book"
+            <a href="{{lang_prefix}}/book"
                 class="bg-earth-brown hover:bg-primary-green text-white font-bold text-xs tracking-widest uppercase px-6 py-3 rounded-full transition-all duration-300 shadow-lg ml-6 text-center">
-                Book Your Stay
+                {{nav_cta}}
             </a>
         </div>
 
@@ -129,20 +137,22 @@
         </div>
 
         <div class="flex flex-col gap-6 text-xl font-serif text-center my-auto">
-            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="/#showcase">
+            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="{{lang_prefix}}/#showcase">
                 Chalets</a>
-            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="/#why-love-us">Why
-                Us</a>
-            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="/amenities">Amenities</a>
-            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="/#location">About
-                Us</a>
-            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="/faq">FAQ</a>
+            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition"
+                href="{{lang_prefix}}/#why-love-us">{{nav_why_us}}</a>
+            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition"
+                href="{{lang_prefix}}/amenities">{{nav_amenities}}</a>
+            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition"
+                href="{{lang_prefix}}/#location">{{nav_about_us}}</a>
+            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition"
+                href="{{lang_prefix}}/faq">{{nav_faq}}</a>
         </div>
 
         <div class="flex flex-col gap-4 text-center">
-            <a href="/book" onclick="toggleMobileMenu();"
+            <a href="{{lang_prefix}}/book" onclick="toggleMobileMenu();"
                 class="bg-earth-brown text-white py-4 rounded-full font-bold uppercase tracking-wider text-sm block">
-                Book Your Stay
+                {{nav_cta}}
             </a>
             <p class="text-xs text-stone-500">© 2026 Kozara Panoramic Resort</p>
         </div>
@@ -167,14 +177,13 @@
         </div>
 
         <div class="relative z-10 max-w-4xl mx-auto text-white px-4 pt-24">
-            <span class="text-xs md:text-sm font-bold tracking-[0.4em] uppercase text-sand-beige mb-4 block">Boutique
-                Mountain Sanctuary</span>
+            <span
+                class="text-xs md:text-sm font-bold tracking-[0.4em] uppercase text-sand-beige mb-4 block">{{hero_badge}}</span>
             <h1 class="font-serif text-3xl sm:text-5xl md:text-6xl font-bold leading-tight mb-4">
-                Luxury Private Chalets <br><span class="italic text-sand-beige font-normal">with Heated Pools</span>
+                {{hero_title_main}} <br><span class="italic text-sand-beige font-normal">{{hero_title_italic}}</span>
             </h1>
             <p class="text-base sm:text-lg md:text-xl font-light text-stone-200 max-w-2xl mx-auto mb-8 leading-relaxed">
-                Peaceful nature escape near Banja Luka & Croatia. Enjoy untouched nature, panoramic views, and
-                5-star comfort.
+                {{hero_subtitle}}
             </p>
         </div>
 
@@ -183,741 +192,37 @@
     <section class="py-16 px-4 bg-stone-50 border-b border-stone-200/60">
         <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 items-center pt-8">
             <div class="md:col-span-2 space-y-4 text-left">
-                <span class="text-xs font-bold tracking-widest text-earth-brown uppercase">Personalized Support
-                    Desk</span>
-                <h2 class="font-serif text-3xl md:text-4xl font-bold text-primary-green">The Spirit of Kozara
-                    Hospitality</h2>
+                <span class="text-xs font-bold tracking-widest text-earth-brown uppercase">{{faq_spirit_badge}}</span>
+                <h2 class="font-serif text-3xl md:text-4xl font-bold text-primary-green">{{faq_spirit_title}}</h2>
                 <p class="text-stone-600 text-sm leading-relaxed">
-                    At Kozara Panoramic Resort, we combine the rugged wilderness of the Balkans with 5-star continental
-                    comforts. Whether you have questions about our private heated pool operational seasons, local
-                    check-in hours, unpaved local access roads, GP support, or self-catering hampers, our team is always
-                    nearby to help.
+                    {{faq_spirit_desc}}
                 </p>
                 <div class="flex flex-wrap gap-4 text-xs font-bold text-stone-700">
-                    <span class="flex items-center gap-1.5"><i class="fa-solid fa-faucet-drip text-earth-brown"></i> Tap
-                        Water Safe</span>
+                    <span class="flex items-center gap-1.5"><i class="fa-solid fa-faucet-drip text-earth-brown"></i>
+                        {{faq_spirit_feature_1}}</span>
                     <span class="flex items-center gap-1.5"><i class="fa-solid fa-shield-halved text-earth-brown"></i>
-                        Fenced resort Boundaries</span>
+                        {{faq_spirit_feature_2}}</span>
                     <span class="flex items-center gap-1.5"><i class="fa-solid fa-user-doctor text-earth-brown"></i>
-                        Private GP Consultation Access</span>
+                        {{faq_spirit_feature_3}}</span>
                 </div>
             </div>
             <div class="p-6 bg-white border border-stone-200 rounded-2xl text-left space-y-3 shadow-sm">
-                <h4 class="font-serif font-bold text-primary-green text-lg">Local Help Desk</h4>
-                <p class="text-xs text-stone-500">Need immediate offline assistance with airport transfers or special
-                    welcome hamper arrangements?</p>
+                <h4 class="font-serif font-bold text-primary-green text-lg">{{faq_help_desk_title}}</h4>
+                <p class="text-xs text-stone-500">{{faq_help_desk_desc}}</p>
                 <a href="https://wa.me/4915117627478" target="_blank"
                     class="inline-flex items-center gap-2 text-xs font-bold text-earth-brown hover:text-primary-green transition">
-                    <i class="fa-brands fa-whatsapp text-sm"></i> Chat with Dragana on WhatsApp
+                    <i class="fa-brands fa-whatsapp text-sm"></i> {{faq_help_desk_cta}}
                 </a>
             </div>
         </div>
     </section>
 
-    <div class="py-16 max-w-5xl mx-auto px-4">
-
-        <div class="space-y-12">
-            <div class="faq-letter-group" data-letter="A">
-                <div class="text-sm font-bold text-earth-brown tracking-widest border-b border-stone-100 pb-1 mb-4">A
-                </div>
-
-                <sl-details class="shadow-sm" data-category="chalets"
-                    summary="Air Conditioning — Is there air conditioning in the chalets?">
-                    Yes. All chalets are equipped with air conditioning for guest comfort during warmer months.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="travel"
-                    summary="Airports — Which airport is closest to the resort?">
-                    <p class="mb-2">Banja Luka International Airport is the closest airport at approximately 45 minutes
-                        driving time.</p>
-                    <p class="mb-2">Other convenient airports include:</p>
-                    <ul class="list-disc pl-5 mb-2 space-y-1 text-xs">
-                        <li><strong>Zagreb Airport</strong> – approximately 2 hours depending on border crossing times
-                        </li>
-                        <li><strong>Sarajevo International Airport</strong> – approximately 3.5 hours</li>
-                        <li><strong>Belgrade Nikola Tesla Airport</strong> – approximately 4 hours</li>
-                    </ul>
-                    <p>Airport transfer assistance may be available upon request depending on availability.</p>
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="travel" summary="ATM — Is there an ATM nearby?">
-                    Yes. ATMs are available in Gradiška, approximately 25–30 minutes from the resort.
-                </sl-details>
-            </div>
-
-            <div class="faq-letter-group" data-letter="B">
-                <div class="text-sm font-bold text-earth-brown tracking-widest border-b border-stone-100 pb-1 mb-4">B
-                </div>
-
-                <sl-details class="shadow-sm" data-category="local"
-                    summary="Barbecue Facilities — Can we barbecue at the resort?">
-                    Yes. Modern Ninja Woodfire electric BBQ facilities may be available for rent depending on the chalet
-                    and season.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="local"
-                    summary="Bikes & Cycling — Is cycling possible around the resort?">
-                    Yes. The Kozara region offers beautiful cycling opportunities through forests, hills, panoramic
-                    countryside areas, and routes towards Kozara National Park.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="policies" summary="Booking — How can I book the resort?">
-                    You can book directly through Kozara Panoramic Resort Official Website or via selected booking
-                    platforms.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="local" summary="Breakfast — Is breakfast included?">
-                    <p class="mb-2">The resort operates primarily as self-catering accommodation.</p>
-                    <p class="font-bold mb-1">Will breakfast hampers be available in the future?</p>
-                    <p>The resort may introduce optional organic breakfast hampers in the future featuring selected
-                        local products.</p>
-                </sl-details>
-            </div>
-
-            <div class="faq-letter-group" data-letter="C">
-                <div class="text-sm font-bold text-earth-brown tracking-widest border-b border-stone-100 pb-1 mb-4">C
-                </div>
-
-                <sl-details class="shadow-sm" data-category="local"
-                    summary="Coffee — Is coffee provided in the chalets?">
-                    <p class="mb-2">Yes. A small complimentary welcome supply of 4 coffee pods is provided for guests on
-                        arrival.</p>
-                    <p class="font-bold mb-1">Which coffee system is used?</p>
-                    <p class="mb-2">The chalets use the Nescafé Dolce Gusto coffee pod system.</p>
-                    <p class="font-bold mb-1">Can we buy additional coffee pods nearby?</p>
-                    <p>Yes. Additional Dolce Gusto coffee pods can easily be purchased in supermarkets and shops in
-                        Gradiška.</p>
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="policies"
-                    summary="Cancellation Policy — What is your cancellation policy?">
-                    Cancellation policies depend on the booking platform and selected rate.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="chalets"
-                    summary="Chalet Capacity — How many people can stay in one chalet?">
-                    Each chalet can accommodate up to 6 guests.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="chalets"
-                    summary="Chalet Kitchens — Do the chalets have kitchens?">
-                    Yes. Every chalet has a fully equipped kitchen.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="chalets"
-                    summary="Chalet “Star” — What makes Chalet “Star” special?">
-                    <p class="mb-2">Chalet “Star” is located separately below the other four chalets, providing:</p>
-                    <ul class="list-disc pl-5 mb-2 space-y-1 text-xs">
-                        <li>Maximum privacy</li>
-                        <li>A standalone location</li>
-                        <li>Panoramic valley views</li>
-                        <li>A peaceful romantic atmosphere</li>
-                        <li>One of the best sunrise and sunset positions at the resort</li>
-                    </ul>
-                    <p class="font-bold mb-1">Is Chalet “Star” more expensive?</p>
-                    <p class="mb-2">No. Chalet “Star” follows the same pricing structure as the other chalets depending
-                        on season and availability.</p>
-                    <p class="font-bold mb-1">Why is Chalet “Star” often unavailable?</p>
-                    <p class="mb-2">It is usually the first chalet to be booked because of its exceptional privacy and
-                        location.</p>
-                    <p class="font-bold mb-1">How do we request Chalet “Star”?</p>
-                    <p class="mb-2">Guests may request Chalet “Star” during the booking process depending on
-                        availability.</p>
-                    <p class="font-bold mb-1">Can we access Chalet “Star” by car?</p>
-                    <p>Yes. Guests staying in Chalet “Star” may access the chalet area by car for arrival, unloading
-                        luggage, and collecting luggage at departure. General guest parking is otherwise located
-                        separately outside the main chalet areas to help maintain the peaceful atmosphere and privacy
-                        around all chalets.</p>
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="policies"
-                    summary="Check-In & Check-Out — What are standard times?">
-                    <p class="mb-2">Standard check-in is normally between 08:00 and 14:00 hrs. Standard check-out time
-                        is 10:00 hrs.</p>
-                    <p class="font-bold mb-1">Is self check-in available?</p>
-                    <p>Yes. Self check-in is available 24/7 with prior notice and advance arrangement with the resort.
-                    </p>
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="policies"
-                    summary="Children — Is the resort family friendly?">
-                    <p class="mb-2">Yes. Families are welcome, and the chalets are suitable for families with children.
-                    </p>
-                    <p>Children remain the responsibility of parents or guardians at all times, especially around pools,
-                        terraces, and outdoor areas.</p>
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="travel"
-                    summary="Currency Exchange — Can foreign currency be exchanged?">
-                    Yes. Major international currencies can easily be exchanged into Convertible Marks (KM/BAM) in
-                    Gradiška.
-                </sl-details>
-            </div>
-
-            <!-- D -->
-            <div class="faq-letter-group" data-letter="D">
-                <div class="text-sm font-bold text-earth-brown tracking-widest border-b border-stone-100 pb-1 mb-4">D
-                </div>
-
-                <sl-details class="shadow-sm" data-category="policies"
-                    summary="Direct Booking — Is direct booking cheaper?">
-                    Direct booking may offer the best available prices and special offers.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="policies"
-                    summary="Doctors & Medical Assistance — Is there a doctor nearby?">
-                    Yes. The resort also has access to its own private General Practitioner (GP) for guest consultations
-                    if required.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="policies" summary="Drones — Are drones allowed?">
-                    Please ask reception before operating drones at the resort.
-                </sl-details>
-            </div>
-
-            <!-- E -->
-            <div class="faq-letter-group" data-letter="E">
-                <div class="text-sm font-bold text-earth-brown tracking-widest border-b border-stone-100 pb-1 mb-4">E
-                </div>
-
-                <sl-details class="shadow-sm" data-category="policies"
-                    summary="Early Check-In — Is early check-in possible?">
-                    Early check-in may be possible depending on chalet preparation and occupancy levels.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="travel"
-                    summary="Electric Vehicles — Can electric vehicles charge at the resort?">
-                    A dedicated electric vehicle charging station is planned for the resort as soon as possible.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="policies"
-                    summary="Emergency Contacts — Are emergency contact details available?">
-                    Yes. Important local emergency numbers and contact details are provided inside the chalets.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="policies"
-                    summary="English Language — Is English spoken at the resort?">
-                    Yes. Resort staff can assist international guests in English.
-                </sl-details>
-            </div>
-
-            <!-- F -->
-            <div class="faq-letter-group" data-letter="F">
-                <div class="text-sm font-bold text-earth-brown tracking-widest border-b border-stone-100 pb-1 mb-4">F
-                </div>
-
-                <sl-details class="shadow-sm" data-category="local"
-                    summary="Food Delivery — Can food be delivered to the resort?">
-                    <p class="mb-2">Yes. Local food delivery may be arranged before arrival or during your stay
-                        depending on availability.</p>
-                    <p>Requests are preferably made by email or written message to help ensure accuracy.</p>
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="policies"
-                    summary="Full Resort Rental — Can we reserve the entire resort?">
-                    <p class="mb-2">Yes. Full resort bookings may be arranged for:</p>
-                    <ul class="list-disc pl-5 space-y-1 text-xs">
-                        <li>Family reunions</li>
-                        <li>Wellness retreats</li>
-                        <li>Team-building events</li>
-                        <li>Small weddings</li>
-                        <li>Private celebrations</li>
-                    </ul>
-                </sl-details>
-            </div>
-
-            <!-- G -->
-            <div class="faq-letter-group" data-letter="G">
-                <div class="text-sm font-bold text-earth-brown tracking-widest border-b border-stone-100 pb-1 mb-4">G
-                </div>
-
-                <sl-details class="shadow-sm" data-category="policies"
-                    summary="German Language — Is German spoken at the resort?">
-                    Basic German communication may also be available.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="local"
-                    summary="Gift Vouchers — Do you offer gift vouchers?">
-                    Yes. Gift vouchers and special stay packages may be available.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="local"
-                    summary="Glass Near Pools — Are glass bottles allowed near the pools?">
-                    No. For guest safety, glass is not permitted near pool areas.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="local"
-                    summary="Grocery Delivery — Can groceries be delivered before arrival?">
-                    In some cases, groceries or welcome items may be arranged before arrival or during your stay
-                    depending on availability.
-                </sl-details>
-            </div>
-
-            <!-- H -->
-            <div class="faq-letter-group" data-letter="H">
-                <div class="text-sm font-bold text-earth-brown tracking-widest border-b border-stone-100 pb-1 mb-4">H
-                </div>
-
-                <sl-details class="shadow-sm" data-category="chalets"
-                    summary="Hair Dryer — Is there a hair dryer in the chalet?">
-                    Yes. Each chalet is equipped with a good-quality hair dryer for guest use.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="chalets"
-                    summary="Heating — Is there heating in the chalets?">
-                    Yes. The chalets feature underfloor heating and additional heating systems.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="local" summary="Hiking — Are there hiking trails nearby?">
-                    Yes. The surrounding hills and forests provide scenic walking and hiking opportunities. Day visits
-                    to Kozara National Park are also possible.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="policies"
-                    summary="Housekeeping — Is housekeeping provided during the stay?">
-                    Housekeeping arrangements depend on stay length and booking type. Additional housekeeping may be
-                    available upon request.
-                </sl-details>
-            </div>
-
-            <!-- I -->
-            <div class="faq-letter-group" data-letter="I">
-                <div class="text-sm font-bold text-earth-brown tracking-widest border-b border-stone-100 pb-1 mb-4">I
-                </div>
-
-                <sl-details class="shadow-sm" data-category="local" summary="Instagram — What is your instagram page?">
-                    Check out <a href="#" class="text-primary-green underline font-bold">Kozara Panoramic Resort
-                        Instagram</a>.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="chalets" summary="Insulation — Are the chalets insulated?">
-                    Yes. The chalets are designed for comfort in both summer and winter conditions.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="chalets"
-                    summary="Internet & Wi-Fi — Is there Wi-Fi at the resort?">
-                    Yes. Free Wi-Fi is available throughout the resort and chalets.
-                </sl-details>
-            </div>
-
-            <!-- J -->
-            <div class="faq-letter-group" data-letter="J">
-                <div class="text-sm font-bold text-earth-brown tracking-widest border-b border-stone-100 pb-1 mb-4">J
-                </div>
-
-                <sl-details class="shadow-sm" data-category="local"
-                    summary="James & Dragana – Resort Founders — Who created Kozara Panoramic Resort?">
-                    Kozara Panoramic Resort was created by James and Dragana Truscott as a family project combining
-                    British and Bosnian influences with a shared vision of building a peaceful panoramic nature retreat
-                    focused on privacy, relaxation, comfort, and authentic hospitality.
-                </sl-details>
-            </div>
-
-            <!-- K -->
-            <div class="faq-letter-group" data-letter="K">
-                <div class="text-sm font-bold text-earth-brown tracking-widest border-b border-stone-100 pb-1 mb-4">K
-                </div>
-
-                <sl-details class="shadow-sm" data-category="local"
-                    summary="Kozara National Park — Is Kozara National Park nearby?">
-                    Yes. Kozara National Park is within reach by car and is ideal for hiking, cycling, sightseeing, and
-                    enjoying nature.
-                </sl-details>
-            </div>
-
-            <!-- L -->
-            <div class="faq-letter-group" data-letter="L">
-                <div class="text-sm font-bold text-earth-brown tracking-widest border-b border-stone-100 pb-1 mb-4">L
-                </div>
-
-                <sl-details class="shadow-sm" data-category="policies"
-                    summary="Late Checkout — Is late checkout possible?">
-                    Late checkout may be available depending on occupancy and prior arrangement.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="policies"
-                    summary="Laundry Service — Is laundry service available?">
-                    Limited laundry assistance may be available depending on occupancy and staffing.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="travel"
-                    summary="Location & Navigation — What should we enter into our satnav?">
-                    Detailed arrival instructions and GPS guidance will be sent before arrival.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="policies"
-                    summary="Lost Property — What happens if I forget something at the resort?">
-                    Please contact the resort as soon as possible.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="policies" summary="Loud Music — Is loud music allowed?">
-                    Guests are kindly asked to respect the peaceful atmosphere of the resort, especially during quiet
-                    hours.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="policies"
-                    summary="Luggage Storage — Can luggage be stored before check-in or after check-out?">
-                    Limited luggage storage may be possible by prior arrangement.
-                </sl-details>
-            </div>
-
-            <!-- M -->
-            <div class="faq-letter-group" data-letter="M">
-                <div class="text-sm font-bold text-earth-brown tracking-widest border-b border-stone-100 pb-1 mb-4">M
-                </div>
-
-                <sl-details class="shadow-sm" data-category="policies"
-                    summary="Minimum Stay — Is there a minimum stay requirement?">
-                    Minimum stay requirements depend on the season and selected chalet.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="policies"
-                    summary="Mobile Phone Signal — Is there mobile phone signal?">
-                    Yes. Depending on your provider and location at the resort, you may receive both Bosnian and
-                    Croatian (EU) mobile network options.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="policies"
-                    summary="Music During Exclusive Resort Rental — Can music be played during exclusive full-resort bookings?">
-                    Yes. Reasonable music and social activities may be permitted if one group rents all 5 chalets.
-                </sl-details>
-            </div>
-
-            <!-- N -->
-            <div class="faq-letter-group" data-letter="N">
-                <div class="text-sm font-bold text-earth-brown tracking-widest border-b border-stone-100 pb-1 mb-4">N
-                </div>
-
-                <sl-details class="shadow-sm" data-category="chalets"
-                    summary="Nature & Relaxation — What makes the resort special?">
-                    The resort offers private luxury wooden chalets with heated pools, panoramic views, fresh mountain
-                    air, silence, privacy, and peaceful relaxation surrounded by nature.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="chalets"
-                    summary="Night Pool Use — Can we use the pool at night?">
-                    Yes. Pools feature lighting for evening use. Pool use is always at guests’ own risk.
-                </sl-details>
-            </div>
-
-            <!-- O -->
-            <div class="faq-letter-group" data-letter="O">
-                <div class="text-sm font-bold text-earth-brown tracking-widest border-b border-stone-100 pb-1 mb-4">O
-                </div>
-
-                <sl-details class="shadow-sm" data-category="chalets"
-                    summary="Outdoor Terrace — Do the chalets have private terraces?">
-                    Yes. Every chalet includes its own private panoramic terrace area featuring high-quality sliding
-                    double-glazed glass systems, creating a flexible indoor living space with the option to fully open
-                    the sliding doors during warmer weather.
-                </sl-details>
-            </div>
-
-            <!-- P -->
-            <div class="faq-letter-group" data-letter="P">
-                <div class="text-sm font-bold text-earth-brown tracking-widest border-b border-stone-100 pb-1 mb-4">P
-                </div>
-
-                <sl-details class="shadow-sm" data-category="travel" summary="Parking — Is parking available?">
-                    Yes. Free parking is available close to the chalets.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="policies" summary="Parties — Is this a party resort?">
-                    <p class="mb-2">No. Kozara Panoramic Resort is primarily designed as a peaceful nature and wellness
-                        retreat.</p>
-                    <p class="font-bold mb-1">Are parties allowed?</p>
-                    <p>No large uncontrolled parties are permitted.</p>
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="policies"
-                    summary="Payment Methods — What payment methods do you accept?">
-                    We accept cash, major bank cards, bank transfer, and selected digital payment methods.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="travel"
-                    summary="Petrol Station — Is there a petrol station nearby?">
-                    Yes. Petrol stations are available in the wider Gradiška region.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="policies" summary="Pets — Are pets allowed?">
-                    Yes. Smaller pets and registered assistance dogs may be permitted by prior arrangement.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="travel" summary="Pharmacy — Is there a pharmacy nearby?">
-                    Yes. Pharmacies are available in Gradiška.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="local"
-                    summary="Photography — Is the resort good for photography?">
-                    Absolutely. Many guests visit specifically for the spectacular sunrises, panoramic cloud views,
-                    sunsets, wildlife, and peaceful forest scenery.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="chalets"
-                    summary="Pool Depth — How deep and large are the pools?">
-                    Each private pool measures approximately 6 metres x 3 metres and includes an integrated underwater
-                    ledge bench for relaxing. The main swimming area has an approximate water depth of 1.40 metres.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="chalets"
-                    summary="Pool Safety — Should children be supervised near the pools?">
-                    Yes. Children must always be supervised by adults around the pool areas.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="chalets"
-                    summary="Pools — Does every chalet have its own pool?">
-                    <p class="mb-2">Yes. Every chalet has its own private heated pool.</p>
-                    <p class="font-bold mb-1">Are the pools heated?</p>
-                    <p class="mb-2">Yes. Pools are heated during the operating season.</p>
-                    <p class="font-bold mb-1">Are the pools private?</p>
-                    <p class="mb-2">Yes. Each pool belongs exclusively to its chalet.</p>
-                    <p class="font-bold mb-1">When are the pools open?</p>
-                    <p class="mb-2">Pool season generally runs from spring until autumn depending on weather conditions.
-                    </p>
-                    <p>Pool use is at guests’ own risk.</p>
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="chalets"
-                    summary="Privacy — Which chalet is the most private?">
-                    Chalet “Star” is the most private chalet, located separately below the other chalets.
-                </sl-details>
-            </div>
-
-            <!-- Q -->
-            <div class="faq-letter-group" data-letter="Q">
-                <div class="text-sm font-bold text-earth-brown tracking-widest border-b border-stone-100 pb-1 mb-4">Q
-                </div>
-
-                <sl-details class="shadow-sm" data-category="policies"
-                    summary="Quiet Hours — Is there a quiet time policy?">
-                    <p class="mb-2">Yes. Quiet hours are normally observed between 22:00 and 08:00.</p>
-                    <p class="font-bold mb-1">Can quiet hours ever be relaxed?</p>
-                    <p>Yes. If one group privately rents the entire resort, quiet time rules may be relaxed by prior
-                        agreement.</p>
-                </sl-details>
-            </div>
-
-            <!-- R -->
-            <div class="faq-letter-group" data-letter="R">
-                <div class="text-sm font-bold text-earth-brown tracking-widest border-b border-stone-100 pb-1 mb-4">R
-                </div>
-
-                <sl-details class="shadow-sm" data-category="policies"
-                    summary="Remote Working — Is the resort suitable for remote working?">
-                    Yes. Many guests enjoy combining relaxation with remote work thanks to the peaceful environment and
-                    Wi-Fi access.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="policies"
-                    summary="Repeat Guest Benefits — Do returning guests receive special offers?">
-                    From time to time, returning guests may receive loyalty offers or special promotions.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="travel"
-                    summary="Restaurants — Are there restaurants nearby?">
-                    Yes. Local restaurants are available within driving distance.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="local"
-                    summary="Romantic Stays — Is the resort suitable for couples?">
-                    <p class="mb-2">Yes. Many guests visit for romantic escapes and wellness weekends.</p>
-                    <p class="font-bold mb-1">Can you arrange romantic surprises?</p>
-                    <p>Yes. Subject to availability, romantic decorations and special arrangements may be possible.</p>
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="travel" summary="Roads & Access — Is the road paved?">
-                    <p class="mb-2">The final main access road to the resort is currently not paved. However, paving
-                        works are planned.</p>
-                    <p class="font-bold mb-1">Is the road difficult in winter?</p>
-                    <p>Winter tyres are required in line with local laws during snowy conditions.</p>
-                </sl-details>
-            </div>
-
-            <!-- S -->
-            <div class="faq-letter-group" data-letter="S">
-                <div class="text-sm font-bold text-earth-brown tracking-widest border-b border-stone-100 pb-1 mb-4">S
-                </div>
-
-                <sl-details class="shadow-sm" data-category="chalets"
-                    summary="Safe Storage — Is there a safe in the chalet?">
-                    Yes. Each chalet includes its own private safe for storing valuables and important personal items
-                    securely.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="policies" summary="Safety — Is the resort safe?">
-                    Yes. The resort is located in a peaceful countryside area and is monitored for guest safety.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="local"
-                    summary="Seasons & Weather — Is the resort open all year?">
-                    <p class="mb-2">Yes. The resort operates year-round.</p>
-                    <p class="font-bold mb-1">Does it snow in winter?</p>
-                    <p class="mb-2">Yes. Snowfall is possible during winter months.</p>
-                    <p class="font-bold mb-1">Is the resort beautiful in autumn?</p>
-                    <p class="mb-2">Yes. Autumn colours in Kozara are particularly beautiful.</p>
-                    <p class="font-bold mb-1">Is summer very hot?</p>
-                    <p>Summer temperatures can be warm, but the elevated hill location provides cooler evenings.</p>
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="policies"
-                    summary="Security Deposit — Is a security deposit required?">
-                    A refundable security deposit may be requested depending on booking type.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="travel" summary="Shopping — Are supermarkets nearby?">
-                    Yes. Supermarkets and local shops are accessible by car.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="policies" summary="Smoking — Is smoking allowed?">
-                    <p class="mb-2">Smoking is not permitted inside the chalets or inside the glazed terrace areas.</p>
-                    <p>Smoking may be permitted only in suitable outdoor areas while respecting neighbouring chalets,
-                        other guests, and the surrounding natural environment.</p>
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="local"
-                    summary="Social Media — Can we tag the resort on social media?">
-                    Yes. We love seeing guest photos and experiences shared online.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="local"
-                    summary="Stargazing — Is the resort suitable for stargazing?">
-                    Yes. Due to the peaceful countryside location with low light pollution, guests can often enjoy
-                    beautiful night skies and star views.
-                </sl-details>
-            </div>
-
-            <!-- T -->
-            <div class="faq-letter-group" data-letter="T">
-                <div class="text-sm font-bold text-earth-brown tracking-widest border-b border-stone-100 pb-1 mb-4">T
-                </div>
-
-                <sl-details class="shadow-sm" data-category="travel"
-                    summary="Taxi & Transfers — Can the resort arrange airport or taxi transfers?">
-                    Transfer assistance may be possible with advance notice depending on availability.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="chalets"
-                    summary="Television — Is there a TV in the chalet?">
-                    Yes. Smart TV systems are available.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="policies"
-                    summary="Tourist Safety — Is Bosnia and Herzegovina safe for tourists?">
-                    Yes. Bosnia and Herzegovina is generally considered very safe and welcoming for visitors.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="policies" summary="Tourist Tax — Is tourist tax included?">
-                    Tourist tax may be charged separately according to local regulations.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="chalets"
-                    summary="Towels & Bathrobes — Are towels provided?">
-                    <p class="mb-2">Yes. Bathroom and pool towels are provided.</p>
-                    <p class="font-bold mb-1">Are bathrobes provided?</p>
-                    <p>Yes. Bathrobes may be available on request.</p>
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="travel"
-                    summary="Travel & Arrival — How do we find the resort easily?">
-                    <p class="mb-2">The final 5.1 km to the resort are signposted.</p>
-                    <p>Guests are recommended to stay on the main roads towards the village of Turjak and use Google
-                        Maps, where Kozara Panoramic Resort is clearly marked.</p>
-                </sl-details>
-            </div>
-
-            <!-- U -->
-            <div class="faq-letter-group" data-letter="U">
-                <div class="text-sm font-bold text-earth-brown tracking-widest border-b border-stone-100 pb-1 mb-4">U
-                </div>
-
-                <sl-details class="shadow-sm" data-category="chalets"
-                    summary="Underfloor Heating — Do the chalets have underfloor heating?">
-                    Yes. The chalets are equipped with modern underfloor heating systems.
-                </sl-details>
-            </div>
-
-            <!-- V -->
-            <div class="faq-letter-group" data-letter="V">
-                <div class="text-sm font-bold text-earth-brown tracking-widest border-b border-stone-100 pb-1 mb-4">V
-                </div>
-
-                <sl-details class="shadow-sm" data-category="policies"
-                    summary="Visitors — Can visitors come to the chalet?">
-                    Only registered guests are permitted unless agreed with management.
-                </sl-details>
-            </div>
-
-            <!-- W -->
-            <div class="faq-letter-group" data-letter="W">
-                <div class="text-sm font-bold text-earth-brown tracking-widest border-b border-stone-100 pb-1 mb-4">W
-                </div>
-
-                <sl-details class="shadow-sm" data-category="chalets" summary="Water — Is the tap water safe?">
-                    Yes. The water is suitable for normal use.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="local"
-                    summary="Weather by Season — What is the weather like throughout the year?">
-                    Spring and autumn are generally mild and colourful, summers are warm with cooler evenings, and
-                    winters may include snow.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="local"
-                    summary="Welcome Surprises — Can flowers, wine, or romantic surprises be arranged?">
-                    Yes. Depending on availability and advance notice, the resort may help organise flowers, wine,
-                    decorations, or romantic surprises.
-                </sl-details>
-
-                <sl-details class="shadow-sm" data-category="local" summary="Wildlife — Can we see wildlife nearby?">
-                    Occasionally yes. The area surrounding the resort is rich in nature and wildlife. Roe deer,
-                    squirrels, and owls are native to Mount Kozara.
-                </sl-details>
-            </div>
-
-            <!-- X -->
-            <div class="faq-letter-group" data-letter="X">
-                <div class="text-sm font-bold text-earth-brown tracking-widest border-b border-stone-100 pb-1 mb-4">X
-                </div>
-
-                <sl-details class="shadow-sm" data-category="local"
-                    summary="X (Extra Experiences) — Do you offer extra experiences or special arrangements?">
-                    Yes. Depending on the season and availability, the resort may help arrange romantic surprises,
-                    wellness experiences, local food deliveries, nature activities, or private full-resort bookings.
-                </sl-details>
-            </div>
-
-            <!-- Y -->
-            <div class="faq-letter-group" data-letter="Y">
-                <div class="text-sm font-bold text-earth-brown tracking-widest border-b border-stone-100 pb-1 mb-4">Y
-                </div>
-
-                <sl-details class="shadow-sm" data-category="local"
-                    summary="Yoga & Wellness — Is the resort suitable for yoga, meditation, or wellness retreats?">
-                    Yes. Activities may take place on terraces, near pools, or in peaceful outdoor areas surrounded by
-                    nature.
-                </sl-details>
-            </div>
-
-            <!-- Z -->
-            <div class="faq-letter-group" data-letter="Z">
-                <div class="text-sm font-bold text-earth-brown tracking-widest border-b border-stone-100 pb-1 mb-4">Z
-                </div>
-
-                <sl-details class="shadow-sm" data-category="local"
-                    summary="Zero Noise Atmosphere — Is the resort quiet at night?">
-                    Yes. One of the most valued features of Kozara Panoramic Resort is its peaceful and quiet natural
-                    atmosphere.
-                </sl-details>
-            </div>
-        </div>
-    </div>
-
     <section class="py-16 bg-stone-50 border-t border-stone-200 px-4 text-center">
         <div class="max-w-5xl mx-auto">
-            <span class="text-xs font-bold tracking-widest text-earth-brown uppercase block mb-1">Stay Guidelines</span>
-            <h3 class="font-serif text-2xl md:text-3xl font-bold text-primary-green">The Code of Serenity</h3>
-            <p class="text-xs text-stone-500 max-w-md mx-auto mt-2">To preserve the pristine, quiet natural spa
-                atmosphere for all guests, we kindly request observance of our resort values.</p>
+            <span
+                class="text-xs font-bold tracking-widest text-earth-brown uppercase block mb-1">{{faq_guidelines_badge}}</span>
+            <h3 class="font-serif text-2xl md:text-3xl font-bold text-primary-green">{{faq_guidelines_title}}</h3>
+            <p class="text-xs text-stone-500 max-w-md mx-auto mt-2">{{faq_guidelines_desc}}</p>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-left mt-12">
                 <div class="bg-white border border-stone-200/60 p-6 rounded-2xl space-y-3 shadow-sm">
@@ -925,10 +230,9 @@
                         class="w-10 h-10 rounded-full bg-primary-green/5 text-primary-green flex items-center justify-center text-lg">
                         <i class="fa-solid fa-moon"></i>
                     </div>
-                    <h4 class="font-serif font-bold text-stone-900 text-lg">Observe Quiet Hours</h4>
+                    <h4 class="font-serif font-bold text-stone-900 text-lg">{{faq_guide_1_title}}</h4>
                     <p class="text-xs text-stone-600 leading-relaxed">
-                        To honor our absolute zero-noise night sky, we ask all guests to preserve quiet hours between
-                        22:00 and 08:00 hrs. Loud speaker devices are not permitted outdoors during these hours.
+                        {{faq_guide_1_desc}}
                     </p>
                 </div>
 
@@ -937,10 +241,9 @@
                         class="w-10 h-10 rounded-full bg-primary-green/5 text-primary-green flex items-center justify-center text-lg">
                         <i class="fa-solid fa-glass-water-droplet"></i>
                     </div>
-                    <h4 class="font-serif font-bold text-stone-900 text-lg">Safe Pool Practices</h4>
+                    <h4 class="font-serif font-bold text-stone-900 text-lg">{{faq_guide_2_title}}</h4>
                     <p class="text-xs text-stone-600 leading-relaxed">
-                        No glass bottles or glassware are allowed directly around the pool borders or stone deck paths.
-                        Families must supervise children around pools and open balconies at all times.
+                        {{faq_guide_2_desc}}
                     </p>
                 </div>
 
@@ -949,15 +252,22 @@
                         class="w-10 h-10 rounded-full bg-primary-green/5 text-primary-green flex items-center justify-center text-lg">
                         <i class="fa-solid fa-snowflake"></i>
                     </div>
-                    <h4 class="font-serif font-bold text-stone-900 text-lg">Seasonal Readiness</h4>
+                    <h4 class="font-serif font-bold text-stone-900 text-lg">{{faq_guide_3_title}}</h4>
                     <p class="text-xs text-stone-600 leading-relaxed">
-                        Kozara mountain receives dramatic snowfalls during winter. By local regulations, winter tyres
-                        are required starting in November. Basic 4x4 options are suggested for deep snow stays.
+                        {{faq_guide_3_desc}}
                     </p>
                 </div>
             </div>
         </div>
     </section>
+
+    <div class="py-16 max-w-5xl mx-auto px-4">
+
+        <div class="space-y-12">
+            {{FAQ_DYNAMIC_CONTENT}}
+        </div>
+    </div>
+
 
     <footer class="bg-primary-green text-white py-20 px-4">
         <div class="max-w-7xl mx-auto">
@@ -970,8 +280,7 @@
                         <span class="font-serif tracking-widest text-2xl font-bold">KOZARA PANORAMIC RESORT</span>
                     </div>
                     <p class="text-stone-300 text-sm leading-relaxed">
-                        A boutique mountain sanctuary offering five luxury private chalets with heated pools.
-                        Discover untouched nature and 5-star comfort in Northern Bosnia.
+                        {{footer_brand_desc}}
                     </p>
                     <div class="flex gap-4">
                         <a href="#"
@@ -986,31 +295,41 @@
                 </div>
 
                 <div>
-                    <h4 class="font-serif text-lg font-bold mb-6 text-sand-beige">Quick Links</h4>
+                    <h4 class="font-serif text-lg font-bold mb-6 text-sand-beige">{{footer_col_links}}</h4>
                     <ul class="space-y-4 text-sm text-stone-300">
-                        <li><a href="/#showcase" class="hover:text-white transition">The Chalets</a></li>
-                        <li><a href="/amenities" class="hover:text-white transition">Resort Amenities</a></li>
-                        <li><a href="/#location" class="hover:text-white transition">Our Location</a></li>
-                        <li><a href="/faq" class="hover:text-white transition">Frequently Asked Questions</a>
+                        <li><a href="{{lang_prefix}}/#showcase"
+                                class="hover:text-white transition">{{footer_link_chalets}}</a></li>
+                        <li><a href="{{lang_prefix}}/amenities"
+                                class="hover:text-white transition">{{footer_link_amenities}}</a></li>
+                        <li><a href="{{lang_prefix}}/#location"
+                                class="hover:text-white transition">{{footer_link_location}}</a></li>
+                        <li><a href="{{lang_prefix}}/faq" class="hover:text-white transition">{{footer_link_faq}}</a>
                         </li>
-                        <li><a href="/book" class="hover:text-white transition">Book Your Stay</a></li>
+                        <li><a href="{{lang_prefix}}/book" class="hover:text-white transition">
+                                {{nav_cta}}
+                            </a></li>
                     </ul>
                 </div>
 
                 <div>
-                    <h4 class="font-serif text-lg font-bold mb-6 text-sand-beige">Contact Us</h4>
+                    <h4 class="font-serif text-lg font-bold mb-6 text-sand-beige">{{footer_col_contact}}</h4>
                     <ul class="space-y-4 text-sm text-stone-300">
                         <li class="flex items-start gap-3">
                             <i class="fa-solid fa-location-dot mt-1 text-earth-brown"></i>
-                            <span>Kozara Mountain, Gradiška,<br>Bosnia and Herzegovina</span>
+                            <span>Kozara BB, 78400 Gradiška, Bosnia & Herzegovina</span>
                         </li>
                         <li class="flex items-center gap-3">
-                            <i class="fa-solid fa-phone text-earth-brown"></i>
-                            <span>+387 00 000 000</span>
+                            <i class="fa-solid fa-phone mr-1 text-earth-brown"></i> <a href="tel:+38766767622"
+                                class="hover:underline">+387 66 767 622</a> (BA)
                         </li>
                         <li class="flex items-center gap-3">
-                            <i class="fa-solid fa-envelope text-earth-brown"></i>
-                            <span>info@kozarapanoramicresort.ba</span>
+                            <i class="fa-brands fa-whatsapp mr-1 text-earth-brown"></i> <a href="tel:+4915117627478"
+                                class="hover:underline">+49 151 176 27478</a> (DE)
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope mr-1 text-earth-brown"></i> <a
+                                href="mailto:info@kozarapanoramicresort.ba"
+                                class="hover:underline">info@kozarapanoramicresort.ba</a>
                         </li>
                     </ul>
                 </div>
@@ -1019,11 +338,14 @@
 
             <div
                 class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-stone-400">
-                <p>© 2026 Kozara Panoramic Resort. All rights reserved.</p>
+                <p>{{footer_copyright}}</p>
                 <div class="flex gap-6">
-                    <a href="/notice#privacy" class="hover:text-white transition">Privacy Policy</a>
-                    <a href="/notice#terms" class="hover:text-white transition">Terms of Service</a>
-                    <a href="/notice#cookies" class="hover:text-white transition">Cookie Policy</a>
+                    <a href="{{lang_prefix}}/notice#privacy"
+                        class="hover:text-white transition">{{footer_policy_privacy}}</a>
+                    <a href="{{lang_prefix}}/notice#terms"
+                        class="hover:text-white transition">{{footer_policy_terms}}</a>
+                    <a href="{{lang_prefix}}/notice#cookies"
+                        class="hover:text-white transition">{{footer_policy_cookie}}</a>
                 </div>
             </div>
         </div>
@@ -1099,6 +421,7 @@
             }
         });
     </script>
+    <script src="/js/lang.js"></script>
 </body>
 
 </html>

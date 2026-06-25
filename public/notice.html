@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Legal Notice &amp; Policies | Kozara Panoramic Resort</title>
+    <title>{{notice_meta_title}}</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,13 +12,20 @@
         href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Playfair+Display:ital,wght=0,400;0,600;0,700;1,400&display=swap"
         rel="stylesheet">
 
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Kozara Panoramic resort" />
+    <link rel="manifest" href="/site.webmanifest" />
+
     <script src="https://cdn.tailwindcss.com"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/light.css" />
 
-    <link href="css/main.css" rel="stylesheet" />
+    <link href="/css/base.css" rel="stylesheet" />
     <script type="module"
         src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/shoelace-autoloader.js"></script>
 
@@ -52,25 +59,26 @@
     <nav id="main-nav" class="py-2 md:py-5 px-6 md:px-12">
         <div class="nav-links-container hidden lg:flex flex-1 justify-end mr-8">
             <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300"
-                href="/#showcase">Chalets</a>
+                href="{{lang_prefix}}/#showcase">{{nav_chalets}}</a>
             <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300 ml-8"
-                href="/#why-love-us">Why Us</a>
+                href="{{lang_prefix}}/#why-love-us">{{nav_why_us}}</a>
             <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300 ml-8"
-                href="/amenities">Amenities</a>
+                href="{{lang_prefix}}/amenities">{{nav_amenities}}</a>
         </div>
 
         <div id="logo_stripped_reserve_spacer" class="hidden lg:block"></div>
-        <a href="/" id="logo_stripped" class="block">
+        <a href="{{lang_prefix}}/" id="logo_stripped" class="block">
             <img src="/assets/logo_stripped.svg"
                 onerror="this.onerror=null; this.src='https://www.kozarapanoramicresort.ba/assets/logo_stripped.svg';"
                 alt="Kozara Panoramic Resort Logo" class="w-full h-auto block">
         </a>
         <div class="nav-links-container hidden lg:flex flex-1 justify-start ml-8">
-            <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300" href="/#location">About
-                Us</a>
+            <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300"
+                href="{{lang_prefix}}/#location">{{nav_about_us}}</a>
             <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300 ml-8"
-                href="/#blog">Blog</a>
-            <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300 ml-8" href="/faq">FAQ</a>
+                href="{{lang_prefix}}/#blog">{{nav_blog}}</a>
+            <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300 ml-8"
+                href="{{lang_prefix}}/faq">{{nav_faq}}</a>
 
             <sl-dropdown class="ml-8">
                 <button slot="trigger"
@@ -85,9 +93,9 @@
                 </sl-menu>
             </sl-dropdown>
 
-            <a href="/book"
+            <a href="{{lang_prefix}}/book"
                 class="bg-earth-brown hover:bg-primary-green text-white font-bold text-xs tracking-widest uppercase px-6 py-3 rounded-full transition-all duration-300 shadow-lg ml-6 text-center">
-                Book Your Stay
+                {{nav_cta}}
             </a>
         </div>
 
@@ -130,20 +138,22 @@
         </div>
 
         <div class="flex flex-col gap-6 text-xl font-serif text-center my-auto">
-            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="/#showcase">
+            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="{{lang_prefix}}/#showcase">
                 Chalets</a>
-            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="/#why-love-us">Why
-                Us</a>
-            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="/amenities">Amenities</a>
-            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="/#location">About
-                Us</a>
-            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="/faq">FAQ</a>
+            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition"
+                href="{{lang_prefix}}/#why-love-us">{{nav_why_us}}</a>
+            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition"
+                href="{{lang_prefix}}/amenities">{{nav_amenities}}</a>
+            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition"
+                href="{{lang_prefix}}/#location">{{nav_about_us}}</a>
+            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition"
+                href="{{lang_prefix}}/faq">{{nav_faq}}</a>
         </div>
 
         <div class="flex flex-col gap-4 text-center">
-            <a href="/book" onclick="toggleMobileMenu();"
+            <a href="{{lang_prefix}}/book" onclick="toggleMobileMenu();"
                 class="bg-earth-brown text-white py-4 rounded-full font-bold uppercase tracking-wider text-sm block">
-                Book Your Stay
+                {{nav_cta}}
             </a>
             <p class="text-xs text-stone-500">© 2026 Kozara Panoramic Resort</p>
         </div>
@@ -168,14 +178,13 @@
         </div>
 
         <div class="relative z-10 max-w-4xl mx-auto text-white px-4 pt-24">
-            <span class="text-xs md:text-sm font-bold tracking-[0.4em] uppercase text-sand-beige mb-4 block">Boutique
-                Mountain Sanctuary</span>
+            <span
+                class="text-xs md:text-sm font-bold tracking-[0.4em] uppercase text-sand-beige mb-4 block">{{notice_header_badge}}</span>
             <h1 class="font-serif text-3xl sm:text-5xl md:text-6xl font-bold leading-tight mb-4">
-                Luxury Private Chalets <br><span class="italic text-sand-beige font-normal">with Heated Pools</span>
+                {{notice_header_title}}
             </h1>
             <p class="text-base sm:text-lg md:text-xl font-light text-stone-200 max-w-2xl mx-auto mb-8 leading-relaxed">
-                Peaceful nature escape near Banja Luka & Croatia. Enjoy untouched nature, panoramic views, and
-                5-star comfort.
+                {{notice_header_desc}}
             </p>
         </div>
 
@@ -189,12 +198,11 @@
                 <aside class="lg:col-span-4 lg:sticky lg:top-28 space-y-6">
 
                     <div class="p-6 bg-primary-green/5 border border-primary-green/10 rounded-2xl">
-                        <h4 class="font-serif font-bold text-primary-green text-sm mb-2">Need direct legal help?</h4>
-                        <p class="text-xs text-stone-600 leading-relaxed mb-4">Our administrative desk is ready to
-                            assist with custom corporate invoicing, group booking protocols, and registrations.</p>
+                        <h4 class="font-serif font-bold text-primary-green text-sm mb-2">{{notice_sidebar_title}}</h4>
+                        <p class="text-xs text-stone-600 leading-relaxed mb-4">{{notice_sidebar_desc}}</p>
                         <a href="mailto:info@kozarapanoramicresort.ba"
                             class="inline-flex items-center gap-2 text-xs font-bold text-earth-brown hover:text-primary-green transition">
-                            <i class="fa-regular fa-envelope"></i> Contact Registrar Desk
+                            <i class="fa-regular fa-envelope"></i> {{notice_sidebar_btn}}
                         </a>
                     </div>
                 </aside>
@@ -204,44 +212,42 @@
                     <article id="impressum"
                         class="bg-white border border-stone-200/80 p-8 rounded-3xl shadow-sm scroll-mt-28">
                         <span
-                            class="text-[10px] font-bold text-earth-brown uppercase tracking-widest block mb-2">OPERATOR
-                            REGISTRY</span>
+                            class="text-[10px] font-bold text-earth-brown uppercase tracking-widest block mb-2">{{notice_imp_badge}}</span>
                         <h2
                             class="font-serif text-2xl md:text-3xl font-bold text-primary-green mb-6 pb-2 border-b border-stone-100">
-                            Impressum / Legal Information</h2>
+                            {{notice_imp_title}}</h2>
 
                         <div
                             class="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm text-stone-600 leading-relaxed font-sans">
                             <div class="space-y-4">
                                 <div>
-                                    <p class="text-xs font-bold uppercase text-stone-500 tracking-wider">Company
-                                        Registered Entity</p>
+                                    <p class="text-xs font-bold uppercase text-stone-500 tracking-wider">
+                                        {{notice_imp_col1_t1}}</p>
                                     <p class="font-bold text-stone-900 mt-1">PEVA d.o.o.</p>
-                                    <p class="text-xs text-stone-500">Kozara Panoramic Resort brand owner</p>
+                                    <p class="text-xs text-stone-500">{{notice_imp_col1_d1}}</p>
                                 </div>
                                 <div>
-                                    <p class="text-xs font-bold uppercase text-stone-500 tracking-wider">Registered
-                                        Address</p>
-                                    <p class="font-bold text-stone-900 mt-1">Selo Kozara BB<br>78400 Gradiška, Bosnia
-                                        &amp; Herzegovina</p>
+                                    <p class="text-xs font-bold uppercase text-stone-500 tracking-wider">
+                                        {{notice_imp_col1_t2}}</p>
+                                    <p class="font-bold text-stone-900 mt-1">{{notice_imp_col1_d2}}</p>
                                 </div>
                                 <div>
-                                    <p class="text-xs font-bold uppercase text-stone-500 tracking-wider">Legal
-                                        Representation Director</p>
+                                    <p class="text-xs font-bold uppercase text-stone-500 tracking-wider">
+                                        {{notice_imp_col1_t3}}</p>
                                     <p class="font-bold text-stone-900 mt-1">Dragana Truscott</p>
                                 </div>
                             </div>
 
                             <div class="space-y-4">
                                 <div>
-                                    <p class="text-xs font-bold uppercase text-stone-500 tracking-wider">Registration
-                                        Identifiers</p>
-                                    <p class="font-semibold text-stone-900 mt-1">Reg No: 11260985</p>
-                                    <p class="font-semibold text-stone-900">Tax ID: 4405281640008</p>
+                                    <p class="text-xs font-bold uppercase text-stone-500 tracking-wider">
+                                        {{notice_imp_col2_t1}}</p>
+                                    <p class="font-semibold text-stone-900 mt-1">{{notice_imp_col2_d1_1}}</p>
+                                    <p class="font-semibold text-stone-900">{{notice_imp_col2_d1_2}}</p>
                                 </div>
                                 <div>
-                                    <p class="text-xs font-bold uppercase text-stone-500 tracking-wider">Registrar
-                                        Coordinates</p>
+                                    <p class="text-xs font-bold uppercase text-stone-500 tracking-wider">
+                                        {{notice_imp_col2_t2}}</p>
                                     <p class="mt-1 font-semibold text-stone-900">
                                         <i class="fa-regular fa-envelope mr-1 text-earth-brown"></i> <a
                                             href="mailto:info@kozarapanoramicresort.ba"
@@ -264,34 +270,29 @@
                         class="bg-white border border-stone-200/80 p-8 rounded-3xl shadow-sm scroll-mt-28 space-y-8">
                         <div>
                             <span
-                                class="text-[10px] font-bold text-earth-brown uppercase tracking-widest block mb-2">OPERATING
-                                RULES</span>
+                                class="text-[10px] font-bold text-earth-brown uppercase tracking-widest block mb-2">{{notice_terms_badge}}</span>
                             <h2
                                 class="font-serif text-2xl md:text-3xl font-bold text-primary-green mb-6 pb-2 border-b border-stone-100">
-                                Terms &amp; Conditions</h2>
+                                {{notice_terms_title}}</h2>
                         </div>
 
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             <div class="space-y-2">
                                 <h3 class="font-serif font-bold text-stone-900 text-lg flex items-center gap-2">
                                     <span class="text-earth-brown text-base"><i
-                                            class="fa-regular fa-circle-check"></i></span> Confirmations &amp; Booking
+                                            class="fa-regular fa-circle-check"></i></span> {{notice_terms_1_t}}
                                 </h3>
-                                <p class="text-sm text-stone-600 leading-relaxed font-light">A reservation is confirmed
-                                    when the guest receives written confirmation via email or messaging apps.</p>
+                                <p class="text-sm text-stone-600 leading-relaxed font-light">{{notice_terms_1_d}}</p>
                             </div>
                             <div class="space-y-2 bg-stone-50 p-4 rounded-xl border border-stone-100">
                                 <h3 class="font-serif font-bold text-stone-900 text-lg flex items-center gap-2">
                                     <span class="text-earth-brown text-base"><i class="fa-regular fa-clock"></i></span>
-                                    Checked Coordinates
+                                    {{notice_terms_2_t}}
                                 </h3>
                                 <div class="text-xs text-stone-600 space-y-1">
-                                    <p><strong>Check-In Date</strong>: Starting from <span
-                                            class="font-bold text-stone-800">14:00 hrs</span></p>
-                                    <p><strong>Check-Out Date</strong>: Strict maximum limit <span
-                                            class="font-bold text-stone-800">10:00 hrs</span></p>
-                                    <p class="text-[10px] italic text-stone-400 mt-1">Early arrival or late clearance
-                                        options depend strictly on pre-arrival check-ins.</p>
+                                    <p>{{notice_terms_2_d1}}</p>
+                                    <p>{{notice_terms_2_d2}}</p>
+                                    <p class="text-[10px] italic text-stone-400 mt-1">{{notice_terms_2_d3}}</p>
                                 </div>
                             </div>
                         </div>
@@ -299,28 +300,24 @@
                         <div class="space-y-4 pt-4 border-t border-stone-100">
                             <h3 class="font-serif font-bold text-stone-900 text-lg flex items-center gap-2">
                                 <span class="text-earth-brown text-base"><i class="fa-solid fa-receipt"></i></span>
-                                Settlement &amp; Peak Seasons Cancellations
+                                {{notice_terms_3_t}}
                             </h3>
-                            <p class="text-sm text-stone-600 leading-relaxed font-light">Payments are settled in full at
-                                the time of booking. Local tourist taxes are charged separately at checkout.</p>
+                            <p class="text-sm text-stone-600 leading-relaxed font-light">{{notice_terms_3_d}}</p>
 
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-2">
                                 <div
                                     class="bg-amber-50/50 border border-amber-200/50 p-4 rounded-xl text-xs text-amber-900">
-                                    <h4 class="font-bold uppercase tracking-wider mb-2">Standard Season (Apr - Jun,
-                                        Mid-Sept - Oct)</h4>
+                                    <h4 class="font-bold uppercase tracking-wider mb-2">{{notice_terms_3_s1_t}}</h4>
                                     <ul class="space-y-1 list-disc pl-4">
-                                        <li><strong>25% Refund</strong>: Above 14 days before arrival</li>
-                                        <li><strong>50% Refund</strong>: 7 - 13 days before arrival</li>
-                                        <li>No refund available under 7 days</li>
+                                        <li>{{notice_terms_3_s1_li1}}</li>
+                                        <li>{{notice_terms_3_s1_li2}}</li>
+                                        <li>{{notice_terms_3_s1_li3}}</li>
                                     </ul>
                                 </div>
                                 <div class="bg-red-50/40 border border-red-200/50 p-4 rounded-xl text-xs text-red-950">
-                                    <h4 class="font-bold uppercase tracking-wider mb-2 text-red-900">Peak Season (July,
-                                        August, Holidays)</h4>
-                                    <p class="leading-relaxed font-semibold">Strict cancellation protection rule: No
-                                        refunds or cancellations are accepted under peak summer dates or designated
-                                        holiday weeks.</p>
+                                    <h4 class="font-bold uppercase tracking-wider mb-2 text-red-900">
+                                        {{notice_terms_3_s2_t}}</h4>
+                                    <p class="leading-relaxed font-semibold">{{notice_terms_3_s2_d}}</p>
                                 </div>
                             </div>
                         </div>
@@ -328,134 +325,108 @@
                         <div class="space-y-4 pt-4 border-t border-stone-100">
                             <h3 class="font-serif font-bold text-stone-900 text-lg flex items-center gap-2">
                                 <span class="text-earth-brown text-base"><i class="fa-solid fa-water-ladder"></i></span>
-                                Pool Safety Disclaimer &amp; Damages
+                                {{notice_terms_4_t}}
                             </h3>
-                            <p class="text-sm text-stone-600 leading-relaxed font-light">PEVA d.o.o. maintains a
-                                pristine luxury standard. Non-compliance with the established house rules may lead to
-                                the immediate cancellation of the accommodation. A damage protection deposit of
-                                <strong>€250 (EUR)</strong> is required at check-in.
+                            <p class="text-sm text-stone-600 leading-relaxed font-light">{{notice_terms_4_d}}
                             </p>
 
                             <div class="bg-stone-50 border border-stone-200/80 p-5 rounded-2xl space-y-3">
                                 <h4 class="font-serif font-bold text-stone-800 text-sm flex items-center gap-2"><span
-                                        class="text-red-700 text-xs">●</span> Strict Pool Rules (All Units):</h4>
+                                        class="text-red-700 text-xs">●</span> {{notice_terms_4_st}}</h4>
                                 <ul class="text-xs text-stone-600 space-y-2 grid grid-cols-1 sm:grid-cols-2 gap-x-6">
-                                    <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Use of
-                                        pools is entirely at the guest's own risk.</li>
-                                    <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> No
-                                        lifeguard is on duty at the resort garden.</li>
-                                    <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Children
-                                        must be supervised at all times.</li>
-                                    <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Absolute
-                                        zero glass permitted near pool areas.</li>
-                                    <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Strict
-                                        zero diving limit (pool depth 1.40m).</li>
+                                    <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span>
+                                        {{notice_terms_4_li1}}</li>
+                                    <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span>
+                                        {{notice_terms_4_li2}}</li>
+                                    <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span>
+                                        {{notice_terms_4_li3}}</li>
+                                    <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span>
+                                        {{notice_terms_4_li4}}</li>
+                                    <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span>
+                                        {{notice_terms_4_li5}}</li>
                                 </ul>
                             </div>
                         </div>
 
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-4 border-t border-stone-100 text-xs">
                             <div class="space-y-2">
-                                <h4 class="font-bold uppercase tracking-wider text-stone-800">Smoking Policy</h4>
-                                <p class="text-stone-500 leading-relaxed">Smoking is strictly prohibited inside the
-                                    wooden structures and double-glazed patios. Outdoor terrace smoking is permitted
-                                    with care.</p>
+                                <h4 class="font-bold uppercase tracking-wider text-stone-800">{{notice_terms_5_t}}</h4>
+                                <p class="text-stone-500 leading-relaxed">{{notice_terms_5_d}}</p>
                             </div>
                             <div class="space-y-2 border-t sm:border-t-0 sm:border-l border-stone-100 sm:pl-6">
-                                <h4 class="font-bold uppercase tracking-wider text-stone-800">Pet Accommodations</h4>
-                                <p class="text-stone-500 leading-relaxed">Domestic pets are accepted upon request prior
-                                    to arrival. A separate charge of <strong>€15.00 per pet</strong> per stay is
-                                    applied.</p>
+                                <h4 class="font-bold uppercase tracking-wider text-stone-800">{{notice_terms_6_t}}</h4>
+                                <p class="text-stone-500 leading-relaxed">{{notice_terms_6_d}}</p>
                             </div>
                             <div class="space-y-2 border-t sm:border-t-0 sm:border-l border-stone-100 sm:pl-6">
-                                <h4 class="font-bold uppercase tracking-wider text-stone-800">Occupancy Limits</h4>
-                                <p class="text-stone-500 leading-relaxed">Maximum of <strong>6 persons</strong> per
-                                    chalet. Layout features 1 double bedroom, 2 twin single rooms, gallery loft options
-                                    or custom sofa setups.</p>
+                                <h4 class="font-bold uppercase tracking-wider text-stone-800">{{notice_terms_7_t}}</h4>
+                                <p class="text-stone-500 leading-relaxed">{{notice_terms_7_d}}</p>
                             </div>
                         </div>
                     </article>
 
                     <article id="privacy"
                         class="bg-white border border-stone-200/80 p-8 rounded-3xl shadow-sm scroll-mt-28">
-                        <span class="text-[10px] font-bold text-earth-brown uppercase tracking-widest block mb-2">DATA
-                            PROCESSING</span>
+                        <span
+                            class="text-[10px] font-bold text-earth-brown uppercase tracking-widest block mb-2">{{notice_priv_badge}}</span>
                         <h2
                             class="font-serif text-2xl md:text-3xl font-bold text-primary-green mb-6 pb-2 border-b border-stone-100">
-                            Privacy Policy</h2>
+                            {{notice_priv_title}}</h2>
 
                         <div class="space-y-4 text-sm text-stone-600 leading-relaxed">
-                            <p class="font-light">PEVA d.o.o. collects and processes personal data strictly in
-                                accordance with regional registration compliance and legal security parameters.</p>
+                            <p class="font-light">{{notice_priv_desc}}</p>
 
                             <div class="bg-stone-50/50 p-5 rounded-xl border border-stone-200/60 space-y-3">
-                                <h4 class="font-serif font-bold text-stone-800 text-xs uppercase tracking-wider">1.
-                                    Collected Coordinates &amp; Purpose</h4>
-                                <p class="text-xs text-stone-500">We securely register: Full Name, Address, Phone
-                                    Coordinates, Email registries, and legal ID/passport credentials. This is collected
-                                    exclusively to fulfill reservation contracts, complete legal guest entry registries,
-                                    and handle pre-arrival coordinates.</p>
+                                <h4 class="font-serif font-bold text-stone-800 text-xs uppercase tracking-wider">
+                                    {{notice_priv_1_t}}</h4>
+                                <p class="text-xs text-stone-500">{{notice_priv_1_d}}</p>
                             </div>
 
                             <div class="bg-stone-50/50 p-5 rounded-xl border border-stone-200/60 space-y-3">
-                                <h4 class="font-serif font-bold text-stone-800 text-xs uppercase tracking-wider">2.
-                                    Secure Disclosures &amp; Sharing</h4>
-                                <p class="text-xs text-stone-500">Your personal details are stored inside secure
-                                    encryptions and are never sold or shared with commercial agents. Third-party
-                                    transmissions are restricted only to the Tourist Organisation of Gradiška (legal BA
-                                    tourism requirement) and processing checkout payment portals.</p>
+                                <h4 class="font-serif font-bold text-stone-800 text-xs uppercase tracking-wider">
+                                    {{notice_priv_2_t}}</h4>
+                                <p class="text-xs text-stone-500">{{notice_priv_2_d}}</p>
                             </div>
 
                             <p class="text-xs text-stone-400 italic font-light"><i
-                                    class="fa-solid fa-circle-info mr-1"></i> Under data regulations, guests can request
-                                complete deletion of their commercial data profiles post-checkout, provided all legal
-                                booking retention tax duties are fulfilled.</p>
+                                    class="fa-solid fa-circle-info mr-1"></i> {{notice_priv_note}}</p>
                         </div>
                     </article>
 
                     <article id="cookies"
                         class="bg-white border border-stone-200/80 p-8 rounded-3xl shadow-sm scroll-mt-28">
-                        <span class="text-[10px] font-bold text-earth-brown uppercase tracking-widest block mb-2">USER
-                            CONSENT</span>
+                        <span
+                            class="text-[10px] font-bold text-earth-brown uppercase tracking-widest block mb-2">{{notice_cookie_badge}}</span>
                         <h2
                             class="font-serif text-2xl md:text-3xl font-bold text-primary-green mb-6 pb-2 border-b border-stone-100">
-                            Cookie Notice</h2>
+                            {{notice_cookie_title}}</h2>
 
                         <div class="text-sm text-stone-600 leading-relaxed space-y-3 font-light">
-                            <p>This resort website uses basic cookies to facilitate user-navigation, remember display
-                                choices, analyze traffic, and ensure a secure reservation experience.</p>
-                            <p>By continuing to explore our mountain pages or confirming check-in, you agree to place
-                                essential cookies on your devices. Analytics tracking (such as Google Tag Manager) is
-                                activated only with your explicit accept confirmation.</p>
+                            <p>{{notice_cookie_p1}}</p>
+                            <p>{{notice_cookie_p2}}</p>
                         </div>
                     </article>
 
                     <article id="price"
                         class="bg-white border border-stone-200/80 p-8 rounded-3xl shadow-sm scroll-mt-28">
-                        <span class="text-[10px] font-bold text-earth-brown uppercase tracking-widest block mb-2">FAIR
-                            TRADING</span>
+                        <span
+                            class="text-[10px] font-bold text-earth-brown uppercase tracking-widest block mb-2">{{notice_price_badge}}</span>
                         <h2
                             class="font-serif text-2xl md:text-3xl font-bold text-primary-green mb-6 pb-2 border-b border-stone-100">
-                            Price Transparency</h2>
+                            {{notice_price_title}}</h2>
 
                         <div class="text-sm text-stone-600 leading-relaxed space-y-4 font-light">
-                            <p>We maintain an absolute zero-hidden-fee pricing standard. All rates calculated during
-                                direct checkout contain complete property services.</p>
+                            <p>{{notice_price_desc}}</p>
 
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
                                 <div class="p-4 bg-emerald-50/30 border border-emerald-100 rounded-xl space-y-2">
-                                    <h4 class="font-bold text-emerald-950 uppercase tracking-wider">Strictly Included:
-                                    </h4>
-                                    <p class="text-stone-500 leading-relaxed">Underfloor heating, electrical hobs,
-                                        private pools, high-speed WiFi, secure parking, towels, bedsheets, and final
-                                        sanitization sweeps.</p>
+                                    <h4 class="font-bold text-emerald-950 uppercase tracking-wider">
+                                        {{notice_price_inc_t}}</h4>
+                                    <p class="text-stone-500 leading-relaxed">{{notice_price_inc_d}}</p>
                                 </div>
                                 <div class="p-4 bg-stone-50 border border-stone-200/60 rounded-xl space-y-2">
-                                    <h4 class="font-bold text-stone-800 uppercase tracking-wider">Excluded:</h4>
-                                    <p class="text-stone-500 leading-relaxed">Local government tourism tax is not
-                                        calculated in the web rate and is added separately at the checkout. Optional
-                                        private GP medical support or custom BBQ Ninja rentals are settled upon request.
-                                    </p>
+                                    <h4 class="font-bold text-stone-800 uppercase tracking-wider">{{notice_price_exc_t}}
+                                    </h4>
+                                    <p class="text-stone-500 leading-relaxed">{{notice_price_exc_d}}</p>
                                 </div>
                             </div>
                         </div>
@@ -479,8 +450,7 @@
                         <span class="font-serif tracking-widest text-2xl font-bold">KOZARA PANORAMIC RESORT</span>
                     </div>
                     <p class="text-stone-300 text-sm leading-relaxed">
-                        A boutique mountain sanctuary offering five luxury private chalets with heated pools.
-                        Discover untouched nature and 5-star comfort in Northern Bosnia.
+                        {{footer_brand_desc}}
                     </p>
                     <div class="flex gap-4">
                         <a href="#"
@@ -495,31 +465,41 @@
                 </div>
 
                 <div>
-                    <h4 class="font-serif text-lg font-bold mb-6 text-sand-beige">Quick Links</h4>
+                    <h4 class="font-serif text-lg font-bold mb-6 text-sand-beige">{{footer_col_links}}</h4>
                     <ul class="space-y-4 text-sm text-stone-300">
-                        <li><a href="/#showcase" class="hover:text-white transition">The Chalets</a></li>
-                        <li><a href="/amenities" class="hover:text-white transition">Resort Amenities</a></li>
-                        <li><a href="/#location" class="hover:text-white transition">Our Location</a></li>
-                        <li><a href="/faq" class="hover:text-white transition">Frequently Asked Questions</a>
+                        <li><a href="{{lang_prefix}}/#showcase"
+                                class="hover:text-white transition">{{footer_link_chalets}}</a></li>
+                        <li><a href="{{lang_prefix}}/amenities"
+                                class="hover:text-white transition">{{footer_link_amenities}}</a></li>
+                        <li><a href="{{lang_prefix}}/#location"
+                                class="hover:text-white transition">{{footer_link_location}}</a></li>
+                        <li><a href="{{lang_prefix}}/faq" class="hover:text-white transition">{{footer_link_faq}}</a>
                         </li>
-                        <li><a href="/book" class="hover:text-white transition">Book Your Stay</a></li>
+                        <li><a href="{{lang_prefix}}/book" class="hover:text-white transition">
+                                {{nav_cta}}
+                            </a></li>
                     </ul>
                 </div>
 
                 <div>
-                    <h4 class="font-serif text-lg font-bold mb-6 text-sand-beige">Contact Us</h4>
+                    <h4 class="font-serif text-lg font-bold mb-6 text-sand-beige">{{footer_col_contact}}</h4>
                     <ul class="space-y-4 text-sm text-stone-300">
                         <li class="flex items-start gap-3">
                             <i class="fa-solid fa-location-dot mt-1 text-earth-brown"></i>
-                            <span>Kozara Mountain, Gradiška,<br>Bosnia and Herzegovina</span>
+                            <span>Kozara BB, 78400 Gradiška, Bosnia & Herzegovina</span>
                         </li>
                         <li class="flex items-center gap-3">
-                            <i class="fa-solid fa-phone text-earth-brown"></i>
-                            <span>+387 00 000 000</span>
+                            <i class="fa-solid fa-phone mr-1 text-earth-brown"></i> <a href="tel:+38766767622"
+                                class="hover:underline">+387 66 767 622</a> (BA)
                         </li>
                         <li class="flex items-center gap-3">
-                            <i class="fa-solid fa-envelope text-earth-brown"></i>
-                            <span>info@kozarapanoramicresort.ba</span>
+                            <i class="fa-brands fa-whatsapp mr-1 text-earth-brown"></i> <a href="tel:+4915117627478"
+                                class="hover:underline">+49 151 176 27478</a> (DE)
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope mr-1 text-earth-brown"></i> <a
+                                href="mailto:info@kozarapanoramicresort.ba"
+                                class="hover:underline">info@kozarapanoramicresort.ba</a>
                         </li>
                     </ul>
                 </div>
@@ -528,11 +508,14 @@
 
             <div
                 class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-stone-400">
-                <p>© 2026 Kozara Panoramic Resort. All rights reserved.</p>
+                <p>{{footer_copyright}}</p>
                 <div class="flex gap-6">
-                    <a href="/notice#privacy" class="hover:text-white transition">Privacy Policy</a>
-                    <a href="/notice#terms" class="hover:text-white transition">Terms of Service</a>
-                    <a href="/notice#cookies" class="hover:text-white transition">Cookie Policy</a>
+                    <a href="{{lang_prefix}}/notice#privacy"
+                        class="hover:text-white transition">{{footer_policy_privacy}}</a>
+                    <a href="{{lang_prefix}}/notice#terms"
+                        class="hover:text-white transition">{{footer_policy_terms}}</a>
+                    <a href="{{lang_prefix}}/notice#cookies"
+                        class="hover:text-white transition">{{footer_policy_cookie}}</a>
                 </div>
             </div>
         </div>
@@ -617,6 +600,7 @@
             }
         });
     </script>
+    <script src="/js/lang.js"></script>
 </body>
 
 </html>

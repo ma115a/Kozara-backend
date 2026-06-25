@@ -4,11 +4,9 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Dedicated Booking Center | Kozara Panoramic Resort</title>
+    <title>{{book_title}}</title>
 
-    <meta
-        content="Securely book your boutique mountain chalet with a private heated pool at Mount Kozara. Best rate guaranteed with flexible payment options."
-        name="description" />
+    <meta content="{{book_meta_desc}}" name="description" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,12 +14,17 @@
         href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Playfair+Display:ital,wght=0,400;0,600;0,700;1,400&display=swap"
         rel="stylesheet">
 
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Kozara Panoramic resort" />
+    <link rel="manifest" href="/site.webmanifest" />
+
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-    <link href="css/base.css" rel="stylesheet" />
-    <!-- <link rel="stylesheet" href="/css/vanilla_calendar.css"> -->
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/light.css" />
     <script type="module"
@@ -31,12 +34,13 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/libphonenumber-js@1.12.29/bundle/libphonenumber-js.min.js" defer></script>
 
+    <link href="/css/base.css" rel="stylesheet" />
     <link rel="preload" href="/css/vanilla_calendar.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript>
         <link rel="stylesheet" href="/css/vanilla_calendar.css">
     </noscript>
 
-    <link href="css/book.css" rel="stylesheet" />
+    <link href="/css/book.css" rel="stylesheet" />
 
     <script src="/js/vanilla_calendar.js" defer></script>
     <script src="/js/vcUtils.js" defer></script>
@@ -68,25 +72,26 @@
     <nav id="main-nav" class="py-2 md:py-5 px-6 md:px-12">
         <div class="nav-links-container hidden lg:flex flex-1 justify-end mr-8">
             <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300"
-                href="/#showcase">Chalets</a>
+                href="{{lang_prefix}}/#showcase">{{nav_chalets}}</a>
             <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300 ml-8"
-                href="/#why-love-us">Why Us</a>
+                href="{{lang_prefix}}/#why-love-us">{{nav_why_us}}</a>
             <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300 ml-8"
-                href="/amenities">Amenities</a>
+                href="{{lang_prefix}}/amenities">{{nav_amenities}}</a>
         </div>
 
         <div id="logo_stripped_reserve_spacer" class="hidden lg:block"></div>
-        <a href="/" id="logo_stripped" class="block">
+        <a href="{{lang_prefix}}/" id="logo_stripped" class="block">
             <img src="/assets/logo_stripped.svg"
                 onerror="this.onerror=null; this.src='https://www.kozarapanoramicresort.ba/assets/logo_stripped.svg';"
                 alt="Kozara Panoramic Resort Logo" class="w-full h-auto block">
         </a>
         <div class="nav-links-container hidden lg:flex flex-1 justify-start ml-8">
-            <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300" href="/#location">About
-                Us</a>
+            <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300"
+                href="{{lang_prefix}}/#location">{{nav_about_us}}</a>
             <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300 ml-8"
-                href="/#blog">Blog</a>
-            <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300 ml-8" href="/faq">FAQ</a>
+                href="{{lang_prefix}}/#blog">{{nav_blog}}</a>
+            <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300 ml-8"
+                href="{{lang_prefix}}/faq">{{nav_faq}}</a>
 
             <sl-dropdown class="ml-8">
                 <button slot="trigger"
@@ -101,9 +106,9 @@
                 </sl-menu>
             </sl-dropdown>
 
-            <a href="/book"
+            <a href="{{lang_prefix}}/book"
                 class="bg-earth-brown hover:bg-primary-green text-white font-bold text-xs tracking-widest uppercase px-6 py-3 rounded-full transition-all duration-300 shadow-lg ml-6 text-center">
-                Book Your Stay
+                {{nav_cta}}
             </a>
         </div>
 
@@ -145,20 +150,22 @@
         </div>
 
         <div class="flex flex-col gap-6 text-xl font-serif text-center my-auto">
-            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="/#showcase">
-                Chalets</a>
-            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="/#why-love-us">Why
-                Us</a>
-            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="/amenities">Amenities</a>
-            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="/#location">About
-                Us</a>
-            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="/faq">FAQ</a>
+            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="{{lang_prefix}}/#showcase">
+                {{nav_chalets}}</a>
+            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition"
+                href="{{lang_prefix}}/#why-love-us">{{nav_why_us}}</a>
+            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition"
+                href="{{lang_prefix}}/amenities">{{nav_amenities}}</a>
+            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition"
+                href="{{lang_prefix}}/#location">{{nav_about_us}}</a>
+            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition"
+                href="{{lang_prefix}}/faq">{{nav_faq}}</a>
         </div>
 
         <div class="flex flex-col gap-4 text-center">
-            <a href="/book" onclick="toggleMobileMenu();"
+            <a href="{{lang_prefix}}/book" onclick="toggleMobileMenu();"
                 class="bg-earth-brown text-white py-4 rounded-full font-bold uppercase tracking-wider text-sm block">
-                Book Your Stay
+                {{nav_cta}}
             </a>
             <p class="text-xs text-stone-500">© 2026 Kozara Panoramic Resort</p>
         </div>
@@ -183,14 +190,13 @@
         </div>
 
         <div class="relative z-10 max-w-4xl mx-auto text-white px-4 pt-24">
-            <span class="text-xs md:text-sm font-bold tracking-[0.4em] uppercase text-sand-beige mb-4 block">Boutique
-                Mountain Sanctuary</span>
+            <span
+                class="text-xs md:text-sm font-bold tracking-[0.4em] uppercase text-sand-beige mb-4 block">{{hero_badge}}</span>
             <h1 class="font-serif text-3xl sm:text-5xl md:text-6xl font-bold leading-tight mb-4">
-                Luxury Private Chalets <br><span class="italic text-sand-beige font-normal">with Heated Pools</span>
+                {{hero_title_main}} <br><span class="italic text-sand-beige font-normal">{{hero_title_italic}}</span>
             </h1>
             <p class="text-base sm:text-lg md:text-xl font-light text-stone-200 max-w-2xl mx-auto mb-8 leading-relaxed">
-                Peaceful nature escape near Banja Luka & Croatia. Enjoy untouched nature, panoramic views, and
-                5-star comfort.
+                {{hero_subtitle}}
             </p>
         </div>
 
@@ -199,7 +205,7 @@
     <main class="py-16 px-4 max-w-7xl mx-auto">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
 
-            <div class="lg:col-span-8 space-y-8">
+            <div class="md:col-span-12 lg:col-span-8 space-y-8">
                 <div id="booking-feedback-alert"
                     class="hidden p-6 rounded-2xl border transition duration-300 flex items-start gap-4">
                     <div id="feedback-icon" class="text-2xl"></div>
@@ -209,12 +215,12 @@
                     </div>
                 </div>
 
-                <form id="resort-booking-form" onsubmit="handleBookingRequest(event)" class="space-y-6 text-left">
+                <form id="book_form" onsubmit="handleBookingRequest(event)" class="space-y-6 text-left">
                     <div class="bg-white border border-stone-200/80 p-6 md:p-8 rounded-2xl shadow-sm">
-                        <span class="text-[10px] font-bold text-earth-brown uppercase tracking-widest block mb-2">Step
-                            One</span>
+                        <span
+                            class="text-[10px] font-bold text-earth-brown uppercase tracking-widest block mb-2">{{book_step_1_badge}}</span>
                         <h3 class="font-serif text-xl font-bold text-primary-green mb-6 pb-2 border-b border-stone-100">
-                            Arrival Timelines & Guests</h3>
+                            {{book_step_1_title}}</h3>
 
                         <div class="grid grid-cols-1  gap-6 mb-6">
                             <div id="book_calendar_wrapper"></div>
@@ -223,45 +229,41 @@
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                             <div>
                                 <label
-                                    class="block text-xs font-bold uppercase text-stone-600 mb-2 tracking-wider">Adult
-                                    Occupants (Max 6)</label>
-                                <input type="number" required min="1" max="6" value="2" id="b-adults"
-                                    onchange="recalculateEstimatedTotal()"
+                                    class="block text-xs font-bold uppercase text-stone-600 mb-2 tracking-wider">{{book_adult_occupants}}</label>
+                                <input type="number" required min="1" max="6" value="2" id="b_adults" name="numAdults"
                                     class="w-full border border-stone-200 rounded-xl p-4 bg-stone-50/50 text-stone-800 text-sm focus:outline-none focus:ring-2 focus:ring-earth-brown">
                             </div>
                             <div>
                                 <label
-                                    class="block text-xs font-bold uppercase text-stone-600 mb-2 tracking-wider">Children
-                                    (Max 2)</label>
-                                <input type="number" min="0" max="2" value="0" id="b-children"
-                                    onchange="recalculateEstimatedTotal()"
+                                    class="block text-xs font-bold uppercase text-stone-600 mb-2 tracking-wider">{{book_child_occupants}}</label>
+                                <input type="number" min="0" max="2" value="0" id="b_children" name="numChildren"
                                     class="w-full border border-stone-200 rounded-xl p-4 bg-stone-50/50 text-stone-800 text-sm focus:outline-none focus:ring-2 focus:ring-earth-brown">
                             </div>
                         </div>
 
                         <span class="text-[10px] text-stone-400 italic block mt-4"><i
-                                class="fa-solid fa-circle-exclamation mr-1"></i> Maximum total limit is 6 persons per
-                            cabin. Families must supervise children around pools.</span>
+                                class="fa-solid fa-circle-exclamation mr-1"></i> {{book_occupant_limit_warning}}</span>
                     </div>
 
                     <div class="bg-white border border-stone-200/80 p-6 md:p-8 rounded-2xl shadow-sm">
-                        <span class="text-[10px] font-bold text-earth-brown uppercase tracking-widest block mb-2">Step
-                            Two</span>
+                        <span
+                            class="text-[10px] font-bold text-earth-brown uppercase tracking-widest block mb-2">{{book_step_2_badge}}</span>
                         <h3 class="font-serif text-xl font-bold text-primary-green mb-6 pb-2 border-b border-stone-100">
-                            Guest Coordinates & Billing</h3>
+                            {{book_step_2_title}}</h3>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                             <div>
                                 <label
-                                    class="block text-xs font-bold uppercase text-stone-600 mb-2 tracking-wider">First
-                                    Name</label>
-                                <input type="text" id="b-firstname" required
+                                    class="block text-xs font-bold uppercase text-stone-600 mb-2 tracking-wider">{{book_first_name}}</label>
+                                <input type="text" id="b-firstname" required name="customerName"
+                                    autocomplete="given-name"
                                     class="w-full border border-stone-200 rounded-xl p-4 bg-stone-50/50 text-sm focus:outline-none focus:ring-2 focus:ring-earth-brown">
                             </div>
                             <div>
-                                <label class="block text-xs font-bold uppercase text-stone-600 mb-2 tracking-wider">Last
-                                    Name</label>
-                                <input type="text" id="b-lastname" required
+                                <label
+                                    class="block text-xs font-bold uppercase text-stone-600 mb-2 tracking-wider">{{book_last_name}}</label>
+                                <input type="text" id="b-lastname" required name="customerLastName"
+                                    autocomplete="family-name"
                                     class="w-full border border-stone-200 rounded-xl p-4 bg-stone-50/50 text-sm focus:outline-none focus:ring-2 focus:ring-earth-brown">
                             </div>
                         </div>
@@ -269,16 +271,285 @@
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                             <div>
                                 <label
-                                    class="block text-xs font-bold uppercase text-stone-600 mb-2 tracking-wider">Email
-                                    Address</label>
-                                <input type="email" id="b-email" required
+                                    class="block text-xs font-bold uppercase text-stone-600 mb-2 tracking-wider">{{book_email}}</label>
+                                <input type="email" id="b-email" required name="customerEmail" autocomplete="email"
                                     class="w-full border border-stone-200 rounded-xl p-4 bg-stone-50/50 text-sm focus:outline-none focus:ring-2 focus:ring-earth-brown">
                             </div>
+
                             <div>
                                 <label
-                                    class="block text-xs font-bold uppercase text-stone-600 mb-2 tracking-wider">Phone
-                                    Number</label>
-                                <input type="tel" id="b-phone" required placeholder="+387..."
+                                    class="block text-xs font-bold uppercase text-stone-600 mb-2 tracking-wider">{{book_country}}</label>
+                                <select name="billingCountry" id="b-country" required name="billingCountry"
+                                    class="w-full border border-stone-200 rounded-xl p-4 bg-stone-50/50 text-stone-800 text-sm focus:outline-none focus:ring-2 focus:ring-earth-brown">
+                                    <option value="" disabled selected>{{book_country_placeholder}}</option>
+                                    <option value="AF">Afghanistan</option>
+                                    <option value="AL">Albania</option>
+                                    <option value="DZ">Algeria</option>
+                                    <option value="AS">American Samoa</option>
+                                    <option value="AD">Andorra</option>
+                                    <option value="AO">Angola</option>
+                                    <option value="AI">Anguilla</option>
+                                    <option value="AQ">Antarctica</option>
+                                    <option value="AG">Antigua and Barbuda</option>
+                                    <option value="AR">Argentina</option>
+                                    <option value="AM">Armenia</option>
+                                    <option value="AW">Aruba</option>
+                                    <option value="AU">Australia</option>
+                                    <option value="AT">Austria</option>
+                                    <option value="AZ">Azerbaijan</option>
+                                    <option value="AX">Åland Islands</option>
+                                    <option value="BS">Bahamas</option>
+                                    <option value="BH">Bahrain</option>
+                                    <option value="BD">Bangladesh</option>
+                                    <option value="BB">Barbados</option>
+                                    <option value="BY">Belarus</option>
+                                    <option value="BE">Belgium</option>
+                                    <option value="BZ">Belize</option>
+                                    <option value="BJ">Benin</option>
+                                    <option value="BM">Bermuda</option>
+                                    <option value="BT">Bhutan</option>
+                                    <option value="BO">Bolivia (Plurinational State of)</option>
+                                    <option value="BA">Bosnia and Herzegovina</option>
+                                    <option value="BW">Botswana</option>
+                                    <option value="BV">Bouvet Island</option>
+                                    <option value="BR">Brazil</option>
+                                    <option value="IO">British Indian Ocean Territory</option>
+                                    <option value="BN">Brunei Darussalam</option>
+                                    <option value="BG">Bulgaria</option>
+                                    <option value="BF">Burkina Faso</option>
+                                    <option value="BI">Burundi</option>
+                                    <option value="CV">Cabo Verde</option>
+                                    <option value="KH">Cambodia</option>
+                                    <option value="CM">Cameroon</option>
+                                    <option value="CA">Canada</option>
+                                    <option value="BQ">Caribbean Netherlands</option>
+                                    <option value="KY">Cayman Islands</option>
+                                    <option value="CF">Central African Republic</option>
+                                    <option value="TD">Chad</option>
+                                    <option value="CL">Chile</option>
+                                    <option value="CN">China</option>
+                                    <option value="CX">Christmas Island</option>
+                                    <option value="CC">Cocos (Keeling) Islands</option>
+                                    <option value="CO">Colombia</option>
+                                    <option value="KM">Comoros</option>
+                                    <option value="CG">Congo</option>
+                                    <option value="CD">Congo, Democratic Republic of the</option>
+                                    <option value="CK">Cook Islands</option>
+                                    <option value="CR">Costa Rica</option>
+                                    <option value="HR">Croatia</option>
+                                    <option value="CU">Cuba</option>
+                                    <option value="CW">Curaçao</option>
+                                    <option value="CY">Cyprus</option>
+                                    <option value="CZ">Czech Republic</option>
+                                    <option value="CI">Côte d'Ivoire</option>
+                                    <option value="DK">Denmark</option>
+                                    <option value="DJ">Djibouti</option>
+                                    <option value="DM">Dominica</option>
+                                    <option value="DO">Dominican Republic</option>
+                                    <option value="EC">Ecuador</option>
+                                    <option value="EG">Egypt</option>
+                                    <option value="SV">El Salvador</option>
+                                    <option value="GQ">Equatorial Guinea</option>
+                                    <option value="ER">Eritrea</option>
+                                    <option value="EE">Estonia</option>
+                                    <option value="SZ">Eswatini (Swaziland)</option>
+                                    <option value="ET">Ethiopia</option>
+                                    <option value="FK">Falkland Islands (Malvinas)</option>
+                                    <option value="FO">Faroe Islands</option>
+                                    <option value="FJ">Fiji</option>
+                                    <option value="FI">Finland</option>
+                                    <option value="FR">France</option>
+                                    <option value="GF">French Guiana</option>
+                                    <option value="PF">French Polynesia</option>
+                                    <option value="TF">French Southern Territories</option>
+                                    <option value="GA">Gabon</option>
+                                    <option value="GM">Gambia</option>
+                                    <option value="GE">Georgia</option>
+                                    <option value="DE">Germany</option>
+                                    <option value="GH">Ghana</option>
+                                    <option value="GI">Gibraltar</option>
+                                    <option value="GR">Greece</option>
+                                    <option value="GL">Greenland</option>
+                                    <option value="GD">Grenada</option>
+                                    <option value="GP">Guadeloupe</option>
+                                    <option value="GU">Guam</option>
+                                    <option value="GT">Guatemala</option>
+                                    <option value="GG">Guernsey</option>
+                                    <option value="GN">Guinea</option>
+                                    <option value="GW">Guinea-Bissau</option>
+                                    <option value="GY">Guyana</option>
+                                    <option value="HT">Haiti</option>
+                                    <option value="HM">Heard Island and Mcdonald Islands</option>
+                                    <option value="HN">Honduras</option>
+                                    <option value="HK">Hong Kong</option>
+                                    <option value="HU">Hungary</option>
+                                    <option value="IS">Iceland</option>
+                                    <option value="IN">India</option>
+                                    <option value="ID">Indonesia</option>
+                                    <option value="IR">Iran</option>
+                                    <option value="IQ">Iraq</option>
+                                    <option value="IE">Ireland</option>
+                                    <option value="IM">Isle of Man</option>
+                                    <option value="IL">Israel</option>
+                                    <option value="IT">Italy</option>
+                                    <option value="JM">Jamaica</option>
+                                    <option value="JP">Japan</option>
+                                    <option value="JE">Jersey</option>
+                                    <option value="JO">Jordan</option>
+                                    <option value="KZ">Kazakhstan</option>
+                                    <option value="KE">Kenya</option>
+                                    <option value="KI">Kiribati</option>
+                                    <option value="KP">Korea, North</option>
+                                    <option value="KR">Korea, South</option>
+                                    <option value="XK">Kosovo</option>
+                                    <option value="KW">Kuwait</option>
+                                    <option value="KG">Kyrgyzstan</option>
+                                    <option value="LA">Lao People's Democratic Republic</option>
+                                    <option value="LV">Latvia</option>
+                                    <option value="LB">Lebanon</option>
+                                    <option value="LS">Lesotho</option>
+                                    <option value="LR">Liberia</option>
+                                    <option value="LY">Libya</option>
+                                    <option value="LI">Liechtenstein</option>
+                                    <option value="LT">Lithuania</option>
+                                    <option value="LU">Luxembourg</option>
+                                    <option value="MO">Macao</option>
+                                    <option value="MK">Macedonia North</option>
+                                    <option value="MG">Madagascar</option>
+                                    <option value="MW">Malawi</option>
+                                    <option value="MY">Malaysia</option>
+                                    <option value="MV">Maldives</option>
+                                    <option value="ML">Mali</option>
+                                    <option value="MT">Malta</option>
+                                    <option value="MH">Marshall Islands</option>
+                                    <option value="MQ">Martinique</option>
+                                    <option value="MR">Mauritania</option>
+                                    <option value="MU">Mauritius</option>
+                                    <option value="YT">Mayotte</option>
+                                    <option value="MX">Mexico</option>
+                                    <option value="FM">Micronesia</option>
+                                    <option value="MD">Moldova</option>
+                                    <option value="MC">Monaco</option>
+                                    <option value="MN">Mongolia</option>
+                                    <option value="ME">Montenegro</option>
+                                    <option value="MS">Montserrat</option>
+                                    <option value="MA">Morocco</option>
+                                    <option value="MZ">Mozambique</option>
+                                    <option value="MM">Myanmar (Burma)</option>
+                                    <option value="NA">Namibia</option>
+                                    <option value="NR">Nauru</option>
+                                    <option value="NP">Nepal</option>
+                                    <option value="NL">Netherlands</option>
+                                    <option value="AN">Netherlands Antilles</option>
+                                    <option value="NC">New Caledonia</option>
+                                    <option value="NZ">New Zealand</option>
+                                    <option value="NI">Nicaragua</option>
+                                    <option value="NE">Niger</option>
+                                    <option value="NG">Nigeria</option>
+                                    <option value="NU">Niue</option>
+                                    <option value="NF">Norfolk Island</option>
+                                    <option value="MP">Northern Mariana Islands</option>
+                                    <option value="NO">Norway</option>
+                                    <option value="OM">Oman</option>
+                                    <option value="PK">Pakistan</option>
+                                    <option value="PW">Palau</option>
+                                    <option value="PS">Palestine</option>
+                                    <option value="PA">Panama</option>
+                                    <option value="PG">Papua New Guinea</option>
+                                    <option value="PY">Paraguay</option>
+                                    <option value="PE">Peru</option>
+                                    <option value="PH">Philippines</option>
+                                    <option value="PN">Pitcairn Islands</option>
+                                    <option value="PL">Poland</option>
+                                    <option value="PT">Portugal</option>
+                                    <option value="PR">Puerto Rico</option>
+                                    <option value="QA">Qatar</option>
+                                    <option value="RE">Reunion</option>
+                                    <option value="RO">Romania</option>
+                                    <option value="RU">Russian Federation</option>
+                                    <option value="RW">Rwanda</option>
+                                    <option value="BL">Saint Barthelemy</option>
+                                    <option value="SH">Saint Helena</option>
+                                    <option value="KN">Saint Kitts and Nevis</option>
+                                    <option value="LC">Saint Lucia</option>
+                                    <option value="MF">Saint Martin</option>
+                                    <option value="PM">Saint Pierre and Miquelon</option>
+                                    <option value="VC">Saint Vincent and the Grenadines</option>
+                                    <option value="WS">Samoa</option>
+                                    <option value="SM">San Marino</option>
+                                    <option value="ST">Sao Tome and Principe</option>
+                                    <option value="SA">Saudi Arabia</option>
+                                    <option value="SN">Senegal</option>
+                                    <option value="RS">Serbia</option>
+                                    <option value="CS">Serbia and Montenegro</option>
+                                    <option value="SC">Seychelles</option>
+                                    <option value="SL">Sierra Leone</option>
+                                    <option value="SG">Singapore</option>
+                                    <option value="SX">Sint Maarten</option>
+                                    <option value="SK">Slovakia</option>
+                                    <option value="SI">Slovenia</option>
+                                    <option value="SB">Solomon Islands</option>
+                                    <option value="SO">Somalia</option>
+                                    <option value="ZA">South Africa</option>
+                                    <option value="GS">South Georgia and the South Sandwich Islands</option>
+                                    <option value="SS">South Sudan</option>
+                                    <option value="ES">Spain</option>
+                                    <option value="LK">Sri Lanka</option>
+                                    <option value="SD">Sudan</option>
+                                    <option value="SR">Suriname</option>
+                                    <option value="SJ">Svalbard and Jan Mayen</option>
+                                    <option value="SE">Sweden</option>
+                                    <option value="CH">Switzerland</option>
+                                    <option value="SY">Syria</option>
+                                    <option value="TW">Taiwan</option>
+                                    <option value="TJ">Tajikistan</option>
+                                    <option value="TZ">Tanzania</option>
+                                    <option value="TH">Thailand</option>
+                                    <option value="TL">Timor-Leste</option>
+                                    <option value="TG">Togo</option>
+                                    <option value="TK">Tokelau</option>
+                                    <option value="TO">Tonga</option>
+                                    <option value="TT">Trinidad and Tobago</option>
+                                    <option value="TN">Tunisia</option>
+                                    <option value="TR">Turkey (Türkiye)</option>
+                                    <option value="TM">Turkmenistan</option>
+                                    <option value="TC">Turks and Caicos Islands</option>
+                                    <option value="TV">Tuvalu</option>
+                                    <option value="UM">U.S. Outlying Islands</option>
+                                    <option value="UG">Uganda</option>
+                                    <option value="UA">Ukraine</option>
+                                    <option value="AE">United Arab Emirates</option>
+                                    <option value="GB">United Kingdom</option>
+                                    <option value="US">United States</option>
+                                    <option value="UY">Uruguay</option>
+                                    <option value="UZ">Uzbekistan</option>
+                                    <option value="VU">Vanuatu</option>
+                                    <option value="VA">Vatican City Holy See</option>
+                                    <option value="VE">Venezuela</option>
+                                    <option value="VN">Vietnam</option>
+                                    <option value="VG">Virgin Islands, British</option>
+                                    <option value="VI">Virgin Islands, U.S.</option>
+                                    <option value="WF">Wallis and Futuna</option>
+                                    <option value="EH">Western Sahara</option>
+                                    <option value="YE">Yemen</option>
+                                    <option value="ZM">Zambia</option>
+                                    <option value="ZW">Zimbabwe</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label
+                                    class="block text-xs font-bold uppercase text-stone-600 mb-2 tracking-wider">{{book_city}}</label>
+                                <input type="text" id="b-city" required name="billingCity" autocomplete="address-level2"
+                                    class="w-full border border-stone-200 rounded-xl p-4 bg-stone-50/50 text-sm focus:outline-none focus:ring-2 focus:ring-earth-brown">
+                            </div>
+
+                            <div>
+                                <label
+                                    class="block text-xs font-bold uppercase text-stone-600 mb-2 tracking-wider">{{book_phone}}</label>
+                                <input type="tel" id="b-phone" required name="customerPhone" autocomplete="tel"
                                     class="w-full border border-stone-200 rounded-xl p-4 bg-stone-50/50 text-sm focus:outline-none focus:ring-2 focus:ring-earth-brown">
                             </div>
                         </div>
@@ -286,25 +557,26 @@
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                             <div class="md:col-span-2">
                                 <label
-                                    class="block text-xs font-bold uppercase text-stone-600 mb-2 tracking-wider">Billing
-                                    Address</label>
-                                <input type="text" id="b-address" required
+                                    class="block text-xs font-bold uppercase text-stone-600 mb-2 tracking-wider">{{book_address}}</label>
+                                <input type="text" id="b-address" required name="billingAddress"
+                                    autocomplete="street-address"
                                     class="w-full border border-stone-200 rounded-xl p-4 bg-stone-50/50 text-sm focus:outline-none focus:ring-2 focus:ring-earth-brown">
                             </div>
                             <div>
-                                <label class="block text-xs font-bold uppercase text-stone-600 mb-2 tracking-wider">Post
-                                    Code</label>
-                                <input type="text" id="b-postcode" required
+                                <label
+                                    class="block text-xs font-bold uppercase text-stone-600 mb-2 tracking-wider">{{book_post_code}}</label>
+                                <input type="text" id="b-postcode" required name="billingPostCode"
+                                    autocomplete="postal-code"
                                     class="w-full border border-stone-200 rounded-xl p-4 bg-stone-50/50 text-sm focus:outline-none focus:ring-2 focus:ring-earth-brown">
                             </div>
                         </div>
                     </div>
 
                     <div class="bg-white border border-stone-200/80 p-6 md:p-8 rounded-2xl shadow-sm">
-                        <span class="text-[10px] font-bold text-earth-brown uppercase tracking-widest block mb-2">Step
-                            Three</span>
+                        <span
+                            class="text-[10px] font-bold text-earth-brown uppercase tracking-widest block mb-2">{{book_step_3_badge}}</span>
                         <h3 class="font-serif text-xl font-bold text-primary-green mb-6 pb-2 border-b border-stone-100">
-                            Settlement Preferences</h3>
+                            {{book_step_3_title}}</h3>
 
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                             <label
@@ -312,9 +584,8 @@
                                 <input type="radio" name="b-payment" value="at-property" checked
                                     class="accent-primary-green w-4 h-4 mt-1">
                                 <div>
-                                    <p class="font-bold text-stone-800 text-sm">Pay at Property</p>
-                                    <span class="text-stone-400 text-xs">No credit card authorization required online.
-                                        Settle on the mountain.</span>
+                                    <p class="font-bold text-stone-800 text-sm">{{book_pay_property}}</p>
+                                    <span class="text-stone-400 text-xs">{{book_pay_property_desc}}</span>
                                 </div>
                             </label>
 
@@ -323,35 +594,111 @@
                                 <input type="radio" name="b-payment" value="online"
                                     class="accent-primary-green w-4 h-4 mt-1">
                                 <div>
-                                    <p class="font-bold text-stone-800 text-sm">Pay Online Now</p>
+                                    <p class="font-bold text-stone-800 text-sm">{{book_pay_online}}</p>
                                     <span class="text-stone-400 text-xs text-amber-700 font-semibold"><i
-                                            class="fa-solid fa-circle-exclamation mr-1"></i>Settled strictly in BAM
-                                        (Convertible Marks).</span>
+                                            class="fa-solid fa-circle-exclamation mr-1"></i>{{book_pay_online_desc}}</span>
                                 </div>
                             </label>
                         </div>
                     </div>
+                    <div
+                        class="block lg:hidden text-white p-6 rounded-2xl shadow-xl space-y-4 relative overflow-hidden">
+                        <div class="bg-white border border-stone-200/80 p-6 rounded-2xl shadow-sm space-y-4">
+                            <label
+                                class="block text-xs font-bold uppercase text-stone-600 tracking-wider">{{book_display_currency}}</label>
+                            <select id="currency_select_mobile"
+                                class="currency-select w-full border border-stone-200 rounded-xl p-4 bg-stone-50 text-stone-800 text-sm focus:outline-none focus:ring-2 focus:ring-earth-brown">
+                                <option value="BAM" selected>BAM (KM)</option>
+                                <option value="EUR">EUR (€)</option>
+                                <option value="GBP">GBP (₤)</option>
+                                <option value="USD">USD ($)</option>
+                            </select>
+                            <span class="text-[10px] text-stone-400 italic block"><i
+                                    class="fa-solid fa-circle-info mr-1"></i>
+                                {{book_currency_notice}}</span>
+                        </div>
+
+                        <div
+                            class="bg-primary-green text-white p-8 rounded-3xl shadow-xl space-y-6 relative overflow-hidden">
+                            <div class="absolute inset-0 bg-cover bg-center opacity-5"
+                                style="background-image: url('https://www.kozarapanoramicresort.ba/assets/Scenery/lander3.webp');">
+                            </div>
+
+                            <div class="relative z-10 border-b border-white/10 pb-4">
+                                <span
+                                    class="text-[9px] font-bold uppercase tracking-[0.2em] text-sand-beige block mb-1">{{book_invoice_estimate}}</span>
+                                <h4 class="font-serif text-2xl font-semibold">{{book_mountain_retreat}}</h4>
+                            </div>
+
+                            <div class="relative z-10 space-y-4 text-xs">
+                                <div class="flex justify-between items-center text-stone-300">
+                                    <span>{{book_duration_stay}}</span>
+                                    <span id="summary_duration_mobile" class="font-bold text-white">0 Nights</span>
+                                </div>
+                                <div class="flex justify-between items-center text-stone-300">
+                                    <span>{{book_guest_alignment}}</span>
+                                    <div>
+                                        <span id="summary-occupants-adults_mobile" class="font-bold text-white">2
+                                            Adults</span>
+                                        <span>,</span>
+                                        <span id="summary-occupants-children_mobile" class="font-bold text-white">0
+                                            Children</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="relative z-10 border-t border-white/10 pt-6 flex justify-between items-end">
+                                <div>
+                                    <span
+                                        class="text-[10px] text-sand-beige uppercase tracking-wider font-semibold block mb-1">{{book_estimated_total}}</span>
+                                    <h2 id="b-total-display_mobile"
+                                        class="font-serif text-3xl font-extrabold text-white">0 KM
+                                    </h2>
+                                    <p id="b-sub-transaction-notice"
+                                        class="text-[9px] text-sand-beige/70 mt-1 italic hidden">
+                                    </p>
+                                </div>
+                                <i class="fa-solid fa-hotel text-4xl text-white/10"></i>
+                            </div>
+                        </div>
+
+                        <div class="bg-stone-50 border border-stone-200/60 p-6 rounded-2xl">
+                            <h5 class="font-serif font-bold text-stone-800 text-sm mb-4">{{book_advantages_title}}</h5>
+                            <ul class="text-xs text-stone-600 space-y-3">
+                                <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span>
+                                    {{book_adv_1}}</li>
+                                <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span>
+                                    {{book_adv_2}}</li>
+                                <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span>
+                                    {{book_adv_3}}</li>
+                                <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span>
+                                    {{book_adv_4}}</li>
+                            </ul>
+                        </div>
+
+                    </div>
+
 
                     <button type="submit"
-                        class="w-full bg-primary-green hover:bg-earth-brown text-white font-bold tracking-widest uppercase py-5 rounded-2xl transition duration-300 shadow-lg text-sm flex items-center justify-center gap-2">
-                        <i class="fa-regular fa-calendar-check text-base"></i> Confirm Reservation Request
+                        class="w-full bg-primary-green hover:bg-earth-brown text-white font-bold tracking-widest uppercase py-5 rounded-2xl transition duration-300 shadow-xl flex justify-center items-center gap-3">
+                        <i class="fa-solid fa-lock"></i> {{book_finalize_btn}}
                     </button>
                 </form>
             </div>
 
-            <div class="lg:col-span-4 lg:sticky lg:top-28 space-y-6">
+            <div class="hidden lg:block lg:col-span-4 lg:sticky md:top-28 space-y-6">
                 <div class="bg-white border border-stone-200/80 p-6 rounded-2xl shadow-sm space-y-4">
-                    <label class="block text-xs font-bold uppercase text-stone-600 tracking-wider">Display Rate
-                        Currency</label>
-                    <select id="b-currency" onchange="recalculateEstimatedTotal()"
-                        class="w-full border border-stone-200 rounded-xl p-4 bg-stone-50 text-stone-800 text-sm focus:outline-none focus:ring-2 focus:ring-earth-brown">
+                    <label
+                        class="block text-xs font-bold uppercase text-stone-600 tracking-wider">{{book_display_currency}}</label>
+                    <select id="b_currency_desktop"
+                        class=" currency-select w-full border border-stone-200 rounded-xl p-4 bg-stone-50 text-stone-800 text-sm focus:outline-none focus:ring-2 focus:ring-earth-brown">
                         <option value="BAM" selected>BAM (KM)</option>
                         <option value="EUR">EUR (€)</option>
                         <option value="GBP">GBP (₤)</option>
                         <option value="USD">USD ($)</option>
                     </select>
                     <span class="text-[10px] text-stone-400 italic block"><i class="fa-solid fa-circle-info mr-1"></i>
-                        This toggle changes the displayed estimate only. Actual transaction remains in BAM.</span>
+                        {{book_currency_notice}}</span>
                 </div>
 
                 <div class="bg-primary-green text-white p-8 rounded-3xl shadow-xl space-y-6 relative overflow-hidden">
@@ -360,32 +707,33 @@
                     </div>
 
                     <div class="relative z-10 border-b border-white/10 pb-4">
-                        <span class="text-[9px] font-bold uppercase tracking-[0.2em] text-sand-beige block mb-1">Live
-                            Invoice Estimate</span>
-                        <h4 class="font-serif text-2xl font-semibold">Your Mountain Retreat</h4>
+                        <span
+                            class="text-[9px] font-bold uppercase tracking-[0.2em] text-sand-beige block mb-1">{{book_invoice_estimate}}</span>
+                        <h4 class="font-serif text-2xl font-semibold">{{book_mountain_retreat}}</h4>
                     </div>
 
                     <div class="relative z-10 space-y-4 text-xs">
                         <div class="flex justify-between items-center text-stone-300">
-                            <span>Chalet Specification:</span>
-                            <span class="font-bold text-white">Solid Timber Luxury Cabin</span>
+                            <span>{{book_duration_stay}}</span>
+                            <span id="summary_duration_desktop" class="font-bold text-white">0 Nights</span>
                         </div>
                         <div class="flex justify-between items-center text-stone-300">
-                            <span>Duration of Stay:</span>
-                            <span id="summary-duration" class="font-bold text-white">0 Nights</span>
-                        </div>
-                        <div class="flex justify-between items-center text-stone-300">
-                            <span>Guest Alignment:</span>
-                            <span id="summary-occupants" class="font-bold text-white">2 Adults, 0 Children</span>
+                            <span>{{book_guest_alignment}}</span>
+                            <div>
+                                <span id="summary-occupants-adults_desktop" class="font-bold text-white">2 Adults</span>
+                                <span>,</span>
+                                <span id="summary-occupants-children_desktop" class="font-bold text-white">0
+                                    Children</span>
+                            </div>
                         </div>
                     </div>
 
                     <div class="relative z-10 border-t border-white/10 pt-6 flex justify-between items-end">
                         <div>
                             <span
-                                class="text-[10px] text-sand-beige uppercase tracking-wider font-semibold block mb-1">Estimated
-                                Total</span>
-                            <h2 id="b-total-display" class="font-serif text-3xl font-extrabold text-white">0 KM</h2>
+                                class="text-[10px] text-sand-beige uppercase tracking-wider font-semibold block mb-1">{{book_estimated_total}}</span>
+                            <h2 id="b-total-display_desktop" class="font-serif text-3xl font-extrabold text-white">0 KM
+                            </h2>
                             <p id="b-sub-transaction-notice" class="text-[9px] text-sand-beige/70 mt-1 italic hidden">
                             </p>
                         </div>
@@ -394,16 +742,12 @@
                 </div>
 
                 <div class="bg-stone-50 border border-stone-200/60 p-6 rounded-2xl">
-                    <h5 class="font-serif font-bold text-stone-800 text-sm mb-4">Direct Booking Advantages</h5>
+                    <h5 class="font-serif font-bold text-stone-800 text-sm mb-4">{{book_advantages_title}}</h5>
                     <ul class="text-xs text-stone-600 space-y-3">
-                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Best price
-                            guaranteed over external agents</li>
-                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Premium welcome
-                            artisan basket</li>
-                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Instant priority
-                            pool temperature check</li>
-                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Seamless direct
-                            support from James & Dragana</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> {{book_adv_1}}</li>
+                        <!-- <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> {{book_adv_2}}</li> -->
+                        <!-- <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> {{book_adv_3}}</li> -->
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> {{book_adv_4}}</li>
                     </ul>
                 </div>
             </div>
@@ -422,8 +766,7 @@
                         <span class="font-serif tracking-widest text-2xl font-bold">KOZARA PANORAMIC RESORT</span>
                     </div>
                     <p class="text-stone-300 text-sm leading-relaxed">
-                        A boutique mountain sanctuary offering five luxury private chalets with heated pools.
-                        Discover untouched nature and 5-star comfort in Northern Bosnia.
+                        {{footer_brand_desc}}
                     </p>
                     <div class="flex gap-4">
                         <a href="#"
@@ -438,31 +781,41 @@
                 </div>
 
                 <div>
-                    <h4 class="font-serif text-lg font-bold mb-6 text-sand-beige">Quick Links</h4>
+                    <h4 class="font-serif text-lg font-bold mb-6 text-sand-beige">{{footer_col_links}}</h4>
                     <ul class="space-y-4 text-sm text-stone-300">
-                        <li><a href="/#showcase" class="hover:text-white transition">The Chalets</a></li>
-                        <li><a href="/amenities" class="hover:text-white transition">Resort Amenities</a></li>
-                        <li><a href="/#location" class="hover:text-white transition">Our Location</a></li>
-                        <li><a href="/faq" class="hover:text-white transition">Frequently Asked Questions</a>
+                        <li><a href="{{lang_prefix}}/#showcase"
+                                class="hover:text-white transition">{{footer_link_chalets}}</a></li>
+                        <li><a href="{{lang_prefix}}/amenities"
+                                class="hover:text-white transition">{{footer_link_amenities}}</a></li>
+                        <li><a href="{{lang_prefix}}/#location"
+                                class="hover:text-white transition">{{footer_link_location}}</a></li>
+                        <li><a href="{{lang_prefix}}/faq" class="hover:text-white transition">{{footer_link_faq}}</a>
                         </li>
-                        <li><a href="/book" class="hover:text-white transition">Book Your Stay</a></li>
+                        <li><a href="{{lang_prefix}}/book" class="hover:text-white transition">
+                                {{nav_cta}}
+                            </a></li>
                     </ul>
                 </div>
 
                 <div>
-                    <h4 class="font-serif text-lg font-bold mb-6 text-sand-beige">Contact Us</h4>
+                    <h4 class="font-serif text-lg font-bold mb-6 text-sand-beige">{{footer_col_contact}}</h4>
                     <ul class="space-y-4 text-sm text-stone-300">
                         <li class="flex items-start gap-3">
                             <i class="fa-solid fa-location-dot mt-1 text-earth-brown"></i>
-                            <span>Kozara Mountain, Gradiška,<br>Bosnia and Herzegovina</span>
+                            <span>Kozara BB, 78400 Gradiška, Bosnia & Herzegovina</span>
                         </li>
                         <li class="flex items-center gap-3">
-                            <i class="fa-solid fa-phone text-earth-brown"></i>
-                            <span>+387 00 000 000</span>
+                            <i class="fa-solid fa-phone mr-1 text-earth-brown"></i> <a href="tel:+38766767622"
+                                class="hover:underline">+387 66 767 622</a> (BA)
                         </li>
                         <li class="flex items-center gap-3">
-                            <i class="fa-solid fa-envelope text-earth-brown"></i>
-                            <span>info@kozarapanoramicresort.ba</span>
+                            <i class="fa-brands fa-whatsapp mr-1 text-earth-brown"></i> <a href="tel:+4915117627478"
+                                class="hover:underline">+49 151 176 27478</a> (DE)
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope mr-1 text-earth-brown"></i> <a
+                                href="mailto:info@kozarapanoramicresort.ba"
+                                class="hover:underline">info@kozarapanoramicresort.ba</a>
                         </li>
                     </ul>
                 </div>
@@ -471,11 +824,14 @@
 
             <div
                 class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-stone-400">
-                <p>© 2026 Kozara Panoramic Resort. All rights reserved.</p>
+                <p>{{footer_copyright}}</p>
                 <div class="flex gap-6">
-                    <a href="/notice#privacy" class="hover:text-white transition">Privacy Policy</a>
-                    <a href="/notice#terms" class="hover:text-white transition">Terms of Service</a>
-                    <a href="/notice#cookies" class="hover:text-white transition">Cookie Policy</a>
+                    <a href="{{lang_prefix}}/notice#privacy"
+                        class="hover:text-white transition">{{footer_policy_privacy}}</a>
+                    <a href="{{lang_prefix}}/notice#terms"
+                        class="hover:text-white transition">{{footer_policy_terms}}</a>
+                    <a href="{{lang_prefix}}/notice#cookies"
+                        class="hover:text-white transition">{{footer_policy_cookie}}</a>
                 </div>
             </div>
         </div>
@@ -483,67 +839,125 @@
 
     <script>
         const baseRateBAM = 330;
+        let minimumStay = 2;
+        let prices_data;
+        let booking_calendar
+        let currency_modifier = 1
+        let currency_symbol = "KM"
 
-        function recalculateEstimatedTotal() {
-            const checkinVal = document.getElementById('b-checkin').value;
-            const checkoutVal = document.getElementById('b-checkout').value;
-            const currencyKey = document.getElementById('b-currency').value;
-            const totalDisplay = document.getElementById('b-total-display');
-            const summaryDuration = document.getElementById('summary-duration');
-            const summaryOccupants = document.getElementById('summary-occupants');
-            const transactionNotice = document.getElementById('b-sub-transaction-notice');
 
-            const adultsCount = document.getElementById('b-adults').value || 2;
-            const childrenCount = document.getElementById('b-children').value || 0;
+        let currency_select
+        let guest_count_adults_html
+        let guest_count_children_html
+        let estimated_total_html
+        let summary_duration
 
-            summaryOccupants.innerText = `${adultsCount} Adults, ${childrenCount} Children`;
 
-            if (!checkinVal || !checkoutVal) {
-                totalDisplay.innerText = `0 ${currencyKey === 'EUR' ? '€' : currencyKey === 'GBP' ? '₤' : currencyKey === 'USD' ? '$' : 'KM'}`;
-                summaryDuration.innerText = "0 Nights";
-                transactionNotice.classList.add('hidden');
-                return;
-            }
-
-            const d1 = new Date(checkinVal);
-            const d2 = new Date(checkoutVal);
-            const diffTime = Math.abs(d2 - d1);
-            const diffNights = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
-
-            if (diffNights <= 0) {
-                totalDisplay.innerText = `0 ${currencyKey === 'EUR' ? '€' : currencyKey === 'GBP' ? '₤' : currencyKey === 'USD' ? '$' : 'KM'}`;
-                summaryDuration.innerText = "0 Nights";
-                transactionNotice.classList.add('hidden');
-                return;
-            }
-
-            summaryDuration.innerText = `${diffNights} Night${diffNights > 1 ? 's' : ''}`;
-
-            const rates = {BAM: 1, EUR: 0.51, GBP: 0.44, USD: 0.6};
-            const symbols = {BAM: "KM", EUR: "€", GBP: "₤", USD: "$"};
-
-            const totalInBAM = diffNights * baseRateBAM;
-            const rateMultiplier = rates[currencyKey] || 1;
-            const symbolValue = symbols[currencyKey] || "KM";
-
-            const calculatedTotal = totalInBAM * rateMultiplier;
-
-            if (currencyKey === "USD") {
-                totalDisplay.innerText = `${symbolValue}${calculatedTotal.toFixed(2)}`;
-            } else {
-                totalDisplay.innerText = `${calculatedTotal.toFixed(2)} ${symbolValue}`;
-            }
-
-            if (currencyKey !== "BAM") {
-                transactionNotice.innerText = `* Actual checkout charge: ${totalInBAM.toFixed(2)} KM`;
-                transactionNotice.classList.remove('hidden');
-            } else {
-                transactionNotice.classList.add('hidden');
-            }
+        function comp_date(str1, str2) {
+            const d1 = new Date(str1)
+            const d2 = new Date(str2)
+            if (d1 > d2) return true
+            else return false
         }
 
-        function handleBookingRequest(event) {
+        function updateEstimatedPrice(selectedDates) {
+            // const priceValueDisplay = document.getElementById("b-total-display");
+            // if (!priceValueDisplay) return;
+
+            if (!selectedDates || selectedDates.length < 2 || !prices_data) {
+                estimated_total_html.textContent = `0 ${currency_symbol}`;
+                return;
+            }
+
+            const sortedDates = [...selectedDates].sort();
+            const range = window.VanillaCalendarProUtils.parseDates([`${sortedDates[0]}:${sortedDates[sortedDates.length - 1]}`]);
+
+            const nightsToCharge = range.slice(0, -1);
+            let total = 0;
+
+            nightsToCharge.forEach(dateStr => {
+                const entry = prices_data.find(e =>
+                    !comp_date(e.from, dateStr) && !comp_date(dateStr, e.to)
+                );
+                if (entry) {
+                    total += entry.price1;
+                }
+            });
+            summary_duration.innerHTML = `${nightsToCharge.length} Nights`
+
+            const finalPrice = Math.round(total * currency_modifier * 10) / 10;
+
+            if (currency_select.value === "USD") {
+                estimated_total_html.textContent = `${currency_symbol} ${finalPrice}`;
+            } else {
+                estimated_total_html.textContent = `${finalPrice} ${currency_symbol}`;
+            }
+        }
+        async function notify(message, variant = "warning", duration = 3000) {
+            const alert = Object.assign(document.createElement("sl-alert"), {
+                variant,
+                closable: true,
+                duration: duration,
+                innerHTML: `<sl-icon src="/assets/amenities_icons/circle-alert.svg" slot="icon"></sl-icon>${message}`,
+            })
+
+            document.body.append(alert)
+            await customElements.whenDefined('sl-alert');
+            return alert.toast()
+        }
+
+
+        {
+            fetch('/api/baseinfo').then(res => res.json()).then(res => {
+                if (res.success) {
+                    minimumStay = res.value
+                } else {
+                    minimumStay = 1
+                }
+            })
+        }
+
+        let ayt_formatter = null
+        book_form.querySelector("[name=billingCountry]").addEventListener("change", e => {
+            console.log('ua')
+            ayt_formatter = new libphonenumber.AsYouType(e.target.value)
+        })
+        book_form.querySelector("[name=customerPhone]").addEventListener("input", e => {
+            console.log('ua2')
+            if (!ayt_formatter) return
+            ayt_formatter.reset()
+            e.target.value = ayt_formatter.input(e.target.value)
+        })
+
+        async function handleBookingRequest(event) {
             event.preventDefault();
+            const selectedDates = booking_calendar.context.selectedDates;
+
+            if (!selectedDates || selectedDates.length < 2) {
+                const calendarWrapper = document.getElementById('book_calendar_wrapper');
+                if (calendarWrapper) {
+                    calendarWrapper.scrollIntoView({behavior: 'smooth', block: 'center'});
+                }
+
+                notify(`{{booking_dates_missing}}`, "neutral");
+
+                return;
+            }
+
+            const fdata = new FormData(book_form)
+            fdataJSON = {}
+            for (const [key, value] of fdata.entries()) {
+                fdataJSON[key] = value
+            }
+            try {
+                const phoneN = libphonenumber.parsePhoneNumber(fdata.get("customerPhone"), fdata.get("billingCountry"))
+                fdataJSON.customerPhone = phoneN.formatInternational()
+            } catch (err) {
+                fdataJSON.customerPhone = fdata.get("customerPhone")
+            }
+            fdataJSON.startDate = booking_calendar.context.selectedDates[0]
+            fdataJSON.endDate = booking_calendar.context.selectedDates[1]
+            console.log(fdataJSON)
 
             const feedbackAlert = document.getElementById('booking-feedback-alert');
             const fIcon = document.getElementById('feedback-icon');
@@ -554,23 +968,48 @@
 
             feedbackAlert.className = "p-6 rounded-2xl border bg-stone-50 border-stone-200 block text-stone-700 flex items-start gap-4";
             fIcon.innerHTML = "<i class='fa-solid fa-spinner animate-spin text-earth-brown'></i>";
-            fHeadline.innerText = "Connecting with pre-arrival concierge...";
-            fParagraph.innerText = "Validating secure property parameters on Mount Kozara servers. Symmetrical slots allocation check underway.";
+            fHeadline.innerText = "{{booking_connecting_headline}}";
+            fParagraph.innerText = "{{booking_connecting_paragraph}}";
 
-            setTimeout(() => {
+            setTimeout(async () => {
                 feedbackAlert.className = "p-6 rounded-2xl border bg-emerald-50 border-emerald-200 text-emerald-800 block flex items-start gap-4";
                 fIcon.innerHTML = "<i class='fa-regular fa-circle-check text-emerald-600'></i>";
-                fHeadline.innerText = "Reservation Request Processed Successfully";
-                fParagraph.innerText = "Your luxury mountain stay has been securely registered. Dragana or Vesna will contact you shortly via email or phone to confirm and finalize check-in instructions. Redirecting you home...";
+                fHeadline.innerText = "{{booking_success_headline}}";
+                fParagraph.innerText = "{{booking_success_paragraph}}";
 
-                document.getElementById('resort-booking-form').reset();
-                recalculateEstimatedTotal();
 
-                setTimeout(() => {
-                    window.location.href = "index.html";
-                }, 4000);
+                if (fdata.get("b-payment") === "at-property") {
+                    fParagraph.innerText = "{{booking_success_paragraph_property}}";
+                    console.log("property payment")
+                    const bookingRequest = await fetch('/api/booking/nopayment', {
+                        method: "POST",
+                        headers: {"Content-Type": "application/json"},
+                        body: JSON.stringify(fdataJSON)
+                    })
+                    const bookingResponse = await bookingRequest.json();
+                    if (bookingResponse.success) {
+                        window.location = bookingResponse.url
+                    }
+
+                } else {
+                    fParagraph.innerText = "{{booking_success_paragraph_online}}";
+                    console.log("making online payment")
+                    const bookingRequest = await fetch('/api/booking', {
+                        method: "POST",
+                        headers: {"Content-Type": "application/json"},
+                        body: JSON.stringify(fdataJSON)
+                    })
+
+                    const bookingResponse = await bookingRequest.json();
+                    if (bookingResponse.success) {
+                        window.location = bookingResponse.url
+                    }
+                }
 
             }, 2500);
+
+
+
         }
 
         function toggleMobileMenu() {
@@ -579,9 +1018,24 @@
         }
 
         window.addEventListener('DOMContentLoaded', () => {
+            if (window.innerWidth < 1024) {
+                guest_count_adults_html = document.getElementById("summary-occupants-adults_mobile")
+                guest_count_children_html = document.getElementById("summary-occupants-children_mobile")
+                estimated_total_html = document.getElementById("b-total-display_mobile")
+                summary_duration = document.getElementById("summary_duration_mobile")
+
+
+                currency_select = document.getElementById("currency_select_mobile")
+            } else {
+                guest_count_adults_html = document.getElementById("summary-occupants-adults_desktop")
+                guest_count_children_html = document.getElementById("summary-occupants-children_desktop")
+                estimated_total_html = document.getElementById("b-total-display_desktop")
+                summary_duration = document.getElementById("summary_duration_desktop")
+                currency_select = document.getElementById("b_currency_desktop");
+            }
             if (window.VanillaCalendarPro) {
                 const {Calendar} = window.VanillaCalendarPro;
-                const booking_calendar = new Calendar("#book_calendar_wrapper", {
+                booking_calendar = new Calendar("#book_calendar_wrapper", {
                     type: "multiple",
                     selectedTheme: "light",
                     dateMin: "today",
@@ -589,15 +1043,93 @@
                     disableToday: true,
                     enableEdgeDatesOnly: true,
                     enableDateToggle: false,
-                    selectionDatesMode: "multiple-ranged"
+                    selectionDatesMode: "multiple-ranged",
+                    onCreateDateEls(self, dateEl) {
+                        if (!prices_data) return
+                        const curr_date = dateEl.dataset.vcDate
+                        for (const entry of prices_data) {
+                            if (comp_date(entry.from, curr_date)) continue
+                            if (comp_date(curr_date, entry.to)) continue
+                            if (currency_select.value == "USD") {
+                                dateEl.querySelector("button").innerHTML += `<div>\
+								${currency_symbol}${Math.round(entry.price1 * currency_modifier * 10) / 10}
+								</div>`
+                            }
+                            else {
+                                dateEl.querySelector("button").innerHTML += `<div>\
+								${Math.round(entry.price1 * currency_modifier * 10) / 10}${currency_symbol}
+								</div>`
+                            }
+                            break
+                        }
+                    },
+                    onClickDate(self, event) {
+                        if (self.context.selectedDates.length < 2) {
+                            updateEstimatedPrice([]);
+                            return;
+                        }
 
+                        const expanded_dates = window.VanillaCalendarProUtils.parseDates([
+                            `${self.context.selectedDates[0]}:${self.context.selectedDates[1]}`
+                        ]);
 
-
+                        if (expanded_dates.length < (minimumStay + 1)) {
+                            notify(`Minimum ${minimumStay} nights of stay!`, "neutral");
+                            self.context.selectedDates = [];
+                            updateEstimatedPrice([]);
+                        } else {
+                            updateEstimatedPrice(self.context.selectedDates);
+                        }
+                        console.log(self.context.selectedDates)
+                    },
+                    onInit(self) {
+                        self.context.selectedDates = [];
+                        updateEstimatedPrice([]);
+                    },
+                    onUpdate(self) {
+                        self.context.selectedDates = []
+                    },
                 }
-
                 );
-
                 booking_calendar.init();
+                currency_select.addEventListener("change", e => {
+
+                    console.log("currency working")
+
+                    const modifiers = {
+                        BAM: 1,
+                        EUR: 0.51,
+                        GBP: 0.44,
+                        USD: 0.6
+                    };
+                    const symbols = {
+                        BAM: "KM",
+                        EUR: "€",
+                        GBP: "₤",
+                        USD: "$"
+                    };
+
+                    currency_modifier = modifiers[currency_select.value];
+                    currency_symbol = symbols[currency_select.value];
+
+                    const currentDates = booking_calendar.context.selectedDates;
+
+                    booking_calendar.update();
+                    if (currency_symbol === "$") {
+                        estimated_total_html.innerHTML = currency_symbol + " 0"
+                    } else {
+                        estimated_total_html.innerHTML = "0 " + currency_symbol
+                    }
+                });
+                b_adults.addEventListener("input", e => {
+                    console.log(b_adults.value)
+                    guest_count_adults_html.innerHTML = b_adults.value + " Adults"
+                    console.log('alo')
+                })
+                b_children.addEventListener("input", e => {
+                    guest_count_children_html.innerHTML = b_children.value + " Children"
+                    console.log('alo')
+                })
             }
 
             if (window.gsap && window.ScrollTrigger) {
@@ -645,7 +1177,38 @@
                 });
             }
         });
+
+        {
+
+            const curr_date = new Date()
+            const next_date = new Date()
+            next_date.setFullYear(curr_date.getFullYear() + 1)
+            fetch(`/api/getprices?startDate=${curr_date.toISOString().substring(0, 10)}&endDate=${next_date.toISOString().substring(0, 10)}`)
+                .then(res => res.json())
+                .then(res => (prices_data = res))
+                .then(() => {
+                    console.log(prices_data)
+                    let disabled_dates = []
+                    prices_data.forEach(entry => {
+                        if (entry.numAvail == 0) {
+                            disabled_dates.push(`${entry.from}:${entry.to}`)
+                        }
+                    })
+                    booking_calendar.set({
+                        disableDates: disabled_dates,
+                    })
+                    booking_calendar.update()
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+
+        }
+        {
+
+        }
     </script>
+    <script src="/js/lang.js"></script>
 </body>
 
 </html>

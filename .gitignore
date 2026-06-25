@@ -6,3 +6,4 @@ images/
 logs/
 node_modules/
 blogpictures/
+.agents/

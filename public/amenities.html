@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Resort Amenities & Comforts | Kozara Panoramic Resort</title>
+    <title>{{am_title}}</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,9 +12,15 @@
         href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Playfair+Display:ital,wght=0,400;0,600;0,700;1,400&display=swap"
         rel="stylesheet">
 
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Kozara Panoramic resort" />
+    <link rel="manifest" href="/site.webmanifest" />
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <link href="css/main.css" rel="stylesheet" />
+    <link href="/css/base.css" rel="stylesheet" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
@@ -52,25 +58,26 @@
     <nav id="main-nav" class="py-2 md:py-5 px-6 md:px-12">
         <div class="nav-links-container hidden lg:flex flex-1 justify-end mr-8">
             <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300"
-                href="/#showcase">Chalets</a>
+                href="{{lang_prefix}}/#showcase">{{nav_chalets}}</a>
             <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300 ml-8"
-                href="/#why-love-us">Why Us</a>
+                href="{{lang_prefix}}/#why-love-us">{{nav_why_us}}</a>
             <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300 ml-8"
-                href="/amenities">Amenities</a>
+                href="{{lang_prefix}}/amenities">{{nav_amenities}}</a>
         </div>
 
         <div id="logo_stripped_reserve_spacer" class="hidden lg:block"></div>
-        <a href="/" id="logo_stripped" class="block">
+        <a href="{{lang_prefix}}/" id="logo_stripped" class="block">
             <img src="/assets/logo_stripped.svg"
                 onerror="this.onerror=null; this.src='https://www.kozarapanoramicresort.ba/assets/logo_stripped.svg';"
                 alt="Kozara Panoramic Resort Logo" class="w-full h-auto block">
         </a>
         <div class="nav-links-container hidden lg:flex flex-1 justify-start ml-8">
-            <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300" href="/#location">About
-                Us</a>
+            <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300"
+                href="{{lang_prefix}}/#location">{{nav_about_us}}</a>
             <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300 ml-8"
-                href="/#blog">Blog</a>
-            <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300 ml-8" href="/faq">FAQ</a>
+                href="{{lang_prefix}}/#blog">{{nav_blog}}</a>
+            <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300 ml-8"
+                href="{{lang_prefix}}/faq">{{nav_faq}}</a>
 
             <sl-dropdown class="ml-8">
                 <button slot="trigger"
@@ -85,9 +92,9 @@
                 </sl-menu>
             </sl-dropdown>
 
-            <a href="/book"
+            <a href="{{lang_prefix}}/book"
                 class="bg-earth-brown hover:bg-primary-green text-white font-bold text-xs tracking-widest uppercase px-6 py-3 rounded-full transition-all duration-300 shadow-lg ml-6 text-center">
-                Book Your Stay
+                {{nav_cta}}
             </a>
         </div>
 
@@ -129,20 +136,22 @@
         </div>
 
         <div class="flex flex-col gap-6 text-xl font-serif text-center my-auto">
-            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="/#showcase">
+            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="{{lang_prefix}}/#showcase">
                 Chalets</a>
-            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="/#why-love-us">Why
-                Us</a>
-            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="/amenities">Amenities</a>
-            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="/#location">About
-                Us</a>
-            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="/faq">FAQ</a>
+            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition"
+                href="{{lang_prefix}}/#why-love-us">{{nav_why_us}}</a>
+            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition"
+                href="{{lang_prefix}}/amenities">{{nav_amenities}}</a>
+            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition"
+                href="{{lang_prefix}}/#location">{{nav_about_us}}</a>
+            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition"
+                href="{{lang_prefix}}/faq">{{nav_faq}}</a>
         </div>
 
         <div class="flex flex-col gap-4 text-center">
-            <a href="/book" onclick="toggleMobileMenu();"
+            <a href="{{lang_prefix}}/book" onclick="toggleMobileMenu();"
                 class="bg-earth-brown text-white py-4 rounded-full font-bold uppercase tracking-wider text-sm block">
-                Book Your Stay
+                {{nav_cta}}
             </a>
             <p class="text-xs text-stone-500">© 2026 Kozara Panoramic Resort</p>
         </div>
@@ -155,12 +164,11 @@
         </div>
 
         <div class="relative z-10 max-w-4xl mx-auto px-4 pt-16">
-            <span class="text-xs md:text-sm font-bold tracking-[0.4em] uppercase text-sand-beige mb-3 block">Resort
-                Specifications</span>
-            <h1 class="font-serif text-3xl sm:text-5xl font-bold leading-tight mb-2">Comforts &amp; Amenities</h1>
+            <span
+                class="text-xs md:text-sm font-bold tracking-[0.4em] uppercase text-sand-beige mb-3 block">{{am_header_badge}}</span>
+            <h1 class="font-serif text-3xl sm:text-5xl font-bold leading-tight mb-2">{{am_header_title}}</h1>
             <p class="text-xs sm:text-sm font-light text-stone-300 max-w-xl mx-auto leading-relaxed">
-                Explore every thoughtfully-curated detail included verbatim across all five of our custom mountain
-                timber chalets.
+                {{am_header_desc}}
             </p>
         </div>
     </header>
@@ -174,40 +182,40 @@
                     class="w-10 h-10 rounded-full bg-primary-green/5 text-primary-green flex items-center justify-center mx-auto text-lg">
                     <i class="fa-solid fa-water"></i>
                 </div>
-                <p class="font-bold text-stone-900">Private Pool</p>
-                <span class="text-[10px] text-stone-500 block">6x3m Individual Heated</span>
+                <p class="font-bold text-stone-900">{{am_icon_1_title}}</p>
+                <span class="text-[10px] text-stone-500 block">{{am_icon_1_desc}}</span>
             </div>
             <div class="space-y-2 md:border-t-0 md:border-l border-stone-200/80 pt-4 md:pt-0">
                 <div
                     class="w-10 h-10 rounded-full bg-primary-green/5 text-primary-green flex items-center justify-center mx-auto text-lg">
                     <i class="fa-solid fa-wifi"></i>
                 </div>
-                <p class="font-bold text-stone-900">Free WiFi</p>
-                <span class="text-[10px] text-stone-500 block">High-Speed Coverage</span>
+                <p class="font-bold text-stone-900">{{am_icon_2_title}}</p>
+                <span class="text-[10px] text-stone-500 block">{{am_icon_2_desc}}</span>
             </div>
             <div class="space-y-2 border-t md:border-t-0 md:border-l border-stone-200/80 pt-4 md:pt-0">
                 <div
                     class="w-10 h-10 rounded-full bg-primary-green/5 text-primary-green flex items-center justify-center mx-auto text-lg">
                     <i class="fa-solid fa-square-parking"></i>
                 </div>
-                <p class="font-bold text-stone-900">Free Parking</p>
-                <span class="text-[10px] text-stone-500 block">Private Secured Onsite</span>
+                <p class="font-bold text-stone-900">{{am_icon_3_title}}</p>
+                <span class="text-[10px] text-stone-500 block">{{am_icon_3_desc}}</span>
             </div>
             <div class="space-y-2 border-t md:border-t-0 md:border-l border-stone-200/80 pt-4 md:pt-0">
                 <div
                     class="w-10 h-10 rounded-full bg-primary-green/5 text-primary-green flex items-center justify-center mx-auto text-lg">
                     <i class="fa-solid fa-ban-smoking"></i>
                 </div>
-                <p class="font-bold text-stone-900">Non-Smoking</p>
-                <span class="text-[10px] text-stone-500 block">100% Pristine Air Space</span>
+                <p class="font-bold text-stone-900">{{am_icon_4_title}}</p>
+                <span class="text-[10px] text-stone-500 block">{{am_icon_4_desc}}</span>
             </div>
             <div class="space-y-2 border-t md:border-t-0 md:border-l border-stone-200/80 pt-4 md:pt-0">
                 <div
                     class="w-10 h-10 rounded-full bg-primary-green/5 text-primary-green flex items-center justify-center mx-auto text-lg">
                     <i class="fa-solid fa-tree"></i>
                 </div>
-                <p class="font-bold text-stone-900">Solid Wood</p>
-                <span class="text-[10px] text-stone-500 block">Natural Eco-Architecture</span>
+                <p class="font-bold text-stone-900">{{am_icon_5_title}}</p>
+                <span class="text-[10px] text-stone-500 block">{{am_icon_5_desc}}</span>
             </div>
         </div>
 
@@ -219,29 +227,31 @@
                     <div
                         class="absolute top-4 right-4 bg-emerald-700 text-white text-[10px] font-bold px-3 py-1 rounded-full uppercase tracking-widest">
                         Included!</div>
-                    <span class="text-[10px] font-bold text-earth-brown uppercase tracking-widest block mb-2">Outdoor
-                        Oasis</span>
+                    <span
+                        class="text-[10px] font-bold text-earth-brown uppercase tracking-widest block mb-2">{{am_sec1_badge}}</span>
                     <h3 class="font-serif text-2xl font-bold text-primary-green mb-6 pb-2 border-b border-stone-200/60">
-                        Heated Swimming Pool</h3>
+                        {{am_sec1_title}}</h3>
 
                     <ul class="space-y-3.5 text-sm text-stone-600 mb-6">
                         <li class="flex items-start gap-3"><i
-                                class="fa-solid fa-circle-check text-earth-brown text-xs mt-1"></i> <span><strong>Heated
-                                    Options</strong>: Individual temperature regulation for spring to autumn.</span>
+                                class="fa-solid fa-circle-check text-earth-brown text-xs mt-1"></i>
+                            <span>{{am_sec1_li1}}</span>
                         </li>
                         <li class="flex items-start gap-3"><i
-                                class="fa-solid fa-circle-check text-earth-brown text-xs mt-1"></i> <span><strong>Scenic
-                                    Vistas</strong>: Completely panoramic mountain peak views.</span></li>
-                        <li class="flex items-start gap-3"><i
                                 class="fa-solid fa-circle-check text-earth-brown text-xs mt-1"></i>
-                            <span><strong>Dimensions</strong>: 6x3 meters private footprint, 1.40m water depth.</span>
+                            <span>{{am_sec1_li2}}</span>
                         </li>
                         <li class="flex items-start gap-3"><i
-                                class="fa-solid fa-circle-check text-earth-brown text-xs mt-1"></i> <span><strong>Sun
-                                    Lounge</strong>: Premium pool loungers with luxury cushioning.</span></li>
+                                class="fa-solid fa-circle-check text-earth-brown text-xs mt-1"></i>
+                            <span>{{am_sec1_li3}}</span>
+                        </li>
                         <li class="flex items-start gap-3"><i
                                 class="fa-solid fa-circle-check text-earth-brown text-xs mt-1"></i>
-                            <span><strong>Protection Cover</strong>: Retractable pool cover protection.</span>
+                            <span>{{am_sec1_li4}}</span>
+                        </li>
+                        <li class="flex items-start gap-3"><i
+                                class="fa-solid fa-circle-check text-earth-brown text-xs mt-1"></i>
+                            <span>{{am_sec1_li5}}</span>
                         </li>
                     </ul>
                 </div>
@@ -249,8 +259,7 @@
                 <div
                     class="bg-red-50 border border-red-200/60 p-4 rounded-xl text-xs text-red-800 font-bold flex items-start gap-3 mt-4">
                     <i class="fa-solid fa-circle-exclamation text-base mt-0.5"></i>
-                    <span>Safety Notice: Private pool decks have open access; children must be supervised by parents or
-                        guardians at all times. No glass allowed.</span>
+                    <span>{{am_sec1_notice}}</span>
                 </div>
             </div>
 
@@ -260,45 +269,40 @@
                     <span class="text-[10px] font-bold text-earth-brown uppercase tracking-widest block mb-2">Kitchen &
                         Dining</span>
                     <h3 class="font-serif text-2xl font-bold text-primary-green mb-6 pb-2 border-b border-stone-200/60">
-                        Fully Equipped Kitchen</h3>
+                        {{am_sec2_title}}</h3>
 
                     <div class="space-y-4 text-stone-600">
                         <div class="flex items-start gap-3">
                             <span class="text-earth-brown text-xs mt-1"><i class="fa-solid fa-mug-hot"></i></span>
                             <div>
-                                <h4 class="font-bold text-stone-800 text-xs uppercase tracking-wider">Dolce Gusto Coffee
-                                    Machine</h4>
-                                <p class="text-xs text-stone-500 mt-0.5 font-light">Nescafé pod compatibility. 4
-                                    complimentary pods are supplied on arrival. Additional pods can be bought in
-                                    Gradiška supermarkets.</p>
+                                <h4 class="font-bold text-stone-800 text-xs uppercase tracking-wider">{{am_sec2_i1_t}}
+                                </h4>
+                                <p class="text-xs text-stone-500 mt-0.5 font-light">{{am_sec2_i1_d}}</p>
                             </div>
                         </div>
                         <div class="flex items-start gap-3">
                             <span class="text-earth-brown text-xs mt-1"><i
                                     class="fa-solid fa-temperature-arrow-up"></i></span>
                             <div>
-                                <h4 class="font-bold text-stone-800 text-xs uppercase tracking-wider">Electric Cooking
-                                    Hob &amp; Oven</h4>
-                                <p class="text-xs text-stone-500 mt-0.5 font-light">High-end induction hobs and built-in
-                                    convection ovens.</p>
+                                <h4 class="font-bold text-stone-800 text-xs uppercase tracking-wider">{{am_sec2_i2_t}}
+                                </h4>
+                                <p class="text-xs text-stone-500 mt-0.5 font-light">{{am_sec2_i2_d}}</p>
                             </div>
                         </div>
                         <div class="flex items-start gap-3">
                             <span class="text-earth-brown text-xs mt-1"><i class="fa-solid fa-water-ladder"></i></span>
                             <div>
-                                <h4 class="font-bold text-stone-800 text-xs uppercase tracking-wider">Integrated
-                                    Dishwasher</h4>
-                                <p class="text-xs text-stone-500 mt-0.5 font-light">Full-sized dishwashers with
-                                    pre-supplied cleaning tablets.</p>
+                                <h4 class="font-bold text-stone-800 text-xs uppercase tracking-wider">{{am_sec2_i3_t}}
+                                </h4>
+                                <p class="text-xs text-stone-500 mt-0.5 font-light">{{am_sec2_i3_d}}</p>
                             </div>
                         </div>
                         <div class="flex items-start gap-3">
                             <span class="text-earth-brown text-xs mt-1"><i class="fa-solid fa-snowflake"></i></span>
                             <div>
-                                <h4 class="font-bold text-stone-800 text-xs uppercase tracking-wider">Refrigerator &amp;
-                                    Freezer</h4>
-                                <p class="text-xs text-stone-500 mt-0.5 font-light">Spacious chilling cabinets, toaster,
-                                    microwave, and electric tea kettle.</p>
+                                <h4 class="font-bold text-stone-800 text-xs uppercase tracking-wider">{{am_sec2_i4_t}}
+                                </h4>
+                                <p class="text-xs text-stone-500 mt-0.5 font-light">{{am_sec2_i4_d}}</p>
                             </div>
                         </div>
                     </div>
@@ -308,42 +312,38 @@
             <div
                 class="bg-stone-50 border border-stone-200/80 p-8 rounded-3xl shadow-sm hover:shadow-md flex flex-col justify-between">
                 <div>
-                    <span class="text-[10px] font-bold text-earth-brown uppercase tracking-widest block mb-2">Resort
-                        Exterior</span>
+                    <span
+                        class="text-[10px] font-bold text-earth-brown uppercase tracking-widest block mb-2">{{am_sec3_badge}}</span>
                     <h3 class="font-serif text-2xl font-bold text-primary-green mb-6 pb-2 border-b border-stone-200/60">
-                        Patios, Garden &amp; Outdoors</h3>
+                        {{am_sec3_title}}</h3>
 
                     <ul class="space-y-4 text-sm text-stone-600">
                         <li class="flex items-start gap-3">
                             <i class="fa-solid fa-tree text-earth-brown text-xs mt-1"></i>
                             <div>
-                                <strong class="text-stone-800">Resort Garden Slopes</strong>
-                                <p class="text-xs text-stone-500 mt-0.5 font-light">Beautiful pine-rich private grounds
-                                    with winding paths.</p>
+                                <strong class="text-stone-800">{{am_sec3_i1_t}}</strong>
+                                <p class="text-xs text-stone-500 mt-0.5 font-light">{{am_sec3_i1_d}}</p>
                             </div>
                         </li>
                         <li class="flex items-start gap-3">
                             <i class="fa-solid fa-chair text-earth-brown text-xs mt-1"></i>
                             <div>
-                                <strong class="text-stone-800">Outdoor Seating Furniture</strong>
-                                <p class="text-xs text-stone-500 mt-0.5 font-light">Premium rattan tables & chairs
-                                    nestled on private stone terraces.</p>
+                                <strong class="text-stone-800">{{am_sec3_i2_t}}</strong>
+                                <p class="text-xs text-stone-500 mt-0.5 font-light">{{am_sec3_i2_d}}</p>
                             </div>
                         </li>
                         <li class="flex items-start gap-3">
                             <i class="fa-solid fa-fire text-earth-brown text-xs mt-1"></i>
                             <div>
-                                <strong class="text-stone-800">Electric Barbecue</strong>
-                                <p class="text-xs text-stone-500 mt-0.5 font-light">Modern Ninja Woodfire BBQ units
-                                    available upon request.</p>
+                                <strong class="text-stone-800">{{am_sec3_i3_t}}</strong>
+                                <p class="text-xs text-stone-500 mt-0.5 font-light">{{am_sec3_i3_d}}</p>
                             </div>
                         </li>
                         <li class="flex items-start gap-3">
                             <i class="fa-solid fa-compass text-earth-brown text-xs mt-1"></i>
                             <div>
-                                <strong class="text-stone-800">Expansive Private Patio</strong>
-                                <p class="text-xs text-stone-500 mt-0.5 font-light">Fully covered layout sections ideal
-                                    for quiet, shaded relaxation or stargazing.</p>
+                                <strong class="text-stone-800">{{am_sec3_i4_t}}</strong>
+                                <p class="text-xs text-stone-500 mt-0.5 font-light">{{am_sec3_i4_d}}</p>
                             </div>
                         </li>
                     </ul>
@@ -354,169 +354,127 @@
 
         <div>
             <div class="text-center max-w-3xl mx-auto mb-12">
-                <span class="text-xs font-bold tracking-[0.3em] uppercase text-earth-brown block mb-3">Granular
-                    Inventory</span>
-                <h3 class="font-serif text-2xl md:text-3xl font-bold text-primary-green">The Resort Specifications
-                    Directory</h3>
+                <span
+                    class="text-xs font-bold tracking-[0.3em] uppercase text-earth-brown block mb-3">{{am_dir_badge}}</span>
+                <h3 class="font-serif text-2xl md:text-3xl font-bold text-primary-green">{{am_dir_title}}</h3>
                 <div class="w-12 h-[1px] bg-sand-beige mx-auto mt-4"></div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
 
-                <!-- Category 1: General Utilities -->
+                <!-- Category 1: {{am_dir_1_t}} -->
                 <div class="bg-white border border-stone-200/80 p-6 rounded-2xl shadow-sm hover:shadow-md transition">
                     <h4
                         class="font-serif text-base font-bold text-primary-green mb-4 pb-2 border-b border-stone-100 flex items-center gap-2">
-                        <i class="fa-solid fa-house-circle-check text-earth-brown text-sm"></i> General Utilities
+                        <i class="fa-solid fa-house-circle-check text-earth-brown text-sm"></i> {{am_dir_1_t}}
                     </h4>
                     <ul class="text-stone-600 text-xs space-y-3">
-                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Responsive
-                            underfloor heating</li>
-                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Air conditioning
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> {{am_dir_1_1}}</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> {{am_dir_1_2}}
                         </li>
-                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Carbon monoxide
-                            detector</li>
-                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> 100% Non-smoking
-                            cabins</li>
-                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Secure private
-                            entrance keys</li>
-                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Elegant tile/marble
-                            flooring</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> {{am_dir_1_3}}</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> {{am_dir_1_4}}</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> {{am_dir_1_5}}</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> {{am_dir_1_6}}</li>
                     </ul>
                 </div>
 
                 <div class="bg-white border border-stone-200/80 p-6 rounded-2xl shadow-sm hover:shadow-md transition">
                     <h4
                         class="font-serif text-base font-bold text-primary-green mb-4 pb-2 border-b border-stone-100 flex items-center gap-2">
-                        <i class="fa-solid fa-bed text-earth-brown text-sm"></i> Bed &amp; Bath
+                        <i class="fa-solid fa-bed text-earth-brown text-sm"></i> {{am_dir_2_t}}
                     </h4>
                     <ul class="text-stone-600 text-xs space-y-3">
-                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> 100% Cotton organic
-                            bedding</li>
-                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Premium resort linen
-                            supplied</li>
-                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Wardrobe &amp;
-                            storage cabinetry</li>
-                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Cozy plush bathrobe
-                            sets</li>
-                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Professional ionic
-                            hairdryer</li>
-                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Premium towels &amp;
-                            toilet paper</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> {{am_dir_2_1}}</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> {{am_dir_2_2}}</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> {{am_dir_2_3}}</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> {{am_dir_2_4}}</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> {{am_dir_2_5}}</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> {{am_dir_2_6}}</li>
                     </ul>
                 </div>
 
                 <div class="bg-white border border-stone-200/80 p-6 rounded-2xl shadow-sm hover:shadow-md transition">
                     <h4
                         class="font-serif text-base font-bold text-primary-green mb-4 pb-2 border-b border-stone-100 flex items-center gap-2">
-                        <i class="fa-solid fa-chair text-earth-brown text-sm"></i> Living Area
+                        <i class="fa-solid fa-chair text-earth-brown text-sm"></i> {{am_dir_3_t}}
                     </h4>
                     <ul class="text-stone-600 text-xs space-y-3">
-                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Cozy seating sofa
-                            setups</li>
-                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Broad indoor dining
-                            areas</li>
-                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Full-sized timber
-                            dining tables</li>
-                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Double-glazed
-                            panoramic slides</li>
-                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Sun terrace loungers
-                            with mats</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> {{am_dir_3_1}}</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> {{am_dir_3_2}}</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> {{am_dir_3_3}}</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> {{am_dir_3_4}}</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> {{am_dir_3_5}}</li>
                     </ul>
                 </div>
 
                 <div class="bg-white border border-stone-200/80 p-6 rounded-2xl shadow-sm hover:shadow-md transition">
                     <h4
                         class="font-serif text-base font-bold text-primary-green mb-4 pb-2 border-b border-stone-100 flex items-center gap-2">
-                        <i class="fa-solid fa-tv text-earth-brown text-sm"></i> Media &amp; Tech
+                        <i class="fa-solid fa-tv text-earth-brown text-sm"></i> {{am_dir_4_t}}
                     </h4>
                     <ul class="text-stone-600 text-xs space-y-3">
-                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Flat-screen Smart TV
-                            setups</li>
-                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Direct satellite
-                            channel feeds</li>
-                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Streaming services
-                            (like Netflix)</li>
-                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> High-speed WiFi (all
-                            areas)</li>
-                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Multi-point charging
-                            stations</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> {{am_dir_4_1}}</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> {{am_dir_4_2}}</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> {{am_dir_4_3}}</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> {{am_dir_4_4}}</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> {{am_dir_4_5}}</li>
                     </ul>
                 </div>
 
                 <div class="bg-white border border-stone-200/80 p-6 rounded-2xl shadow-sm hover:shadow-md transition">
                     <h4
                         class="font-serif text-base font-bold text-primary-green mb-4 pb-2 border-b border-stone-100 flex items-center gap-2">
-                        <i class="fa-solid fa-bell text-earth-brown text-sm"></i> Personal Services
+                        <i class="fa-solid fa-bell text-earth-brown text-sm"></i> {{am_dir_5_t}}
                     </h4>
                     <ul class="text-stone-600 text-xs space-y-3">
-                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Private
-                            check-in/check-out</li>
-                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> English speaking
-                            staff</li>
-                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Serbian speaking
-                            staff</li>
-                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Domestic pet request
-                            approvals</li>
-                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Organic breakfast
-                            hampers (future)</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> {{am_dir_5_1}}</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> {{am_dir_5_2}}</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> {{am_dir_5_3}}</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> {{am_dir_5_4}}</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> {{am_dir_5_5}}</li>
                     </ul>
                 </div>
 
                 <div class="bg-white border border-stone-200/80 p-6 rounded-2xl shadow-sm hover:shadow-md transition">
                     <h4
                         class="font-serif text-base font-bold text-primary-green mb-4 pb-2 border-b border-stone-100 flex items-center gap-2">
-                        <i class="fa-solid fa-shield-halved text-earth-brown text-sm"></i> Safety &amp; Security
+                        <i class="fa-solid fa-shield-halved text-earth-brown text-sm"></i> {{am_dir_6_t}}
                     </h4>
                     <ul class="text-stone-600 text-xs space-y-3">
-                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> CCTV outside
-                            property borders</li>
-                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> On-property fire
-                            extinguishers</li>
-                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Integrated digital
-                            laptop safe</li>
-                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Fenced resort
-                            boundaries</li>
-                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Carbon monoxide
-                            safety alarms</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> {{am_dir_6_1}}</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> {{am_dir_6_2}}</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> {{am_dir_6_3}}</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> {{am_dir_6_4}}</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> {{am_dir_6_5}}</li>
                     </ul>
                 </div>
 
                 <div class="bg-white border border-stone-200/80 p-6 rounded-2xl shadow-sm hover:shadow-md transition">
                     <h4
                         class="font-serif text-base font-bold text-primary-green mb-4 pb-2 border-b border-stone-100 flex items-center gap-2">
-                        <i class="fa-solid fa-mountain-sun text-earth-brown text-sm"></i> Scenic Landscapes
+                        <i class="fa-solid fa-mountain-sun text-earth-brown text-sm"></i> {{am_dir_7_t}}
                     </h4>
                     <ul class="text-stone-600 text-xs space-y-3">
-                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Landmark landscape
-                            view</li>
-                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Panoramic mountain
-                            view</li>
-                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Private pool horizon
-                            view</li>
-                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Sunrise orientation
-                            profiles</li>
-                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Forest canopy
-                            scenery vistas</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> {{am_dir_7_1}}</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> {{am_dir_7_2}}</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> {{am_dir_7_3}}</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> {{am_dir_7_4}}</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> {{am_dir_7_5}}</li>
                     </ul>
                 </div>
 
                 <div class="bg-white border border-stone-200/80 p-6 rounded-2xl shadow-sm hover:shadow-md transition">
                     <h4
                         class="font-serif text-base font-bold text-primary-green mb-4 pb-2 border-b border-stone-100 flex items-center gap-2">
-                        <i class="fa-solid fa-person-hiking text-earth-brown text-sm"></i> Activities &amp; Tours
+                        <i class="fa-solid fa-person-hiking text-earth-brown text-sm"></i> {{am_dir_8_t}}
                     </h4>
                     <ul class="text-stone-600 text-xs space-y-3">
-                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Authentic Kozara
-                            village strolls</li>
-                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Guided country bike
-                            tours</li>
-                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Pristine forest
-                            hiking paths</li>
-                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Staggered mountain
-                            walking tours</li>
-                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> Kozara National Park
-                            explorations</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> {{am_dir_8_1}}</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> {{am_dir_8_2}}</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> {{am_dir_8_3}}</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> {{am_dir_8_4}}</li>
+                        <li class="flex items-center gap-2"><span class="text-earth-brown">✔</span> {{am_dir_8_5}}</li>
                     </ul>
                 </div>
 
@@ -536,8 +494,7 @@
                         <span class="font-serif tracking-widest text-2xl font-bold">KOZARA PANORAMIC RESORT</span>
                     </div>
                     <p class="text-stone-300 text-sm leading-relaxed">
-                        A boutique mountain sanctuary offering five luxury private chalets with heated pools.
-                        Discover untouched nature and 5-star comfort in Northern Bosnia.
+                        {{footer_brand_desc}}
                     </p>
                     <div class="flex gap-4">
                         <a href="#"
@@ -552,31 +509,41 @@
                 </div>
 
                 <div>
-                    <h4 class="font-serif text-lg font-bold mb-6 text-sand-beige">Quick Links</h4>
+                    <h4 class="font-serif text-lg font-bold mb-6 text-sand-beige">{{footer_col_links}}</h4>
                     <ul class="space-y-4 text-sm text-stone-300">
-                        <li><a href="/#showcase" class="hover:text-white transition">The Chalets</a></li>
-                        <li><a href="/amenities" class="hover:text-white transition">Resort Amenities</a></li>
-                        <li><a href="/#location" class="hover:text-white transition">Our Location</a></li>
-                        <li><a href="/faq" class="hover:text-white transition">Frequently Asked Questions</a>
+                        <li><a href="{{lang_prefix}}/#showcase"
+                                class="hover:text-white transition">{{footer_link_chalets}}</a></li>
+                        <li><a href="{{lang_prefix}}/amenities"
+                                class="hover:text-white transition">{{footer_link_amenities}}</a></li>
+                        <li><a href="{{lang_prefix}}/#location"
+                                class="hover:text-white transition">{{footer_link_location}}</a></li>
+                        <li><a href="{{lang_prefix}}/faq" class="hover:text-white transition">{{footer_link_faq}}</a>
                         </li>
-                        <li><a href="/book" class="hover:text-white transition">Book Your Stay</a></li>
+                        <li><a href="{{lang_prefix}}/book" class="hover:text-white transition">
+                                {{nav_cta}}
+                            </a></li>
                     </ul>
                 </div>
 
                 <div>
-                    <h4 class="font-serif text-lg font-bold mb-6 text-sand-beige">Contact Us</h4>
+                    <h4 class="font-serif text-lg font-bold mb-6 text-sand-beige">{{footer_col_contact}}</h4>
                     <ul class="space-y-4 text-sm text-stone-300">
                         <li class="flex items-start gap-3">
                             <i class="fa-solid fa-location-dot mt-1 text-earth-brown"></i>
-                            <span>Kozara Mountain, Gradiška,<br>Bosnia and Herzegovina</span>
+                            <span>Kozara BB, 78400 Gradiška, Bosnia & Herzegovina</span>
                         </li>
                         <li class="flex items-center gap-3">
-                            <i class="fa-solid fa-phone text-earth-brown"></i>
-                            <span>+387 00 000 000</span>
+                            <i class="fa-solid fa-phone mr-1 text-earth-brown"></i> <a href="tel:+38766767622"
+                                class="hover:underline">+387 66 767 622</a> (BA)
                         </li>
                         <li class="flex items-center gap-3">
-                            <i class="fa-solid fa-envelope text-earth-brown"></i>
-                            <span>info@kozarapanoramicresort.ba</span>
+                            <i class="fa-brands fa-whatsapp mr-1 text-earth-brown"></i> <a href="tel:+4915117627478"
+                                class="hover:underline">+49 151 176 27478</a> (DE)
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-envelope mr-1 text-earth-brown"></i> <a
+                                href="mailto:info@kozarapanoramicresort.ba"
+                                class="hover:underline">info@kozarapanoramicresort.ba</a>
                         </li>
                     </ul>
                 </div>
@@ -585,11 +552,14 @@
 
             <div
                 class="pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-4 text-xs text-stone-400">
-                <p>© 2026 Kozara Panoramic Resort. All rights reserved.</p>
+                <p>{{footer_copyright}}</p>
                 <div class="flex gap-6">
-                    <a href="/notice#privacy" class="hover:text-white transition">Privacy Policy</a>
-                    <a href="/notice#terms" class="hover:text-white transition">Terms of Service</a>
-                    <a href="/notice#cookies" class="hover:text-white transition">Cookie Policy</a>
+                    <a href="{{lang_prefix}}/notice#privacy"
+                        class="hover:text-white transition">{{footer_policy_privacy}}</a>
+                    <a href="{{lang_prefix}}/notice#terms"
+                        class="hover:text-white transition">{{footer_policy_terms}}</a>
+                    <a href="{{lang_prefix}}/notice#cookies"
+                        class="hover:text-white transition">{{footer_policy_cookie}}</a>
                 </div>
             </div>
         </div>
@@ -649,6 +619,7 @@
             }
         });
     </script>
+    <script src="/js/lang.js"></script>
 </body>
 
 </html>

@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth sl-theme-light">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Error Page | Kozara Panoramic Resort</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Playfair+Display:ital,wght=0,400;0,600;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Kozara Panoramic resort" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/light.css" />
+    <script type="module"
+        src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/shoelace-autoloader.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+
+    <link href="css/base.css" rel="stylesheet" />
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary-green': '#364d14',
+                        'earth-brown': '#968067',
+                        'sand-beige': '#d9c7b2',
+                        'muted-green': '#5c6d4c',
+                        'bg-soft': '#f8f9fa',
+                    },
+                    fontFamily: {
+                        sans: ['Lato', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        #logo_stripped {
+            translate: none;
+            rotate: none;
+            scale: none;
+            transform: translate(-50%, -50%);
+            width: 15ch;
+            top: 35px;
+        }
+
+        #logo_stripped_reserve_spacer {
+            width: 19ch;
+        }
+
+        @media(max-width: 1024px) {
+            #logo_stripped {
+                translate: none;
+                rotate: none;
+                scale: none;
+                transform: translate(-50%, -50%);
+                width: 16ch;
+                top: 30px;
+            }
+
+        }
+
+        sl-button::part(base) {
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            font-weight: 700;
+            padding: 0.25rem 1.25rem;
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+
+<body
+    class="font-sans antialiased relative min-h-screen w-full flex items-center justify-center p-4 sm:p-8 bg-stone-900">
+
+    <!-- Fixed Scenic Background Cover with linear shadowing mask -->
+    <div class="fixed inset-0 bg-cover bg-center z-[-2]"
+        style="background-image: url('https://www.kozarapanoramicresort.ba/assets/Scenery/lander4.webp');"></div>
+    <div class="fixed inset-0 bg-black/55 backdrop-blur-sm z-[-1]"></div>
+
+    <!-- Symmetrical Dual-Wing Desktop Header Navigation -->
+    <nav id="main-nav" class="py-2 md:py-5 px-6 md:px-12">
+        <div class="nav-links-container hidden lg:flex flex-1 justify-end mr-8">
+            <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300"
+                href="{{lang_prefix}}/#showcase">Chalets</a>
+            <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300 ml-8"
+                href="{{lang_prefix}}/#why-love-us">Why Us</a>
+            <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300 ml-8"
+                href="{{lang_prefix}}/amenities">Amenities</a>
+        </div>
+
+        <div id="logo_stripped_reserve_spacer" class="hidden lg:block"></div>
+        <a href="{{lang_prefix}}/" id="logo_stripped" class="block">
+            <img src="/assets/logo_stripped.svg"
+                onerror="this.onerror=null; this.src='https://www.kozarapanoramicresort.ba/assets/logo_stripped.svg';"
+                alt="Kozara Panoramic Resort Logo" class="w-full h-auto block">
+        </a>
+
+        <div class="nav-links-container hidden lg:flex flex-1 justify-start ml-8">
+            <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300" href="#about">About
+                Us</a>
+            <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300 ml-8"
+                href="{{lang_prefix}}/#blog">Blog</a>
+            <a class="nav-link text-white hover:text-sand-beige transition-colors duration-300 ml-8"
+                href="{{lang_prefix}}/faq">FAQ</a>
+
+            <sl-dropdown class="ml-8">
+                <button slot="trigger"
+                    class="nav-lang-btn flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-white/20 hover:border-sand-beige/60 transition-all text-xs font-semibold bg-white/5 backdrop-blur-sm text-white focus:outline-none">
+                    <span>🇬🇧 EN</span> <i class="fa-solid fa-chevron-down text-[10px] opacity-70"></i>
+                </button>
+                <sl-menu class="text-stone-800">
+                    <sl-menu-item value="en">🇬🇧 EN (English)</sl-menu-item>
+                    <sl-menu-item value="sr">🇷🇸 SR (Srpski)</sl-menu-item>
+                    <sl-menu-item value="de">🇩🇪 DE (Deutsch)</sl-menu-item>
+                    <sl-menu-item value="it">🇮🇹 IT (Italiano)</sl-menu-item>
+                </sl-menu>
+            </sl-dropdown>
+
+            <a href="{{lang_prefix}}/book"
+                class="bg-earth-brown hover:bg-primary-green text-white font-bold text-xs tracking-widest uppercase px-6 py-3 rounded-full transition-all duration-300 shadow-lg ml-6 text-center">
+                Book Your Stay
+            </a>
+        </div>
+
+        <div class="lg:hidden w-full flex justify-between items-center py-2">
+            <sl-dropdown>
+                <button slot="trigger"
+                    class="nav-lang-btn flex items-center gap-1 px-3 py-1.5 rounded-full border border-white/20 text-xs font-semibold bg-white/5 backdrop-blur-sm text-white focus:outline-none">
+                    <span>🇬🇧 EN</span>
+                </button>
+                <sl-menu class="text-stone-800">
+                    <sl-menu-item value="en">🇬🇧 EN</sl-menu-item>
+                    <sl-menu-item value="sr">🇷🇸 SR</sl-menu-item>
+                    <sl-menu-item value="de">🇩🇪 DE</sl-menu-item>
+                    <sl-menu-item value="it">🇮🇹 IT</sl-menu-item>
+                </sl-menu>
+            </sl-dropdown>
+
+            <div class="w-[16ch]"></div>
+
+            <button onclick="toggleMobileMenu()"
+                class="mobile-hamburger-btn text-2xl focus:outline-none p-1 text-white hover:text-sand-beige transition">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <div id="mobile-menu"
+        class="fixed inset-0 bg-stone-950/95 backdrop-blur-md z-[60] flex flex-col justify-between p-8 text-white translate-x-full transition-transform duration-500 ease-in-out">
+        <div class="flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <img src="/assets/logo_stripped.svg"
+                    onerror="this.onerror=null; this.src='https://www.kozarapanoramicresort.ba/assets/logo_stripped.svg';"
+                    alt="Kozara Panoramic Resort Logo" class="h-5 w-auto brightness-0 invert">
+                <span class="font-serif tracking-widest text-xl font-bold">KOZARA PANORAMIC RESORT</span>
+            </div>
+            <button onclick="toggleMobileMenu()" class="text-3xl hover:text-sand-beige">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+
+        <div class="flex flex-col gap-6 text-xl font-serif text-center my-auto">
+            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="{{lang_prefix}}/#showcase">
+                Chalets</a>
+            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition"
+                href="{{lang_prefix}}/#why-love-us">Why
+                Us</a>
+            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition"
+                href="{{lang_prefix}}/amenities">Amenities</a>
+            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition"
+                href="{{lang_prefix}}/#location">About
+                Us</a>
+            <a onclick="toggleMobileMenu()" class="hover:text-sand-beige transition" href="{{lang_prefix}}/faq">FAQ</a>
+        </div>
+
+        <div class="flex flex-col gap-4 text-center">
+            <a href="{{lang_prefix}}/book" onclick="toggleMobileMenu();"
+                class="bg-earth-brown text-white py-4 rounded-full font-bold uppercase tracking-wider text-sm block">
+                Book Your Stay
+            </a>
+            <p class="text-xs text-stone-500">© 2026 Kozara Panoramic Resort</p>
+        </div>
+    </div>
+
+    <main
+        class="bg-stone-50/95 border border-stone-200/40 rounded-3xl shadow-2xl overflow-hidden w-full max-w-5xl z-10 grid grid-cols-1 lg:grid-cols-12 mt-20 mb-8 transition duration-300">
+
+        <div
+            class="lg:col-span-5 relative h-64 lg:h-auto min-h-[300px] overflow-hidden bg-stone-900 flex items-center justify-center">
+            <img src="https://www.kozarapanoramicresort.ba/assets/Carousel/DSC_8299.webp" alt="Misty Forest Resort View"
+                class="absolute inset-0 w-full h-full object-cover opacity-80 filter sepia-[0.15]">
+            <div
+                class="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-stone-950/20 via-transparent to-stone-50/10">
+            </div>
+        </div>
+
+        <div class="lg:col-span-7 p-8 sm:p-12 lg:p-16 flex flex-col justify-center">
+            <div class="space-y-6">
+                <div id="status-icon-container"
+                    class="w-16 h-16 rounded-2xl bg-earth-brown/10 text-earth-brown flex items-center justify-center text-3xl border border-earth-brown/20 shadow-inner">
+                    <sl-icon name="compass" id="error-vector-icon"></sl-icon>
+                </div>
+
+                <div class="space-y-2">
+                    <h1 id="error-title"
+                        class="font-serif text-4xl sm:text-5xl font-extrabold text-primary-green tracking-tight leading-tight">
+                        404</h1>
+                    <h2 id="error-subtitle" class="font-serif text-lg sm:text-xl font-bold text-earth-brown italic">Lost
+                        in the Clouds?</h2>
+                </div>
+
+                <div class="w-16 h-0.5 bg-sand-beige"></div>
+
+                <p id="error-desc" class="text-stone-600 text-sm sm:text-base leading-relaxed font-light max-w-lg">
+                    It seems the path you followed doesn't lead to one of our chalets. The page you are looking for
+                    might have been moved, deleted, or possibly never existed in the first place.
+                </p>
+
+                <div class="pt-4 flex flex-col sm:flex-row gap-4 border-t border-stone-200/60">
+                    <sl-button id="btn-home-link" variant="neutral" class="btn-home flex-1" href="{{lang_prefix}}/">
+                        <span id="btn-text">Back to Safety</span>
+                    </sl-button>
+                    <sl-button variant="default" class="btn-contact flex-1" href="{{lang_prefix}}/faq">
+                        <span>Read Resort FAQs</span>
+                    </sl-button>
+                </div>
+            </div>
+        </div>
+
+    </main>
+
+    <script>
+        function toggleMobileMenu() {
+            const drawer = document.getElementById('mobile-menu');
+            drawer.classList.toggle('translate-x-full');
+        }
+
+        window.addEventListener("DOMContentLoaded", () => {
+            if (window.gsap && window.ScrollTrigger) {
+                gsap.registerPlugin(ScrollTrigger);
+
+
+                const shared = {
+                    trigger: "header",
+                    start: "top top",
+                    end: "10%",
+                    width: 15,
+                    pad: 4
+                };
+
+
+                ScrollTrigger.create({
+                    trigger: shared.trigger,
+                    start: "top top",
+                    end: shared.end,
+                    onLeave: () => {
+                        document.getElementById('main-nav').classList.add('scrolled');
+                    },
+                    onEnterBack: () => {
+                        document.getElementById('main-nav').classList.remove('scrolled');
+                    },
+                });
+            }
+            const urlParams = new URLSearchParams(window.location.search);
+            const type = urlParams.get("type");
+
+            const errorTitle = document.getElementById("error-title");
+            const errorSubtitle = document.getElementById("error-subtitle");
+            const errorDesc = document.getElementById("error-desc");
+            const errorIcon = document.getElementById("error-vector-icon");
+            const btnText = document.getElementById("btn-text");
+            const btnHome = document.getElementById("btn-home-link");
+
+            if (type === "payment") {
+                errorTitle.innerText = "Payment Failed";
+                errorSubtitle.innerText = "Transaction Declined";
+                errorIcon.setAttribute("name", "credit-card-2-front");
+
+                const container = document.getElementById("status-icon-container");
+                container.classList.remove("bg-earth-brown/10", "text-earth-brown", "border-earth-brown/20");
+                container.classList.add("bg-red-700/10", "text-red-700", "border-red-700/20");
+
+                errorDesc.innerText = "We were unable to process your secure payment. Please check your card credentials, verify you have sufficient funds available on your account, or choose an alternative payment option.";
+                btnText.innerText = "Try Again Now";
+                btnHome.setAttribute("href", "/book");
+
+            } else if (type === "500") {
+                errorTitle.innerText = "500";
+                errorSubtitle.innerText = "Server Undergoing Maintenance";
+                errorIcon.setAttribute("name", "hdd-network");
+                errorDesc.innerText = "Our servers are currently experiencing heavy traffic or undergoing scheduled security audits. We are working to restore connection immediately. Please refresh your browser or try again in a few minutes.";
+
+                btnText.innerText = "Refresh Portal";
+                btnHome.removeAttribute("href");
+                btnHome.onclick = (e) => {
+                    e.preventDefault();
+                    window.location.reload();
+                };
+            }
+        });
+    </script>
+    <script src="/js/lang.js"></script>
+</body>
+
+</html>
