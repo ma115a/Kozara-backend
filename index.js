@@ -98,8 +98,18 @@ try {
 }
 
 const {
-    sendBookingConfirmation
+    sendBookingConfirmation,
+    sendEmail72Hours,
+    sendCheckInEmail,
+    sendEmailAfter
 } = require('./mail')(logger, db)
+
+require('./cronJobs')(logger, db, {
+    refreshAuthToken,
+    sendEmail72Hours,
+    sendCheckInEmail,
+    sendEmailAfter
+});
 
 require('./routes')(app, {
     logger,

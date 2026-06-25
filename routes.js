@@ -8,6 +8,10 @@ module.exports = function(app, deps) {
         formatDate, sendBookingConfirmation, getDaysBetween, convertDateString,
         renderIndex, renderBook, renderFaq, renderAmenities, renderNotice, renderBlog, renderError
     } = deps;
+    app.get('/api/brochure', (req, res) => {
+        const filePath = path.join(__dirname, 'Brochure Kozara Panoramic Resort Summer 2026.pdf');
+        res.download(filePath, 'Brochure Kozara Panoramic Resort Summer 2026.pdf');
+    });
 
     app.get('/api/baseinfo', async (req, res) => {
 
