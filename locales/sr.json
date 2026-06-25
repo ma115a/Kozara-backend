@@ -1,903 +1,897 @@
 {
-"nav_chalets": "Kućice",
-    "nav_why_us": "Zašto mi",
-    "nav_amenities": "Sadržaji",
-    "nav_about_us": "O nama",
-    "nav_blog": "Blog",
-    "nav_faq": "FAQ",
-    "nav_cta": "Rezerviši",
-    "floating_book_now": "Rezerviši sada",
-    "title": "Luksuzne kućice sa privatnim bazenima | Kozara Panoramic Resort",
-    "meta_description": "Otkrijte luksuzne planinske kućice sa privatnim grijanim bazenima u blizini Banje Luke. Uživajte u netaknutoj prirodi, panoramskim pogledima i komforu sa 5 zvjezdica. Rezervišite svoj odmor na Kozari već danas.",
-    "hero_badge": "Butik planinsko utočište",
-    "hero_title_main": "Luksuzne privatne kućice",
-    "hero_title_italic": "sa grijanim bazenima",
-    "hero_subtitle": "Mirni bijeg u prirodu blizu Banje Luke i Hrvatske. Uživajte u netaknutoj prirodi, panoramskim pogledima i komforu sa 5 zvjezdica.",
-    "highlight_resort_badge": "Ekskluzivni resort",
-    "highlight_resort_title": "Samo 5 privatnih kućica",
-    "highlight_resort_desc": "Garantuju potpunu ekskluzivnost, apsolutni mir i bezbjedan odmor u prirodi bez gužve.",
-    "highlight_serenity_badge": "Potpuni mir",
-    "highlight_serenity_title": "Privatni grijani bazeni",
-    "highlight_serenity_desc": "Svaka kućica posjeduje sopstveni panoramski vanjski bazen sa opcijom podešavanja temperature.",
-    "highlight_location_badge": "Odlična lokacija",
-    "highlight_location_title": "Jednostavan dolazak",
-    "highlight_location_desc": "Samo 45 minuta od aerodroma Banja Luka i u neposrednoj blizini granice sa Hrvatskom.",
-    "intro_badge": "Utočište mira",
-    "intro_title": "Otkrijte jedinstveni butik resort u planinama Kozare",
-    "intro_desc": "Iskusite pet privatnih luksuznih kućica, od kojih je svaka pažljivo osmišljena sa sopstvenim <span class=\"font-semibold text-primary-green\">bazenom</span> i panoramskim pogledom na planinu. Savršeno za parove, porodice i goste koji žele pobjeći od gradske buke i ponovo se povezati sa prirodom.",
-    "wcu-title": "Zašto gosti vole Kozara Panoramic Resort",
-    "benefit-text1": "Sopstveno utočište",
-    "benefit-desc1": "Privatni bazen uz svaku kućicu, koji garantuje potpunu privatnost.",
-    "benefit-text2": "Čisti mir",
-    "benefit-desc2": "Apsolutni mir i tišina u prirodi, daleko od gradske vreve.",
-    "benefit-text3": "Neograničeni horizonti",
-    "benefit-desc3": "Panoramski pogledi koji se pružaju preko pejzaža Bosne i Hrvatske.",
-    "showcase_badge": "Doživljaj boravka",
-    "showcase_title": "Pet jedinstvenih karaktera, jedan luksuzni standard",
-    "showcase_desc": "Naših pet privatnih kućica dijeli identičan arhitektonski dizajn, vrhunsku drvenu konstrukciju, enterijer sa 5 zvjezdica i jedinstvene cijene za direktne rezervacije.",
-    "blueprint_badge": "Standardna oprema (sve jedinice)",
-    "blueprint_title": "Arhitektonski koncept",
-    "blueprint_desc": "Održiva gradnja sa masivnom drvenom konstrukcijom, podnim grijanjem, potpuno opremljenim kuhinjama i velikim staklenim portalima na terasama.",
-    "blueprint_spec_pool_title": "Privatni grijani bazen",
-    "blueprint_spec_pool_desc": "Zaseban bazen dimenzija 6x3 m uz svaku kućicu.",
-    "blueprint_spec_sleeps_title": "Kapacitet do 6 osoba",
-    "blueprint_spec_sleeps_desc": "Za porodice ili parove.",
-    "chalet_wind_title": "Kućica Vjetar",
-    "chalet_wind_desc": "Svjež planinski povjetarac i osjećaj slobode u svakom dahu.",
-    "chalet_sun_title": "Kućica Sunce",
-    "chalet_sun_desc": "Obasjana zlatnim jutarnjim svjetlom i prijatnom toplinom.",
-    "chalet_star_badge": "Izdvojena",
-    "chalet_star_title": "Kućica Zvijezda",
-    "chalet_star_desc": "Zasebna pozicija ispod ostalih kućica za potpunu romantičnu privatnost.",
-    "chalet_sky_title": "Kućica Nebo",
-    "chalet_sky_desc": "Beskrajni horizonti i direktan spoj sa čistim planinskim vazduhom.",
-    "chalet_cloud_title": "Kućica Oblak",
-    "chalet_cloud_desc": "Plutanje iznad magle u potpunoj tišini i inspirativnom miru.",
-    "teaser_title": "Rezervišite direktno i uštedite",
-    "teaser_desc": "Samo pet privatnih kućica skrivenih na našoj planinskoj padini.",
-    "teaser_cta": "Rezervišite boravak",
-    "excellence_badge": "Vrhunski standard",
-    "excellence_title": "Luksuz u svakom detalju",
-    "excellence_feat_pools": "Privatni grijani bazeni",
-    "excellence_feat_wifi": "Brzi WiFi",
-    "excellence_feat_parking": "Besplatan parking",
-    "excellence_feat_trails": "Staze kroz prirodu",
-    "excellence_cta": "Pogledajte kompletnu listu sadržaja",
-    "brochure_badge": "Vodič kroz resort",
-    "brochure_title": "Preuzmite našu zvaničnu brošuru dobrodošlice",
-    "brochure_desc": "Pripremite se za dolazak na Kozaru preuzimanjem našeg detaljnog priručnika. Savršeno prilagođeno za pregledanje bez pristupa internetu.",
-    "brochure_card_title": "Zvanični priručnik dobrodošlice",
-    "brochure_card_desc": "Sadrži mapu resorta, uputstva za dolazak i lokalna bezbjednosna pravila.",
-    "brochure_download_text": "Preuzmite PDF brošuru",
-    "location_badge": "Pronađite nas na planini",
-    "location_title": "Naša veličanstvena lokacija",
-    "location_desc": "45–65 km od Banje Luke (zavisno od rute) • Gradiška • blizu granice sa Hrvatskom.",
-    "story_badge": "Luksuz i mir",
-    "story_title": "Naša priča: Luksuz i mir u savršenom skladu",
+  "nav_chalets": "Kućice",
+  "nav_why_us": "Zašto mi",
+  "nav_amenities": "Sadržaji",
+  "nav_about_us": "O nama",
+  "nav_blog": "Blog",
+  "nav_faq": "FAQ",
+  "nav_cta": "Rezerviši",
+  "floating_book_now": "Rezerviši sada",
+  "title": "Luksuzne kućice sa privatnim bazenima | Kozara Panoramic Resort",
+  "meta_description": "Otkrijte luksuzne planinske kućice sa privatnim grijanim bazenima u blizini Banje Luke. Uživajte u netaknutoj prirodi, panoramskim pogledima i komforu sa 5 zvjezdica. Rezervišite svoj odmor na Kozari već danas.",
+  "hero_badge": "Butik planinsko utočište",
+  "hero_title_main": "Luksuzne privatne kućice",
+  "hero_title_italic": "sa grijanim bazenima",
+  "hero_subtitle": "Mirni bijeg u prirodu blizu Banje Luke i Hrvatske. Uživajte u netaknutoj prirodi, panoramskim pogledima i komforu sa 5 zvjezdica.",
+  "highlight_resort_badge": "Ekskluzivni resort",
+  "highlight_resort_title": "Samo 5 privatnih kućica",
+  "highlight_resort_desc": "Garantuju potpunu ekskluzivnost, apsolutni mir i bezbjedan odmor u prirodi bez gužve.",
+  "highlight_serenity_badge": "Potpuni mir",
+  "highlight_serenity_title": "Privatni grijani bazeni",
+  "highlight_serenity_desc": "Svaka kućica posjeduje sopstveni panoramski vanjski bazen sa opcijom podešavanja temperature.",
+  "highlight_location_badge": "Odlična lokacija",
+  "highlight_location_title": "Jednostavan dolazak",
+  "highlight_location_desc": "Samo 45 minuta od aerodroma Banja Luka i u neposrednoj blizini granice sa Hrvatskom.",
+  "intro_badge": "Utočište mira",
+  "intro_title": "Otkrijte jedinstveni butik resort u planinama Kozare",
+  "intro_desc": "Iskusite pet privatnih luksuznih kućica, od kojih je svaka pažljivo osmišljena sa sopstvenim <span class=\"font-semibold text-primary-green\">bazenom</span> i panoramskim pogledom na planinu. Savršeno za parove, porodice i goste koji žele pobjeći od gradske buke i ponovo se povezati sa prirodom.",
+  "wcu-title": "Zašto gosti vole Kozara Panoramic Resort",
+  "benefit-text1": "Sopstveno utočište",
+  "benefit-desc1": "Privatni bazen uz svaku kućicu, koji garantuje potpunu privatnost.",
+  "benefit-text2": "Čisti mir",
+  "benefit-desc2": "Apsolutni mir i tišina u prirodi, daleko od gradske vreve.",
+  "benefit-text3": "Neograničeni horizonti",
+  "benefit-desc3": "Panoramski pogledi koji se pružaju preko pejzaža Bosne i Hrvatske.",
+  "showcase_badge": "Doživljaj boravka",
+  "showcase_title": "Pet jedinstvenih karaktera, jedan luksuzni standard",
+  "showcase_desc": "Naših pet privatnih kućica dijeli identičan arhitektonski dizajn, vrhunsku drvenu konstrukciju, enterijer sa 5 zvjezdica i jedinstvene cijene za direktne rezervacije.",
+  "blueprint_badge": "Standardna oprema (sve jedinice)",
+  "blueprint_title": "Arhitektonski koncept",
+  "blueprint_desc": "Održiva gradnja sa masivnom drvenom konstrukcijom, podnim grijanjem, potpuno opremljenim kuhinjama i velikim staklenim portalima na terasama.",
+  "blueprint_spec_pool_title": "Privatni grijani bazen",
+  "blueprint_spec_pool_desc": "Zaseban bazen dimenzija 6x3 m uz svaku kućicu.",
+  "blueprint_spec_sleeps_title": "Kapacitet do 6 osoba",
+  "blueprint_spec_sleeps_desc": "Za porodice ili parove.",
+  "chalet_wind_title": "Kućica Vjetar",
+  "chalet_wind_desc": "Svjež planinski povjetarac i osjećaj slobode u svakom dahu.",
+  "chalet_sun_title": "Kućica Sunce",
+  "chalet_sun_desc": "Obasjana zlatnim jutarnjim svjetlom i prijatnom toplinom.",
+  "chalet_star_badge": "Izdvojena",
+  "chalet_star_title": "Kućica Zvijezda",
+  "chalet_star_desc": "Zasebna pozicija ispod ostalih kućica za potpunu romantičnu privatnost.",
+  "chalet_sky_title": "Kućica Nebo",
+  "chalet_sky_desc": "Beskrajni horizonti i direktan spoj sa čistim planinskim vazduhom.",
+  "chalet_cloud_title": "Kućica Oblak",
+  "chalet_cloud_desc": "Plutanje iznad magle u potpunoj tišini i inspirativnom miru.",
+  "teaser_title": "Rezervišite direktno i uštedite",
+  "teaser_desc": "Samo pet privatnih kućica skrivenih na našoj planinskoj padini.",
+  "teaser_cta": "Rezervišite boravak",
+  "excellence_badge": "Vrhunski standard",
+  "excellence_title": "Luksuz u svakom detalju",
+  "excellence_feat_pools": "Privatni grijani bazeni",
+  "excellence_feat_wifi": "Brzi WiFi",
+  "excellence_feat_parking": "Besplatan parking",
+  "excellence_feat_trails": "Staze kroz prirodu",
+  "excellence_cta": "Pogledajte kompletnu listu sadržaja",
+  "brochure_badge": "Vodič kroz resort",
+  "brochure_title": "Preuzmite našu zvaničnu brošuru dobrodošlice",
+  "brochure_desc": "Pripremite se za dolazak na Kozaru preuzimanjem našeg detaljnog priručnika. Savršeno prilagođeno za pregledanje bez pristupa internetu.",
+  "brochure_card_title": "Zvanični priručnik dobrodošlice",
+  "brochure_card_desc": "Sadrži mapu resorta, uputstva za dolazak i lokalna bezbjednosna pravila.",
+  "brochure_download_text": "Preuzmite PDF brošuru",
+  "location_badge": "Pronađite nas na planini",
+  "location_title": "Naša veličanstvena lokacija",
+  "location_desc": "45–65 km od Banje Luke (zavisno od rute) • Gradiška • blizu granice sa Hrvatskom.",
+  "story_badge": "Luksuz i mir",
+  "story_title": "Naša priča: Luksuz i mir u savršenom skladu",
   "story_desc": "Kozara Panoramic Resort je nastao iz ljubavi prema netaknutoj prirodi i vizije da <strong>vrhunski luksuzni smještaj</strong> može postojati u potpunom skladu sa okolinom. Naša misija je da pružimo <strong>izolovano planinsko utočište</strong> gdje gosti pronalaze duboku ravnotežu između komfora i mira.",
   "story_desc2": "Smješten u bujnim pejzažima sjeverne Bosne, naš resort nudi nezaboravno <strong>butik (boutique) iskustvo</strong>. Naše <strong>moderne privatne planinske kućice</strong> pružaju potpunu intimu, nudeći istovremeno sve pogodnosti <strong>luksuzne vile</strong>, uključujući privatne grijane bazene i podno grijanje. U Kozara Panoramic Resort-u vrijeme usporava, omogućavajući vam da se ponovo povežete sa prirodom u elegantnom i mirnom okruženju blizu <strong>Gradiške i Banja Luke.</strong>",
-	"kozara_title": "Otkrijte planinu Kozaru: Zeleni dragulj Bosne",
-  "kozara_desc" : "Planina Kozara, nadaleko poznata kao \"vazdušna banja\" Balkana, jedinstvena je destinacija gdje je vazduh izuzetno čist. Kao zeleni dragulj zapadne Krajine, ona nudi <strong>prirodno lječilište</strong> savršeno za duhovni i fizički oporavak. Njene guste borove šume i kristalno čisti planinski potoci stvaraju mikroklimu bogatu kiseonikom koja je rijetkost u današnjem svijetu.",
-  "kozara_desc2" : "Bilo da tražite <strong>planinarenje u Nacionalnom parku Kozara</strong>, vožnju planinskim biciklima ili mirne pješačke ture, ova planina nudi sve. Dobro obilježene planinarske staze vode vas kroz prelepe vidikovce i mirisne livade, pružajući panoramske poglede koji sežu preko pejzaža <strong>Bosne i Hrvatske</strong>.",
-"about_kozara_desc3": "Kozara je više od obične destinacije; ona predstavlja osjećaj slobode, što je čini savršenim <strong>bijegom u prirodu blizu Banje Luke</strong> za avanturiste i porodice.",
-    "blog_badge": "Priče i putovanja",
-    "blog_title": "Sa našeg bloga",
-    "blog_post1_title": "Selo Kozara postaje nova luksuzna destinacija u prirodi",
-    "blog_post2_title": "Dragana i James stvaraju raj za hedoniste na Kozari",
-    "blog_read_cta": "Pročitajte blog",
-    "footer_brand_desc": "Butik planinsko utočište sa pet luksuznih privatnih kućica i grijanim bazenima. Otkrijte netaknutu prirodu i komfor sa 5 zvjezdica u sjevernoj Bosni.",
-    "footer_col_links": "Brzi linkovi",
-    "footer_col_contact": "Kontakt",
-    "footer_contact_address": "Planina Kozara, Gradiška,<br>Bosna i Hercegovina",
-    "footer_copyright": "© 2026 Kozara Panoramic Resort. Sva prava zadržana.",
-    "footer_policy_privacy": "Politika privatnosti",
-    "footer_policy_terms": "Uslovi korištenja",
-    "footer_policy_cookie": "Politika kolačića",
-    "book_title": "Rezervišite svoj boravak | Kozara Panoramic Resort",
-    "book_meta_desc": "Bezbijedno rezervišite svoju butik planinsku kućicu sa privatnim grijanim bazenom na Kozari. Garantovano najbolja cijena uz fleksibilne opcije plaćanja.",
-    "book_step_1_badge": "Prvi korak",
-    "book_step_1_title": "Vrijeme dolaska i broj gostiju",
-    "book_adult_occupants": "Odrasli (maks. 6)",
-    "book_child_occupants": "Djeca (maks. 2)",
-    "book_occupant_limit_warning": "Maksimalan ukupan broj je 6 osoba po kućici. Porodice su obavezne da nadziru djecu u blizini bazena.",
-    "book_step_2_badge": "Drugi korak",
-    "book_step_2_title": "Podaci o gostu i naplata",
-    "book_first_name": "Ime",
-    "book_last_name": "Prezime",
-    "book_email": "E-mail adresa",
-    "book_country": "Država",
-    "book_country_placeholder": "Izaberite državu...",
-    "book_city": "Grad",
-    "book_phone": "Broj telefona",
-    "book_address": "Adresa za naplatu",
-    "book_post_code": "Poštanski broj",
-    "book_step_3_badge": "Treći korak",
-    "book_step_3_title": "Način plaćanja",
-    "book_pay_property": "Plaćanje u objektu",
-    "book_pay_property_desc": "Nije potrebna online autorizacija kreditne kartice. Plaćanje vršite po dolasku.",
-    "book_pay_online": "Plaćanje online",
-    "book_pay_online_desc": "Obračun se vrši isključivo u KM (konvertibilnim markama).",
-"book_display_currency": "Valuta prikaza cijena",
-    "book_currency_notice": "Ova opcija mijenja samo informativni prikaz cijene. Konačna naplata se vrši u konvertibilnim markama (BAM).",
-    "book_invoice_estimate": "Trenutni obračun troškova",
-    "book_mountain_retreat": "Vaše planinsko utočište",
-    "book_duration_stay": "Dužina boravka:",
-    "book_guest_alignment": "Struktura gostiju:",
-    "book_estimated_total": "Procijenjeni ukupan iznos",
-    "book_advantages_title": "Prednosti direktne rezervacije",
-    "book_adv_1": "Garantovano najniža cijena u odnosu na posredničke portale",
-    "book_adv_2": "Premium korpa dobrodošlice sa domaćim proizvodima",
-    "book_adv_3": "Prioritetno podešavanje željene temperature bazena",
-    "book_adv_4": "Direktna linija sa domaćinima resorta",
-    "book_finalize_btn": "Završite rezervaciju",
-    "faq_spirit_badge": "Personalizovana podrška",
-    "faq_spirit_title": "Duh kozarskog gostoprimstva",
-    "faq_spirit_desc": "U Kozara Panoramic Resortu spajamo divlju prirodu Balkana sa kontinentalnim komforom od 5 zvjezdica. Bilo da imate pitanja o sezoni rada naših grijanih bazena, vremenu prijave, neasfaltiranom prilaznom putu, medicinskoj podršci ili korpama sa domaćom hranom, naš tim je uvijek tu da vam pomogne.",
-    "faq_spirit_feature_1": "Voda iz česme je bezbjedna za piće",
-    "faq_spirit_feature_2": "Potpuno ograđeno imanje resorta",
-    "faq_spirit_feature_3": "Pristup privatnom ljekaru opšte prakse",
-    "faq_help_desk_title": "Lokalna korisnička podrška",
-    "faq_help_desk_desc": "Potrebna vam je direktna pomoć oko transfera sa aerodroma ili organizacije posebnih iznenađenja dobrodošlice?",
-    "faq_help_desk_cta": "Pišite Dragani na WhatsApp",
-    "faq_guidelines_badge": "Pravila boravka",
-    "faq_guidelines_title": "Kodeks mira i tišine",
-    "faq_guidelines_desc": "Kako bismo očuvali netaknutu, mirnu banjsku atmosferu u prirodi za sve goste, ljubazno vas molimo da poštujete vrijednosti našeg resorta.",
-    "faq_guide_1_title": "Poštujte vrijeme kućnog mira",
-    "faq_guide_1_desc": "Iz poštovanja prema savršenom noćnom miru, molimo sve goste da se pridržavaju tišine u periodu od 22:00 do 08:00 časova. Korištenje zvučnika na otvorenom tokom ovog perioda nije dozvoljeno.",
-    "faq_guide_2_title": "Bezbjedno korištenje bazena",
-    "faq_guide_2_desc": "Staklene flaše i čaše nisu dozvoljene u neposrednoj blizini bazena niti na kamenim stazama. Porodice u svakom trenutku moraju nadzirati djecu oko bazena i na otvorenim terasama.",
-    "faq_guide_3_title": "Pripremljenost za zimsku sezonu",
-    "faq_guide_3_desc": "Planina Kozara tokom zime obiluje snježnim padavinama. Prema lokalnim propisima, upotreba zimskih guma je obavezna od novembra. Za boravak u uslovima dubokog snijega preporučuju se vozila sa 4x4 pogonom.",
-    "faq_contact_badge": "Kontaktirajte nas",
-    "faq_contact_title": "Imate dodatna pitanja?",
-    "faq_contact_desc": "Ukoliko niste pronašli odgovor koji tražite, slobodno nas kontaktirajte direktno.",
-    "faq_contact_cta": "Pošaljite nam poruku na WhatsApp",
-"faq_data" : {
+  "kozara_title": "Otkrijte planinu Kozaru: Zeleni dragulj Bosne",
+  "kozara_desc": "Planina Kozara, nadaleko poznata kao \"vazdušna banja\" Balkana, jedinstvena je destinacija gdje je vazduh izuzetno čist. Kao zeleni dragulj zapadne Krajine, ona nudi <strong>prirodno lječilište</strong> savršeno za duhovni i fizički oporavak. Njene guste borove šume i kristalno čisti planinski potoci stvaraju mikroklimu bogatu kiseonikom koja je rijetkost u današnjem svijetu.",
+  "kozara_desc2": "Bilo da tražite <strong>planinarenje u Nacionalnom parku Kozara</strong>, vožnju planinskim biciklima ili mirne pješačke ture, ova planina nudi sve. Dobro obilježene planinarske staze vode vas kroz prelepe vidikovce i mirisne livade, pružajući panoramske poglede koji sežu preko pejzaža <strong>Bosne i Hrvatske</strong>.",
+  "about_kozara_desc3": "Kozara je više od obične destinacije; ona predstavlja osjećaj slobode, što je čini savršenim <strong>bijegom u prirodu blizu Banje Luke</strong> za avanturiste i porodice.",
+  "blog_badge": "Priče i putovanja",
+  "blog_title": "Sa našeg bloga",
+  "blog_post1_title": "Selo Kozara postaje nova luksuzna destinacija u prirodi",
+  "blog_post2_title": "Dragana i James stvaraju raj za hedoniste na Kozari",
+  "blog_read_cta": "Pročitajte blog",
+  "footer_brand_desc": "Butik planinsko utočište sa pet luksuznih privatnih kućica i grijanim bazenima. Otkrijte netaknutu prirodu i komfor sa 5 zvjezdica u sjevernoj Bosni.",
+  "footer_col_links": "Brzi linkovi",
+  "footer_col_contact": "Kontakt",
+  "footer_contact_address": "Planina Kozara, Gradiška,<br>Bosna i Hercegovina",
+  "footer_copyright": "© 2026 Kozara Panoramic Resort. Sva prava zadržana.",
+  "footer_policy_privacy": "Politika privatnosti",
+  "footer_policy_terms": "Uslovi korištenja",
+  "footer_policy_cookie": "Politika kolačića",
+  "book_title": "Rezervišite svoj boravak | Kozara Panoramic Resort",
+  "book_meta_desc": "Bezbijedno rezervišite svoju butik planinsku kućicu sa privatnim grijanim bazenom na Kozari. Garantovano najbolja cijena uz fleksibilne opcije plaćanja.",
+  "book_step_1_badge": "Prvi korak",
+  "book_step_1_title": "Vrijeme dolaska i broj gostiju",
+  "book_adult_occupants": "Odrasli (maks. 6)",
+  "book_child_occupants": "Djeca (maks. 2)",
+  "book_occupant_limit_warning": "Maksimalan ukupan broj je 6 osoba po kućici. Porodice su obavezne da nadziru djecu u blizini bazena.",
+  "book_step_2_badge": "Drugi korak",
+  "book_step_2_title": "Podaci o gostu i naplata",
+  "book_first_name": "Ime",
+  "book_last_name": "Prezime",
+  "book_email": "E-mail adresa",
+  "book_country": "Država",
+  "book_country_placeholder": "Izaberite državu...",
+  "book_city": "Grad",
+  "book_phone": "Broj telefona",
+  "book_address": "Adresa za naplatu",
+  "book_post_code": "Poštanski broj",
+  "book_step_3_badge": "Treći korak",
+  "book_step_3_title": "Način plaćanja",
+  "book_pay_property": "Plaćanje u objektu",
+  "book_pay_property_desc": "Nije potrebna online autorizacija kreditne kartice. Plaćanje vršite po dolasku.",
+  "book_pay_online": "Plaćanje online",
+  "book_pay_online_desc": "Obračun se vrši isključivo u KM (konvertibilnim markama).",
+  "book_display_currency": "Valuta prikaza cijena",
+  "book_currency_notice": "Ova opcija mijenja samo informativni prikaz cijene. Konačna naplata se vrši u konvertibilnim markama (BAM).",
+  "book_invoice_estimate": "Trenutni obračun troškova",
+  "book_mountain_retreat": "Vaše planinsko utočište",
+  "book_duration_stay": "Dužina boravka:",
+  "book_guest_alignment": "Struktura gostiju:",
+  "book_estimated_total": "Procijenjeni ukupan iznos",
+  "book_advantages_title": "Prednosti direktne rezervacije",
+  "book_adv_1": "Garantovano najniža cijena u odnosu na posredničke portale",
+  "book_adv_2": "Premium korpa dobrodošlice sa domaćim proizvodima",
+  "book_adv_3": "Prioritetno podešavanje željene temperature bazena",
+  "book_adv_4": "Direktna linija sa domaćinima resorta",
+  "book_finalize_btn": "Završite rezervaciju",
+  "faq_spirit_badge": "Personalizovana podrška",
+  "faq_spirit_title": "Duh kozarskog gostoprimstva",
+  "faq_spirit_desc": "U Kozara Panoramic Resortu spajamo divlju prirodu Balkana sa kontinentalnim komforom od 5 zvjezdica. Bilo da imate pitanja o sezoni rada naših grijanih bazena, vremenu prijave, neasfaltiranom prilaznom putu, medicinskoj podršci ili korpama sa domaćom hranom, naš tim je uvijek tu da vam pomogne.",
+  "faq_spirit_feature_1": "Voda iz česme je bezbjedna za piće",
+  "faq_spirit_feature_2": "Potpuno ograđeno imanje resorta",
+  "faq_spirit_feature_3": "Pristup privatnom ljekaru opšte prakse",
+  "faq_help_desk_title": "Lokalna korisnička podrška",
+  "faq_help_desk_desc": "Potrebna vam je direktna pomoć oko transfera sa aerodroma ili organizacije posebnih iznenađenja dobrodošlice?",
+  "faq_help_desk_cta": "Pišite Dragani na WhatsApp",
+  "faq_guidelines_badge": "Pravila boravka",
+  "faq_guidelines_title": "Kodeks mira i tišine",
+  "faq_guidelines_desc": "Kako bismo očuvali netaknutu, mirnu banjsku atmosferu u prirodi za sve goste, ljubazno vas molimo da poštujete vrijednosti našeg resorta.",
+  "faq_guide_1_title": "Poštujte vrijeme kućnog mira",
+  "faq_guide_1_desc": "Iz poštovanja prema savršenom noćnom miru, molimo sve goste da se pridržavaju tišine u periodu od 22:00 do 08:00 časova. Korištenje zvučnika na otvorenom tokom ovog perioda nije dozvoljeno.",
+  "faq_guide_2_title": "Bezbjedno korištenje bazena",
+  "faq_guide_2_desc": "Staklene flaše i čaše nisu dozvoljene u neposrednoj blizini bazena niti na kamenim stazama. Porodice u svakom trenutku moraju nadzirati djecu oko bazena i na otvorenim terasama.",
+  "faq_guide_3_title": "Pripremljenost za zimsku sezonu",
+  "faq_guide_3_desc": "Planina Kozara tokom zime obiluje snježnim padavinama. Prema lokalnim propisima, upotreba zimskih guma je obavezna od novembra. Za boravak u uslovima dubokog snijega preporučuju se vozila sa 4x4 pogonom.",
+  "faq_contact_badge": "Kontaktirajte nas",
+  "faq_contact_title": "Imate dodatna pitanja?",
+  "faq_contact_desc": "Ukoliko niste pronašli odgovor koji tražite, slobodno nas kontaktirajte direktno.",
+  "faq_contact_cta": "Pošaljite nam poruku na WhatsApp",
+  "faq_data": {
     "A": [
-        {
-            "category": "travel",
-            "keyword": "Aerodromi",
-            "question": "Koji aerodrom je najbliži odmaralištu?",
-            "answer": "<p class=\"mb-2\">Međunarodni aerodrom Banja Luka je najbliži, na približno 45 minuta vožnje.</p><p class=\"mb-2\">Ostali praktični aerodromi uključuju:</p><ul class=\"list-disc pl-5 mb-2 space-y-1 text-xs\"><li><strong>Aerodrom Zagreb</strong> – približno 2 sata, u zavisnosti od zadržavanja na granici</li><li><strong>Međunarodni aerodrom Sarajevo</strong> – približno 3,5 sata</li><li><strong>Aerodrom Nikola Tesla Beograd</strong> – približno 4 sata</li></ul><p>Pomoć oko organizacije transfera sa aerodroma može biti dostupna na zahtjev, u zavisnosti od raspoloživosti.</p>"
-        },
-        {
-            "category": "travel",
-            "keyword": "Apoteka",
-            "question": "Da li u blizini postoji apoteka?",
-            "answer": "Da. Apoteke su dostupne u Gradišci."
-        }
+      {
+        "category": "travel",
+        "keyword": "Aerodromi",
+        "question": "Koji aerodrom je najbliži odmaralištu?",
+        "answer": "<p class=\"mb-2\">Međunarodni aerodrom Banja Luka je najbliži, na približno 45 minuta vožnje.</p><p class=\"mb-2\">Ostali praktični aerodromi uključuju:</p><ul class=\"list-disc pl-5 mb-2 space-y-1 text-xs\"><li><strong>Aerodrom Zagreb</strong> – približno 2 sata, u zavisnosti od zadržavanja na granici</li><li><strong>Međunarodni aerodrom Sarajevo</strong> – približno 3,5 sata</li><li><strong>Aerodrom Nikola Tesla Beograd</strong> – približno 4 sata</li></ul><p>Pomoć oko organizacije transfera sa aerodroma može biti dostupna na zahtjev, u zavisnosti od raspoloživosti.</p>"
+      },
+      {
+        "category": "travel",
+        "keyword": "Apoteka",
+        "question": "Da li u blizini postoji apoteka?",
+        "answer": "Da. Apoteke su dostupne u Gradišci."
+      }
     ],
     "B": [
-        {
-            "category": "travel",
-            "keyword": "Bankomat",
-            "question": "Da li u blizini postoji bankomat?",
-            "answer": "Da. Bankomati su dostupni u Gradišci, na oko 25–30 minuta od odmarališta."
-        },
-        {
-            "category": "chalets",
-            "keyword": "Bazeni",
-            "question": "Da li svaka kućica ima svoj bazen?",
-            "answer": "<p class=\"mb-2\">Da. Svaka kućica ima svoj privatni grijani bazen.</p><p class=\"font-bold mb-1\">Da li se bazeni griju?</p><p class=\"mb-2\">Da. Bazeni se griju tokom sezone rada.</p><p class=\"font-bold mb-1\">Da li su bazeni privatni?</p><p class=\"mb-2\">Da. Svaki bazen pripada isključivo svojoj kućici.</p><p class=\"font-bold mb-1\">Kada su bazeni otvoreni?</p><p class=\"mb-2\">Sezona kupanja uglavnom traje od proljeća do jeseni, u zavisnosti od vremenskih prilika.</p><p>Korišćenje bazena je na sopstvenu odgovornost gostiju.</p>"
-        },
-        {
-            "category": "policies",
-            "keyword": "Bezbjednost",
-            "question": "Da li je odmaralište bezbjedno?",
-            "answer": "Da. Odmaralište se nalazi u mirnom seoskom kraju i pod nadzorom je radi sigurnosti gostiju."
-        },
-        {
-            "category": "chalets",
-            "keyword": "Bezbjednost na bazenu",
-            "question": "Da li djeca moraju biti pod nadzorom u blizini bazena?",
-            "answer": "Da. Djeca uvijek moraju biti pod nadzorom odraslih u okolini bazena."
-        },
-        {
-            "category": "policies",
-            "keyword": "Bezbjednost turista",
-            "question": "Da li je Bosna i Hercegovina bezbjedna za turiste?",
-            "answer": "Da. Bosna i Hercegovina se generalno smatra veoma bezbjednom i gostoljubivom zemljom za posjetioce."
-        },
-        {
-            "category": "travel",
-            "keyword": "Benzinska pumpa",
-            "question": "Da li u blizini postoji benzinska pumpa?",
-            "answer": "Da. Benzinske pumpe su dostupne u široj okolini Gradiške."
-        },
-        {
-            "category": "local",
-            "keyword": "Bicikli i biciklizam",
-            "question": "Da li je moguća vožnja bicikla u okolini odmarališta?",
-            "answer": "Da. Regija Kozare nudi prelijepe mogućnosti za vožnju bicikla kroz šume, brda, panoramske seoske predjele i rute prema Nacionalnom parku Kozara."
-        },
-        {
-            "category": "policies",
-            "keyword": "Boravišna taksa",
-            "question": "Da li je boravišna taksa uračunata u cijenu?",
-            "answer": "Boravišna taksa se može naplaćivati zasebno u skladu sa lokalnim propisima."
-        }
+      {
+        "category": "travel",
+        "keyword": "Bankomat",
+        "question": "Da li u blizini postoji bankomat?",
+        "answer": "Da. Bankomati su dostupni u Gradišci, na oko 25–30 minuta od odmarališta."
+      },
+      {
+        "category": "chalets",
+        "keyword": "Bazeni",
+        "question": "Da li svaka kućica ima svoj bazen?",
+        "answer": "<p class=\"mb-2\">Da. Svaka kućica ima svoj privatni grijani bazen.</p><p class=\"font-bold mb-1\">Da li se bazeni griju?</p><p class=\"mb-2\">Da. Bazeni se griju tokom sezone rada.</p><p class=\"font-bold mb-1\">Da li su bazeni privatni?</p><p class=\"mb-2\">Da. Svaki bazen pripada isključivo svojoj kućici.</p><p class=\"font-bold mb-1\">Kada su bazeni otvoreni?</p><p class=\"mb-2\">Sezona kupanja uglavnom traje od proljeća do jeseni, u zavisnosti od vremenskih prilika.</p><p>Korišćenje bazena je na sopstvenu odgovornost gostiju.</p>"
+      },
+      {
+        "category": "policies",
+        "keyword": "Bezbjednost",
+        "question": "Da li je odmaralište bezbjedno?",
+        "answer": "Da. Odmaralište se nalazi u mirnom seoskom kraju i pod nadzorom je radi sigurnosti gostiju."
+      },
+      {
+        "category": "chalets",
+        "keyword": "Bezbjednost na bazenu",
+        "question": "Da li djeca moraju biti pod nadzorom u blizini bazena?",
+        "answer": "Da. Djeca uvijek moraju biti pod nadzorom odraslih u okolini bazena."
+      },
+      {
+        "category": "policies",
+        "keyword": "Bezbjednost turista",
+        "question": "Da li je Bosna i Hercegovina bezbjedna za turiste?",
+        "answer": "Da. Bosna i Hercegovina se generalno smatra veoma bezbjednom i gostoljubivom zemljom za posjetioce."
+      },
+      {
+        "category": "travel",
+        "keyword": "Benzinska pumpa",
+        "question": "Da li u blizini postoji benzinska pumpa?",
+        "answer": "Da. Benzinske pumpe su dostupne u široj okolini Gradiške."
+      },
+      {
+        "category": "local",
+        "keyword": "Bicikli i biciklizam",
+        "question": "Da li je moguća vožnja bicikla u okolini odmarališta?",
+        "answer": "Da. Regija Kozare nudi prelijepe mogućnosti za vožnju bicikla kroz šume, brda, panoramske seoske predjele i rute prema Nacionalnom parku Kozara."
+      },
+      {
+        "category": "policies",
+        "keyword": "Boravišna taksa",
+        "question": "Da li je boravišna taksa uračunata u cijenu?",
+        "answer": "Boravišna taksa se može naplaćivati zasebno u skladu sa lokalnim propisima."
+      }
     ],
     "D": [
-        {
-            "category": "policies",
-            "keyword": "Direktna rezervacija",
-            "question": "Da li je direktna rezervacija jeftinija?",
-            "answer": "Direktna rezervacija može ponuditi najpovoljnije dostupne cijene i specijalne ponude."
-        },
-        {
-            "category": "local",
-            "keyword": "Divlje životinje",
-            "question": "Da li možemo vidjeti divlje životinje u blizini?",
-            "answer": "Povremeno, da. Područje oko odmarališta je bogato prirodom i divljim svijetom. Srne, vjeverice i sove su prirodni stanovnici planine Kozare."
-        },
-        {
-            "category": "policies",
-            "keyword": "Djeca",
-            "question": "Da li je odmaralište pogodno za porodice?",
-            "answer": "<p class=\"mb-2\">Da. Porodice su dobrodošle, a kućice su pogodne za boravak sa djecom.</p><p>Djeca su u svakom trenutku pod odgovornošću roditelja ili staratelja, naročito oko bazena, terasa i na otvorenim prostorima.</p>"
-        },
-        {
-            "category": "local",
-            "keyword": "Dodatna iskustva",
-            "question": "Da li nudite dodatna iskustva ili posebne aranžmane?",
-            "answer": "Da. U zavisnosti od sezone i dostupnosti, odmaralište vam može pomoći u organizaciji romantičnih iznenađenja, velnes iskustava, lokalne dostave hrane, aktivnosti u prirodi ili zakupa cijelog odmarališta."
-        },
-        {
-            "category": "policies",
-            "keyword": "Doktor i medicinska pomoć",
-            "question": "Da li u blizini postoji ljekar?",
-            "answer": "Da. Odmaralište takođe ima pristup sopstvenom privatnom ljekaru opšte prakse za konsultacije sa gostima ukoliko je to potrebno."
-        },
-        {
-            "category": "travel",
-            "keyword": "Dolazak i putokazi",
-            "question": "Kako da najlakše pronađemo odmaralište?",
-            "answer": "<p class=\"mb-2\">Posljednjih 5,1 km puta do odmarališta je obilježeno putokazima.</p><p>Gostima preporučujemo da se drže glavnih puteva prema selu Turjak i koriste Google Maps, gdje je Kozara Panoramic Resort precizno ucrtan.</p>"
-        },
-        {
-            "category": "local",
-            "keyword": "Doručak",
-            "question": "Da li je doručak uključen u cijenu?",
-            "answer": "<p class=\"mb-2\">Odmaralište funkcioniše prvenstveno na bazi samostalne pripreme hrane.</p><p class=\"font-bold mb-1\">Da li će u budućnosti biti dostupne korpe sa doručkom?</p><p>Odmaralište bi u budućnosti moglo uvesti opcione korpe sa organskim doručkom koje će sadržati odabrane domaće proizvode.</p>"
-        },
-        {
-            "category": "local",
-            "keyword": "Dostava hrane",
-            "question": "Da li je moguća dostava hrane u odmaralište?",
-            "answer": "<p class=\"mb-2\">Da. Lokalna dostava hrane se može organizovati prije dolaska ili tokom vašeg boravka, u zavisnosti od dostupnosti.</p><p>Preporučuje se da zahtjeve šaljete putem e-pošte ili pisane poruke kako bi se osigurala tačnost porudžbine.</p>"
-        },
-        {
-            "category": "local",
-            "keyword": "Dostava namirnica",
-            "question": "Da li se namirnice mogu dostaviti prije našeg dolaska?",
-            "answer": "U pojedinim slučajevima, dostava namirnica ili artikala dobrodošlice može se organizovati prije dolaska ili tokom vašeg boravka, u zavisnosti od dostupnosti."
-        },
-        {
-            "category": "policies",
-            "keyword": "Dronovi",
-            "question": "Da li je dozvoljeno korišćenje dronova?",
-            "answer": "Molimo vas da se konsultujete sa recepcijom prije upravljanja dronovima u odmaralištu."
-        },
-        {
-            "category": "local",
-            "keyword": "Društvene mreže",
-            "question": "Da li možemo da označimo odmaralište na društvenim mrežama?",
-            "answer": "Da. Veoma se radujemo kada gosti dijele svoje fotografije i utiske na mrežama."
-        },
-        {
-            "category": "chalets",
-            "keyword": "Dubina i dimenzije bazena",
-            "question": "Koliko su duboki i veliki bazeni?",
-            "answer": "Svaki privatni bazen je dimenzija oko 6 x 3 metra i sadrži ugrađenu podvodnu klupu za opuštanje. Glavni dio za plivanje je dubine oko 1,40 metara."
-        }
+      {
+        "category": "policies",
+        "keyword": "Direktna rezervacija",
+        "question": "Da li je direktna rezervacija jeftinija?",
+        "answer": "Direktna rezervacija može ponuditi najpovoljnije dostupne cijene i specijalne ponude."
+      },
+      {
+        "category": "local",
+        "keyword": "Divlje životinje",
+        "question": "Da li možemo vidjeti divlje životinje u blizini?",
+        "answer": "Povremeno, da. Područje oko odmarališta je bogato prirodom i divljim svijetom. Srne, vjeverice i sove su prirodni stanovnici planine Kozare."
+      },
+      {
+        "category": "policies",
+        "keyword": "Djeca",
+        "question": "Da li je odmaralište pogodno za porodice?",
+        "answer": "<p class=\"mb-2\">Da. Porodice su dobrodošle, a kućice su pogodne za boravak sa djecom.</p><p>Djeca su u svakom trenutku pod odgovornošću roditelja ili staratelja, naročito oko bazena, terasa i na otvorenim prostorima.</p>"
+      },
+      {
+        "category": "local",
+        "keyword": "Dodatna iskustva",
+        "question": "Da li nudite dodatna iskustva ili posebne aranžmane?",
+        "answer": "Da. U zavisnosti od sezone i dostupnosti, odmaralište vam može pomoći u organizaciji romantičnih iznenađenja, velnes iskustava, lokalne dostave hrane, aktivnosti u prirodi ili zakupa cijelog odmarališta."
+      },
+      {
+        "category": "policies",
+        "keyword": "Doktor i medicinska pomoć",
+        "question": "Da li u blizini postoji ljekar?",
+        "answer": "Da. Odmaralište takođe ima pristup sopstvenom privatnom ljekaru opšte prakse za konsultacije sa gostima ukoliko je to potrebno."
+      },
+      {
+        "category": "travel",
+        "keyword": "Dolazak i putokazi",
+        "question": "Kako da najlakše pronađemo odmaralište?",
+        "answer": "<p class=\"mb-2\">Posljednjih 5,1 km puta do odmarališta je obilježeno putokazima.</p><p>Gostima preporučujemo da se drže glavnih puteva prema selu Turjak i koriste Google Maps, gdje je Kozara Panoramic Resort precizno ucrtan.</p>"
+      },
+      {
+        "category": "local",
+        "keyword": "Doručak",
+        "question": "Da li je doručak uključen u cijenu?",
+        "answer": "<p class=\"mb-2\">Odmaralište funkcioniše prvenstveno na bazi samostalne pripreme hrane.</p><p class=\"font-bold mb-1\">Da li će u budućnosti biti dostupne korpe sa doručkom?</p><p>Odmaralište bi u budućnosti moglo uvesti opcione korpe sa organskim doručkom koje će sadržati odabrane domaće proizvode.</p>"
+      },
+      {
+        "category": "local",
+        "keyword": "Dostava hrane",
+        "question": "Da li je moguća dostava hrane u odmaralište?",
+        "answer": "<p class=\"mb-2\">Da. Lokalna dostava hrane se može organizovati prije dolaska ili tokom vašeg boravka, u zavisnosti od dostupnosti.</p><p>Preporučuje se da zahtjeve šaljete putem e-pošte ili pisane poruke kako bi se osigurala tačnost porudžbine.</p>"
+      },
+      {
+        "category": "local",
+        "keyword": "Dostava namirnica",
+        "question": "Da li se namirnice mogu dostaviti prije našeg dolaska?",
+        "answer": "U pojedinim slučajevima, dostava namirnica ili artikala dobrodošlice može se organizovati prije dolaska ili tokom vašeg boravka, u zavisnosti od dostupnosti."
+      },
+      {
+        "category": "policies",
+        "keyword": "Dronovi",
+        "question": "Da li je dozvoljeno korišćenje dronova?",
+        "answer": "Molimo vas da se konsultujete sa recepcijom prije upravljanja dronovima u odmaralištu."
+      },
+      {
+        "category": "local",
+        "keyword": "Društvene mreže",
+        "question": "Da li možemo da označimo odmaralište na društvenim mrežama?",
+        "answer": "Da. Veoma se radujemo kada gosti dijele svoje fotografije i utiske na mrežama."
+      },
+      {
+        "category": "chalets",
+        "keyword": "Dubina i dimenzije bazena",
+        "question": "Koliko su duboki i veliki bazeni?",
+        "answer": "Svaki privatni bazen je dimenzija oko 6 x 3 metra i sadrži ugrađenu podvodnu klupu za opuštanje. Glavni dio za plivanje je dubine oko 1,40 metara."
+      }
     ],
     "E": [
-        {
-            "category": "travel",
-            "keyword": "Električna vozila",
-            "question": "Da li se električna vozila mogu puniti u odmaralištu?",
-            "answer": "Planirano je postavljanje namjenske stanice za punjenje električnih vozila u odmaralištu u najkraćem mogućem roku."
-        },
-        {
-            "category": "policies",
-            "keyword": "Engleski jezik",
-            "question": "Da li se u odmaralištu govori engleski jezik?",
-            "answer": "Da. Osoblje odmarališta može pružiti uslugu stranim gostima na engleskom jeziku."
-        }
+      {
+        "category": "travel",
+        "keyword": "Električna vozila",
+        "question": "Da li se električna vozila mogu puniti u odmaralištu?",
+        "answer": "Planirano je postavljanje namjenske stanice za punjenje električnih vozila u odmaralištu u najkraćem mogućem roku."
+      },
+      {
+        "category": "policies",
+        "keyword": "Engleski jezik",
+        "question": "Da li se u odmaralištu govori engleski jezik?",
+        "answer": "Da. Osoblje odmarališta može pružiti uslugu stranim gostima na engleskom jeziku."
+      }
     ],
     "F": [
-        {
-            "category": "chalets",
-            "keyword": "Fen za kosu",
-            "question": "Da li u kućici postoji fen za kosu?",
-            "answer": "Da. Svaka kućica je opremljena kvalitetnim fenom za kosu."
-        },
-        {
-            "category": "local",
-            "keyword": "Fotografija",
-            "question": "Da li je odmaralište pogodno za fotografisanje?",
-            "answer": "Apsolutno. Mnogi gosti dolaze isključivo zbog spektakularnih izlazaka sunca, panoramskih pogleda na oblake, zalazaka sunca, divljih životinja i mirnih šumskih pejzaža."
-        }
+      {
+        "category": "chalets",
+        "keyword": "Fen za kosu",
+        "question": "Da li u kućici postoji fen za kosu?",
+        "answer": "Da. Svaka kućica je opremljena kvalitetnim fenom za kosu."
+      },
+      {
+        "category": "local",
+        "keyword": "Fotografija",
+        "question": "Da li je odmaralište pogodno za fotografisanje?",
+        "answer": "Apsolutno. Mnogi gosti dolaze isključivo zbog spektakularnih izlazaka sunca, panoramskih pogleda na oblake, zalazaka sunca, divljih životinja i mirnih šumskih pejzaža."
+      }
     ],
     "G": [
-        {
-            "category": "policies",
-            "keyword": "Glasna muzika",
-            "question": "Da li je dozvoljena glasna muzika?",
-            "answer": "Goste ljubazno molimo da poštuju mirnu atmosferu odmarališta, naročito tokom vremena kućnog mira."
-        },
-        {
-            "category": "local",
-            "keyword": "Godišnja doba i vrijeme",
-            "question": "Da li je odmaralište otvoreno cijele godine?",
-            "answer": "<p class=\"mb-2\">Da. Odmaralište radi tokom čitave godine.</p><p class=\"font-bold mb-1\">Da li zimi ima snijega?</p><p class=\"mb-2\">Da. Snježne padavine su moguće tokom zimskih mjeseci.</p><p class=\"font-bold mb-1\">Da li je priroda lijepa u jesen?</p><p class=\"mb-2\">Da. Jesenje boje na Kozari su posebno očaravajuće.</p><p class=\"font-bold mb-1\">Da li su ljeta previše topla?</p><p>Ljetne temperature mogu biti visoke, ali nadmorska visina brda donosi prijatne i svježe večeri.</p>"
-        },
-        {
-            "category": "chalets",
-            "keyword": "Grijanje",
-            "question": "Da li postoji grijanje u kućicama?",
-            "answer": "Da. Kućice posjeduju podno grijanje i dodatne sisteme grijanja."
-        }
+      {
+        "category": "policies",
+        "keyword": "Glasna muzika",
+        "question": "Da li je dozvoljena glasna muzika?",
+        "answer": "Goste ljubazno molimo da poštuju mirnu atmosferu odmarališta, naročito tokom vremena kućnog mira."
+      },
+      {
+        "category": "local",
+        "keyword": "Godišnja doba i vrijeme",
+        "question": "Da li je odmaralište otvoreno cijele godine?",
+        "answer": "<p class=\"mb-2\">Da. Odmaralište radi tokom čitave godine.</p><p class=\"font-bold mb-1\">Da li zimi ima snijega?</p><p class=\"mb-2\">Da. Snježne padavine su moguće tokom zimskih mjeseci.</p><p class=\"font-bold mb-1\">Da li je priroda lijepa u jesen?</p><p class=\"mb-2\">Da. Jesenje boje na Kozari su posebno očaravajuće.</p><p class=\"font-bold mb-1\">Da li su ljeta previše topla?</p><p>Ljetne temperature mogu biti visoke, ali nadmorska visina brda donosi prijatne i svježe večeri.</p>"
+      },
+      {
+        "category": "chalets",
+        "keyword": "Grijanje",
+        "question": "Da li postoji grijanje u kućicama?",
+        "answer": "Da. Kućice posjeduju podno grijanje i dodatne sisteme grijanja."
+      }
     ],
     "I": [
-        {
-            "category": "local",
-            "keyword": "Instagram",
-            "question": "Koja je vaša Instagram stranica?",
-            "answer": "Pogledajte <a href=\"#\" class=\"text-primary-green underline font-bold\">Instagram profil Kozara Panoramic Resort-a</a>."
-        },
-        {
-            "category": "chalets",
-            "keyword": "Internet i Wi-Fi",
-            "question": "Da li u odmaralištu postoji Wi-Fi?",
-            "answer": "Da. Besplatan Wi-Fi je dostupan u cijelom odmaralištu i u kućicama."
-        },
-        {
-            "category": "policies",
-            "keyword": "Izgubljene stvari",
-            "question": "Šta se dešava ako nešto zaboravim u odmaralištu?",
-            "answer": "Molimo vas da kontaktirate odmaralište što je prije moguće."
-        },
-        {
-            "category": "local",
-            "keyword": "Iznenađenja dobrodošlice",
-            "question": "Da li je moguće dogovoriti cvijeće, vino ili romantična iznenađenja?",
-            "answer": "Da. Uz blagovremenu najavu i u zavisnosti od raspoloživosti, odmaralište vam može pomoći u organizaciji cvijeća, vina, dekoracije ili romantičnih iznenađenja."
-        },
-        {
-            "category": "chalets",
-            "keyword": "Izolacija",
-            "question": "Da li su kućice izolovane?",
-            "answer": "Da. Kućice su projektovane za ugodan boravak u ljetnim i zimskim uslovima."
-        }
+      {
+        "category": "local",
+        "keyword": "Instagram",
+        "question": "Koja je vaša Instagram stranica?",
+        "answer": "Pogledajte <a href=\"#\" class=\"text-primary-green underline font-bold\">Instagram profil Kozara Panoramic Resort-a</a>."
+      },
+      {
+        "category": "chalets",
+        "keyword": "Internet i Wi-Fi",
+        "question": "Da li u odmaralištu postoji Wi-Fi?",
+        "answer": "Da. Besplatan Wi-Fi je dostupan u cijelom odmaralištu i u kućicama."
+      },
+      {
+        "category": "policies",
+        "keyword": "Izgubljene stvari",
+        "question": "Šta se dešava ako nešto zaboravim u odmaralištu?",
+        "answer": "Molimo vas da kontaktirate odmaralište što je prije moguće."
+      },
+      {
+        "category": "local",
+        "keyword": "Iznenađenja dobrodošlice",
+        "question": "Da li je moguće dogovoriti cvijeće, vino ili romantična iznenađenja?",
+        "answer": "Da. Uz blagovremenu najavu i u zavisnosti od raspoloživosti, odmaralište vam može pomoći u organizaciji cvijeća, vina, dekoracije ili romantičnih iznenađenja."
+      },
+      {
+        "category": "chalets",
+        "keyword": "Izolacija",
+        "question": "Da li su kućice izolovane?",
+        "answer": "Da. Kućice su projektovane za ugodan boravak u ljetnim i zimskim uslovima."
+      }
     ],
     "J": [
-        {
-            "category": "local",
-            "keyword": "Joga i velnes",
-            "question": "Da li je odmaralište pogodno za jogu, meditaciju ili velnes povlačenja?",
-            "answer": "Da. Aktivnosti se mogu odvijati na terasama, pored bazena ili na mirnim otvorenim prostorima okruženim prirodom."
-        }
+      {
+        "category": "local",
+        "keyword": "Joga i velnes",
+        "question": "Da li je odmaralište pogodno za jogu, meditaciju ili velnes povlačenja?",
+        "answer": "Da. Aktivnosti se mogu odvijati na terasama, pored bazena ili na mirnim otvorenim prostorima okruženim prirodom."
+      }
     ],
     "K": [
-        {
-            "category": "local",
-            "keyword": "Kafa",
-            "question": "Da li je kafa obezbijeđena u planinskim kućicama?",
-            "answer": "<p class=\"mb-2\">Da. Goste po dolasku očekuje mala besplatna doček-zaliha od 4 kapsule za kafu.</p><p class=\"font-bold mb-1\">Koji sistem za kafu se koristi?</p><p class=\"mb-2\">U kućicama se koristi Nescafé Dolce Gusto sistem sa kapsulama.</p><p class=\"font-bold mb-1\">Da li možemo kupiti dodatne kapsule u blizini?</p><p>Da. Dodatne Dolce Gusto kapsule se mogu lako kupiti u supermarketima i prodavnicama u Gradišci.</p>"
-        },
-        {
-            "category": "chalets",
-            "keyword": "Kapacitet kućica",
-            "question": "Koliko ljudi može boraviti u jednoj kućici?",
-            "answer": "U svakoj kućici može boraviti najviše 6 gostiju."
-        },
-        {
-            "category": "policies",
-            "keyword": "Kasna odjava",
-            "question": "Da li je moguća kasnija odjava?",
-            "answer": "Kasnija odjava može biti dostupna u zavisnosti od popunjenosti kapaciteta i prethodnog dogovora."
-        },
-        {
-            "category": "chalets",
-            "keyword": "Klima uređaj",
-            "question": "Da li u planinskim kućicama postoji klima uređaj?",
-            "answer": "Da. Sve planinske kućice su opremljene klima uređajem radi udobnosti gostiju tokom toplijih mjeseci."
-        },
-        {
-            "category": "policies",
-            "keyword": "Kontakti za hitne slučajeve",
-            "question": "Da li su dostupni kontakt podaci za hitne slučajeve?",
-            "answer": "Da. Važni lokalni brojevi za hitne slučajeve i kontakt podaci nalaze se unutar planinskih kućica."
-        },
-        {
-            "category": "chalets",
-            "keyword": "Kućica „Star“",
-            "question": "Šta kućicu „Star“ čini posebnom?",
-            "answer": "<p class=\"mb-2\">Kućica „Star“ je smještena zasebno, ispod ostale četiri kućice, i pruža:</p><ul class=\"list-disc pl-5 mb-2 space-y-1 text-xs\"><li>Maksimalnu privatnost</li><li>Izdvojenu lokaciju</li><li>Panoramski pogled na dolinu</li><li>Mirnu i romantičnu atmosferu</li><li>Jednu od najboljih pozicija za posmatranje izlaska i zalaska sunca u odmaralištu</li></ul><p class=\"font-bold mb-1\">Da li je kućica „Star“ skuplja?</p><p class=\"mb-2\">Ne. Za kućicu „Star“ važi isti cenovnik kao i za ostale kućice, u zavisnosti od sezone i raspoloživosti.</p><p class=\"font-bold mb-1\">Zašto je kućica „Star“ često nedostupna?</p><p class=\"mb-2\">Ona se obično prva rezerviše zbog svoje izuzetne privatnosti i lokacije.</p><p class=\"font-bold mb-1\">Kako možemo zatražiti kućicu „Star“?</p><p class=\"mb-2\">Gosti mogu zatražiti kućicu „Star“ tokom procesa rezervacije, u zavisnosti od raspoloživosti.</p><p class=\"font-bold mb-1\">Da li možemo prići kućici „Star“ automobilom?</p><p>Da. Gosti koji borave u kućici „Star“ mogu prići zoni kućice automobilom prilikom dolaska radi istovara prtljaga, kao i preuzimanja prtljaga na odlasku. Generalni parking za goste se inače nalazi odvojeno, van glavnog prostora sa kućicama, kako bi se očuvala mirna atmosfera i privatnost oko svih objekata.</p>"
-        },
-        {
-            "category": "policies",
-            "keyword": "Kućni ljubimci",
-            "question": "Da li su dozvoljeni kućni ljubimci?",
-            "answer": "Da. Manji kućni ljubimci i sertifikovani psi vodiči mogu biti dozvoljeni uz prethodni dogovor."
-        },
-        {
-            "category": "policies",
-            "keyword": "Kućni mir",
-            "question": "Da li postoji pravilo o kućnom miru?",
-            "answer": "<p class=\"mb-2\">Da. Vrijeme odmora (kućni mir) se obično poštuje između 22:00 i 08:00 časova.</p><p class=\"font-bold mb-1\">Da li se ovo pravilo nekada može korigovati?</p><p>Da. Ukoliko jedna grupa zakupi čitavo odmaralište, pravila o kućnom miru se mogu ublažiti uz prethodni dogovor.</p>"
-        },
-        {
-            "category": "chalets",
-            "keyword": "Kuhinje u kućicama",
-            "question": "Da li kućice imaju kuhinju?",
-            "answer": "Da. Svaka kućica ima potpuno opremljenu kuhinju."
-        }
+      {
+        "category": "local",
+        "keyword": "Kafa",
+        "question": "Da li je kafa obezbijeđena u planinskim kućicama?",
+        "answer": "<p class=\"mb-2\">Da. Goste po dolasku očekuje mala besplatna doček-zaliha od 4 kapsule za kafu.</p><p class=\"font-bold mb-1\">Koji sistem za kafu se koristi?</p><p class=\"mb-2\">U kućicama se koristi Nescafé Dolce Gusto sistem sa kapsulama.</p><p class=\"font-bold mb-1\">Da li možemo kupiti dodatne kapsule u blizini?</p><p>Da. Dodatne Dolce Gusto kapsule se mogu lako kupiti u supermarketima i prodavnicama u Gradišci.</p>"
+      },
+      {
+        "category": "chalets",
+        "keyword": "Kapacitet kućica",
+        "question": "Koliko ljudi može boraviti u jednoj kućici?",
+        "answer": "U svakoj kućici može boraviti najviše 6 gostiju."
+      },
+      {
+        "category": "policies",
+        "keyword": "Kasna odjava",
+        "question": "Da li je moguća kasnija odjava?",
+        "answer": "Kasnija odjava može biti dostupna u zavisnosti od popunjenosti kapaciteta i prethodnog dogovora."
+      },
+      {
+        "category": "chalets",
+        "keyword": "Klima uređaj",
+        "question": "Da li u planinskim kućicama postoji klima uređaj?",
+        "answer": "Da. Sve planinske kućice su opremljene klima uređajem radi udobnosti gostiju tokom toplijih mjeseci."
+      },
+      {
+        "category": "policies",
+        "keyword": "Kontakti za hitne slučajeve",
+        "question": "Da li su dostupni kontakt podaci za hitne slučajeve?",
+        "answer": "Da. Važni lokalni brojevi za hitne slučajeve i kontakt podaci nalaze se unutar planinskih kućica."
+      },
+      {
+        "category": "chalets",
+        "keyword": "Kućica „Star“",
+        "question": "Šta kućicu „Star“ čini posebnom?",
+        "answer": "<p class=\"mb-2\">Kućica „Star“ je smještena zasebno, ispod ostale četiri kućice, i pruža:</p><ul class=\"list-disc pl-5 mb-2 space-y-1 text-xs\"><li>Maksimalnu privatnost</li><li>Izdvojenu lokaciju</li><li>Panoramski pogled na dolinu</li><li>Mirnu i romantičnu atmosferu</li><li>Jednu od najboljih pozicija za posmatranje izlaska i zalaska sunca u odmaralištu</li></ul><p class=\"font-bold mb-1\">Da li je kućica „Star“ skuplja?</p><p class=\"mb-2\">Ne. Za kućicu „Star“ važi isti cenovnik kao i za ostale kućice, u zavisnosti od sezone i raspoloživosti.</p><p class=\"font-bold mb-1\">Zašto je kućica „Star“ često nedostupna?</p><p class=\"mb-2\">Ona se obično prva rezerviše zbog svoje izuzetne privatnosti i lokacije.</p><p class=\"font-bold mb-1\">Kako možemo zatražiti kućicu „Star“?</p><p class=\"mb-2\">Gosti mogu zatražiti kućicu „Star“ tokom procesa rezervacije, u zavisnosti od raspoloživosti.</p><p class=\"font-bold mb-1\">Da li možemo prići kućici „Star“ automobilom?</p><p>Da. Gosti koji borave u kućici „Star“ mogu prići zoni kućice automobilom prilikom dolaska radi istovara prtljaga, kao i preuzimanja prtljaga na odlasku. Generalni parking za goste se inače nalazi odvojeno, van glavnog prostora sa kućicama, kako bi se očuvala mirna atmosfera i privatnost oko svih objekata.</p>"
+      },
+      {
+        "category": "policies",
+        "keyword": "Kućni ljubimci",
+        "question": "Da li su dozvoljeni kućni ljubimci?",
+        "answer": "Da. Manji kućni ljubimci i sertifikovani psi vodiči mogu biti dozvoljeni uz prethodni dogovor."
+      },
+      {
+        "category": "policies",
+        "keyword": "Kućni mir",
+        "question": "Da li postoji pravilo o kućnom miru?",
+        "answer": "<p class=\"mb-2\">Da. Vrijeme odmora (kućni mir) se obično poštuje između 22:00 i 08:00 časova.</p><p class=\"font-bold mb-1\">Da li se ovo pravilo nekada može korigovati?</p><p>Da. Ukoliko jedna grupa zakupi čitavo odmaralište, pravila o kućnom miru se mogu ublažiti uz prethodni dogovor.</p>"
+      },
+      {
+        "category": "chalets",
+        "keyword": "Kuhinje u kućicama",
+        "question": "Da li kućice imaju kuhinju?",
+        "answer": "Da. Svaka kućica ima potpuno opremljenu kuhinju."
+      }
     ],
     "L": [
-        {
-            "category": "travel",
-            "keyword": "Lokacija i navigacija",
-            "question": "Šta bi trebalo da unesemo u navigaciju?",
-            "answer": "Detaljna uputstva za dolazak i GPS navođenje biće vam poslati prije dolaska."
-        }
+      {
+        "category": "travel",
+        "keyword": "Lokacija i navigacija",
+        "question": "Šta bi trebalo da unesemo u navigaciju?",
+        "answer": "Detaljna uputstva za dolazak i GPS navođenje biće vam poslati prije dolaska."
+      }
     ],
     "M": [
-        {
-            "category": "policies",
-            "keyword": "Minimalni broj noćenja",
-            "question": "Da li postoji uslov o minimalnom broju noćenja?",
-            "answer": "Uslovi o minimalnom broju noćenja zavise od sezone i odabrane kućice."
-        },
-        {
-            "category": "travel",
-            "keyword": "Mjenjačnica",
-            "question": "Da li se strana valuta može zamijeniti?",
-            "answer": "Da. Glavne međunarodne valute se mogu lako zamijeniti u konvertibilne marke (KM/BAM) u Gradišci."
-        },
-        {
-            "category": "policies",
-            "keyword": "Mobilni signal",
-            "question": "Da li ima signala za mobilni telefon?",
-            "answer": "Da. U zavisnosti od vašeg operatera i tačne lokacije u odmaralištu, možete uhvatiti i bosanske i hrvatske (EU) mobilne mreže."
-        },
-        {
-            "category": "policies",
-            "keyword": "Muzika tokom zakupa cijelog odmarališta",
-            "question": "Da li se može puštati muzika tokom ekskluzivnog zakupa cijelog odmarališta?",
-            "answer": "Da. Umjerena muzika i društvene aktivnosti su dozvoljene ukoliko jedna grupa zakupi svih 5 kućica."
-        }
+      {
+        "category": "policies",
+        "keyword": "Minimalni broj noćenja",
+        "question": "Da li postoji uslov o minimalnom broju noćenja?",
+        "answer": "Uslovi o minimalnom broju noćenja zavise od sezone i odabrane kućice."
+      },
+      {
+        "category": "travel",
+        "keyword": "Mjenjačnica",
+        "question": "Da li se strana valuta može zamijeniti?",
+        "answer": "Da. Glavne međunarodne valute se mogu lako zamijeniti u konvertibilne marke (KM/BAM) u Gradišci."
+      },
+      {
+        "category": "policies",
+        "keyword": "Mobilni signal",
+        "question": "Da li ima signala za mobilni telefon?",
+        "answer": "Da. U zavisnosti od vašeg operatera i tačne lokacije u odmaralištu, možete uhvatiti i bosanske i hrvatske (EU) mobilne mreže."
+      },
+      {
+        "category": "policies",
+        "keyword": "Muzika tokom zakupa cijelog odmarališta",
+        "question": "Da li se može puštati muzika tokom ekskluzivnog zakupa cijelog odmarališta?",
+        "answer": "Da. Umjerena muzika i društvene aktivnosti su dozvoljene ukoliko jedna grupa zakupi svih 5 kućica."
+      }
     ],
     "N": [
-        {
-            "category": "local",
-            "keyword": "Nacionalni park Kozara",
-            "question": "Da li je Nacionalni park Kozara u blizini?",
-            "answer": "Da. Nacionalni park Kozara je blizu i idealan je za planinarenje, vožnju bicikla, razgledanje i uživanje u prirodi."
-        },
-        {
-            "category": "policies",
-            "keyword": "Načini plaćanja",
-            "question": "Koje načine plaćanja prihvatate?",
-            "answer": "Prihvatamo gotovinu, glavne platne kartice, bankovne transfere i odabrane digitalne metode plaćanja."
-        },
-        {
-            "category": "policies",
-            "keyword": "Njemački jezik",
-            "question": "Da li se u odmaralištu govori njemački jezik?",
-            "answer": "Dostupna je i osnovna komunikacija na njemačkom jeziku."
-        },
-        {
-            "category": "chalets",
-            "keyword": "Noćno korišćenje bazena",
-            "question": "Da li možemo da koristimo bazen noću?",
-            "answer": "Da. Bazeni imaju rasvjetu za večernje kupanje. Korišćenje bazena je uvijek na sopstvenu odgovornost gostiju."
-        }
+      {
+        "category": "local",
+        "keyword": "Nacionalni park Kozara",
+        "question": "Da li je Nacionalni park Kozara u blizini?",
+        "answer": "Da. Nacionalni park Kozara je blizu i idealan je za planinarenje, vožnju bicikla, razgledanje i uživanje u prirodi."
+      },
+      {
+        "category": "policies",
+        "keyword": "Načini plaćanja",
+        "question": "Koje načine plaćanja prihvatate?",
+        "answer": "Prihvatamo gotovinu, glavne platne kartice, bankovne transfere i odabrane digitalne metode plaćanja."
+      },
+      {
+        "category": "policies",
+        "keyword": "Njemački jezik",
+        "question": "Da li se u odmaralištu govori njemački jezik?",
+        "answer": "Dostupna je i osnovna komunikacija na njemačkom jeziku."
+      },
+      {
+        "category": "chalets",
+        "keyword": "Noćno korišćenje bazena",
+        "question": "Da li možemo da koristimo bazen noću?",
+        "answer": "Da. Bazeni imaju rasvjetu za večernje kupanje. Korišćenje bazena je uvijek na sopstvenu odgovornost gostiju."
+      }
     ],
     "O": [
-        {
-            "category": "policies",
-            "keyword": "Odlaganje prtljaga",
-            "question": "Da li prtljag može da se odloži prije prijave ili nakon odjave?",
-            "answer": "Ograničeno čuvanje prtljaga je moguće uz prethodni dogovor."
-        },
-        {
-            "category": "policies",
-            "keyword": "Održavanje higijene",
-            "question": "Da li je obezbijeđeno čišćenje tokom boravka?",
-            "answer": "Organizacija čišćenja i spremanja zavisi od dužine boravka i tipa rezervacije. Dodatno spremanje može biti dostupno na zahtjev."
-        },
-        {
-            "category": "local",
-            "keyword": "Osnivači odmarališta",
-            "question": "Ko je stvorio Kozara Panoramic Resort?",
-            "answer": "Kozara Panoramic Resort su osnovali Džejms i Dragana Traskot (James & Dragana Truscott) kao porodični projekat koji spaja britanske i bosanske uticaje, sa zajedničkom vizijom stvaranja mirnog utočišta u prirodi sa fokusom na privatnost, opuštanje, komfor i autentično gostoprimstvo."
-        }
+      {
+        "category": "policies",
+        "keyword": "Odlaganje prtljaga",
+        "question": "Da li prtljag može da se odloži prije prijave ili nakon odjave?",
+        "answer": "Ograničeno čuvanje prtljaga je moguće uz prethodni dogovor."
+      },
+      {
+        "category": "policies",
+        "keyword": "Održavanje higijene",
+        "question": "Da li je obezbijeđeno čišćenje tokom boravka?",
+        "answer": "Organizacija čišćenja i spremanja zavisi od dužine boravka i tipa rezervacije. Dodatno spremanje može biti dostupno na zahtjev."
+      },
+      {
+        "category": "local",
+        "keyword": "Osnivači odmarališta",
+        "question": "Ko je stvorio Kozara Panoramic Resort?",
+        "answer": "Kozara Panoramic Resort su osnovali Džejms i Dragana Traskot (James & Dragana Truscott) kao porodični projekat koji spaja britanske i bosanske uticaje, sa zajedničkom vizijom stvaranja mirnog utočišta u prirodi sa fokusom na privatnost, opuštanje, komfor i autentično gostoprimstvo."
+      }
     ],
     "P": [
-        {
-            "category": "travel",
-            "keyword": "Parking",
-            "question": "Da li je obezbijeđen parking?",
-            "answer": "Da. Besplatan parking je dostupan u blizini kućica."
-        },
-        {
-            "category": "chalets",
-            "keyword": "Peškiri i bade-mantili",
-            "question": "Da li su obezbijeđeni peškiri?",
-            "answer": "<p class=\"mb-2\">Da. Obezbijeđeni su peškiri za kupatilo i za bazen.</p><p class=\"font-bold mb-1\">Da li su obezbijeđeni bade-mantili?</p><p>Da. Bade-mantili su dostupni na zahtjev.</p>"
-        },
-        {
-            "category": "local",
-            "keyword": "Planinarenje i pješačenje",
-            "question": "Da li u blizini postoje staze za pješačenje?",
-            "answer": "Da. Okolna brda i šume pružaju slikovite mogućnosti za šetnju i planinarenje. Takođe su mogući jednodnevni izleti do Nacionalnog parka Kozara."
-        },
-        {
-            "category": "chalets",
-            "keyword": "Podno grijanje",
-            "question": "Da li kućice imaju podno grijanje?",
-            "answer": "Da. Kućice su opremljene modernim sistemima podnog grijanja."
-        },
-        {
-            "category": "policies",
-            "keyword": "Pogodnosti za stalne goste",
-            "question": "Da li gosti koji se vraćaju imaju posebne popuste?",
-            "answer": "Povremeno, naši stalni gosti mogu dobiti ponude lojalnosti ili specijalne promocije."
-        },
-        {
-            "category": "local",
-            "keyword": "Poklon vaučeri",
-            "question": "Da li u ponudi imate poklon vaučere?",
-            "answer": "Da. U ponudi mogu biti poklon vaučeri i posebni paketi za boravak."
-        },
-        {
-            "category": "policies",
-            "keyword": "Politika otkazivanja",
-            "question": "Koja je vaša politika otkazivanja?",
-            "answer": "Politika otkazivanja zavisi od platforme za rezervaciju i odabrane cijene."
-        },
-        {
-            "category": "policies",
-            "keyword": "Posjetioci",
-            "question": "Da li gosti mogu primati posjetioce u kućici?",
-            "answer": "Dozvoljen je boravak samo prijavljenim gostima, osim ukoliko nije drugačije dogovoreno sa upravom."
-        },
-        {
-            "category": "local",
-            "keyword": "Posmatranje zvijezda",
-            "question": "Da li je lokacija dobra za posmatranje noćnog neba?",
-            "answer": "Da. Zahvaljujući mirnoj lokaciji u prirodi sa vrlo malo svjetlosnog zagađenja, gosti često mogu uživati u prelijepom pogledu na zvjezdano nebo."
-        },
-        {
-            "category": "policies",
-            "keyword": "Pranje veša",
-            "question": "Da li je dostupna usluga pranja veša?",
-            "answer": "Ograničena pomoć oko pranja veša može biti dostupna u zavisnosti od popunjenosti i raspoloživosti osoblja."
-        },
-        {
-            "category": "policies",
-            "keyword": "Prijava i odjava",
-            "question": "Koja su standardna vremena prijave i odjave?",
-            "answer": "<p class=\"mb-2\">Standardna prijava je obično između 08:00 i 14:00 časova. Standardno vrijeme odjave je do 10:00 časova.</p><p class=\"font-bold mb-1\">Da li je moguća samostalna prijava (self check-in)?</p><p>Da. Samostalna prijava je moguća 24/7 uz prethodnu najavu i dogovor sa odmaralištem.</p>"
-        },
-        {
-            "category": "chalets",
-            "keyword": "Priroda i opuštanje",
-            "question": "Šta ovo odmaralište čini posebnim?",
-            "answer": "Odmaralište nudi privatne luksuzne drvene kućice sa grijanim bazenima, panoramskim pogledom, čistim planinskim vazduhom, tišinom, privatnošću i mirnim opuštanjem u prirodi."
-        },
-        {
-            "category": "chalets",
-            "keyword": "Privatnost",
-            "question": "Koja kućica nudi najviše privatnosti?",
-            "answer": "Kućica „Star“ nudi najviše privatnosti, jer je smještena zasebno, ispod ostalih kućica."
-        },
-        {
-            "category": "travel",
-            "keyword": "Prodavnice",
-            "question": "Da li su supermarketi blizu?",
-            "answer": "Da. Supermarketi i lokalne prodavnice su lako dostupni automobilom."
-        },
-        {
-            "category": "travel",
-            "keyword": "Putevi i prilaz",
-            "question": "Da li je put asfaltiran?",
-            "answer": "<p class=\"mb-2\">Završna dionica glavnog prilaznog puta trenutno nije asfaltirana, ali su radovi na asfaltiranju u planu.</p><p class=\"font-bold mb-1\">Da li je put prohodan zimi?</p><p>Zimske gume su obavezne u skladu sa zakonom tokom snježnih padavina.</p>"
-        },
-        {
-            "category": "policies",
-            "keyword": "Pušenje",
-            "question": "Da li je pušenje dozvoljeno?",
-            "answer": "<p class=\"mb-2\">Pušenje nije dozvoljeno unutar kućica niti na zastakljenim terasama.</p><p>Pušenje je dozvoljeno isključivo na za to predviđenim mjestima na otvorenom, uz puno poštovanje prema susjednim kućicama, ostalim gostima i prirodnom okruženju.</p>"
-        }
+      {
+        "category": "travel",
+        "keyword": "Parking",
+        "question": "Da li je obezbijeđen parking?",
+        "answer": "Da. Besplatan parking je dostupan u blizini kućica."
+      },
+      {
+        "category": "chalets",
+        "keyword": "Peškiri i bade-mantili",
+        "question": "Da li su obezbijeđeni peškiri?",
+        "answer": "<p class=\"mb-2\">Da. Obezbijeđeni su peškiri za kupatilo i za bazen.</p><p class=\"font-bold mb-1\">Da li su obezbijeđeni bade-mantili?</p><p>Da. Bade-mantili su dostupni na zahtjev.</p>"
+      },
+      {
+        "category": "local",
+        "keyword": "Planinarenje i pješačenje",
+        "question": "Da li u blizini postoje staze za pješačenje?",
+        "answer": "Da. Okolna brda i šume pružaju slikovite mogućnosti za šetnju i planinarenje. Takođe su mogući jednodnevni izleti do Nacionalnog parka Kozara."
+      },
+      {
+        "category": "chalets",
+        "keyword": "Podno grijanje",
+        "question": "Da li kućice imaju podno grijanje?",
+        "answer": "Da. Kućice su opremljene modernim sistemima podnog grijanja."
+      },
+      {
+        "category": "policies",
+        "keyword": "Pogodnosti za stalne goste",
+        "question": "Da li gosti koji se vraćaju imaju posebne popuste?",
+        "answer": "Povremeno, naši stalni gosti mogu dobiti ponude lojalnosti ili specijalne promocije."
+      },
+      {
+        "category": "local",
+        "keyword": "Poklon vaučeri",
+        "question": "Da li u ponudi imate poklon vaučere?",
+        "answer": "Da. U ponudi mogu biti poklon vaučeri i posebni paketi za boravak."
+      },
+      {
+        "category": "policies",
+        "keyword": "Politika otkazivanja",
+        "question": "Koja je vaša politika otkazivanja?",
+        "answer": "Politika otkazivanja zavisi od platforme za rezervaciju i odabrane cijene."
+      },
+      {
+        "category": "policies",
+        "keyword": "Posjetioci",
+        "question": "Da li gosti mogu primati posjetioce u kućici?",
+        "answer": "Dozvoljen je boravak samo prijavljenim gostima, osim ukoliko nije drugačije dogovoreno sa upravom."
+      },
+      {
+        "category": "local",
+        "keyword": "Posmatranje zvijezda",
+        "question": "Da li je lokacija dobra za posmatranje noćnog neba?",
+        "answer": "Da. Zahvaljujući mirnoj lokaciji u prirodi sa vrlo malo svjetlosnog zagađenja, gosti često mogu uživati u prelijepom pogledu na zvjezdano nebo."
+      },
+      {
+        "category": "policies",
+        "keyword": "Pranje veša",
+        "question": "Da li je dostupna usluga pranja veša?",
+        "answer": "Ograničena pomoć oko pranja veša može biti dostupna u zavisnosti od popunjenosti i raspoloživosti osoblja."
+      },
+      {
+        "category": "policies",
+        "keyword": "Prijava i odjava",
+        "question": "Koja su standardna vremena prijave i odjave?",
+        "answer": "<p class=\"mb-2\">Standardna prijava je obično između 08:00 i 14:00 časova. Standardno vrijeme odjave je do 10:00 časova.</p><p class=\"font-bold mb-1\">Da li je moguća samostalna prijava (self check-in)?</p><p>Da. Samostalna prijava je moguća 24/7 uz prethodnu najavu i dogovor sa odmaralištem.</p>"
+      },
+      {
+        "category": "chalets",
+        "keyword": "Priroda i opuštanje",
+        "question": "Šta ovo odmaralište čini posebnim?",
+        "answer": "Odmaralište nudi privatne luksuzne drvene kućice sa grijanim bazenima, panoramskim pogledom, čistim planinskim vazduhom, tišinom, privatnošću i mirnim opuštanjem u prirodi."
+      },
+      {
+        "category": "chalets",
+        "keyword": "Privatnost",
+        "question": "Koja kućica nudi najviše privatnosti?",
+        "answer": "Kućica „Star“ nudi najviše privatnosti, jer je smještena zasebno, ispod ostalih kućica."
+      },
+      {
+        "category": "travel",
+        "keyword": "Prodavnice",
+        "question": "Da li su supermarketi blizu?",
+        "answer": "Da. Supermarketi i lokalne prodavnice su lako dostupni automobilom."
+      },
+      {
+        "category": "travel",
+        "keyword": "Putevi i prilaz",
+        "question": "Da li je put asfaltiran?",
+        "answer": "<p class=\"mb-2\">Završna dionica glavnog prilaznog puta trenutno nije asfaltirana, ali su radovi na asfaltiranju u planu.</p><p class=\"font-bold mb-1\">Da li je put prohodan zimi?</p><p>Zimske gume su obavezne u skladu sa zakonom tokom snježnih padavina.</p>"
+      },
+      {
+        "category": "policies",
+        "keyword": "Pušenje",
+        "question": "Da li je pušenje dozvoljeno?",
+        "answer": "<p class=\"mb-2\">Pušenje nije dozvoljeno unutar kućica niti na zastakljenim terasama.</p><p>Pušenje je dozvoljeno isključivo na za to predviđenim mjestima na otvorenom, uz puno poštovanje prema susjednim kućicama, ostalim gostima i prirodnom okruženju.</p>"
+      }
     ],
     "R": [
-        {
-            "category": "policies",
-            "keyword": "Rad na daljinu",
-            "question": "Da li je odmaralište pogodno za rad na daljinu?",
-            "answer": "Da. Mnogi gosti uživaju u spoju odmora i rada na daljinu zahvaljujući mirnom okruženju i odličnoj Wi-Fi vezi."
-        },
-        {
-            "category": "policies",
-            "keyword": "Rana prijava",
-            "question": "Da li je moguća ranija prijava?",
-            "answer": "Ranija prijava može biti moguća u zavisnosti od pripreme kućice i popunjenosti kapaciteta."
-        },
-        {
-            "category": "travel",
-            "keyword": "Restorani",
-            "question": "Da li u blizini postoje restorani?",
-            "answer": "Da. Lokalni restorani su dostupni na maloj udaljenosti vožnje."
-        },
-        {
-            "category": "policies",
-            "keyword": "Rezervacija",
-            "question": "Kako mogu da rezervišem smještaj u odmaralištu?",
-            "answer": "Možete rezervisati direktno putem zvaničnog sajta Kozara Panoramic Resort-a ili preko odabranih platformi za rezervaciju."
-        },
-        {
-            "category": "local",
-            "keyword": "Romantični boravak",
-            "question": "Da li je odmaralište pogodno za parove?",
-            "answer": "<p class=\"mb-2\">Da. Mnogi gosti dolaze na romantične vikende i velnes odmore.</p><p class=\"font-bold mb-1\">Da li možete organizovati romantična iznenađenja?</p><p>Da. U zavisnosti od dostupnosti, moguće je dogovoriti romantičnu dekoraciju i posebne aranžmane.</p>"
-        },
-        {
-            "category": "local",
-            "keyword": "Roštilj",
-            "question": "Da li možemo da pravimo roštilj u odmaralištu?",
-            "answer": "Da. Moderni električni roštilji Ninja Woodfire mogu se iznajmiti, u zavisnosti od kućice i sezone."
-        }
+      {
+        "category": "policies",
+        "keyword": "Rad na daljinu",
+        "question": "Da li je odmaralište pogodno za rad na daljinu?",
+        "answer": "Da. Mnogi gosti uživaju u spoju odmora i rada na daljinu zahvaljujući mirnom okruženju i odličnoj Wi-Fi vezi."
+      },
+      {
+        "category": "policies",
+        "keyword": "Rana prijava",
+        "question": "Da li je moguća ranija prijava?",
+        "answer": "Ranija prijava može biti moguća u zavisnosti od pripreme kućice i popunjenosti kapaciteta."
+      },
+      {
+        "category": "travel",
+        "keyword": "Restorani",
+        "question": "Da li u blizini postoje restorani?",
+        "answer": "Da. Lokalni restorani su dostupni na maloj udaljenosti vožnje."
+      },
+      {
+        "category": "policies",
+        "keyword": "Rezervacija",
+        "question": "Kako mogu da rezervišem smještaj u odmaralištu?",
+        "answer": "Možete rezervisati direktno putem zvaničnog sajta Kozara Panoramic Resort-a ili preko odabranih platformi za rezervaciju."
+      },
+      {
+        "category": "local",
+        "keyword": "Romantični boravak",
+        "question": "Da li je odmaralište pogodno za parove?",
+        "answer": "<p class=\"mb-2\">Da. Mnogi gosti dolaze na romantične vikende i velnes odmore.</p><p class=\"font-bold mb-1\">Da li možete organizovati romantična iznenađenja?</p><p>Da. U zavisnosti od dostupnosti, moguće je dogovoriti romantičnu dekoraciju i posebne aranžmane.</p>"
+      },
+      {
+        "category": "local",
+        "keyword": "Roštilj",
+        "question": "Da li možemo da pravimo roštilj u odmaralištu?",
+        "answer": "Da. Moderni električni roštilji Ninja Woodfire mogu se iznajmiti, u zavisnosti od kućice i sezone."
+      }
     ],
     "S": [
-        {
-            "category": "chalets",
-            "keyword": "Sef",
-            "question": "Da li u kućici postoji sef?",
-            "answer": "Da. Svaka kućica ima svoj privatni sef za sigurno čuvanje dragocjenosti i važnih ličnih stvari."
-        },
-        {
-            "category": "policies",
-            "keyword": "Sigurnosni depozit",
-            "question": "Da li je obavezan sigurnosni depozit?",
-            "answer": "Povratni sigurnosni depozit može biti zatražen u zavisnosti od tipa rezervacije."
-        },
-        {
-            "category": "local",
-            "keyword": "Staklo pored bazena",
-            "question": "Da li su dozvoljene staklene flaše u blizini bazena?",
-            "answer": "Ne. Radi bezbjednosti gostiju, staklo nije dozvoljeno u blizini bazena."
-        }
+      {
+        "category": "chalets",
+        "keyword": "Sef",
+        "question": "Da li u kućici postoji sef?",
+        "answer": "Da. Svaka kućica ima svoj privatni sef za sigurno čuvanje dragocjenosti i važnih ličnih stvari."
+      },
+      {
+        "category": "policies",
+        "keyword": "Sigurnosni depozit",
+        "question": "Da li je obavezan sigurnosni depozit?",
+        "answer": "Povratni sigurnosni depozit može biti zatražen u zavisnosti od tipa rezervacije."
+      },
+      {
+        "category": "local",
+        "keyword": "Staklo pored bazena",
+        "question": "Da li su dozvoljene staklene flaše u blizini bazena?",
+        "answer": "Ne. Radi bezbjednosti gostiju, staklo nije dozvoljeno u blizini bazena."
+      }
     ],
     "T": [
-        {
-            "category": "travel",
-            "keyword": "Taksi i transferi",
-            "question": "Da li odmaralište može organizovati taksi ili prevoz sa aerodroma?",
-            "answer": "Pomoć oko transfera je moguća uz blagovremenu najavu, u zavisnosti od raspoloživosti."
-        },
-        {
-            "category": "chalets",
-            "keyword": "Televizor",
-            "question": "Da li u kućici postoji televizor?",
-            "answer": "Da. Na raspolaganju su Smart TV uređaji."
-        },
-        {
-            "category": "chalets",
-            "keyword": "Terasa",
-            "question": "Da li kućice imaju sopstvene terase?",
-            "answer": "Da. Svaka kućica ima svoju privatnu panoramsku terasu sa visokokvalitetnim kliznim staklenim sistemima sa dvostrukim staklom, što omogućava fleksibilan unutrašnji prostor sa opcijom potpunog otvaranja vrata tokom toplijeg vremena."
-        },
-        {
-            "category": "local",
-            "keyword": "Tišina i mir",
-            "question": "Da li je u odmaralištu tiho noću?",
-            "answer": "Da. Jedna od najcjenjenijih karakteristika Kozara Panoramic Resort-a je njegova potpuno mirna i tiha prirodna atmosfera."
-        }
+      {
+        "category": "travel",
+        "keyword": "Taksi i transferi",
+        "question": "Da li odmaralište može organizovati taksi ili prevoz sa aerodroma?",
+        "answer": "Pomoć oko transfera je moguća uz blagovremenu najavu, u zavisnosti od raspoloživosti."
+      },
+      {
+        "category": "chalets",
+        "keyword": "Televizor",
+        "question": "Da li u kućici postoji televizor?",
+        "answer": "Da. Na raspolaganju su Smart TV uređaji."
+      },
+      {
+        "category": "chalets",
+        "keyword": "Terasa",
+        "question": "Da li kućice imaju sopstvene terase?",
+        "answer": "Da. Svaka kućica ima svoju privatnu panoramsku terasu sa visokokvalitetnim kliznim staklenim sistemima sa dvostrukim staklom, što omogućava fleksibilan unutrašnji prostor sa opcijom potpunog otvaranja vrata tokom toplijeg vremena."
+      },
+      {
+        "category": "local",
+        "keyword": "Tišina i mir",
+        "question": "Da li je u odmaralištu tiho noću?",
+        "answer": "Da. Jedna od najcjenjenijih karakteristika Kozara Panoramic Resort-a je njegova potpuno mirna i tiha prirodna atmosfera."
+      }
     ],
     "V": [
-        {
-            "category": "chalets",
-            "keyword": "Voda iz česme",
-            "question": "Da li je voda iz česme bezbjedna za piće?",
-            "answer": "Da. Voda je pogodna za uobičajenu upotrebu."
-        },
-        {
-            "category": "local",
-            "keyword": "Vremenske prilike",
-            "question": "Kakvo je vrijeme tokom godine?",
-            "answer": "Proljeće i jesen su uglavnom blagi i živopisni, ljeta su topla sa svježijim večerima, dok zime mogu donijeti snijeg."
-        }
+      {
+        "category": "chalets",
+        "keyword": "Voda iz česme",
+        "question": "Da li je voda iz česme bezbjedna za piće?",
+        "answer": "Da. Voda je pogodna za uobičajenu upotrebu."
+      },
+      {
+        "category": "local",
+        "keyword": "Vremenske prilike",
+        "question": "Kakvo je vrijeme tokom godine?",
+        "answer": "Proljeće i jesen su uglavnom blagi i živopisni, ljeta su topla sa svježijim večerima, dok zime mogu donijeti snijeg."
+      }
     ],
     "Z": [
-        {
-            "category": "policies",
-            "keyword": "Zabave i žurke",
-            "question": "Da li je ovo mjesto za žurke?",
-            "answer": "<p class=\"mb-2\">Ne. Kozara Panoramic Resort je prvenstveno osmišljen kao mirno mjesto za odmor i velnes.</p><p class=\"font-bold mb-1\">Da li su dozvoljene žurke?</p><p>Velike, nekontrolisane žurke nisu dozvoljene.</p>"
-        },
-        {
-            "category": "policies",
-            "keyword": "Zakup cijelog odmarališta",
-            "question": "Da li možemo da rezervišemo čitavo odmaralište?",
-            "answer": "<p class=\"mb-2\">Da. Zakup cijelog odmarališta može se organizovati za:</p><ul class=\"list-disc pl-5 space-y-1 text-xs\"><li>Porodična okupljanja</li><li>Velnes (wellness) povlačenja</li><li>Tim bildinge (Team-building)</li><li>Manja vjenčanja</li><li>Privatne proslave</li></ul>"
-        }
+      {
+        "category": "policies",
+        "keyword": "Zabave i žurke",
+        "question": "Da li je ovo mjesto za žurke?",
+        "answer": "<p class=\"mb-2\">Ne. Kozara Panoramic Resort je prvenstveno osmišljen kao mirno mjesto za odmor i velnes.</p><p class=\"font-bold mb-1\">Da li su dozvoljene žurke?</p><p>Velike, nekontrolisane žurke nisu dozvoljene.</p>"
+      },
+      {
+        "category": "policies",
+        "keyword": "Zakup cijelog odmarališta",
+        "question": "Da li možemo da rezervišemo čitavo odmaralište?",
+        "answer": "<p class=\"mb-2\">Da. Zakup cijelog odmarališta može se organizovati za:</p><ul class=\"list-disc pl-5 space-y-1 text-xs\"><li>Porodična okupljanja</li><li>Velnes (wellness) povlačenja</li><li>Tim bildinge (Team-building)</li><li>Manja vjenčanja</li><li>Privatne proslave</li></ul>"
+      }
     ]
-},
-    "am_title" : "Sadržaji i udobnost resorta | Kozara Panoramic Resort",
-    "am_header_badge": "Specifikacije resorta",
-    "am_header_title": "Udobnost i sadržaji",
-    "am_header_desc": "Istražite svaki pažljivo odabran detalj koji je standardno uključen u svih pet naših planinskih drvenih kućica.",
-    "am_icon_1_title": "Privatni bazen",
-    "am_icon_1_desc": "6x3m, zasebno grijan",
-    "am_icon_2_title": "Besplatan WiFi",
-    "am_icon_2_desc": "Brza konekcija",
-    "am_icon_3_title": "Besplatan parking",
-    "am_icon_3_desc": "Privatni osigurani parking",
-    "am_icon_4_title": "Zabranjeno pušenje",
-    "am_icon_4_desc": "100% čist planinski vazduh",
-    "am_icon_5_title": "Masivno drvo",
-    "am_icon_5_desc": "Prirodna eko-arhitektura",
-    "am_sec1_badge": "Oaza na otvorenom",
-    "am_sec1_title": "Grijani bazen za plivanje",
-    "am_sec1_li1": "<strong>Grijanje bazena</strong>: Zasebna regulacija temperature od proljeća do jeseni.",
-    "am_sec1_li2": "<strong>Panoramski pogled</strong>: Otvoren pogled na planinske vrhove.",
-    "am_sec1_li3": "<strong>Dimenzije</strong>: 6x3 metra privatnog prostora, dubina vode 1,40 m.",
-    "am_sec1_li4": "<strong>Prostor za sunčanje</strong>: Premium ležaljke sa udobnim jastucima.",
-    "am_sec1_li5": "<strong>Zaštitni pokrivač</strong>: Pokrivač za bazen na automatsko namotavanje.",
-    "am_sec1_notice": "Bezbjednosna napomena: Pristup bazenima je otvoren; djeca u svakom trenutku moraju biti pod nadzorom roditelja ili staratelja. Staklena ambalaža nije dozvoljena.",
-    "am_sec2_badge": "Kuhinja i trpezarija",
-    "am_sec2_title": "Potpuno opremljena kuhinja",
-    "am_sec2_i1_t": "Aparat za kafu Dolce Gusto",
-    "am_sec2_i1_d": "Kompatibilan sa Nescafé kapsulama. Po dolasku vas očekuju 4 besplatne kapsule. Dodatne zalihe možete kupiti u supermarketima u Gradišci.",
-    "am_sec2_i2_t": "Električna ploča za kuhanje i rerna",
-    "am_sec2_i2_d": "Vrhunske indukcione ploče i ugradne konvekcione rerne.",
-    "am_sec2_i3_t": "Ugradna mašina za pranje suđa",
-    "am_sec2_i3_d": "Mašina standardne veličine sa obezbijeđenim tabletama za pranje.",
-    "am_sec2_i4_t": "Frižider i zamrzivač",
-    "am_sec2_i4_d": "Prostran frižider, toster, mikrotalasna i električno kuhalo za vodu.",
-    "am_sec3_badge": "Eksterijer resorta",
-    "am_sec3_title": "Terase, vrt i dvorište",
-    "am_sec3_i1_t": "Uređene baštenske padine",
-    "am_sec3_i1_d": "Prelijepo privatno imanje bogato borovima, sa stazama za šetnju.",
-    "am_sec3_i2_t": "Garniture za sjedenje na otvorenom",
-    "am_sec3_i2_d": "Premium stolovi i stolice od ratana smješteni na privatnim kamenim terasama.",
-    "am_sec3_i3_t": "Električni roštilj",
-    "am_sec3_i3_d": "Moderni Ninja Woodfire roštilji dostupni na zahtjev.",
-    "am_sec3_i4_t": "Prostrana privatna terasa",
-    "am_sec3_i4_d": "Natkriveni dijelovi terase idealni za mirno opuštanje u hladu ili posmatranje zvijezda.",
-    "am_dir_badge": "Detaljan pregled sadržaja",
-    "am_dir_title": "Katalog specifikacija resorta",
-    "am_dir_1_t": "Osnovne instalacije",
-    "am_dir_1_1": "Sistem podnog grijanja sa brzom regulacijom",
-    "am_dir_1_2": "Klima uređaj",
-    "am_dir_1_3": "Detektor ugljen-monoksida",
-    "am_dir_1_4": "Kućice u kojima je pušenje strogo zabranjeno",
-    "am_dir_1_5": "Sigurnosni privatni ključevi",
-    "am_dir_1_6": "Elegantni podovi od pločica/mermera",
-    "am_dir_2_t": "Spavaća soba i kupatilo",
-    "am_dir_2_1": "Posteljina od 100% organskog pamuka",
-    "am_dir_2_2": "Obezbijeđena vrhunska hotelska posteljina",
-    "am_dir_2_3": "Ormari i prostor za odlaganje stvari",
-    "am_dir_2_4": "Udobni i mekani bade-mantili",
-    "am_dir_2_5": "Profesionalni jonski fen za kosu",
-    "am_dir_2_6": "Premium peškiri i toaletni papir",
-    "am_dir_3_t": "Dnevni boravak",
-    "am_dir_3_1": "Udobne garniture sa sofom",
-    "am_dir_3_2": "Prostran unutrašnji trpezarijski prostor",
-    "am_dir_3_3": "Veliki drveni trpezarijski stolovi",
-    "am_dir_3_4": "Panoramska klizna vrata sa dvostrukim staklom",
-    "am_dir_3_5": "Ležaljke za sunčanje sa prostirkama na terasi",
-    "am_dir_4_t": "Mediji i tehnologija",
-    "am_dir_4_1": "Smart TV uređaji ravnog ekrana",
-    "am_dir_4_2": "Satelitski TV kanali",
-    "am_dir_4_3": "Streaming servisi (poput Netflixa)",
-    "am_dir_4_4": "Brzi WiFi (u svim dijelovima objekta)",
-    "am_dir_4_5": "Stanice za punjenje sa više priključaka",
-    "am_dir_5_t": "Usluge za goste",
-    "am_dir_5_1": "Privatna prijava i odjava",
-    "am_dir_5_2": "Osoblje koje govori engleski jezik",
-    "am_dir_5_3": "Osoblje koje govori srpski jezik",
-    "am_dir_5_4": "Mogućnost boravka kućnih ljubimaca (na upit)",
-    "am_dir_5_5": "Korpe sa organskim doručkom (uskoro)",
-    "am_dir_6_t": "Bezbjednost i sigurnost",
-    "am_dir_6_1": "Video nadzor (CCTV) oko granica posjeda",
-    "am_dir_6_2": "Aparati za gašenje požara u objektu",
-    "am_dir_6_3": "Ugradni digitalni sef za laptop",
-    "am_dir_6_4": "Kompletno ograđeno imanje resorta",
-    "am_dir_6_5": "Sigurnosni alarmi za ugljen-monoksid",
-    "am_dir_7_t": "Panoramski pejzaži",
-    "am_dir_7_1": "Otvoren pogled na prepoznatljive pejzaže",
-    "am_dir_7_2": "Panoramski pogled na planinu",
-    "am_dir_7_3": "Pogled na horizont iz privatnog bazena",
-    "am_dir_7_4": "Pozicija idealna za praćenje izlaska sunca",
-    "am_dir_7_5": "Pogled na vrhove šumskih krošnji",
-    "am_dir_8_t": "Aktivnosti i izleti",
-    "am_dir_8_1": "Autentične šetnje kozarskim selima",
-    "am_dir_8_2": "Biciklističke ture kroz prirodu sa vodičem",
-    "am_dir_8_3": "Netaknute šumske staze za planinarenje",
-    "am_dir_8_4": "Organizovane pješačke ture po planini",
-    "am_dir_8_5": "Istraživanje Nacionalnog parka Kozara",
-    "footer_link_chalets": "Kućice",
-    "footer_link_amenities": "Sadržaji resorta",
-    "footer_link_location": "Naša lokacija",
-    "footer_link_faq": "Često postavljana pitanja (FAQ)",
-    "notice_meta_title": "Pravne napomene i pravila | Kozara Panoramic Resort",
-    "notice_header_badge": "Butik planinsko utočište",
-    "notice_header_title": "Luksuzne privatne kućice <br><span class=\"italic text-sand-beige font-normal\">sa grijanim bazenima</span>",
-    "notice_header_desc": "Mirni bijeg u prirodu blizu Banje Luke i Hrvatske. Uživajte u netaknutoj prirodi, panoramskim pogledima i komforu sa 5 zvjezdica.",
-    "notice_sidebar_title": "Trebate direktnu administrativnu pomoć?",
-    "notice_sidebar_desc": "Naša administracija vam stoji na raspolaganju za izdavanje namjenskih korporativnih faktura, protokole grupnih rezervacija i prijave boravka.",
-    "notice_sidebar_btn": "Kontaktirajte administraciju",
-    "notice_imp_badge": "PODACI O OPERATERU",
-    "notice_imp_title": "Impresum / Pravne informacije",
-    "notice_imp_col1_t1": "Registrovano pravno lice",
-    "notice_imp_col1_d1": "Vlasnik brenda Kozara Panoramic Resort",
-    "notice_imp_col1_t2": "Sjedište firme",
-    "notice_imp_col1_d2": "Selo Kozara BB<br>78400 Gradiška, Bosna i Hercegovina",
-    "notice_imp_col1_t3": "Zakonski zastupnik / Direktor",
-    "notice_imp_col2_t1": "Identifikacioni podaci",
-    "notice_imp_col2_d1_1": "Reg. broj: 11260985",
-    "notice_imp_col2_d1_2": "Poreski broj (JIB): 4405281640008",
-    "notice_imp_col2_t2": "Kontakt podaci registrara",
-    "notice_terms_badge": "PRAVILA POSLOVANJA",
-    "notice_terms_title": "Opšti uslovi poslovanja",
-    "notice_terms_1_t": "Potvrda rezervacije",
-    "notice_terms_1_d": "Rezervacija se smatra potvrđenom u trenutku kada gost dobije pismenu potvrdu putem e-pošte ili aplikacija za razmjenu poruka.",
-    "notice_terms_2_t": "Vrijeme prijave i odjave",
-    "notice_terms_2_d1": "<strong>Prijava (Check-in)</strong>: od <span class=\"font-bold text-stone-800\">14:00 časova</span>",
-    "notice_terms_2_d2": "<strong>Odjava (Check-out)</strong>: najkasnije do <span class=\"font-bold text-stone-800\">10:00 časova</span>",
-    "notice_terms_2_d3": "Mogućnost ranije prijave ili kasnije odjave isključivo zavisi od trenutne popunjenosti i dogovora prije dolaska.",
-    "notice_terms_3_t": "Plaćanje i otkazivanje tokom ljetne sezone",
-    "notice_terms_3_d": "Iznos rezervacije se uplaćuje u cjelosti prilikom obavljanja rezervacije. Lokalna boravišna taksa se naplaćuje zasebno po odjavi.",
-    "notice_terms_3_s1_t": "Standardna sezona (april – jun, sredina septembra – oktobar)",
-    "notice_terms_3_s1_li1": "<strong>Povrat novca od 25%</strong>: za otkazivanje 14+ dana prije dolaska",
-    "notice_terms_3_s1_li2": "<strong>Povrat novca od 50%</strong>: za otkazivanje 7 do 13 dana prije dolaska",
-    "notice_terms_3_s1_li3": "Povrat novca nije moguć za otkazivanje unutar 7 dana od dolaska",
-    "notice_terms_3_s2_t": "Udarne sezone (jul, avgust, praznici)",
-    "notice_terms_3_s2_d": "Strogo pravilo o otkazivanju: Tokom udarnih ljetnih termina i sedmica u kojima padaju praznici, otkazivanje uz povrat novca nije moguće.",
-    "notice_terms_4_t": "Pravila ponašanja na bazenu i naknada štete",
-    "notice_terms_4_d": "PEVA d.o.o. insistira na održavanju visokog standarda objekta. Nepoštovanje utvrđenog kućnog reda može dovesti do trenutnog prekida boravka bez povrata novca. Prilikom prijave, obavezan je sigurnosni depozit za slučaj štete u iznosu od <strong>250 €</strong>.",
-    "notice_terms_4_st": "Stroga pravila za bazen (važe za sve jedinice):",
-    "notice_terms_4_li1": "Korištenje bazena je u potpunosti na vlastitu odgovornost gostiju.",
-    "notice_terms_4_li2": "U sklopu resorta nema dežurnog spasioca.",
-    "notice_terms_4_li3": "Djeca u svakom trenutku moraju biti pod nadzorom odraslih.",
-    "notice_terms_4_li4": "Strogo je zabranjeno unošenje staklene ambalaže u zonu oko bazena.",
-    "notice_terms_4_li5": "Strogo je zabranjeno skakanje u vodu (dubina bazena je 1,40 m).",
-    "notice_terms_5_t": "Pravila o pušenju",
-    "notice_terms_5_d": "Pušenje je strogo zabranjeno unutar drvenih objekata i na zastakljenim terasama. Pušenje na otvorenim dijelovima terase je dozvoljeno uz obavezan oprez.",
-    "notice_terms_6_t": "Boravak kućnih ljubimaca",
-    "notice_terms_6_d": "Boravak kućnih ljubimaca je moguć isključivo uz prethodnu najavu i odobrenje. Za ovu uslugu naplaćuje se fiksna naknada od <strong>15,00 € po ljubimcu</strong> za čitav boravak.",
-    "notice_terms_7_t": "Maksimalni kapacitet",
-    "notice_terms_7_d": "Maksimalan kapacitet je <strong>6 osoba</strong> po kućici. Raspored uključuje 1 spavaću sobu sa bračnim krevetom, 2 sobe sa po dva odvojena kreveta te opciju spavanja na galeriji ili ugaonoj garnituri.",
-    "notice_priv_badge": "OBRADA PODATAKA",
-    "notice_priv_title": "Politika privatnosti",
-    "notice_priv_desc": "PEVA d.o.o. prikuplja i obrađuje lične podatke gostiju isključivo u skladu sa važećim zakonskim propisima i najvišim sigurnosnim standardima.",
-    "notice_priv_1_t": "1. Prikupljeni podaci i svrha",
-    "notice_priv_1_d": "Sigurno pohranjujemo sljedeće podatke: ime i prezime, adresu, broj telefona, e-mail adresu te podatke sa lične karte ili pasoša. Ovi podaci se prikupljaju isključivo u svrhu realizacije ugovora o rezervaciji, zakonske prijave boravka gostiju te komunikacije prije dolaska.",
-    "notice_priv_2_t": "2. Zakonski rok čuvanja",
-    "notice_priv_2_d": "Kao registrovani turistički subjekat, zakonski smo obavezni proslijediti podatke o gostima nadležnoj Turističkoj organizaciji. Svi podaci se prenose putem šifrovanih kanala i trajno se brišu nakon isteka zakonom propisanog roka čuvanja.",
-    "notice_priv_3_t": "3. Dijeljenje sa trećim licima",
-    "notice_priv_3_d": "Lični podaci gostiju se nikada ne prodaju, ne razmjenjuju niti prenose neovlaštenim trećim licima. Sva online plaćanja se procesuiraju putem visoko osiguranih Bankart / Stripe sistema.",
-    "notice_cookie_badge": "DIGITALNI TRAG",
-    "notice_cookie_title": "Politika kolačića (Cookies)",
-    "notice_cookie_desc": "Kako bismo vam obezbijedili besprijekorno iskustvo online rezervacije, Kozara Panoramic Resort koristi standardne privremene kolačiće.",
-    "notice_cookie_1_t": "Neophodni kolačići",
-    "notice_cookie_1_d": "Ključni za održavanje aktivne sesije i sigurno sprovođenje procesa rezervacije.",
-    "notice_cookie_2_t": "Analitički kolačići",
-    "notice_cookie_2_d": "Zbirni, potpuno anonimni podaci (putem Google Analytics servisa) koji nam pomažu da pratimo brzinu učitavanja stranice i opštu posjećenost.",
-    "notice_cookie_consent": "Pristanak: Nastavkom korištenja zvaničnog domena (kozarapanoramicresort.ba), potvrđujete da ste saglasni sa upotrebom naših tehnički neophodnih kolačića.",
-"notice_priv_2_t": "2. Bezbjedno prosljeđivanje i dijeljenje podataka",
+  },
+  "am_title": "Sadržaji i udobnost resorta | Kozara Panoramic Resort",
+  "am_header_badge": "Specifikacije resorta",
+  "am_header_title": "Udobnost i sadržaji",
+  "am_header_desc": "Istražite svaki pažljivo odabran detalj koji je standardno uključen u svih pet naših planinskih drvenih kućica.",
+  "am_icon_1_title": "Privatni bazen",
+  "am_icon_1_desc": "6x3m, zasebno grijan",
+  "am_icon_2_title": "Besplatan WiFi",
+  "am_icon_2_desc": "Brza konekcija",
+  "am_icon_3_title": "Besplatan parking",
+  "am_icon_3_desc": "Privatni osigurani parking",
+  "am_icon_4_title": "Zabranjeno pušenje",
+  "am_icon_4_desc": "100% čist planinski vazduh",
+  "am_icon_5_title": "Masivno drvo",
+  "am_icon_5_desc": "Prirodna eko-arhitektura",
+  "am_sec1_badge": "Oaza na otvorenom",
+  "am_sec1_title": "Grijani bazen za plivanje",
+  "am_sec1_li1": "<strong>Grijanje bazena</strong>: Zasebna regulacija temperature od proljeća do jeseni.",
+  "am_sec1_li2": "<strong>Panoramski pogled</strong>: Otvoren pogled na planinske vrhove.",
+  "am_sec1_li3": "<strong>Dimenzije</strong>: 6x3 metra privatnog prostora, dubina vode 1,40 m.",
+  "am_sec1_li4": "<strong>Prostor za sunčanje</strong>: Premium ležaljke sa udobnim jastucima.",
+  "am_sec1_li5": "<strong>Zaštitni pokrivač</strong>: Pokrivač za bazen na automatsko namotavanje.",
+  "am_sec1_notice": "Bezbjednosna napomena: Pristup bazenima je otvoren; djeca u svakom trenutku moraju biti pod nadzorom roditelja ili staratelja. Staklena ambalaža nije dozvoljena.",
+  "am_sec2_badge": "Kuhinja i trpezarija",
+  "am_sec2_title": "Potpuno opremljena kuhinja",
+  "am_sec2_i1_t": "Aparat za kafu Dolce Gusto",
+  "am_sec2_i1_d": "Kompatibilan sa Nescafé kapsulama. Po dolasku vas očekuju 4 besplatne kapsule. Dodatne zalihe možete kupiti u supermarketima u Gradišci.",
+  "am_sec2_i2_t": "Električna ploča za kuhanje i rerna",
+  "am_sec2_i2_d": "Vrhunske indukcione ploče i ugradne konvekcione rerne.",
+  "am_sec2_i3_t": "Ugradna mašina za pranje suđa",
+  "am_sec2_i3_d": "Mašina standardne veličine sa obezbijeđenim tabletama za pranje.",
+  "am_sec2_i4_t": "Frižider i zamrzivač",
+  "am_sec2_i4_d": "Prostran frižider, toster, mikrotalasna i električno kuhalo za vodu.",
+  "am_sec3_badge": "Eksterijer resorta",
+  "am_sec3_title": "Terase, vrt i dvorište",
+  "am_sec3_i1_t": "Uređene baštenske padine",
+  "am_sec3_i1_d": "Prelijepo privatno imanje bogato borovima, sa stazama za šetnju.",
+  "am_sec3_i2_t": "Garniture za sjedenje na otvorenom",
+  "am_sec3_i2_d": "Premium stolovi i stolice od ratana smješteni na privatnim kamenim terasama.",
+  "am_sec3_i3_t": "Električni roštilj",
+  "am_sec3_i3_d": "Moderni Ninja Woodfire roštilji dostupni na zahtjev.",
+  "am_sec3_i4_t": "Prostrana privatna terasa",
+  "am_sec3_i4_d": "Natkriveni dijelovi terase idealni za mirno opuštanje u hladu ili posmatranje zvijezda.",
+  "am_dir_badge": "Detaljan pregled sadržaja",
+  "am_dir_title": "Katalog specifikacija resorta",
+  "am_dir_1_t": "Osnovne instalacije",
+  "am_dir_1_1": "Sistem podnog grijanja sa brzom regulacijom",
+  "am_dir_1_2": "Klima uređaj",
+  "am_dir_1_3": "Detektor ugljen-monoksida",
+  "am_dir_1_4": "Kućice u kojima je pušenje strogo zabranjeno",
+  "am_dir_1_5": "Sigurnosni privatni ključevi",
+  "am_dir_1_6": "Elegantni podovi od pločica/mermera",
+  "am_dir_2_t": "Spavaća soba i kupatilo",
+  "am_dir_2_1": "Posteljina od 100% organskog pamuka",
+  "am_dir_2_2": "Obezbijeđena vrhunska hotelska posteljina",
+  "am_dir_2_3": "Ormari i prostor za odlaganje stvari",
+  "am_dir_2_4": "Udobni i mekani bade-mantili",
+  "am_dir_2_5": "Profesionalni jonski fen za kosu",
+  "am_dir_2_6": "Premium peškiri i toaletni papir",
+  "am_dir_3_t": "Dnevni boravak",
+  "am_dir_3_1": "Udobne garniture sa sofom",
+  "am_dir_3_2": "Prostran unutrašnji trpezarijski prostor",
+  "am_dir_3_3": "Veliki drveni trpezarijski stolovi",
+  "am_dir_3_4": "Panoramska klizna vrata sa dvostrukim staklom",
+  "am_dir_3_5": "Ležaljke za sunčanje sa prostirkama na terasi",
+  "am_dir_4_t": "Mediji i tehnologija",
+  "am_dir_4_1": "Smart TV uređaji ravnog ekrana",
+  "am_dir_4_2": "Satelitski TV kanali",
+  "am_dir_4_3": "Streaming servisi (poput Netflixa)",
+  "am_dir_4_4": "Brzi WiFi (u svim dijelovima objekta)",
+  "am_dir_4_5": "Stanice za punjenje sa više priključaka",
+  "am_dir_5_t": "Usluge za goste",
+  "am_dir_5_1": "Privatna prijava i odjava",
+  "am_dir_5_2": "Osoblje koje govori engleski jezik",
+  "am_dir_5_3": "Osoblje koje govori srpski jezik",
+  "am_dir_5_4": "Mogućnost boravka kućnih ljubimaca (na upit)",
+  "am_dir_5_5": "Korpe sa organskim doručkom (uskoro)",
+  "am_dir_6_t": "Bezbjednost i sigurnost",
+  "am_dir_6_1": "Video nadzor (CCTV) oko granica posjeda",
+  "am_dir_6_2": "Aparati za gašenje požara u objektu",
+  "am_dir_6_3": "Ugradni digitalni sef za laptop",
+  "am_dir_6_4": "Kompletno ograđeno imanje resorta",
+  "am_dir_6_5": "Sigurnosni alarmi za ugljen-monoksid",
+  "am_dir_7_t": "Panoramski pejzaži",
+  "am_dir_7_1": "Otvoren pogled na prepoznatljive pejzaže",
+  "am_dir_7_2": "Panoramski pogled na planinu",
+  "am_dir_7_3": "Pogled na horizont iz privatnog bazena",
+  "am_dir_7_4": "Pozicija idealna za praćenje izlaska sunca",
+  "am_dir_7_5": "Pogled na vrhove šumskih krošnji",
+  "am_dir_8_t": "Aktivnosti i izleti",
+  "am_dir_8_1": "Autentične šetnje kozarskim selima",
+  "am_dir_8_2": "Biciklističke ture kroz prirodu sa vodičem",
+  "am_dir_8_3": "Netaknute šumske staze za planinarenje",
+  "am_dir_8_4": "Organizovane pješačke ture po planini",
+  "am_dir_8_5": "Istraživanje Nacionalnog parka Kozara",
+  "footer_link_chalets": "Kućice",
+  "footer_link_amenities": "Sadržaji resorta",
+  "footer_link_location": "Naša lokacija",
+  "footer_link_faq": "Često postavljana pitanja (FAQ)",
+  "notice_meta_title": "Pravne napomene i pravila | Kozara Panoramic Resort",
+  "notice_header_badge": "Butik planinsko utočište",
+  "notice_header_title": "Luksuzne privatne kućice <br><span class=\"italic text-sand-beige font-normal\">sa grijanim bazenima</span>",
+  "notice_header_desc": "Mirni bijeg u prirodu blizu Banje Luke i Hrvatske. Uživajte u netaknutoj prirodi, panoramskim pogledima i komforu sa 5 zvjezdica.",
+  "notice_sidebar_title": "Trebate direktnu administrativnu pomoć?",
+  "notice_sidebar_desc": "Naša administracija vam stoji na raspolaganju za izdavanje namjenskih korporativnih faktura, protokole grupnih rezervacija i prijave boravka.",
+  "notice_sidebar_btn": "Kontaktirajte administraciju",
+  "notice_imp_badge": "PODACI O OPERATERU",
+  "notice_imp_title": "Impresum / Pravne informacije",
+  "notice_imp_col1_t1": "Registrovano pravno lice",
+  "notice_imp_col1_d1": "Vlasnik brenda Kozara Panoramic Resort",
+  "notice_imp_col1_t2": "Sjedište firme",
+  "notice_imp_col1_d2": "Selo Kozara BB<br>78400 Gradiška, Bosna i Hercegovina",
+  "notice_imp_col1_t3": "Zakonski zastupnik / Direktor",
+  "notice_imp_col2_t1": "Identifikacioni podaci",
+  "notice_imp_col2_d1_1": "Reg. broj: 11260985",
+  "notice_imp_col2_d1_2": "Poreski broj (JIB): 4405281640008",
+  "notice_imp_col2_t2": "Kontakt podaci registrara",
+  "notice_terms_badge": "PRAVILA POSLOVANJA",
+  "notice_terms_title": "Opšti uslovi poslovanja",
+  "notice_terms_1_t": "Potvrda rezervacije",
+  "notice_terms_1_d": "Rezervacija se smatra potvrđenom u trenutku kada gost dobije pismenu potvrdu putem e-pošte ili aplikacija za razmjenu poruka.",
+  "notice_terms_2_t": "Vrijeme prijave i odjave",
+  "notice_terms_2_d1": "<strong>Prijava (Check-in)</strong>: od <span class=\"font-bold text-stone-800\">14:00 časova</span>",
+  "notice_terms_2_d2": "<strong>Odjava (Check-out)</strong>: najkasnije do <span class=\"font-bold text-stone-800\">10:00 časova</span>",
+  "notice_terms_2_d3": "Mogućnost ranije prijave ili kasnije odjave isključivo zavisi od trenutne popunjenosti i dogovora prije dolaska.",
+  "notice_terms_3_t": "Plaćanje i otkazivanje tokom ljetne sezone",
+  "notice_terms_3_d": "Iznos rezervacije se uplaćuje u cjelosti prilikom obavljanja rezervacije. Lokalna boravišna taksa se naplaćuje zasebno po odjavi.",
+  "notice_terms_3_s1_t": "Standardna sezona (april – jun, sredina septembra – oktobar)",
+  "notice_terms_3_s1_li1": "<strong>Povrat novca od 25%</strong>: za otkazivanje 14+ dana prije dolaska",
+  "notice_terms_3_s1_li2": "<strong>Povrat novca od 50%</strong>: za otkazivanje 7 do 13 dana prije dolaska",
+  "notice_terms_3_s1_li3": "Povrat novca nije moguć za otkazivanje unutar 7 dana od dolaska",
+  "notice_terms_3_s2_t": "Udarne sezone (jul, avgust, praznici)",
+  "notice_terms_3_s2_d": "Strogo pravilo o otkazivanju: Tokom udarnih ljetnih termina i sedmica u kojima padaju praznici, otkazivanje uz povrat novca nije moguće.",
+  "notice_terms_4_t": "Pravila ponašanja na bazenu i naknada štete",
+  "notice_terms_4_d": "PEVA d.o.o. insistira na održavanju visokog standarda objekta. Nepoštovanje utvrđenog kućnog reda može dovesti do trenutnog prekida boravka bez povrata novca. Prilikom prijave, obavezan je sigurnosni depozit za slučaj štete u iznosu od <strong>250 €</strong>.",
+  "notice_terms_4_st": "Stroga pravila za bazen (važe za sve jedinice):",
+  "notice_terms_4_li1": "Korištenje bazena je u potpunosti na vlastitu odgovornost gostiju.",
+  "notice_terms_4_li2": "U sklopu resorta nema dežurnog spasioca.",
+  "notice_terms_4_li3": "Djeca u svakom trenutku moraju biti pod nadzorom odraslih.",
+  "notice_terms_4_li4": "Strogo je zabranjeno unošenje staklene ambalaže u zonu oko bazena.",
+  "notice_terms_4_li5": "Strogo je zabranjeno skakanje u vodu (dubina bazena je 1,40 m).",
+  "notice_terms_5_t": "Pravila o pušenju",
+  "notice_terms_5_d": "Pušenje je strogo zabranjeno unutar drvenih objekata i na zastakljenim terasama. Pušenje na otvorenim dijelovima terase je dozvoljeno uz obavezan oprez.",
+  "notice_terms_6_t": "Boravak kućnih ljubimaca",
+  "notice_terms_6_d": "Boravak kućnih ljubimaca je moguć isključivo uz prethodnu najavu i odobrenje. Za ovu uslugu naplaćuje se fiksna naknada od <strong>15,00 € po ljubimcu</strong> za čitav boravak.",
+  "notice_terms_7_t": "Maksimalni kapacitet",
+  "notice_terms_7_d": "Maksimalan kapacitet je <strong>6 osoba</strong> po kućici. Raspored uključuje 1 spavaću sobu sa bračnim krevetom, 2 sobe sa po dva odvojena kreveta te opciju spavanja na galeriji ili ugaonoj garnituri.",
+  "notice_priv_badge": "OBRADA PODATAKA",
+  "notice_priv_title": "Politika privatnosti",
+  "notice_priv_desc": "PEVA d.o.o. prikuplja i obrađuje lične podatke gostiju isključivo u skladu sa važećim zakonskim propisima i najvišim sigurnosnim standardima.",
+  "notice_priv_1_t": "1. Prikupljeni podaci i svrha",
+  "notice_priv_1_d": "Sigurno pohranjujemo sljedeće podatke: ime i prezime, adresu, broj telefona, e-mail adresu te podatke sa lične karte ili pasoša. Ovi podaci se prikupljaju isključivo u svrhu realizacije ugovora o rezervaciji, zakonske prijave boravka gostiju te komunikacije prije dolaska.",
+  "notice_priv_2_t": "2. Bezbjedno prosljeđivanje i dijeljenje podataka",
   "notice_priv_2_d": "Vaši lični podaci su sačuvani u zaštićenim i šifrovanim sistemima i nikada se ne prodaju niti dijele sa komercijalnim agentima. Prenos podataka trećim licima je ograničen isključivo na Turističku organizaciju Gradiška (zakonska obaveza u turizmu BiH) i na sisteme za bezbjednu obradu online plaćanja.",
-  "notice_priv_note": "U skladu sa propisima o zaštiti podataka, gosti mogu zahtijevati potpuno brisanje svojih komercijalnih profila nakon odjave, pod uslovom da su ispunjene sve zakonske i poreske obaveze o čuvanju podataka o rezervaciji.",
-  
+  "notice_priv_3_t": "3. Dijeljenje sa trećim licima",
+  "notice_priv_3_d": "Lični podaci gostiju se nikada ne prodaju, ne razmjenjuju niti prenose neovlaštenim trećim licima. Sva online plaćanja se procesuiraju putem visoko osiguranih Bankart / Stripe sistema.",
   "notice_cookie_badge": "SAGLASNOST KORISNIKA",
   "notice_cookie_title": "Politika kolačića (Cookies)",
+  "notice_cookie_desc": "Kako bismo vam obezbijedili besprijekorno iskustvo online rezervacije, Kozara Panoramic Resort koristi standardne privremene kolačiće.",
+  "notice_cookie_1_t": "Neophodni kolačići",
+  "notice_cookie_1_d": "Ključni za održavanje aktivne sesije i sigurno sprovođenje procesa rezervacije.",
+  "notice_cookie_2_t": "Analitički kolačići",
+  "notice_cookie_2_d": "Zbirni, potpuno anonimni podaci (putem Google Analytics servisa) koji nam pomažu da pratimo brzinu učitavanja stranice i opštu posjećenost.",
+  "notice_cookie_consent": "Pristanak: Nastavkom korištenja zvaničnog domena (kozarapanoramicresort.ba), potvrđujete da ste saglasni sa upotrebom naših tehnički neophodnih kolačića.",
+  "notice_priv_note": "U skladu sa propisima o zaštiti podataka, gosti mogu zahtijevati potpuno brisanje svojih komercijalnih profila nakon odjave, pod uslovom da su ispunjene sve zakonske i poreske obaveze o čuvanju podataka o rezervaciji.",
   "notice_cookie_p1": "Veb sajt ovog resorta koristi osnovne kolačiće kako bi olakšao navigaciju, zapamtio podešavanja prikaza, analizirao saobraćaj i osigurao bezbjedan proces rezervacije.",
   "notice_cookie_p2": "Nastavkom pregleda naših stranica ili potvrdom prijave, slažete se sa upotrebom neophodnih kolačića na vašim uređajima. Analitičko praćenje (poput Google Tag Managera) se aktivira isključivo uz vašu izričitu potvrdu i saglasnost.",
-  
   "notice_price_badge": "FER POSLOVANJE",
   "notice_price_title": "Transparentnost cijena",
   "notice_price_desc": "Održavamo apsolutni standard cijena bez ikakvih skrivenih troškova. Sve cijene izračunate tokom direktne rezervacije uključuju kompletnu uslugu i sve sadržaje objekta.",
@@ -905,10 +899,26 @@
   "notice_price_inc_d": "Podno grijanje, električne ploče za kuhanje, privatni bazeni, brzi WiFi, obezbijeđen parking, peškiri, posteljina i finalno sanitarno čišćenje.",
   "notice_price_exc_t": "Nije uključeno:",
   "notice_price_exc_d": "Lokalna boravišna taksa nije uračunata u cijenu na sajtu i dodaje se zasebno na kraju rezervacije. Opcionalna podrška privatnog ljekara opšte prakse ili iznajmljivanje Ninja roštilja naplaćuju se na zahtjev.",
-"booking_dates_missing": "Molimo vas da izaberete datume prijave i odjave na kalendaru!",
+  "booking_dates_missing": "Molimo vas da izaberete datume prijave i odjave na kalendaru!",
   "booking_connecting_headline": "Osiguravamo vašu privatnu kućicu...",
   "booking_connecting_paragraph": "Provjeravamo dostupnost i osiguravamo vaše datume...",
   "booking_success_headline": "Zahtjev za rezervaciju je uspješno obrađen",
   "booking_success_paragraph_property": "Vaš luksuzni planinski odmor je osiguran. Kreiramo potvrdu vaše rezervacije...",
-  "booking_success_paragraph_online": "Vaši datumi su bezbjedno rezervisani. Preusmjeravamo vas na naš sistem za plaćanje kako biste dovršili rezervaciju..."
+  "booking_success_paragraph_online": "Vaši datumi su bezbjedno rezervisani. Preusmjeravamo vas na naš sistem za plaćanje kako biste dovršili rezervaciju...",
+  "cookie_accept_all": "Prihvati sve",
+  "cookie_essential_only": "Samo osnovni",
+  "meta_og_title": "Rezervišite Vašu Kolibu - Kozara Panoramic Resort",
+  "meta_amenities_title": "Sadržaji - Kozara Panoramic Resort",
+  "meta_amenities_desc": "Otkrijte vrhunske sadržaje u Kozara Panoramic Resortu, uključujući grijane bazene, podno grijanje i zadivljujući panoramski pogled.",
+  "meta_faq_title": "FAQ - Kozara Panoramic Resort",
+  "meta_faq_desc": "Često postavljana pitanja o Kozara Panoramic Resortu. Saznajte o prijavi, pravilima za kućne ljubimce, sadržajima i više.",
+  "meta_notice_title": "Pravna Pitanja & Privatnost - Kozara Panoramic Resort",
+  "meta_notice_desc": "Pravne obavijesti, uvjeti i pravila o privatnosti za Kozara Panoramic Resort.",
+  "meta_book_title": "Rezervišite Vaš Boravak - Kozara Panoramic Resort",
+  "alt_logo": "Kozara Panoramic Resort Logo",
+  "alt_resort_view": "Pogled na Resort",
+  "alt_layout_1": "Tlocrt Kolibe 1",
+  "alt_layout_2": "Tlocrt Kolibe 2",
+  "alt_layout_3": "Tlocrt Kolibe 3",
+  "alt_authentic_hike": "Autentična Seoska Šetnja"
 }

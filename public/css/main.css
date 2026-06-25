@@ -7,22 +7,36 @@
 }
 
 @media (max-width: 768px) {
-
-
     sl-carousel::part(base) {
         border-radius: 0 !important;
     }
 
     sl-carousel::part(navigation-button) {
-        display: none;
+        display: none !important;
+    }
+
+    sl-carousel::part(navigation) {
+        display: none !important;
     }
 
     sl-carousel {
         --aspect-ratio: 4/5 !important;
         height: auto !important;
     }
-}
 
+    sl-dialog#fullscreen-viewer::part(close-button) {
+        top: 1.25rem !important;
+        right: 1.25rem !important;
+        font-size: 1.25rem !important;
+        padding: 0.4rem !important;
+    }
+
+    #fullscreen-carousel sl-carousel-item img {
+        width: 100vw !important;
+        height: 100vh !important;
+        object-fit: cover !important;
+    }
+}
 
 sl-dialog#fullscreen-viewer::part(panel) {
     background: transparent !important;
@@ -137,26 +151,6 @@ sl-dialog#fullscreen-viewer::part(overlay) {
 #fullscreen-carousel::part(pagination-item--active) {
     background-color: #fff !important;
     transform: scale(1.2) !important;
-}
-
-@media (max-width: 768px) {
-
-    #fullscreen-carousel::part(navigation-button) {
-        display: none !important;
-    }
-
-    sl-dialog#fullscreen-viewer::part(close-button) {
-        top: 1.25rem !important;
-        right: 1.25rem !important;
-        font-size: 1.25rem !important;
-        padding: 0.4rem !important;
-    }
-
-    #fullscreen-carousel sl-carousel-item img {
-        width: 100vw !important;
-        height: 100vh !important;
-        object-fit: cover !important;
-    }
 }
 
 #book_calendar_wrapper {

@@ -533,8 +533,85 @@ app.get(['/de/blog/:id', '/it/blog/:id', '/sr/blog/:id'], (req, res) => {
     renderBlog(res, lang, blogId)
 })
 
+app.get('/sitemap.xml', (req, res) => {
+    const blogsDir = path.join(__dirname, 'public/blogs');
+    const blogFiles = fs.readdirSync(blogsDir).filter(file => file.endsWith('.json'));
+    const langs = ['en', 'sr', 'de', 'it'];
+    const baseUrl = 'https://www.kozarapanoramicresort.ba';
 
+    let xml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
+  <url>
+    <loc>${baseUrl}/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="${baseUrl}/" />
+    <xhtml:link rel="alternate" hreflang="de" href="${baseUrl}/de" />
+    <xhtml:link rel="alternate" hreflang="sr" href="${baseUrl}/sr" />
+    <xhtml:link rel="alternate" hreflang="it" href="${baseUrl}/it" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="${baseUrl}/" />
+  </url>
+
+  <url>
+    <loc>${baseUrl}/notice</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="${baseUrl}/notice" />
+    <xhtml:link rel="alternate" hreflang="de" href="${baseUrl}/de/notice" />
+    <xhtml:link rel="alternate" hreflang="sr" href="${baseUrl}/sr/notice" />
+    <xhtml:link rel="alternate" hreflang="it" href="${baseUrl}/it/notice" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="${baseUrl}/notice" />
+  </url>
+
+  <url>
+    <loc>${baseUrl}/amenities</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="${baseUrl}/amenities" />
+    <xhtml:link rel="alternate" hreflang="de" href="${baseUrl}/de/amenities" />
+    <xhtml:link rel="alternate" hreflang="sr" href="${baseUrl}/sr/amenities" />
+    <xhtml:link rel="alternate" hreflang="it" href="${baseUrl}/it/amenities" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="${baseUrl}/amenities" />
+  </url>
+
+  <url>
+    <loc>${baseUrl}/faq</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="${baseUrl}/faq" />
+    <xhtml:link rel="alternate" hreflang="de" href="${baseUrl}/de/faq" />
+    <xhtml:link rel="alternate" hreflang="sr" href="${baseUrl}/sr/faq" />
+    <xhtml:link rel="alternate" hreflang="it" href="${baseUrl}/it/faq" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="${baseUrl}/faq" />
+  </url>
+
+  <url>
+    <loc>${baseUrl}/book</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="${baseUrl}/book" />
+    <xhtml:link rel="alternate" hreflang="de" href="${baseUrl}/de/book" />
+    <xhtml:link rel="alternate" hreflang="sr" href="${baseUrl}/sr/book" />
+    <xhtml:link rel="alternate" hreflang="it" href="${baseUrl}/it/book" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="${baseUrl}/book" />
+  </url>`;
+
+    // Add Dynamic Blog Posts
+    blogFiles.forEach(file => {
+        const blogId = file.replace('.json', '');
+
+        langs.forEach(currentLang => {
+            const pathPrefix = currentLang === 'en' ? '' : `/${currentLang}`;
+            const langUrl = `${baseUrl}${pathPrefix}/blog/${blogId}`;
+
+            xml += `
+  <url>
+    <loc>${langUrl}</loc>
+    ${langs.map(l => {
+                const p = l === 'en' ? '' : `/${l}`;
+                return `<xhtml:link rel="alternate" hreflang="${l}" href="${baseUrl}${p}/blog/${blogId}" />`;
+            }).join('')}
+    <xhtml:link rel="alternate" hreflang="x-default" href="${baseUrl}/blog/${blogId}" />
+  </url>`;
+        });
+    });
+
+    xml += `\n</urlset>`;
+    res.header('Content-Type', 'application/xml');
+    res.send(xml);
+});
 app.post("/api/callback", express.json(), async (req, res) => {
     logger.info('/api/callback is called')
     res.status(200).send('OK')

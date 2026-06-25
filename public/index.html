@@ -8,21 +8,55 @@
 
     <!-- SEO Metadata & OpenGraph -->
     <meta content="{{meta_description}}" name="description" />
-    <meta content="Book Your Chalet at Kozara Panoramic Resort" property="og:title" />
+    <meta content="{{meta_og_title}}" property="og:title" />
     <meta content="{{meta_description}}" property="og:description" />
     <meta content="https://www.kozarapanoramicresort.ba/assets/Scenery/lander.webp" property="og:image" />
     <meta content="https://www.kozarapanoramicresort.ba/" property="og:url" />
     <meta content="website" property="og:type" />
     <meta content="summary_large_image" name="twitter:card" />
-    <meta content="Book Your Chalet at Kozara Panoramic Resort" name="twitter:title" />
+    <meta content="{{meta_og_title}}" name="twitter:title" />
     <meta content="{{meta_description}}" name="twitter:description" />
     <meta content="https://www.kozarapanoramicresort.ba/assets/Scenery/lander.webp" name="twitter:image" />
+    <meta name="keywords"
+        content="Kozara Panoramic Resort, luxury chalets Bosnia, mountain retreat, private pool villa, nature resort, holidays in Bosnia, Banja Luka accommodation, secluded getaway, hiking Kozara" />
+
+    <script type="application/ld+json">
+        {
+				"@context": "https://schema.org",
+				"@type": "Resort",
+				"name": "Kozara Panoramic Resort",
+				"description": "{{meta_description}}",
+                "priceRange" : "$$$",
+				"url": "https://www.kozarapanoramicresort.ba",
+				"image": "https://www.kozarapanoramicresort.ba/assets/Scenery/lander.webp",
+				"address": {
+					"@type": "PostalAddress",
+					"streetAddress": "Kozara BB",
+					"addressLocality": "Gradiška",
+					"postalCode": "78400",
+					"addressCountry": "BA"
+				},
+                "geo" : {
+                    "@type": "GeoCoordinates",
+                    "latitude": "45.00874", 
+                    "longitude": "17.09418"
+                },
+				"telephone": "+38766767622"
+			}
+    </script>
+    <script type="application/ld+json">
+        {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": {{FAQ_SCHEMA_JSON}}
+        }
+    </script>
     <link rel="canonical" href="https://www.kozarapanoramicresort.ba/" />
 
-    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="/favicon-96x96.webp" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="shortcut icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.webp" />
     <meta name="apple-mobile-web-app-title" content="Kozara Panoramic resort" />
     <link rel="manifest" href="/site.webmanifest" />
 
@@ -42,9 +76,10 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/themes/light.css" />
 
     <link href="/css/base.css" rel="stylesheet" />
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="/css/main.css" rel="stylesheet" />
+    
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
 
     <script type="module"
         src="https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.12.0/cdn/shoelace-autoloader.js"></script>
@@ -53,26 +88,19 @@
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/libphonenumber-js@1.12.29/bundle/libphonenumber-js.min.js" defer></script>
 
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'primary-green': '#364d14',
-                        'earth-brown': '#968067',
-                        'sand-beige': '#d9c7b2',
-                        'muted-green': '#5c6d4c',
-                        'bg-soft': '#f8f9fa',
-                    },
-                    fontFamily: {
-                        sans: ['Lato', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
-                    }
-                }
-            }
-        }
-    </script>
+    
 
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=GT-MK52TW5D"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        // We DO NOT call gtag('config', ...) here, we do it after consent
+    </script>
+    <link rel="preload" href="/assets/Scenery/DJI_0150.webp" as="image" />
+    <link href="/css/tailwind.css" rel="stylesheet" />
 </head>
 
 <body class="bg-white text-stone-800 antialiased">
@@ -94,9 +122,8 @@
 
         <div id="logo_stripped_reserve_spacer" class="hidden lg:block"></div>
         <a href="{{lang_prefix}}/" id="logo_stripped" class="block">
-            <img src="/assets/logo_stripped.svg"
-                onerror="this.onerror=null; this.src='https://www.kozarapanoramicresort.ba/assets/logo_stripped.svg';"
-                alt="Kozara Panoramic Resort Logo" class="w-full h-auto block">
+            <img src="/assets/logo_stripped.svg" onerror="this.onerror=null; this.src='/assets/logo_stripped.svg';"
+                alt="{{alt_logo}}" class="w-full h-auto block">
         </a>
 
         <div class="nav-links-container hidden lg:flex flex-1 justify-start ml-8">
@@ -153,9 +180,8 @@
         class="fixed inset-0 bg-stone-950/95 backdrop-blur-md z-[60] flex flex-col justify-between p-8 text-white translate-x-full transition-transform duration-500 ease-in-out">
         <div class="flex justify-between items-center">
             <div class="flex items-center gap-3">
-                <img src="/assets/logo_stripped.svg"
-                    onerror="this.onerror=null; this.src='https://www.kozarapanoramicresort.ba/assets/logo_stripped.svg';"
-                    alt="Kozara Panoramic Resort Logo" class="h-5 w-auto brightness-0 invert">
+                <img src="/assets/logo_stripped.svg" onerror="this.onerror=null; this.src='/assets/logo_stripped.svg';"
+                    alt="{{alt_logo}}" class="h-5 w-auto brightness-0 invert">
                 <span class="font-serif tracking-widest text-xl font-bold">KOZARA PANORAMIC RESORT</span>
             </div>
             <button onclick="toggleMobileMenu()" class="text-3xl hover:text-sand-beige">
@@ -190,19 +216,13 @@
         <header
             class="relative h-[80vh] md:h-[85vh] flex flex-col justify-center items-center text-center px-4 overflow-hidden bg-stone-900">
             <div class="hero-slide shown"
-                style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url('https://www.kozarapanoramicresort.ba/assets/Scenery/lander.webp');">
+                style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url('/assets/Scenery/DJI_0150.webp');">
             </div>
             <div class="hero-slide"
-                style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url('https://www.kozarapanoramicresort.ba/assets/Scenery/lander2.webp');">
+                style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url('/assets/Scenery/DJI_0165.webp');">
             </div>
             <div class="hero-slide"
-                style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url('https://www.kozarapanoramicresort.ba/assets/Scenery/lander3.webp');">
-            </div>
-            <div class="hero-slide"
-                style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url('https://www.kozarapanoramicresort.ba/assets/Scenery/lander4.webp');">
-            </div>
-            <div class="hero-slide"
-                style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url('https://www.kozarapanoramicresort.ba/assets/Scenery/lander5.webp');">
+                style="background-image: linear-gradient(to bottom, rgba(0,0,0,0.5), rgba(0,0,0,0.4)), url('/assets/Scenery/DJI_0167.webp');">
             </div>
 
             <div class="relative z-10 max-w-4xl mx-auto text-white px-4 pt-24">
@@ -258,18 +278,26 @@
         <section class="pb-24 px-4 max-w-[160rem] mx-auto">
             <sl-carousel autoplay loop pagination navigation class="rounded-2xl overflow-hidden pb-2 md:p-10"
                 style="--aspect-ratio: 16/9; height: 800px;">
-                <sl-carousel-item><img src="https://www.kozarapanoramicresort.ba/assets/Carousel/1.webp"
-                        class="w-full h-full object-cover" alt="Resort View 1"></sl-carousel-item>
-                <sl-carousel-item><img src="https://www.kozarapanoramicresort.ba/assets/Carousel/2.webp"
-                        class="w-full h-full object-cover" alt="Resort View 2"></sl-carousel-item>
-                <sl-carousel-item><img src="https://www.kozarapanoramicresort.ba/assets/Carousel/3.webp"
-                        class="w-full h-full object-cover" alt="Resort View 3"></sl-carousel-item>
-                <sl-carousel-item><img src="https://www.kozarapanoramicresort.ba/assets/Carousel/4.webp"
-                        class="w-full h-full object-cover" alt="Resort View 4"></sl-carousel-item>
-                <sl-carousel-item><img src="https://www.kozarapanoramicresort.ba/assets/Carousel/5.webp"
-                        class="w-full h-full object-cover" alt="Resort View 5"></sl-carousel-item>
-                <sl-carousel-item><img src="https://www.kozarapanoramicresort.ba/assets/Carousel/6.webp"
-                        class="w-full h-full object-cover" alt="Resort View 6"></sl-carousel-item>
+                <sl-carousel-item><img loading="lazy" src="/assets/Carousel/DJI_0101.webp" class="w-full h-full object-cover"
+                        alt="{{alt_resort_view}} 1"></sl-carousel-item>
+                <sl-carousel-item><img loading="lazy" src="/assets/Carousel/DJI_0128.webp" class="w-full h-full object-cover"
+                        alt="{{alt_resort_view}} 2"></sl-carousel-item>
+                <sl-carousel-item><img loading="lazy" src="/assets/Carousel/DJI_0139.webp" class="w-full h-full object-cover"
+                        alt="{{alt_resort_view}} 3"></sl-carousel-item>
+                <sl-carousel-item><img loading="lazy" src="/assets/Carousel/DJI_0143.webp" class="w-full h-full object-cover"
+                        alt="{{alt_resort_view}} 4"></sl-carousel-item>
+                <sl-carousel-item><img loading="lazy" src="/assets/Carousel/DJI_0151.webp" class="w-full h-full object-cover"
+                        alt="{{alt_resort_view}} 5"></sl-carousel-item>
+                <sl-carousel-item><img loading="lazy" src="/assets/Carousel/DJI_0152.webp" class="w-full h-full object-cover"
+                        alt="{{alt_resort_view}} 6"></sl-carousel-item>
+                <sl-carousel-item><img loading="lazy" src="/assets/Carousel/DJI_0162.webp" class="w-full h-full object-cover"
+                        alt="{{alt_resort_view}} 7"></sl-carousel-item>
+                <sl-carousel-item><img loading="lazy" src="/assets/Carousel/DJI_0164.webp" class="w-full h-full object-cover"
+                        alt="{{alt_resort_view}} 8"></sl-carousel-item>
+                <sl-carousel-item><img loading="lazy" src="/assets/Carousel/IMG_1600.webp" class="w-full h-full object-cover"
+                        alt="{{alt_resort_view}} 9"></sl-carousel-item>
+                <sl-carousel-item><img loading="lazy" src="/assets/Carousel/IMG_1605.webp" class="w-full h-full object-cover"
+                        alt="{{alt_resort_view}} 10"></sl-carousel-item>
             </sl-carousel>
         </section>
 
@@ -320,12 +348,32 @@
                 class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-stone-50 border border-stone-200/80 rounded-3xl p-6 md:p-12 shadow-xl mb-12">
                 <div class="lg:col-span-8 relative">
                     <sl-carousel navigation pagination loop style="--aspect-ratio: 4/3;">
-                        <sl-carousel-item><img src="https://www.kozarapanoramicresort.ba/assets/Chalets/wind/1.webp"
-                                class="w-full h-full object-cover" alt="Layout 1"></sl-carousel-item>
-                        <sl-carousel-item><img src="https://www.kozarapanoramicresort.ba/assets/Chalets/sun/15.webp"
-                                class="w-full h-full object-cover" alt="Layout 2"></sl-carousel-item>
-                        <sl-carousel-item><img src="https://www.kozarapanoramicresort.ba/assets/Chalets/star/9.webp"
-                                class="w-full h-full object-cover" alt="Layout 3"></sl-carousel-item>
+                        <sl-carousel-item><img loading="lazy" src="/assets/Chalets/IMG_0478.webp" class="w-full h-full object-cover"
+                                alt="{{alt_layout_1}} 1"></sl-carousel-item>
+                        <sl-carousel-item><img loading="lazy" src="/assets/Chalets/IMG_0479.webp" class="w-full h-full object-cover"
+                                alt="{{alt_layout_1}} 2"></sl-carousel-item>
+                        <sl-carousel-item><img loading="lazy" src="/assets/Chalets/IMG_1600.webp" class="w-full h-full object-cover"
+                                alt="{{alt_layout_1}} 3"></sl-carousel-item>
+                        <sl-carousel-item><img loading="lazy" src="/assets/Chalets/IMG_1605.webp" class="w-full h-full object-cover"
+                                alt="{{alt_layout_1}} 4"></sl-carousel-item>
+                        <sl-carousel-item><img loading="lazy" src="/assets/Chalets/DSC_6254.webp" class="w-full h-full object-cover"
+                                alt="{{alt_layout_1}} 5"></sl-carousel-item>
+                        <sl-carousel-item><img loading="lazy" src="/assets/Chalets/DSC_6265.webp" class="w-full h-full object-cover"
+                                alt="{{alt_layout_1}} 6"></sl-carousel-item>
+                        <sl-carousel-item><img loading="lazy" src="/assets/Chalets/DSC_6267.webp" class="w-full h-full object-cover"
+                                alt="{{alt_layout_1}} 7"></sl-carousel-item>
+                        <sl-carousel-item><img loading="lazy" src="/assets/Chalets/IMG_0977.webp" class="w-full h-full object-cover"
+                                alt="{{alt_layout_1}} 8"></sl-carousel-item>
+                        <sl-carousel-item><img loading="lazy" src="/assets/Chalets/IMG_1055.webp" class="w-full h-full object-cover"
+                                alt="{{alt_layout_1}} 9"></sl-carousel-item>
+                        <sl-carousel-item><img loading="lazy" src="/assets/Chalets/IMG_1061.webp" class="w-full h-full object-cover"
+                                alt="{{alt_layout_1}} 10"></sl-carousel-item>
+                        <sl-carousel-item><img loading="lazy" src="/assets/Chalets/IMG_1072.webp" class="w-full h-full object-cover"
+                                alt="{{alt_layout_1}} 11"></sl-carousel-item>
+                        <sl-carousel-item><img loading="lazy" src="/assets/Chalets/IMG_1077.webp" class="w-full h-full object-cover"
+                                alt="{{alt_layout_1}} 12"></sl-carousel-item>
+                        <sl-carousel-item><img loading="lazy" src="/assets/Chalets/IMG_1354.webp" class="w-full h-full object-cover"
+                                alt="{{alt_layout_1}} 13"></sl-carousel-item>
                     </sl-carousel>
                 </div>
 
@@ -486,7 +534,7 @@
 
         <section id="location" class="relative py-24 bg-stone-900 text-white overflow-hidden scroll-mt-20">
             <div class="absolute inset-0 opacity-10 bg-cover bg-center"
-                style="background-image: url('https://www.kozarapanoramicresort.ba/assets/Scenery/location.webp');">
+                style="background-image: url('/assets/Scenery/location.webp');">
             </div>
             <div class="relative z-10 max-w-6xl mx-auto px-4 text-center">
                 <span
@@ -522,9 +570,8 @@
                         </p>
                     </div>
                     <div class="rounded-2xl overflow-hidden shadow-xl aspect-video md:aspect-[4/3] zoom-hover">
-                        <img class="w-full h-full object-cover"
-                            src="https://www.kozarapanoramicresort.ba/assets/Text Blocks/image08198.webp"
-                            alt="Authentic Village Hike">
+                        <img loading="lazy" class="w-full h-full object-cover" src="/assets/Text Blocks/image08198.webp"
+                            alt="{{alt_authentic_hike}}">
                     </div>
                 </div>
             </div>
@@ -535,9 +582,8 @@
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
                     <div class="rounded-2xl overflow-hidden shadow-xl aspect-video md:aspect-[4/3] zoom-hover">
-                        <img class="w-full h-full object-cover"
-                            src="https://www.kozarapanoramicresort.ba/assets/Text Blocks/image08198.webp"
-                            alt="Authentic Village Hike">
+                        <img loading="lazy" class="w-full h-full object-cover" src="/assets/Text Blocks/image08198.webp"
+                            alt="{{alt_authentic_hike}}">
                     </div>
                     <div class="space-y-4">
                         <span
@@ -572,7 +618,7 @@
             </div>
         </section>
         <sl-dialog id="fullscreen-viewer" style="--width: 100vw; --height: 100vh;">
-            <sl-carousel id="fullscreen-carousel" navigation pagination loop style="height: 80%;">
+            <sl-carousel id="fullscreen-carousel" class="mb-4" navigation pagination loop style="height: 80%;">
             </sl-carousel>
         </sl-dialog>
 
@@ -581,7 +627,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
                     <div class="space-y-6">
                         <div class="flex items-center gap-3">
-                            <img src="/assets/logo_stripped.svg" alt="Kozara Panoramic Resort Logo"
+                            <img src="/assets/logo_stripped.svg" alt="{{alt_logo}}"
                                 class="h-10 w-auto brightness-0 invert">
                             <span class="font-serif tracking-widest text-2xl font-bold">KOZARA PANORAMIC RESORT</span>
                         </div>
@@ -741,7 +787,7 @@
 
             allImageSources.forEach(src => {
                 const item = document.createElement('sl-carousel-item');
-                item.innerHTML = `<img src="${src}" class="w-full h-full object-contain" />`;
+                item.innerHTML = `<img loading="lazy" src="${src}" class="w-full h-full object-contain" />`;
                 fullCarousel.appendChild(item);
             });
 
@@ -771,6 +817,54 @@
         });
     </script>
     <script src="/js/lang.js"></script>
+    <div id="cookie-consent-banner"
+        class="fixed bottom-0 left-0 right-0 z-50 bg-earth-brown text-white p-6 shadow-[0_-10px_40px_rgba(0,0,0,0.15)] transform translate-y-full transition-transform duration-500 ease-out flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 w-full">
+            <div class="flex-1">
+                <h4 class="font-serif text-xl font-bold mb-2 text-sand-beige">{{notice_priv_title}} & Cookies</h4>
+                <p class="text-sm text-stone-200 leading-relaxed">{{notice_cookie_p1}}</p>
+            </div>
+            <div class="flex flex-col sm:flex-row gap-3 w-full md:w-auto shrink-0">
+                <button onclick="handleConsent('rejected')"
+                    class="border border-white/50 hover:border-white hover:bg-white hover:text-earth-brown text-white font-bold text-xs tracking-wider uppercase text-center py-3 px-6 rounded-lg transition duration-300">
+                    {{cookie_essential_only}}
+                </button>
+                <button onclick="handleConsent('accepted')"
+                    class="bg-sand-beige hover:bg-white text-earth-brown font-bold text-xs tracking-wider uppercase text-center py-3 px-6 rounded-lg transition duration-300 shadow-md">
+                    {{cookie_accept_all}}
+                </button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function checkConsent() {
+            const consent = localStorage.getItem('kozara_consent');
+            const banner = document.getElementById('cookie-consent-banner');
+            if (!consent) {
+                setTimeout(() => {
+                    banner.classList.remove('translate-y-full');
+                }, 1000);
+            } else if (consent === 'accepted') {
+                initializeTracking();
+            }
+        }
+
+        function handleConsent(choice) {
+            localStorage.setItem('kozara_consent', choice);
+            const banner = document.getElementById('cookie-consent-banner');
+            banner.classList.add('translate-y-full');
+
+            if (choice === 'accepted') {
+                initializeTracking();
+            }
+        }
+
+        function initializeTracking() {
+            gtag('config', 'GT-MK52TW5D');
+        }
+
+        window.addEventListener('DOMContentLoaded', checkConsent);
+    </script>
 </body>
 
 </html>

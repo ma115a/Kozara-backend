@@ -91,7 +91,12 @@ const port = 4444
 
 app.use(express.static(path.join(__dirname, 'public'), { index: false }))
 
-const db = new Database('./kozarapanoramicresort.db');
+let db = null;
+try {
+    db = new Database('./kozarapanoramicresort.db');
+} catch (e) {
+    logger.error("Failed to connect to database: " + e.message);
+}
 
 require('./routes')(app, {
     logger,
@@ -119,6 +124,10 @@ app.listen(port, async () => {
 
     }
 
-    await refreshAuthToken()
+    try {
+        await refreshAuthToken()
+    } catch (e) {
+        logger.error("Failed to refresh auth token: " + e.message);
+    }
 
 })

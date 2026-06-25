@@ -32,13 +32,13 @@ module.exports = function (logger) {
             const blogs = files.sort().reverse().slice(0, 2).map(filename => {
                 const filePath = path.join(blogsDir, filename)
                 const blogData = JSON.parse(fs.readFileSync(filePath, 'utf8'))
-                
+
                 const metaKey = `${lang}_meta`;
                 let title = blogData.title;
                 if (lang !== 'en' && blogData[metaKey] && blogData[metaKey].title) {
                     title = blogData[metaKey].title;
                 }
-                
+
                 const data = { title: title, title_img: blogData.title_img, blogid: blogData.blogid }
                 return data
             })
@@ -92,74 +92,25 @@ module.exports = function (logger) {
         const langPrefix = lang === 'en' ? '' : `/${lang}`;
         renderedHtml = renderedHtml.replace(/{{lang_prefix}}/g, langPrefix);
 
-        //         let blogs = loadLatestBlogs()
-        //
-        //         if (blogs === null || blogs.length === 0) {
-        //             renderedHtml = renderedHtml.replace('{{NO_BLOGS}}', 'flex')
-        //             renderedHtml = renderedHtml.replace('{{YES_BLOGS}}', 'none')
-        //             renderedHtml = renderedHtml.replace('{{MORE_BLOGS}}', 'none')
-        //
-        //         } else {
-        //             renderedHtml = renderedHtml.replace('{{NO_BLOGS}}', 'none')
-        //             renderedHtml = renderedHtml.replace('{{YES_BLOGS}}', 'grid')
-        //             renderedHtml = renderedHtml.replace('{{MORE_BLOGS}}', 'none')
-        //             if (blogs.length > 3) {
-        //                 renderedHtml = renderedHtml.replace('{{MORE_BLOGS}}', 'block')
-        //
-        //             }
-        //
-        //
-        //             let blogContent = ''
-        //             blogs.forEach(blog => {
-        //                 if (lang === 'en') {
-        //                     blogContent += `<div class="blog-card">
-        // <img src="${blog.title_img}" class="blog-img" alt="Blog 1 cover image" />
-        // <h4 style="min-height: 2.5em">${blog.title}</h4>
-        //                     <a class="read-blog" href="/blog/${blog.blogid}">{{read_article}}</a>
-        // </div>`
-        //                 } else {
-        //                     blogContent += `<div class="blog-card">
-        // <img src="${blog.title_img}" class="blog-img" alt="Blog 1 cover image" />
-        // <h4 style="min-height: 2.5em">${blog.title}</h4>
-        //                     <a class="read-blog" href="/${lang}/blog/${blog.blogid}">{{read_article}}</a>
-        // </div>`
-        //
-        //                 }
-        //             })
-        //             renderedHtml = renderedHtml.replace('{{BLOGS_TEMPLATE}}', blogContent)
-        //
-        //
-        //         }
-        //
-        //         let faq_left_side = ''
-        //         let faq_right_side = ''
-        //
-        //         let faq_data = Object.entries(t["faq_data"])
-        //         const faq_half = Math.ceil(faq_data.length / 2)
-        //         const faq_left = faq_data.slice(0, faq_half)
-        //         const faq_right = faq_data.slice(faq_half)
-        //         faq_left.forEach(([letter, items]) => {
-        //
-        //             faq_left_side += `<div class="faq-letter-badge">${letter}</div>`
-        //             items.forEach(faq => {
-        //                 faq_left_side += `<sl-details><span slot="summary" class="faq-summary-text"><strong>${faq.keyword}</strong> — ${faq.question}</span>${faq.answer}</sl-details>`
-        //             });
-        //         });
-        //
-        //         faq_right.forEach(([letter, items]) => {
-        //
-        //             faq_right_side += `<div class="faq-letter-badge">${letter}</div>`
-        //             items.forEach(faq => {
-        //                 faq_right_side += `<sl-details><span slot="summary" class="faq-summary-text"><strong>${faq.keyword}</strong> — ${faq.question}</span>${faq.answer}</sl-details>`
-        //             });
-        //         });
-        //
-        //
-        //         renderedHtml = renderedHtml.replace('{{faq_left_side}}', faq_left_side)
-        //         renderedHtml = renderedHtml.replace('{{faq_right_side}}', faq_right_side)
-        //
-        //
-        //         renderedHtml = renderedHtml.replace('<html lang="en" class="sl-theme-light">', `<html lang="${lang}" class="sl-theme-light">`)
+
+        let faqSchema = [];
+        if (t.faq_data) {
+            Object.values(t.faq_data).forEach(letterArray => {
+                if (Array.isArray(letterArray)) {
+                    letterArray.forEach(item => {
+                        faqSchema.push({
+                            "@type": "Question",
+                            "name": item.question,
+                            "acceptedAnswer": {
+                                "@type": "Answer",
+                                "text": item.answer
+                            }
+                        });
+                    });
+                }
+            });
+        }
+        renderedHtml = renderedHtml.replace('{{FAQ_SCHEMA_JSON}}', JSON.stringify(faqSchema, null, 2));
 
         Object.keys(t).forEach(key => {
 
