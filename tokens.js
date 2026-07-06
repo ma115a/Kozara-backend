@@ -21,6 +21,7 @@ module.exports = function (logger) {
             const tokenResponse = await tokenRequest.json()
             tok = tokenResponse.token
             logger.info('token generated successfully')
+            logger.info(tok)
         }
     }
 

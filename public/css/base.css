@@ -60,6 +60,10 @@
     background: var(--primary-green);
 }
 
+@view-transition {
+    navigation: auto;
+}
+
 nav {
     position: fixed;
     top: 0;
@@ -74,6 +78,7 @@ nav {
     background-color: rgba(255, 255, 255, 0);
     backdrop-filter: blur(0px);
     transition: all 0.5s ease;
+    view-transition-name: navbar;
 }
 
 .nav-links-container {
