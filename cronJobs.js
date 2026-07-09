@@ -80,8 +80,7 @@ module.exports = function (logger, db, {
         }
     });
 
-    setInterval(async () => {
-
+    const checkFalseBookings = async () => {
         logger.info("Checking for false bookings...");
         try {
             const retrieveFalseBookings = db.prepare(`SELECT * FROM bookings WHERE bookingStatus = ?`)
@@ -134,6 +133,12 @@ module.exports = function (logger, db, {
         } catch (error) {
             logger.error(error)
         }
-    }, 14400000)
+    };
+
+    // Run immediately on app start
+    checkFalseBookings();
+
+    // Run every day at 1 AM
+    cron.schedule('0 1 * * *', checkFalseBookings);
 
 }
