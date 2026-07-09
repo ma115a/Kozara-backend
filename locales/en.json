@@ -18,7 +18,7 @@
   "highlight_resort_desc": "Ensuring total exclusivity, absolute peace, and uncrowded nature retreat safety.",
   "highlight_serenity_badge": "Total Serenity",
   "highlight_serenity_title": "Private Heated Pools",
-  "highlight_serenity_desc": "Every chalet features its own panoramic outdoor pool with temperature control option.",
+  "highlight_serenity_desc": "Every chalet features its own panoramic outdoor pool.",
   "highlight_location_badge": "Prime Location",
   "highlight_location_title": "Effortless Access",
   "highlight_location_desc": "Only 45 minutes from Banja Luka Airport and close to the Croatian border.",
@@ -934,5 +934,8 @@
   "alt_layout_1": "Chalet Layout View 1",
   "alt_layout_2": "Chalet Layout View 2",
   "alt_layout_3": "Chalet Layout View 3",
-  "alt_authentic_hike": "Authentic Village Hike"
+  "alt_authentic_hike": "Authentic Village Hike",
+  "book_chalet_label": "Chalet",
+  "book_add_chalet": "+ Add another chalet",
+  "book_remove_chalet": "Remove"
 }

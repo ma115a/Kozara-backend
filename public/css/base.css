@@ -102,6 +102,7 @@ nav {
     max-width: 90vw;
     top: 13.25dvh;
     left: 50%;
+    transform: translate(-50%, -50%);
     z-index: 51;
     user-select: none;
     filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.5));

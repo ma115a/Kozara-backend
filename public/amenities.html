@@ -928,7 +928,7 @@ sl-dialog#fullscreen-viewer::part(overlay) {
                     width: 15,
                     pad: 4
                 };
-                gsap.set("#logo_stripped", {xPercent: -50, yPercent: -50});
+                gsap.set("#logo_stripped", {x: 0, y: 0, xPercent: -50, yPercent: -50});
                 gsap.to("#logo_stripped", {
                     scrollTrigger: {
                         trigger: shared.trigger,

@@ -18,7 +18,7 @@
   "highlight_resort_desc": "Garantuju potpunu ekskluzivnost, apsolutni mir i bezbjedan odmor u prirodi bez gužve.",
   "highlight_serenity_badge": "Potpuni mir",
   "highlight_serenity_title": "Privatni grijani bazeni",
-  "highlight_serenity_desc": "Svaka kućica posjeduje sopstveni panoramski vanjski bazen sa opcijom podešavanja temperature.",
+  "highlight_serenity_desc": "Svaka kućica posjeduje sopstveni panoramski vanjski bazen.",
   "highlight_location_badge": "Odlična lokacija",
   "highlight_location_title": "Jednostavan dolazak",
   "highlight_location_desc": "Samo 45 minuta od aerodroma Banja Luka i u neposrednoj blizini granice sa Hrvatskom.",
@@ -920,5 +920,8 @@
   "alt_layout_1": "Tlocrt Kolibe 1",
   "alt_layout_2": "Tlocrt Kolibe 2",
   "alt_layout_3": "Tlocrt Kolibe 3",
-  "alt_authentic_hike": "Autentična Seoska Šetnja"
+  "alt_authentic_hike": "Autentična Seoska Šetnja",
+  "book_chalet_label": "Kućica",
+  "book_add_chalet": "+ Dodaj još jednu kućicu",
+  "book_remove_chalet": "Ukloni"
 }

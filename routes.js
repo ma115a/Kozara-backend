@@ -121,31 +121,52 @@ module.exports = function (app, deps) {
                     return
                 }
 
-                const offerParams = new URLSearchParams({
+                if (!req.body.chalets || req.body.chalets.length === 0) {
+                    res.status(400).json({ success: false, message: 'No chalets selected.' });
+                    return;
+                }
 
-                    arrival: req.body.startDate,
-                    departure: req.body.endDate,
-                    numAdults: req.body.numAdults,
-                    numChildren: req.body.numChildren,
-                })
+                let totalPrice = 0;
+                let chaletsData = [];
 
                 try {
-                    const offerResponse = await fetch(`https://beds24.com/api/v2/inventory/rooms/offers?${offerParams}`, {
-                        method: 'GET',
-                        headers: {
-                            'token': getToken(),
-                            'Accept': 'application/json'
+                    for (const chalet of req.body.chalets) {
+                        const offerParams = new URLSearchParams({
+                            arrival: req.body.startDate,
+                            departure: req.body.endDate,
+                            numAdults: chalet.numAdults,
+                            numChildren: chalet.numChildren,
+                        });
+
+                        const offerResponse = await fetch(`https://beds24.com/api/v2/inventory/rooms/offers?${offerParams}`, {
+                            method: 'GET',
+                            headers: {
+                                'token': getToken(),
+                                'Accept': 'application/json'
+                            }
+                        });
+
+                        const offerData = await offerResponse.json();
+                        if (offerData.success && offerData.data && offerData.data.length > 0 && offerData.data[0].offers && offerData.data[0].offers.length > 0) {
+                            const price = offerData.data[0].offers[0].price;
+                            totalPrice += parseFloat(price);
+                            chaletsData.push({ ...chalet, price: parseFloat(price) });
+                        } else {
+                            throw new Error("Could not fetch offer for a chalet");
                         }
-                    })
+                    }
+                } catch (error) {
+                    logger.error("Error fetching offers: " + error.message);
+                    res.status(400).json({ success: false, message: 'Could not fetch offer for a chalet' });
+                    return;
+                }
 
-                    const offerData = await offerResponse.json()
-                    const price = offerData.data[0].offers[0].price
-
-                    if (offerData.success) {
+                try {
+                    if (true) { // to maintain try/catch nesting
                         logger.info('Offer from beds24 is a success')
                         const requestBodyPayment = {
                             merchantTransactionId: uniqueId,
-                            amount: `${price}`, errorUrl: `${process.env.BASE_URL}/error?type=payment`, successUrl: `${process.env.BASE_URL}/booking/check-payment?tid=${uniqueId}`, callbackUrl: `${process.env.BASE_URL}/api/callback`, currency: "BAM",
+                            amount: `${totalPrice}`, errorUrl: `${process.env.BASE_URL}/error?type=payment`, successUrl: `${process.env.BASE_URL}/booking/check-payment?tid=${uniqueId}`, callbackUrl: `${process.env.BASE_URL}/api/callback`, currency: "BAM",
                             customer: {
                                 billingAddress1: req.body.billingAddress,
                                 billingCity: req.body.billingCity,
@@ -191,7 +212,7 @@ module.exports = function (app, deps) {
                             if (paymentResponseData.success) {
                                 logger.info('Payment was generated successfully')
 
-                                const requestBookingBody = [{
+                                const requestBookingBody = chaletsData.map(chalet => ({
                                     roomId: process.env.ROOM_ID,
                                     arrival: req.body.startDate,
                                     departure: req.body.endDate,
@@ -203,10 +224,19 @@ module.exports = function (app, deps) {
                                     city: req.body.billingCity,
                                     postcode: req.body.billingPostCode,
                                     country: req.body.billingCountry,
-                                    numAdult: req.body.numAdults,
-                                    numChild: req.body.numChildren,
-                                    status: 'request'
-                                }]
+                                    numAdult: chalet.numAdults,
+                                    numChild: chalet.numChildren,
+                                    status: 'request',
+                                    price: chalet.price,
+                                    invoiceItems: [
+                                        {
+                                            type: 'charge',
+                                            description: 'Accommodation',
+                                            qty: 1,
+                                            amount: chalet.price
+                                        }
+                                    ]
+                                }));
 
                                 const bookingRequest = await fetch('https://beds24.com/api/v2/bookings', {
                                     method: 'POST',
@@ -218,16 +248,23 @@ module.exports = function (app, deps) {
                                 })
 
                                 const bookingResponse = await bookingRequest.json()
-                                logger.info({ message: bookingResponse[0] })
 
-                                if (bookingResponse[0].success) {
+                                const allSuccess = bookingResponse.every(res => res.success);
+                                if (allSuccess) {
                                     logger.info('Booking is created successfylly on Beds24, proceeding to insert into database')
 
                                     try {
                                         logger.info({ message: 'inserting into database...' })
-                                        const insertBookingResult = insertBooking.run(req.body.customerName, req.body.customerLastName, req.body.customerEmail, req.body.customerPhone, req.body.billingAddress, req.body.billingCity, req.body.billingCountry, req.body.billingPostCode, req.body.startDate, req.body.endDate, bookingResponse[0].new.id.toString(), process.env.PAYMENT_PENDING, uniqueId, Date.now(), Number.parseInt(req.body.numAdults), Number.parseInt(req.body.numChildren), price)
-
-                                        logger.info({ message: insertBookingResult })
+                                        bookingResponse.forEach((res, index) => {
+                                            const chalet = chaletsData[index];
+                                            const insertBookingResult = insertBooking.run(
+                                                req.body.customerName, req.body.customerLastName, req.body.customerEmail, req.body.customerPhone,
+                                                req.body.billingAddress, req.body.billingCity, req.body.billingCountry, req.body.billingPostCode,
+                                                req.body.startDate, req.body.endDate, res.new.id.toString(), process.env.PAYMENT_PENDING,
+                                                uniqueId, Date.now(), Number.parseInt(chalet.numAdults), Number.parseInt(chalet.numChildren), chalet.price
+                                            );
+                                            logger.info({ message: insertBookingResult });
+                                        });
 
                                     } catch (error) {
                                         console.error("Error during database insert:", error);
@@ -303,95 +340,128 @@ module.exports = function (app, deps) {
                     return
                 }
 
+                if (!req.body.chalets || req.body.chalets.length === 0) {
+                    res.status(400).json({ success: false, message: 'No chalets selected.' });
+                    return;
+                }
 
+                let totalPrice = 0;
+                let chaletsData = [];
 
+                try {
+                    for (const chalet of req.body.chalets) {
+                        const offerParams = new URLSearchParams({
+                            arrival: req.body.startDate,
+                            departure: req.body.endDate,
+                            numAdults: chalet.numAdults,
+                            numChildren: chalet.numChildren,
+                        });
 
-                const offerParams = new URLSearchParams({
+                        const offerResponse = await fetch(`https://beds24.com/api/v2/inventory/rooms/offers?${offerParams}`, {
+                            method: 'GET',
+                            headers: {
+                                'token': getToken(),
+                                'Accept': 'application/json'
+                            }
+                        });
 
-                    arrival: req.body.startDate,
-                    departure: req.body.endDate,
-                    numAdults: req.body.numAdults,
-                    numChildren: req.body.numChildren,
-                })
-
-
-
-                const offerResponse = await fetch(`https://beds24.com/api/v2/inventory/rooms/offers?${offerParams}`, {
-                    method: 'GET',
-                    headers: {
-                        'token': getToken(),
-                        'Accept': 'application/json'
-                    }
-                })
-
-                const offerData = await offerResponse.json()
-                const price = offerData.data[0].offers[0].price
-
-                if (offerData.success) {
-
-                    logger.info('Offer from beds24 is a success')
-
-                    const insertBooking = db.prepare(`INSERT INTO bookings (customerName, customerLastName, customerEmail, customerPhone, billingAddress, billingCity, billingCountry, billingPostCode, startDate, endDate, bookingId, bookingStatus, bookingTransactionId, createdAt, adults, children, price) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`);
-
-
-
-
-                    const requestBookingBody = [{
-                        roomId: process.env.ROOM_ID,
-                        arrival: req.body.startDate,
-                        departure: req.body.endDate,
-                        firstName: req.body.customerName,
-                        lastName: req.body.customerLastName,
-                        email: req.body.customerEmail,
-                        phone: req.body.customerPhone,
-                        address: req.body.billingAddress,
-                        city: req.body.billingCity,
-                        postcode: req.body.billingPostcode,
-                        country: req.body.billingCountry,
-                        numAdult: req.body.numAdults,
-                        numChild: req.body.numChildren,
-                        status: 'request'
-                    }]
-
-
-                    const bookingRequest = await fetch('https://beds24.com/api/v2/bookings', {
-                        method: 'POST',
-                        headers: {
-                            'token': getToken(),
-                            'Accept': 'application/json'
-                        },
-                        body: JSON.stringify(requestBookingBody)
-                    })
-                    const bookingResponse = await bookingRequest.json()
-                    console.log(bookingResponse)
-
-
-                    if (bookingResponse[0].success) {
-
-                        logger.info('Booking is created successfylly on Beds24, proceeding to insert into database')
-
-
-                        try {
-                            logger.info({ message: 'inserting into database...' })
-                            const insertBookingResult = insertBooking.run(req.body.customerName, req.body.customerLastName, req.body.customerEmail, req.body.customerPhone, req.body.billingAddress, req.body.billingCity, req.body.billingCountry, req.body.billingPostCode, req.body.startDate, req.body.endDate, bookingResponse[0].new.id.toString(), process.env.PAYMENT_SUCCESSFUL, uniqueId, Date.now(), Number.parseInt(req.body.numAdults), Number.parseInt(req.body.numChildren), price)
-
-                            logger.info({ message: insertBookingResult })
-
-
-
-
-
-                            sendBookingConfirmation({ id: bookingResponse[0].new.id.toString(), customerName: req.body.customerName + ' ' + req.body.customerLastName, email: req.body.customerEmail, startDate: convertDateString(req.body.startDate), endDate: convertDateString(req.body.endDate), adults: req.body.numAdults, children: req.body.numChildren, nights: getDaysBetween(req.body.endDate, req.body.startDate), totalPrice: price, dbid: insertBookingResult.lastInsertRowid })
-
-
-                            // res.redirect(`/booking/success/${bookingResponse[0].new.id.toString()}`)
-                            res.json({ success: true, url: `/booking/success/${bookingResponse[0].new.id.toString()}` })
-
-                        } catch (error) {
-                            console.error("Error during database insert:", error);
-                            logger.error(error.message)
+                        const offerData = await offerResponse.json();
+                        if (offerData.success && offerData.data && offerData.data.length > 0 && offerData.data[0].offers && offerData.data[0].offers.length > 0) {
+                            const price = offerData.data[0].offers[0].price;
+                            totalPrice += parseFloat(price);
+                            chaletsData.push({ ...chalet, price: parseFloat(price) });
+                        } else {
+                            throw new Error("Could not fetch offer for a chalet");
                         }
                     }
+                } catch (error) {
+                    logger.error("Error fetching offers: " + error.message);
+                    res.status(400).json({ success: false, message: 'Could not fetch offer for a chalet' });
+                    return;
+                }
+
+                try {
+                    if (true) {
+                        logger.info('Offer from beds24 is a success')
+
+                        const insertBooking = db.prepare(`INSERT INTO bookings (customerName, customerLastName, customerEmail, customerPhone, billingAddress, billingCity, billingCountry, billingPostCode, startDate, endDate, bookingId, bookingStatus, bookingTransactionId, createdAt, adults, children, price) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`);
+
+                        const requestBookingBody = chaletsData.map(chalet => ({
+                            roomId: process.env.ROOM_ID,
+                            arrival: req.body.startDate,
+                            departure: req.body.endDate,
+                            firstName: req.body.customerName,
+                            lastName: req.body.customerLastName,
+                            email: req.body.customerEmail,
+                            phone: req.body.customerPhone,
+                            address: req.body.billingAddress,
+                            city: req.body.billingCity,
+                            postcode: req.body.billingPostCode,
+                            country: req.body.billingCountry,
+                            numAdult: chalet.numAdults,
+                            numChild: chalet.numChildren,
+                            status: 'confirmed',
+                            price: chalet.price,
+                            invoiceItems: [
+                                {
+                                    type: 'charge',
+                                    description: 'Accommodation',
+                                    qty: 1,
+                                    amount: chalet.price
+                                }
+                            ]
+                        }));
+
+                        const bookingRequest = await fetch('https://beds24.com/api/v2/bookings', {
+                            method: 'POST',
+                            headers: {
+                                'token': getToken(),
+                                'Accept': 'application/json'
+                            },
+                            body: JSON.stringify(requestBookingBody)
+                        })
+
+                        const bookingResponse = await bookingRequest.json()
+
+                        const allSuccess = bookingResponse.every(res => res.success);
+                        if (allSuccess) {
+                            logger.info('Booking is created successfylly on Beds24, proceeding to insert into database')
+
+                            try {
+                                logger.info({ message: 'inserting into database...' })
+                                let firstDbId = null;
+                                bookingResponse.forEach((res, index) => {
+                                    const chalet = chaletsData[index];
+                                    const insertBookingResult = insertBooking.run(
+                                        req.body.customerName, req.body.customerLastName, req.body.customerEmail, req.body.customerPhone,
+                                        req.body.billingAddress, req.body.billingCity, req.body.billingCountry, req.body.billingPostCode,
+                                        req.body.startDate, req.body.endDate, res.new.id.toString(), process.env.PAYMENT_SUCCESSFUL,
+                                        uniqueId, Date.now(), Number.parseInt(chalet.numAdults), Number.parseInt(chalet.numChildren), chalet.price
+                                    );
+                                    logger.info({ message: insertBookingResult });
+                                    if (index === 0) firstDbId = insertBookingResult.lastInsertRowid;
+                                });
+
+                                const totalAdults = chaletsData.reduce((sum, c) => sum + parseInt(c.numAdults), 0);
+                                const totalChildren = chaletsData.reduce((sum, c) => sum + parseInt(c.numChildren), 0);
+
+                                //send email
+                                sendBookingConfirmation({ id: bookingResponse.map(r => r.new.id.toString()).join(', '), customerName: req.body.customerName + ' ' + req.body.customerLastName, email: req.body.customerEmail, startDate: convertDateString(req.body.startDate), endDate: convertDateString(req.body.endDate), adults: totalAdults, children: totalChildren, nights: getDaysBetween(req.body.endDate, req.body.startDate), totalPrice: totalPrice, dbid: firstDbId })
+
+
+                                res.json({ success: true, url: `/booking/success/${bookingResponse[0].new.id.toString()}` })
+
+
+                            } catch (error) {
+                                console.error("Error during database insert:", error);
+                                logger.error(error.message)
+                                res.status(500).json({ success: false, message: 'Server error' })
+                            }
+                        }
+
+                    }
+                } catch (error) {
+                    logger.error(error.message)
                 }
             }
 
@@ -434,27 +504,39 @@ module.exports = function (app, deps) {
         console.log(bookingId)
 
         try {
-            // 1. Fetch full details from DB using the Beds24 Booking ID
-            const bookingData = db.prepare('SELECT * FROM bookings WHERE bookingId = ?').get(bookingId);
-            console.log(bookingData)
+            // 1. Find the transaction ID for the provided booking ID
+            const initialBooking = db.prepare('SELECT bookingTransactionId FROM bookings WHERE bookingId = ?').get(bookingId);
 
-            if (!bookingData) {
+            if (!initialBooking) {
                 return res.status(404).send("Booking not found");
             }
 
-            // 2. Read the HTML Template
+            // 2. Fetch full details from DB using the Transaction ID to get all related bookings
+            const bookingsList = db.prepare('SELECT * FROM bookings WHERE bookingTransactionId = ?').all(initialBooking.bookingTransactionId);
+
+            if (!bookingsList || bookingsList.length === 0) {
+                return res.status(404).send("Booking not found");
+            }
+
+            const bookingData = bookingsList[0];
+            const totalAdults = bookingsList.reduce((sum, b) => sum + b.adults, 0);
+            const totalChildren = bookingsList.reduce((sum, b) => sum + b.children, 0);
+            const totalPrice = bookingsList.reduce((sum, b) => sum + parseFloat(b.price), 0);
+            const combinedIds = bookingsList.map(b => b.bookingId).join(', ');
+
+            // 3. Read the HTML Template
             const templatePath = path.join(__dirname, 'public', 'success.html');
             let htmlPage = fs.readFileSync(templatePath, 'utf8');
 
-            // 3. Replacements
+            // 4. Replacements
             const replacements = {
                 '{{customerName}}': bookingData.customerName,
-                '{{bookingId}}': bookingData.bookingId,
+                '{{bookingId}}': combinedIds,
                 '{{email}}': bookingData.customerEmail,
                 '{{checkInDate}}': convertDateString(bookingData.startDate),
                 '{{checkOutDate}}': convertDateString(bookingData.endDate),
-                '{{guestsCount}}': `${bookingData.adults} Adults, ${bookingData.children} Children`,
-                '{{price}}': bookingData.price
+                '{{guestsCount}}': `${totalAdults} Adults, ${totalChildren} Children`,
+                '{{price}}': totalPrice
             };
             console.log(replacements)
 
@@ -632,26 +714,31 @@ module.exports = function (app, deps) {
         if (req.body.result === 'OK') {
             logger.info('Payment was a succss')
 
-            const updateBookingPrepare = db.prepare(`UPDATE bookings SET bookingStatus = ? WHERE bookingtransactionId = ?`)
-            const getBookingPrepare = db.prepare(`SELECT * FROM bookings WHERE bookingTransactionID = ?`)
+            const updateBookingPrepare = db.prepare(`UPDATE bookings SET bookingStatus = ? WHERE bookingTransactionId = ?`)
+            const getBookingsPrepare = db.prepare(`SELECT * FROM bookings WHERE bookingTransactionId = ?`)
 
-            let booking
             try {
+                // Retrieve all bookings for this transaction
+                const bookings = getBookingsPrepare.all(req.body.merchantTransactionId)
 
-                //retrieve the booking in question
-                booking = getBookingPrepare.get(req.body.merchantTransactionId)
+                if (!bookings || bookings.length === 0) {
+                    logger.error(`No bookings found for transaction ${req.body.merchantTransactionId}`)
+                    return
+                }
 
-
-                //update the booking in question on Beds24.com platform
-                const bookingRequestBody = [{
-                    id: booking.bookingId,
-                    status: 'confirmed'
-                }]
-
-
-                let bookingResponse
-                let success
-                let attempt = 0
+                // Update all bookings on Beds24
+                const bookingRequestBody = bookings.map(b => ({
+                    id: b.bookingId,
+                    status: 'confirmed',
+                    invoiceItems: [
+                        {
+                            type: 'payment',
+                            description: 'Online Payment',
+                            qty: 1,
+                            amount: parseFloat(b.price)
+                        }
+                    ]
+                }))
 
                 const bookingRequest = await fetch('https://beds24.com/api/v2/bookings', {
                     method: 'POST',
@@ -661,15 +748,19 @@ module.exports = function (app, deps) {
                     },
                     body: JSON.stringify(bookingRequestBody)
                 })
-                bookingResponse = await bookingRequest.json()
+                const bookingResponse = await bookingRequest.json()
 
-                if (bookingResponse[0].success) {
+                const allSuccess = bookingResponse.every(res => res.success);
+                if (allSuccess) {
+                    logger.info('All bookings were successfylly updated on Beds24')
+                    updateBookingPrepare.run(process.env.PAYMENT_SUCCESSFUL, req.body.merchantTransactionId)
 
-                    logger.info('booking was successfylly updated on Beds24')
-                    const updateBookingResult = updateBookingPrepare.run(process.env.PAYMENT_SUCCESSFUL, req.body.merchantTransactionId)
-                    logger.info({ message: 'booking that was updated', booking })
+                    const totalAdults = bookings.reduce((sum, b) => sum + b.adults, 0);
+                    const totalChildren = bookings.reduce((sum, b) => sum + b.children, 0);
+                    const totalPrice = bookings.reduce((sum, b) => sum + parseFloat(b.price), 0);
+                    const firstBooking = bookings[0];
 
-                    sendBookingConfirmation({ id: booking.bookingId, customerName: booking.customerName + ' ' + booking.customerLastName, email: booking.customerEmail, startDate: convertDateString(booking.startDate), endDate: convertDateString(booking.endDate), adults: booking.adults, children: booking.children, nights: getDaysBetween(booking.endDate, booking.startDate), totalPrice: booking.price, dbid: booking.id })
+                    sendBookingConfirmation({ id: bookings.map(b => b.bookingId).join(', '), customerName: firstBooking.customerName + ' ' + firstBooking.customerLastName, email: firstBooking.customerEmail, startDate: convertDateString(firstBooking.startDate), endDate: convertDateString(firstBooking.endDate), adults: totalAdults, children: totalChildren, nights: getDaysBetween(firstBooking.endDate, firstBooking.startDate), totalPrice: totalPrice, dbid: firstBooking.id })
                 }
 
             } catch (error) {
@@ -678,9 +769,56 @@ module.exports = function (app, deps) {
         }
     })
 
-    app.get('/*splat', (req, res) => {
-        renderIndex(res, 'en')
+    app.get('/api/get-num-available', async (req, res) => {
+        try {
+            const startDate = req.query.startDate;
+            const endDate = req.query.endDate;
+            if (!startDate || !endDate) {
+                return res.status(400).json({ success: false, message: "Missing startDate or endDate" });
+            }
+
+            const calendarParams = new URLSearchParams({
+                startDate: startDate,
+                endDate: endDate,
+                includeNumAvail: "true"
+            });
+
+            const calendarRequest = await fetch(`https://beds24.com/api/v2/inventory/rooms/calendar?${calendarParams}`, {
+                method: 'GET',
+                headers: {
+                    'token': getToken(),
+                    'Accept': 'application/json'
+                }
+            });
+            const calendarData = await calendarRequest.json();
+
+            if (calendarData.success && calendarData.data.length > 0) {
+                const calendarEntries = calendarData.data[0].calendar;
+                if (!calendarEntries || calendarEntries.length === 0) {
+                    return res.json({ success: true, minNumAvail: 0 });
+                }
+
+                // Find the minimum numAvail across all dates
+                let minNumAvail = Infinity;
+                for (const entry of calendarEntries) {
+                    if (entry.numAvail !== undefined && entry.numAvail < minNumAvail) {
+                        minNumAvail = entry.numAvail;
+                    }
+                }
+
+                if (minNumAvail === Infinity) minNumAvail = 0;
+                res.json({ success: true, minNumAvail: minNumAvail });
+            } else {
+                res.json({ success: false, message: "Could not fetch calendar" });
+            }
+        } catch (error) {
+            logger.error(error.message); res.status(500).json({ success: false, message: "Server error" });
+        }
     })
+
+
+    app.get('/*splat', (req, res) => { renderIndex(res, 'en') })
+
 
 
 

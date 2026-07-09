@@ -15,6 +15,7 @@ module.exports = function (logger) {
                 'Accept': 'application/json'
             }
         })
+        logger.info(tokenRequest.headers)
 
 
         if (tokenRequest.ok) {
